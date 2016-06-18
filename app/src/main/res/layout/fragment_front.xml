@@ -1,0 +1,126 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/fl_login"
+    android:background="@drawable/bg_gradient"
+    tools:context="com.allem.alleminmotion.visacheckout.MainActivity">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+    <TextureView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/front_video"
+        android:gravity="fill"
+        android:onClick="ClickMe"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/ll_header"
+            android:layout_marginTop="45dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/allegra_logo"
+                android:id="@+id/iv_allegra"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="5dp"
+                android:layout_gravity="left"
+                android:layout_alignParentStart="true"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/login_controls_group"
+            style="?metaButtonBarStyle"
+            android:layout_gravity="bottom|center_horizontal"
+            android:background="@android:color/transparent"
+            android:orientation="vertical"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="false"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_marginBottom="30dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/tv_current_time"
+                android:id="@+id/tv_username"
+                android:text="@string/txt_user_greeting"
+                android:textColor="@color/white"
+                android:gravity="left"
+                android:background="@android:color/transparent"
+                android:textSize="30sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_current_time"
+                android:textColor="@color/white"
+                android:gravity="left"
+                android:background="@android:color/transparent"
+                android:textAppearance="?android:textAppearanceMedium" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/txt_lbl_notifications"
+                android:textColor="@color/white"
+                android:gravity="left"
+                android:background="@android:color/transparent"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:visibility="gone" />
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/separator_white"
+                android:background="@android:color/transparent"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/txt_lbl_notifications"
+                android:textColor="@color/white"
+                android:gravity="left"
+                android:background="@android:color/transparent"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:singleLine="false"
+                android:id="@+id/tv_notifications"
+                android:visibility="gone" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:text="@string/skip_intro"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#ffffffff"
+                android:background="@android:color/transparent"
+                android:onClick="onSkipIntro"
+                android:paddingTop="10dp"
+                android:paddingBottom="0dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                />
+        </LinearLayout>
+    </RelativeLayout>
+</FrameLayout>

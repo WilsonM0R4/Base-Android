@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/white"
+        android:id="@+id/ll_header">
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/navigation__back"
+            android:background="@android:color/transparent"
+            android:id="@+id/btn_back"
+            android:contentDescription="menu"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Sample"
+            android:id="@+id/tv_title_secc"
+            android:layout_toLeftOf="@+id/ib_menu"
+            android:layout_toRightOf="@+id/btn_back"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:textColor="@color/magenta" />
+
+        <ImageButton
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/icon_menu"
+            android:background="@android:color/transparent"
+            android:id="@+id/ib_menu"
+            android:onClick="onMenu"
+            android:contentDescription="menu"
+            android:layout_alignBottom="@+id/tv_title_secc_con"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/iv_header"
+        android:layout_below="@+id/ll_header"
+        android:src="@drawable/separator"
+        android:contentDescription="Divider" />
+</RelativeLayout>

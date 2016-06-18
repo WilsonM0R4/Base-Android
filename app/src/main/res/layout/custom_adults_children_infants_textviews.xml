@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:id="@+id/linLayTextsPassengersPerCategory"
+    android:onClick="onAlertDialogNumberPicker"
+    android:weightSum="6">
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:layout_marginLeft="16dp">
+
+        <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_lbl_adults"
+            android:textSize="12sp"
+            android:textColor="@color/magenta"
+            app:font="@string/font_muli"/>
+
+        <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_lbl_adults_description"
+            android:layout_marginTop="-4dp"
+            android:textSize="10sp"
+            app:font="@string/font_muli_light"/>
+
+    </LinearLayout>
+
+    <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="24sp"
+        android:text="1"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="2dp"
+        android:id="@+id/adultsTextView"
+        app:font="@string/font_muli_bold">
+
+    </com.allem.alleminmotion.visacheckout.utils.CustomizedTextView>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1.5"
+        android:layout_marginLeft="4dp"
+        android:layout_gravity="center">
+
+        <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_lbl_child"
+            android:textSize="12sp"
+            android:textColor="@color/magenta"
+            app:font="@string/font_muli"/>
+        <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_lbl_child_description"
+            android:layout_marginTop="-4dp"
+            android:textSize="10sp"
+            app:font="@string/font_muli_light"/>
+
+    </LinearLayout>
+
+    <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="0"
+        android:id="@+id/childrenTextView"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="-16dp"
+        app:font="@string/font_muli_bold">
+
+    </com.allem.alleminmotion.visacheckout.utils.CustomizedTextView>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_marginLeft="4dp"
+        android:layout_gravity="center">
+
+        <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/magenta"
+            android:text="@string/txt_lbl_infants"
+            android:textSize="12sp"
+            app:font="@string/font_muli"/>
+
+        <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_lbl_infants_description"
+            android:layout_marginTop="-4dp"
+            android:textSize="9sp"
+            app:font="@string/font_muli_light"/>
+
+    </LinearLayout>
+
+    <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="24sp"
+        android:text="0"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_gravity="center_vertical"
+        android:id="@+id/infantsTextView"
+        app:font="@string/font_muli_bold"/>
+
+
+</LinearLayout>

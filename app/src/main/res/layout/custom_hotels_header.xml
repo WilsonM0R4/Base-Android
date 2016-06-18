@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="false"
+    android:layout_below="@+id/ll_header"
+    android:clickable="true"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/header_hotels"
+        android:scaleType="centerCrop"
+        android:src="@drawable/header_hotels" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:gravity="center"
+            android:text="@string/txt_lbl_destination"
+            android:textColor="@color/white"
+            app:font="@string/font_muli" />
+
+        <include
+            android:id="@+id/ll_destination_hotels"
+            layout="@layout/custom_hotels_destination"
+            android:visibility="gone" />
+
+
+        <ImageView
+            android:id="@+id/selec_destination"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
+            android:src="@drawable/hotels__destination" />
+
+        <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+            android:id="@+id/txt_select_your_destination"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="@string/txt_lbl_select_dest"
+            android:textColor="@color/white"
+            app:font="@string/font_muli" />
+    </LinearLayout>
+</RelativeLayout>

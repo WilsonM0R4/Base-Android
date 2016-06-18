@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:clickable="true"
+    android:id="@+id/rl_body">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/white"
+        android:onClick="onCloseMenu"
+        android:id="@+id/ll_header">
+
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/ib_up"
+            android:src="@drawable/icon_back_to"
+            android:background="@android:color/transparent"
+            android:onClick="onUp"
+            android:contentDescription="Up"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/ib_up"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/title_edit_profile"
+            android:id="@+id/tv_title_secc"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/magenta" />
+
+        <ImageButton
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginRight="16dp"
+            android:layout_alignBottom="@+id/tv_title_secc"
+            android:src="@drawable/icon_menu"
+            android:background="@android:color/transparent"
+            android:id="@+id/ib_menu"
+            android:onClick="onMenu"
+            android:contentDescription="menu"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/iv_separator"
+        android:layout_below="@+id/ll_header"
+        android:src="@drawable/separator_medium_mag"
+        android:contentDescription="separator" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/sv_body"
+        android:layout_below="@+id/iv_separator">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="false"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:paddingLeft="20dp"
+            android:orientation="vertical"
+            android:paddingRight="20dp"
+            android:id="@+id/rl_req"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/edit_personal_info"
+                android:textColor="@color/magenta"
+                android:textSize="20dp"
+                android:layout_marginTop="20dp"
+                />
+
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/et_names"
+                android:singleLine="true"
+                android:hint="@string/txt_hint_cc_name"
+                android:drawableStart="@drawable/icon_firstname"
+                android:layout_marginTop="5dp"
+                android:textSize="15dp" />
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/et_surname"
+                android:drawableStart="@drawable/icon_firstname"
+                android:singleLine="true"
+                android:hint="@string/txt_hint_cc_surname"
+                android:layout_marginTop="3dp"
+                android:textSize="15dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_mobile"
+                android:drawableStart="@drawable/icon_phone"
+                android:singleLine="true"
+                android:layout_marginTop="3dp"
+                android:maxLength="100"
+                android:hint="@string/mobile_register_hint"
+                android:textSize="15dp" />
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_email"
+                android:inputType="text|textNoSuggestions|textEmailAddress"
+                android:singleLine="true"
+                android:drawableStart="@drawable/icon_mail2"
+                android:hint="@string/txt_hint_email"
+                android:layout_marginTop="3dp"
+                android:enabled="false"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/edit_change_password"
+                android:textColor="@color/magenta"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:id="@+id/et_current_password"
+                android:singleLine="true"
+                android:password="true"
+                android:layout_marginTop="3dp"
+                android:hint="@string/txt_hint_current_pass"
+                android:drawableStart="@drawable/icon_password"
+                android:textSize="15dp" />
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:id="@+id/et_new_password"
+                android:singleLine="true"
+                android:password="true"
+                android:layout_marginTop="3dp"
+                android:hint="@string/txt_hint_new_pass"
+                android:drawableStart="@drawable/icon_password"
+                android:textSize="15dp" />
+
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:id="@+id/et_reppassword"
+                android:layout_alignRight="@+id/et_names"
+                android:singleLine="true"
+                android:password="true"
+                android:layout_below="@+id/et_password"
+                android:layout_marginTop="3dp"
+                android:hint="@string/txt_hint_repass"
+                android:layout_toEndOf="@+id/iv_re_password"
+                android:drawableStart="@drawable/icon_password"
+                android:textSize="15dp" />
+
+
+            <ImageButton
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:id="@+id/ib_showhide_pass"
+                android:layout_toRightOf="@+id/et_password"
+                android:layout_toEndOf="@+id/et_password"
+                android:layout_alignBottom="@+id/et_password"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_visibility_off_black_18dp"
+                android:visibility="gone"
+                />
+
+            <ImageButton
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:id="@+id/ib_showhide_repass"
+                android:layout_alignBottom="@+id/et_reppassword"
+                android:layout_toRightOf="@+id/et_reppassword"
+                android:src="@drawable/ic_visibility_off_black_18dp"
+                android:scaleType="centerCrop"
+                android:visibility="gone"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="10dp"
+                >
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="37dp"
+                android:layout_weight="1"
+                android:id="@+id/btn_ed_cancel"
+                android:text="@string/btn_cancel"
+                android:textColor="@color/orange"
+                android:background="@drawable/round_corner_transparent_orange"
+                android:layout_margin="5dp"
+
+                />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="37dp"
+                android:layout_weight="1"
+                android:id="@+id/btn_ed_save"
+                android:text="@string/btn_save"
+                android:textColor="@android:color/white"
+                android:background="@drawable/round_corner_orange"
+                android:layout_margin="5dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pb_create"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+
+</RelativeLayout>

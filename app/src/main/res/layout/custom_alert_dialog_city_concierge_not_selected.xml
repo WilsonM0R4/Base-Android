@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="300dp"
+    android:layout_height="260dp"
+    tools:context=".FlightsActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_alert_dialog_warning"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/titletextCancelDialog2"
+        android:textColor="@color/com_visa_checkout_carousel_error_red"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_city_concierge_not_selected"
+        android:textSize="19sp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:id="@+id/txtprivilegeinfo"
+        android:layout_marginTop="40dp"
+        android:textColor="@color/dark_gray"
+        android:layout_below="@+id/titletextCancelDialog2"
+        />
+
+    <Button
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:text="OK"
+        android:textColor="@color/magenta"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/round_corner_white_border_magenta"
+        android:textSize="17sp"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/txtprivilegeinfo"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/ButtonOkAlertDialogCityNotSelected"
+        />
+
+</RelativeLayout>

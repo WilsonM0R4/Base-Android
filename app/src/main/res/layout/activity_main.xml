@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    android:id="@+id/container_main"
+    tools:context=".MainActivity">
+
+    <fragment
+        android:id="@+id/fragment_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.allem.alleminmotion.visacheckout.BackFragment">
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_top"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.allem.alleminmotion.visacheckout.FrontFragment">
+    </fragment>
+
+</RelativeLayout>

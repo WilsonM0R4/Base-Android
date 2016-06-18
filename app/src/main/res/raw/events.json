@@ -1,0 +1,54 @@
+{
+    "events": {
+        "link": [
+            {
+                "@href": "https://server.iad.liveperson.net/api/account/5959522/chat/H1298372300961606552-373f7be8cabe4777a6abbba090241452K9548898/events",
+                "@rel": "self"
+            },
+            {
+                "@href": "https://server.iad.liveperson.net/api/account/5959522/chat/H1298372300961606552-373f7be8cabe4777a6abbba090241452K9548898/events?from=6",
+                "@rel": "next"
+            }
+        ],
+        "event": [
+            {
+                "@id": "2",
+                "@type": "state",
+                "time": "2015-12-17T02:18:35.017-05:00",
+                "state": "chatting"
+            },
+            {
+                "@id": "3",
+                "@type": "line",
+                "time": "2015-12-17T02:18:35.018-05:00",
+                "textType": "plain",
+                "text": "Esta chateando con 'visacheckout'.",
+                "by": "info",
+                "source": "system",
+                "systemMessageId": "3",
+                "subType": "REGULAR"
+            },
+            {
+                "@id": "4",
+                "@type": "line",
+                "time": "2015-12-17T02:18:35.019-05:00",
+                "textType": "plain",
+                "text": "Su número de registro de este Chat es LTK12171021319179X",
+                "by": "info",
+                "source": "system",
+                "systemMessageId": "22",
+                "subType": "REGULAR"
+            },
+            {
+                "@id": "5",
+                "@type": "line",
+                "time": "2015-12-17T02:18:40.042-05:00",
+                "textType": "html",
+                "text": "<p dir=\"ltr\" style=\"direction: ltr; text-align: left;\">woo stahosfs lhfksafash ifs</p>",
+                "by": "visacheckout",
+                "source": "agent",
+                "subType": "REGULAR"
+            }
+        ]
+    }
+}

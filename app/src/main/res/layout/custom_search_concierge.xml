@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">8
+
+
+    <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/orange"
+        android:textSize="30sp"
+        android:text="@string/title_concierge_whatever_you_want"
+        android:textAlignment="center"
+        android:id="@+id/txtConciergeWhateverYouWant"
+        android:layout_gravity="center_horizontal"
+        app:font="@string/font_muli_extraLight"/>
+
+    <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gray_concierge_text"
+        android:textSize="18sp"
+        android:text="@string/title_concierge_city_by_city"
+        android:textAlignment="center"
+        android:id="@+id/txtConciergeCityByCity"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        app:font="@string/font_muli_light"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/btn_search"
+        android:text="@string/search_concierge"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:background="@drawable/round_corner_orange"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:onClick="onSearchConcierge"
+        android:fontFamily="@string/font_muli"/>
+
+</LinearLayout>

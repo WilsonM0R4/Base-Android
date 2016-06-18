@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rl_search_in_progress"
+    android:background="@drawable/background"
+    android:clickable="true"
+    tools:context="com.allem.alleminmotion.visacheckout.ConciergeSearchActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/white"
+        android:id="@+id/ll_header">
+
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="16dp"
+            android:id="@+id/ib_settings"
+            android:src="@drawable/icon_settings"
+            android:background="@android:color/transparent"
+            android:visibility="visible"
+            android:contentDescription="Up"
+            android:layout_alignParentStart="true"
+            android:layout_alignBottom="@+id/tv_title_secc_con"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/title_concierge"
+            android:id="@+id/tv_title_secc_con"
+            android:textColor="@color/magenta"
+            android:layout_centerInParent="true" />
+
+        <ImageButton
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginRight="16dp"
+            android:layout_alignBottom="@+id/tv_title_secc_con"
+            android:src="@drawable/icon_menu"
+            android:background="@android:color/transparent"
+            android:id="@+id/ib_menu"
+            android:onClick="onMenu"
+            android:contentDescription="menu"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
+    <WebView
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ll_header"
+        android:id="@+id/webView_concierge"
+        android:layout_centerVertical="true" />
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pb_concierge"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+</RelativeLayout>
+

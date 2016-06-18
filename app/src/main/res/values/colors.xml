@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="background_red">#f9ff4080</color>
+    <color name="black">#000000</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="pink_parent_selector">#FFECF5</color>
+    <color name="soft_dark">#262626</color>
+    <color name="soft_dark2">#4A4A4A</color>
+    <color name="white">@android:color/white</color>
+    <color name="gray2">#f1f1f4</color>
+    <color name="gray3">#9b9b9b</color>
+    <color name="gray4">#4a4a4a</color>
+    <color name="gray">#d0d0d7</color>
+    <color name="yellow">#FDD500</color>
+    <color name="salmon">#FF686C</color>
+    <color name="orange">#ef411f</color>
+    <color name="magenta">#d02a7b</color>
+    <color name="blue">#459FF8</color>
+    <color name="purple">#9855D4</color>
+    <color name="transaction_text">#707070</color>
+    <color name="transaction_background">#f4f4f4</color>
+    <color name="transaction_child_text">#009bff</color>
+    <color name="dark_gray">#8b8b98</color>
+    <color name="allem_white_transparent_separator">#10FFFFFF</color>
+    <color name="allem_transparent">#00ffffff</color>
+    <color name="allem_white_transparent">#80FFFFFF</color>
+    <color name="allem_white_transparent_scroll">#4DFFFFFF</color>
+    <color name="allem_gray_extra_light">#F6F6F6</color>
+    <color name="custom_header_text">#707070</color>
+    <color name="custom_selected">#d02a7b</color>
+    <color name="custom_background">#10FFFFFF</color>
+    <color name="custom_background_today">#8B8B98</color>
+    <color name="custom_background_disabled">#10FFFFFF</color>
+    <color name="custom_text_selected">#ffffff</color>
+    <color name="custom_text_inactive">#7f778088</color>
+    <color name="transparent">#00000000</color>
+    <color name="gray_concierge_text">#9c9c9c</color>
+
+    <!-- Color specification for the TimeSquare Library -->
+    <!-- Reference: https://github.com/square/android-times-square/blob/master/library/src/main/res/drawable/calendar_bg_selector.xml -->
+    <color name="calendar_text_selected">#ffffff</color>
+    <color name="calendar_selected_day_bg">#d02a7b</color>
+    <color name="calendar_selected_range_bg">#d02a7b</color>
+    <!-- Color for register editTexts input inactive and active -->
+    <color name="register_input_inactive">#d4d4d4</color>
+    <color name="register_input_active">#444444</color>
+
+</resources>

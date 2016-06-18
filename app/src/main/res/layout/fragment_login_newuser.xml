@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rl_body"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:clickable="true">
+
+    <RelativeLayout
+        android:id="@+id/ll_header"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/white"
+        android:onClick="onCloseMenu">
+
+        <ImageButton
+            android:id="@+id/ib_up"
+            android:layout_width="30dp"
+            android:layout_height="25dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="Up"
+            android:onClick="onUp"
+            android:src="@drawable/navigation__close" />
+
+        <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+            android:id="@+id/tv_title_secc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/ib_up"
+            android:layout_centerHorizontal="true"
+            android:text="@string/title_register"
+            app:font="@string/font_varela"
+            android:textSize="18sp"
+            android:textColor="@color/magenta" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_separator"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_header"
+        android:contentDescription="separator"
+        android:src="@drawable/separator"
+        android:background="@drawable/separator_medium_mag" />
+
+    <ScrollView
+        android:id="@+id/sv_body"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/iv_separator">
+
+        <LinearLayout
+            android:id="@+id/rl_req"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:visibility="visible">
+
+            <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+                android:id="@+id/tv_lbl_join_new_experience"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/join_new_experience"
+                android:textColor="@color/orange"
+                android:textSize="29sp"
+                app:font="@string/font_muli_extraLight"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="10dp" />
+
+            <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+                android:id="@+id/tv_lbl_enter_new_information"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_lbl_user_information"
+                android:textAlignment="center"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/dark_gray"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"
+                app:font="@string/font_muli"/>
+
+            <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+                android:id="@+id/tv_lbl_register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="13dp"
+                android:text="@string/user_information"
+                android:textAlignment="center"
+                app:font="@string/font_muli"
+                android:textColor="@color/magenta"
+                android:textSize="16sp" />
+
+            <com.allem.alleminmotion.visacheckout.utils.CustomizedEditText
+                android:id="@+id/et_names"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:drawableStart="@drawable/field_name"
+                android:ems="5"
+                android:background="@drawable/apptheme_edit_text_holo_light"
+                android:textColorHint="@color/register_input_inactive"
+                style="@style/MyEditTextStyle"
+                android:hint="@string/txt_hint_cc_name"
+                android:inputType="textPersonName"
+                android:singleLine="true"
+                android:textSize="15sp"
+                app:fontEdit="@string/font_muli"
+                />
+
+            <com.allem.alleminmotion.visacheckout.utils.CustomizedEditText
+                android:id="@+id/et_surname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/apptheme_edit_text_holo_light"
+                android:drawableStart="@drawable/field_lastname"
+                android:ems="5"
+                android:hint="@string/txt_hint_cc_surname"
+                android:inputType="textPersonName"
+                android:singleLine="true"
+                android:textSize="15sp"
+                app:fontEdit="@string/font_muli"
+                android:textColorHint="@color/register_input_inactive"
+                style="@style/MyEditTextStyle"/>
+
+            <com.allem.alleminmotion.visacheckout.utils.CustomizedEditText
+                android:id="@+id/et_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/et_names"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/apptheme_edit_text_holo_light"
+                android:drawableStart="@drawable/field_mail"
+                android:hint="@string/txt_hint_email"
+                android:inputType="text|textNoSuggestions|textEmailAddress"
+                android:singleLine="true"
+                android:textSize="15sp"
+                app:fontEdit="@string/font_muli"
+                android:textColorHint="@color/register_input_inactive"
+                style="@style/MyEditTextStyle"/>
+
+            <com.allem.alleminmotion.visacheckout.utils.CustomizedEditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:drawableStart="@drawable/field_password"
+                android:ems="5"
+                android:hint="@string/txt_hint_pass"
+                android:inputType="textPassword"
+                android:singleLine="true"
+                android:textSize="15sp"
+                app:fontEdit="@string/font_muli"
+                android:textColorHint="@color/register_input_inactive"
+                style="@style/MyEditTextStyle"/>
+
+            <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+                android:id="@+id/et_country_mobile"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="3dp"
+                android:drawableEnd="@drawable/navigation__fwdurl_2"
+                android:padding="6dp"
+                android:textSize="15sp"
+                android:drawableStart="@drawable/field_country"
+                android:gravity="center_vertical"
+                android:hint="@string/country"
+                android:maxLength="100"
+                android:singleLine="true"
+                app:font="@string/font_muli"
+                android:textColorHint="@color/register_input_inactive"
+                style="@style/MyEditTextStyle"/>
+
+            <com.allem.alleminmotion.visacheckout.utils.CustomizedEditText
+                android:id="@+id/et_mobile"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="3dp"
+                android:drawableStart="@drawable/field_cellphone"
+                android:hint="@string/mobile_register_hint"
+                android:maxLength="100"
+                android:singleLine="true"
+                android:textSize="15sp"
+                app:fontEdit="@string/font_muli"
+                android:textColorHint="@color/register_input_inactive"
+                style="@style/MyEditTextStyle"/>
+
+
+            <LinearLayout
+                android:id="@+id/ll_login_register_new_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:weightSum="2">
+
+                <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+                    android:id="@+id/btn_login_new"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_corner_transparent_orange"
+                    android:text="@string/login"
+                    android:textColor="@color/orange"
+                    app:font="@string/font_muli"
+                    android:gravity="center"
+                    android:textSize="16sp"/>
+
+                <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+                    android:id="@+id/btn_sendreg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="0dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_corner_magenta"
+                    android:text="@string/create_account"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    app:font="@string/font_muli"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/pb_create"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+</RelativeLayout>

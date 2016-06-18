@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/magenta_container_border"
+        android:layout_margin="5dp">
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/hotels__rooms"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/rooms_icon"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rooms_title"
+                android:layout_toRightOf="@+id/rooms_icon"
+                android:layout_marginLeft="10dp"
+                android:textStyle="bold"
+                android:id="@+id/room_title"
+                android:textColor="@color/magenta"
+                android:textSize="16sp"
+
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/hotels__delete"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:id="@+id/remove_room_item"
+                android:visibility="gone"
+                android:padding="10dp"
+                />
+
+        </RelativeLayout>
+
+        <include
+            layout="@layout/custom_adults_children_infants_textviews_hotels"
+            android:id="@+id/custom_adults_children_text"
+            android:layout_height="80dp"
+            android:layout_width="match_parent"
+            android:layout_margin="2dp"
+            />
+
+        <!--<TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edades de los niños."
+            android:textColor="@color/magenta"
+            android:layout_margin="10dp"
+            android:id="@+id/age_children_label_text"
+            android:visibility="gone" />-->
+
+    </LinearLayout>
+
+</LinearLayout>

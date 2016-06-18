@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.allem.alleminmotion.visacheckout"
+    android:versionCode="1"
+    android:versionName="0.9.18">
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- Permissions needed by Visa XO SDK -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!-- card.io: Permission to use camera - required -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- card.io: Permission to vibrate - recommended, allows vibration feedback on scan -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!-- card.io: Camera features - recommended -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false" />
+
+    <!-- Permissions required by Twilio -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <!-- Permission required by Parse Push notifications -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <!--
+      IMPORTANT: Change "com.parse.starter.permission.C2D_MESSAGE" in the lines below
+      to match your app's package name + ".permission.C2D_MESSAGE".
+    -->
+    <permission
+        android:name="com.parse.starter.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.allem.alleminmotion.visacheckout.permission.C2D_MESSAGE" />
+
+    <application
+        android:name=".VisaCheckoutApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_visacheckout"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:allowBackup"
+        android:largeHeap="true">
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/MainTheme">
+            <!-- android:theme="@android:style/Theme.NoTitleBar.Fullscreen"> -->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+
+        </activity>
+        <activity android:name=".Mcardhtml"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".SplashScreenActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".LoginForgotActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".BrandingScreenActivity"
+            android:label="@string/title_activity_intro_screen"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity
+            android:name=".IntroScreenActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity
+            android:name=".MyAccountActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.allem.alleminmotion.visacheckout.MainActivity" />
+        </activity>
+        <activity
+            android:name=".McardActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".Mcardprivilege"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".Mcardpremium"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".Mcardexclusive"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".Mcardunlimited"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".LegalActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".PoliticalActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".TermsActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".CallActivityMcard"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".ConciergeActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".VisaCheckoutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MarketPlaceActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.allem.alleminmotion.visacheckout.MainActivity" />
+        </activity>
+        <activity
+            android:name=".FlightsActivity"
+            android:screenOrientation="portrait"
+           />
+        <activity
+            android:name=".HotelsActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.allem.alleminmotion.visacheckout.MainActivity" />
+        </activity>
+        <activity
+            android:name=".EntertainmentActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.allem.alleminmotion.visacheckout.MainActivity" />
+        </activity>
+        <activity android:name=".LoginForgotConfirmation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan">
+        </activity>
+        <activity
+            android:name=".ChatActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.allem.alleminmotion.visacheckout.MainActivity" />
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.allem.alleminmotion.visacheckout.MainActivity" />
+        </activity>
+        <activity
+            android:name=".LoginNewUser"
+            android:label="@string/title_register"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LoginActivity" />
+        </activity>
+        <activity
+            android:name=".LoginPassRecover"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LoginActivity" />
+        </activity>
+        <activity
+            android:name=".CallActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".FlightsSearchActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
+        <activity android:name=".ConciergeSearchActivity">
+        </activity>
+        <activity android:name=".TaxiActivity">
+        </activity>
+
+        <activity android:name=".ServiceActivity">
+        </activity>
+
+        <activity
+            android:name=".HotelSearchActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CardInfoActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- Activities responsible for gathering payment info via card.io -->
+        <activity
+            android:name="io.card.payment.CardIOActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="io.card.payment.DataEntryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".QRScanActivity"
+            android:label="@string/title_activity_qrscan"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CustomQrActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <!-- Twilio integration -->
+        <service
+            android:name="com.twilio.client.TwilioClientService"
+            android:exported="false" />
+
+        <!-- Push Parse services configuration -->
+        <service android:name="com.parse.PushService" />
+
+        <receiver android:name="com.parse.ParseBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".broadcast.PushReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.parse.push.intent.RECEIVE" />
+                <action android:name="com.parse.push.intent.DELETE" />
+                <action android:name="com.parse.push.intent.OPEN" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.parse.GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <!-- IMPORTANT: Change "com.parse.starter" to match your app's package name. -->
+                <category android:name="com.allem.alleminmotion.visacheckout" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".HotelsPaymentActivity"
+            android:label="@string/title_activity_hotels_payment"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".FlightsPaymentActivity"
+            android:label="@string/title_activity_flights_payment"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AllInOneBenefitsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.allem.alleminmotion.visacheckout.MyAccountMenuActivity" />
+            />
+        </activity>
+        <activity
+            android:name=".RestaurantsActivity"
+            android:label="@string/title_restaurants"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MyAccountMenuActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.allem.alleminmotion.visacheckout.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ActivationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.allem.alleminmotion.visacheckout.MyAccountMenuActivity" />
+        </activity>
+        <activity
+            android:name=".EditProfileActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TransactionHistoryActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".PurchaseDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".OnepocketContainerActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".OnepocketAddCardActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".OnepocketPurchaseActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"/>
+    </application>
+
+</manifest>

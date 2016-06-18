@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/white"
+        android:id="@+id/relativeLayout4" >
+
+        <ImageButton
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/icon_menu"
+            android:background="@android:color/transparent"
+            android:id="@+id/imageButton7"
+            android:onClick="onMenu"
+            android:contentDescription="menu"
+            android:layout_alignBottom="@+id/textView41"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/privacy_policy"
+            android:id="@+id/textView41"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/magenta" />
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/navigation__back"
+            android:background="@android:color/transparent"
+            android:id="@+id/imageButton8"
+            android:contentDescription="menu"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:onClick="onUp" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_header"
+        android:id="@+id/imageView19"
+        android:src="@drawable/separator_medium_mag"
+        android:contentDescription="Divider" />
+
+    <WebView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/webview_legal"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+</LinearLayout>

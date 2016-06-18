@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/background"
+    android:clickable="true"
+    android:onClick="onCloseMenu"
+    tools:context="com.allem.alleminmotion.visacheckout.MyAccountActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/white"
+        android:id="@+id/ll_header">
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/navigation__back"
+            android:background="@android:color/transparent"
+            android:id="@+id/imageButton2"
+            android:contentDescription="menu"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:onClick="onUp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/title_my_profile"
+            android:id="@+id/tv_title_secc"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/magenta" />
+
+        <ImageButton
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/icon_menu"
+            android:background="@android:color/transparent"
+            android:id="@+id/ib_menu"
+            android:onClick="onMenu"
+            android:contentDescription="menu"
+            android:layout_alignBottom="@+id/tv_title_secc"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/iv_header"
+        android:layout_below="@+id/ll_header"
+        android:src="@drawable/separator_medium_mag"
+        android:contentDescription="Divider" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Santiago Castro"
+        android:id="@+id/tv_fullname"
+        android:layout_alignParentTop="false"
+        android:layout_gravity="left"
+        android:layout_below="@+id/ll_header"
+        android:textColor="@color/magenta"
+        android:layout_marginTop="30dp"
+        android:layout_toLeftOf="@+id/ib_edit_profile"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:layout_marginLeft="20dp"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:id="@+id/ib_edit_profile"
+        android:src="@drawable/icon_settings"
+        android:background="@android:color/transparent"
+        android:visibility="visible"
+        android:contentDescription="Up"
+        android:layout_below="@+id/ll_header"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="16dp"
+        />
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="false"
+        android:layout_below="@+id/tv_fullname"
+        android:layout_above="@+id/btn_logout"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:id="@+id/rl_infouser"
+        android:paddingBottom="30dp"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/separartor_1"
+            android:src="@drawable/separator_gray"
+            android:contentDescription="field_divider"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/ll_email"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/separartor_1"
+            android:weightSum="10"
+            >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="E-Mail"
+                android:id="@+id/tv_lbl_email"
+                android:gravity="left"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:layout_weight="4"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_email"
+                android:text="john-doe@iatai.com"
+                android:textSize="20dp"
+                android:inputType="text|textNoSuggestions|textEmailAddress"
+                android:singleLine="true"
+                android:layout_below="@+id/iv_sepfields"
+                android:gravity="right"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:layout_weight="6"
+                />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_below="@+id/ll_email"
+            android:src="@drawable/separator_gray"
+             />
+    </RelativeLayout>
+
+    <!--<LinearLayout-->
+        <!--android:orientation="vertical"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="?android:attr/actionBarSize"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:id="@+id/ll_header"-->
+        <!--android:gravity="center_vertical|center_horizontal">-->
+
+        <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/iv_header"-->
+            <!--android:src="@drawable/top_logo_main" />-->
+    <!--</LinearLayout>-->
+
+    <!--<ImageView-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/iv_separator"-->
+        <!--android:layout_below="@+id/ll_header"-->
+        <!--android:src="@drawable/separator" />-->
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/btn_logout"
+        android:layout_marginTop="25dp"
+        android:text="@string/logout"
+        android:textColor="@color/orange"
+        android:background="@drawable/round_corner_transparent_orange"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pb_cerrarsesion"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+</RelativeLayout>

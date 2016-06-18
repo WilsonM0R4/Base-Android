@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:background="@drawable/list_item_selector"
+    android:gravity="center_vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/list_item_text_view_hotels"
+        android:text="(BUD) BudapestPest - Hungary, Budapest Listz Ferenc International Airport"
+        android:textColor="@color/text_color_hotels_selector"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_marginLeft="16dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textCityAndCountryHotels"
+        android:text="NameOfCity, NameOfCountry"
+        android:textColor="@color/text_color_hotels_city_selector"
+        android:textSize="14sp"
+        android:layout_below="@+id/list_item_text_view_hotels"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_marginLeft="16dp"/>
+
+</RelativeLayout>

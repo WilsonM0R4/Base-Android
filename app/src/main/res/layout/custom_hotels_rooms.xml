@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rooms_panel">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:orientation="horizontal"
+        android:id="@+id/relHeaderCancelAndSave"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+
+        <ImageButton
+            android:id="@+id/btn_cancel_hotels_rooms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:background="@drawable/flights__cancel"
+            android:layout_alignParentLeft="true"
+            android:padding="12dp"
+            android:layout_marginTop="3dp" />
+
+        <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hotels_guests_per_room"
+            android:textColor="@color/magenta"
+            android:textSize="17sp"
+            android:layout_centerInParent="true"
+            app:font="@string/font_muli"/>
+
+        <ImageButton
+            android:id="@+id/btn_save_hotels_rooms_original"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:background="@drawable/flights__confirm"
+            android:layout_alignParentRight="true"
+            android:padding="12dp"
+            android:layout_marginTop="3dp" />
+
+    </RelativeLayout>
+
+    <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/hotels_guests_per_room"
+        android:background="@color/magenta"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:id="@+id/magentaHeaderRooms"
+        app:font="@string/font_muli"/>
+
+    <!--<ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView4"
+        android:layout_below="@+id/relHeaderCancelAndSave"
+        android:src="@drawable/separator"
+        android:layout_marginBottom="-4dp"
+        android:layout_marginLeft="-4dp"
+        android:layout_marginRight="-4dp"
+        android:contentDescription="Divider" />-->
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@color/gray2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/hotels_room_description"
+            android:padding="10dp"
+            android:textSize="15sp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            app:font="@string/font_muli_light"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="@color/gray"
+        android:padding="0dp"
+        android:layout_marginTop="0dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/show_resume_rooms"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/hotels__rooms"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/rooms_icon"
+
+                />
+            <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/room_and_guests_title"
+                android:layout_toRightOf="@+id/rooms_icon"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/room_title"
+                android:layout_toLeftOf="@+id/arrow_hotels"
+                app:font="@string/font_muli_bold"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/arrow_hotels"
+                android:src="@drawable/hotels__arrow__down"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="@color/gray"
+        android:padding="0dp"
+        />
+</LinearLayout>

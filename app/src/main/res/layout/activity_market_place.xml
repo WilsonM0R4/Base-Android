@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:onClick="onCloseMenu"
+    tools:context="com.allem.alleminmotion.visacheckout.MarketPlaceActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/white"
+        android:id="@+id/ll_header">
+
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="16dp"
+            android:id="@+id/ib_up"
+            android:src="@drawable/icon_back_to"
+            android:background="@android:color/transparent"
+            android:onClick="onUp"
+            android:visibility="invisible"
+            android:contentDescription="Up"
+            android:layout_alignParentStart="true"
+            android:layout_alignBottom="@+id/tv_title_secc"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/title_market_place"
+            android:id="@+id/tv_title_secc"
+            android:textColor="@color/magenta"
+            android:layout_centerInParent="true" />
+
+        <ImageButton
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginRight="16dp"
+            android:layout_alignBottom="@+id/tv_title_secc"
+            android:src="@drawable/icon_menu"
+            android:background="@android:color/transparent"
+            android:id="@+id/ib_menu"
+            android:onClick="onMenu"
+            android:contentDescription="menu"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_header"
+        android:id="@+id/iv_header"
+        android:src="@drawable/separator_medium_mag"
+        android:contentDescription="Divider"
+        />
+
+    <WebView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/iv_header"
+        android:id="@+id/webview_marketplace"
+        android:layout_centerHorizontal="true" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:id="@+id/navigation_panel"
+        >
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/navigation__backurl_2"
+            android:background="@null"
+            android:padding="10dp"
+            android:onClick="onGoBack"
+            android:id="@+id/arrow_back"
+            />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/navigation__fwdurl"
+            android:background="@null"
+            android:padding="10dp"
+            android:id="@+id/arrow_forward"
+            />
+
+
+    </RelativeLayout>
+
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pb_marketplace"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+</RelativeLayout>
