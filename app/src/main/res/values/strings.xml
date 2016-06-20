@@ -334,7 +334,7 @@
     <string name="regular_price">REGULAR PRICE</string>
     <string name="visa_price">PAY WITH VISA</string>
     <string name="coverage_limite">Coverage Limit</string>
-    
+
 
     <!--DR HELP INFORMATION-->
     <string-array name="header_titles">
@@ -528,5 +528,5 @@
     <string name="txt_title_choose_activities">Choose activities</string>
     <string name="font_varela">fonts/VarelaRound-Regular.ttf</string>
     <string name="txt_city_concierge_not_selected">Please select your destination</string>
-
+    <string name="send_log_request">Sorry an error has occurred.\nPlease press here to send us the log.</string>
 </resources>

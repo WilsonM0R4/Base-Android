@@ -1,6 +1,10 @@
 package com.allem.alleminmotion.visacheckout;
 
 import android.app.Application;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.support.multidex.MultiDexApplication;
 import android.util.Log;
@@ -64,7 +68,13 @@ public class VisaCheckoutApp extends MultiDexApplication {
             }
         });
 
-
+        // Setup handler for uncaught exceptions.
+        Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
+            @Override
+            public void uncaughtException(Thread thread, Throwable e) {
+                handleUncaughtException(thread, e);
+            }
+        });
     }
 
     private void subscribeGlobal() {
@@ -184,6 +194,17 @@ public class VisaCheckoutApp extends MultiDexApplication {
 
     public void setUrlHotel(String urlHotel) {
         this.urlHotel = urlHotel;
+    }
+
+    public void handleUncaughtException (Thread thread, Throwable e) {
+        e.printStackTrace(); // not all Android versions will print the stack trace automatically
+
+        Intent intent = new Intent ();
+        intent.setAction ("com.allem.alleminmotion.visacheckout.SEND_LOG"); // see step 5.
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK); // required when starting from Application
+        startActivity(intent);
+
+        System.exit(1); // kill off the crashed app
     }
 
 }

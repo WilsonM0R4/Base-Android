@@ -416,6 +416,7 @@
     <string name="txt_title_choose_activities">Selecciona actividades</string>
     <string name="font_varela">fonts/VarelaRound-Regular.ttf</string>
     <string name="txt_city_concierge_not_selected">Por favor selecciona tu destino</string>
+    <string name="send_log_request">Se ha producido un error.  Por favor pulse aquí para enviarnos el log.</string>
 
 
 </resources>

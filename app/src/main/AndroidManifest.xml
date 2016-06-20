@@ -55,15 +55,16 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_visacheckout"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:replace="android:allowBackup"
-        android:largeHeap="true">
+        tools:replace="android:allowBackup">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/MainTheme">
+
             <!-- android:theme="@android:style/Theme.NoTitleBar.Fullscreen"> -->
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
@@ -71,9 +72,9 @@
             <!-- </intent-filter> -->
 
         </activity>
-        <activity android:name=".Mcardhtml"
-            android:screenOrientation="portrait">
-        </activity>
+        <activity
+            android:name=".Mcardhtml"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".SplashScreenActivity"
             android:screenOrientation="portrait"
@@ -84,9 +85,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginForgotActivity"
-            android:screenOrientation="portrait">
-        </activity>
+        <activity
+            android:name=".LoginForgotActivity"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".BrandingScreenActivity"
             android:label="@string/title_activity_intro_screen"
@@ -97,6 +98,7 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
@@ -111,35 +113,34 @@
         </activity>
         <activity
             android:name=".McardActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity android:name=".Mcardprivilege"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity android:name=".Mcardpremium"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity android:name=".Mcardexclusive"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity android:name=".Mcardunlimited"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity android:name=".LegalActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity android:name=".PoliticalActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity android:name=".TermsActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity android:name=".CallActivityMcard"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity android:name=".ConciergeActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".Mcardprivilege"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".Mcardpremium"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".Mcardexclusive"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".Mcardunlimited"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".LegalActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".PoliticalActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".TermsActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".CallActivityMcard"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ConciergeActivity"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".VisaCheckoutActivity"
             android:screenOrientation="portrait" />
@@ -152,13 +153,11 @@
         </activity>
         <activity
             android:name=".FlightsActivity"
-            android:screenOrientation="portrait"
-           />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".HotelsActivity"
             android:screenOrientation="portrait">
             <meta-data
-
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.allem.alleminmotion.visacheckout.MainActivity" />
         </activity>
@@ -169,10 +168,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.allem.alleminmotion.visacheckout.MainActivity" />
         </activity>
-        <activity android:name=".LoginForgotConfirmation"
+        <activity
+            android:name=".LoginForgotConfirmation"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan">
-        </activity>
+            android:windowSoftInputMode="adjustPan"></activity>
         <activity
             android:name=".ChatActivity"
             android:screenOrientation="portrait"
@@ -220,15 +219,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-
-        <activity android:name=".ConciergeSearchActivity">
-        </activity>
-        <activity android:name=".TaxiActivity">
-        </activity>
-
-        <activity android:name=".ServiceActivity">
-        </activity>
-
+        <activity android:name=".ConciergeSearchActivity"></activity>
+        <activity android:name=".TaxiActivity"></activity>
+        <activity android:name=".ServiceActivity"></activity>
         <activity
             android:name=".HotelSearchActivity"
             android:screenOrientation="portrait" />
@@ -351,7 +344,16 @@
         <activity
             android:name=".OnepocketPurchaseActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name="com.allem.alleminmotion.visacheckout.SendLogActivity"
+            android:theme="@android:style/Theme.Dialog"
+            android:textAppearance="@android:style/TextAppearance.Large"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="com.allem.alleminmotion.visacheckout.SEND_LOG" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
