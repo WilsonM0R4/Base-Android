@@ -24,6 +24,7 @@ import com.allem.onepocket.utils.OPKConstants;
 //Example: new MenuActivity (R.string.title_call, R.drawable.menu__onetouch__call, CallActivity.class)
 public class BackFragment extends Fragment  {
 
+
     public interface MenuSelectListener {
         public void getStartActivity(Intent intent);
     }
@@ -58,6 +59,8 @@ public class BackFragment extends Fragment  {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
 
         activities = new MenuActivity[] {
                 new MenuActivity(R.string.title_my_account, R.drawable.menu__account,  MyAccountActivity.class),
@@ -241,7 +244,11 @@ public class BackFragment extends Fragment  {
         restaurants_option.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                TextView txthandy = new TextView(getActivity());
+                txthandy.findViewById(R.id.restaurants_option);
                 Intent intent = new Intent(getActivity(), HomeActivity_Handy.class);
+                intent.putExtra("restaurants", txthandy.getText().toString());
                 getActivity().startActivity(intent);
             }
         });
@@ -250,7 +257,10 @@ public class BackFragment extends Fragment  {
         taxi_option.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                TextView txthandy = new TextView(getActivity());
+                txthandy.findViewById(R.id.taxi_option);
                 Intent intent = new Intent(getActivity(), HomeActivity_Handy.class);
+                intent.putExtra("taxi", txthandy.getText().toString());
                 getActivity().startActivity(intent);
             }
         });
@@ -260,7 +270,10 @@ public class BackFragment extends Fragment  {
         service_option.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                TextView txthandy = new TextView(getActivity());
+                txthandy.findViewById(R.id.services_option);
                 Intent intent = new Intent(getActivity(), HomeActivity_Handy.class);
+                intent.putExtra("services", txthandy.getText().toString());
                 getActivity().startActivity(intent);
             }
         });

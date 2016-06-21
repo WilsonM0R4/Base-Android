@@ -14,6 +14,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.allegra.handysdk.bean.BeanConstants;
@@ -54,6 +55,7 @@ public class HomeActivity_Handy extends FragmentActivity implements CategoryCall
     Fragment home;
     Boolean search_flag=false;
     ImageView leftNav,rightNav;
+    TextView headerTxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +80,7 @@ public class HomeActivity_Handy extends FragmentActivity implements CategoryCall
         if(Const.IsInternetConnectionFound(this)){
             BeanConstants.userBeen.setEmail(BeanConstants.loginData.getUser_Email());
             BeanConstants.userBeen.setUser_ID(BeanConstants.loginData.getUser_ID());
-            BeanConstants.service.Categorycall(HomeActivity_Handy.this);
+            BeanConstants.service.Categorycall(HomeActivity_Handy.this, SerString);
 
         }else{
             Toast.makeText(HomeActivity_Handy.this, getResources().getString(R.string.nointernet), Toast.LENGTH_LONG).show();
@@ -131,6 +133,30 @@ public class HomeActivity_Handy extends FragmentActivity implements CategoryCall
     }
 
     private void init() {
+
+        headerTxt = (TextView)findViewById(R.id.txt_handy);
+        Intent i = getIntent();
+        String strTaxi = i.getStringExtra("Taxi");
+        String strRestaurants=i.getStringExtra("Restaurantes");;
+        String strServices=i.getStringExtra("Servicios");;
+
+        boolean booltaxi, boolrestaurant, boolservice;
+
+        booltaxi = Boolean.parseBoolean(strTaxi);
+        boolrestaurant = Boolean.parseBoolean(strRestaurants);
+        boolservice = Boolean.parseBoolean(strServices);
+
+        if(booltaxi){
+                headerTxt.setText(strTaxi);
+        }else if(boolrestaurant){
+                headerTxt.setText(strRestaurants);
+        }else if(boolservice){
+                headerTxt.setText(strServices);
+        }
+
+        BeanConstants.userBeen.setEmail("user@demo.com");
+        BeanConstants.userBeen.setPassword("123456");
+        BeanConstants.service.Categorycall(HomeActivity_Handy.this,SerString);
         tv_service_homefra_new = (MyTextView) findViewById(R.id.tv_service_homefra_new);
 
         leftNav = (ImageView) findViewById(R.id.left_nav);
@@ -178,5 +204,8 @@ public class HomeActivity_Handy extends FragmentActivity implements CategoryCall
     @Override
     public void setdata(String selected, ArrayList<String> Sub_id) {
 
+    }
+
+    public void onMenu(View view) {
     }
 }
