@@ -11,6 +11,7 @@ public class UserLoginData {
             User_Gender,User_Profile_Image,User_Longitude,User_Block_Status,User_App;
 
     public String getUser_ID() {
+        User_ID = "user@demo.com";
         return User_ID;
     }
 

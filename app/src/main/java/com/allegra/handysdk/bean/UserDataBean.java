@@ -6,8 +6,8 @@ import android.graphics.Bitmap;
  * Created by sergiofarfan on 20/06/16.
  */
 public class UserDataBean {
-    String Email;
-    String Password;
+    String Email="user@demo.com";
+    String Password="123456";
     String UserName;
     String PhoneNumber;
     String AccessToken,Service_ID;
@@ -67,7 +67,7 @@ public class UserDataBean {
     }
 
     public String getUser_ID() {
-        return User_ID;
+        return User_ID="9";
     }
 
     public String getUser_gender() {
@@ -143,7 +143,7 @@ public class UserDataBean {
     }
 
     public void setAccessToken(String accessToken) {
-        AccessToken = accessToken;
+        AccessToken = "DIQqemi1CyHjob76T8Nd9KaSNhtcfH1W5H/3R4zNeQ4=";
     }
 
     public String getEmail() {

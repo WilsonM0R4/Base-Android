@@ -105,10 +105,10 @@ public class post_async extends AsyncTask<String, Integer, String>{
             /*if (activity!=null && action.equalsIgnoreCase("Login")) {
                 BeanConstants.service.LoginData(resultString);
             }else if(activity!=null && action.equalsIgnoreCase("EditProfile")){
-                BeanConstants.service.EditData(resultString);
-            }else if(activity!=null && action.equalsIgnoreCase("ForgotPassword")){
-                BeanConstants.service.ForgotPasswordData(resultString);
-            }else if(activity!=null && action.equalsIgnoreCase("GetCategory")){
+                BeanConstants.service.EditData(resultString);*/
+            /*if(activity!=null && action.equalsIgnoreCase("ForgotPassword")){
+                BeanConstants.service.ForgotPasswordData(resultString);*/
+            if(activity!=null && action.equalsIgnoreCase("GetCategory")){
                 BeanConstants.service.CategoryData(resultString);
             }else if(activity!=null && action.equalsIgnoreCase("GetCustomer")){
                 BeanConstants.service.ServiceProviderData(resultString);
@@ -130,9 +130,10 @@ public class post_async extends AsyncTask<String, Integer, String>{
                 BeanConstants.service.InsertFeedbackResponse(resultString);
             }else if(activity!=null && action.equalsIgnoreCase("getBookingTrackingLastRecord")){
                 BeanConstants.service.ResponseTracking(resultString);
+                /*
             }else if(activity!=null && action.equalsIgnoreCase("UpdateDeviceToken")){
-                BeanConstants.service.Updatetokenresponse(resultString);
-            }*/
+                BeanConstants.service.Updatetokenresponse(resultString);*/
+            }
             //insertfeedback
 
         } catch (Exception e) {
