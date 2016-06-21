@@ -5,6 +5,48 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/white"
+        android:onClick="onCloseMenu"
+        android:id="@+id/relativeLayout7" >
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/navigation__back"
+            android:background="@android:color/transparent"
+            android:id="@+id/imageButton14"
+            android:contentDescription="menu"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/txt_handy"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/magenta"
+            android:layout_marginTop="20dp"
+            android:text="Servicios" />
+
+        <ImageButton
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/icon_menu"
+            android:background="@android:color/transparent"
+            android:id="@+id/imageButton15"
+            android:contentDescription="menu"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="15dp" />
+    </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -82,5 +124,7 @@
                 android:visibility="gone">
             </com.allem.alleminmotion.visacheckout.utils.MyTextView>
         </LinearLayout>
+
     </LinearLayout>
+
 </LinearLayout>
