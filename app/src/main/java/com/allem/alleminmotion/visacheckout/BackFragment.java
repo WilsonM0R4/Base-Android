@@ -66,7 +66,7 @@ public class BackFragment extends Fragment  {
                 new MenuActivity(R.string.onepocket,R.drawable.menu__onepocket,McardActivity.class),
                 new MenuActivity(R.string.title_hotels, R.drawable.menu__hotels, HotelsActivity.class),
                 new MenuActivity(R.string.title_concierge, R.drawable.concierge5,ConciergeActivity.class),
-                new MenuActivity(R.string.title_services, R.drawable.menu__services, ServiceActivity.class),
+                new MenuActivity(R.string.title_services, R.drawable.menu__services, HomeActivity_Handy.class),
                 new MenuActivity(R.string.title_qr_scan, R.drawable.menu__qr__code, QRScanActivity.class),
                 new MenuActivity(R.string.title_chat, R.drawable.menu__onetouch__chat, ChatActivity.class),
                 new MenuActivity(R.string.title_call, R.drawable.menu__onetouch__call, CallActivity.class),
@@ -241,7 +241,7 @@ public class BackFragment extends Fragment  {
         restaurants_option.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), RestaurantsActivity.class);
+                Intent intent = new Intent(getActivity(), HomeActivity_Handy.class);
                 getActivity().startActivity(intent);
             }
         });
@@ -250,7 +250,7 @@ public class BackFragment extends Fragment  {
         taxi_option.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), TaxiActivity.class);
+                Intent intent = new Intent(getActivity(), HomeActivity_Handy.class);
                 getActivity().startActivity(intent);
             }
         });
@@ -260,7 +260,7 @@ public class BackFragment extends Fragment  {
         service_option.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), ServiceActivity.class);
+                Intent intent = new Intent(getActivity(), HomeActivity_Handy.class);
                 getActivity().startActivity(intent);
             }
         });
