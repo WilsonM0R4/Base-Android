@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="fabbutton-1.2.1">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/mbanje.kurt/fabbutton/1.2.1/res" />
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/mbanje.kurt/fabbutton/1.2.1/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/gradle/caches/modules-2/files-2.1/mbanje.kurt/fabbutton/1.2.1/f21616b5e1963919b86775000ccf48c086428e8e/fabbutton-1.2.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
