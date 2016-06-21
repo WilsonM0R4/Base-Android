@@ -137,8 +137,12 @@
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+            <!-- </intent-filter>  -->
         </activity>
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyD9qGeXyuRtNZjoEwI24jrKpV_ec9MlQPI" />
         <activity
             android:name=".MyAccountActivity"
             android:screenOrientation="portrait">
