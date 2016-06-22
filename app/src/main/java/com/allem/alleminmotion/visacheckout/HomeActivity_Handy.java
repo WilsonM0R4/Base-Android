@@ -15,6 +15,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -260,7 +261,27 @@ public class HomeActivity_Handy extends FragmentActivity implements CategoryCall
 
     }
 
+    private void setupTabIcons(ArrayList<MainCategoryData> mainCategoryDatas) {
 
+        arrayofimg.clear();
+        for (int i=0;i<mainCategoryDatas.size();i++){
+
+            tabImg=(ImageView) LayoutInflater.from(this).inflate(R.layout.custom_img, null);
+            if (i==selectedpos){
+                Picasso.with(HomeActivity_Handy.this).load(BeanConstants.customer_image_category2+mainCategoryDatas.get(i).getService_Image_thumb()+"&h="+h).error(R.drawable.plasholder_75).placeholder(R.drawable.plasholder_75).into(tabImg);
+            }else{
+                Picasso.with(HomeActivity_Handy.this).load(BeanConstants.customer_image_category+mainCategoryDatas.get(i).getService_Image1()+"&h="+h).error(R.drawable.plasholder_75).placeholder(R.drawable.plasholder_75).into(tabImg);
+            }
+            arrayofimg.add(tabImg);
+            tabLayout.getTabAt(i).setCustomView(tabImg);
+            tabOne = (MyTextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
+            tabOne.setText(mainCategoryDatas.get(i).getService_Name()+"\n");
+            tabOne.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
+            tabOne.setCompoundDrawablePadding(15);
+            tabOne.setId(i);
+            tabLayout.getTabAt(i).setCustomView(tabOne);
+        }
+    }
 
     private void setupViewPager(final ViewPager viewPager) {
 
@@ -280,11 +301,15 @@ public class HomeActivity_Handy extends FragmentActivity implements CategoryCall
             @Override
             public void onPageSelected(int position) {
                 selectedpos = position;
+                Log.d("Size arrayofimg", String.valueOf(arrayofimg.size()));
                 for (int i = 0; i < arrayofimg.size(); i++) {
                     if (i == position) {
                         Picasso.with(HomeActivity_Handy.this).load(BeanConstants.customer_image_category2 + mainCategory.get(i).getService_Image_thumb() + "&h=" + h).error(R.drawable.plasholder_75).placeholder(R.drawable.plasholder_75).into(arrayofimg.get(i));
+                        Log.d("Sergio", "Entra a i==position");
                     } else {
                         Picasso.with(HomeActivity_Handy.this).load(BeanConstants.customer_image_category + mainCategory.get(i).getService_Image1() + "&h=" + h).error(R.drawable.plasholder_75).placeholder(R.drawable.plasholder_75).into(arrayofimg.get(i));
+                        Log.d("Sergio", "No entra a i==position");
+                        Log.d("Sergio", String.valueOf(BeanConstants.customer_image_category + mainCategory.get(i).getService_Image1() + "&h=" + h));
                     }
                 }
                 viewPager.getAdapter().notifyDataSetChanged();
@@ -354,25 +379,7 @@ public class HomeActivity_Handy extends FragmentActivity implements CategoryCall
 
     }
 
-    private void setupTabIcons(ArrayList<MainCategoryData> mainCategoryDatas) {
-        for (int i=0;i<mainCategoryDatas.size();i++){
 
-            tabImg=(ImageView) LayoutInflater.from(this).inflate(R.layout.custom_img, null);
-            if (i==selectedpos){
-                Picasso.with(HomeActivity_Handy.this).load(BeanConstants.customer_image_category2+mainCategoryDatas.get(i).getService_Image_thumb()+"&h="+h).error(R.drawable.plasholder_75).placeholder(R.drawable.plasholder_75).into(tabImg);
-            }else{
-                Picasso.with(HomeActivity_Handy.this).load(BeanConstants.customer_image_category+mainCategoryDatas.get(i).getService_Image1()+"&h="+h).error(R.drawable.plasholder_75).placeholder(R.drawable.plasholder_75).into(tabImg);
-            }
-            arrayofimg.add(tabImg);
-            tabLayout.getTabAt(i).setCustomView(tabImg);
-            tabOne = (MyTextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
-            tabOne.setText(mainCategoryDatas.get(i).getService_Name()+"\n");
-            tabOne.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
-            tabOne.setCompoundDrawablePadding(15);
-            tabOne.setId(i);
-            tabLayout.getTabAt(i).setCustomView(tabOne);
-        }
-    }
 
 
 }

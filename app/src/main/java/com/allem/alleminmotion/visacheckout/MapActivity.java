@@ -103,15 +103,12 @@ public class MapActivity extends Activity implements View.OnClickListener,Servic
     static final LatLng myLocation = new LatLng(0,0);
     MyTextView tv_booknow_map, tv_booklater_map, address;
     String umAddress1 = "", city = "", zipCode = "", umAddressTitle = "";
-
     String selectedDate="";
     int day, nextday;
     DatePickerDialog datePickerDialog;
     SimpleDateFormat dateFormatter, newformater;
     View view;
-
     Boolean flagmarker=false;
-
     GPSTracker gp;
     Double latitude, longitude;
     private LocationManager locationManager;
@@ -125,7 +122,6 @@ public class MapActivity extends Activity implements View.OnClickListener,Servic
     public ArrayList<String> ary_combin = new ArrayList<String>();
     String sd = "";
     public String seltStartTime = "", seltEntTime = "", TfinalEndTime = "", strDate = "", seladdressstr = "";
-    ;
     EditText edclock;
     SimpleDateFormat df = new SimpleDateFormat("HH:mm");
     Calendar cal = Calendar.getInstance();
@@ -892,7 +888,7 @@ public class MapActivity extends Activity implements View.OnClickListener,Servic
             googleMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map_home)).getMap();
         }
         googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-
+        googleMap.getUiSettings().setMapToolbarEnabled(false);
 
 
         if (PMarker != null) {
@@ -989,14 +985,10 @@ public class MapActivity extends Activity implements View.OnClickListener,Servic
                             public View getInfoContents(Marker marker) {
 
                                 infoWindow = (ViewGroup) getLayoutInflater().inflate(R.layout.mapdialog, null);
-
                                 mapWrapperLayout.setMarkerWithInfoWindow(marker, infoWindow);
-
-
                                 final CircularImageView img = (CircularImageView) infoWindow.findViewById(R.id.map_img);
                                 final MyTextView providername = (MyTextView) infoWindow.findViewById(R.id.map_providername);
                                 final MyTextView servicename = (MyTextView) infoWindow.findViewById(R.id.map_servicename);
-
                                 servicename.setText(CommonData.get(0).getSub_Service_Name());
                                 providername.setText(CommonData.get(0).getUser_First_Name() + " " + CommonData.get(0).getUser_Last_Name());
                                 Log.d("System out", "locationurl url: " + locationurl);
@@ -1017,8 +1009,6 @@ public class MapActivity extends Activity implements View.OnClickListener,Servic
                     }
                 }
 
-
-
                 PMarker = googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(Lattitude, Longitude))
                         .title(sd)
@@ -1030,8 +1020,6 @@ public class MapActivity extends Activity implements View.OnClickListener,Servic
                 LatLngBounds bounds = b.build();
                 CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, 100, 100, 0);
                 googleMap.animateCamera(cu);
-
-
             }
         }else{
             Toast.makeText(MapActivity.this, "Sorry! Currently provider is not available.", Toast.LENGTH_LONG).show();
