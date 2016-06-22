@@ -8,6 +8,9 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -21,20 +24,31 @@ import java.io.InputStreamReader;
 
 public class SendLogActivity extends Activity {
 
+    private static final int REQUEST_WRITE_STORAGE = 112;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE); // make a dialog without a titlebar
         setFinishOnTouchOutside(false); // prevent users from dismissing the dialog by tapping outside
-        setContentView (R.layout.activity_send_log);
+        setContentView(R.layout.activity_send_log);
 
 
         Button send = (Button) findViewById(R.id.send_log);
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                boolean hasPermission = (ContextCompat.checkSelfPermission(SendLogActivity.this,
+                        android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED);
+                if (!hasPermission) {
+                    ActivityCompat.requestPermissions(SendLogActivity.this,
+                            new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                            REQUEST_WRITE_STORAGE);
+                    return;
+                }
+
                 sendLogFile();
-                finish();
+                finishAffinity();
             }
         });
 
@@ -50,33 +64,45 @@ public class SendLogActivity extends Activity {
         }
 
         String fullName = extractLogToFile(versionName);
-        if (fullName == null)
+        if (fullName == null) {
             return;
+        }
 
         Intent intent = new Intent (Intent.ACTION_SEND);
-        intent.setType ("plain/text");
-        intent.putExtra (Intent.EXTRA_EMAIL, new String[] {"android-test@iatai.com"});
-        intent.putExtra (Intent.EXTRA_SUBJECT, "Allegra log file");
+        intent.setType("plain/text");
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"android-test@iatai.com"});
+        intent.putExtra (Intent.EXTRA_SUBJECT, "Allegra Log Report: Build Version " + versionName);
         intent.putExtra (Intent.EXTRA_STREAM, Uri.parse("file://" + fullName));
-        intent.putExtra (Intent.EXTRA_TEXT, "Please add reproduction steps and addition info here. Thanks!"); // do this so some email clients don't complain about empty body.
-        startActivity (intent);
+        intent.putExtra(Intent.EXTRA_TEXT, "Please add reproduction steps and addition info here. Thanks!"); // do this so some email clients don't complain about empty body.
+        startActivity(intent);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode)
+        {
+            case REQUEST_WRITE_STORAGE: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    sendLogFile();
+                    finishAffinity();
+                } else {
+                    //Toast.makeText(parentActivity, "The app was not allowed to write to your storage. Hence, it cannot function properly. Please consider granting it this permission", Toast.LENGTH_LONG).show();
+                }
+            }
+        }
     }
 
     private String extractLogToFile(String versionName) {
-        PackageManager manager = this.getPackageManager();
-        PackageInfo info = null;
-        try {
-            info = manager.getPackageInfo (this.getPackageName(), 0);
-        } catch (PackageManager.NameNotFoundException e2) {
-        }
         String model = Build.MODEL;
-        if (!model.startsWith(Build.MANUFACTURER))
+        if (!model.startsWith(Build.MANUFACTURER)) {
             model = Build.MANUFACTURER + " " + model;
+        }
 
         // Make file name - file must be saved to external storage or it wont be readable by
         // the email app.
-        String path = Environment.getExternalStorageDirectory() + "/" + "Allegra/";
-        String fullName = path + "Allegra-Android-" + versionName + ".log";
+        String path = Environment.getExternalStorageDirectory() + File.separator;
+        String fullName = path + "Allegra-Android.log";
 
         // Extract to file.
         File file = new File (fullName);
@@ -92,15 +118,15 @@ public class SendLogActivity extends Activity {
             writer = new FileWriter (file);
             writer.write ("Android version: " +  Build.VERSION.SDK_INT + "\n");
             writer.write ("Device: " + model + "\n");
-            writer.write ("App version: " + (info == null ? "(null)" : info.versionCode) + "\n");
+            writer.write ("App version: " + (versionName == null ? "(null)" : versionName) + "\n");
 
             char[] buffer = new char[10000];
-            do
-            {
+            do {
                 int n = reader.read (buffer, 0, buffer.length);
-                if (n == -1)
+                if (n == -1) {
                     break;
-                writer.write (buffer, 0, n);
+                }
+                writer.write(buffer, 0, n);
             } while (true);
 
             reader.close();
