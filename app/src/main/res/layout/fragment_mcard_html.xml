@@ -32,11 +32,11 @@
             android:layout_marginRight="10dp"
             android:src="@drawable/icon_menu"
             android:background="@android:color/transparent"
-            android:id="@+id/imageButton13"
-            android:onClick="onMenu"
+            android:id="@+id/menu_image"
             android:contentDescription="menu"
             android:layout_alignBottom="@+id/textView45"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:onClick="onMenu" />
     </RelativeLayout>
 
     <ImageView

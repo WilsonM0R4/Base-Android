@@ -17,6 +17,7 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
     private WebView webmcard;
     private ProgressBar progressBar;
     private ImageButton arrowBack, arrowF;
+    private ImageButton menu;
     private String returnURL;
     private String url = "http://allegra.global/membresias/planes/";
 
@@ -30,6 +31,7 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
 
     @Override
     public void initViews(View root) {
+        menu = (ImageButton) root.findViewById(R.id.menu_image);
         webmcard = (WebView)root.findViewById(R.id.webmcard);
         webmcard.getSettings().setJavaScriptEnabled(true);
         webmcard.loadUrl(url);
@@ -44,6 +46,10 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
 
             }
         });
+    }
+
+    public void onMenu(View view) {
+        animate();
     }
 
     private class MyBrowser extends WebViewClient {
@@ -62,15 +68,13 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
             return super.shouldOverrideUrlLoading(webView, url);
     }
 
-    public void onMenu(View view) {
-        animate();
-    }
 
     public void onUp(View view) {
         if (webmcard.canGoBack()) {
             webmcard.goBack();
         }
     }
+
 
     private void loadArrows(){
 
