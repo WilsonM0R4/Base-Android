@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.allem.alleminmotion.visacheckout.models.AllemUser;
 import com.allem.alleminmotion.visacheckout.utils.Constants;
+import com.allem.alleminmotion.visacheckout.utils.CustomizedTextView;
 import com.allem.alleminmotion.visacheckout.utils.Util;
 import com.allem.onepocket.model.OneTransaction;
 import com.allem.onepocket.utils.OPKConstants;
@@ -24,6 +25,8 @@ import com.allem.onepocket.utils.OPKConstants;
 //Example: new MenuActivity (R.string.title_call, R.drawable.menu__onetouch__call, CallActivity.class)
 public class BackFragment extends Fragment  {
 
+    private String optionSelectedForService = "";
+    private CustomizedTextView textOptionSelectedForService;
 
     public interface MenuSelectListener {
         public void getStartActivity(Intent intent);
@@ -35,6 +38,7 @@ public class BackFragment extends Fragment  {
         private CharSequence title;
         private int iconResource;
         private Class<? extends Activity> activityClass;
+
 
         public MenuActivity(int titleResId, int iconResource, Class<? extends Activity> activityClass) {
             this.activityClass = activityClass;
@@ -245,10 +249,10 @@ public class BackFragment extends Fragment  {
             @Override
             public void onClick(View v) {
 
-                TextView txthandy = new TextView(getActivity());
-                txthandy.findViewById(R.id.restaurants_option);
+                textOptionSelectedForService = new CustomizedTextView(getActivity().getApplicationContext());
+                textOptionSelectedForService = (CustomizedTextView) getActivity().findViewById(R.id.textRestaurants);
                 Intent intent = new Intent(getActivity(), HomeActivity_Handy.class);
-                intent.putExtra("restaurants", txthandy.getText().toString());
+                intent.putExtra("restaurants", textOptionSelectedForService.getText().toString());
                 getActivity().startActivity(intent);
             }
         });

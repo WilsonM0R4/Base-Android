@@ -9,18 +9,12 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-/*import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-*/
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 import com.allegra.handysdk.bean.BeanConstants;
 import com.allegra.handysdk.bean.MainCategoryData;
@@ -39,6 +33,7 @@ import android.app.FragmentManager;
 /**
  * Created by jsandoval on 20/06/16.
  */
+
 public class HomeActivity_Handy extends FrontBackAnimate implements CategoryCallInterface, FrontBackAnimate.InflateReadyListener {
 
     private TabLayout tabLayout;
@@ -62,20 +57,19 @@ public class HomeActivity_Handy extends FrontBackAnimate implements CategoryCall
     Fragment home;
     Boolean search_flag=false;
     ImageView leftNav,rightNav;
- /*   TextView headerTxt;
-    private static final String FRAGMENT_FRONT = "FRAGMENT_FRONT", TAG = "HomeActivity_Handy";
-    private FrontFragment frontFragment;
-    private BackFragment backFragment;
-    //private static FrontBackAnimate.InflateReadyListener inflateListener;
-    //protected static int frontLayoutResId = R.layout.fragment_front;
-    private int state = 0;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // setContentView(R.layout.homeactivity_handy);
         setView(R.layout.homeactivity_handy,this);
         display =HomeActivity_Handy.this.getResources().getDisplayMetrics();
+        Intent i = getIntent();
+        String strTaxi = i.getStringExtra("taxi");
+        String strRestaurants =i.getStringExtra("restaurants");
+        String strServices =i.getStringExtra("services");
+        if (strTaxi!=null)Log.d("strTaxi", strTaxi);
+        if (strRestaurants!=null)Log.d("strRestaurants", strRestaurants);
+        if (strServices!=null)Log.d("strServices", strServices);
         width = display.widthPixels;
         height = display.heightPixels;
         speci = (height * 23) / 100;
@@ -84,8 +78,6 @@ public class HomeActivity_Handy extends FrontBackAnimate implements CategoryCall
         //init();
         CallApi();
         getLocation();
-
-
     }
 
     private void CallApi() {
@@ -144,8 +136,6 @@ public class HomeActivity_Handy extends FrontBackAnimate implements CategoryCall
         final AlertDialog alert = builder.create();
         alert.show();
     }
-
-
 
     @Override
     public void CategoryData(ArrayList<MainCategoryData> mainCategoryData) {
@@ -234,10 +224,7 @@ public class HomeActivity_Handy extends FrontBackAnimate implements CategoryCall
         for (int i=0;i<sizeofmain;i++){
             adapter.addFrag(new HomeFragment(),mainCategory);
         }
-
         viewPager.setAdapter(adapter);
-
-
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -258,8 +245,6 @@ public class HomeActivity_Handy extends FrontBackAnimate implements CategoryCall
                     }
                 }
                 viewPager.getAdapter().notifyDataSetChanged();
-
-
             }
             @Override
             public void onPageScrollStateChanged(int state) {
@@ -272,48 +257,11 @@ public class HomeActivity_Handy extends FrontBackAnimate implements CategoryCall
         animate();
     }
 
-   /* protected void animate() {
-        DisplayMetrics dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(dm);
-        int width = dm.widthPixels;
-        int resId = R.animator.front_open;
-        if (width > 800) {
-            resId = R.animator.front_open_xlarge;
-        }
-
-        getFragmentManager().beginTransaction().hide(frontFragment).hide(backFragment).commit();
-        if (state == 0) {//Button menu pressed, BackFragment is hidden
-            state = 1;
-            showStatusBar(false);
-            getFragmentManager().beginTransaction()
-                    .setCustomAnimations(resId, 0)
-                    .show(frontFragment)
-                    .setCustomAnimations(R.animator.back_exposed, 0)
-                    .show(backFragment)
-                    .commit();
-            Log.d("Sergio", "0");
-        } else {
-            state = 0;
-            showStatusBar(true);
-            getFragmentManager().beginTransaction()
-                    .setCustomAnimations(R.animator.front_close, 0)
-                    .show(frontFragment)
-                    .setCustomAnimations(R.animator.back_hidden, 0)
-                    .show(backFragment)
-                    .commit();
-            Log.d("Sergio", "1");
-        }
-
-    }*/
-
     @Override
     public void initViews(View root) {
         slideHolder=(SlideHolder)root.findViewById(R.id.drawer_home_layout);
         tv_service_homefra_new=(MyTextView)root.findViewById(R.id.tv_service_homefra_new);
-        /*Intent i = getIntent();
-        String strTaxi = i.getStringExtra("Taxi");
-        String strRestaurants=i.getStringExtra("Restaurantes");;
-        String strServices=i.getStringExtra("Servicios");;*/
+
 
        /* boolean booltaxi, boolrestaurant, boolservice;
 

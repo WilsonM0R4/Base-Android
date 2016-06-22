@@ -557,6 +557,7 @@
             android:text="@string/title_restaurants"
             android:textColor="@android:color/white"
             android:textSize="17sp"
+            android:id="@+id/textRestaurants"
             android:layout_marginLeft="9dp"
             app:font="@string/font_varela"
             />
