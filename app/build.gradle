@@ -61,5 +61,5 @@ dependencies {
     compile project(':onepocket-release')
     compile 'com.android.support:multidex:1.0.1'
     compile 'com.google.code.ksoap2-android:ksoap2-android:3.6.0'
-
+    compile files('libs/httpmime-4.1-beta1.jar')
 }
