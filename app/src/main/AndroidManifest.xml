@@ -142,9 +142,9 @@
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyDmrFgCRp-pUTF41d6TJdJ9v4v52-Gk5Fs">
+            android:value="AIzaSyCADifKMRWHMwf6JU8OTz-QCihVYhHBxJc">
         </meta-data>
-            <!--android:value="AIzaSyD9qGeXyuRtNZjoEwI24jrKpV_ec9MlQPI" />-->
+            <!--android:value="AIzaSyDmrFgCRp-pUTF41d6TJdJ9v4v52-Gk5Fs" />-->
 
         <activity
             android:name=".MyAccountActivity"

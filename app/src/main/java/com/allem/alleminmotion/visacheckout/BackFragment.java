@@ -83,10 +83,10 @@ public class BackFragment extends Fragment  {
 
     }
 
-    public void sendToServices (){
+   /* public void sendToServices (){
         Intent intent = new Intent(getActivity(), ServiceActivity.class);
         getActivity().startActivity(intent);
-    }
+    }*/
 
     public void sendToAccount(){
         Intent intent = new Intent(getActivity(),MyAccountMenuActivity.class);
@@ -178,7 +178,7 @@ public class BackFragment extends Fragment  {
             }
         });
 
-        LinearLayout mcard_option = (LinearLayout) getActivity().findViewById(R.id.mCard_option);
+        LinearLayout mcard_option = (LinearLayout) getView().findViewById(R.id.mCard_option);//getActivity()
         mcard_option.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 sendToMcard();

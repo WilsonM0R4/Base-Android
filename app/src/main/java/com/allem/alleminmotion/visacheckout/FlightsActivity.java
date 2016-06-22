@@ -219,11 +219,6 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
     }
 
     //PROPER METHODS
-/*
-    public void  updateTextsForAirportAndCity(){
-
-
-    }*/
 
     public Location getLocation() {
         try {

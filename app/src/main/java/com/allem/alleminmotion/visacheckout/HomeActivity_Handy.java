@@ -9,11 +9,11 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
+/*import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
+*/
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,7 +22,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.allegra.handysdk.bean.BeanConstants;
 import com.allegra.handysdk.bean.MainCategoryData;
 import com.allegra.handysdk.responsebean.CategoryCallInterface;
@@ -30,14 +29,17 @@ import com.allegra.handysdk.utilsclasses.Const;
 import com.allem.alleminmotion.visacheckout.utils.MyTextView;
 import com.allem.alleminmotion.visacheckout.utils.SlideHolder;
 import com.squareup.picasso.Picasso;
-
 import java.util.ArrayList;
 import java.util.List;
 
+import android.support.v13.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.app.Fragment;
+import android.app.FragmentManager;
 /**
  * Created by jsandoval on 20/06/16.
  */
-public class HomeActivity_Handy extends FragmentActivity implements CategoryCallInterface {
+public class HomeActivity_Handy extends FrontBackAnimate implements CategoryCallInterface, FrontBackAnimate.InflateReadyListener {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -60,20 +62,26 @@ public class HomeActivity_Handy extends FragmentActivity implements CategoryCall
     Fragment home;
     Boolean search_flag=false;
     ImageView leftNav,rightNav;
-    TextView headerTxt;
+ /*   TextView headerTxt;
+    private static final String FRAGMENT_FRONT = "FRAGMENT_FRONT", TAG = "HomeActivity_Handy";
+    private FrontFragment frontFragment;
+    private BackFragment backFragment;
+    //private static FrontBackAnimate.InflateReadyListener inflateListener;
+    //protected static int frontLayoutResId = R.layout.fragment_front;
+    private int state = 0;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.homeactivity_handy);
+       // setContentView(R.layout.homeactivity_handy);
+        setView(R.layout.homeactivity_handy,this);
         display =HomeActivity_Handy.this.getResources().getDisplayMetrics();
         width = display.widthPixels;
         height = display.heightPixels;
         speci = (height * 23) / 100;
         speciwidth = (width * 23) / 100;
         h = (height * 13) / 100;
-
-        init();
+        //init();
         CallApi();
         getLocation();
 
@@ -137,70 +145,7 @@ public class HomeActivity_Handy extends FragmentActivity implements CategoryCall
         alert.show();
     }
 
-    private void init() {
 
-        slideHolder=(SlideHolder)findViewById(R.id.drawer_home_layout);
-        tv_service_homefra_new=(MyTextView)findViewById(R.id.tv_service_homefra_new);
-        /*Intent i = getIntent();
-        String strTaxi = i.getStringExtra("Taxi");
-        String strRestaurants=i.getStringExtra("Restaurantes");;
-        String strServices=i.getStringExtra("Servicios");;*/
-
-       /* boolean booltaxi, boolrestaurant, boolservice;
-
-        booltaxi = Boolean.parseBoolean(strTaxi);
-        boolrestaurant = Boolean.parseBoolean(strRestaurants);
-        boolservice = Boolean.parseBoolean(strServices);
-
-        if(booltaxi){
-                headerTxt.setText(strTaxi);
-        }else if(boolrestaurant){
-                headerTxt.setText(strRestaurants);
-        }else if(boolservice){
-                headerTxt.setText(strServices);
-        }*/
-
-        BeanConstants.userBeen.setEmail("user@demo.com");
-        BeanConstants.userBeen.setPassword("123456");
-        BeanConstants.service.Categorycall(HomeActivity_Handy.this,SerString);
-        tv_service_homefra_new = (MyTextView) findViewById(R.id.tv_service_homefra_new);
-
-        leftNav = (ImageView) findViewById(R.id.left_nav);
-        rightNav = (ImageView) findViewById(R.id.right_nav);
-
-        leftNav.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (viewPager != null) {
-                    int tab = viewPager.getCurrentItem();
-                    if (tab > 0) {
-                        leftNav.setVisibility(View.VISIBLE);
-                        tab--;
-                        viewPager.setCurrentItem(tab);
-                    } else if (tab == 0) {
-                        leftNav.setVisibility(View.INVISIBLE);
-                        viewPager.setCurrentItem(tab);
-                    }
-                }
-
-            }
-        });
-
-        rightNav.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (viewPager!=null) {
-                    int tab = viewPager.getCurrentItem();
-                    tab++;
-                    viewPager.setCurrentItem(tab);
-                    rightNav.setVisibility(View.VISIBLE);
-                    if (sizeofmain<=tab){
-                        rightNav.setVisibility(View.INVISIBLE);
-                    }
-                }
-            }
-        });
-    }
 
     @Override
     public void CategoryData(ArrayList<MainCategoryData> mainCategoryData) {
@@ -285,7 +230,7 @@ public class HomeActivity_Handy extends FragmentActivity implements CategoryCall
 
     private void setupViewPager(final ViewPager viewPager) {
 
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getFragmentManager());
         for (int i=0;i<sizeofmain;i++){
             adapter.addFrag(new HomeFragment(),mainCategory);
         }
@@ -323,6 +268,108 @@ public class HomeActivity_Handy extends FragmentActivity implements CategoryCall
         });
     }
 
+    public void onMenu(View view) {
+        animate();
+    }
+
+   /* protected void animate() {
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+        int width = dm.widthPixels;
+        int resId = R.animator.front_open;
+        if (width > 800) {
+            resId = R.animator.front_open_xlarge;
+        }
+
+        getFragmentManager().beginTransaction().hide(frontFragment).hide(backFragment).commit();
+        if (state == 0) {//Button menu pressed, BackFragment is hidden
+            state = 1;
+            showStatusBar(false);
+            getFragmentManager().beginTransaction()
+                    .setCustomAnimations(resId, 0)
+                    .show(frontFragment)
+                    .setCustomAnimations(R.animator.back_exposed, 0)
+                    .show(backFragment)
+                    .commit();
+            Log.d("Sergio", "0");
+        } else {
+            state = 0;
+            showStatusBar(true);
+            getFragmentManager().beginTransaction()
+                    .setCustomAnimations(R.animator.front_close, 0)
+                    .show(frontFragment)
+                    .setCustomAnimations(R.animator.back_hidden, 0)
+                    .show(backFragment)
+                    .commit();
+            Log.d("Sergio", "1");
+        }
+
+    }*/
+
+    @Override
+    public void initViews(View root) {
+        slideHolder=(SlideHolder)root.findViewById(R.id.drawer_home_layout);
+        tv_service_homefra_new=(MyTextView)root.findViewById(R.id.tv_service_homefra_new);
+        /*Intent i = getIntent();
+        String strTaxi = i.getStringExtra("Taxi");
+        String strRestaurants=i.getStringExtra("Restaurantes");;
+        String strServices=i.getStringExtra("Servicios");;*/
+
+       /* boolean booltaxi, boolrestaurant, boolservice;
+
+        booltaxi = Boolean.parseBoolean(strTaxi);
+        boolrestaurant = Boolean.parseBoolean(strRestaurants);
+        boolservice = Boolean.parseBoolean(strServices);
+
+        if(booltaxi){
+                headerTxt.setText(strTaxi);
+        }else if(boolrestaurant){
+                headerTxt.setText(strRestaurants);
+        }else if(boolservice){
+                headerTxt.setText(strServices);
+        }*/
+
+        BeanConstants.userBeen.setEmail("user@demo.com");
+        BeanConstants.userBeen.setPassword("123456");
+        BeanConstants.service.Categorycall(HomeActivity_Handy.this,SerString);
+        tv_service_homefra_new = (MyTextView)root.findViewById(R.id.tv_service_homefra_new);
+
+        leftNav = (ImageView) root.findViewById(R.id.left_nav);
+        rightNav = (ImageView) root.findViewById(R.id.right_nav);
+
+        leftNav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (viewPager != null) {
+                    int tab = viewPager.getCurrentItem();
+                    if (tab > 0) {
+                        leftNav.setVisibility(View.VISIBLE);
+                        tab--;
+                        viewPager.setCurrentItem(tab);
+                    } else if (tab == 0) {
+                        leftNav.setVisibility(View.INVISIBLE);
+                        viewPager.setCurrentItem(tab);
+                    }
+                }
+
+            }
+        });
+
+        rightNav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (viewPager!=null) {
+                    int tab = viewPager.getCurrentItem();
+                    tab++;
+                    viewPager.setCurrentItem(tab);
+                    rightNav.setVisibility(View.VISIBLE);
+                    if (sizeofmain<=tab){
+                        rightNav.setVisibility(View.INVISIBLE);
+                    }
+                }
+            }
+        });
+    }
 
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
