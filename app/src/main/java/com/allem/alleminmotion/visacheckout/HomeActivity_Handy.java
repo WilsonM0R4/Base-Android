@@ -1,6 +1,8 @@
 package com.allem.alleminmotion.visacheckout;
 
 import android.app.AlertDialog;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -9,13 +11,17 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v13.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
+
 import com.allegra.handysdk.bean.BeanConstants;
 import com.allegra.handysdk.bean.MainCategoryData;
 import com.allegra.handysdk.responsebean.CategoryCallInterface;
@@ -23,13 +29,9 @@ import com.allegra.handysdk.utilsclasses.Const;
 import com.allem.alleminmotion.visacheckout.utils.MyTextView;
 import com.allem.alleminmotion.visacheckout.utils.SlideHolder;
 import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import android.support.v13.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.app.Fragment;
-import android.app.FragmentManager;
 /**
  * Created by jsandoval on 20/06/16.
  */
@@ -41,6 +43,8 @@ public class HomeActivity_Handy extends FrontBackAnimate implements CategoryCall
     SlideHolder slideHolder;
     MyTextView tabOne,tabTwo,tabThree;
     ImageView tabImg;
+    ImageButton booking;
+    Context context;
     static int selectedpos=0,sizeofmain=0;
     ArrayList<MainCategoryData> mainCategory;
     ArrayList<ImageView> arrayofimg=new ArrayList<>();
@@ -62,6 +66,7 @@ public class HomeActivity_Handy extends FrontBackAnimate implements CategoryCall
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setView(R.layout.homeactivity_handy,this);
+        context = this;
         display =HomeActivity_Handy.this.getResources().getDisplayMetrics();
         Intent i = getIntent();
         String strTaxi = String.valueOf(R.string.taxi);
@@ -262,6 +267,14 @@ public class HomeActivity_Handy extends FrontBackAnimate implements CategoryCall
     public void initViews(View root) {
         slideHolder=(SlideHolder)root.findViewById(R.id.drawer_home_layout);
         tv_service_homefra_new=(MyTextView)root.findViewById(R.id.tv_service_homefra_new);
+        booking = (ImageButton)root.findViewById(R.id.btn_booking);
+        booking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context,MyBookingActivity.class);
+                context.startActivity(intent);
+            }
+        });
 
 
        /* boolean booltaxi, boolrestaurant, boolservice;
