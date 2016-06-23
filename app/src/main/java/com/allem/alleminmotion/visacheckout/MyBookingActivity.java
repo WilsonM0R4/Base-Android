@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -27,10 +28,12 @@ import java.util.Date;
 /**
  * Created by jsandoval on 20/06/16.
  */
-public class MyBookingActivity extends Activity implements View.OnClickListener , MyBokkingInterface {
+public class MyBookingActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener , MyBokkingInterface {
 
     SlideHolder slideHolder;
+    FrontBackAnimate object;
     ImageView iv_navi_heder, iv_logo_heder, iv_search_heder;
+    ImageButton back;
     MyTextView tv_logotext_heder;
     RecyclerView rv_mybooking_adapter;
     RecyclerAdapter recyclerAdapter;
@@ -41,9 +44,8 @@ public class MyBookingActivity extends Activity implements View.OnClickListener 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mybooking_activity);
-        init();
-
+        setView(R.layout.mybooking_activity, this);
+        //init();
         ApiCall();
 
     }
@@ -62,21 +64,12 @@ public class MyBookingActivity extends Activity implements View.OnClickListener 
         recyclerAdapter.notifyDataSetChanged();
     }
 
-    private void init() {
-        rv_mybooking_adapter = (RecyclerView) findViewById(R.id.rv_mybooking_adapter);
-        rv_mybooking_adapter.setHasFixedSize(true);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(MyBookingActivity.this);
-        rv_mybooking_adapter.setLayoutManager(layoutManager);
 
 
-        tv_currentbook_mybooking=(MyTextView)findViewById(R.id.tv_currentbook_mybooking);
-        tv_currentbook_mybooking.setOnClickListener(this);
-        tv_compltebook_mybooking=(MyTextView)findViewById(R.id.tv_compltebook_mybooking);
-        tv_compltebook_mybooking.setOnClickListener(this);
 
-    }
-    @Override
+
     public void onClick(View v) {
+
 
         if(v==tv_currentbook_mybooking)
         {
@@ -111,6 +104,30 @@ public class MyBookingActivity extends Activity implements View.OnClickListener 
         return parsedDate;
     }
 
+    public void onMenu(View view) {
+        animate();
+    }
+
+    @Override
+    public void initViews(View root) {
+
+        back = (ImageButton)root.findViewById(R.id.back_booking);
+        rv_mybooking_adapter = (RecyclerView)root.findViewById(R.id.rv_mybooking_adapter);
+        rv_mybooking_adapter.setHasFixedSize(true);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(MyBookingActivity.this);
+        rv_mybooking_adapter.setLayoutManager(layoutManager);
+
+
+        tv_currentbook_mybooking=(MyTextView)root.findViewById(R.id.tv_currentbook_mybooking);
+        //tv_currentbook_mybooking.setOnClickListener(this);
+        tv_compltebook_mybooking=(MyTextView)root.findViewById(R.id.tv_compltebook_mybooking);
+        //tv_compltebook_mybooking.setOnClickListener(this);
+        onClick(root);
+
+
+
+    }
+
 
     public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
         private Activity activity;
@@ -131,11 +148,13 @@ public class MyBookingActivity extends Activity implements View.OnClickListener 
             return viewHolder;
         }
 
+
+
         @Override
         public void onBindViewHolder(ViewHolder holder, final int position) {
 
             for (int i = 0; i < getItemCount(); i++) {
-                animate(viewHolder.cv_mybooking_adapter, i);
+                animate_book(viewHolder.cv_mybooking_adapter, i);
             }
             if (Booking_status.equalsIgnoreCase("Current")){
                 viewHolder.tv_invoice_mybooking.setVisibility(View.GONE);
@@ -174,7 +193,9 @@ public class MyBookingActivity extends Activity implements View.OnClickListener 
             });
         }
 
-        private void animate(final View view, final int position) {
+
+
+        private void animate_book(final View view, final int position) {
             Animation animation = AnimationUtils.loadAnimation(activity, R.anim.slidebottom);
             view.startAnimation(animation);
             lastPostion = position;
