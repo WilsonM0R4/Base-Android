@@ -61,7 +61,7 @@ import java.util.List;
  */
 public class TrackingActivity extends Activity implements View.OnClickListener,TrackingDetailInterface {
 
-    ImageView iv_menu_back,iv_search_heder;
+    //ImageView iv_menu_back,iv_search_heder;
     ImageView iv_navi_heder;
     ListView lv_tracking_list;
     private View ll_tracking_addmoreservice;
@@ -126,11 +126,11 @@ public class TrackingActivity extends Activity implements View.OnClickListener,T
     }
 
     private void init() {
-        iv_menu_back.setVisibility(View.VISIBLE);
+        //iv_menu_back.setVisibility(View.VISIBLE);
         // tv_header_back.setText("Tracking");
         lv_tracking_list = (ListView) findViewById(R.id.lv_tracking_list);
         ll_tracking_addmoreservice = findViewById(R.id.ll_tracking_addmoreservice);
-        iv_menu_back.setOnClickListener(this);
+        //iv_menu_back.setOnClickListener(this);
         ll_tracking_addmoreservice.setOnClickListener(this);
         googleMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.userlocation_map_booking1)).getMap();
         googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
@@ -150,7 +150,8 @@ public class TrackingActivity extends Activity implements View.OnClickListener,T
     @Override
     public void onClick(View v) {
 
-        if (v == iv_menu_back) {
+
+        /*if (v == iv_menu_back) {
             Intent intent = new Intent(TrackingActivity.this, MyBookingActivity.class);
             ComponentName cn = intent.getComponent();
             Intent mainIntent = IntentCompat.makeRestartActivityTask(cn);
@@ -158,7 +159,7 @@ public class TrackingActivity extends Activity implements View.OnClickListener,T
             startActivity(mainIntent);
             finish();
             handler.removeCallbacks(timerRunnable);
-        } /*else if (v == iv_logo_nevi1_back) {
+        } *//*else if (v == iv_logo_nevi1_back) {
             Intent intent = new Intent(TrackingActivity.this, DashboardNewActivity.class);
             ComponentName cn = intent.getComponent();
             Intent mainIntent = IntentCompat.makeRestartActivityTask(cn);
@@ -166,8 +167,8 @@ public class TrackingActivity extends Activity implements View.OnClickListener,T
             startActivity(mainIntent);
             finish();
             handler.removeCallbacks(timerRunnable);
-
-        } */else if (v == ll_tracking_addmoreservice) {
+*/
+        if (v == ll_tracking_addmoreservice) {
             Intent intent = new Intent(TrackingActivity.this, HomeActivity_Handy.class);
             ComponentName cn = intent.getComponent();
             Intent mainIntent = IntentCompat.makeRestartActivityTask(cn);
