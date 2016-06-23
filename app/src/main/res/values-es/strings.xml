@@ -464,6 +464,7 @@
     <string name="title_activity_my_address">MyAddressActivity</string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="taxi">Taxi</string>
 
 
 </resources>

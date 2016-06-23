@@ -83,6 +83,7 @@ public class BackFragment extends Fragment  {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        textOptionSelectedForService = new CustomizedTextView(getActivity().getApplicationContext());
         return inflater.inflate(R.layout.fragment_back, container, false);
 
     }
@@ -248,11 +249,9 @@ public class BackFragment extends Fragment  {
         restaurants_option.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                textOptionSelectedForService = new CustomizedTextView(getActivity().getApplicationContext());
                 textOptionSelectedForService = (CustomizedTextView) getActivity().findViewById(R.id.textRestaurants);
                 Intent intent = new Intent(getActivity(), HomeActivity_Handy.class);
-                intent.putExtra("restaurants", textOptionSelectedForService.getText().toString());
+                intent.putExtra("option", textOptionSelectedForService.getText().toString());
                 getActivity().startActivity(intent);
             }
         });
@@ -261,10 +260,9 @@ public class BackFragment extends Fragment  {
         taxi_option.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TextView txthandy = new TextView(getActivity());
-                txthandy.findViewById(R.id.taxi_option);
+                textOptionSelectedForService = (CustomizedTextView) getActivity().findViewById(R.id.textTaxi);
                 Intent intent = new Intent(getActivity(), HomeActivity_Handy.class);
-                intent.putExtra("taxi", txthandy.getText().toString());
+                intent.putExtra("option", textOptionSelectedForService.getText().toString());
                 getActivity().startActivity(intent);
             }
         });
@@ -274,10 +272,9 @@ public class BackFragment extends Fragment  {
         service_option.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TextView txthandy = new TextView(getActivity());
-                txthandy.findViewById(R.id.services_option);
+                textOptionSelectedForService = (CustomizedTextView) getActivity().findViewById(R.id.textServices);
                 Intent intent = new Intent(getActivity(), HomeActivity_Handy.class);
-                intent.putExtra("services", txthandy.getText().toString());
+                intent.putExtra("option", textOptionSelectedForService.getText().toString());
                 getActivity().startActivity(intent);
             }
         });

@@ -502,6 +502,7 @@
             />
 
         <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+            android:id="@+id/textServices"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:text="@string/services"
@@ -599,9 +600,10 @@
             android:layout_marginLeft="35dp" />
 
         <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+            android:id="@+id/textTaxi"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:text="Taxi"
+            android:text="@string/taxi"
             android:textColor="@android:color/white"
             android:textSize="17sp"
             app:font="@string/font_varela"

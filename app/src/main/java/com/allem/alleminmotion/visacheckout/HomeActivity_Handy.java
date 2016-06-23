@@ -52,7 +52,7 @@ public class HomeActivity_Handy extends FrontBackAnimate implements CategoryCall
     private boolean isNetworkEnabled;
     private Location location;
     Boolean intentflag=false;
-    String SerString="";
+    String SerString="", strOptionSelected = "";
     MyTextView tv_service_homefra_new;
     Fragment home;
     Boolean search_flag=false;
@@ -64,12 +64,16 @@ public class HomeActivity_Handy extends FrontBackAnimate implements CategoryCall
         setView(R.layout.homeactivity_handy,this);
         display =HomeActivity_Handy.this.getResources().getDisplayMetrics();
         Intent i = getIntent();
-        String strTaxi = i.getStringExtra("taxi");
-        String strRestaurants =i.getStringExtra("restaurants");
-        String strServices =i.getStringExtra("services");
-        if (strTaxi!=null)Log.d("strTaxi", strTaxi);
-        if (strRestaurants!=null)Log.d("strRestaurants", strRestaurants);
-        if (strServices!=null)Log.d("strServices", strServices);
+        String strTaxi = String.valueOf(R.string.taxi);
+        String strRestaurants = String.valueOf(R.string.title_restaurants);
+        String strServices = String.valueOf(R.string.services);
+
+        strOptionSelected = i.getStringExtra("option");
+
+        if (strOptionSelected.equals(strTaxi))Log.d("strTaxi", strTaxi);
+        if (strOptionSelected.equals(strRestaurants))Log.d("strRestaurants", strRestaurants);
+        if (strOptionSelected.equals(strServices))Log.d("strServices", strServices);
+
         width = display.widthPixels;
         height = display.heightPixels;
         speci = (height * 23) / 100;
@@ -179,15 +183,12 @@ public class HomeActivity_Handy extends FrontBackAnimate implements CategoryCall
                 Keybiardupdate();
                 if (Childservicelist.size()>0){
                     intentflag=true;
-
                     serviceid=mainCategory.get(selectedpos).getService_ID();
                     BeanConstants.BookingData.setUser_Selected_Service(mainCategory.get(selectedpos).getService_Name());
                     BeanConstants.BookingData.setUser_Selected_ServiceId(mainCategory.get(selectedpos).getService_ID());
                     BeanConstants.BookingData.setUser_ID(BeanConstants.loginData.getUser_ID());
                     BeanConstants.BookingData.setSelected_Sub_Service_ids(Childservicelist);
-
                     getLocation();
-
                 }else{
                     Toast.makeText(HomeActivity_Handy.this,"Please select atlest one service",Toast.LENGTH_SHORT).show();
                 }
