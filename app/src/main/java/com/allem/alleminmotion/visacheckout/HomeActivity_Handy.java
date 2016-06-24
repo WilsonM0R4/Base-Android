@@ -45,7 +45,7 @@ public class HomeActivity_Handy extends FrontBackAnimate implements CategoryCall
     ImageView tabImg;
     ImageButton booking;
     Context context;
-    static int selectedpos=0,sizeofmain=0;
+    static int selectedpos=0,sizeofmain=0, totalAddFrag;
     ArrayList<MainCategoryData> mainCategory;
     ArrayList<ImageView> arrayofimg=new ArrayList<>();
     static String servicename="",serviceid="";
@@ -56,25 +56,29 @@ public class HomeActivity_Handy extends FrontBackAnimate implements CategoryCall
     private boolean isNetworkEnabled;
     private Location location;
     Boolean intentflag=false;
-    String SerString="", strOptionSelected = "";
+    String SerString="", strOptionSelected = "", strTaxi = "", strRestaurants ="", strServices="" ;
     MyTextView tv_service_homefra_new;
     Fragment home;
     Boolean search_flag=false;
     ImageView leftNav,rightNav;
 
+    //**************   OVERRIDE METHODS  **************
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setView(R.layout.homeactivity_handy,this);
         context = this;
         display =HomeActivity_Handy.this.getResources().getDisplayMetrics();
         Intent i = getIntent();
-        String strTaxi = String.valueOf(R.string.taxi);
-        String strRestaurants = String.valueOf(R.string.title_restaurants);
-        String strServices = String.valueOf(R.string.services);
+        //getResources().getString(R.string.mystring);
+        strTaxi = getResources().getString(R.string.taxi);
+        strRestaurants = getResources().getString(R.string.title_restaurants);
+        strServices = getResources().getString(R.string.services);
 
         strOptionSelected = i.getStringExtra("option");
-
+        Log.d("strTaxiprueba", strTaxi);
+        Log.d("strOptionSelectedprueba", strOptionSelected);
         if (strOptionSelected.equals(strTaxi))Log.d("strTaxi", strTaxi);
         if (strOptionSelected.equals(strRestaurants))Log.d("strRestaurants", strRestaurants);
         if (strOptionSelected.equals(strServices))Log.d("strServices", strServices);
@@ -87,63 +91,7 @@ public class HomeActivity_Handy extends FrontBackAnimate implements CategoryCall
         //init();
         CallApi();
         getLocation();
-    }
 
-    private void CallApi() {
-        servicename="";
-        if(Const.IsInternetConnectionFound(this)){
-            BeanConstants.userBeen.setEmail(BeanConstants.loginData.getUser_Email());
-            BeanConstants.userBeen.setUser_ID(BeanConstants.loginData.getUser_ID());
-            BeanConstants.service.Categorycall(HomeActivity_Handy.this, SerString);
-
-        }else{
-            Toast.makeText(HomeActivity_Handy.this, getResources().getString(R.string.nointernet), Toast.LENGTH_LONG).show();
-        }
-
-    }
-
-    public Location getLocation() {
-        try {
-
-            locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-            isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
-            isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
-
-            if (!isGPSEnabled) {
-                buildAlertMessageNoGps();
-            } else {
-                if (intentflag){
-                    Intent intent=new Intent(HomeActivity_Handy.this,MapActivity.class);
-                    intent.putExtra("serviceid",serviceid);
-                    startActivity(intent);
-                }
-            }
-
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
-        return location;
-    }
-
-    private void buildAlertMessageNoGps() {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(
-                "Your GPS seems to be disabled, do you want to enable it?")
-                .setCancelable(false)
-                .setPositiveButton("Yes",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(final DialogInterface dialog, final int id) {
-                                startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
-                            }
-                        })
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    public void onClick(final DialogInterface dialog, final int id) {
-                        dialog.cancel();
-                        buildAlertMessageNoGps();
-                    }
-                });
-        final AlertDialog alert = builder.create();
-        alert.show();
     }
 
     @Override
@@ -161,20 +109,14 @@ public class HomeActivity_Handy extends FrontBackAnimate implements CategoryCall
             tabLayout = (TabLayout) findViewById(R.id.tab_layout);
             tabLayout.setupWithViewPager(viewPager);
             setupTabIcons(mainCategoryData);
+
         }
 
-    }
-
-    public void Keybiardupdate(){
-        View view = this.getCurrentFocus();
-        if (view != null) {
-            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-        }
     }
 
     @Override
     public void setdata(String totalnum,final ArrayList<String> Childservicelist) {
+
         tv_service_homefra_new.setText(totalnum);
 
         if (totalnum.trim().length()>0 && Integer.parseInt(totalnum.replace(" Service(s) selected",""))>0){
@@ -195,76 +137,16 @@ public class HomeActivity_Handy extends FrontBackAnimate implements CategoryCall
                     BeanConstants.BookingData.setSelected_Sub_Service_ids(Childservicelist);
                     getLocation();
                 }else{
-                    Toast.makeText(HomeActivity_Handy.this,"Please select atlest one service",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(HomeActivity_Handy.this,"Please select at least one service",Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
-    }
-
-    private void setupTabIcons(ArrayList<MainCategoryData> mainCategoryDatas) {
-
-        arrayofimg.clear();
-        for (int i=0;i<mainCategoryDatas.size();i++){
-
-            tabImg=(ImageView) LayoutInflater.from(this).inflate(R.layout.custom_img, null);
-            if (i==selectedpos){
-                Picasso.with(HomeActivity_Handy.this).load(BeanConstants.customer_image_category2+mainCategoryDatas.get(i).getService_Image_thumb()+"&h="+h).error(R.drawable.plasholder_75).placeholder(R.drawable.plasholder_75).into(tabImg);
-            }else{
-                Picasso.with(HomeActivity_Handy.this).load(BeanConstants.customer_image_category+mainCategoryDatas.get(i).getService_Image1()+"&h="+h).error(R.drawable.plasholder_75).placeholder(R.drawable.plasholder_75).into(tabImg);
-            }
-            arrayofimg.add(tabImg);
-            tabLayout.getTabAt(i).setCustomView(tabImg);
-            tabOne = (MyTextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
-            tabOne.setText(mainCategoryDatas.get(i).getService_Name()+"\n");
-            tabOne.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
-            tabOne.setCompoundDrawablePadding(15);
-            tabOne.setId(i);
-            tabLayout.getTabAt(i).setCustomView(tabOne);
-        }
-    }
-
-    private void setupViewPager(final ViewPager viewPager) {
-
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getFragmentManager());
-        for (int i=0;i<sizeofmain;i++){
-            adapter.addFrag(new HomeFragment(),mainCategory);
-        }
-        viewPager.setAdapter(adapter);
-        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                selectedpos = position;
-                Log.d("Size arrayofimg", String.valueOf(arrayofimg.size()));
-                for (int i = 0; i < arrayofimg.size(); i++) {
-                    if (i == position) {
-                        Picasso.with(HomeActivity_Handy.this).load(BeanConstants.customer_image_category2 + mainCategory.get(i).getService_Image_thumb() + "&h=" + h).error(R.drawable.plasholder_75).placeholder(R.drawable.plasholder_75).into(arrayofimg.get(i));
-                        Log.d("Sergio", "Entra a i==position");
-                    } else {
-                        Picasso.with(HomeActivity_Handy.this).load(BeanConstants.customer_image_category + mainCategory.get(i).getService_Image1() + "&h=" + h).error(R.drawable.plasholder_75).placeholder(R.drawable.plasholder_75).into(arrayofimg.get(i));
-                        Log.d("Sergio", "No entra a i==position");
-                        Log.d("Sergio", String.valueOf(BeanConstants.customer_image_category + mainCategory.get(i).getService_Image1() + "&h=" + h));
-                    }
-                }
-                viewPager.getAdapter().notifyDataSetChanged();
-            }
-            @Override
-            public void onPageScrollStateChanged(int state) {
-                viewPager.getAdapter().notifyDataSetChanged();
-            }
-        });
-    }
-
-    public void onMenu(View view) {
-        animate();
     }
 
     @Override
     public void initViews(View root) {
+
         slideHolder=(SlideHolder)root.findViewById(R.id.drawer_home_layout);
         tv_service_homefra_new=(MyTextView)root.findViewById(R.id.tv_service_homefra_new);
         booking = (ImageButton)root.findViewById(R.id.btn_booking);
@@ -275,21 +157,6 @@ public class HomeActivity_Handy extends FrontBackAnimate implements CategoryCall
                 context.startActivity(intent);
             }
         });
-
-
-       /* boolean booltaxi, boolrestaurant, boolservice;
-
-        booltaxi = Boolean.parseBoolean(strTaxi);
-        boolrestaurant = Boolean.parseBoolean(strRestaurants);
-        boolservice = Boolean.parseBoolean(strServices);
-
-        if(booltaxi){
-                headerTxt.setText(strTaxi);
-        }else if(boolrestaurant){
-                headerTxt.setText(strRestaurants);
-        }else if(boolservice){
-                headerTxt.setText(strServices);
-        }*/
 
         BeanConstants.userBeen.setEmail("user@demo.com");
         BeanConstants.userBeen.setPassword("123456");
@@ -331,45 +198,201 @@ public class HomeActivity_Handy extends FrontBackAnimate implements CategoryCall
                 }
             }
         });
+
     }
 
+    //**************   PROPER METHODS  **************
 
+    private void CallApi() {
+
+        servicename="";
+        if(Const.IsInternetConnectionFound(this)){
+            BeanConstants.userBeen.setEmail(BeanConstants.loginData.getUser_Email());
+            BeanConstants.userBeen.setUser_ID(BeanConstants.loginData.getUser_ID());
+            BeanConstants.service.Categorycall(HomeActivity_Handy.this, SerString);
+        }else{
+            Toast.makeText(HomeActivity_Handy.this, getResources().getString(R.string.nointernet), Toast.LENGTH_LONG).show();
+        }
+
+    }
+
+    public Location getLocation() {
+        try {
+
+            locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+            isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+            isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+
+            if (!isGPSEnabled) {
+                buildAlertMessageNoGps();
+            } else {
+                if (intentflag){
+                    Intent intent=new Intent(HomeActivity_Handy.this,MapActivity.class);
+                    intent.putExtra("serviceid",serviceid);
+                    startActivity(intent);
+                }
+            }
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        return location;
+    }
+
+    private void buildAlertMessageNoGps() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(
+                "Your GPS seems to be disabled, do you want to enable it?")
+                .setCancelable(false)
+                .setPositiveButton("Yes",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(final DialogInterface dialog, final int id) {
+                                startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                            }
+                        })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(final DialogInterface dialog, final int id) {
+                        dialog.cancel();
+                        buildAlertMessageNoGps();
+                    }
+                });
+        final AlertDialog alert = builder.create();
+        alert.show();
+    }
+
+    public void Keybiardupdate(){
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+    }
+
+    private void setupTabIcons(ArrayList<MainCategoryData> mainCategoryDatas) {
+
+        arrayofimg.clear();
+        for (int i=0;i<mainCategoryDatas.size();i++){
+
+            tabImg=(ImageView) LayoutInflater.from(this).inflate(R.layout.custom_img, null);
+            if (i==selectedpos){
+                Picasso.with(HomeActivity_Handy.this).load(BeanConstants.customer_image_category2+mainCategoryDatas.get(i).getService_Image_thumb()+"&h="+h).error(R.drawable.plasholder_75).placeholder(R.drawable.plasholder_75).into(tabImg);
+            }else{
+                Picasso.with(HomeActivity_Handy.this).load(BeanConstants.customer_image_category+mainCategoryDatas.get(i).getService_Image1()+"&h="+h).error(R.drawable.plasholder_75).placeholder(R.drawable.plasholder_75).into(tabImg);
+            }
+            arrayofimg.add(tabImg);
+            tabLayout.getTabAt(i).setCustomView(tabImg);
+            tabOne = (MyTextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
+            tabOne.setText(mainCategoryDatas.get(i).getService_Name()+"\n");
+            tabOne.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
+            tabOne.setCompoundDrawablePadding(15);
+            tabOne.setId(i);
+            tabLayout.getTabAt(i).setCustomView(tabOne);
+        }
+    }
+
+    private void setupViewPager(final ViewPager viewPager) {
+
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getFragmentManager());
+        for (int i=0;i<sizeofmain;i++){
+            adapter.addFrag(new HomeFragment(),mainCategory);
+        }
+        viewPager.setAdapter(adapter);
+        if (viewPager!=null && strOptionSelected.equals(strTaxi)){
+            Log.d("Pepe", "Entra a taxi");
+            viewPager.setCurrentItem(3);
+        }
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                selectedpos = position;
+                Log.d("Size arrayofimg", String.valueOf(arrayofimg.size()));
+                for (int i = 0; i < arrayofimg.size(); i++) {
+                    if (i == position) {
+                        Picasso.with(HomeActivity_Handy.this).load(BeanConstants.customer_image_category2 + mainCategory.get(i).getService_Image_thumb() + "&h=" + h).error(R.drawable.plasholder_75).placeholder(R.drawable.plasholder_75).into(arrayofimg.get(i));
+                        Log.d("Sergio", "Entra a i==position");
+                    } else {
+                        Picasso.with(HomeActivity_Handy.this).load(BeanConstants.customer_image_category + mainCategory.get(i).getService_Image1() + "&h=" + h).error(R.drawable.plasholder_75).placeholder(R.drawable.plasholder_75).into(arrayofimg.get(i));
+                        Log.d("Sergio", "No entra a i==position");
+                        Log.d("Sergio", String.valueOf(BeanConstants.customer_image_category + mainCategory.get(i).getService_Image1() + "&h=" + h));
+                    }
+                }
+                viewPager.getAdapter().notifyDataSetChanged();
+            }
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                viewPager.getAdapter().notifyDataSetChanged();
+            }
+        });
+
+
+    }
+
+    public void onMenu(View view) {
+        animate();
+    }
+
+    //****************************  INNER CLASSES  ************************
+
+    /** This class manage ViewPager's behavior, which contains sub services for each category */
     class ViewPagerAdapter extends FragmentPagerAdapter {
+
         private final List<Fragment> mFragmentList = new ArrayList<>();
-        private  ArrayList<MainCategoryData> mFragmentTitleList = new ArrayList<>();
+        //private  ArrayList<MainCategoryData> mFragmentTitleList = new ArrayList<>();
         public ViewPagerAdapter(FragmentManager manager) {
             super(manager);
         }
-
+            // Returns the fragment to display for that page
         @Override
         public Fragment getItem(int position) {
-            return mFragmentList.get(position);
+            Log.d("Sergio getItem",String.valueOf(mFragmentList.get(position)));
+           /* if (strOptionSelected.equals(strTaxi)){
+                Log.d("llega",String.valueOf(mFragmentList.get(position)));
+                return mFragmentList.get(3);
+            } else{*/
+                Log.d("tambien llega",String.valueOf(mFragmentList.get(position)));
+                return mFragmentList.get(position);
+            //}
         }
 
+            // Returns total number of pages
         @Override
         public int getCount() {
+            Log.d("Sergio getCount",String.valueOf(mFragmentList.size()));
             return mFragmentList.size();
         }
 
         public void addFrag(Fragment fragment,ArrayList<MainCategoryData> title) {
             home=fragment;
             mFragmentList.add(fragment);
-            mFragmentTitleList=title;
-
+            totalAddFrag++;
+            Log.d("Sergio addFrag",String.valueOf(totalAddFrag));
+            //mFragmentTitleList=title;
         }
 
+            //Called when the host view is attempting to determine if an item's position has changed
         @Override
         public int getItemPosition(Object object) {
             if (search_flag){
                 search_flag=false;
+                Log.d("Sergio getItemPosition",String.valueOf(arrayofimg.size()));
                 for (int i = 0; i < arrayofimg.size(); i++) {
+                    Log.d("SelectedPos", String.valueOf(selectedpos));
                     if (i == selectedpos) {
+                        Log.d("Son iguales", String.valueOf(selectedpos));
                         Picasso.with(HomeActivity_Handy.this).load(BeanConstants.customer_image_category2 + mainCategory.get(i).getService_Image_thumb() + "&h=" + h).error(R.drawable.plasholder_75).placeholder(R.drawable.plasholder_75).into(arrayofimg.get(i));
                     } else {
+                        Log.d(" No Son iguales", String.valueOf(selectedpos));
                         Picasso.with(HomeActivity_Handy.this).load(BeanConstants.customer_image_category + mainCategory.get(i).getService_Image1() + "&h=" + h).error(R.drawable.plasholder_75).placeholder(R.drawable.plasholder_75).into(arrayofimg.get(i));
                     }
                 }
             }
+
             if (object instanceof HomeFragment) {
                 ((HomeFragment) object).Refreshadapter(HomeActivity_Handy.this,selectedpos,servicename);
             }
@@ -382,14 +405,10 @@ public class HomeActivity_Handy extends FrontBackAnimate implements CategoryCall
             if ((selectedpos+1)==sizeofmain){
                 rightNav.setVisibility(View.INVISIBLE);
             }
-
             return super.getItemPosition(object);
         }
 
     }
-
-
-
 
 }
 
