@@ -577,6 +577,7 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="taxi">Taxi</string>
+    <string name="text_hint_enter_city">Enter city</string>
 
 
 </resources>

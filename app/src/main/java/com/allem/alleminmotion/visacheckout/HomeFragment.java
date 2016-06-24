@@ -26,9 +26,9 @@ import java.util.ArrayList;
  * Created by jsandoval on 20/06/16.
  */
 public class HomeFragment extends Fragment implements View.OnClickListener , AdapterRefreshInterface {
+
     static View parentView;
     Context context;
-
     GridView gridview;
     GridAdapter adapter;
     public static ArrayList<SubService> mainarray=new ArrayList<>();
@@ -40,25 +40,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener , Ada
     static int servicecount=0,service_pos=0;
     static ArrayList<String> Mainserviceflaglist=new ArrayList<>();
 
+    //*************  OVERRIDE METHODS  *************
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         parentView=inflater.inflate(R.layout.homefra_activity,container,false);
         init();
         return  parentView;
-    }
-
-
-    private void init() {
-        mainarray=(BeanConstants.CategoryData.get(service_pos).getSubServices());
-        tvservicecount=(MyTextView)parentView.findViewById(R.id.tv_service_homefra);
-        tvservicecount.setOnClickListener(this);
-        display =getActivity().getResources().getDisplayMetrics();
-        height = display.heightPixels;
-        h = (height * 13) / 100;
-        gridview=(GridView)parentView.findViewById(R.id.gridview);
-        adapter=new GridAdapter(getActivity());
-        gridview.setAdapter(adapter);
     }
 
     @Override
@@ -80,13 +68,25 @@ public class HomeFragment extends Fragment implements View.OnClickListener , Ada
 
     }
 
+    //*************  PROPER METHODS  *************
+    private void init() {
+        mainarray=(BeanConstants.CategoryData.get(service_pos).getSubServices());
+        tvservicecount=(MyTextView)parentView.findViewById(R.id.tv_service_homefra);
+        tvservicecount.setOnClickListener(this);
+        display =getActivity().getResources().getDisplayMetrics();
+        height = display.heightPixels;
+        h = (height * 13) / 100;
+        gridview=(GridView)parentView.findViewById(R.id.gridview);
+        adapter=new GridAdapter(getActivity());
+        gridview.setAdapter(adapter);
+    }
+
+    //*************  INNER CLASSES  *************
     public static class GridAdapter extends BaseAdapter {
         Context context;
-
         GridAdapter(Activity context){
             this.context=context;
         }
-
 
         @Override
         public int getCount() {

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="vertical"
+        android:id="@+id/linLayGetUpAnimationFlights"
+        android:layout_marginBottom="20dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="12dp"
+            android:id="@+id/arrow_flights_close_animation"
+            android:src="@drawable/hotels__arrow__down"
+            android:layout_gravity="center"
+            />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="16dp"
+        android:src="@drawable/flights__search"
+        android:background="@android:color/transparent"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/iv_search">
+
+    </ImageView>
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/text_hint_enter_city"
+        android:id="@+id/et_search"
+        android:textSize="16sp"
+        android:paddingTop="1dp"
+        android:textColor="@color/dark_gray"
+        android:layout_marginTop="50dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_toRightOf="@+id/iv_search"
+        android:layout_alignBottom="@+id/iv_search"
+        android:imeOptions="actionDone"
+        android:singleLine="true" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/icon_clear"
+        android:id="@+id/iv_search_clear"
+        android:layout_toRightOf="@+id/et_search"
+        android:layout_alignBottom="@+id/et_search"
+        android:layout_marginRight="16dp"
+        android:onClick="onClearSearch"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/textSuggest"
+        android:layout_below="@+id/iv_search"
+        android:text="@string/text_suggest"
+        android:textColor="@color/magenta"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/textSuggest"
+        android:layout_marginTop="5dp"
+        android:focusable="true"
+        android:background="@color/white">
+
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:transcriptMode="alwaysScroll"
+            android:cacheColorHint="#00000000"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/emptyElement"
+            android:padding="4dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/dark_gray"
+            android:text="@string/tv_lbl_empty_search"
+            android:visibility="gone"
+            />
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pb_search"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView3"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="144dp" />
+
+</RelativeLayout>

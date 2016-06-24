@@ -66,6 +66,7 @@
     </style>-->
 
     <style name="MyEditTextStyle">
+
     <item name="android:textColor">@color/register_input_active</item>
     </style>
 

@@ -69,7 +69,7 @@
 
     <uses-permission android:name="com.allem.alleminmotion.visacheckout.permission.C2D_MESSAGE" />
 
-    <application
+    <application android:hardwareAccelerated="true"
         android:name=".VisaCheckoutApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_visacheckout"
@@ -106,7 +106,7 @@
             android:screenOrientation="portrait">
         </activity>
         <activity android:name=".TrackingActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait">,
         </activity>
         <activity android:name=".Mcardhtml"
             android:screenOrientation="portrait">
@@ -284,7 +284,6 @@
         <activity
             android:name="io.card.payment.CardIOActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:hardwareAccelerated="true"
             android:screenOrientation="portrait" />
         <activity
             android:name="io.card.payment.DataEntryActivity"

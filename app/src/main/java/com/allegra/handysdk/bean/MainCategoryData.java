@@ -11,7 +11,6 @@ public class MainCategoryData implements Serializable {
     String Service_Name,Service_ID,Lead_Time,Service_Image1,Service_Image_thumb;
     public ArrayList<SubService> subServices = new ArrayList<SubService>();
 
-
     public String getService_Name() {
         return Service_Name;
     }
