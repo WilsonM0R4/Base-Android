@@ -13,19 +13,15 @@ import com.allem.onepocket.MenuHandler;
 import com.allem.onepocket.NextHandler;
 import com.allem.onepocket.OPKSummaryFragment;
 import com.allem.onepocket.RegisterCallback;
-import com.allem.onepocket.SummaryFragment;
 import com.allem.onepocket.model.OneTransaction;
 import com.allem.onepocket.utils.OPKConstants;
 
-import java.util.ArrayList;
 import java.util.Stack;
 
 
 public class OnepocketContainerActivity extends FrontBackAnimate  implements FrontBackAnimate.InflateReadyListener {
 
-    private SummaryFragment summary;
     private OPKSummaryFragment onePocket;
-    private String sessionId;
     private Stack<Fragment> stack = new Stack<>();
 
     @Override
@@ -38,7 +34,18 @@ public class OnepocketContainerActivity extends FrontBackAnimate  implements Fro
         RegisterCallback.registerNext(new NextHandler() {
             @Override
             public void handler(Fragment fragment) {
-                swap(fragment);
+                if (fragment != null) {
+                    addFragment(fragment);
+                } else {
+                    // clear the stack
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    while (!stack.isEmpty()) {
+                        Fragment top = stack.pop();
+                        transaction.remove(top);
+                    }
+                    transaction.show(onePocket);
+                    transaction.commit();
+                }
             }
 
             @Override
@@ -47,18 +54,17 @@ public class OnepocketContainerActivity extends FrontBackAnimate  implements Fro
             }
 
             @Override
-            public void returnResult(Bundle bundle) {
+            public void returnResult (Bundle bundle) {
+                int size = stack.size();
+                Fragment currentTop = stack.get(size - 1);
+                Fragment confirm = stack.get(size - 2);
+                confirm.getArguments().putParcelable(OPKConstants.EXTRA_RESULT, bundle);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                Fragment fragment;
-                while (!stack.empty()) {
-                    fragment = stack.pop();
-                    transaction.remove(fragment);
-                }
-
-                transaction.remove(onePocket);
-                transaction.remove(summary);
+                transaction.remove(currentTop);
+                transaction.detach(confirm).attach(confirm).show(confirm);
                 transaction.commit();
-                initViews(null);
+
+                stack.remove(size - 1);
             }
 
             @Override
@@ -89,50 +95,46 @@ public class OnepocketContainerActivity extends FrontBackAnimate  implements Fro
         RegisterCallback.registerBack(new BackHandler() {
             @Override
             public void handle() {
-                if (!onePocket.isHidden()) {
-                    onUp(null);
-                } else {
-                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                if (!stack.empty()) {
+                    Fragment top = stack.pop();
+                    transaction.remove(top);
                     if (!stack.empty()) {
-                        Fragment top = stack.pop();
-                        transaction.remove(top);
-                        if (!stack.empty()) {
-                            transaction.show(stack.peek());
-                        } else {
-                            transaction.show(onePocket);
-                            transaction.show(summary);
-                        }
+                        transaction.show(stack.peek());
+                    } else {
+                        transaction.show(onePocket);
                     }
-
-                    transaction.commit();
+                } else {
+                    transaction.show(onePocket);
                 }
+
+                transaction.commit();
             }
         });
     }
 
 
-    public void swap(Fragment fragment) {
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
-        if (fragment != null) {
-            Fragment current = getFragmentManager().findFragmentById(R.id.opk_bottom);
-            if (current == fragment) {
-                transaction.detach(fragment).attach(fragment);
-            } else {
-                transaction.replace(R.id.opk_bottom, fragment);
-            }
-        } else {
-            transaction.replace(R.id.opk_bottom, summary);
-        }
-        transaction.commit();
-
-    }
+//    public void swap(Fragment fragment) {
+//        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+//
+//        if (fragment != null) {
+//            Fragment current = getFragmentManager().findFragmentById(R.id.opk_bottom);
+//            if (current == fragment) {
+//                transaction.detach(fragment).attach(fragment);
+//            } else {
+//                transaction.replace(R.id.opk_bottom, fragment);
+//            }
+//        } else {
+//            transaction.replace(R.id.opk_bottom, summary);
+//        }
+//        transaction.commit();
+//
+//    }
 
     private void addFragment(Fragment fragment) {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         Fragment currentTop = getFragmentManager().findFragmentById(R.id.opk_top);
-        Fragment currentBottom = getFragmentManager().findFragmentById(R.id.opk_bottom);
-        transaction.hide(currentBottom).hide(currentTop);
+        transaction.hide(currentTop);
 
         for (Fragment f : stack) {
             transaction.hide(f);
@@ -152,16 +154,15 @@ public class OnepocketContainerActivity extends FrontBackAnimate  implements Fro
         }
 
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        sessionId = ((VisaCheckoutApp)getApplication()).getIdSession();
         onePocket = new OPKSummaryFragment();
         Bundle bundle = new Bundle();
         bundle.putParcelable(OPKConstants.EXTRA_DATA, oneTransaction);
         onePocket.setArguments(bundle);
         transaction.add(R.id.opk_top, onePocket);
 
-        // initialize with summary
-        summary = new SummaryFragment();
-        transaction.add(R.id.opk_bottom, summary);
+//        // initialize with summary
+//        summary = new SummaryFragment();
+//        transaction.add(R.id.opk_bottom, summary);
         transaction.commit();
 
     }

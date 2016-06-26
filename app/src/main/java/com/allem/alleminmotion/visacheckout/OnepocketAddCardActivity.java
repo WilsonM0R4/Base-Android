@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.View;
 
 import com.allem.alleminmotion.visacheckout.utils.Constants;
-import com.allem.onepocket.AddCardFragment;
 import com.allem.onepocket.BackHandler;
 import com.allem.onepocket.MenuHandler;
 import com.allem.onepocket.NextHandler;
@@ -18,10 +17,11 @@ import com.allem.onepocket.utils.OPKConstants;
 
 import java.util.ArrayList;
 
+@Deprecated
 public class OnepocketAddCardActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
 
     private String sessionId;
-    private AddCardFragment addCard;
+    //private AddCardFragment addCard;
     private ArrayList<Fragment> stack = new ArrayList<>(4);
 
     @Override
@@ -69,15 +69,15 @@ public class OnepocketAddCardActivity extends FrontBackAnimate implements FrontB
 
     @Override
     public void initViews(View root) {
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        sessionId = ((VisaCheckoutApp)getApplication()).getIdSession();
-        addCard = new AddCardFragment();
-
-        Bundle arguments = new Bundle();
-        arguments.putString(OPKConstants.EXTRA_SESSION_ID, sessionId);
-        addCard.setArguments(arguments);
-        transaction.add(R.id.opk_top, addCard);
-        transaction.commit();
+//        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+//        sessionId = ((VisaCheckoutApp)getApplication()).getIdSession();
+//        addCard = new AddCardFragment();
+//
+//        Bundle arguments = new Bundle();
+//        arguments.putString(OPKConstants.EXTRA_SESSION_ID, sessionId);
+//        addCard.setArguments(arguments);
+//        transaction.add(R.id.opk_top, addCard);
+//        transaction.commit();
     }
 
     private void addFragment(Fragment fragment) {

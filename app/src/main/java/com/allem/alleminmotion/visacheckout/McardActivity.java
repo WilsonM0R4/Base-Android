@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import com.allem.onepocket.OPKSummaryFragment;
-import com.allem.onepocket.SummaryFragment;
 
 
 /**
@@ -15,9 +14,6 @@ import com.allem.onepocket.SummaryFragment;
 public class McardActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener{
 
     private static final String TAG = "McardActivity";
-    private SummaryFragment summary;
-    private OPKSummaryFragment onePocket;
-    private String sessionId;
     private Button callPrivilege,callPremium,callExclusive,callUnlimited, infoPrivilege, infoPremium,
             infoExclusive, infoUnlimited;
 
