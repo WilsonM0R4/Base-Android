@@ -1114,8 +1114,8 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
                     for (int i = 0; i < msgCount; i++) {
                         airportData.add(new AirportData(data.get("IATA" + i),
                                 data.get("IataCountry" + i),
-                                data.get("NameCity" + i),
-                                data.get("Name" + i),hotelsType));
+                                data.get("Name" + i),
+                                data.get("NameCity" + i),hotelsType));
                         Log.d("Sergio tal HOTEL",data.toString());
                     }
 

@@ -69,7 +69,7 @@ public class SearchAdapterHotels extends BaseAdapter{
        HotelsActivity.AirportData airport = results.get(i);
 
         holder.itemResult.setText(airport.getListInformation());
-        holder.itemCityAndCountry.setText(airport.getCity()+", "+airport.getName());
+        holder.itemCityAndCountry.setText(airport.getName()+", "+airport.getCity());
 
         //this method must return the view corresponding to the data at the specified position.
         return view;
