@@ -9,7 +9,6 @@ import android.view.View;
 import com.allem.onepocket.BackHandler;
 import com.allem.onepocket.MenuHandler;
 import com.allem.onepocket.NextHandler;
-import com.allem.onepocket.OneTransactionDescFragment;
 import com.allem.onepocket.PurchaseSummaryFragment;
 import com.allem.onepocket.RegisterCallback;
 import com.allem.onepocket.model.OneTransaction;
@@ -31,8 +30,18 @@ public class OnepocketPurchaseActivity extends FrontBackAnimate implements Front
         RegisterCallback.registerNext(new NextHandler() {
             @Override
             public void handler(Fragment fragment) {
-                //swap(fragment);
-                addFragment(fragment);
+                if (fragment != null) {
+                    addFragment(fragment);
+                } else {
+                    // clear the stack
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    while (!stack.isEmpty()) {
+                        Fragment top = stack.pop();
+                        transaction.remove(top);
+                    }
+                    transaction.show(summary);
+                    transaction.commit();
+                }
 
             }
 
@@ -77,21 +86,19 @@ public class OnepocketPurchaseActivity extends FrontBackAnimate implements Front
         RegisterCallback.registerBack(new BackHandler() {
             @Override
             public void handle() {
-                //onUp(null);
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 if (!stack.empty()) {
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
                     Fragment top = stack.pop();
                     transaction.remove(top);
                     if (!stack.empty()) {
                         transaction.show(stack.peek());
-//                    } else {
-//                        transaction.show(onePocket);
-//                        transaction.show(summary);
+                    } else {
+                        transaction.show(summary);
                     }
+                    transaction.commit();
+                } else {
+                    onUp(null);
                 }
-
-                transaction.commit();
-
             }
         });
     }
@@ -101,16 +108,12 @@ public class OnepocketPurchaseActivity extends FrontBackAnimate implements Front
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
         OneTransaction oneTransaction = getIntent().getParcelableExtra(OPKConstants.EXTRA_PAYMENT);
-        Fragment current = new OneTransactionDescFragment();
+        summary = new PurchaseSummaryFragment();
         Bundle bundle = new Bundle();
         bundle.putParcelable(OPKConstants.EXTRA_PAYMENT, oneTransaction);
-        current.setArguments(bundle);
-        transaction.add(R.id.opk_top, current);
+        summary.setArguments(bundle);
+        transaction.add(R.id.opk_top, summary);
 
-//        // initialize with summary
-//        summary = new PurchaseSummaryFragment();
-//        transaction.add(R.id.opk_bottom, summary);
-//        transaction.hide(summary);
         transaction.commit();
 
     }

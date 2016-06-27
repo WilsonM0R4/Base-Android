@@ -73,7 +73,7 @@ public class SendLogActivity extends Activity {
         intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"android-test@iatai.com"});
         intent.putExtra (Intent.EXTRA_SUBJECT, "Allegra Log Report: Build Version " + versionName);
         intent.putExtra (Intent.EXTRA_STREAM, Uri.parse("file://" + fullName));
-        intent.putExtra(Intent.EXTRA_TEXT, "Please add reproduction steps and addition info here. Thanks!"); // do this so some email clients don't complain about empty body.
+        intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.send_log_instruction)); // do this so some email clients don't complain about empty body.
         startActivity(intent);
     }
 

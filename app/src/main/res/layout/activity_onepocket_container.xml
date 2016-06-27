@@ -10,14 +10,7 @@
     <FrameLayout
         android:id="@+id/opk_top"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
-
-    <FrameLayout
-        android:id="@+id/opk_bottom"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         />
 
 </RelativeLayout>
