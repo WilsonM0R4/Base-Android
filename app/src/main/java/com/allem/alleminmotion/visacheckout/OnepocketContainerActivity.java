@@ -95,8 +95,8 @@ public class OnepocketContainerActivity extends FrontBackAnimate  implements Fro
         RegisterCallback.registerBack(new BackHandler() {
             @Override
             public void handle() {
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 if (!stack.empty()) {
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
                     Fragment top = stack.pop();
                     transaction.remove(top);
                     if (!stack.empty()) {
@@ -104,11 +104,11 @@ public class OnepocketContainerActivity extends FrontBackAnimate  implements Fro
                     } else {
                         transaction.show(onePocket);
                     }
+                    transaction.commit();
                 } else {
-                    transaction.show(onePocket);
+                    onUp(null);
                 }
 
-                transaction.commit();
             }
         });
     }
