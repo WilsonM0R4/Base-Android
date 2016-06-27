@@ -12,6 +12,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v13.app.FragmentPagerAdapter;
+//import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -45,14 +46,14 @@ public class HomeActivity_Handy extends FrontBackAnimate implements CategoryCall
     ImageView tabImg;
     ImageButton booking;
     Context context;
-    static int selectedpos=0,sizeofmain=0, totalAddFrag;
+    static int selectedpos=0,sizeofmain=0, totalAddFrag, countTaxi = 0;
     ArrayList<MainCategoryData> mainCategory;
     ArrayList<ImageView> arrayofimg=new ArrayList<>();
     static String servicename="",serviceid="";
     static int height,width, speci,speciwidth,h;
     DisplayMetrics display;
     private LocationManager locationManager;
-    private boolean isGPSEnabled;
+    private boolean isGPSEnabled, isEnterToTaxi = true;
     private boolean isNetworkEnabled;
     private Location location;
     Boolean intentflag=false;
@@ -91,11 +92,11 @@ public class HomeActivity_Handy extends FrontBackAnimate implements CategoryCall
         //init();
         CallApi();
         getLocation();
-
     }
 
     @Override
     public void CategoryData(ArrayList<MainCategoryData> mainCategoryData) {
+        Log.d("Pepe", "Entra a CategoryData");
 
         sizeofmain=0;
         mainCategory=new ArrayList<>();
@@ -109,7 +110,6 @@ public class HomeActivity_Handy extends FrontBackAnimate implements CategoryCall
             tabLayout = (TabLayout) findViewById(R.id.tab_layout);
             tabLayout.setupWithViewPager(viewPager);
             setupTabIcons(mainCategoryData);
-
         }
 
     }
@@ -141,6 +141,7 @@ public class HomeActivity_Handy extends FrontBackAnimate implements CategoryCall
                 }
             }
         });
+
 
     }
 
@@ -288,21 +289,21 @@ public class HomeActivity_Handy extends FrontBackAnimate implements CategoryCall
             tabOne.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
             tabOne.setCompoundDrawablePadding(15);
             tabOne.setId(i);
+
             tabLayout.getTabAt(i).setCustomView(tabOne);
         }
+
     }
 
     private void setupViewPager(final ViewPager viewPager) {
 
         ViewPagerAdapter adapter = new ViewPagerAdapter(getFragmentManager());
+
         for (int i=0;i<sizeofmain;i++){
             adapter.addFrag(new HomeFragment(),mainCategory);
         }
         viewPager.setAdapter(adapter);
-        if (viewPager!=null && strOptionSelected.equals(strTaxi)){
-            Log.d("Pepe", "Entra a taxi");
-            viewPager.setCurrentItem(3);
-        }
+
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -331,6 +332,7 @@ public class HomeActivity_Handy extends FrontBackAnimate implements CategoryCall
         });
 
 
+
     }
 
     public void onMenu(View view) {
@@ -340,7 +342,7 @@ public class HomeActivity_Handy extends FrontBackAnimate implements CategoryCall
     //****************************  INNER CLASSES  ************************
 
     /** This class manage ViewPager's behavior, which contains sub services for each category */
-    class ViewPagerAdapter extends FragmentPagerAdapter {
+        class ViewPagerAdapter extends FragmentPagerAdapter {
 
         private final List<Fragment> mFragmentList = new ArrayList<>();
         //private  ArrayList<MainCategoryData> mFragmentTitleList = new ArrayList<>();
@@ -351,13 +353,8 @@ public class HomeActivity_Handy extends FrontBackAnimate implements CategoryCall
         @Override
         public Fragment getItem(int position) {
             Log.d("Sergio getItem",String.valueOf(mFragmentList.get(position)));
-           /* if (strOptionSelected.equals(strTaxi)){
-                Log.d("llega",String.valueOf(mFragmentList.get(position)));
-                return mFragmentList.get(3);
-            } else{*/
                 Log.d("tambien llega",String.valueOf(mFragmentList.get(position)));
                 return mFragmentList.get(position);
-            //}
         }
 
             // Returns total number of pages
@@ -395,6 +392,7 @@ public class HomeActivity_Handy extends FrontBackAnimate implements CategoryCall
 
             if (object instanceof HomeFragment) {
                 ((HomeFragment) object).Refreshadapter(HomeActivity_Handy.this,selectedpos,servicename);
+                Log.d("Pepe", "Entra a instanceof");
             }
 
             leftNav.setVisibility(View.VISIBLE);
@@ -405,7 +403,8 @@ public class HomeActivity_Handy extends FrontBackAnimate implements CategoryCall
             if ((selectedpos+1)==sizeofmain){
                 rightNav.setVisibility(View.INVISIBLE);
             }
-            return super.getItemPosition(object);
+
+                return super.getItemPosition(object);
         }
 
     }

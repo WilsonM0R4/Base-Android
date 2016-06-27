@@ -6,10 +6,11 @@ import java.util.ArrayList;
 /**
  * Created by sergiofarfan on 20/06/16.
  */
-public class MainCategoryData implements Serializable {
+public class MainCategoryData {//implements Serializable
 
     String Service_Name,Service_ID,Lead_Time,Service_Image1,Service_Image_thumb;
-    public ArrayList<SubService> subServices = new ArrayList<SubService>();
+    public ArrayList<SubService> subServices = new ArrayList<>();
+
 
     public String getService_Name() {
         return Service_Name;

@@ -115,8 +115,8 @@ public class ApiCall {
 
     public static void CategoryData(String resultString) {
         try {
-            MainService=new ArrayList<>();
-            JSONArray jaara=new JSONArray(resultString);
+            MainService = new ArrayList<>();
+            JSONArray jaara = new JSONArray(resultString);
 
             JSONObject jsonObject=jaara.optJSONObject(0);
 
@@ -517,7 +517,6 @@ public class ApiCall {
 
     }
 
-
     //============================================invoice datail=====================================================
     public void GetInvoiceDetail(Activity activity,String BookingID){
         this.activity=activity;
@@ -577,7 +576,6 @@ public class ApiCall {
             Toast.makeText(activity,"error in fetching data, Please try again.",Toast.LENGTH_SHORT).show();
         }
     }
-
 
     public void InsertFeedback(Activity activity,String Invoice_Id){
         this.activity=activity;
@@ -650,8 +648,6 @@ public class ApiCall {
         }
 
     }
-
-
 
     public static void addressListResponse(String resultString) {
 
