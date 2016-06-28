@@ -525,6 +525,8 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
         rllSearchAirport.setVisibility(View.VISIBLE);
         isSearchActive = true;
 
+
+
         //Clear EditText
         EditText edtSearch = (EditText) findViewById(R.id.et_search);
         edtSearch.setText("");

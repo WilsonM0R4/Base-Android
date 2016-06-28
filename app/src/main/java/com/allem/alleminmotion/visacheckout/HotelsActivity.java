@@ -517,10 +517,10 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
                 View linLayDestinationHotels = findViewById(R.id.ll_destination_hotels);
                 linLayDestinationHotels.setVisibility(View.VISIBLE);
                 TextView txtHotelName = (TextView)findViewById(R.id.txtDestinationName);
-                txtHotelName.setText(String.valueOf(airportData.getCity()));
+                txtHotelName.setText(String.valueOf(airportData.getName()));
                 paramDestination = airportData.getCodeIATA();
                 TextView txtHotelCityAndCountry = (TextView)findViewById(R.id.txtDestinationCityAndCountry);
-                txtHotelCityAndCountry.setText(String.valueOf(airportData.getCity()).toUpperCase() + ", "+ String.valueOf(airportData.getName()).toUpperCase());
+                txtHotelCityAndCountry.setText(String.valueOf(airportData.getName()).toUpperCase() + ", "+ String.valueOf(airportData.getCity()).toUpperCase());
                 searchLayout.setVisibility(View.GONE);
                 datesLayout.setVisibility(View.VISIBLE);
                 roomsGuestHeader.setVisibility(View.VISIBLE);
