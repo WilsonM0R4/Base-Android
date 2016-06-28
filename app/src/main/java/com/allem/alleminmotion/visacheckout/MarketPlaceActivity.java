@@ -38,6 +38,7 @@ public class MarketPlaceActivity extends FrontBackAnimate implements FrontBackAn
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        System.gc();
         super.setView(R.layout.activity_market_place, this);
 
     }

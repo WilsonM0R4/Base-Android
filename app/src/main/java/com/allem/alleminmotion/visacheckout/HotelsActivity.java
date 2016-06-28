@@ -115,6 +115,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        System.gc();
         setView(R.layout.fragment_hotels, this);
     }
 
