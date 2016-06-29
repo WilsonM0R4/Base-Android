@@ -15,7 +15,7 @@
         android:layout_marginTop="40dp"
         android:layout_centerHorizontal="true"
         android:id="@+id/titletextCancelDialog"
-        android:textColor="@color/com_visa_checkout_carousel_error_red"
+        android:textColor="@color/orange"
         />
 
     <TextView
