@@ -26,7 +26,8 @@ import android.util.Log;
 /**
  * Created by sergiofarfan on 16/06/16.
  */
-public class GPSTracker extends Service implements LocationListener {
+public class
+GPSTracker extends Service implements LocationListener {
 
     //*******GLOBAL VARIABLES********
     private final Context mContext;
@@ -104,7 +105,7 @@ public class GPSTracker extends Service implements LocationListener {
             } else {
                 this.canGetLocation = true;
                 // First get location from Network Provider
-                /*if (isNetworkEnabled) {
+                if (isNetworkEnabled) {
                     locationManager.requestLocationUpdates(
                             LocationManager.NETWORK_PROVIDER,
                             MIN_TIME_BW_UPDATES,
@@ -117,10 +118,10 @@ public class GPSTracker extends Service implements LocationListener {
 
                         }
                     }
-                }*/
+                }
                 // if GPS Enabled get lat/long using GPS Services
                 if (isGPSEnabled) {
-                   // if (location == null) {
+                    if (location == null) {
                         locationManager.requestLocationUpdates(
                                 LocationManager.GPS_PROVIDER,
                                 MIN_TIME_BW_UPDATES,
@@ -132,7 +133,7 @@ public class GPSTracker extends Service implements LocationListener {
                             if (location != null) {
                             }
                         }
-                   // }
+                    }
                 }
             }
         } catch (SecurityException e) {
@@ -161,7 +162,6 @@ public class GPSTracker extends Service implements LocationListener {
         if(location != null){
             latitude = location.getLatitude();
         }
-        // return latitude
         return latitude;
     }
 
@@ -172,8 +172,6 @@ public class GPSTracker extends Service implements LocationListener {
         if(location != null){
             longitude = location.getLongitude();
         }
-
-        // return longitude
         return longitude;
     }
 

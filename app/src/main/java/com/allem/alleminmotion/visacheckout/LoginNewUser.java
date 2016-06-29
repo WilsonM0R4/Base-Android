@@ -59,6 +59,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
 
         super.onCreate(savedInstanceState);
         ctx = this;
+        System.gc();
         MyBus.getInstance().register(this);
         super.setView(R.layout.fragment_login_newuser, this);
     }
