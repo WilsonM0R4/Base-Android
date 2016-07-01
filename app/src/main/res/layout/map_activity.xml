@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <com.allem.alleminmotion.visacheckout.MapWrapperLayout
+                android:id="@+id/map_relative_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <fragment
+                    android:id="@+id/map_home"
+                    class="com.google.android.gms.maps.MapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </fragment>
+            </com.allem.alleminmotion.visacheckout.MapWrapperLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/ll_homefra"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <include
+                        layout="@layout/header_map"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/black"></View>
+
+                    <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                        android:id="@+id/address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|left"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:drawableLeft="@drawable/icon_top_mappin"
+                        android:drawablePadding="20dp"
+                        android:padding="10dp"
+                        android:textColor="@color/dark_gray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingLeft="15dp">
+
+                        <RadioButton
+                            android:id="@+id/radiobtn_address"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:checked="false" />
+                        <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="Add to address"
+                            android:gravity="center_vertical"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                android:id="@+id/tv_booknow_map"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_book_now"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="BOOK NOW"
+                android:textColor="@color/white"
+                android:textSize="17dp" />
+
+            <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                android:id="@+id/tv_booklater_map"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_book_later"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="BOOK LATER"
+                android:textColor="@color/orange"
+                android:textSize="17dp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

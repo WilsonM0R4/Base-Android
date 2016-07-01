@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_main_drawer"
+    android:layout_width="220dp"
+    android:layout_height="match_parent"
+    android:layout_gravity="left"
+    android:background="@drawable/menu_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/llEditProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp">
+
+        <com.allem.alleminmotion.visacheckout.utils.CircularImageView
+            android:id="@+id/cv_icon"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/service_request_iconbg" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                    android:id="@+id/tv_name_drawermenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Lauren Teller"
+                    android:textColor="@android:color/black"
+                    android:textSize="19dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                    android:id="@+id/tv_editprofile_drawermenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Edit Profile"
+                    android:textColor="@android:color/black"
+                    android:textSize="12dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|left"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:src="@drawable/icon_leftmenu_home" />
+
+        <com.allem.alleminmotion.visacheckout.utils.MyTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/home"
+            android:textColor="@android:color/white"
+            android:textSize="17dp" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/menu_line" />
+
+
+    <LinearLayout
+        android:id="@+id/llMyBooking"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|left"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:src="@drawable/icon_leftmenu_myprofile" />
+
+        <com.allem.alleminmotion.visacheckout.utils.MyTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="My Booking"
+            android:textColor="@android:color/white"
+            android:textSize="17dp" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/menu_line" />
+
+    <LinearLayout
+        android:id="@+id/llMyWallet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|left"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:src="@drawable/icon_leftmenu_mywallet" />
+
+        <com.allem.alleminmotion.visacheckout.utils.MyTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Onepocket"
+            android:textColor="@android:color/white"
+            android:textSize="17dp" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/menu_line" />
+
+    <LinearLayout
+        android:id="@+id/llmyaddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|left"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:src="@drawable/address_book_icon" />
+
+        <com.allem.alleminmotion.visacheckout.utils.MyTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/myaddress"
+            android:textColor="@android:color/white"
+            android:textSize="17dp" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:src="@drawable/menu_line" />
+
+    <LinearLayout
+        android:id="@+id/llAboutUs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|left"
+        android:visibility="visible"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:src="@drawable/icon_leftmenu_about" />
+
+        <com.allem.alleminmotion.visacheckout.utils.MyTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/aboutus"
+            android:textColor="@android:color/white"
+            android:textSize="17dp" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/menu_line" />
+
+    <LinearLayout
+        android:id="@+id/llLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|left"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:src="@drawable/icon_leftmenu_logout" />
+
+        <com.allem.alleminmotion.visacheckout.utils.MyTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/logout"
+            android:textColor="@android:color/white"
+            android:textSize="17dp" />
+    </LinearLayout>
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/menu_line" />
+
+
+</LinearLayout>

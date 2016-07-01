@@ -22,8 +22,7 @@
                 android:layout_height="?android:attr/actionBarSize"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:background="@color/white"
-                android:id="@+id/ll_header">
+                android:id="@+id/ll_header">                <!-- android:background="@color/white"-->
 
                 <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
                     android:layout_width="wrap_content"

@@ -76,19 +76,20 @@
                 android:textColor="@color/orange"
                 android:textSize="29sp"
                 app:font="@string/font_muli_extraLight"
-                android:layout_gravity="center_vertical"
+                android:gravity="center_horizontal"
+                android:lineSpacingExtra="-16dp"
                 android:layout_marginTop="10dp" />
 
             <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
                 android:id="@+id/tv_lbl_enter_new_information"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_lbl_user_information"
                 android:textAlignment="center"
-                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/dark_gray"
                 android:textSize="16sp"
-                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="5dp"
                 app:font="@string/font_muli"/>
 
             <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
@@ -108,25 +109,23 @@
                 android:id="@+id/et_names"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="12dp"
                 android:drawableStart="@drawable/field_name"
                 android:ems="5"
-                android:background="@drawable/apptheme_edit_text_holo_light"
                 android:textColorHint="@color/register_input_inactive"
-                style="@style/MyEditTextStyle"
                 android:hint="@string/txt_hint_cc_name"
                 android:inputType="textPersonName"
                 android:singleLine="true"
                 android:textSize="15sp"
                 app:fontEdit="@string/font_muli"
-                />
+                style="@style/MyEditTextStyle"
+                /> <!-- android:background="@drawable/apptheme_edit_text_holo_light"-->
 
             <com.allem.alleminmotion.visacheckout.utils.CustomizedEditText
                 android:id="@+id/et_surname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
-                android:background="@drawable/apptheme_edit_text_holo_light"
                 android:drawableStart="@drawable/field_lastname"
                 android:ems="5"
                 android:hint="@string/txt_hint_cc_surname"
@@ -135,7 +134,8 @@
                 android:textSize="15sp"
                 app:fontEdit="@string/font_muli"
                 android:textColorHint="@color/register_input_inactive"
-                style="@style/MyEditTextStyle"/>
+                style="@style/MyEditTextStyle"
+                /> <!-- android:background="@drawable/apptheme_edit_text_holo_light"-->
 
             <com.allem.alleminmotion.visacheckout.utils.CustomizedEditText
                 android:id="@+id/et_email"
@@ -143,7 +143,6 @@
                 android:layout_height="wrap_content"
                 android:layout_alignRight="@+id/et_names"
                 android:layout_marginTop="3dp"
-                android:background="@drawable/apptheme_edit_text_holo_light"
                 android:drawableStart="@drawable/field_mail"
                 android:hint="@string/txt_hint_email"
                 android:inputType="text|textNoSuggestions|textEmailAddress"
@@ -151,7 +150,8 @@
                 android:textSize="15sp"
                 app:fontEdit="@string/font_muli"
                 android:textColorHint="@color/register_input_inactive"
-                style="@style/MyEditTextStyle"/>
+                style="@style/MyEditTextStyle"
+                /> <!-- android:background="@drawable/apptheme_edit_text_holo_light" -->
 
             <com.allem.alleminmotion.visacheckout.utils.CustomizedEditText
                 android:id="@+id/et_password"
@@ -164,9 +164,10 @@
                 android:inputType="textPassword"
                 android:singleLine="true"
                 android:textSize="15sp"
+                style="@style/MyEditTextStyle"
                 app:fontEdit="@string/font_muli"
                 android:textColorHint="@color/register_input_inactive"
-                style="@style/MyEditTextStyle"/>
+                /> <!---->
 
             <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
                 android:id="@+id/et_country_mobile"
@@ -182,8 +183,9 @@
                 android:maxLength="100"
                 android:singleLine="true"
                 app:font="@string/font_muli"
-                android:textColorHint="@color/register_input_inactive"
-                style="@style/MyEditTextStyle"/>
+                android:textColorHint="@color/dark_gray"
+                style="@style/MyEditTextStyle"
+                />  <!--/-->
 
             <com.allem.alleminmotion.visacheckout.utils.CustomizedEditText
                 android:id="@+id/et_mobile"
@@ -197,7 +199,8 @@
                 android:textSize="15sp"
                 app:fontEdit="@string/font_muli"
                 android:textColorHint="@color/register_input_inactive"
-                style="@style/MyEditTextStyle"/>
+                style="@style/MyEditTextStyle"
+                /> <!---->
 
 
             <LinearLayout

@@ -41,6 +41,13 @@ public class CustomizedTextView extends TextView {
         this.setTypeface(getFont());
     }
 
+
+    //For Service option in BackFragment.java
+    public CustomizedTextView(Context context){
+        super(context);
+        this.context = context;
+    }
+
     /*
     * private getter for get the requested font
     * */

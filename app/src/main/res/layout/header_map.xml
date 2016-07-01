@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_man_headermap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_navi_hedermap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:background="@android:color/transparent"
+                    android:padding="10dp"
+                    android:src="@drawable/icon_back_nevi1" />
+
+                <ImageView
+                    android:id="@+id/iv_back_hedermap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:background="@android:color/transparent"
+                    android:padding="10dp"
+                    android:src="@drawable/icon_back_nevi"
+                    android:visibility="gone" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_logo_hedermap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.1"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/logo_aboutus"
+                    android:visibility="gone" />
+
+                <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                    android:id="@+id/tv_logotext_hedermap"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:textSize="22dp"
+                    android:visibility="gone" />
+
+
+                <com.allem.alleminmotion.visacheckout.utils.MyAutoCompleteTextView
+                    android:id="@+id/ed_search_headermap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/search_input"
+                    android:drawableLeft="@drawable/icon_search_input"
+                    android:drawablePadding="10dp"
+                    android:textSize="14sp"
+                    android:hint="Search"
+                    android:singleLine="true"
+                    android:padding="10dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_search_hedermap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:visibility="gone"
+                    android:background="@android:color/transparent"
+                    android:padding="5dp"
+                    android:src="@drawable/icon_search" />
+
+                <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                    android:id="@+id/tv_go_headermap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/search_go_btn"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="GO"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

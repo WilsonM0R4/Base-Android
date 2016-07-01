@@ -419,5 +419,55 @@
     <string name="send_log_request">Se ha producido un error.  Por favor pulse aquí para enviarnos el log.</string>
     <string name="send_log_instruction">Por favor agregar pasos de reproducción y información adicional aquí.  Gracias!</string>
 
+    <!--HANDY U STRINGS-->
+
+    <string name="app_name_handy">Handy U</string>
+
+    <!--server base url for api call and images  -->
+    <!-- <string name="base_url">http://ec2-52-26-68-235.us-west-2.compute.amazonaws.com:8080/HomZservice</string>
+     <string name="image_url">http://ec2-52-26-68-235.us-west-2.compute.amazonaws.com:8080/HomZservice/fileupload/</string>
+     <string name="image_category">http://ec2-52-26-68-235.us-west-2.compute.amazonaws.com:8080/HomZservice/fileupload/</string>-->
+
+
+
+    <!-- server base url for test -->
+
+
+    <!--UI screen text  -->
+    <string name="login_handy">LOGIN</string>
+    <string name="signup">SIGN UP</string>
+
+    <string name="login1">Login</string>
+    <string name="signup1">Sign Up</string>
+
+    <string name="emailhint">Enter Email</string>
+    <string name="passwordhint">Enter Password</string>
+    <string name="forgotpassword">Forgot Password?</string>
+
+    <string name="home">Home</string>
+    <string name="myprofile">My Profile</string>
+    <string name="aboutus">About Us</string>
+    <string name="mywallet">My Wallet</string>
+    <string name="logout_handy">Logout</string>
+    <string name="myaddress">My Address</string>
+    <string name="action_settings_handy">Settings</string>
+    <string name="welcome_msg1">Welcome to handy</string>
+    <string name="welcome_msg2">Miles of services in just\none place</string>
+    <string name="forgetpass_txt">Enter your email address in order to recover your passwrod back</string>
+    <string name="forgetpass_txt_btn">Recover My Password</string>
+    <string name="backtologin">Back To Login</string>
+
+    <!--set font names  -->
+    <string name="fontName_regular">Muli.ttf</string>
+    <string name="fontName_bold">Muli-Bold.ttf</string>
+
+    <!--general messages  -->
+    <string name="nointernet">No internet found.</string>
+    <string name="title_activity_my_address">MyAddressActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="taxi">Taxi</string>
+    <string name="text_hint_enter_city">Ingresa ciudad</string>
+
 
 </resources>

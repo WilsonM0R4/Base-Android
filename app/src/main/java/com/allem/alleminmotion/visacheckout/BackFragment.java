@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.allem.alleminmotion.visacheckout.models.AllemUser;
 import com.allem.alleminmotion.visacheckout.utils.Constants;
+import com.allem.alleminmotion.visacheckout.utils.CustomizedTextView;
 import com.allem.alleminmotion.visacheckout.utils.Util;
 import com.allem.onepocket.model.OneTransaction;
 import com.allem.onepocket.utils.OPKConstants;
@@ -24,6 +25,9 @@ import com.allem.onepocket.utils.OPKConstants;
 //Example: new MenuActivity (R.string.title_call, R.drawable.menu__onetouch__call, CallActivity.class)
 public class BackFragment extends Fragment  {
 
+    private String optionSelectedForService = "";
+    private CustomizedTextView textOptionSelectedForService;
+
     public interface MenuSelectListener {
         public void getStartActivity(Intent intent);
     }
@@ -34,6 +38,7 @@ public class BackFragment extends Fragment  {
         private CharSequence title;
         private int iconResource;
         private Class<? extends Activity> activityClass;
+
 
         public MenuActivity(int titleResId, int iconResource, Class<? extends Activity> activityClass) {
             this.activityClass = activityClass;
@@ -59,6 +64,8 @@ public class BackFragment extends Fragment  {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+
         activities = new MenuActivity[] {
                 new MenuActivity(R.string.title_my_account, R.drawable.menu__account,  MyAccountActivity.class),
                 new MenuActivity(R.string.title_market_place, R.drawable.menu__mktplace, MarketPlaceActivity.class),
@@ -66,7 +73,7 @@ public class BackFragment extends Fragment  {
                 new MenuActivity(R.string.onepocket,R.drawable.menu__onepocket,McardActivity.class),
                 new MenuActivity(R.string.title_hotels, R.drawable.menu__hotels, HotelsActivity.class),
                 new MenuActivity(R.string.title_concierge, R.drawable.concierge5,ConciergeActivity.class),
-                new MenuActivity(R.string.title_services, R.drawable.menu__services, ServiceActivity.class),
+                new MenuActivity(R.string.title_services, R.drawable.menu__services, HomeActivity_Handy.class),
                 new MenuActivity(R.string.title_qr_scan, R.drawable.menu__qr__code, QRScanActivity.class),
                 new MenuActivity(R.string.title_chat, R.drawable.menu__onetouch__chat, ChatActivity.class),
                 new MenuActivity(R.string.title_call, R.drawable.menu__onetouch__call, CallActivity.class),
@@ -76,14 +83,15 @@ public class BackFragment extends Fragment  {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        textOptionSelectedForService = new CustomizedTextView(getActivity().getApplicationContext());
         return inflater.inflate(R.layout.fragment_back, container, false);
 
     }
 
-    public void sendToServices (){
+   /* public void sendToServices (){
         Intent intent = new Intent(getActivity(), ServiceActivity.class);
         getActivity().startActivity(intent);
-    }
+    }*/
 
     public void sendToAccount(){
         Intent intent = new Intent(getActivity(),MyAccountMenuActivity.class);
@@ -175,7 +183,7 @@ public class BackFragment extends Fragment  {
             }
         });
 
-        LinearLayout mcard_option = (LinearLayout) getActivity().findViewById(R.id.mCard_option);
+        LinearLayout mcard_option = (LinearLayout) getView().findViewById(R.id.mCard_option);//getActivity()
         mcard_option.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 sendToMcard();
@@ -241,7 +249,9 @@ public class BackFragment extends Fragment  {
         restaurants_option.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), RestaurantsActivity.class);
+                textOptionSelectedForService = (CustomizedTextView) getActivity().findViewById(R.id.textRestaurants);
+                Intent intent = new Intent(getActivity(), HomeActivity_Handy.class);
+                intent.putExtra("option", textOptionSelectedForService.getText().toString());
                 getActivity().startActivity(intent);
             }
         });
@@ -250,7 +260,9 @@ public class BackFragment extends Fragment  {
         taxi_option.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), TaxiActivity.class);
+                textOptionSelectedForService = (CustomizedTextView) getActivity().findViewById(R.id.textTaxi);
+                Intent intent = new Intent(getActivity(), HomeActivity_Handy.class);
+                intent.putExtra("option", textOptionSelectedForService.getText().toString());
                 getActivity().startActivity(intent);
             }
         });
@@ -260,7 +272,9 @@ public class BackFragment extends Fragment  {
         service_option.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), ServiceActivity.class);
+                textOptionSelectedForService = (CustomizedTextView) getActivity().findViewById(R.id.textServices);
+                Intent intent = new Intent(getActivity(), HomeActivity_Handy.class);
+                intent.putExtra("option", textOptionSelectedForService.getText().toString());
                 getActivity().startActivity(intent);
             }
         });

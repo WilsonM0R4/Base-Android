@@ -47,5 +47,29 @@
     <!-- Color for register editTexts input inactive and active -->
     <color name="register_input_inactive">#d4d4d4</color>
     <color name="register_input_active">#444444</color>
+    <color name="red">#DF1414</color>
+    <color name="bg">#E6E6E6</color>
+    <color name="hintcolor">#C7C7CD</color>
+    <color name="linecolor">#D9D9D9</color>
+    <color name="bdaypop">#B80013</color>
+    <color name="footer_select">#D9EBFF</color>
+    <color name="view_all">#B80013</color>
+    <color name="footer_divider">#E6E6E6</color>
+    <color name="gary1">#9F9F9F</color>
+    <color name="first_bg">#F3F3F3</color>
+    <color name="mycolor">#38A4DB</color>
+    <color name="mycolor1">#607D8B</color>
+    <color name="mycolor2">#94BBD2</color>
+    <color name="resetcolor">#162F3C</color>
+    <color name="signuptextcolor">#A4D0F0</color>
+    <color name="dashboardcolor1">#CA1E60</color>
+    <color name="dashboardcolor2">#139DBE</color>
+    <color name="reportcolor">#0090B4</color>
+    <color name="advancemenucolor">#C7DBEB</color>
+    <color name="pink">#A71F56</color>
+    <color name="adjust_photo">#AAC9DB</color>
+    <color name="namecolor">#33B19B</color>
+    <color name="dark_blue"> #2664A8</color>
+    <color name="violate">#9755d3</color>
 
 </resources>

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,7 +20,7 @@ import org.w3c.dom.Text;
  */
 //This class is one that consume a lot of memory, because the way is inflated the menu.
 //Example:   setContentView(R.layout.activity_front_back);
-public class FrontBackAnimate extends Activity implements BackFragment.MenuSelectListener {
+public class FrontBackAnimate extends FragmentActivity implements BackFragment.MenuSelectListener {
 
     public interface InflateReadyListener {
         void initViews(View root);
@@ -167,7 +168,7 @@ public class FrontBackAnimate extends Activity implements BackFragment.MenuSelec
         animateBetter();
     }
 
-    private void showStatusBar(boolean toShow) {
+    public void showStatusBar(boolean toShow) {
         View decorView = getWindow().getDecorView();
         // Hide the status bar.
         int uiOptions = (toShow) ? View.SYSTEM_UI_FLAG_VISIBLE : View.SYSTEM_UI_FLAG_FULLSCREEN;

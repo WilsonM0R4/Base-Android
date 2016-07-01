@@ -205,6 +205,8 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
                 onOneWay(view);
             }
         });
+
+        //updateTextsForAirportAndCity();
     }
 
     //If search is active => GetUpAnimation  else Lock onBackButton
@@ -216,7 +218,12 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
         }
     }
 
-    //************** PROPER METHODS **************
+    //PROPER METHODS
+/*
+    public void  updateTextsForAirportAndCity(){
+
+
+    }*/
 
     public Location getLocation() {
         try {
@@ -263,9 +270,9 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
                             " stateName: " + String.valueOf(stateName) + " countryName: " +
                             String.valueOf(countryName),Toast.LENGTH_LONG).show();*/
                 } else {
-                   /* Toast.makeText(FlightsActivity.this, "Fail to fetch your current location. " +
+                    Toast.makeText(FlightsActivity.this, "Fail to fetch your current location. " +
                             "Please check your GPS status and try again",
-                            Toast.LENGTH_SHORT).show()*/;
+                            Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -517,8 +524,6 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
         customPassengersCabinSearch.setVisibility(View.GONE);
         rllSearchAirport.setVisibility(View.VISIBLE);
         isSearchActive = true;
-
-
 
         //Clear EditText
         EditText edtSearch = (EditText) findViewById(R.id.et_search);

@@ -61,6 +61,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         ctx = this;
         System.gc();
         MyBus.getInstance().register(this);
+
         super.setView(R.layout.fragment_login_newuser, this);
     }
 
@@ -78,6 +79,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
     @Override
     public void initViews(View root) {
 
+        System.gc();
         ib_showhidepass = (ImageButton) root.findViewById(R.id.ib_showhide_pass);
         ib_showhiderepass = (ImageButton) root.findViewById(R.id.ib_showhide_repass);
         et_username = (EditText) root.findViewById(R.id.et_email);
