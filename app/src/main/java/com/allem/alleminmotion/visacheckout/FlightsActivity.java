@@ -218,13 +218,6 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
         }
     }
 
-    //PROPER METHODS
-/*
-    public void  updateTextsForAirportAndCity(){
-
-
-    }*/
-
     public Location getLocation() {
         try {
 
@@ -240,9 +233,6 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
                 longitude = gp.getLongitude();
                 if (latitude != 0.0) {
                     enterToGetLocation = true;
-                   /* Toast.makeText(getApplicationContext(), String.valueOf(latitude)+ "  " +
-                            String.valueOf(longitude),Toast.LENGTH_SHORT).show();*/
-
                     Geocoder geocoder = new Geocoder(this, Locale.ENGLISH);
                     List<Address> addresses = geocoder.getFromLocation(latitude, longitude, 1);
                     String cityName = addresses.get(0).getAddressLine(0);
@@ -266,9 +256,6 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
                     Log.d("cityName",cityName);
                     Log.d("stateName",stateName);
                     Log.d("countryName",countryName);
-                    /*Toast.makeText(getApplicationContext(), "CityName: "+String.valueOf(cityName)+
-                            " stateName: " + String.valueOf(stateName) + " countryName: " +
-                            String.valueOf(countryName),Toast.LENGTH_LONG).show();*/
                 } else {
                     Toast.makeText(FlightsActivity.this, "Fail to fetch your current location. " +
                             "Please check your GPS status and try again",

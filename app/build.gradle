@@ -8,8 +8,8 @@ android {
         applicationId "com.allem.alleminmotion.visacheckout"
         minSdkVersion 17
         targetSdkVersion 23
-        versionCode 150
-        versionName "0.9.25 (150)"
+        versionCode 155
+        versionName "0.9.26 (155)"
 
         ndk {
             abiFilters "armeabi-v7a", "x86", "mips"
