@@ -6,7 +6,6 @@
     <JAVADOC />
     <SOURCES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.4.0/a1942c5e480d86987076fbaae8d2403b0c70927d/bolts-android-1.4.0-sources.jar!/" />
-      <root url="jar://$PROJECT_DIR$/gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.4.0/a1942c5e480d86987076fbaae8d2403b0c70927d/bolts-android-1.4.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

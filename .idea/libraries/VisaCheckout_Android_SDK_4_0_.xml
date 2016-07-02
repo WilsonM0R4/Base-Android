@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="VisaCheckout-Android-SDK-4.0-">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/VisaCheckout-Android-SDK-4.0/jars/libs/TrustDefenderMobile_NoLog-3.2-98.jar!/" />
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/VisaCheckout-Android-SDK-4.0/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/VisaCheckout-Android-SDK-4.0/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

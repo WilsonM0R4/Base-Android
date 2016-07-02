@@ -6,7 +6,6 @@
     <JAVADOC />
     <SOURCES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.zxing/core/3.2.0/ffc61d1f2ba2f6edc4df2224fa65725499039a5d/core-3.2.0-sources.jar!/" />
-      <root url="jar://$PROJECT_DIR$/gradle/caches/modules-2/files-2.1/com.google.zxing/core/3.2.0/ffc61d1f2ba2f6edc4df2224fa65725499039a5d/core-3.2.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
