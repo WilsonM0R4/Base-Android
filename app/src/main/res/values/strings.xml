@@ -334,7 +334,7 @@
     <string name="regular_price">REGULAR PRICE</string>
     <string name="visa_price">PAY WITH VISA</string>
     <string name="coverage_limite">Coverage Limit</string>
-    
+
 
     <!--DR HELP INFORMATION-->
     <string-array name="header_titles">
