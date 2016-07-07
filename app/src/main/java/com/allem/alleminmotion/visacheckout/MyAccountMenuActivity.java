@@ -51,7 +51,7 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
         };
         final Integer[] images = {R.drawable.menu__profile,R.drawable.menu__history,
                R.drawable.legal5};
-        final Class[] activities = {MyAccountActivity.class, TransactionHistoryActivity.class, LegalActivity.class};
+        final Class[] activities = {MyAccountActivity.class, OneTransactionsActivity.class, LegalActivity.class};
         lv.setAdapter(new ArrayAdapter<String>(MyAccountMenuActivity.this, R.layout.profile_layout, names) {
 
             public View getView(final int position,View view,ViewGroup parent) {

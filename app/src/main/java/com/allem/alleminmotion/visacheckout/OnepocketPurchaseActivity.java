@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.allem.alleminmotion.visacheckout.models.AllemUser;
+import com.allem.alleminmotion.visacheckout.utils.Constants;
 import com.allem.onepocket.BackHandler;
 import com.allem.onepocket.MenuHandler;
 import com.allem.onepocket.NextHandler;
@@ -66,10 +68,33 @@ public class OnepocketPurchaseActivity extends FrontBackAnimate implements Front
 
             @Override
             public void perform(int i) {
+                OnepocketPurchaseActivity.this.finish();
+                Intent intent;
+
                 switch (i) {
                     case 0:
-                        OnepocketPurchaseActivity.this.finish();
-                        Intent intent = new Intent(OnepocketPurchaseActivity.this, CallActivityMcard.class);
+                        intent = new Intent(OnepocketPurchaseActivity.this, CallActivityMcard.class);
+                        startActivity(intent);
+                        break;
+
+                    case 1:
+                        intent = new Intent(OnepocketPurchaseActivity.this, OnepocketContainerActivity.class);
+                        Bundle bundle = new Bundle();
+                        AllemUser user = Constants.getUser(OnepocketPurchaseActivity.this);
+                        VisaCheckoutApp app = ((VisaCheckoutApp) OnepocketPurchaseActivity.this.getApplication());
+                        if (user != null) {
+                            OneTransaction transaction = new OneTransaction(null,
+                                    null,
+                                    app.getIdSession(),
+                                    user.nombre,
+                                    user.apellido,
+                                    user.email,
+                                    app.getRawPassword(),
+                                    app.getIdCuenta()
+                            );
+                            bundle.putParcelable(OPKConstants.EXTRA_DATA, transaction);
+                            intent.putExtras(bundle);
+                        }
                         startActivity(intent);
                         break;
                 }

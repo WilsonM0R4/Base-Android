@@ -65,6 +65,14 @@
             android:value="AIzaSyCADifKMRWHMwf6JU8OTz-QCihVYhHBxJc">
         </meta-data>
         <!--android:value="AIzaSyDmrFgCRp-pUTF41d6TJdJ9v4v52-Gk5Fs" />-->
+
+
+        <!-- For API key created for build -->
+        <!-- <meta-data -->
+        <!-- android:name="com.google.android.maps.v2.API_KEY" -->
+        <!-- android:value="AIzaSyC2gG6V9Q6qnJ22nRtzMzGawS1kgWM-tDM"> -->
+        <!-- </meta-data> -->
+
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
@@ -129,34 +137,34 @@
         </activity>
         <activity
             android:name=".McardActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Mcardprivilege"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Mcardpremium"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Mcardexclusive"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Mcardunlimited"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LegalActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".PoliticalActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".TermsActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".CallActivityMcard"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ConciergeActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".VisaCheckoutActivity"
             android:screenOrientation="portrait" />
@@ -187,7 +195,7 @@
         <activity
             android:name=".LoginForgotConfirmation"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ChatActivity"
             android:screenOrientation="portrait"
@@ -235,9 +243,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".ConciergeSearchActivity"></activity>
-        <activity android:name=".TaxiActivity"></activity>
-        <activity android:name=".ServiceActivity"></activity>
+        <activity android:name=".ConciergeSearchActivity" />
+        <activity android:name=".TaxiActivity" />
+        <activity android:name=".ServiceActivity" />
         <activity
             android:name=".HotelSearchActivity"
             android:screenOrientation="portrait" />
@@ -361,15 +369,9 @@
             android:name=".OnepocketPurchaseActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name="com.allem.alleminmotion.visacheckout.SendLogActivity"
-            android:theme="@android:style/Theme.Dialog"
-            android:textAppearance="@android:style/TextAppearance.Large"
-            android:windowSoftInputMode="stateHidden">
-            <intent-filter>
-                <action android:name="com.allem.alleminmotion.visacheckout.SEND_LOG" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".OneTransactionsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"></activity>
     </application>
 
 </manifest>
