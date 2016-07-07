@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@color/white"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
     tools:context="com.allem.alleminmotion.visacheckout.QRScanActivity">
@@ -244,6 +244,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/pb_create"
             android:layout_centerInParent="true"
-            android:visibility="gone" />
-    </RelativeLayout>
+            android:progressDrawable="@drawable/load__circle"
+            />
+    </RelativeLayout>   <!--android:visibility="gone"-->
 </LinearLayout>
