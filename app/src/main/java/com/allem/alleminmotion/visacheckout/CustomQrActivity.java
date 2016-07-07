@@ -19,7 +19,7 @@ public class CustomQrActivity extends AppCompatActivity implements
     private CaptureManager capture;
     private CompoundBarcodeView barcodeScannerView;
 
-    public static final int PERMISSIONS_REQUEST_CAMERA = 10001;
+    public static final int PERMISSIONS_REQUEST_CAMERA = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
