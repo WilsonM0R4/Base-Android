@@ -37,7 +37,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 
 
-public class QRScanActivity extends FrontBackAnimate{// implements FrontBackAnimate.InflateReadyListener
+public class QRScanActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener{//
 
     //**************GLOBAL ATTRIBUTES************
 
@@ -57,6 +57,7 @@ public class QRScanActivity extends FrontBackAnimate{// implements FrontBackAnim
         super.onCreate(state);
         MyBus.getInstance().register(this);
         postValues = new ArrayList<>();
+
         //setContentView(R.layout.activity_qrscan);
         //setView(R.layout.activity_qrscan, this);
         if (checkLogin()) {
@@ -134,6 +135,11 @@ public class QRScanActivity extends FrontBackAnimate{// implements FrontBackAnim
             }
         }
 
+    @Override
+    public void initViews(View root) {
+        pb_create = (ProgressBar)findViewById(R.id.pb_create);
+    }
+
     //***************PROPER METHODS************
 
     public void onMenu(View view) {
@@ -160,6 +166,7 @@ public class QRScanActivity extends FrontBackAnimate{// implements FrontBackAnim
     private void obtenerTicket(String idSolicitud) {
         if (Util.hasInternetConnectivity(this)){
             //setWaitinUI(true);
+            setContentView(R.layout.activity_qrscan);
             Log.d(TAG,Constants.KEY_ID_SOLICITUD+":"+idSolicitud);
             postValues.add(new BasicNameValuePair(Constants.KEY_ID_SOLICITUD,idSolicitud));
             AsyncSoapObject.getInstance(Constants.getWSDL(), Constants.NAMESPACE_ALLEM,
@@ -219,6 +226,13 @@ public class QRScanActivity extends FrontBackAnimate{// implements FrontBackAnim
         }
         return true;
     }
+
+
+/*    private void setWaitinUI(boolean b) {
+        if (b) pb_create.setVisibility(View.VISIBLE);
+        else pb_create.setVisibility(View.GONE);
+
+    }*/
 
 
 
