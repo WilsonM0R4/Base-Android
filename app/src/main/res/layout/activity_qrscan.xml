@@ -20,9 +20,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-
-        >
+        android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -36,7 +34,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/title_your_code"
                 android:id="@+id/tv_title_secc"
@@ -56,6 +53,7 @@
                 android:layout_alignParentEnd="true" />
 
         </RelativeLayout>
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -88,7 +86,6 @@
         android:paddingRight="20dp"
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
-
         >
 
         <TextView

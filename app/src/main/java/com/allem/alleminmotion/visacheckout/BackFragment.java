@@ -85,7 +85,6 @@ public class BackFragment extends Fragment  {
                              Bundle savedInstanceState) {
         textOptionSelectedForService = new CustomizedTextView(getActivity().getApplicationContext());
         return inflater.inflate(R.layout.fragment_back, container, false);
-
     }
 
    /* public void sendToServices (){
