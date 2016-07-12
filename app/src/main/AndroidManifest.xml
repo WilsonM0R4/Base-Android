@@ -60,18 +60,25 @@
         android:theme="@style/AppTheme"
         tools:replace="android:allowBackup">
 
-        <meta-data
-            android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyCADifKMRWHMwf6JU8OTz-QCihVYhHBxJc">
-        </meta-data>
+        <!--<meta-data-->
+            <!--android:name="com.google.android.maps.v2.API_KEY"-->
+            <!--android:value="AIzaSyCADifKMRWHMwf6JU8OTz-QCihVYhHBxJc">-->
+        <!--</meta-data>-->
         <!--android:value="AIzaSyDmrFgCRp-pUTF41d6TJdJ9v4v52-Gk5Fs" />-->
 
 
-        <!-- For API key created for build -->
-        <!-- <meta-data -->
-        <!-- android:name="com.google.android.maps.v2.API_KEY" -->
-        <!-- android:value="AIzaSyC2gG6V9Q6qnJ22nRtzMzGawS1kgWM-tDM"> -->
-        <!-- </meta-data> -->
+        <!-- API key created for build -->
+        <!-- Release -->
+         <!--<meta-data-->
+         <!--android:name="com.google.android.maps.v2.API_KEY"-->
+         <!--android:value="AIzaSyC2gG6V9Q6qnJ22nRtzMzGawS1kgWM-tDM">-->
+         <!--</meta-data>-->
+
+        <!-- Debug -->
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyBXcYWfkwpLG5D_NnpjMwpctkT5ejDvsks">
+        </meta-data>
 
         <activity
             android:name=".MainActivity"

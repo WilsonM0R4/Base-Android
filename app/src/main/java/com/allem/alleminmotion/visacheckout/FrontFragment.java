@@ -106,18 +106,13 @@ public class FrontFragment extends Fragment implements
     public void onPause() {
         super.onPause();
         try {
+            releaseMediaPlayer();
             getActivity().unregisterReceiver(receiver);
             Log.d(TAG, "Unregister broadcast filter");
         } catch (Exception ex) {
             Log.e(TAG, "Fail to unregister broadcast receiver: " + ex.getMessage());
         }
 
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        releaseMediaPlayer();
     }
 
     private void setVideoView(){
