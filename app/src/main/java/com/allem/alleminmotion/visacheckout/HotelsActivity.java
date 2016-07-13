@@ -757,8 +757,11 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
         GregorianCalendar gc = new GregorianCalendar();
         gc.add(Calendar.DATE, 1);
         Date tomorrow = gc.getTime();
-        paramCheckIn = Util.Bookings_Formatter_Hotels.format(today);
-        paramCheckOut = Util.Bookings_Formatter_Hotels.format(tomorrow);
+        //********Validate Params************
+        if (paramCheckIn.equals("")&&paramCheckOut.equals("")){
+            paramCheckIn = Util.Bookings_Formatter_Hotels.format(today);
+            paramCheckOut = Util.Bookings_Formatter_Hotels.format(tomorrow);
+        }
         //TODO: Fix IATA code
         /*if (!paramDestination.equals("")) {
             paramDestination = paramDestination.substring(0, 3);
