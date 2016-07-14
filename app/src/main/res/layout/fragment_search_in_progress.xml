@@ -16,11 +16,11 @@
         android:id="@+id/ll_header">
 
         <ImageButton
-            android:layout_width="30dp"
+            android:layout_width="35dp"
             android:layout_height="25dp"
             android:layout_marginLeft="16dp"
             android:id="@+id/ib_settings"
-            android:src="@drawable/icon_settings"
+            android:src="@drawable/navigation__back"
             android:background="@android:color/transparent"
             android:visibility="visible"
             android:contentDescription="Up"
@@ -40,17 +40,39 @@
             android:textColor="@color/magenta"
             android:layout_centerInParent="true" />
 
-        <ImageButton
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginRight="16dp"
-            android:layout_alignBottom="@+id/tv_title_secc"
-            android:src="@drawable/icon_menu"
-            android:background="@android:color/transparent"
-            android:id="@+id/ib_menu"
-            android:onClick="onMenu"
-            android:contentDescription="menu"
-            android:layout_alignParentEnd="true"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:id="@+id/navigation_panel"
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_alignParentTop="false"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@+id/tv_title_secc"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/navigation__backurl_2"
+                android:background="@null"
+                android:padding="10dp"
+                android:onClick="onGoBack"
+                android:id="@+id/arrow_back" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/navigation__fwdurl"
+                android:background="@null"
+                android:padding="10dp"
+                android:id="@+id/arrow_forward" />
+        </RelativeLayout>
+
     </RelativeLayout>
 
     <WebView
@@ -58,41 +80,7 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/ll_header"
         android:id="@+id/webView"
-        android:layout_centerVertical="true"
-        android:layout_above="@+id/navigation_panel"/>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/white"
-        android:id="@+id/navigation_panel"
-        >
-<ImageButton
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentLeft="true"
-    android:src="@drawable/navigation__backurl_2"
-    android:background="@null"
-    android:padding="10dp"
-    android:onClick="onGoBack"
-    android:id="@+id/arrow_back"
-    />
-
-        <!--   <ImageButton
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_alignParentRight="true"
-               android:src="@drawable/navigation__fwdurl"
-               android:background="@null"
-               android:padding="10dp"
-               android:id="@+id/arrow_forward"
-               android:onClick="onGoForward"
-               android:visibility="gone"
-               /> -->
-
-
-    </RelativeLayout>
+        android:layout_centerVertical="true" />
 
     <ProgressBar
         android:layout_width="wrap_content"
