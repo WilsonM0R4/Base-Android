@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -27,6 +29,7 @@ public class BackFragment extends Fragment  {
 
     private String optionSelectedForService = "";
     private CustomizedTextView textOptionSelectedForService;
+    private ImageButton home;
 
     public interface MenuSelectListener {
         public void getStartActivity(Intent intent);
@@ -78,6 +81,8 @@ public class BackFragment extends Fragment  {
                 new MenuActivity(R.string.title_chat, R.drawable.menu__onetouch__chat, ChatActivity.class),
                 new MenuActivity(R.string.title_call, R.drawable.menu__onetouch__call, CallActivity.class),
         };
+
+
     }
 
     @Override
@@ -276,6 +281,17 @@ public class BackFragment extends Fragment  {
                 Intent intent = new Intent(getActivity(), HomeActivity_Handy.class);
                 intent.putExtra("option", textOptionSelectedForService.getText().toString());
                 getActivity().startActivity(intent);
+            }
+        });
+
+        home = (ImageButton)getView().findViewById(R.id.iv_home);
+        home.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Log.d("Juan","Presionado");
+                Intent intent = new Intent(getActivity(), SendLogActivity.class);
+                getActivity().startActivity(intent);
+                return true;
             }
         });
 

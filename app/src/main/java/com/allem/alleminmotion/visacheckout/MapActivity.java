@@ -1,5 +1,7 @@
 package com.allem.alleminmotion.visacheckout;
 
+import android.*;
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -7,6 +9,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -18,6 +21,8 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -96,6 +101,8 @@ import java.util.Locale;
  */
 public class MapActivity extends Activity implements View.OnClickListener,ServiceProviderCallInterface,AddresslistInterface, AdapterView.OnItemClickListener {
 
+    public static final int REQUEST_LOCATION_ACCESS = 10000;
+
     ImageView iv_navi_hedermap, iv_logo_hedermap, iv_search_hedermap, iv_back_hedermap;
     public GoogleMap googleMap;
     MyAutoCompleteTextView ed_search_headermap;
@@ -156,7 +163,28 @@ public class MapActivity extends Activity implements View.OnClickListener,Servic
         DateFormat df2 = new SimpleDateFormat("HH:mm");
         System.out.println(df2.format(curntTIme));
         strDate = df2.format(curntTIme);
-        getLocation();
+
+        if (!hasPermission()) {
+            return;
+        } else {
+            getLocation();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        switch (requestCode) {
+            case REQUEST_LOCATION_ACCESS: {
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // permission was granted
+                    getLocation();
+                } else {
+                    setResult(Activity.RESULT_CANCELED);
+                    finish();
+                }
+            }
+        }
     }
 
     public Location getLocation() {
@@ -1042,6 +1070,23 @@ public class MapActivity extends Activity implements View.OnClickListener,Servic
         Canvas canvas = new Canvas(bitmap);
         view.draw(canvas);
         return bitmap;
+    }
+
+    private boolean hasPermission() {
+        boolean hasFineLocationPermission = (ContextCompat.checkSelfPermission(MapActivity.this,
+                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED);
+
+        boolean hasCoarseLocationPermission = (ContextCompat.checkSelfPermission(MapActivity.this,
+                Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED);
+
+        if (!hasFineLocationPermission || !hasCoarseLocationPermission) {
+            ActivityCompat.requestPermissions(MapActivity.this,
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION},
+                    REQUEST_LOCATION_ACCESS);
+            return false;
+        } else {
+            return true;
+        }
     }
 }
 
