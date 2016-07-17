@@ -468,6 +468,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="taxi">Taxi</string>
     <string name="text_hint_enter_city">Ingresa ciudad</string>
+    <string name="decline_register">RECHAZAR</string>
+    <string name="accept_register">ACEPTAR</string>
 
 
 </resources>

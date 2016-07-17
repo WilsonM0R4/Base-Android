@@ -100,6 +100,8 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             @Override
             public void onClick(View view) {
                 if (checkFields()) {
+                    //Generate dialog for accept
+                    onAlertAcceptTermsAndConditions();
                     sendInfo();
                 } else {
                     Toast.makeText(
@@ -194,7 +196,32 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             }
         });
 
+    }
 
+    private void onAlertAcceptTermsAndConditions(){
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.custom_alert_dialog_city_not_selected_hotels);
+        dialog.show();
+        //Agree
+        Button btnOk = (Button)dialog.findViewById(R.id.btnAccept);
+        btnOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendInfo();
+                dialog.dismiss();
+            }
+        });
+        //TODO: Manage Terms and policy clicks, also decline click for
+        //Decline
+        Button btnDecline = (Button)dialog.findViewById(R.id.btnDecline);
+        btnDecline.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //sendInfo();
+                dialog.dismiss();
+                //Return to filled Fields
+            }
+        });
     }
 
     //Called when the user information is valid
@@ -390,9 +417,12 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 ((VisaCheckoutApp) this.getApplication()).parseUser(user.email, channel);
                 /*if(KeySaver.isExist(ctx,Constants.USER_PUSH)) ((AsobancariaApplication) this.getApplication()).unSetParseChannels();
                 ((AsobancariaApplication)this.getApplication()).setParseChannel(channel);*/
-                Log.e("Prueba",channel);
+
+                //Generate Alert Dialog
+
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
+                Log.e("Serfar Prueba",channel);
             } else {
                 Toast.makeText(ctx, event.getFaultString(), Toast.LENGTH_LONG).show();
                 setResult(RESULT_CANCELED, returnIntent);
