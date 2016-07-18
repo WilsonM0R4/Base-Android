@@ -184,7 +184,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:contentDescription="Linea"
+                android:contentDescription="Linea nueva"
                 android:layout_marginTop="-40dp"
                 android:background="@drawable/default_state_edit_text"/>
 

@@ -582,4 +582,6 @@
 
     <string name="send_log_request">Sorry an error has occurred.\nPlease press here to send us the log.</string>
     <string name="send_log_instruction">Please add reproduction steps and addition info here. Thanks!</string>
+    <string name="decline_register">DECLINE</string>
+    <string name="accept_register">AGREE</string>
 </resources>
