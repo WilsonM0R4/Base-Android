@@ -32,6 +32,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.allem.alleminmotion.visacheckout.CustomLayouts.SuccessfulRegister;
 import com.allem.alleminmotion.visacheckout.async.AsyncSoapObject;
 import com.allem.alleminmotion.visacheckout.async.AsyncTaskSoapObjectResultEvent;
 import com.allem.alleminmotion.visacheckout.async.MyBus;
@@ -136,12 +137,14 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 RelativeLayout formLayout = (RelativeLayout)findViewById(R.id.rl_body);
                 formLayout.removeAllViews();
                 //******Add all new views*****
-                CustomizedTextView txt = new CustomizedTextView(getApplicationContext());
+                /*CustomizedTextView txt = new CustomizedTextView(getApplicationContext());
                 txt.setText("Registro");
                 txt.setTextSize(15);
                 //txt.setLayoutParams(formLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.MATCH_PARENT,7));
                 txt.setTextColor(getResources().getColor(R.color.magenta));
-                formLayout.addView(txt);
+                formLayout.addView(txt);*/
+                SuccessfulRegister successfulRegister = new SuccessfulRegister(getApplicationContext());
+                formLayout.addView(successfulRegister);
                 Log.e("Serfar Prueba",channel);
 
             } else {
