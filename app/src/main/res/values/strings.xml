@@ -275,7 +275,7 @@
     <string name="title_activity_edit_profile">EditProfileActivity</string>
     <string name="btn_save">SAVE</string>
     <string name="legal_title">Legal</string>
-    <string name="privacy_policy">Privacy policy</string>
+    <string name="privacy_policy"><u>privacy policy</u></string>
     <string name="terms_condition">Terms and Conditions</string>
     <string name="btn_cancel">CANCEL</string>
     <string name="btn_cancel_one_touch">Cancel</string>
@@ -586,4 +586,9 @@
     <string name="congratulations">¡Congratulations!</string>
     <string name="you_can_enjoy_benefits">You can now enjoy all the\n benefits it brings to you\n allegra</string>
     <string name="txt_continue">CONTINUE</string>
+    <string name="test_terms"><u>terms and conditions</u></string>
+    <string name="by_clicking">By clicking agree you accept</string>
+    <string name="the_article">the </string>
+    <string name="and_article">and </string>
+    <string name="before_continue">Before you continue!</string>
 </resources>

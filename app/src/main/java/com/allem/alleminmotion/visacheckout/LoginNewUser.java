@@ -308,29 +308,17 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         final Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.custom_alert_dialog_accept_terms_conditions);
         dialog.show();
-        //Agree
+        //Agree button
         CustomizedTextView btnOk = (CustomizedTextView) dialog.findViewById(R.id.btnAccept);
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 sendInfo();
                 dialog.dismiss();
-                //setView(R.layout.fragment_login_newuser,inflateListener);
-                //setContentView(R.layout.successful_register);
-                //setContentView(R.layout.successful_register);
-                //User name
-               /* AllemUser user = Constants.getUser(getApplicationContext());
-                String value =  user.nombre;
-                Log.e("Sergio", "Es "+value);
-                greeting.setText(value);*/
-
-                //Generate Alert Dialog
-
-
             }
         });
-        //TODO: Manage Terms and policy clicks, also decline click for
-        //Decline
+
+        //Decline button
         CustomizedTextView btnDecline = (CustomizedTextView) dialog.findViewById(R.id.btnDecline);
         btnDecline.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -338,6 +326,26 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 //Return to filled Fields
                 dialog.dismiss();
 
+            }
+        });
+
+        //Terms and conditions
+        CustomizedTextView txtTermsAndConditions = (CustomizedTextView) dialog.findViewById(R.id.txtTermsAndConditions);
+        txtTermsAndConditions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(),TermsActivity.class);
+                startActivity(i);
+            }
+        });
+
+        //Privacy policy
+        CustomizedTextView txtPrivacyPolicy = (CustomizedTextView) dialog.findViewById(R.id.txtPrivacyPolicy);
+        txtPrivacyPolicy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(),PoliticalActivity.class);
+                startActivity(i);
             }
         });
 

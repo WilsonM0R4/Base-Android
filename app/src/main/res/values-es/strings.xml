@@ -147,7 +147,7 @@
     <string name="txt_lbl_tax_amount">%1$s$ %2$f</string>
     <string name="txt_lbl_total">PRECIO TOTAL</string>
     <string name="txt_lbl_total_amount">%1$s$ %2$s</string>
-    <string name="privacy_policy">Politicas de privacidad</string>
+    <string name="privacy_policy"><u>política de privacidad</u></string>
     <string name="terms_condition">Terminos y condiciones</string>
     <string name="txt_lbl_your_hotel">TU HOTEL</string>
     <string name="txt_lbl_room_guest_details">%1$d Huésped | %2$s cuarto | %3$d noches</string>
@@ -473,6 +473,9 @@
     <string name="congratulations">¡Felicitaciones!</string>
     <string name="you_can_enjoy_benefits">Ahora puedes disfrutar todos los beneficios que te trae allegra</string>
     <string name="txt_continue">CONTINUAR</string>
-
-
+    <string name="test_terms"><u>términos y condiciones</u></string>
+    <string name="by_clicking">Haciendo click en aceptar, aceptas</string>
+    <string name="the_article">los </string>
+    <string name="and_article">y la </string>
+    <string name="before_continue">Antes de continuar!</string>
 </resources>

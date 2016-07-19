@@ -74,8 +74,6 @@ public class LegalActivity extends FrontBackAnimate implements FrontBackAnimate.
                     }
                 });
                 TextView txtTitle = (TextView) rowView.findViewById(R.id.profileOptionTextLegal);
-
-
                 txtTitle.setText(names[position]);;
                 return rowView;
             };

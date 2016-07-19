@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Before you continue!"
+        android:text="@string/before_continue"
         android:textSize="19sp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="37dp"
@@ -20,12 +20,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="By clicking agree you accept the terms and conditions and privacy policy"
+        android:text="@string/by_clicking"
         android:textSize="19sp"
         android:gravity="center_horizontal"
         android:layout_centerHorizontal="true"
         android:id="@+id/txtprivilegeinfo"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="26dp"
         android:textColor="@color/dark_gray"
         android:layout_below="@+id/titletextCancelDialog2"
         />
@@ -34,7 +34,68 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:gravity="center_horizontal"
         android:layout_below="@+id/txtprivilegeinfo"
+        android:id="@+id/llayTexts1"
+        android:layout_marginTop="2dp">
+
+
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/the_article"
+        android:textSize="19sp"
+        android:id="@+id/txtprivilege"
+        android:textColor="@color/dark_gray"
+        />
+
+        <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/test_terms"
+        android:layout_marginLeft="6dp"
+        android:textSize="19sp"
+        android:id="@+id/txtTermsAndConditions"
+        android:textColor="@color/magenta"
+        app:font="@string/font_muli"
+        />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/llayTexts1"
+        android:id="@+id/llayTexts2"
+        android:layout_marginTop="2dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/and_article"
+            android:textSize="19sp"
+            android:id="@+id/andArticle"
+            android:textColor="@color/dark_gray"
+            />
+
+        <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/privacy_policy"
+            android:layout_marginLeft="6dp"
+            android:textSize="19sp"
+            android:id="@+id/txtPrivacyPolicy"
+            android:textColor="@color/magenta"
+            app:font="@string/font_muli"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/llayTexts2"
         android:weightSum="2"
         android:layout_marginTop="20dp">
 
@@ -42,7 +103,6 @@
             android:id="@+id/btnDecline"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
             android:layout_marginLeft="0dp"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
@@ -51,7 +111,7 @@
             android:textColor="@color/orange"
             app:font="@string/font_muli"
             android:gravity="center"
-            android:textSize="16sp"/>
+            android:textSize="16sp"/>           <!--  android:layout_marginBottom="20dp"-->
 
         <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
             android:id="@+id/btnAccept"
