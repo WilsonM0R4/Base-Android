@@ -37,6 +37,7 @@
         android:layout_below="@+id/txtprivilegeinfo"
         android:weightSum="2"
         android:layout_marginTop="20dp">
+
         <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
             android:id="@+id/btnDecline"
             android:layout_width="0dp"

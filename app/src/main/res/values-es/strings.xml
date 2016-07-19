@@ -470,6 +470,9 @@
     <string name="text_hint_enter_city">Ingresa ciudad</string>
     <string name="decline_register">RECHAZAR</string>
     <string name="accept_register">ACEPTAR</string>
+    <string name="congratulations">¡Felicitaciones!</string>
+    <string name="you_can_enjoy_benefits">Ahora puedes disfrutar todos los beneficios que te trae allegra</string>
+    <string name="txt_continue">CONTINUAR</string>
 
 
 </resources>

@@ -20,7 +20,6 @@
 
     <!-- card.io: Permission to vibrate - recommended, allows vibration feedback on scan -->
     <uses-permission android:name="android.permission.VIBRATE" />
-
     <uses-permission android:name="android.permission.READ_LOGS" />
 
     <!-- card.io: Camera features - recommended -->
@@ -61,36 +60,36 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:allowBackup">
-        
-        <activity android:name="com.allem.alleminmotion.visacheckout.SendLogActivity"
-            android:theme="@android:style/Theme.Dialog"
+        <activity
+            android:name=".SendLogActivity"
             android:textAppearance="@android:style/TextAppearance.Large"
+            android:theme="@android:style/Theme.Dialog"
             android:windowSoftInputMode="stateHidden">
-        <intent-filter>
-            <action android:name="com.allem.alleminmotion.visacheckout.SEND_LOG" />
-            <category android:name="android.intent.category.DEFAULT" />
-        </intent-filter>
+            <intent-filter>
+                <action android:name="com.allem.alleminmotion.visacheckout.SEND_LOG" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
 
-        <!--<meta-data-->
-            <!--android:name="com.google.android.maps.v2.API_KEY"-->
-            <!--android:value="AIzaSyCADifKMRWHMwf6JU8OTz-QCihVYhHBxJc">-->
-        <!--</meta-data>-->
-        <!--android:value="AIzaSyDmrFgCRp-pUTF41d6TJdJ9v4v52-Gk5Fs" />-->
+        <!-- <meta-data -->
+        <!-- android:name="com.google.android.maps.v2.API_KEY" -->
+        <!-- android:value="AIzaSyCADifKMRWHMwf6JU8OTz-QCihVYhHBxJc"> -->
+        <!-- </meta-data> -->
+        <!-- android:value="AIzaSyDmrFgCRp-pUTF41d6TJdJ9v4v52-Gk5Fs" /> -->
 
 
         <!-- API key created for build -->
         <!-- Release -->
-         <meta-data
-         android:name="com.google.android.maps.v2.API_KEY"
-         android:value="AIzaSyC2gG6V9Q6qnJ22nRtzMzGawS1kgWM-tDM">
-         </meta-data>
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyC2gG6V9Q6qnJ22nRtzMzGawS1kgWM-tDM"></meta-data>
 
         <!-- Debug -->
-        <!--<meta-data-->
-            <!--android:name="com.google.android.maps.v2.API_KEY"-->
-            <!--android:value="AIzaSyBXcYWfkwpLG5D_NnpjMwpctkT5ejDvsks">-->
-        <!--</meta-data>-->
+        <!-- <meta-data -->
+        <!-- android:name="com.google.android.maps.v2.API_KEY" -->
+        <!-- android:value="AIzaSyBXcYWfkwpLG5D_NnpjMwpctkT5ejDvsks"> -->
+        <!-- </meta-data> -->
 
         <activity
             android:name=".MainActivity"
@@ -105,32 +104,31 @@
             <!-- </intent-filter> -->
 
         </activity>
-        <activity android:name=".HomeActivity_Handy"
-            android:screenOrientation="portrait">
-        </activity>
-
-        <activity android:name=".MapActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity android:name=".BookNowActivity"
-            android:screenOrientation="portrait">
-        </activity>
-
+        <activity
+            android:name=".HomeActivity_Handy"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".MapActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".BookNowActivity"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".Mcardhtml"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".SplashScreenActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".LoginForgotActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".BrandingScreenActivity"
             android:label="@string/title_activity_intro_screen"
@@ -388,9 +386,15 @@
             android:name=".OnepocketPurchaseActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".OneTransactionsActivity"
+        <activity
+            android:name=".OneTransactionsActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:windowSoftInputMode="adjustPan" />
+       <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
     </application>
 
 </manifest>
