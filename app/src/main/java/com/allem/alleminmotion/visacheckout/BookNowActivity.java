@@ -109,12 +109,12 @@ public class BookNowActivity extends Activity implements View.OnClickListener , 
             }
         });
 
-        btn_payment_Now.setOnClickListener(new View.OnClickListener() {
+        /*btn_payment_Now.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
             }
-        });
+        });*/
         btn_later.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
