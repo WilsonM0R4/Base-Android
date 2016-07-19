@@ -19,11 +19,16 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,25 +40,26 @@ import com.allem.alleminmotion.visacheckout.models.CuentaCliente;
 import com.allem.alleminmotion.visacheckout.models.CuentaClienteInfoAdicional;
 import com.allem.alleminmotion.visacheckout.parsers.SoapObjectParsers;
 import com.allem.alleminmotion.visacheckout.utils.Constants;
+import com.allem.alleminmotion.visacheckout.utils.CustomizedTextView;
 import com.allem.alleminmotion.visacheckout.utils.Util;
 import com.squareup.otto.Subscribe;
 import org.ksoap2.serialization.PropertyInfo;
 
 public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
 
-
-    private final String TAG = "LoginNewUser";
-    private final String M_SELECTION_DIVIDER = "mSelectionDivider", HTTP_AGENT = "http.agent";
+    //************GLOBAL ATTRIBUTES***************
+    private final String TAG = "LoginNewUser", M_SELECTION_DIVIDER = "mSelectionDivider", HTTP_AGENT = "http.agent";
     private Context ctx;
     private ImageButton ib_showhidepass, ib_showhiderepass;
     private boolean passIsVisible = false, repassIsVisible = false;
     private EditText et_username, et_password, et_names, et_surname, et_mobile;
     private NumberPicker countryPicker;
-    private com.allem.alleminmotion.visacheckout.utils.CustomizedTextView btn_sendreg, btn_login;
+    private com.allem.alleminmotion.visacheckout.utils.CustomizedTextView btn_sendreg, btn_login, greeting;
     private ProgressBar pb_create;
     TextView textCountrySelected;
+    //RelativeLayout  relSuccessful;
 
-
+    //************ OVERRIDE METHODS**************
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -91,8 +97,62 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         et_mobile = (EditText) root.findViewById(R.id.et_mobile);
         textCountrySelected = (TextView) root.findViewById(R.id.et_country_mobile);
 
+        //TextView for user name
+        //greeting = (CustomizedTextView) root.findViewById(R.id.txtNameRegisterSuccessful);
         setListeners();
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Log.d(TAG, "Option: " + item.getItemId());
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Subscribe
+    public void onAsyncTaskResult(AsyncTaskSoapObjectResultEvent event) {
+        if (event.getCodeRequest() == Constants.ACTIVITY_LOGIN_NEW_USER) {
+            setWaitinUI(false);
+            Intent returnIntent = new Intent();
+            if (event.getResult() != null) {
+                AllemUser user = SoapObjectParsers.toAllemUser(event.getResult());
+                ((VisaCheckoutApp) this.getApplication()).setIdSession(user.idSesion);
+                ((VisaCheckoutApp) this.getApplication()).setIdCuenta(user.idCuenta);
+                String name = user.email.substring(0, user.email.indexOf('@'));
+                String domain = user.email.substring(user.email.indexOf('@') + 1, user.email.length()).replace(".", "");
+                String channel = name + domain + user.idCuenta;
+                Constants.saveUser(ctx, user, channel);
+                ((VisaCheckoutApp) this.getApplication()).unSetParseChannels();
+                ((VisaCheckoutApp) this.getApplication()).parseUser(user.email, channel);
+                /*if(KeySaver.isExist(ctx,Constants.USER_PUSH)) ((AsobancariaApplication) this.getApplication()).unSetParseChannels();
+                ((AsobancariaApplication)this.getApplication()).setParseChannel(channel);*/
+
+                //Remove all views from layout
+                RelativeLayout formLayout = (RelativeLayout)findViewById(R.id.rl_body);
+                formLayout.removeAllViews();
+                //******Add all new views*****
+                CustomizedTextView txt = new CustomizedTextView(getApplicationContext());
+                txt.setText("Registro");
+                txt.setTextSize(15);
+                //txt.setLayoutParams(formLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.MATCH_PARENT,7));
+                txt.setTextColor(getResources().getColor(R.color.magenta));
+                formLayout.addView(txt);
+                Log.e("Serfar Prueba",channel);
+
+            } else {
+                Toast.makeText(ctx, event.getFaultString(), Toast.LENGTH_LONG).show();
+                setResult(RESULT_CANCELED, returnIntent);
+            }
+
+        }
+    }
+
+    //************ PROPER METHODS**************
 
     private void setListeners() {
 
@@ -102,7 +162,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 if (checkFields()) {
                     //Generate dialog for accept
                     onAlertAcceptTermsAndConditions();
-                    sendInfo();
+                    //sendInfo();
                 } else {
                     Toast.makeText(
                             ctx,
@@ -199,33 +259,47 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
     }
 
     private void onAlertAcceptTermsAndConditions(){
+
         final Dialog dialog = new Dialog(this);
-        dialog.setContentView(R.layout.custom_alert_dialog_city_not_selected_hotels);
+        dialog.setContentView(R.layout.custom_alert_dialog_accept_terms_conditions);
         dialog.show();
         //Agree
-        Button btnOk = (Button)dialog.findViewById(R.id.btnAccept);
+        CustomizedTextView btnOk = (CustomizedTextView) dialog.findViewById(R.id.btnAccept);
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 sendInfo();
                 dialog.dismiss();
+
+                //setContentView(R.layout.successful_register);
+                //User name
+               /* AllemUser user = Constants.getUser(getApplicationContext());
+                String value =  user.nombre;
+                Log.e("Sergio", "Es "+value);
+                greeting.setText(value);*/
+
+                //Generate Alert Dialog
+
+
             }
         });
         //TODO: Manage Terms and policy clicks, also decline click for
         //Decline
-        Button btnDecline = (Button)dialog.findViewById(R.id.btnDecline);
+        CustomizedTextView btnDecline = (CustomizedTextView) dialog.findViewById(R.id.btnDecline);
         btnDecline.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //sendInfo();
+            //Return to filled Fields
                 dialog.dismiss();
-                //Return to filled Fields
+
             }
         });
+
+
     }
 
     //Called when the user information is valid
-    private void sendInfo() {
+    private void  sendInfo() {
 
         int greet = 1, rb_id;
         String celular = et_mobile.getText().toString();
@@ -388,50 +462,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         et_mobile.setEnabled(!b);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        Log.d(TAG, "Option: " + item.getItemId());
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                this.finish();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-    @Subscribe
-    public void onAsyncTaskResult(AsyncTaskSoapObjectResultEvent event) {
-        if (event.getCodeRequest() == Constants.ACTIVITY_LOGIN_NEW_USER) {
-            setWaitinUI(false);
-            Intent returnIntent = new Intent();
-            if (event.getResult() != null) {
-                AllemUser user = SoapObjectParsers.toAllemUser(event.getResult());
-                ((VisaCheckoutApp) this.getApplication()).setIdSession(user.idSesion);
-                ((VisaCheckoutApp) this.getApplication()).setIdCuenta(user.idCuenta);
-                String name = user.email.substring(0, user.email.indexOf('@'));
-                String domain = user.email.substring(user.email.indexOf('@') + 1, user.email.length()).replace(".", "");
-                String channel = name + domain + user.idCuenta;
-                Constants.saveUser(ctx, user, channel);
-                ((VisaCheckoutApp) this.getApplication()).unSetParseChannels();
-                ((VisaCheckoutApp) this.getApplication()).parseUser(user.email, channel);
-                /*if(KeySaver.isExist(ctx,Constants.USER_PUSH)) ((AsobancariaApplication) this.getApplication()).unSetParseChannels();
-                ((AsobancariaApplication)this.getApplication()).setParseChannel(channel);*/
-
-                //Generate Alert Dialog
-
-                Intent intent = new Intent(this, MainActivity.class);
-                startActivity(intent);
-                Log.e("Serfar Prueba",channel);
-            } else {
-                Toast.makeText(ctx, event.getFaultString(), Toast.LENGTH_LONG).show();
-                setResult(RESULT_CANCELED, returnIntent);
-            }
-
-        }
-    }
-
-    void onAlertSelectCountry() {//View view
+    private void onAlertSelectCountry() {//View view
 
         Log.e("Bug 1", "Entro");
         final Dialog dialog = new Dialog(this);
@@ -461,7 +492,6 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             }
         });
     }
-
 
     private void updateTextOfCountry() {
 

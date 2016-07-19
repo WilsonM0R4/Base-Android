@@ -1,9 +1,7 @@
 package com.allem.alleminmotion.visacheckout;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -11,33 +9,21 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.TextView;
 
-import com.allem.alleminmotion.visacheckout.utils.Constants;
 import com.allem.alleminmotion.visacheckout.utils.Util;
 
-
-public class MainActivity extends Activity implements BackFragment.MenuSelectListener {
+public class SuccessfulRegisterActivity extends Activity implements BackFragment.MenuSelectListener{
 
     private static final String TAG = "MainActivity";
     private FrontFragment frontFragment;
     private BackFragment backFragment;
-    private boolean isLogin;
-    private Button login;
-    private Button register;
+    private int state = 0;
 
-    private int state = 0;   // 0 - front open + back exposed;
-    // 1 - front close + back hidden;
-
-    //OVERRIDE METHODS
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.successful_register);
         getWindow().setBackgroundDrawable(null);
-
-        //int  what  = Build.VERSION.SDK_INT;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             View decorView = getWindow().getDecorView();
             //int uiOptions = (toShow) ? View.SYSTEM_UI_FLAG_VISIBLE : View.SYSTEM_UI_FLAG_FULLSCREEN;
@@ -50,27 +36,12 @@ public class MainActivity extends Activity implements BackFragment.MenuSelectLis
         backFragment = (BackFragment) getFragmentManager().findFragmentById( R.id.fragment_bottom );
         backFragment.menulistener = this;
         state = 0;
+    }
 
-        if (!isAuthenticated()) {
-            login = (Button) findViewById(R.id.login);
-            login.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                    startActivityForResult(intent, Constants.ACTIVITY_LOGIN);
-                }
-            });
-
-            register = (Button) findViewById(R.id.register);
-            register.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(MainActivity.this, LoginNewUser.class);
-                    startActivity(intent);
-                }
-            });
-        }
-
+    @Override
+    public void getStartActivity(Intent intent) {
+        startActivity(intent);
+        overridePendingTransition(R.animator.front_slide_in, R.animator.back_slide_out);
     }
 
     @Override
@@ -89,37 +60,7 @@ public class MainActivity extends Activity implements BackFragment.MenuSelectLis
         }
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_OK) {
-            finish();
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-        }
-    }
-
-
-    //Interface MenuSelectListener's OVERRIDE METHODS
-    @Override
-    public void getStartActivity(Intent intent) {
-        startActivity(intent);
-        overridePendingTransition(R.animator.front_slide_in, R.animator.back_slide_out);
-        state = 1;
-    }
-
-    //PROPER METHODS
-    public void ClickMe(View view) {
-        animate();
-    }
-
-    public void onSkipIntro(View view) {
-        animate();
-    }
-
-    private boolean isAuthenticated() {
-        return (((VisaCheckoutApp)getApplication()).getIdSession() != null);
-    }
-
+    //************PROPER METHODS************
     private void animate() {
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -159,10 +100,4 @@ public class MainActivity extends Activity implements BackFragment.MenuSelectLis
         }
 
     }
-
-    public void onHome(View view) {
-        animate();
-    }
-
-
 }
