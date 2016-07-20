@@ -37,6 +37,39 @@
             android:layout_alignBottom="@+id/textView45"
             android:layout_alignParentEnd="true"
             android:onClick="onMenu" />
+
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:id="@+id/relativeLayout7"
+            android:layout_alignParentRight="false"
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_alignParentTop="false"
+            android:layout_toEndOf="@+id/ib_up"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="5dp" >
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/navigation__backurl_2"
+                android:background="@null"
+                android:padding="10dp"
+                android:onClick="onGoBack"
+                android:id="@+id/arrow_back" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/navigation__fwdurl"
+                android:background="@null"
+                android:padding="10dp"
+                android:id="@+id/arrow_forward" />
+        </RelativeLayout>
     </RelativeLayout>
 
     <ImageView
@@ -54,34 +87,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/iv_header" />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/white"
-        android:id="@+id/relativeLayout8"
-        android:layout_alignWithParentIfMissing="false"
-        android:layout_centerInParent="true">
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:src="@drawable/navigation__backurl_2"
-            android:background="@null"
-            android:padding="10dp"
-            android:id="@+id/arrow_back_mcard" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:src="@drawable/navigation__fwdurl"
-            android:background="@null"
-            android:padding="10dp"
-            android:id="@+id/arrow_foward_mcard" />
-    </RelativeLayout>
 
     <ProgressBar
         android:layout_width="wrap_content"
