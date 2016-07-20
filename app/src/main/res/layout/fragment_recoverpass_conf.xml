@@ -162,17 +162,6 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/go_to_email"
-                    android:textColor="@color/orange"
-                    android:id="@+id/go_to_email"
-                    android:background="@drawable/round_corner_transparent_orange"
-                    android:layout_weight="1"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginBottom="20dp" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/to_login"
                     android:text="@string/go_to_login"
                     android:textColor="@android:color/white"
