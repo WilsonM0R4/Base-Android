@@ -29,6 +29,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.allem.alleminmotion.visacheckout.async.AsyncSoapObject;
@@ -606,22 +607,34 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         public SuccessfulRegister(Context context) {
 
             super(context);
+            //****************COMPLETE LAYOUT****************************
             setOrientation(LinearLayout.VERTICAL);
             LayoutParams layoutParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
             setLayoutParams(layoutParams);
+            setBackgroundColor(getResources().getColor(R.color.white));
             //TEXT REGISTER TITLE
-            CustomizedTextView tv1 = new CustomizedTextView(context);
-            tv1.setText(R.string.title_register);
-            addView(tv1);
-            tv1.setTextColor(getResources().getColor(R.color.magenta));
-            tv1.setGravity(Gravity.CENTER_HORIZONTAL);
+            CustomizedTextView txtTitle = new CustomizedTextView(context);
+            txtTitle.setText(R.string.title_register);
+            addView(txtTitle);
+            txtTitle.setTextColor(getResources().getColor(R.color.magenta));
+            txtTitle.setGravity(Gravity.CENTER_HORIZONTAL);
+            txtTitle.setTextSize(18);
+            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams)txtTitle.getLayoutParams();
+            //int left, int top, int right, int bottom
+            layoutParams3.setMargins(0, 40, 0, 40);
+            txtTitle.setLayoutParams(layoutParams3);
+
             //IMAGE VIEW SEPARATOR
             ImageView imvSeparator = new ImageView(context);
             imvSeparator.setBackground(getResources().getDrawable(R.drawable.separator_medium_mag));
             imvSeparator.setImageResource(R.drawable.separator);
             addView(imvSeparator);
+            LinearLayout.LayoutParams params6 = (LinearLayout.LayoutParams)imvSeparator.getLayoutParams();
+            //int left, int top, int right, int bottom
+            params6.setMargins(-6, 0, -6, -4);
+            imvSeparator.setLayoutParams(params6);
 
-            //**************** NEW LAYOUT****************************
+            //****************CONTENT SUB-LAYOUT****************************
             LinearLayout layConfirmation = new LinearLayout(context);
             layConfirmation.setOrientation(LinearLayout.VERTICAL);
             LayoutParams layoutParams2 = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
@@ -629,28 +642,44 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             layConfirmation.setLayoutParams(layoutParams2);
             layConfirmation.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_successfull_account));
             addView(layConfirmation);
+
             //TEXT CONGRATULATIONS
             CustomizedTextView txtCongrat = new CustomizedTextView(context);
             txtCongrat.setTextColor(getResources().getColor(R.color.white));
             txtCongrat.setText(R.string.congratulations);
+            txtCongrat.setTextSize(32);
             txtCongrat.setGravity(Gravity.CENTER_HORIZONTAL);
             layConfirmation.addView(txtCongrat);
+            LinearLayout.LayoutParams params = (LinearLayout.LayoutParams)txtCongrat.getLayoutParams();
+            //int left, int top, int right, int bottom
+            params.setMargins(0, 100, 0, 0);
+            txtCongrat.setLayoutParams(params);
+
 
             //IMAGE VIEW CHECK
-            ImageView imvCheck = new ImageView(context);
-            imvCheck.setBackground(getResources().getDrawable(R.drawable.approved));
-            imvCheck.setLayoutParams(new ViewGroup.LayoutParams(
-                            ViewGroup.LayoutParams.WRAP_CONTENT,
-                            ViewGroup.LayoutParams.WRAP_CONTENT) );
-
+           ImageView imvCheck = new ImageView(context);
+           imvCheck.setBackground(getResources().getDrawable(R.drawable.approved));
+           LayoutParams layoutParams1 = new LayoutParams(
+                    LayoutParams.WRAP_CONTENT,
+                    LayoutParams.WRAP_CONTENT);
+            layoutParams1.gravity= Gravity.CENTER_HORIZONTAL;
+            layoutParams1.setMargins(0, 100, 0, 0);
+            imvCheck.setLayoutParams(layoutParams1);
             layConfirmation.addView(imvCheck);
 
             //TEXT USER NAME
             CustomizedTextView txtUserName = new CustomizedTextView(context);
             txtUserName.setTextColor(getResources().getColor(R.color.white));
-            txtUserName.setText("Santiago");
+            AllemUser user = Constants.getUser(getApplicationContext());
+            String value = user.nombre;
+            txtUserName.setText(value);
             txtUserName.setGravity(Gravity.CENTER_HORIZONTAL);
             layConfirmation.addView(txtUserName);
+            txtUserName.setTextSize(32);
+            LinearLayout.LayoutParams params1 = (LinearLayout.LayoutParams)txtUserName.getLayoutParams();
+            //int left, int top, int right, int bottom
+            params1.setMargins(0, 100, 0, 0);
+            txtUserName.setLayoutParams(params1);
 
 
             //TEXT ENJOY
@@ -658,22 +687,60 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             txtEnjoy.setTextColor(getResources().getColor(R.color.white));
             txtEnjoy.setText(R.string.you_can_enjoy_benefits);
             txtEnjoy.setGravity(Gravity.CENTER_HORIZONTAL);
+            txtEnjoy.setTextSize(20);
             layConfirmation.addView(txtEnjoy);
+            LinearLayout.LayoutParams params2 = (LinearLayout.LayoutParams)txtEnjoy.getLayoutParams();
+            //int left, int top, int right, int bottom
+            params2.setMargins(0, 100, 0, 0);
+            txtUserName.setLayoutParams(params2);
 
+            //TEXT ACTIVATE
+            CustomizedTextView txtActivateNow = new CustomizedTextView(context);
+            txtActivateNow.setTextColor(getResources().getColor(R.color.white));
+            txtActivateNow.setText(R.string.TXT_ACTIVATE_NOW);
+            txtActivateNow.setGravity(Gravity.CENTER_HORIZONTAL);
+            txtActivateNow.setTextSize(18);
+            layConfirmation.addView(txtActivateNow);
+            LinearLayout.LayoutParams params3 = (LinearLayout.LayoutParams)txtActivateNow.getLayoutParams();
+            //int left, int top, int right, int bottom
+            params3.setMargins(0, 120, 0, 0);
+            txtUserName.setLayoutParams(params3);
 
+            //TEXT BUTTON LETS_TALK
+            CustomizedTextView txtLetsTalk = new CustomizedTextView(context);
+            txtLetsTalk.setTextColor(getResources().getColor(R.color.white));
+            txtLetsTalk.setText(R.string.TXT_LETS_TALK);
+            txtLetsTalk.setBackground(getResources().getDrawable(R.drawable.round_corner_transparent));
+            txtLetsTalk.setGravity(Gravity.CENTER);
+            layConfirmation.addView(txtLetsTalk);
+            LinearLayout.LayoutParams params4 = (LinearLayout.LayoutParams)txtLetsTalk.getLayoutParams();
+            //int left, int top, int right, int bottom
+            params4.setMargins(32, 50, 32, 0);
+            txtUserName.setLayoutParams(params4);
+            txtLetsTalk.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getApplicationContext(),CallActivity.class);
+                    startActivity(intent);
+                }
+            });
 
-            //TEXT BUTTON CONTINUE
-            CustomizedTextView txtContinue = new CustomizedTextView(context);
-            txtContinue.setTextColor(getResources().getColor(R.color.white));
-            txtContinue.setText(R.string.txt_continue);
-            txtContinue.setBackground(getResources().getDrawable(R.drawable.round_corner_transparent));
-            txtContinue.setGravity(Gravity.CENTER);//_HORIZONTAL
-            layConfirmation.addView(txtContinue);
-            txtContinue.setOnClickListener(new OnClickListener() {
+            //TEXT LATER
+            CustomizedTextView txtLater = new CustomizedTextView(context);
+            txtLater.setTextColor(getResources().getColor(R.color.white));
+            txtLater.setText(R.string.TXT_LATER);
+            txtLater.setGravity(Gravity.CENTER_HORIZONTAL);
+            layConfirmation.addView(txtLater);
+            LinearLayout.LayoutParams params5 = (LinearLayout.LayoutParams)txtLater.getLayoutParams();
+            //int left, int top, int right, int bottom
+            params5.setMargins(0, 90, 0, 0);
+            txtUserName.setLayoutParams(params5);
+            txtLater.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                     startActivity(intent);
+                    finish();
                 }
             });
 

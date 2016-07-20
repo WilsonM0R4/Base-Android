@@ -108,6 +108,7 @@ public class MainActivity extends Activity implements BackFragment.MenuSelectLis
     }
 
     //PROPER METHODS
+
     public void ClickMe(View view) {
         animate();
     }

@@ -36,8 +36,8 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
         webmcard.getSettings().setJavaScriptEnabled(true);
         webmcard.loadUrl(url);
         webmcard.setWebViewClient(new MyBrowser(this));
-        arrowBack= (ImageButton)root.findViewById(R.id.arrow_back_mcard);
-        arrowF= (ImageButton)root.findViewById(R.id.arrow_foward_mcard);
+        //arrowBack= (ImageButton)root.findViewById(R.id.arrow_back_mcard);
+        //arrowF= (ImageButton)root.findViewById(R.id.arrow_foward_mcard);
         progressBar = (ProgressBar)root.findViewById(R.id.progressBar);
         arrowBack.setOnClickListener(new View.OnClickListener() {
             @Override

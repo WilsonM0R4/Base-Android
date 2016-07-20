@@ -478,4 +478,7 @@
     <string name="the_article">los </string>
     <string name="and_article">y la </string>
     <string name="before_continue">Antes de continuar!</string>
+    <string name="TXT_LETS_TALK">CHARLEMOS</string>
+    <string name="TXT_LATER">MÁS TARDE</string>
+    <string name="TXT_ACTIVATE_NOW">Activa ahora tu certificado de\n cubrimiento y obtén más beneficios</string>
 </resources>
