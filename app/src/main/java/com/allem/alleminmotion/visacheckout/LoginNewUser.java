@@ -183,12 +183,17 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 ((AsobancariaApplication)this.getApplication()).setParseChannel(channel);*/
 
                 //Remove all views from layout
-                LinearLayout formLayout = (LinearLayout) findViewById(R.id.rl_body);
+               /* LinearLayout formLayout = (LinearLayout) findViewById(R.id.rl_body);
                 formLayout.removeAllViews();
-                //******Add all new views*****
+                /*//******Add all new views*****
                 SuccessfulRegister successfulRegister = new SuccessfulRegister(getApplicationContext());
                 formLayout.addView(successfulRegister);
-                Log.e("Serfar Prueba", channel);
+                Log.e("Serfar Prueba", channel);*/
+
+
+            //Temporary
+                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
 
             } else {
                 Toast.makeText(ctx, event.getFaultString(), Toast.LENGTH_LONG).show();
@@ -207,8 +212,8 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             public void onClick(View view) {
                 if (checkFields()) {
                     //Generate dialog for accept
-                    onAlertAcceptTermsAndConditions();
-                    //sendInfo();
+                     //   onAlertAcceptTermsAndConditions();
+                    sendInfo();
                 } else {
                     Toast.makeText(
                             ctx,
