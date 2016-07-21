@@ -265,14 +265,16 @@ public class FlightsSearchActivity extends LoadAnimate implements LoadAnimate.In
         Bundle bundle = new Bundle();
         AllemUser user = Constants.getUser(this);
         VisaCheckoutApp app = (VisaCheckoutApp) getApplication();
-        OneTransaction transaction = new OneTransaction(onePocketmessage,
-                OPKConstants.TYPE_FLIGHT,
-                app.getIdSession(),
-                user.nombre,
-                user.apellido,
-                user.email,
-                app.getRawPassword(),
-                app.getIdCuenta());
+        OneTransaction transaction = new OneTransaction();
+        transaction.add("jsonPayment", onePocketmessage);
+        transaction.add("type", OPKConstants.TYPE_FLIGHT);
+        transaction.add("sessionId", app.getIdSession());
+        transaction.add("first", user.nombre);
+        transaction.add("last", user.apellido);
+        transaction.add("userName", user.email);
+        transaction.add("rawPassword", app.getRawPassword());
+        transaction.add("idCuenta", Integer.toString(app.getIdCuenta()));
+
         bundle.putParcelable(OPKConstants.EXTRA_PAYMENT, transaction);
         intent.putExtras(bundle);
         startActivityForResult(intent, Constants.REQUEST_ONEPOCKET_RETURN);

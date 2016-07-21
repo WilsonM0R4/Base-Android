@@ -130,15 +130,14 @@ public class BackFragment extends Fragment  {
         VisaCheckoutApp app = ((VisaCheckoutApp) getActivity().getApplication());
 
         if (user != null) {
-            OneTransaction transaction = new OneTransaction(null,
-                    null,
-                    app.getIdSession(),
-                    user.nombre,
-                    user.apellido,
-                    user.email,
-                    app.getRawPassword(),
-                    app.getIdCuenta()
-            );
+            OneTransaction transaction = new OneTransaction();
+            transaction.add("sessionId", app.getIdSession());
+            transaction.add("first", user.nombre);
+            transaction.add("last", user.apellido);
+            transaction.add("userName", user.email);
+            transaction.add("rawPassword", app.getRawPassword());
+            transaction.add("idCuenta", Integer.toString(app.getIdCuenta()));
+
             bundle.putParcelable(OPKConstants.EXTRA_DATA, transaction);
             intent.putExtras(bundle);
         }

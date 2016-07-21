@@ -111,15 +111,17 @@ public class QRScanActivity extends FrontBackAnimate implements FrontBackAnimate
                             "\",\"codeISO\":\"" + currency +
                             "\",\"reference\":\"" + reference +
                             "\"}";
-                    OneTransaction transaction = new OneTransaction(data,
-                            OPKConstants.TYPE_QRCODE,
-                            ((VisaCheckoutApp)QRScanActivity.this.getApplication()).getIdSession(),
-                            Constants.getUser(QRScanActivity.this).nombre,
-                            Constants.getUser(QRScanActivity.this).apellido,
-                            Constants.getUser(QRScanActivity.this).email,
-                            ((VisaCheckoutApp) getApplication()).getRawPassword(),
-                            Constants.getUser(QRScanActivity.this).idCuenta);
-
+                    OneTransaction transaction = new OneTransaction();
+                    transaction.add("jsonPayment", data);
+                    transaction.add("type", OPKConstants.TYPE_QRCODE);
+                    transaction.add("sessionId", ((VisaCheckoutApp)QRScanActivity.this.getApplication()).getIdSession());
+                    transaction.add("first", Constants.getUser(QRScanActivity.this).nombre);
+                    transaction.add("last", Constants.getUser(QRScanActivity.this).apellido);
+                    transaction.add("userName", Constants.getUser(QRScanActivity.this).email);
+                    transaction.add("rawPassword", ((VisaCheckoutApp) getApplication()).getRawPassword());
+                    transaction.add("idCuenta", Integer.toString(Constants.getUser(QRScanActivity.this).idCuenta));
+                    transaction.add("merchantName", solicitud.usuarioCuenta);
+                    transaction.add("merchantPassword", solicitud.contrasenaCuenta);
                     bundle.putParcelable(OPKConstants.EXTRA_PAYMENT, transaction);
                     intent2.putExtras(bundle);
                     startActivity(intent2);

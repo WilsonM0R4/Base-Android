@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 
+import com.allegra.handysdk.utilsclasses.Const;
 import com.allem.alleminmotion.visacheckout.models.Compra;
 import com.allem.alleminmotion.visacheckout.models.SolicitudCobro;
 import com.allem.alleminmotion.visacheckout.models.Transaccion;
@@ -56,7 +57,10 @@ public class PayParsers {
                 new BigDecimal(soapCobro.getPropertySafelyAsString(Constants.KEY_COMPRAS_VALOR, "0")),
                 new BigDecimal(soapCobro.getPropertySafelyAsString(Constants.KEY_COMPRAS_IVA, "0")),
                 Integer.valueOf(soapCobro.getPropertySafelyAsString(Constants.KEY_COMERCIO_ID,"0")),
-                Integer.valueOf(soapCobro.getPropertySafelyAsString(Constants.KEY_ID_ACCOUNT,"0")), new BigDecimal(soapCobro.getPropertySafelyAsString(Constants.KEY_BASE_DEVOLUCION, "0")));
+                Integer.valueOf(soapCobro.getPropertySafelyAsString(Constants.KEY_ID_ACCOUNT,"0")),
+                new BigDecimal(soapCobro.getPropertySafelyAsString(Constants.KEY_BASE_DEVOLUCION, "0")),
+                soapCobro.getPropertySafelyAsString(Constants.KEY_USUARIOCUENTA),
+                soapCobro.getPropertySafelyAsString(Constants.KEY_CONTRASENACUENTA));
     }
 
     public static ArrayList<Compra> toCompras(SoapObject soapObject,boolean order){

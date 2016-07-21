@@ -152,6 +152,8 @@ public class Constants {
     public final static String KEY_COMPRAS_NUM_CUOTAS = "numeroCuotas";
     public final static String KEY_COMPRAS_IVA = "iva";
     public final static String KEY_BASE_DEVOLUCION = "baseDevolucion";
+    public final static String KEY_USUARIOCUENTA = "usuarioCuenta";
+    public final static String KEY_CONTRASENACUENTA = "contrasenaCuenta";
 
     //Videos
     public final static String KEY_VIDEOS="video";

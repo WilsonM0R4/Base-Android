@@ -190,15 +190,15 @@ public class MarketPlaceActivity extends FrontBackAnimate implements FrontBackAn
         Bundle bundle = new Bundle();
         AllemUser user = Constants.getUser(this);
         VisaCheckoutApp app = (VisaCheckoutApp) getApplication();
-        OneTransaction transaction = new OneTransaction(onePocketmessage,
-                OPKConstants.TYPE_MARKETPLACE,
-                app.getIdSession(),
-                user.nombre,
-                user.apellido,
-                user.email,
-                app.getRawPassword(),
-                app.getIdCuenta()
-                );
+        OneTransaction transaction = new OneTransaction();
+        transaction.add("jsonPayment", onePocketmessage);
+        transaction.add("type", OPKConstants.TYPE_MARKETPLACE);
+        transaction.add("sessionId", app.getIdSession());
+        transaction.add("first", user.nombre);
+        transaction.add("last", user.apellido);
+        transaction.add("userName", user.email);
+        transaction.add("rawPassword", app.getRawPassword());
+        transaction.add("idCuenta", Integer.toString(app.getIdCuenta()));
 
         bundle.putParcelable(OPKConstants.EXTRA_PAYMENT, transaction);
         intent.putExtras(bundle);

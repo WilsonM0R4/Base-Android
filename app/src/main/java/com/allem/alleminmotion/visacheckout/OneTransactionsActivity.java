@@ -117,15 +117,14 @@ public class OneTransactionsActivity extends FrontBackAnimate  implements FrontB
         Bundle bundle = new Bundle();
         AllemUser user = Constants.getUser(this);
         VisaCheckoutApp app = (VisaCheckoutApp) getApplication();
-        OneTransaction data = new OneTransaction(null,
-                null,
-                app.getIdSession(),
-                user.nombre,
-                user.apellido,
-                user.email,
-                app.getRawPassword(),
-                app.getIdCuenta()
-        );
+        OneTransaction data = new OneTransaction();
+        data.add("sessionId", app.getIdSession());
+        data.add("first", user.nombre);
+        data.add("last", user.apellido);
+        data.add("userName", user.email);
+        data.add("rawPassword", app.getRawPassword());
+        data.add("idCuenta", Integer.toString(app.getIdCuenta()));
+
         bundle.putParcelable(OPKConstants.EXTRA_DATA, data);
         oneTransctions = new TransactionsFragment();
         oneTransctions.setArguments(bundle);
