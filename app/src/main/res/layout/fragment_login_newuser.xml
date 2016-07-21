@@ -128,11 +128,43 @@
                 android:background="@drawable/apptheme_edit_text_holo_light"
                 />
 
+
+            <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+                android:id="@+id/etTypeOfId"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="3dp"
+                android:drawableEnd="@drawable/hotels__arrow__down"
+                android:textSize="15sp"
+                android:drawableStart="@drawable/field_type_id"
+                android:gravity="center_vertical"
+                android:hint="@string/hintTypeOfId"
+                android:maxLength="100"
+                android:singleLine="true"
+                app:font="@string/font_muli"
+                android:textColorHint="@color/dark_gray"
+                style="@style/MyEditTextStyle"
+                />
+
+            <com.allem.alleminmotion.visacheckout.utils.CustomizedEditText
+                android:id="@+id/etIdNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:drawableStart="@drawable/field_id_number"
+                android:hint="@string/hintIdNumber"
+                android:inputType="textPersonName"
+                android:singleLine="true"
+                android:textSize="15sp"
+                app:fontEdit="@string/font_muli"
+                android:textColorHint="@color/register_input_inactive"
+                android:background="@drawable/apptheme_edit_text_holo_light"
+                />
+
             <com.allem.alleminmotion.visacheckout.utils.CustomizedEditText
                 android:id="@+id/et_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignRight="@+id/et_names"
                 android:layout_marginTop="3dp"
                 android:drawableStart="@drawable/field_mail"
                 android:hint="@string/txt_hint_email"
@@ -160,22 +192,22 @@
                 android:textColorHint="@color/register_input_inactive"
                 />
 
-            <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
-                android:id="@+id/et_country_mobile"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="3dp"
-                android:drawableEnd="@drawable/row_country"
-                android:textSize="15sp"
-                android:drawableStart="@drawable/field_country"
-                android:gravity="center_vertical"
-                android:hint="@string/country"
-                android:maxLength="100"
-                android:singleLine="true"
-                app:font="@string/font_muli"
-                android:textColorHint="@color/dark_gray"
-                style="@style/MyEditTextStyle"
-                />
+                <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+                    android:id="@+id/et_country_mobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="3dp"
+                    android:drawableEnd="@drawable/row_country"
+                    android:textSize="15sp"
+                    android:drawableStart="@drawable/field_country"
+                    android:gravity="center_vertical"
+                    android:hint="@string/country"
+                    android:maxLength="100"
+                    android:singleLine="true"
+                    app:font="@string/font_muli"
+                    android:textColorHint="@color/dark_gray"
+                    style="@style/MyEditTextStyle"
+                    />
 
             <ImageView
                 android:layout_width="match_parent"

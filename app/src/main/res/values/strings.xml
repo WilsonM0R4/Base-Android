@@ -594,4 +594,6 @@
     <string name="TXT_LETS_TALK">LET\'S TALK</string>
     <string name="TXT_LATER">LATER</string>
     <string name="TXT_ACTIVATE_NOW">Activate now your certificate of\n coverage and get more benefits</string>
+    <string name="hintTypeOfId">Type of ID</string>
+    <string name="hintIdNumber">ID Number</string>
 </resources>

@@ -481,4 +481,6 @@
     <string name="TXT_LETS_TALK">CHARLEMOS</string>
     <string name="TXT_LATER">MÁS TARDE</string>
     <string name="TXT_ACTIVATE_NOW">Activa ahora tu certificado de\n cubrimiento y obtén más beneficios</string>
+    <string name="hintTypeOfId">Tipo de documento</string>
+    <string name="hintIdNumber">Número de documento</string>
 </resources>
