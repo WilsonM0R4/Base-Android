@@ -49,6 +49,7 @@
         android:src="@drawable/separator"
         android:background="@drawable/separator_medium_mag" />
 
+
     <ScrollView
         android:id="@+id/sv_body"
         android:layout_width="match_parent"
@@ -61,8 +62,8 @@
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
             android:orientation="vertical"
-            android:paddingLeft="24dp"
-            android:paddingRight="24dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
             android:visibility="visible">
 
             <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
@@ -71,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/join_new_experience"
                 android:textColor="@color/orange"
-                android:textSize="27sp"
+                android:textSize="24sp"
                 app:font="@string/font_muli_extraLight"
                 android:layout_marginTop="10dp" />
 
@@ -86,6 +87,22 @@
                 android:gravity="center_horizontal"
                 android:layout_marginTop="5dp"
                 app:font="@string/font_muli"/>
+
+           <!-- </LinearLayout>-->
+
+<!--
+
+
+        <LinearLayout
+            android:id="@+id/llyRegisterForm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:visibility="visible">-->
 
             <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
                 android:id="@+id/tv_lbl_register"
