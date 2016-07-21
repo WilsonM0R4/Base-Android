@@ -45,7 +45,7 @@ public class MyBookingActivity extends FrontBackAnimate implements FrontBackAnim
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setView(R.layout.mybooking_activity, this);
-        //init();
+        init();
         ApiCall();
 
     }
@@ -64,7 +64,11 @@ public class MyBookingActivity extends FrontBackAnimate implements FrontBackAnim
         recyclerAdapter.notifyDataSetChanged();
     }
 
+    private void init() {
+        tv_currentbook_mybooking=(MyTextView)findViewById(R.id.tv_currentbook_mybooking);
+        tv_compltebook_mybooking=(MyTextView)findViewById(R.id.tv_compltebook_mybooking);
 
+    }
 
 
 

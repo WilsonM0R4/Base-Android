@@ -13,20 +13,25 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.util.Patterns;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.allem.alleminmotion.visacheckout.async.AsyncSoapObject;
 import com.allem.alleminmotion.visacheckout.async.AsyncTaskSoapObjectResultEvent;
 import com.allem.alleminmotion.visacheckout.async.MyBus;
@@ -35,25 +40,35 @@ import com.allem.alleminmotion.visacheckout.models.CuentaCliente;
 import com.allem.alleminmotion.visacheckout.models.CuentaClienteInfoAdicional;
 import com.allem.alleminmotion.visacheckout.parsers.SoapObjectParsers;
 import com.allem.alleminmotion.visacheckout.utils.Constants;
+import com.allem.alleminmotion.visacheckout.utils.CustomizedTextView;
 import com.allem.alleminmotion.visacheckout.utils.Util;
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.squareup.otto.Subscribe;
 import org.ksoap2.serialization.PropertyInfo;
 
+import java.lang.reflect.Field;
+
 public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
 
-
-    private final String TAG = "LoginNewUser";
-    private final String M_SELECTION_DIVIDER = "mSelectionDivider", HTTP_AGENT = "http.agent";
+    //************GLOBAL ATTRIBUTES***************
+    private final String TAG = "LoginNewUser", M_SELECTION_DIVIDER = "mSelectionDivider", HTTP_AGENT = "http.agent";
     private Context ctx;
     private ImageButton ib_showhidepass, ib_showhiderepass;
     private boolean passIsVisible = false, repassIsVisible = false;
     private EditText et_username, et_password, et_names, et_surname, et_mobile;
     private NumberPicker countryPicker;
-    private com.allem.alleminmotion.visacheckout.utils.CustomizedTextView btn_sendreg, btn_login;
+    private CustomizedTextView btn_sendreg, btn_login;
     private ProgressBar pb_create;
     TextView textCountrySelected;
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
 
-
+    //************ OVERRIDE METHODS**************
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -61,8 +76,51 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         ctx = this;
         System.gc();
         MyBus.getInstance().register(this);
-
         super.setView(R.layout.fragment_login_newuser, this);
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+    }
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client.connect();
+        Action viewAction = Action.newAction(
+                Action.TYPE_VIEW, // TODO: choose an action type.
+                "LoginNewUser Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://host/path"),
+                // TODO: Make sure this auto-generated app URL is correct.
+                Uri.parse("android-app://com.allem.alleminmotion.visacheckout/http/host/path")
+        );
+        AppIndex.AppIndexApi.start(client, viewAction);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        Action viewAction = Action.newAction(
+                Action.TYPE_VIEW, // TODO: choose an action type.
+                "LoginNewUser Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://host/path"),
+                // TODO: Make sure this auto-generated app URL is correct.
+                Uri.parse("android-app://com.allem.alleminmotion.visacheckout/http/host/path")
+        );
+        AppIndex.AppIndexApi.end(client, viewAction);
+        client.disconnect();
     }
 
     @Override
@@ -86,14 +144,61 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         et_surname = (EditText) root.findViewById(R.id.et_surname);
         et_names = (EditText) root.findViewById(R.id.et_names);
         et_password = (EditText) root.findViewById(R.id.et_password);
-        btn_sendreg = (com.allem.alleminmotion.visacheckout.utils.CustomizedTextView) root.findViewById(R.id.btn_sendreg);
-        btn_login = (com.allem.alleminmotion.visacheckout.utils.CustomizedTextView) root.findViewById(R.id.btn_login_new);
+        btn_sendreg = (CustomizedTextView) root.findViewById(R.id.btn_sendreg);
+        btn_login = (CustomizedTextView) root.findViewById(R.id.btn_login_new);
         pb_create = (ProgressBar) root.findViewById(R.id.pb_create);
         et_mobile = (EditText) root.findViewById(R.id.et_mobile);
         textCountrySelected = (TextView) root.findViewById(R.id.et_country_mobile);
-
         setListeners();
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Log.d(TAG, "Option: " + item.getItemId());
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Subscribe
+    public void onAsyncTaskResult(AsyncTaskSoapObjectResultEvent event) {
+        if (event.getCodeRequest() == Constants.ACTIVITY_LOGIN_NEW_USER) {
+            setWaitinUI(false);
+            Intent returnIntent = new Intent();
+            if (event.getResult() != null) {
+                AllemUser user = SoapObjectParsers.toAllemUser(event.getResult());
+                ((VisaCheckoutApp) this.getApplication()).setIdSession(user.idSesion);
+                ((VisaCheckoutApp) this.getApplication()).setIdCuenta(user.idCuenta);
+                String name = user.email.substring(0, user.email.indexOf('@'));
+                String domain = user.email.substring(user.email.indexOf('@') + 1, user.email.length()).replace(".", "");
+                String channel = name + domain + user.idCuenta;
+                Constants.saveUser(ctx, user, channel);
+                ((VisaCheckoutApp) this.getApplication()).unSetParseChannels();
+                ((VisaCheckoutApp) this.getApplication()).parseUser(user.email, channel);
+                /*if(KeySaver.isExist(ctx,Constants.USER_PUSH)) ((AsobancariaApplication) this.getApplication()).unSetParseChannels();
+                ((AsobancariaApplication)this.getApplication()).setParseChannel(channel);*/
+
+                //Remove all views from layout
+                LinearLayout formLayout = (LinearLayout) findViewById(R.id.rl_body);
+                formLayout.removeAllViews();
+                //******Add all new views*****
+                SuccessfulRegister successfulRegister = new SuccessfulRegister(getApplicationContext());
+                formLayout.addView(successfulRegister);
+                Log.e("Serfar Prueba", channel);
+
+            } else {
+                Toast.makeText(ctx, event.getFaultString(), Toast.LENGTH_LONG).show();
+                setResult(RESULT_CANCELED, returnIntent);
+            }
+
+        }
+    }
+
+    //************ PROPER METHODS**************
 
     private void setListeners() {
 
@@ -101,7 +206,9 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             @Override
             public void onClick(View view) {
                 if (checkFields()) {
-                    sendInfo();
+                    //Generate dialog for accept
+                    onAlertAcceptTermsAndConditions();
+                    //sendInfo();
                 } else {
                     Toast.makeText(
                             ctx,
@@ -114,7 +221,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ctx,LoginActivity.class);
+                Intent intent = new Intent(ctx, LoginActivity.class);
                 startActivity(intent);
             }
         });
@@ -127,7 +234,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                         showToast(getString(R.string.txt_email_should_have_7_characters));
                         et_username.setTextColor(Color.RED);
                         et_username.setHintTextColor(Color.RED);
-                    } else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(et_username.getText().toString()).matches()) {
+                    } else if (!Patterns.EMAIL_ADDRESS.matcher(et_username.getText().toString()).matches()) {
                         showToast(getString(R.string.txt_invalid_email));
                         et_username.setTextColor(Color.RED);
                         //et_username.setHintTextColor(Color.RED);
@@ -192,6 +299,54 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             @Override
             public void onClick(View view) {
                 onAlertSelectCountry();
+            }
+        });
+
+    }
+
+    private void onAlertAcceptTermsAndConditions() {
+
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.custom_alert_dialog_accept_terms_conditions);
+        dialog.show();
+        //Agree button
+        CustomizedTextView btnOk = (CustomizedTextView) dialog.findViewById(R.id.btnAccept);
+        btnOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendInfo();
+                dialog.dismiss();
+            }
+        });
+
+        //Decline button
+        CustomizedTextView btnDecline = (CustomizedTextView) dialog.findViewById(R.id.btnDecline);
+        btnDecline.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Return to filled Fields
+                dialog.dismiss();
+
+            }
+        });
+
+        //Terms and conditions
+        CustomizedTextView txtTermsAndConditions = (CustomizedTextView) dialog.findViewById(R.id.txtTermsAndConditions);
+        txtTermsAndConditions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(),TermsActivity.class);
+                startActivity(i);
+            }
+        });
+
+        //Privacy policy
+        CustomizedTextView txtPrivacyPolicy = (CustomizedTextView) dialog.findViewById(R.id.txtPrivacyPolicy);
+        txtPrivacyPolicy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(),PoliticalActivity.class);
+                startActivity(i);
             }
         });
 
@@ -342,7 +497,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             result = false;
         }
 
-        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(et_username.getText().toString()).matches()) {
+        if (!Patterns.EMAIL_ADDRESS.matcher(et_username.getText().toString()).matches()) {
             et_username.setTextColor(Color.RED);
             et_username.setHintTextColor(Color.RED);
             result = false;
@@ -362,47 +517,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         et_mobile.setEnabled(!b);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        Log.d(TAG, "Option: " + item.getItemId());
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                this.finish();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-    @Subscribe
-    public void onAsyncTaskResult(AsyncTaskSoapObjectResultEvent event) {
-        if (event.getCodeRequest() == Constants.ACTIVITY_LOGIN_NEW_USER) {
-            setWaitinUI(false);
-            Intent returnIntent = new Intent();
-            if (event.getResult() != null) {
-                AllemUser user = SoapObjectParsers.toAllemUser(event.getResult());
-                ((VisaCheckoutApp) this.getApplication()).setIdSession(user.idSesion);
-                ((VisaCheckoutApp) this.getApplication()).setIdCuenta(user.idCuenta);
-                String name = user.email.substring(0, user.email.indexOf('@'));
-                String domain = user.email.substring(user.email.indexOf('@') + 1, user.email.length()).replace(".", "");
-                String channel = name + domain + user.idCuenta;
-                Constants.saveUser(ctx, user, channel);
-                ((VisaCheckoutApp) this.getApplication()).unSetParseChannels();
-                ((VisaCheckoutApp) this.getApplication()).parseUser(user.email, channel);
-                /*if(KeySaver.isExist(ctx,Constants.USER_PUSH)) ((AsobancariaApplication) this.getApplication()).unSetParseChannels();
-                ((AsobancariaApplication)this.getApplication()).setParseChannel(channel);*/
-                Log.e("Prueba",channel);
-                Intent intent = new Intent(this, MainActivity.class);
-                startActivity(intent);
-            } else {
-                Toast.makeText(ctx, event.getFaultString(), Toast.LENGTH_LONG).show();
-                setResult(RESULT_CANCELED, returnIntent);
-            }
-
-        }
-    }
-
-    void onAlertSelectCountry() {//View view
+    private void onAlertSelectCountry() {//View view
 
         Log.e("Bug 1", "Entro");
         final Dialog dialog = new Dialog(this);
@@ -433,7 +548,6 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         });
     }
 
-
     private void updateTextOfCountry() {
 
         textCountrySelected = (TextView) findViewById(R.id.et_country_mobile);
@@ -458,8 +572,8 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
 
     private void setDividerColor(NumberPicker picker) {
 
-        java.lang.reflect.Field[] pickerFields = NumberPicker.class.getDeclaredFields();
-        for (java.lang.reflect.Field pf : pickerFields) {
+        Field[] pickerFields = NumberPicker.class.getDeclaredFields();
+        for (Field pf : pickerFields) {
             if (pf.getName().equals(M_SELECTION_DIVIDER)) {
                 pf.setAccessible(true);
                 try {
@@ -485,4 +599,152 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
     public void onUp(View view) {
         onBackPressed();
     }
+
+    //**************INNER CLASSES*****************
+
+    private class SuccessfulRegister extends LinearLayout{
+
+        public SuccessfulRegister(Context context) {
+
+            super(context);
+            //****************COMPLETE LAYOUT****************************
+            setOrientation(LinearLayout.VERTICAL);
+            LayoutParams layoutParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+            setLayoutParams(layoutParams);
+            setBackgroundColor(getResources().getColor(R.color.white));
+            //TEXT REGISTER TITLE
+            CustomizedTextView txtTitle = new CustomizedTextView(context);
+            txtTitle.setText(R.string.title_register);
+            addView(txtTitle);
+            txtTitle.setTextColor(getResources().getColor(R.color.magenta));
+            txtTitle.setGravity(Gravity.CENTER_HORIZONTAL);
+            txtTitle.setTextSize(18);
+            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams)txtTitle.getLayoutParams();
+            //int left, int top, int right, int bottom
+            layoutParams3.setMargins(0, 40, 0, 40);
+            txtTitle.setLayoutParams(layoutParams3);
+
+            //IMAGE VIEW SEPARATOR
+            ImageView imvSeparator = new ImageView(context);
+            imvSeparator.setBackground(getResources().getDrawable(R.drawable.separator_medium_mag));
+            imvSeparator.setImageResource(R.drawable.separator);
+            addView(imvSeparator);
+            LinearLayout.LayoutParams params6 = (LinearLayout.LayoutParams)imvSeparator.getLayoutParams();
+            //int left, int top, int right, int bottom
+            params6.setMargins(-6, 0, -6, -4);
+            imvSeparator.setLayoutParams(params6);
+
+            //****************CONTENT SUB-LAYOUT****************************
+            LinearLayout layConfirmation = new LinearLayout(context);
+            layConfirmation.setOrientation(LinearLayout.VERTICAL);
+            LayoutParams layoutParams2 = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+            layoutParams2.gravity= Gravity.CENTER_HORIZONTAL;
+            layConfirmation.setLayoutParams(layoutParams2);
+            layConfirmation.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_successfull_account));
+            addView(layConfirmation);
+
+            //TEXT CONGRATULATIONS
+            CustomizedTextView txtCongrat = new CustomizedTextView(context);
+            txtCongrat.setTextColor(getResources().getColor(R.color.white));
+            txtCongrat.setText(R.string.congratulations);
+            txtCongrat.setTextSize(32);
+            txtCongrat.setGravity(Gravity.CENTER_HORIZONTAL);
+            layConfirmation.addView(txtCongrat);
+            LinearLayout.LayoutParams params = (LinearLayout.LayoutParams)txtCongrat.getLayoutParams();
+            //int left, int top, int right, int bottom
+            params.setMargins(0, 100, 0, 0);
+            txtCongrat.setLayoutParams(params);
+
+
+            //IMAGE VIEW CHECK
+           ImageView imvCheck = new ImageView(context);
+           imvCheck.setBackground(getResources().getDrawable(R.drawable.approved));
+           LayoutParams layoutParams1 = new LayoutParams(
+                    LayoutParams.WRAP_CONTENT,
+                    LayoutParams.WRAP_CONTENT);
+            layoutParams1.gravity= Gravity.CENTER_HORIZONTAL;
+            layoutParams1.setMargins(0, 100, 0, 0);
+            imvCheck.setLayoutParams(layoutParams1);
+            layConfirmation.addView(imvCheck);
+
+            //TEXT USER NAME
+            CustomizedTextView txtUserName = new CustomizedTextView(context);
+            txtUserName.setTextColor(getResources().getColor(R.color.white));
+            AllemUser user = Constants.getUser(getApplicationContext());
+            String value = user.nombre;
+            txtUserName.setText(value);
+            txtUserName.setGravity(Gravity.CENTER_HORIZONTAL);
+            layConfirmation.addView(txtUserName);
+            txtUserName.setTextSize(32);
+            LinearLayout.LayoutParams params1 = (LinearLayout.LayoutParams)txtUserName.getLayoutParams();
+            //int left, int top, int right, int bottom
+            params1.setMargins(0, 100, 0, 0);
+            txtUserName.setLayoutParams(params1);
+
+
+            //TEXT ENJOY
+            CustomizedTextView txtEnjoy = new CustomizedTextView(context);
+            txtEnjoy.setTextColor(getResources().getColor(R.color.white));
+            txtEnjoy.setText(R.string.you_can_enjoy_benefits);
+            txtEnjoy.setGravity(Gravity.CENTER_HORIZONTAL);
+            txtEnjoy.setTextSize(20);
+            layConfirmation.addView(txtEnjoy);
+            LinearLayout.LayoutParams params2 = (LinearLayout.LayoutParams)txtEnjoy.getLayoutParams();
+            //int left, int top, int right, int bottom
+            params2.setMargins(0, 100, 0, 0);
+            txtUserName.setLayoutParams(params2);
+
+            //TEXT ACTIVATE
+            CustomizedTextView txtActivateNow = new CustomizedTextView(context);
+            txtActivateNow.setTextColor(getResources().getColor(R.color.white));
+            txtActivateNow.setText(R.string.TXT_ACTIVATE_NOW);
+            txtActivateNow.setGravity(Gravity.CENTER_HORIZONTAL);
+            txtActivateNow.setTextSize(18);
+            layConfirmation.addView(txtActivateNow);
+            LinearLayout.LayoutParams params3 = (LinearLayout.LayoutParams)txtActivateNow.getLayoutParams();
+            //int left, int top, int right, int bottom
+            params3.setMargins(0, 120, 0, 0);
+            txtUserName.setLayoutParams(params3);
+
+            //TEXT BUTTON LETS_TALK
+            CustomizedTextView txtLetsTalk = new CustomizedTextView(context);
+            txtLetsTalk.setTextColor(getResources().getColor(R.color.white));
+            txtLetsTalk.setText(R.string.TXT_LETS_TALK);
+            txtLetsTalk.setBackground(getResources().getDrawable(R.drawable.round_corner_transparent));
+            txtLetsTalk.setGravity(Gravity.CENTER);
+            layConfirmation.addView(txtLetsTalk);
+            LinearLayout.LayoutParams params4 = (LinearLayout.LayoutParams)txtLetsTalk.getLayoutParams();
+            //int left, int top, int right, int bottom
+            params4.setMargins(32, 50, 32, 0);
+            txtUserName.setLayoutParams(params4);
+            txtLetsTalk.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getApplicationContext(),CallActivity.class);
+                    startActivity(intent);
+                }
+            });
+
+            //TEXT LATER
+            CustomizedTextView txtLater = new CustomizedTextView(context);
+            txtLater.setTextColor(getResources().getColor(R.color.white));
+            txtLater.setText(R.string.TXT_LATER);
+            txtLater.setGravity(Gravity.CENTER_HORIZONTAL);
+            layConfirmation.addView(txtLater);
+            LinearLayout.LayoutParams params5 = (LinearLayout.LayoutParams)txtLater.getLayoutParams();
+            //int left, int top, int right, int bottom
+            params5.setMargins(0, 90, 0, 0);
+            txtUserName.setLayoutParams(params5);
+            txtLater.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            });
+
+        }
+    }
+
 }

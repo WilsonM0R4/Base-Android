@@ -1,5 +1,6 @@
 package com.allem.alleminmotion.visacheckout;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -107,6 +108,7 @@ public class MainActivity extends Activity implements BackFragment.MenuSelectLis
     }
 
     //PROPER METHODS
+
     public void ClickMe(View view) {
         animate();
     }

@@ -63,7 +63,7 @@ public class LoginForgotConfirmation extends FrontBackAnimate implements FrontBa
                 startActivity(intent);
             }
         });
-        email = (Button)root.findViewById(R.id.go_to_email);
+     /*   email = (Button)root.findViewById(R.id.go_to_email);
         email.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,7 +71,7 @@ public class LoginForgotConfirmation extends FrontBackAnimate implements FrontBa
                 Intent chooser = Intent.createChooser(email,"Abrir");
                 startActivity(chooser);
             }
-        });
+        });*/
 
         Intent i = getIntent();
         String str = i.getStringExtra("mail");

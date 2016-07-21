@@ -86,12 +86,12 @@
                 android:textAppearance="?android:textAppearanceMedium"
                 android:visibility="gone" />
 
-            <ImageButton
+          <!--  <ImageButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:src="@drawable/separator_white"
                 android:background="@android:color/transparent"
-                />
+                />-->
 
             <TextView
                 android:layout_width="match_parent"
@@ -121,6 +121,18 @@
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="IATAI"
+                android:textColor="@color/white"
+                android:gravity="center_horizontal"
+                android:background="@android:color/transparent"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:singleLine="false"
+                android:id="@+id/tvIatai" />
         </LinearLayout>
     </RelativeLayout>
 </FrameLayout>

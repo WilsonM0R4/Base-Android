@@ -275,7 +275,7 @@
     <string name="title_activity_edit_profile">EditProfileActivity</string>
     <string name="btn_save">SAVE</string>
     <string name="legal_title">Legal</string>
-    <string name="privacy_policy">Privacy policy</string>
+    <string name="privacy_policy"><u>privacy policy</u></string>
     <string name="terms_condition">Terms and Conditions</string>
     <string name="btn_cancel">CANCEL</string>
     <string name="btn_cancel_one_touch">Cancel</string>
@@ -539,7 +539,6 @@
      <string name="image_category">http://ec2-52-26-68-235.us-west-2.compute.amazonaws.com:8080/HomZservice/fileupload/</string>-->
 
 
-
     <!-- server base url for test -->
 
 
@@ -582,4 +581,17 @@
 
     <string name="send_log_request">Sorry an error has occurred.\nPlease press here to send us the log.</string>
     <string name="send_log_instruction">Please add reproduction steps and addition info here. Thanks!</string>
+    <string name="decline_register">DECLINE</string>
+    <string name="accept_register">AGREE</string>
+    <string name="congratulations">¡Congratulations!</string>
+    <string name="you_can_enjoy_benefits">You can now enjoy all the\n benefits it brings to you\n allegra</string>
+    <string name="txt_continue">CONTINUE</string>
+    <string name="test_terms"><u>terms and conditions</u></string>
+    <string name="by_clicking">By clicking agree you accept</string>
+    <string name="the_article">the </string>
+    <string name="and_article">and </string>
+    <string name="before_continue">Before you continue!</string>
+    <string name="TXT_LETS_TALK">LET\'S TALK</string>
+    <string name="TXT_LATER">LATER</string>
+    <string name="TXT_ACTIVATE_NOW">Activate now your certificate of\n coverage and get more benefits</string>
 </resources>

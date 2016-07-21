@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/success"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_successfull_account">
+
+
+    <RelativeLayout
+        android:id="@+id/ll_header"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/white"
+        android:onClick="onCloseMenu">
+
+        <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+            android:id="@+id/tv_title_secc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/ib_up"
+            android:layout_centerHorizontal="true"
+            android:text="@string/title_register"
+            app:font="@string/font_varela"
+            android:textSize="18sp"
+            android:textColor="@color/magenta" />
+
+        </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_separator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_header"
+        android:contentDescription="separator"
+        android:layout_marginLeft="-2dp"
+        android:layout_marginRight="-2dp"
+        android:src="@drawable/separator"
+        android:background="@drawable/separator_medium_mag" />
+
+
+    <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/congratulations"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:id="@+id/imageView21"
+        android:background="@drawable/approved"
+        android:layout_gravity="center_horizontal" />
+
+    <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        android:id="@+id/txtNameRegisterSuccessful"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:layout_gravity="center_horizontal"
+        android:text="Santiago"/>
+
+    <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/you_can_enjoy_benefits"/>
+
+
+    <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtBtnContinue"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:background="@drawable/round_corner_transparent"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/txt_continue"/>
+
+
+</LinearLayout>
