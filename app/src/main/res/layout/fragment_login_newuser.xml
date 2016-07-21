@@ -133,7 +133,7 @@
                 android:id="@+id/etTypeOfId"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="13dp"
                 android:drawableEnd="@drawable/hotels__arrow__down"
                 android:textSize="15sp"
                 android:drawableStart="@drawable/field_type_id"
