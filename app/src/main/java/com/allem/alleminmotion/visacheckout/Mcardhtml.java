@@ -25,27 +25,28 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setView(R.layout.fragment_mcard_html,this);
+        setView(R.layout.fragment_mcard_html, this);
 
     }
 
     @Override
     public void initViews(View root) {
         menu = (ImageButton) root.findViewById(R.id.menu_image);
-        webmcard = (WebView)root.findViewById(R.id.webmcard);
+        webmcard = (WebView) root.findViewById(R.id.webmcard);
         webmcard.getSettings().setJavaScriptEnabled(true);
         webmcard.loadUrl(url);
         webmcard.setWebViewClient(new MyBrowser(this));
-        //arrowBack= (ImageButton)root.findViewById(R.id.arrow_back_mcard);
-        //arrowF= (ImageButton)root.findViewById(R.id.arrow_foward_mcard);
-        progressBar = (ProgressBar)root.findViewById(R.id.progressBar);
+        arrowBack = (ImageButton) root.findViewById(R.id.arrow_back_mcard);
+        arrowF = (ImageButton) root.findViewById(R.id.arrow_foward_mcard);
+        progressBar = (ProgressBar) root.findViewById(R.id.progressBar);
+
         arrowBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                webmcard.goBack();
 
             }
         });
+
     }
 
     public void onMenu(View view) {
@@ -55,17 +56,27 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
     private class MyBrowser extends WebViewClient {
 
         private Context context;
+
         public MyBrowser(Context context) {
             this.context = context;
         }
 
-        public boolean shouldOverrideUrlLoading(WebView webView, String url){
-            if(url.equals("allegra:phone")){
+        public boolean shouldOverrideUrlLoading(WebView webView, String url) {
+            if (url.equals("allegra:phone")) {
                 Intent i = new Intent(context, CallActivity.class);
                 context.startActivity(i);
                 return true;
-        }
+            }
             return super.shouldOverrideUrlLoading(webView, url);
+        }
+        public void onPageFinished(WebView view, String url) {
+            progressBar.setVisibility(View.GONE);
+            if (url.equals("about:blank")) {
+                webmcard.loadUrl(returnURL);
+            }
+            loadArrows();
+        }
+
     }
 
 
@@ -76,27 +87,31 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
     }
 
 
-    private void loadArrows(){
+    private void loadArrows() {
 
-        if(webmcard.canGoBack()){
+        if (webmcard.canGoBack()) {
             arrowBack.setImageDrawable(getResources().getDrawable(R.drawable.navigation__backurl));
-        }else{
+        } else {
             arrowBack.setImageDrawable(getResources().getDrawable(R.drawable.navigation__backurl_2));
         }
 
-        if(webmcard.canGoForward()){
+        if (webmcard.canGoForward()) {
             arrowF.setImageDrawable(getResources().getDrawable(R.drawable.navigation__fwdurl_2));
-        }else{
+        } else {
             arrowF.setImageDrawable(getResources().getDrawable(R.drawable.navigation__fwdurl));
         }
     }
 
-    public void onPageFinished(WebView view, String url) {
-        progressBar.setVisibility(View.GONE);
-        if (url.equals("about:blank")) {
-            webmcard.loadUrl(returnURL);
+
+    public void onGoBack(View view) {
+        if (webmcard.canGoBack()) {
+            webmcard.goBack();
         }
-        loadArrows();
     }
+
+    public void onGoForward(View view) {
+        if (webmcard.canGoForward()) {
+            webmcard.goForward();
+        }
     }
 }
