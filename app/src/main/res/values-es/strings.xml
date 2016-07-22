@@ -483,4 +483,9 @@
     <string name="TXT_ACTIVATE_NOW">Activa ahora tu certificado de\n cubrimiento y obtén más beneficios</string>
     <string name="hintTypeOfId">Tipo de documento</string>
     <string name="hintIdNumber">Número de documento</string>
+    <string name="txt_select_type_id">SELECCIONA TIPO DE DOCUMENTO</string>
+    <string name="txt_citizenship_card">CC</string>
+    <string name="txt_Foreigner_ID">CE</string>
+    <string name="txt_identity_card">TI</string>
+    <string name="txt_passport">PS</string>
 </resources>

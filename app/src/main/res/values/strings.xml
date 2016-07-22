@@ -596,4 +596,9 @@
     <string name="TXT_ACTIVATE_NOW">Activate now your certificate of\n coverage and get more benefits</string>
     <string name="hintTypeOfId">Type of ID</string>
     <string name="hintIdNumber">ID Number</string>
+    <string name="txt_select_type_id">SELECT TYPE OF ID</string>
+    <string name="txt_citizenship_card">CC</string>
+    <string name="txt_Foreigner_ID">FI</string>
+    <string name="txt_identity_card">IC</string>
+    <string name="txt_passport">PS</string>
 </resources>

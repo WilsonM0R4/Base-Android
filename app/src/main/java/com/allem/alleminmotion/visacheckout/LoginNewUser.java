@@ -58,10 +58,10 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
     private ImageButton ib_showhidepass, ib_showhiderepass;
     private boolean passIsVisible = false, repassIsVisible = false;
     private EditText et_username, et_password, et_names, et_surname, et_mobile;
-    private NumberPicker countryPicker;
+    private NumberPicker countryPicker, typeOfIdPicker;
     private CustomizedTextView btn_sendreg, btn_login;
     private ProgressBar pb_create;
-    TextView textCountrySelected;
+    TextView textCountrySelected, txtTypeOfIdSelected;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -149,6 +149,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         pb_create = (ProgressBar) root.findViewById(R.id.pb_create);
         et_mobile = (EditText) root.findViewById(R.id.et_mobile);
         textCountrySelected = (TextView) root.findViewById(R.id.et_country_mobile);
+        txtTypeOfIdSelected = (TextView) root.findViewById(R.id.etTypeOfId);
         setListeners();
     }
 
@@ -194,6 +195,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             //Temporary
                 Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
+                finish();
 
             } else {
                 Toast.makeText(ctx, event.getFaultString(), Toast.LENGTH_LONG).show();
@@ -304,6 +306,13 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             @Override
             public void onClick(View view) {
                 onAlertSelectCountry();
+            }
+        });
+
+        txtTypeOfIdSelected.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onAlertSelectTypeOfId();
             }
         });
 
@@ -522,7 +531,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         et_mobile.setEnabled(!b);
     }
 
-    private void onAlertSelectCountry() {//View view
+    private void onAlertSelectCountry() {
 
         Log.e("Bug 1", "Entro");
         final Dialog dialog = new Dialog(this);
@@ -532,7 +541,8 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         countryPicker = (NumberPicker) dialog.findViewById(R.id.selectCountryPicker);
         countryPicker.setMinValue(0);
         countryPicker.setMaxValue(3);
-        countryPicker.setDisplayedValues(new String[]{getString(R.string.COLOMBIA), getString(R.string.ECUADOR), getString(R.string.PERU), getString(R.string.UNITED_STATES)});
+        countryPicker.setDisplayedValues(new String[]{getString(R.string.COLOMBIA),
+                getString(R.string.ECUADOR), getString(R.string.PERU), getString(R.string.UNITED_STATES)});
         setDividerColor(countryPicker);
         //TextViews (Cancel and Ok)
         TextView textCancel = (TextView) dialog.findViewById(R.id.textCancelDialogCountry);
@@ -549,6 +559,38 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             public void onClick(View view) {
                 dialog.dismiss();
                 updateTextOfCountry();
+            }
+        });
+    }
+
+    private void onAlertSelectTypeOfId() {//View view
+
+        Log.e("Bug 1", "Entro");
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.custom_dialog_select_type_of_id);
+        dialog.show();
+        typeOfIdPicker = new NumberPicker(this);
+        typeOfIdPicker = (NumberPicker) dialog.findViewById(R.id.selectTypeOfIdPicker);
+        typeOfIdPicker.setMinValue(0);
+        typeOfIdPicker.setMaxValue(3);
+        typeOfIdPicker.setDisplayedValues(new String[]{getString(R.string.txt_citizenship_card),
+                getString(R.string.txt_Foreigner_ID), getString(R.string.txt_passport), getString(R.string.txt_identity_card)});
+        setDividerColor(typeOfIdPicker);
+        //TextViews (Cancel and Ok)
+        TextView textCancel = (TextView) dialog.findViewById(R.id.textCancelDialogTypeOfId);
+        textCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+        TextView textOk = (TextView) dialog.findViewById(R.id.textOkDialogTypeOfId);
+        textOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                updateTextOfTypeOfId();
             }
         });
     }
@@ -570,6 +612,28 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 break;
             case 3:
                 textCountrySelected.setText(getString(R.string.UNITED_STATES));
+                break;
+        }
+
+    }
+
+    private void updateTextOfTypeOfId() {
+
+        txtTypeOfIdSelected = (TextView) findViewById(R.id.etTypeOfId);
+        int typeOfID = typeOfIdPicker.getValue();
+
+        switch (typeOfID) {
+            case 0:
+                txtTypeOfIdSelected.setText(getString(R.string.txt_citizenship_card));
+                break;
+            case 1:
+                txtTypeOfIdSelected.setText(getString(R.string.txt_Foreigner_ID));
+                break;
+            case 2:
+                txtTypeOfIdSelected.setText(getString(R.string.txt_passport));
+                break;
+            case 3:
+                txtTypeOfIdSelected.setText(getString(R.string.txt_identity_card));
                 break;
         }
 
