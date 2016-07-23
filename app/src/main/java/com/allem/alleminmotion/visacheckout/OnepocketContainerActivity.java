@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.allem.alleminmotion.visacheckout.models.AllemUser;
 import com.allem.alleminmotion.visacheckout.utils.Constants;
 import com.allem.onepocket.BackHandler;
 import com.allem.onepocket.MenuHandler;
@@ -20,6 +21,9 @@ import java.util.Stack;
 
 
 public class OnepocketContainerActivity extends FrontBackAnimate  implements FrontBackAnimate.InflateReadyListener {
+
+    private static final int REQUEST_CALL = 1;
+    private static final int REQUEST_MCARD = 2;
 
     private OPKSummaryFragment onePocket;
     private Stack<Fragment> stack = new Stack<>();
@@ -68,11 +72,27 @@ public class OnepocketContainerActivity extends FrontBackAnimate  implements Fro
             }
 
             @Override
-            public void perform(int i) {
+            public void perform(int i, String onePocketmessage) {
                 switch (i) {
                     case 0:
-                        Intent i1 = new Intent(OnepocketContainerActivity.this, CallActivityMcard.class);
-                        startActivity(i1);
+                        Intent i1 = new Intent(OnepocketContainerActivity.this, OnepocketPurchaseActivity.class);
+
+                        Bundle bundle = new Bundle();
+                        AllemUser user = Constants.getUser(OnepocketContainerActivity.this);
+                        VisaCheckoutApp app = (VisaCheckoutApp) getApplication();
+                        OneTransaction transaction = new OneTransaction();
+                        transaction.add("jsonPayment", onePocketmessage);
+                        transaction.add("type", OPKConstants.TYPE_MCARD);
+                        transaction.add("sessionId", app.getIdSession());
+                        transaction.add("first", user.nombre);
+                        transaction.add("last", user.apellido);
+                        transaction.add("userName", user.email);
+                        transaction.add("rawPassword", app.getRawPassword());
+                        transaction.add("idCuenta", Integer.toString(app.getIdCuenta()));
+
+                        bundle.putParcelable(OPKConstants.EXTRA_PAYMENT, transaction);
+                        i1.putExtras(bundle);
+                        startActivityForResult(i1, 2);
                         break;
 
                     case 1:

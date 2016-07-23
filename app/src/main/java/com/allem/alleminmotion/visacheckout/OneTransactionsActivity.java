@@ -66,7 +66,7 @@ public class OneTransactionsActivity extends FrontBackAnimate  implements FrontB
             }
 
             @Override
-            public void perform(int i) {
+            public void perform(int i, String data) {
                 switch (i) {
                     case 0:
                         Intent i1 = new Intent(OneTransactionsActivity.this, CallActivityMcard.class);

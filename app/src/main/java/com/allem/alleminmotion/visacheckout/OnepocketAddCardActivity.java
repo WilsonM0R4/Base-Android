@@ -47,7 +47,7 @@ public class OnepocketAddCardActivity extends FrontBackAnimate implements FrontB
             }
 
             @Override
-            public void perform(int i) {
+            public void perform(int i, String data) {
 
             }
         });

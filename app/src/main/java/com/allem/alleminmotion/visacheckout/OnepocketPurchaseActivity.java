@@ -67,7 +67,7 @@ public class OnepocketPurchaseActivity extends FrontBackAnimate implements Front
             }
 
             @Override
-            public void perform(int i) {
+            public void perform(int i, String data) {
                 OnepocketPurchaseActivity.this.finish();
                 Intent intent;
 
