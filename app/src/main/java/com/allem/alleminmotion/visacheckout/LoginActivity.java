@@ -42,8 +42,8 @@ import org.apache.http.message.BasicNameValuePair;
 import java.util.ArrayList;
 
 public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
-    private final String TAG = "LoginActivity";
 
+    private final String TAG = "LoginActivity";
     private ActionBar actionBar;
     private Context ctx;
     private ImageButton ib_visibilitypass;

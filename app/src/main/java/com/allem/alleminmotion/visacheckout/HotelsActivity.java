@@ -50,7 +50,8 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
     private final String TAG = "HotelsActivity";
     private String paramDestination="", paramDestinationName = "", paramCheckIn = "", paramCheckOut = "";
     private int paramRooms = 1;
-    private int paramAdultsTotal = 0, paramChildrenTotal = 0,paramInfantsTotal = 0;
+    //Data for persist
+    private int paramRoomsTotal = 1,paramAdultsTotal = 1, paramChildrenTotal = 0,paramInfantsTotal = 0;
     private int paramAdults = 1, paramAdults2 = 0, paramAdults3 = 0, paramAdults4 = 0;
     private int paramChildren = 0, paramChildren2 = 0, paramChildren3 = 0, paramChildren4 = 0;
     private int paramInfants = 0, paramInfants2 = 0, paramInfants3 = 0,paramInfants4 = 0;
@@ -61,7 +62,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
     private int count = 0;
     private ViewGroup parent;
     LayoutInflater layoutInflater;
-    private int hotelsType = 1, globalSizeOfRooms = 0;
+    private int hotelsType = 1, globalSizeOfRooms = 0, counter = 0;
     LinearLayout addRoomsBtn,linLayDateBegin;
     private LinearLayout addRoomOptionPanel, roomsContainer;
     private NumberPicker adultsPicker, childrenPicker, infantsPicker;
@@ -144,6 +145,14 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
 
     //PROPER METHODS
 
+    void persistRoomsDataSelected(){
+
+           /* paramRoomsTotal =
+            paramAdultsTotal   = paramAdultsTotal2  + Integer.parseInt(valueOfAdults);
+            paramChildrenTotal = paramChildrenTotal2+ Integer.parseInt(valueOfChildren);
+            paramInfantsTotal  = paramInfantsTotal2 + Integer.parseInt(valueOfInfants);*/
+    }
+
     /**
      * Called when there are 3 o more characters wrote in City or Airport EditText Search
      * @param query
@@ -187,17 +196,32 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
         roomsResume = roomsLayout.findViewById(R.id.show_resume_rooms);
 
         searchButton.setTypeface(Typeface.createFromAsset(getAssets(),getString(R.string.font_muli)));
-
+        addRoomOptionPanel = (LinearLayout) view.findViewById(R.id.add_room_option);
+        addRoomsBtn = (LinearLayout) view.findViewById(R.id.add_room_option);
+        roomsContainer = (LinearLayout) view.findViewById(R.id.rooms_container);
+        paramAdultsTotal = paramAdults;
+        paramChildrenTotal = paramChildren;
+        paramInfantsTotal = paramInfants;
         //Hide views and show Rooms Selector View
         roomsResume.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (enterToCancelRoomsSelector){//Btn Cancel pressed: There is nothing selected previously
-                    selectGuestInRooms();
-                    roomsContainer.removeAllViews();
-                    addRoomToPanel();
-                } else {//Btn Save pressed: Re draw rooms pre selected
-                    selectGuestInRooms();
+                selectGuestInRooms();
+                //I need a flag for save data selected about rooms and re inflate them
+                //if (enterToCancelRoomsSelector){//Btn Cancel pressed: There is nothing selected previously
+                    //selectGuestInRooms();
+                Log.e("paramRoomsTotal",String.valueOf(paramRoomsTotal));
+                Log.e("paramAdultsTotal",String.valueOf(paramAdultsTotal));
+                Log.e("paramChildrenTotal",String.valueOf(paramChildrenTotal));
+                Log.e("paramInfantsTotal",String.valueOf(paramInfantsTotal));
+
+                    if (paramRoomsTotal == 1 && paramAdultsTotal == 1 && paramChildrenTotal == 0 && paramInfantsTotal == 0) {
+                        roomsContainer.removeAllViews();
+                        addRoomToPanel();
+                    }
+
+                //}
+                else {//Btn Save pressed: Re draw rooms pre selected
                     roomsContainer.setVisibility(View.VISIBLE);
                     if (roomsContainer.getChildCount() == 4) addRoomsBtn.setVisibility(View.GONE);
                 }
@@ -205,10 +229,6 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
             }
         });
         layoutInflater = (LayoutInflater)this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-        addRoomOptionPanel = (LinearLayout) view.findViewById(R.id.add_room_option);
-        addRoomsBtn = (LinearLayout) view.findViewById(R.id.add_room_option);
-        roomsContainer = (LinearLayout) view.findViewById(R.id.rooms_container);
 
         addRoomsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -287,7 +307,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
                 headerSeparator.setVisibility(View.VISIBLE);
 
                 enterToCancelRoomsSelector = true;
-                initializePanelsAfterCancelDateSelector();
+                //initializePanelsAfterCancelDateSelector();
                 addRoomsPreviouslySelectedToPanel();
             }
         });
@@ -316,6 +336,9 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
             TextView textRoomsForEachGuest = (TextView) findViewById(R.id.room_title);
             String numberOfRooms = "", numberOfAdults= "", numberOfChildren = "", numberOfInfants = "";
             //Validate numberOfRooms
+            //PERSIST
+            paramRoomsTotal =  paramRooms;
+            //*******************************
             if (paramRooms>1){
                 numberOfRooms = String.valueOf(paramRooms)+" "+getString(R.string.room)+ ", ";
             }else{
@@ -347,7 +370,12 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
 
         } else {//Default values
             TextView textRoomsForEachGuest = (TextView) findViewById(R.id.room_title);
-            textRoomsForEachGuest.setText(R.string.room_and_guests_title);
+            Log.e("Total Rooms TEst",String.valueOf(paramRoomsTotal));
+            Log.e("paramAdultsTotal TEst",String.valueOf(paramAdultsTotal));
+            Log.e("paramChildrenTotal TEst",String.valueOf(paramChildrenTotal));
+            Log.e("paramInfantsTotal",String.valueOf(paramInfantsTotal));
+            //textRoomsForEachGuest.setText(R.string.room_and_guests_title);
+
         }
     }
 
@@ -609,7 +637,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
 
         final CalendarPickerView calendar = (CalendarPickerView) dialog.findViewById(R.id.cv_duration);
 
-        if (dateEndSelected!=null){
+        if (dateEndSelected != null){
             dateEnd.setText(Util.Day_Formatter.format(dateEndSelected).toUpperCase());
             yearEnd.setText(Util.M_Y_Formatter.format(dateEndSelected).toUpperCase());
 
@@ -914,10 +942,6 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
                     paramInfants4 = Integer.parseInt(valueOfInfants);
                     break;
             }
-
-/*            paramAdultsTotal   = paramAdultsTotal2 + Integer.parseInt(valueOfAdults);
-            paramChildrenTotal = paramChildrenTotal2+ Integer.parseInt(valueOfChildren);
-            paramInfantsTotal  = paramInfantsTotal2 + Integer.parseInt(valueOfInfants);*/
 
             Log.e("T adults",valueOfAdults);
             Log.e("T Children",valueOfChildren);
