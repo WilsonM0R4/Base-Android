@@ -67,7 +67,6 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
     @Override
     protected void onDestroy() {
         MyBus.getInstance().unregister(this);
-
         super.onDestroy();
     }
 

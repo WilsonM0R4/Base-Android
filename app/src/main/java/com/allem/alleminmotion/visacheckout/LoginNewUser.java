@@ -379,6 +379,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         ccia.setCelular(celular);
         ccia.setCiudad("");
         ccia.setClase("");
+        //ccia.setCodigoPais("");
 
         CuentaCliente cuentaCliente = new CuentaCliente();
         cuentaCliente.setSegmento(String.valueOf(1));

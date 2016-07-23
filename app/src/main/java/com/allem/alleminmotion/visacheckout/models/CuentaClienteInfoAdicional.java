@@ -10,10 +10,11 @@ import java.util.Hashtable;
  * com.allem.allemevent.models
  */
 public class CuentaClienteInfoAdicional implements KvmSerializable {
+
     public final static String PROPERTY="cuentaClienteInformacionAdicional";
     private final static String EMPRESA="empresa",CARGO="cargo",CELULAR="celular",
-    CIUDAD="ciudad",CLASE="clase";
-    private String empresa,cargo,celular,ciudad,clase;
+    CIUDAD="ciudad",CLASE="clase", CODIGO_PAIS = "codigoPais";
+    private String empresa,cargo,celular,ciudad,clase, codigoPais;
 
 
     @Override
@@ -29,13 +30,15 @@ public class CuentaClienteInfoAdicional implements KvmSerializable {
                 return ciudad;
             case 4:
                 return clase;
+          /*  case 5:
+                return codigoPais;*/
         }
         return null;
     }
 
     @Override
     public int getPropertyCount() {
-        return 5;
+        return 6;
     }
 
     @Override
@@ -56,11 +59,15 @@ public class CuentaClienteInfoAdicional implements KvmSerializable {
             case 4:
                 clase= (String) o;
                 break;
+            /*case 5:
+                codigoPais= (String) o;
+                break;*/
         }
     }
 
     @Override
     public void getPropertyInfo(int i, Hashtable hashtable, PropertyInfo propertyInfo) {
+
         switch(i){
             case 0:
                 propertyInfo.type= PropertyInfo.STRING_CLASS;
@@ -82,9 +89,12 @@ public class CuentaClienteInfoAdicional implements KvmSerializable {
                 propertyInfo.type= PropertyInfo.STRING_CLASS;
                 propertyInfo.name=CLASE;
                 break;
+            /*case 5:
+                propertyInfo.type= PropertyInfo.STRING_CLASS;
+                propertyInfo.name=CODIGO_PAIS;
+                break;*/
         }
     }
-
 
 
     public String getEmpresa() {
@@ -125,5 +135,9 @@ public class CuentaClienteInfoAdicional implements KvmSerializable {
 
     public void setClase(String clase) {
         this.clase = clase;
+    }
+
+    public void setCodigoPais(String codigoPais){
+        this.codigoPais = codigoPais;
     }
 }

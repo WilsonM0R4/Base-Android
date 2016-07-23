@@ -13,7 +13,7 @@ public class ServiceActivity extends  FrontBackAnimate implements FrontBackAnima
     private WebView webView;
     private String url = "http://allegra.global/app/demo-allegra-services/#/screens";
     //Comment for commit
-
+    //TODO: Get location and send : ?lon=111&lat=222  at finish of the url
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

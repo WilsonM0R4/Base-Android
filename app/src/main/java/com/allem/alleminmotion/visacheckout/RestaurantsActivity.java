@@ -12,6 +12,8 @@ public class RestaurantsActivity extends FrontBackAnimate implements FrontBackAn
     private WebView webView;
     private String url = "http://allegra.global/app/demo-allegra-services/#/screens/163392628";
 
+    //TODO: Get location and send : ?lon=111&lat=222  at finish of the url
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 

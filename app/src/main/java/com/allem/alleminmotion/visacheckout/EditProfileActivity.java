@@ -20,6 +20,7 @@ import com.allem.alleminmotion.visacheckout.models.CuentaClienteInfo;
 import com.allem.alleminmotion.visacheckout.models.CuentaClienteInfoAdicional;
 import com.allem.alleminmotion.visacheckout.parsers.SoapObjectParsers;
 import com.allem.alleminmotion.visacheckout.utils.Constants;
+import com.allem.alleminmotion.visacheckout.utils.CustomizedEditText;
 import com.allem.alleminmotion.visacheckout.utils.Util;
 import com.squareup.otto.Subscribe;
 
@@ -27,7 +28,7 @@ import org.ksoap2.serialization.PropertyInfo;
 
 public class EditProfileActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
 
-    EditText txtName, txtLastName, txtMobile, txtEmail, txtPass, txtNewPass, txtNewPassConfirm;
+    CustomizedEditText txtName, txtLastName, txtMobile, txtEmail, txtPass, txtNewPass, txtNewPassConfirm;
     Button cancel, save;
     AllemUser user;
     private ProgressBar pb_create;
@@ -39,20 +40,20 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
         super.setView(R.layout.activity_edit_profile, this);
         ctx = this;
         MyBus.getInstance().register(this);
-
     }
 
     private void setViewElements(View root){
-        txtName= (EditText) root.findViewById(R.id.et_names);
-        txtLastName= (EditText) root.findViewById(R.id.et_surname);
-        txtMobile= (EditText) root.findViewById(R.id.et_mobile);
-        txtEmail= (EditText)root.findViewById(R.id.et_email);
+
+        txtName= (CustomizedEditText) root.findViewById(R.id.et_names);
+        txtLastName= (CustomizedEditText) root.findViewById(R.id.et_surname);
+        txtMobile= (CustomizedEditText) root.findViewById(R.id.et_mobile);
+        txtEmail= (CustomizedEditText)root.findViewById(R.id.et_email);
         cancel= (Button) root.findViewById(R.id.btn_ed_cancel);
         save= (Button)root.findViewById(R.id.btn_ed_save);
-        txtPass =(EditText) root.findViewById(R.id.et_current_password);
-        txtNewPass=(EditText) root.findViewById(R.id.et_new_password);
+        txtPass =(CustomizedEditText) root.findViewById(R.id.et_current_password);
+        txtNewPass=(CustomizedEditText) root.findViewById(R.id.et_new_password);
         pb_create = (ProgressBar) root.findViewById(R.id.pb_create);
-        txtNewPassConfirm=(EditText) root.findViewById(R.id.et_reppassword);
+        txtNewPassConfirm=(CustomizedEditText) root.findViewById(R.id.et_reppassword);
         loadUserProfile();
     }
 

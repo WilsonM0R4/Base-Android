@@ -109,8 +109,8 @@ public class AsyncSoapObject extends AsyncTask<String,Void,SoapObject> {
     }
 
     @Override
-    protected void onPostExecute(SoapObject result) {
-        MyBus.getInstance().post(new AsyncTaskSoapObjectResultEvent((SoapObject)result,codeRequest,faultcode,faultstring));
+    protected void onPostExecute(SoapObject result) {//(SoapObject)
+        MyBus.getInstance().post(new AsyncTaskSoapObjectResultEvent(result,codeRequest,faultcode,faultstring));
     }
 
     private Element[] buildAuthHeader(SoapSerializationEnvelope envelope) {
