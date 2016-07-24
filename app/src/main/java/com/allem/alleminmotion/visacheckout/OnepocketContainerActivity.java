@@ -69,9 +69,7 @@ public class OnepocketContainerActivity extends FrontBackAnimate  implements Fro
                 transaction.commit();
 
                 stack.remove(size - 1);
-            }
-
-            @Override
+            }          @Override
             public void perform(int i, String onePocketmessage) {
                 switch (i) {
                     case 0:
