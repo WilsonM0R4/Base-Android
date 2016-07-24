@@ -44,7 +44,7 @@
     <string name="conf_email3">Have you not yet received the email?</string>
     <string name="check_email">Check your email!</string>
     <string name="title_qr_scan">Scan QR</string>
-    <string name="slogan_welcome">Welcome to allegra</string>
+    <string name="slogan_welcome">Welcome to</string>
     <string name="slogan_all_in_one">the best all-in-one app</string>
     <string name="skip_intro">Skip to menu</string>
     <string name="welcome">Welcome back!</string>
@@ -62,7 +62,7 @@
     <string name="search_hotels">Search Hotels</string>
     <string name="continue_checkout">CONTINUE TO CHECKOUT</string>
     <string name="txt_user_greeting">Hi, %s</string>
-    <string name="title_my_account">My account</string>
+    <string name="title_my_account">My Account</string>
     <string name="title_visa_checkout">Visa Checkout</string>
     <string name="title_market_place">Market</string>
     <string name="services">Services</string>
@@ -601,4 +601,6 @@
     <string name="txt_Foreigner_ID">FI</string>
     <string name="txt_identity_card">IC</string>
     <string name="txt_passport">PS</string>
+    <string name="sign_in">Sign in</string>
+    <string name="greet">Good to see you again</string>
 </resources>

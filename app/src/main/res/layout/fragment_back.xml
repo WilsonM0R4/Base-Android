@@ -533,7 +533,7 @@
         android:padding="2dip"
         />
 
-    <LinearLayout
+   <!-- <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -581,9 +581,9 @@
         android:layout_weight="1"
         android:background="@drawable/separator_gradient"
         android:padding="2dip"
-        />
+        />-->
 
-    <LinearLayout
+ <!--   <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -620,15 +620,15 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true" />
         </RelativeLayout>
-    </LinearLayout>
+    </LinearLayout>-->
 
-    <View
+   <!-- <View
         android:layout_width="match_parent"
         android:layout_height="1dip"
         android:layout_weight="1"
         android:background="@drawable/separator_gradient"
         android:padding="2dip"
-        />
+        />-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

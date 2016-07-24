@@ -151,7 +151,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
         System.gc();
         MyBus.getInstance().register(this);
         airportData = new ArrayList<>();
-        getLocation();
+        //getLocation();
     }
 
     @Override
@@ -217,6 +217,8 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
             onGetUpAnimationFlights();
         }
     }
+
+    //****************PROPER METHODS*************
 
     public Location getLocation() {
         try {
@@ -289,7 +291,6 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
         final AlertDialog alert = builder.create();
         alert.show();
     }
-
 
     //Called when  EditText note's  addTextChangedListener and setOnEditorActionListener
     private void performSearch(String query) {
