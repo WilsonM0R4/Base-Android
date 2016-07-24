@@ -6,10 +6,10 @@ android {
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "com.allem.alleminmotion.visacheckout"
-        minSdkVersion 17
+        minSdkVersion 21
         targetSdkVersion 23
-        versionCode 190
-        versionName "0.9.31 (190)"
+        versionCode 200
+        versionName "0.9.32 (200)"
 
         ndk {
             abiFilters "armeabi-v7a", "x86", "mips"

@@ -36,7 +36,7 @@
     <string name="txt_transaction_empty">Tu historial de transacciones está actualmente vacío.</string>
     <string name="title_qr_scan">Escanea el QR</string>
     <string name="qr_scan_description">Escanea el código QR con la cámara de tu móvil para pagar tu factura</string>
-    <string name="slogan_welcome">Bienvenido a allegra</string>
+    <string name="slogan_welcome">Bienvenido a</string>
     <string name="slogan_all_in_one">La mejor aplicación all-in-one</string>
     <string name="skip_intro">Ir al menú</string>
     <string name="welcome">Bienvenido!</string>
@@ -488,4 +488,6 @@
     <string name="txt_Foreigner_ID">CE</string>
     <string name="txt_identity_card">TI</string>
     <string name="txt_passport">PS</string>
+    <string name="sign_in">Iniciar sesión</string>
+    <string name="greet">Qué bueno verte de nuevo</string>
 </resources>

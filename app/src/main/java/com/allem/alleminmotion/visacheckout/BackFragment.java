@@ -30,11 +30,14 @@ public class BackFragment extends Fragment  {
     private String optionSelectedForService = "";
     private CustomizedTextView textOptionSelectedForService;
     private ImageButton home;
+    //public int SCAN_QR_CODE = 123456;
 
     public interface MenuSelectListener {
         public void getStartActivity(Intent intent);
     }
     public MenuSelectListener menulistener;
+    public static MenuActivity[] activities;
+
 
     public class MenuActivity {
 
@@ -61,7 +64,21 @@ public class BackFragment extends Fragment  {
         }
     }
 
-    public static MenuActivity[] activities;
+
+ /*   @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        //super.onActivityResult(requestCode, resultCode, data);
+        // Check which request we're responding to
+        if (requestCode == SCAN_QR_CODE) {
+            // Make sure the request was successful
+            //if (resultCode == RESULT_OK) {
+                // The user picked a contact.
+                // The Intent's data Uri identifies which contact was selected.
+
+                // Do something with the contact here (bigger example below)
+            //}
+        }
+    }*/
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -103,8 +120,16 @@ public class BackFragment extends Fragment  {
     }
 
     public void sendToQrScan(){
-        Intent intent = new Intent(getActivity(),QRScanActivity.class);
-        getActivity().startActivity(intent);
+        if (Util.isAuthenticated(getActivity())) {
+            Intent intent = new Intent(getActivity(),QRScanActivity.class);
+            getActivity().startActivity(intent);
+        } else {
+            Intent intent = new Intent(getActivity(),LoginActivity.class);
+            getActivity().startActivity(intent);
+        }
+        /*Intent intent = new Intent(getActivity(),QRScanActivity.class);
+        //getActivity().startActivityForResult(intent, SCAN_QR_CODE);
+        startActivity(intent);*/
     }
 
     public void sendToMarket(){
@@ -144,8 +169,14 @@ public class BackFragment extends Fragment  {
     }
 
     public void sendToMcard(){
-        Intent intent = new Intent(getActivity(),Mcardhtml.class);
-        getActivity().startActivity(intent);
+        if (Util.isAuthenticated(getActivity())) {
+            Intent intent = new Intent(getActivity(),Mcardhtml.class);
+            getActivity().startActivity(intent);
+        } else {
+            Intent intent = new Intent(getActivity(),LoginActivity.class);
+            getActivity().startActivity(intent);
+        }
+
         /*
         *         Intent intent = new Intent(getActivity(),McardActivity.class);
         getActivity().startActivity(intent);*///MCARD NATIVE
@@ -240,6 +271,7 @@ public class BackFragment extends Fragment  {
                 sendToCall();
             }
         });
+
         LinearLayout chat_option = (LinearLayout) getView().findViewById(R.id.chat_option);
         chat_option.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -248,7 +280,7 @@ public class BackFragment extends Fragment  {
             }
         });
 
-        LinearLayout restaurants_option = (LinearLayout) getView().findViewById(R.id.restaurants_option);
+       /* LinearLayout restaurants_option = (LinearLayout) getView().findViewById(R.id.restaurants_option);
         restaurants_option.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -257,9 +289,9 @@ public class BackFragment extends Fragment  {
                 intent.putExtra("option", textOptionSelectedForService.getText().toString());
                 getActivity().startActivity(intent);
             }
-        });
+        });*/
 
-        LinearLayout taxi_option = (LinearLayout) getView().findViewById(R.id.taxi_option);
+       /* LinearLayout taxi_option = (LinearLayout) getView().findViewById(R.id.taxi_option);
         taxi_option.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -268,7 +300,7 @@ public class BackFragment extends Fragment  {
                 intent.putExtra("option", textOptionSelectedForService.getText().toString());
                 getActivity().startActivity(intent);
             }
-        });
+        });*/
 
 
         LinearLayout service_option = (LinearLayout) getView().findViewById(R.id.services_option);

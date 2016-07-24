@@ -32,6 +32,7 @@ import com.allem.alleminmotion.visacheckout.async.MyBus;
 import com.allem.alleminmotion.visacheckout.models.AllemUser;
 import com.allem.alleminmotion.visacheckout.parsers.SoapObjectParsers;
 import com.allem.alleminmotion.visacheckout.utils.Constants;
+import com.allem.alleminmotion.visacheckout.utils.CustomizedTextView;
 import com.allem.alleminmotion.visacheckout.utils.KeySaver;
 import com.allem.alleminmotion.visacheckout.utils.Util;
 import com.squareup.otto.Subscribe;
@@ -46,10 +47,10 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
     private final String TAG = "LoginActivity";
     private ActionBar actionBar;
     private Context ctx;
-    private ImageButton ib_visibilitypass;
+    //private ImageButton ib_visibilitypass;
     private boolean passIsVisible = false;
     private EditText username, password;
-    private Button btn_login, btn_newaccount;
+    private CustomizedTextView  btn_login, btn_newaccount;
     private ArrayList<NameValuePair> postValues;
     private ProgressBar pb_login;
     private TextView version, forgotpass;
@@ -96,11 +97,11 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 startActivity(intent);
             }
         });
-        ib_visibilitypass = (ImageButton) root.findViewById(R.id.ib_visibilitypass);
+        //ib_visibilitypass = (ImageButton) root.findViewById(R.id.ib_visibilitypass);
         username = (EditText) root.findViewById(R.id.et_email);
         password = (EditText) root.findViewById(R.id.et_password);
-        btn_login = (Button) root.findViewById(R.id.btn_login);
-        btn_newaccount = (Button) root.findViewById(R.id.btn_register);
+        btn_login = (CustomizedTextView) root.findViewById(R.id.btn_login);
+        btn_newaccount = (CustomizedTextView) root.findViewById(R.id.btn_register);
         btn_login.setEnabled(false);
         pb_login = (ProgressBar) root.findViewById(R.id.pb_login);
         pb_login.setVisibility(View.GONE);
@@ -120,7 +121,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
     }
 
     private void setListeners() {
-        ib_visibilitypass.setOnClickListener(new View.OnClickListener() {
+        /*ib_visibilitypass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (passIsVisible) {
@@ -134,7 +135,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 }
                 password.setSelection(password.length());
             }
-        });
+        });*/
         username.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
@@ -294,4 +295,8 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
     public void onMenu(View view) {
         animate();
     }
+
+    /*public void onUp(View view) {
+        super.onBackPressed();
+    }*/
 }
