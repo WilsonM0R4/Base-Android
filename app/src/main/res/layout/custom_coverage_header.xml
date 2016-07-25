@@ -12,7 +12,8 @@
         android:textColor="@color/dark_gray"
         android:textSize="18sp"
         app:font="@string/font_muli"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="25dp" />
 
 
     <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
@@ -37,16 +38,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/logo_doctor_help"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp" />
 
     <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/coverage"
         app:font="@string/font_muli"
-        android:textColor="@color/dark_gray"
-        android:textSize="18sp"
-        android:layout_gravity="center_horizontal"/>
+        android:textColor="@color/magenta"
+        android:textSize="15sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="25dp" />
 
 
     <ImageView
@@ -54,7 +57,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/iv_header"
         android:layout_below="@+id/ll_header"
-        android:src="@drawable/separator_medium_mag"
+        android:src="@drawable/separator_thin"
         android:contentDescription="Divider" />
 
 </LinearLayout>

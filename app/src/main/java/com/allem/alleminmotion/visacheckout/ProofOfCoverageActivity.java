@@ -6,6 +6,8 @@ import android.view.View;
 public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontBackAnimate.InflateReadyListener {
 
 
+
+
     //********************OVERRIDE METHODS*******************
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +23,6 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
     }
 
     //********************PROPER METHODS*******************
-
     public void onMenu(View view) {
         animate();
     }
