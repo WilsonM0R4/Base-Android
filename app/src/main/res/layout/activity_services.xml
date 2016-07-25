@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -10,6 +11,39 @@
         android:layout_centerHorizontal="true"
         android:background="@color/white"
         android:id="@+id/relativeLayout6" >
+
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:id="@+id/navigation_panel"
+            android:layout_alignParentRight="false"
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_alignParentTop="false"
+            android:layout_toEndOf="@+id/ib_up"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="5dp" >
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/navigation__backurl_2"
+                android:background="@null"
+                android:padding="10dp"
+                android:onClick="onGoBack"
+                android:id="@+id/arrow_back" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/navigation__fwdurl"
+                android:background="@null"
+                android:padding="10dp"
+                android:id="@+id/arrow_foward" />
+        </RelativeLayout>
 
         <ImageButton
             android:layout_width="25dp"
@@ -33,22 +67,23 @@
             android:layout_centerHorizontal="true"
             android:textColor="@color/magenta"/>
 
-        <ImageButton
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="16dp"
-            android:src="@drawable/navigation__back"
-            android:background="@android:color/transparent"
-            android:id="@+id/imageButton12"
-            android:contentDescription="menu"
-            android:layout_centerVertical="true"
-            android:layout_alignParentStart="true"
-            android:onClick="onUp"/>
     </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_header"
+        android:id="@+id/imageView23"
+        android:src="@drawable/separator_medium_mag"
+        android:contentDescription="Divider"
+        android:layout_marginLeft="-2dp"
+        android:layout_marginRight="-2dp"
+        android:layout_marginTop="0dp" />
 
     <WebView
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:id="@+id/webView3"
         android:layout_gravity="center_horizontal"/>
+
 </LinearLayout>

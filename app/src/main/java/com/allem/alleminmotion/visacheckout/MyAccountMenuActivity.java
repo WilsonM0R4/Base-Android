@@ -2,13 +2,9 @@ package com.allem.alleminmotion.visacheckout;
 
 import android.app.ActionBar;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.text.Html;
 import android.text.TextPaint;
-import android.text.method.LinkMovementMethod;
 import android.text.style.URLSpan;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,12 +42,13 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
         ListView lv = (ListView) root.findViewById(R.id.profileOptionsListView);
         final String[] names= {
                 getString(R.string.title_my_profile),
+                getString(R.string.benefits),
                 getString(R.string.transactions_history),
-                getString(R.string.legal_title)
+                getString(R.string.legal_title),
         };
-        final Integer[] images = {R.drawable.menu__profile,R.drawable.menu__history,
+        final Integer[] images = {R.drawable.menu__profile,R.drawable.my_benefits,R.drawable.coverage,R.drawable.menu__history,
                R.drawable.legal5};
-        final Class[] activities = {MyAccountActivity.class, OneTransactionsActivity.class, LegalActivity.class};
+        final Class[] activities = {MyAccountActivity.class, MyBenefits.class, OneTransactionsActivity.class, LegalActivity.class};
         lv.setAdapter(new ArrayAdapter<String>(MyAccountMenuActivity.this, R.layout.profile_layout, names) {
 
             public View getView(final int position,View view,ViewGroup parent) {
