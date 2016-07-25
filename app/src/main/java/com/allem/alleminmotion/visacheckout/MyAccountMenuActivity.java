@@ -39,16 +39,19 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
 
 
     private void initializeListView(View root) {
+
         ListView lv = (ListView) root.findViewById(R.id.profileOptionsListView);
         final String[] names= {
                 getString(R.string.title_my_profile),
                 getString(R.string.benefits),
+                getString(R.string.coverage),
                 getString(R.string.transactions_history),
                 getString(R.string.legal_title),
         };
         final Integer[] images = {R.drawable.menu__profile,R.drawable.my_benefits,R.drawable.coverage,R.drawable.menu__history,
                R.drawable.legal5};
-        final Class[] activities = {MyAccountActivity.class, MyBenefits.class, OneTransactionsActivity.class, LegalActivity.class};
+        final Class[] activities = {MyAccountActivity.class, MyBenefits.class,
+                ProofOfCoverageActivity.class, OneTransactionsActivity.class, LegalActivity.class};
         lv.setAdapter(new ArrayAdapter<String>(MyAccountMenuActivity.this, R.layout.profile_layout, names) {
 
             public View getView(final int position,View view,ViewGroup parent) {
