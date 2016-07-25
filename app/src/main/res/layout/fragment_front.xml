@@ -29,14 +29,21 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/allegra_logo"
+                android:layout_height="match_parent"
+                android:src="@drawable/handy"
                 android:id="@+id/iv_allegra"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="5dp"
                 android:layout_gravity="left"
                 android:layout_alignParentStart="true"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:layout_weight="0.5" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/iv_visa"
+                android:layout_weight="0.5"
+                android:src="@drawable/vco"
+                android:layout_marginRight="20dp" />
 
         </LinearLayout>
 
