@@ -107,6 +107,9 @@
         <activity
             android:name=".HomeActivity_Handy"
             android:screenOrientation="portrait"></activity>
+        <activity android:name=".MyBenefits"
+            android:screenOrientation="portrait">
+        </activity>
         <activity
             android:name=".MapActivity"
             android:screenOrientation="portrait"></activity>
