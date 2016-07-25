@@ -264,7 +264,13 @@
     <string name="title_my_profile">My profile</string>
     <string name="transactions_history">Transactions history</string>
     <string name="coverage">Proof of Coverage</string>
+    <string name="coverage_string1">Coverage includes unlimited travel on the duration and the period of 100 days the same maximums from the time of admission to any different from the residence of the recipient country.</string>
+    <string name="coverage_string2">The benefits and limits given are subject, in any case, requirements, terms and conditions of the policies taken by IATAI.</string>
     <string name="benefits">My Benefits</string>
+    <string name="currency">USD</string>
+    <string name="Repatriating_remains">Repatriating remains</string>
+    <string name="medical_expenses">Eventual medical expenses for illness or accident</string>
+    <string name="emergency_transfer">Emergency transfer</string>
     <string name="activation">Activation</string>
     <string name="proteccion_cotidiana">Enjoy doing your daily shopping in one place and through a click, and feel secure with the coverage we offer in your mCard . In addition access discounts on all services Handy .</string>
     <string name="activate_your_benefits">Activate your benefits</string>
