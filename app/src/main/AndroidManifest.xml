@@ -158,6 +158,8 @@
         <activity
             android:name=".MyBookingActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".MyBenefits"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Mcardprivilege"
             android:screenOrientation="portrait" />
