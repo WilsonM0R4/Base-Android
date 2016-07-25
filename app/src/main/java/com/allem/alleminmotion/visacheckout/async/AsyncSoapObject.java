@@ -30,6 +30,7 @@ public class AsyncSoapObject extends AsyncTask<String,Void,SoapObject> {
     private PropertyInfo property;
     private String userserver,passserver;
 
+    //**************default constructor*******************
     private AsyncSoapObject(Server server,String method,ArrayList<NameValuePair> postValues,PropertyInfo property,int codeRequest ){
         this.url = server.wsdl;
         this.namespace=server.namespace;
@@ -42,6 +43,30 @@ public class AsyncSoapObject extends AsyncTask<String,Void,SoapObject> {
         this.passserver = server.pass;
     }
 
+    //***************Proper methods*******************
+    private Element[] buildAuthHeader(SoapSerializationEnvelope envelope) {
+
+        Element headers[] = new Element[1];
+        headers[0]= new Element().createElement("http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd", "Security");
+        headers[0].setAttribute(envelope.env, "mustUnderstand", "1");
+        Element security=headers[0];
+
+        Element to = new Element().createElement(security.getNamespace(), "UsernameToken");
+        to.setAttribute("http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd", "Id", "UsernameToken-2");
+
+        Element action1 = new Element().createElement(security.getNamespace(), "Username");
+        action1.addChild(Node.TEXT, userserver);
+        to.addChild(Node.ELEMENT,action1);
+
+        Element action2 = new Element().createElement(security.getNamespace(), "Password");
+        action2.setAttribute(null, "Type", "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText");
+        action2.addChild(Node.TEXT, passserver);
+        to.addChild(Node.ELEMENT,action2);
+        headers[0].addChild(Node.ELEMENT, to);
+        return headers;
+    }
+
+    //**************Getters overloaded*******************
     public static AsyncSoapObject getInstance(String url,String namespace,String method,ArrayList<NameValuePair> postValues,int codeRequest){
         Server server = new Server(url,namespace,Constants.SOAP_AUTH_USER,Constants.SOAP_AUTH_PASS);
         return new AsyncSoapObject(server,method,postValues,null,codeRequest);
@@ -60,6 +85,8 @@ public class AsyncSoapObject extends AsyncTask<String,Void,SoapObject> {
     public static AsyncSoapObject getInstance(Server server,String method,ArrayList<NameValuePair> postValues,PropertyInfo property,int codeRequest){
         return new AsyncSoapObject(server,method,postValues,property,codeRequest);
     }
+
+    //**************override methods*******************
 
     @Override
     protected SoapObject doInBackground(String... strings) {
@@ -114,25 +141,4 @@ public class AsyncSoapObject extends AsyncTask<String,Void,SoapObject> {
         MyBus.getInstance().post(new AsyncTaskSoapObjectResultEvent(result,codeRequest,faultcode,faultstring));
     }
 
-    private Element[] buildAuthHeader(SoapSerializationEnvelope envelope) {
-
-        Element headers[] = new Element[1];
-        headers[0]= new Element().createElement("http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd", "Security");
-        headers[0].setAttribute(envelope.env, "mustUnderstand", "1");
-        Element security=headers[0];
-
-        Element to = new Element().createElement(security.getNamespace(), "UsernameToken");
-        to.setAttribute("http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd", "Id", "UsernameToken-2");
-
-        Element action1 = new Element().createElement(security.getNamespace(), "Username");
-        action1.addChild(Node.TEXT, userserver);
-        to.addChild(Node.ELEMENT,action1);
-
-        Element action2 = new Element().createElement(security.getNamespace(), "Password");
-        action2.setAttribute(null, "Type", "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText");
-        action2.addChild(Node.TEXT, passserver);
-        to.addChild(Node.ELEMENT,action2);
-        headers[0].addChild(Node.ELEMENT, to);
-        return headers;
-    }
 }

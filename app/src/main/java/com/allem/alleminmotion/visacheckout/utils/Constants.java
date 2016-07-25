@@ -20,6 +20,13 @@ import java.util.HashMap;
  * com.allem.allemevent.utils
  */
 public class Constants {
+    //*******ADDED BY SERGIO FARFÁN FOR GET MCARD**********
+    public final static String SOAP_AUTH_EMAIL_MCARD = "";
+
+
+
+
+    //*******************************************
     public final static String TAG = "AllemConstants";
     public final static String USERNAME = "userkey";
     public final static String PASSWORD = "passkey";
