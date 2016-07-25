@@ -270,7 +270,11 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 String name = user.email.substring(0, user.email.indexOf('@'));
                 String domain = user.email.substring(user.email.indexOf('@') + 1, user.email.length()).replace(".", "");
                 String channel = name + domain + user.idCuenta;
-                Log.d(TAG, "chnel: " + channel);
+                String password = user.hashpassword;
+
+                Log.e("Serfar idCuenta",String.valueOf(user.idCuenta));
+                Log.e("Serfar", "password " + password);
+                Log.e("Serfar", "chnel: " + channel);
                 Constants.saveUser(ctx, user, channel);
                 ((VisaCheckoutApp) this.getApplication()).unSetParseChannels();
                 ((VisaCheckoutApp) this.getApplication()).parseUser(user.email, channel);

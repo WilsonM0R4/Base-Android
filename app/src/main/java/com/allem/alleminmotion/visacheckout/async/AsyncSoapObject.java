@@ -63,6 +63,7 @@ public class AsyncSoapObject extends AsyncTask<String,Void,SoapObject> {
 
     @Override
     protected SoapObject doInBackground(String... strings) {
+
         Log.d(TAG, "url: " + url);
         Log.d(TAG, "namespace: " + namespace);
         Log.d(TAG, "soapaction:" + soapaction);
@@ -114,6 +115,7 @@ public class AsyncSoapObject extends AsyncTask<String,Void,SoapObject> {
     }
 
     private Element[] buildAuthHeader(SoapSerializationEnvelope envelope) {
+
         Element headers[] = new Element[1];
         headers[0]= new Element().createElement("http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd", "Security");
         headers[0].setAttribute(envelope.env, "mustUnderstand", "1");
