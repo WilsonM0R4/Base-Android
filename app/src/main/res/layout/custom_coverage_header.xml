@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/IATAI_CERTIFICA"
+        android:textColor="@color/dark_gray"
+        android:textSize="18sp"
+        app:font="@string/font_muli"
+        android:layout_gravity="center_horizontal"/>
+
+
+    <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Santiago Castro"
+        android:textColor="@color/magenta"
+        android:textSize="18sp"
+        app:font="@string/font_muli"
+        android:layout_gravity="center_horizontal"/>
+
+    <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CC 90.877.878"
+        android:textColor="@color/dark_gray"
+        android:textSize="18sp"
+        app:font="@string/font_muli"
+        android:layout_gravity="center_horizontal"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/logo_doctor_help"
+        android:layout_gravity="center_horizontal"/>
+
+    <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/coverage"
+        app:font="@string/font_muli"
+        android:textColor="@color/dark_gray"
+        android:textSize="18sp"
+        android:layout_gravity="center_horizontal"/>
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/iv_header"
+        android:layout_below="@+id/ll_header"
+        android:src="@drawable/separator_medium_mag"
+        android:contentDescription="Divider" />
+
+</LinearLayout>
