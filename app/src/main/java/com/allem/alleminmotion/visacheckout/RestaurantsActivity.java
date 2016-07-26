@@ -1,7 +1,5 @@
 package com.allem.alleminmotion.visacheckout;
 
-import android.support.v4.print.PrintHelper;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
@@ -10,7 +8,7 @@ import android.webkit.WebViewClient;
 public class RestaurantsActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
 
     private WebView webView;
-    private String url = "http://allegra.global/app/demo-allegra-services/#/screens/163392628";
+    private String url = "http://52.203.29.124/allemrestaurant/#!/brand/restaurantes/map";
 
     //TODO: Get location and send : ?lon=111&lat=222  at finish of the url
 

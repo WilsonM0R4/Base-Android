@@ -94,6 +94,7 @@ public class BackFragment extends Fragment  {
                 new MenuActivity(R.string.title_hotels, R.drawable.menu__hotels, HotelsActivity.class),
                 new MenuActivity(R.string.title_concierge, R.drawable.concierge5,ConciergeActivity.class),
                 new MenuActivity(R.string.title_services, R.drawable.menu__services, ServiceActivity.class),
+                new MenuActivity(R.string.title_restaurants, R.drawable.restaurants,RestaurantsActivity.class),
                 new MenuActivity(R.string.title_qr_scan, R.drawable.menu__qr__code, QRScanActivity.class),
                 new MenuActivity(R.string.title_chat, R.drawable.menu__onetouch__chat, ChatActivity.class),
                 new MenuActivity(R.string.title_call, R.drawable.menu__onetouch__call, CallActivity.class),
@@ -197,6 +198,11 @@ public class BackFragment extends Fragment  {
         getActivity().startActivity(intent);
     }
 
+    public void sendToRestaurants(){
+        Intent intent = new Intent(getActivity(),RestaurantsActivity.class);
+        getActivity().startActivity(intent);
+    }
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -280,16 +286,13 @@ public class BackFragment extends Fragment  {
             }
         });
 
-       /* LinearLayout restaurants_option = (LinearLayout) getView().findViewById(R.id.restaurants_option);
+       LinearLayout restaurants_option = (LinearLayout) getView().findViewById(R.id.restaurants_options);
         restaurants_option.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textOptionSelectedForService = (CustomizedTextView) getActivity().findViewById(R.id.textRestaurants);
-                Intent intent = new Intent(getActivity(), HomeActivity_Handy.class);
-                intent.putExtra("option", textOptionSelectedForService.getText().toString());
-                getActivity().startActivity(intent);
+                sendToRestaurants();
             }
-        });*/
+        });
 
        /* LinearLayout taxi_option = (LinearLayout) getView().findViewById(R.id.taxi_option);
         taxi_option.setOnClickListener(new View.OnClickListener() {
