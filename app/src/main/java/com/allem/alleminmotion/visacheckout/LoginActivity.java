@@ -65,6 +65,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
     private EditText username, password;
     private CustomizedTextView  btn_login, btn_newaccount;
     private ArrayList<NameValuePair> postValues;
+    private ArrayList<String> arrayListMemberships;
     private ProgressBar pb_login;
     private TextView version, forgotpass;
 
@@ -132,6 +133,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         }
 
         setListeners();
+        new TareaWSConsulta().execute();
         //getHigherMcard();
     }
 
@@ -409,12 +411,12 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                     new SoapSerializationEnvelope(SoapEnvelope.VER11);
 
             envelope.setOutputSoapObject(request);
-            McardCliente cuentaCliente = new McardCliente();
+            /*McardCliente cuentaCliente = new McardCliente();
             cuentaCliente.setIdCuenta(idCuenta);
             PropertyInfo property = new PropertyInfo();
             property.setName(McardCliente.PROPERTY);
             property.setValue(cuentaCliente);
-            property.setType(cuentaCliente.getClass());
+            property.setType(cuentaCliente.getClass());*/
 
             HttpTransportSE transporte = new HttpTransportSE(Constants.SOAP_URL_MCARD);
 
@@ -424,10 +426,20 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
 
                 SoapObject resSoap =(SoapObject)envelope.getResponse();
                 envelope.headerOut = buildAuthHeader(envelope);
-                SoapObject ic = (SoapObject)resSoap.getProperty(0);
-                McardCliente cli = new McardCliente();
-                cli.idProducto = Integer.parseInt(ic.getProperty(1).toString());
-                Log.e("idProdcuto",String.valueOf(cli.idProducto));
+
+                SoapObject[] list = new SoapObject [resSoap.getPropertyCount()];
+                Log.e("Sergio","Es "+String.valueOf(list.length));
+                arrayListMemberships = new ArrayList<>();
+                for (int i = 0; i < list.length; i++){
+                    arrayListMemberships.add(list[i].getProperty(1).toString());
+                    Log.e("Test",arrayListMemberships.get(i));//.toString()
+                }
+
+
+                /*McardCliente cli = new McardCliente();
+                cli.idProducto = Integer.parseInt(ic.getProperty(1).toString());*/
+
+                //Log.e("idProdcuto",String.valueOf(cli.idProducto));
                 SoapPrimitive resultado_xml =(SoapPrimitive)envelope.getResponse();
                 String res = resultado_xml.toString();
                 Log.e("Resposn",res);
