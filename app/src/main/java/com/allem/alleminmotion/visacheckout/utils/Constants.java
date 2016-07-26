@@ -101,7 +101,7 @@ public class Constants {
     public final static String METHOD_CERRAR_SESION = "CerrarSesion";
     public final static String METHOD_VALIDAR_SESION = "ValidarSesion";
     public final static String METHOD_ENVIAR_PASSWORD = "EnviarPassword";
-    public final static String METHOD_RECUPERAR_PASSWORD = "restablecerContrasena";
+    public final static String METHOD_RECUPERAR_PASSWORD = "RestablecerContrasenaToken";
     public final static String METHOD_CREAR_CUENTA = "CrearCuenta";
     public final static String METHOD_ACTUALIZAR_CUENTA = "ActualizarCuenta";
 

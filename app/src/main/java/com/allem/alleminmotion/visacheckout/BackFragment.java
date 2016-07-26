@@ -93,7 +93,7 @@ public class BackFragment extends Fragment  {
                 new MenuActivity(R.string.onepocket,R.drawable.menu__onepocket,McardActivity.class),
                 new MenuActivity(R.string.title_hotels, R.drawable.menu__hotels, HotelsActivity.class),
                 new MenuActivity(R.string.title_concierge, R.drawable.concierge5,ConciergeActivity.class),
-                new MenuActivity(R.string.title_services, R.drawable.menu__services, HomeActivity_Handy.class),
+                new MenuActivity(R.string.title_services, R.drawable.menu__services, ServiceActivity.class),
                 new MenuActivity(R.string.title_qr_scan, R.drawable.menu__qr__code, QRScanActivity.class),
                 new MenuActivity(R.string.title_chat, R.drawable.menu__onetouch__chat, ChatActivity.class),
                 new MenuActivity(R.string.title_call, R.drawable.menu__onetouch__call, CallActivity.class),
@@ -308,7 +308,7 @@ public class BackFragment extends Fragment  {
             @Override
             public void onClick(View v) {
                 textOptionSelectedForService = (CustomizedTextView) getActivity().findViewById(R.id.textServices);
-                Intent intent = new Intent(getActivity(), HomeActivity_Handy.class);
+                Intent intent = new Intent(getActivity(), ServiceActivity.class);
                 intent.putExtra("option", textOptionSelectedForService.getText().toString());
                 getActivity().startActivity(intent);
             }

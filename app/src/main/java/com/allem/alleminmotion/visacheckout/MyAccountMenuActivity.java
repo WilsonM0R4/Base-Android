@@ -2,11 +2,8 @@ package com.allem.alleminmotion.visacheckout;
 
 import android.app.ActionBar;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.text.Html;
 import android.text.TextPaint;
-import android.text.method.LinkMovementMethod;
 import android.text.style.URLSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -43,15 +40,19 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
 
 
     private void initializeListView(View root) {
+
         ListView lv = (ListView) root.findViewById(R.id.profileOptionsListView);
         final String[] names= {
                 getString(R.string.title_my_profile),
+                getString(R.string.benefits),
+                getString(R.string.coverage),
                 getString(R.string.transactions_history),
-                getString(R.string.legal_title)
+                getString(R.string.legal_title),
         };
-        final Integer[] images = {R.drawable.menu__profile,R.drawable.menu__history,
+        final Integer[] images = {R.drawable.menu__profile,R.drawable.my_benefits,R.drawable.coverage,R.drawable.menu__history,
                R.drawable.legal5};
-        final Class[] activities = {MyAccountActivity.class, OneTransactionsActivity.class, LegalActivity.class};
+        final Class[] activities = {MyAccountActivity.class, MyBenefits.class,
+                ProofOfCoverageActivity.class, OneTransactionsActivity.class, LegalActivity.class};
         lv.setAdapter(new ArrayAdapter<String>(MyAccountMenuActivity.this, R.layout.profile_layout, names) {
 
             public View getView(final int position,View view,ViewGroup parent) {
@@ -61,8 +62,13 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
                 rowView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(MyAccountMenuActivity.this,activities[position]);
-                        MyAccountMenuActivity.this.startActivity(intent);
+                        if (position==2){
+                            checkLogin();
+
+                        } else {
+                            Intent intent = new Intent(MyAccountMenuActivity.this, activities[position]);
+                            MyAccountMenuActivity.this.startActivity(intent);
+                        }
                     }
                 });
                 TextView txtTitle = (TextView) rowView.findViewById(R.id.profileOptionText);
@@ -95,15 +101,29 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
         animate();
     }
 
-
-
-
     private void checkLogin() {
         if(((VisaCheckoutApp)this.getApplication()).getIdSession()==null){
             Intent i =new Intent(this,LoginActivity.class);
-            this.startActivityForResult(i, Constants.ACTIVITY_LOGIN);
+            MyAccountMenuActivity.this.startActivityForResult(i, Constants.ACTIVITY_LOGIN);
+        } else {
+            Log.e("Sergini", "Entra al else de checkLogin");
+            Intent i = new Intent(this,ProofOfCoverageActivity.class);
+            MyAccountMenuActivity.this.startActivity(i);
         }
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        //Validate login successful
+        if (resultCode == RESULT_OK)//Constants.ACTIVITY_LOGIN
+        {
+            Log.e("Sergini", "Entra al resultCode == RESULT_OK");
+            Intent i = new Intent( MyAccountMenuActivity.this,ProofOfCoverageActivity.class);
+            MyAccountMenuActivity.this.startActivity(i);
+        }
+    }
+
     private void stripUnderlines(TextView textView) {
         /*
         SpannedString s = (SpannedString)textView.getText();

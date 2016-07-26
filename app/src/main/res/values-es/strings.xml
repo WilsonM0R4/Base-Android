@@ -8,6 +8,8 @@
     <string name="BEFORE">ANTERIORES</string>
     <string name="forgot_password">Recuperación de Contraseña</string>
     <string name="more_info">mas info.</string>
+    <string name="coverage">Prueba de Cobertura</string>
+    <string name="benefits">Mis Beneficios</string>
     <string name="title_activity_intro_screen">IntroScreenActivity</string>
     <string name="login">INGRESA</string>
     <string name="onepocket">Onepocket</string>
@@ -18,6 +20,12 @@
     <string name="mCard_Exclusive">Disfruta tus viajes sin preocupaciones todo el año. Tendrás 500.000 USD en gastos médicos y una indemnización si pierdes tu equipaje.</string>
     <string name="mCard_Privilege">Disfruta tus viajes sin preocupaciones durante todo el año porque tendrás 50.000 USD en gastos médicos que te dan tranquilidad y confianza.</string>
     <string name="register">REGÍSTRATE</string>
+    <string name="coverage_string1">La cobertura incluye viajes ilimitados en la vigencia y el periodo de la misma de 100 días maximos desde el momento del ingreso a cualquier pais diferente al de la residencia del titular.</string>
+    <string name="coverage_string2">Los beneficios y los limites indicados quedan sujetos, en todo caso, a los requisitos, términos y condiciones de las pólizas contratadas por IATAI.</string>
+    <string name="currency">USD</string>
+    <string name="Repatriating_remains">Repatriación de restos mortales</string>
+    <string name="medical_expenses">Gastos medicos por enfermedad eventual o accidente</string>
+    <string name="emergency_transfer">Traslado de emergencia</string>
     <string name="mcard_doctorhelp">Modelo exclusivo de IATAI de servicio médico online con atención diferencial, conecta a médicos con viajeros internacionales que buscan asistencia médica inmediata, las 24 horas del día, los 7 días de la semana a nivel mundial. Sin necesidad de trámites administrativos previos.</string>
     <string name="handi_u">Handy U</string>
     <string name="mcard_trip">Múltiples viajes hasta 120 días máximo por viaje</string>
@@ -490,4 +498,5 @@
     <string name="txt_passport">PS</string>
     <string name="sign_in">Iniciar sesión</string>
     <string name="greet">Qué bueno verte de nuevo</string>
+    <string name="IATAI_CERTIFICA">IATAI CERTIFIES</string>
 </resources>
