@@ -1,5 +1,7 @@
 package com.allem.alleminmotion.visacheckout.async;
 
+import android.util.Log;
+
 import org.ksoap2.serialization.SoapObject;
 
 /**
@@ -21,6 +23,10 @@ public class AsyncTaskSoapObjectResultEvent {
 
 
     public SoapObject getResult() {
+       /* SoapObject response = (SoapObject)envelope.getResponse();
+        String resp = response.toString();*/
+        String resp = result.toString();
+        Log.e("Response Far", resp);
         return result;
     }
 

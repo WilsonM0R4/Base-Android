@@ -23,7 +23,7 @@ import java.util.ArrayList;
  */
 public class AsyncSoapObject extends AsyncTask<String,Void,SoapObject> {
 
-    private static final String TAG = "AsyncSoap" ;
+    private static final String TAG = "AsyncSoap";
     private String url,namespace,method,soapaction,faultstring;
     private ArrayList<NameValuePair> postValues;
     private int codeRequest, faultcode;
@@ -41,6 +41,9 @@ public class AsyncSoapObject extends AsyncTask<String,Void,SoapObject> {
         this.property=property;
         this.userserver = server.user;
         this.passserver = server.pass;
+
+        Log.e("this.method",this.method);
+        Log.e("this.userserver",this.userserver);
     }
 
     //***************Proper methods*******************
@@ -70,6 +73,11 @@ public class AsyncSoapObject extends AsyncTask<String,Void,SoapObject> {
     public static AsyncSoapObject getInstance(String url,String namespace,String method,ArrayList<NameValuePair> postValues,int codeRequest){
         Server server = new Server(url,namespace,Constants.SOAP_AUTH_USER,Constants.SOAP_AUTH_PASS);
         return new AsyncSoapObject(server,method,postValues,null,codeRequest);
+    }
+
+    public static AsyncSoapObject getInstance2(String url,String namespace,String method,PropertyInfo property,int codeRequest){
+        Server server = new Server(url,namespace,Constants.SOAP_AUTH_EMAIL_MCARD,Constants.SOAP_AUTH_PASSWORD_MCARD);
+        return new AsyncSoapObject(server,method,null,property,codeRequest);
     }
 
     public static AsyncSoapObject getInstance(String url,String namespace,String method,PropertyInfo property,int codeRequest){
@@ -111,10 +119,7 @@ public class AsyncSoapObject extends AsyncTask<String,Void,SoapObject> {
             }
 
             SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-
-            //envelope.dotNet=true;
             envelope.setOutputSoapObject(request);
-
             envelope.headerOut = buildAuthHeader(envelope);
 
 

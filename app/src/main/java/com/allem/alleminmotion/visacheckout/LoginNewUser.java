@@ -167,6 +167,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
 
     @Subscribe
     public void onAsyncTaskResult(AsyncTaskSoapObjectResultEvent event) {
+
         if (event.getCodeRequest() == Constants.ACTIVITY_LOGIN_NEW_USER) {
             setWaitinUI(false);
             Intent returnIntent = new Intent();
@@ -182,7 +183,6 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 ((VisaCheckoutApp) this.getApplication()).parseUser(user.email, channel);
                 /*if(KeySaver.isExist(ctx,Constants.USER_PUSH)) ((AsobancariaApplication) this.getApplication()).unSetParseChannels();
                 ((AsobancariaApplication)this.getApplication()).setParseChannel(channel);*/
-
                 //Remove all views from layout
                /* LinearLayout formLayout = (LinearLayout) findViewById(R.id.rl_body);
                 formLayout.removeAllViews();
@@ -190,8 +190,6 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 SuccessfulRegister successfulRegister = new SuccessfulRegister(getApplicationContext());
                 formLayout.addView(successfulRegister);
                 Log.e("Serfar Prueba", channel);*/
-
-
             //Temporary
                 Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);

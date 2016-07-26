@@ -20,6 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Santiago Castro"
+        android:id="@+id/textNameLastNAme"
         android:textColor="@color/magenta"
         android:textSize="18sp"
         app:font="@string/font_muli"

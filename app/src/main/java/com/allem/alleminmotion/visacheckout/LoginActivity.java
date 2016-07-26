@@ -8,8 +8,10 @@ package com.allem.alleminmotion.visacheckout;
 import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputType;
@@ -30,6 +32,8 @@ import com.allem.alleminmotion.visacheckout.async.AsyncSoapObject;
 import com.allem.alleminmotion.visacheckout.async.AsyncTaskSoapObjectResultEvent;
 import com.allem.alleminmotion.visacheckout.async.MyBus;
 import com.allem.alleminmotion.visacheckout.models.AllemUser;
+import com.allem.alleminmotion.visacheckout.models.CuentaCliente;
+import com.allem.alleminmotion.visacheckout.models.McardCliente;
 import com.allem.alleminmotion.visacheckout.parsers.SoapObjectParsers;
 import com.allem.alleminmotion.visacheckout.utils.Constants;
 import com.allem.alleminmotion.visacheckout.utils.CustomizedTextView;
@@ -39,6 +43,14 @@ import com.squareup.otto.Subscribe;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
+import org.ksoap2.SoapEnvelope;
+import org.ksoap2.serialization.PropertyInfo;
+import org.ksoap2.serialization.SoapObject;
+import org.ksoap2.serialization.SoapPrimitive;
+import org.ksoap2.serialization.SoapSerializationEnvelope;
+import org.ksoap2.transport.HttpTransportSE;
+import org.kxml2.kdom.Element;
+import org.kxml2.kdom.Node;
 
 import java.util.ArrayList;
 
@@ -47,6 +59,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
     private final String TAG = "LoginActivity";
     private ActionBar actionBar;
     private Context ctx;
+    private int idCuenta;
     //private ImageButton ib_visibilitypass;
     private boolean passIsVisible = false;
     private EditText username, password;
@@ -57,6 +70,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         Log.d(TAG, "Enter LoginActivity");
         ctx = this;
@@ -118,24 +132,57 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         }
 
         setListeners();
+        //getHigherMcard();
     }
 
+
+
+   /* private void getHigherMcard(){
+        if (Util.hasInternetConnectivity(ctx)) {
+/*//************Get higher mCard********
+            //Crear el request
+           *//* SoapObject request = new SoapObject(Constants.MCARD_NAMESPACE, Constants.MCARD_METHOD);
+            request.addProperty("idCuenta", idCuenta);
+            //Crear el envelope
+            SoapSerializationEnvelope envelope =
+                    new SoapSerializationEnvelope(SoapEnvelope.VER12);
+            envelope.setOutputSoapObject(request);
+
+            McardCliente cuentaCliente = new McardCliente();
+            cuentaCliente.setIdCuenta(idCuenta);
+            PropertyInfo property = new PropertyInfo();
+            property.setName(McardCliente.PROPERTY);
+            property.setValue(cuentaCliente);
+            property.setType(cuentaCliente.getClass());
+            Log.e("SerIdCuentaHigherMcard",String.valueOf(idCuenta));*//*
+            //new TareaWSConsulta().execute();
+           *//* if (postValues.size() > 0) postValues.clear();
+
+            postValues.add(new BasicNameValuePair("idCuenta", String.valueOf(idCuenta)));
+            AsyncSoapObject.getInstance2(Constants.SOAP_URL_MCARD, Constants.MCARD_NAMESPACE,
+                    Constants.MCARD_METHOD, property, Constants.ACTIVITY_PROOF_OF_COVERAGE).execute();*//*
+        } else {
+            Toast.makeText(ctx, getString(R.string.err_no_internet), Toast.LENGTH_SHORT).show();
+        }
+    }*/
+
     private void setListeners() {
-        /*ib_visibilitypass.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (passIsVisible) {
-                    password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                    passIsVisible = false;
-                    ib_visibilitypass.setImageResource(R.drawable.ic_visibility_off_black_18dp);
-                } else {
-                    password.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
-                    passIsVisible = true;
-                    ib_visibilitypass.setImageResource(R.drawable.ic_visibility_black_18dp);
-                }
-                password.setSelection(password.length());
-            }
-        });*/
+           /*ib_visibilitypass.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View view) {
+                   if (passIsVisible) {
+                       password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                       passIsVisible = false;
+                       ib_visibilitypass.setImageResource(R.drawable.ic_visibility_off_black_18dp);
+                   } else {
+                       password.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                       passIsVisible = true;
+                       ib_visibilitypass.setImageResource(R.drawable.ic_visibility_black_18dp);
+                   }
+                   password.setSelection(password.length());
+               }
+           });*/
+
         username.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
@@ -209,6 +256,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
     }
 
     private void setWaitinUI(boolean b) {
+
         if (b) pb_login.setVisibility(View.VISIBLE);
         else pb_login.setVisibility(View.GONE);
         username.setEnabled(!b);
@@ -243,7 +291,6 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_login, menu);
-
         return true;
     }
 
@@ -258,11 +305,15 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         }
     }
 
+
+
     @Subscribe
     public void onAsyncTaskResult(AsyncTaskSoapObjectResultEvent event) {
+
         if (event.getCodeRequest() == Constants.ACTIVITY_LOGIN) {
             setWaitinUI(false);
             if (event.getResult() != null) {
+                Log.e("Entro una vez","Al onAsyncTaskResult");
                 AllemUser user = SoapObjectParsers.toAllemUser(event.getResult());
                 ((VisaCheckoutApp) this.getApplication()).setIdSession(user.idSesion);
                 ((VisaCheckoutApp) this.getApplication()).setIdCuenta(user.idCuenta);
@@ -272,23 +323,40 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 String channel = name + domain + user.idCuenta;
                 String password = user.hashpassword;
 
-                Log.e("Serfar idCuenta",String.valueOf(user.idCuenta));
-                Log.e("Serfar", "password " + password);
-                Log.e("Serfar", "chnel: " + channel);
+                String nombre = user.nombre;
+                String apellido = user.apellido;
+                //Save in SharedPreferences
+                SharedPreferences prefs =
+                        getSharedPreferences("MisPreferencias",Context.MODE_PRIVATE);
+
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putString("apellido", apellido);
+                editor.putString("nombre", nombre);
+                editor.commit();
+
+
+                Log.e("Serfar", "nombre " + nombre);
+                Log.e("Serfar", " apellido" + apellido);
+                idCuenta = user.idCuenta;
+                Log.e("Serfar idCuenta onAsync",String.valueOf(idCuenta));
+
                 Constants.saveUser(ctx, user, channel);
                 ((VisaCheckoutApp) this.getApplication()).unSetParseChannels();
                 ((VisaCheckoutApp) this.getApplication()).parseUser(user.email, channel);
+
                 setResult(RESULT_OK);
                 finish();
             } else {
                 Toast.makeText(ctx, event.getFaultString(), Toast.LENGTH_LONG).show();
             }
-
+            //getHigherMcard();
         }
+
     }
 
     @Override
     public void onBackPressed() {
+
         super.onBackPressed();
         Log.d(TAG, "back pressed");
         setResult(RESULT_CANCELED);
@@ -300,7 +368,88 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         animate();
     }
 
-    /*public void onUp(View view) {
-        super.onBackPressed();
-    }*/
-}
+    private Element[] buildAuthHeader(SoapSerializationEnvelope envelope) {
+
+        Element headers[] = new Element[1];
+        headers[0]= new Element().createElement("http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd", "Security");
+        headers[0].setAttribute(envelope.env, "mustUnderstand", "1");
+        Element security=headers[0];
+
+        Element to = new Element().createElement(security.getNamespace(), "UsernameToken");
+        to.setAttribute("http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd", "Id", "UsernameToken-2");
+
+        Element action1 = new Element().createElement(security.getNamespace(), "Username");
+        action1.addChild(Node.TEXT, Constants.ACTIVITY_UPDATE_USER);
+        to.addChild(Node.ELEMENT,action1);
+
+        Element action2 = new Element().createElement(security.getNamespace(), "Password");
+        action2.setAttribute(null, "Type", "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText");
+        action2.addChild(Node.TEXT, Constants.SOAP_AUTH_PASS);
+        to.addChild(Node.ELEMENT,action2);
+        headers[0].addChild(Node.ELEMENT, to);
+        return headers;
+    }
+
+    //**********************INNER CLASSES**************
+
+    //Llamar al servicio web a una AsyncTask que realice las operaciones en segundo
+    // plano utilizando un hilo secundario
+
+    private class TareaWSConsulta extends AsyncTask<String,Integer,Boolean> {
+
+        @Override
+        protected Boolean doInBackground(String... strings) {
+
+            boolean resul = true;
+            //McardCliente[] listaClientes;
+
+            SoapObject request = new SoapObject(Constants.MCARD_NAMESPACE, Constants.MCARD_METHOD);
+            request.addProperty("idCuenta", idCuenta);
+            SoapSerializationEnvelope envelope =
+                    new SoapSerializationEnvelope(SoapEnvelope.VER11);
+
+            envelope.setOutputSoapObject(request);
+            McardCliente cuentaCliente = new McardCliente();
+            cuentaCliente.setIdCuenta(idCuenta);
+            PropertyInfo property = new PropertyInfo();
+            property.setName(McardCliente.PROPERTY);
+            property.setValue(cuentaCliente);
+            property.setType(cuentaCliente.getClass());
+
+            HttpTransportSE transporte = new HttpTransportSE(Constants.SOAP_URL_MCARD);
+
+            try
+            {
+                transporte.call(Constants.MCARD_NAMESPACE+Constants.MCARD_METHOD, envelope);
+
+                SoapObject resSoap =(SoapObject)envelope.getResponse();
+                envelope.headerOut = buildAuthHeader(envelope);
+                SoapObject ic = (SoapObject)resSoap.getProperty(0);
+                McardCliente cli = new McardCliente();
+                cli.idProducto = Integer.parseInt(ic.getProperty(1).toString());
+                Log.e("idProdcuto",String.valueOf(cli.idProducto));
+                SoapPrimitive resultado_xml =(SoapPrimitive)envelope.getResponse();
+                String res = resultado_xml.toString();
+                Log.e("Resposn",res);
+                //listaClientes = new McardCliente[resSoap.getPropertyCount()];
+
+               /*/*//* for (int i = 0; i < 1; i++)
+                {
+                    SoapObject ic = (SoapObject)resSoap.getProperty(i);
+
+                    McardCliente cli = new McardCliente();
+                    cli.idCuenta = Integer.parseInt(ic.getProperty(0).toString());
+
+                    //listaClientes[i] = cli;
+                }*/
+            }
+            catch (Exception e)
+            {
+                resul = false;
+            }
+
+            return resul;
+        }
+    }
+
+    }

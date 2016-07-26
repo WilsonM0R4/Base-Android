@@ -20,11 +20,13 @@ import java.util.HashMap;
  * com.allem.allemevent.utils
  */
 public class Constants {
+
     //*******ADDED BY SERGIO FARFÁN FOR GET MCARD**********
-    public final static String SOAP_AUTH_EMAIL_MCARD = "";
-
-
-
+    public final static String SOAP_AUTH_EMAIL_MCARD = "allegrapp@iatai.com";
+    public final static String SOAP_AUTH_PASSWORD_MCARD = "7642e3e3722a158d392d1f4ed5c12ae3";
+    public final static String SOAP_URL_MCARD = "http://52.20.11.221:8080/SAU/MembersiaClienteServicio?wsdl";
+    public final static String MCARD_METHOD = "consultaMembresiaClienteRequest";
+    public final static String MCARD_NAMESPACE = "http://www.ws.iatai.com/MembersiaClienteServicio/";
 
     //*******************************************
     public final static String TAG = "AllemConstants";
@@ -108,7 +110,7 @@ public class Constants {
     public final static String METHOD_CERRAR_SESION = "CerrarSesion";
     public final static String METHOD_VALIDAR_SESION = "ValidarSesion";
     public final static String METHOD_ENVIAR_PASSWORD = "EnviarPassword";
-    public final static String METHOD_RECUPERAR_PASSWORD = "restablecerContrasena";
+    public final static String METHOD_RECUPERAR_PASSWORD = "RestablecerContrasenaToken";
     public final static String METHOD_CREAR_CUENTA = "CrearCuenta";
     public final static String METHOD_ACTUALIZAR_CUENTA = "ActualizarCuenta";
 
@@ -264,6 +266,7 @@ public class Constants {
     public final static int ACTIVITY_LOGIN_RECOVER = 10010;
     public final static int ACTIVITY_LOGIN_NEW_USER = 10011;
     public final static int ACTIVITY_UPDATE_USER = 10030;
+    public final static int ACTIVITY_PROOF_OF_COVERAGE = 2222234;
     public final static int ACTIVITY_SERVICES = 10012;
     public final static int ACTIVITY_PAY_DETALLE=10013;
     public final static int ACTIVITY_PROFILE = 10014;
