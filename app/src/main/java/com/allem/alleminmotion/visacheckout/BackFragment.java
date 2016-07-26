@@ -178,9 +178,20 @@ public class BackFragment extends Fragment  {
             getActivity().startActivity(intent);
         }
 
+
         /*
         *         Intent intent = new Intent(getActivity(),McardActivity.class);
         getActivity().startActivity(intent);*///MCARD NATIVE
+    }
+
+    public void sendToServices(){
+        if(Util.isAuthenticated(getActivity())){
+            Intent intent = new Intent(getActivity(),ServiceActivity.class);
+            getActivity().startActivity(intent);
+        } else {
+            Intent intent = new Intent(getActivity(),LoginActivity.class);
+            getActivity().startActivity(intent);
+        }
     }
 
     public void sendToFlights(){
@@ -294,26 +305,11 @@ public class BackFragment extends Fragment  {
             }
         });
 
-       /* LinearLayout taxi_option = (LinearLayout) getView().findViewById(R.id.taxi_option);
-        taxi_option.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                textOptionSelectedForService = (CustomizedTextView) getActivity().findViewById(R.id.textTaxi);
-                Intent intent = new Intent(getActivity(), HomeActivity_Handy.class);
-                intent.putExtra("option", textOptionSelectedForService.getText().toString());
-                getActivity().startActivity(intent);
-            }
-        });*/
-
-
         LinearLayout service_option = (LinearLayout) getView().findViewById(R.id.services_option);
         service_option.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textOptionSelectedForService = (CustomizedTextView) getActivity().findViewById(R.id.textServices);
-                Intent intent = new Intent(getActivity(), ServiceActivity.class);
-                intent.putExtra("option", textOptionSelectedForService.getText().toString());
-                getActivity().startActivity(intent);
+                sendToServices();
             }
         });
 
