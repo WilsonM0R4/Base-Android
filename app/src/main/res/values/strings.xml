@@ -128,7 +128,7 @@
     <string name="txt_lbl_searchFlightsWait">We are looking for the best rates for your trip</string>
     <string name="txt_lbl_searchConciergeWait">We are looking for the best rates for your activities</string>
     <string name="tv_lbl_empty_search">Sorry no matches.</string>
-    <string name="txt_lbl_destination">DESTINATION</string>
+    <string name="txt_lbl_destination">ENTER YOUR DESTINATION</string>
     <string name="txt_lbl_select_dest">SELECT YOUR DESTINATION</string>
     <string name="txt_lbl_checkin">CHECK IN</string>
     <string name="txt_lbl_checkout">CHECK OUT</string>

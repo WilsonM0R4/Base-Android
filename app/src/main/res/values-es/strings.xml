@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Allegra</string>
-    <string name="app_name_legal">Allegra - Visa</string>
+    <string name="app_name">Handy U Visa</string>
+    <string name="app_name_legal">Handy U Visa</string>
     <string name="TODAY">HOY</string>
     <string name="room">HAB</string>
     <string name="SAME_WEEK">ÚLTIMA SEMANA</string>
@@ -42,7 +42,7 @@
     <string name="call_us">Llámanos</string>
     <string name="more_items">Más resultados</string>
     <string name="txt_transaction_empty">Tu historial de transacciones está actualmente vacío.</string>
-    <string name="title_qr_scan">Escanea el QR</string>
+    <string name="title_qr_scan">Escanear QR</string>
     <string name="qr_scan_description">Escanea el código QR con la cámara de tu móvil para pagar tu factura</string>
     <string name="slogan_welcome">Bienvenido a</string>
     <string name="slogan_all_in_one">La mejor aplicación all-in-one</string>
@@ -137,7 +137,7 @@
     <string name="txt_lbl_searchFlightsWait">Estamos buscando las mejores tarifas para tu viaje</string>
     <string name="txt_lbl_searchConciergeWait">Estamos buscando las mejores tarifas para tus actividades</string>
     <string name="tv_lbl_empty_search">No se han encontrado coincidencias.</string>
-    <string name="txt_lbl_destination">DESTINO</string>
+    <string name="txt_lbl_destination">INGRESA TU DESTINO</string>
     <string name="txt_lbl_select_dest">SELECCIONE DESTINO</string>
     <string name="hotels_guests_per_room">HUÉSPEDES POR HABITACIÓN</string>
     <string name="hotels_room_description">Si vas a viajar, por favor inclúyete en la habitación 1</string>
