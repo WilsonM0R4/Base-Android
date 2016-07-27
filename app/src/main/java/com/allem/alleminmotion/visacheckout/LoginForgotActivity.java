@@ -10,12 +10,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.allem.alleminmotion.visacheckout.async.AsyncSoapPrimitive;
+import com.allem.alleminmotion.visacheckout.async.AsyncSoapObject;
 import com.allem.alleminmotion.visacheckout.async.AsyncTaskSoapPrimitiveResultEvent;
+import com.allem.alleminmotion.visacheckout.models.CuentaClienteRecover;
 import com.allem.alleminmotion.visacheckout.utils.Constants;
+import com.allem.alleminmotion.visacheckout.utils.Util;
 
 import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
+import org.ksoap2.serialization.PropertyInfo;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -55,10 +57,7 @@ public class LoginForgotActivity extends FrontBackAnimate implements FrontBackAn
                 if(!isEmailValid(email_txt.getText().toString())){
                     Toast.makeText(ctxx, getString( R.string.err_novalid_mail), Toast.LENGTH_SHORT).show();
                 }else {
-                    postValues.add(new BasicNameValuePair(Constants.KEY_EMAIL, email_txt.getText().toString()));
-                    AsyncSoapPrimitive.getInstance(Constants.getWSDL(), Constants.NAMESPACE_ALLEM,
-                            Constants.METHOD_RECUPERAR_PASSWORD, postValues, recover).execute();
-                    Log.d("Juan",recoverstr.valueOf(recover));
+                    sendInfo();
                     Boolean b1=true;
                     b1.equals(recover);
                     if(b1){
@@ -66,8 +65,7 @@ public class LoginForgotActivity extends FrontBackAnimate implements FrontBackAn
                         intent.putExtra("mail", email_txt.getText().toString());
                         startActivity(intent);
                     }else{
-                        Intent intent = new Intent(ctxx,LoginForgotConfirmation.class);
-                        startActivity(intent);
+                        sendInfo();
                     }
                 }
             }
@@ -91,6 +89,24 @@ public class LoginForgotActivity extends FrontBackAnimate implements FrontBackAn
             isValid = true;
         }
         return isValid;
+    }
+
+    private void sendInfo() {
+
+        CuentaClienteRecover cuentaClienteRecover = new CuentaClienteRecover();
+        cuentaClienteRecover.setEmail(email_txt.getText().toString());
+
+        PropertyInfo property = new PropertyInfo();
+        property.setName(CuentaClienteRecover.PROPERTY);
+        property.setValue(cuentaClienteRecover);
+        property.setType(cuentaClienteRecover.getClass());
+
+        if (Util.hasInternetConnectivity(ctxx)) {
+            AsyncSoapObject.getInstance(Constants.getWSDL(), Constants.NAMESPACE_ALLEM,
+                    Constants.METHOD_RECUPERAR_PASSWORD, property, Constants.ACTIVITY_LOGIN_RECOVER).execute();
+        } else {
+            Toast.makeText(ctxx, getString(R.string.err_no_internet), Toast.LENGTH_SHORT).show();
+        }
     }
 
 }
