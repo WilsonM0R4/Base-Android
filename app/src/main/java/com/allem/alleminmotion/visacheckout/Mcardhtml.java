@@ -53,7 +53,16 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
         arrowBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("juan", "Go back");
+                onGoBack(v);
 
+            }
+        });
+
+        arrowF.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onGoForward(v);
             }
         });
 

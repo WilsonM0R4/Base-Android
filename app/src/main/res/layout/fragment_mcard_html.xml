@@ -58,7 +58,8 @@
                 android:src="@drawable/navigation__backurl_2"
                 android:background="@null"
                 android:padding="10dp"
-                android:id="@+id/arrow_back_mcard" />
+                android:id="@+id/arrow_back_mcard"
+                android:onClick="onGoBack" />
 
             <ImageButton
                 android:layout_width="wrap_content"
