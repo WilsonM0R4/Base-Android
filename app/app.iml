@@ -158,8 +158,8 @@
     <orderEntry type="library" exported="" name="xmlpull-1.1.3.3" level="project" />
     <orderEntry type="library" exported="" name="play-services-drive-9.0.2" level="project" />
     <orderEntry type="library" exported="" name="bolts-android-1.4.0" level="project" />
-    <orderEntry type="library" exported="" name="support-annotations-23.1.1" level="project" />
     <orderEntry type="library" exported="" name="kxml-2.2.4" level="project" />
+    <orderEntry type="library" exported="" name="support-annotations-23.1.1" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-23.1.1" level="project" />
     <orderEntry type="library" exported="" name="parse-android-1.13.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-tagmanager-api-9.0.2" level="project" />
