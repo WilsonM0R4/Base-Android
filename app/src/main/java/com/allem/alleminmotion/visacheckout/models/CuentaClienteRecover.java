@@ -10,7 +10,7 @@ import java.util.Hashtable;
  */
 public class CuentaClienteRecover implements KvmSerializable {
 
-    public final static String PROPERTY="cuentaClienteRecover";
+    public final static String PROPERTY="restablecerContrasena";
     private final static String EMAIL ="email";
     private String email;
 
