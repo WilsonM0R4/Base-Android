@@ -27,6 +27,7 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
     private String returnURL, userEmail;
     public String onePocketmessage;
     private String url = "http://52.71.117.239:8080/McardMembresiaAllus/app/app/app/index_320.xhtml?email=";
+    private String url_prod = "http://52.7.111.227:8080/McardMembresiaAllus/app/app/index_320.xhtml?email=";
     //private String url = "http://allegra.global/membresias/planes/";
 
     @Override
@@ -44,7 +45,7 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
         menu = (ImageButton) root.findViewById(R.id.menu_image);
         webmcard = (WebView) root.findViewById(R.id.webmcard);
         webmcard.getSettings().setJavaScriptEnabled(true);
-        webmcard.loadUrl(url);
+        webmcard.loadUrl(url_prod);
         webmcard.setWebViewClient(new MyBrowser(this));
         arrowBack = (ImageButton) root.findViewById(R.id.arrow_back_mcard);
         arrowF = (ImageButton) root.findViewById(R.id.arrow_foward_mcard);
@@ -66,7 +67,7 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
             }
         });
 
-        Log.d("juan", url);
+        Log.d("juan", url_prod);
     }
 
     @Override
@@ -81,7 +82,7 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
     private void loadWebView() {
         //url="http://alegra.dracobots.com/Hotel/Flow/Availability?";
         webmcard.addJavascriptInterface(new AppJavaScriptProxyMcard(this), "androidProxy");
-        webmcard.loadUrl(url+userEmail);
+        webmcard.loadUrl(url_prod+userEmail);
     }
 
     public void openOnePocket(){
