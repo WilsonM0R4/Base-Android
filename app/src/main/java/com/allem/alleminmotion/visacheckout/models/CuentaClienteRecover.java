@@ -26,13 +26,13 @@ public class CuentaClienteRecover implements KvmSerializable {
 
     @Override
     public int getPropertyCount() {
-        return 0;
+        return 1;
     }
 
     @Override
     public void setProperty(int index, Object value) {
         switch (index) {
-            case 4:
+            case 0:
                 email = (String) value;
                 break;
         }
@@ -42,7 +42,7 @@ public class CuentaClienteRecover implements KvmSerializable {
     public void getPropertyInfo(int index, Hashtable properties, PropertyInfo info) {
 
         switch (index) {
-            case 4:
+            case 0:
                 info.type = PropertyInfo.STRING_CLASS;
                 info.name = EMAIL;
                 break;
