@@ -25,6 +25,7 @@ public class Constants {
     public final static String SOAP_AUTH_EMAIL_MCARD = "allegrapp@iatai.com";
     public final static String SOAP_AUTH_PASSWORD_MCARD = "7642e3e3722a158d392d1f4ed5c12ae3";
     public final static String SOAP_URL_MCARD = "http://52.20.11.221:8080/SAU/MembersiaClienteServicio?wsdl";
+    public final static String SOAP_URL_MCARD_PROD = "http://52.7.111.227:8080/SAU/MembersiaClienteServicio?wsdl";
     public final static String MCARD_METHOD = "consultaMembresiaClienteRequest";
     public final static String MCARD_NAMESPACE = "http://www.ws.iatai.com/MembersiaClienteServicio/";
 

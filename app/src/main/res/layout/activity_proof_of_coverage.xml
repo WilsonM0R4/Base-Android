@@ -36,7 +36,7 @@
                 android:background="@android:color/transparent"
                 android:contentDescription="menu"
                 android:onClick="onUp"
-                android:src="@drawable/navigation__back" />                <!-- -->
+                android:src="@drawable/navigation__back" />
 
             <TextView
                 android:id="@+id/tv_title_secc"
@@ -70,12 +70,12 @@
             android:contentDescription="Divider"
             android:src="@drawable/separator_medium_mag" />
 
-        <include
-            android:id="@+id/customCoverageHeader"
-            layout="@layout/custom_coverage_header"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/iv_header_3" />
+            <include
+                android:id="@+id/customCoverageHeader"
+                layout="@layout/custom_coverage_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_header_3" />
 
             <include
                 android:layout_width="wrap_content"

@@ -1,10 +1,12 @@
 package com.allem.alleminmotion.visacheckout;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.allem.alleminmotion.visacheckout.utils.CustomizedTextView;
@@ -12,10 +14,11 @@ import com.allem.alleminmotion.visacheckout.utils.CustomizedTextView;
 public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontBackAnimate.InflateReadyListener {
 
     //*************GLOBAL ATTRIBUTES***********
+    LinearLayout header, centerListView, bottomTexts;
     TextView  txtCoverage1, txtCoverage2,txtCoverage3;
-    CustomizedTextView textNameLastName;
+    CustomizedTextView textNameLastName, txtGetYourCertificate;
     String valueOfMcard, nombre, apellido;
-    int idMcard = 208;
+    int idMcard = 0;
 
     //getResources().getString(R.string.UnlimitedMcard),
     //Get idMcard from intent extras
@@ -43,11 +46,14 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
 
     @Override
     public void initViews(View root) {
+
         txtCoverage1 = (TextView) root.findViewById(R.id.id_value_coverage1);
         txtCoverage2 = (TextView) root.findViewById(R.id.id_value_coverage2);
         txtCoverage3 = (TextView) root.findViewById(R.id.id_value_coverage3);
         textNameLastName = (CustomizedTextView)root.findViewById(R.id.textNameLastNAme);
-
+        header = (LinearLayout)root.findViewById(R.id.customCoverageHeader);
+        centerListView = (LinearLayout)root.findViewById(R.id.customListView);
+        bottomTexts = (LinearLayout)root.findViewById(R.id.customTextCoverage);
         findValueOfMcard();
         setValues();
     }
@@ -73,6 +79,7 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
                 valueOfMcard = arrayMcards[3];
                 break;
             case 0://Don´t have
+                setGetYourCertificateLayout();
                 break;
 
         }
@@ -86,6 +93,33 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
         txtCoverage2.setText(valueOfMcard);
         txtCoverage3.setText(valueOfMcard);
         textNameLastName.setText(nombre + " "+ apellido);
+    }
+
+    void setGetYourCertificateLayout(){
+        //Change layout
+        header.setVisibility(View.GONE);
+        centerListView.setVisibility(View.GONE);
+        bottomTexts.setVisibility(View.GONE);
+        setContentView(R.layout.get_your_certificate);
+        txtGetYourCertificate = (CustomizedTextView) findViewById(R.id.txtGetYourCertificate2);
+        txtGetYourCertificate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                launchMcardActivity();
+            }
+        });
+
+    }
+
+    void launchMcardActivity(){
+
+        //Launch mCard Activity
+        Intent i = new Intent(getApplicationContext(), Mcardhtml.class);
+        startActivity(i);
+    }
+
+    public void onUpProof(View view) {
+        onBackPressed();
     }
 
 

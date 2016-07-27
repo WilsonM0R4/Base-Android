@@ -176,4 +176,5 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
             webmcard.goForward();
         }
     }
+
 }
