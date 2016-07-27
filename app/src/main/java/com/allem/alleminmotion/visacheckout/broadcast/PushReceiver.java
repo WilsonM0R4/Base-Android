@@ -31,6 +31,7 @@ import java.util.ArrayList;
  * com.allem.allemevent.broadcast
  */
 public class PushReceiver extends BroadcastReceiver {
+
     private static final String TAG="PushReceiver";
     private static final int NOTIFICATION_ID = 30001;
     protected static int numMessages = 0;

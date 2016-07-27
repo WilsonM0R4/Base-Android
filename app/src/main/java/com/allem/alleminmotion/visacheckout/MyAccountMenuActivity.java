@@ -1,6 +1,7 @@
 package com.allem.alleminmotion.visacheckout;
 
 import android.app.ActionBar;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextPaint;
@@ -15,29 +16,82 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.allem.alleminmotion.visacheckout.async.AsyncSoapObject;
+import com.allem.alleminmotion.visacheckout.async.AsyncTaskSoapObjectResultEvent;
+import com.allem.alleminmotion.visacheckout.async.MyBus;
+import com.allem.alleminmotion.visacheckout.models.AllemUser;
+import com.allem.alleminmotion.visacheckout.models.McardCliente;
+import com.allem.alleminmotion.visacheckout.parsers.SoapObjectParsers;
 import com.allem.alleminmotion.visacheckout.utils.Constants;
+import com.allem.alleminmotion.visacheckout.utils.Util;
+import com.squareup.otto.Subscribe;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.ksoap2.serialization.PropertyInfo;
+
+import java.util.ArrayList;
 
 public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
+
+    //AllemUser user;
+    int idCuenta;
+    private Button btn_logout;
+    private ProgressBar pb_cerrarsesion;
+    private ActionBar actionBar;
+    /*private Context ctx;
+    private ArrayList<NameValuePair> postValues;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setView(R.layout.activity_my_account_menu, this);
-
+        //MyBus.getInstance().register(this);
+         // ctx = this;
+        //Request Soap
+        //postValues = new ArrayList<>();
         //checkLogin();
     }
+
 
     @Override
     public void initViews(View root) {
         setActionbar();
-
-      //  this.setContentView(R.layout.activity_my_account_menu);
         initializeListView(root);
-
-
     }
 
+
+  /*  @Subscribe
+    public void onAsyncTaskResult(AsyncTaskSoapObjectResultEvent event) {
+        if (event.getCodeRequest() == Constants.ACTIVITY_LOGIN) {
+            //setWaitinUI(false);
+            if (event.getResult() != null) {
+                AllemUser user = SoapObjectParsers.toAllemUser(event.getResult());
+                ((VisaCheckoutApp) this.getApplication()).setIdSession(user.idSesion);
+                ((VisaCheckoutApp) this.getApplication()).setIdCuenta(user.idCuenta);
+                //((VisaCheckoutApp) this.getApplication()).setRawPassword(password.getText().toString());
+                String name = user.email.substring(0, user.email.indexOf('@'));
+                String domain = user.email.substring(user.email.indexOf('@') + 1, user.email.length()).replace(".", "");
+                String channel = name + domain + user.idCuenta;
+                String password = user.hashpassword;
+
+                idCuenta = user.idCuenta;
+                Log.e("Serfar idCuenta MyAcc", String.valueOf(user.idCuenta));
+                //Log.e("Serfar", "password MyAcc" + password);
+                Log.e("Serfar", "chnel: MyAcc" + channel);
+               *//* Constants.saveUser(ctx, user, channel);
+                ((VisaCheckoutApp) this.getApplication()).unSetParseChannels();
+                ((VisaCheckoutApp) this.getApplication()).parseUser(user.email, channel);*//*
+
+                setResult(RESULT_OK);
+                finish();
+            } else {
+               // Toast.makeText(ctx, event.getFaultString(), Toast.LENGTH_LONG).show();
+            }
+        }
+    }*/
 
     private void initializeListView(View root) {
 
@@ -81,11 +135,6 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
         });
     }
 
-    private Button btn_logout;
-    private ProgressBar pb_cerrarsesion;
-
-
-    private ActionBar actionBar;
     private void setActionbar() {
         actionBar = getActionBar();
         if(actionBar!=null){
@@ -102,13 +151,14 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
     }
 
     private void checkLogin() {
+
         if(((VisaCheckoutApp)this.getApplication()).getIdSession()==null){
             Intent i =new Intent(this,LoginActivity.class);
             MyAccountMenuActivity.this.startActivityForResult(i, Constants.ACTIVITY_LOGIN);
         } else {
-            Log.e("Sergini", "Entra al else de checkLogin");
             Intent i = new Intent(this,ProofOfCoverageActivity.class);
-            MyAccountMenuActivity.this.startActivity(i);
+            this.startActivity(i);
+            //sendIntentForProofOfCoverage();
         }
     }
 
@@ -118,28 +168,23 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
         //Validate login successful
         if (resultCode == RESULT_OK)//Constants.ACTIVITY_LOGIN
         {
-            Log.e("Sergini", "Entra al resultCode == RESULT_OK");
-            Intent i = new Intent( MyAccountMenuActivity.this,ProofOfCoverageActivity.class);
-            MyAccountMenuActivity.this.startActivity(i);
+            Intent i = new Intent(this,ProofOfCoverageActivity.class);
+            this.startActivity(i);
+            //sendIntentForProofOfCoverage();
         }
+
     }
 
-    private void stripUnderlines(TextView textView) {
-        /*
-        SpannedString s = (SpannedString)textView.getText();
-        URLSpan[] spans = s.getSpans(0, s.length(), URLSpan.class);
-        for (URLSpan span: spans) {
-            int start = s.getSpanStart(span);
-            int end = s.getSpanEnd(span);
 
-            s.
-            s.removeSpan(span);
-            span = new URLSpanNoUnderline(span.getURL());
-            s.setSpan(span, start, end, 0);
-        }
-        textView.setText(s);
-        */
-    }
+    //Get user's idCuenta and send to ProofOfCoverageActivity
+/*    private void sendIntentForProofOfCoverage(){
+        //Get user's idCuenta
+
+        //Log.e("SerfarsendIntentForProo",String.valueOf(idCuenta));
+        //Log.e("Sergini", "Entra al resultCode == RESULT_OK");
+        Intent i = new Intent( this,ProofOfCoverageActivity.class);
+        MyAccountMenuActivity.this.startActivity(i);
+    }*/
 
     private static class URLSpanNoUnderline extends URLSpan {
         public URLSpanNoUnderline(String url) {

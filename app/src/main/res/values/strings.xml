@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Allegra</string>
-    <string name="app_name_legal">Allegra - Visa</string>
+    <string name="app_name">Handy U Visa</string>
+    <string name="app_name_legal">Handy U Visa</string>
     <string name="title_activity_branding_screen">BrandingScreenActivity</string>
     <string name="payment_hotel_your">YOUR HOTEL</string>
     <string name="payment_hotel_nights">nights</string>
@@ -128,7 +128,7 @@
     <string name="txt_lbl_searchFlightsWait">We are looking for the best rates for your trip</string>
     <string name="txt_lbl_searchConciergeWait">We are looking for the best rates for your activities</string>
     <string name="tv_lbl_empty_search">Sorry no matches.</string>
-    <string name="txt_lbl_destination">DESTINATION</string>
+    <string name="txt_lbl_destination">ENTER YOUR DESTINATION</string>
     <string name="txt_lbl_select_dest">SELECT YOUR DESTINATION</string>
     <string name="txt_lbl_checkin">CHECK IN</string>
     <string name="txt_lbl_checkout">CHECK OUT</string>
@@ -611,5 +611,6 @@
     <string name="txt_passport">PS</string>
     <string name="sign_in">Sign in</string>
     <string name="greet">Good to see you again</string>
-    <string name="IATAI_CERTIFICA">IATAI CERTIFICA</string>
+    <string name="IATAI_CERTIFICA">IATAI CERTIFIES</string>
+    <string name="UnlimitedMcard">UNLIMITED</string>
 </resources>

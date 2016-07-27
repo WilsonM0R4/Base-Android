@@ -109,6 +109,7 @@ public class AsyncSoapPrimitive extends AsyncTask<String,Void,SoapPrimitive> {
     }
 
     private Element[] buildAuthHeader(SoapSerializationEnvelope envelope) {
+
         Element headers[] = new Element[1];
         headers[0]= new Element().createElement("http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd", "Security");
         headers[0].setAttribute(envelope.env, "mustUnderstand", "1");

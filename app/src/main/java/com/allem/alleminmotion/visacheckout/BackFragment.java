@@ -94,6 +94,7 @@ public class BackFragment extends Fragment  {
                 new MenuActivity(R.string.title_hotels, R.drawable.menu__hotels, HotelsActivity.class),
                 new MenuActivity(R.string.title_concierge, R.drawable.concierge5,ConciergeActivity.class),
                 new MenuActivity(R.string.title_services, R.drawable.menu__services, ServiceActivity.class),
+                new MenuActivity(R.string.title_restaurants, R.drawable.restaurants,RestaurantsActivity.class),
                 new MenuActivity(R.string.title_qr_scan, R.drawable.menu__qr__code, QRScanActivity.class),
                 new MenuActivity(R.string.title_chat, R.drawable.menu__onetouch__chat, ChatActivity.class),
                 new MenuActivity(R.string.title_call, R.drawable.menu__onetouch__call, CallActivity.class),
@@ -177,9 +178,20 @@ public class BackFragment extends Fragment  {
             getActivity().startActivity(intent);
         }
 
+
         /*
         *         Intent intent = new Intent(getActivity(),McardActivity.class);
         getActivity().startActivity(intent);*///MCARD NATIVE
+    }
+
+    public void sendToServices(){
+        if(Util.isAuthenticated(getActivity())){
+            Intent intent = new Intent(getActivity(),ServiceActivity.class);
+            getActivity().startActivity(intent);
+        } else {
+            Intent intent = new Intent(getActivity(),LoginActivity.class);
+            getActivity().startActivity(intent);
+        }
     }
 
     public void sendToFlights(){
@@ -194,6 +206,11 @@ public class BackFragment extends Fragment  {
 
     public void sendToConcierge(){
         Intent intent = new Intent(getActivity(),ConciergeActivity.class);
+        getActivity().startActivity(intent);
+    }
+
+    public void sendToRestaurants(){
+        Intent intent = new Intent(getActivity(),RestaurantsActivity.class);
         getActivity().startActivity(intent);
     }
 
@@ -280,37 +297,19 @@ public class BackFragment extends Fragment  {
             }
         });
 
-       /* LinearLayout restaurants_option = (LinearLayout) getView().findViewById(R.id.restaurants_option);
+       LinearLayout restaurants_option = (LinearLayout) getView().findViewById(R.id.restaurants_options);
         restaurants_option.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textOptionSelectedForService = (CustomizedTextView) getActivity().findViewById(R.id.textRestaurants);
-                Intent intent = new Intent(getActivity(), HomeActivity_Handy.class);
-                intent.putExtra("option", textOptionSelectedForService.getText().toString());
-                getActivity().startActivity(intent);
+                sendToRestaurants();
             }
-        });*/
-
-       /* LinearLayout taxi_option = (LinearLayout) getView().findViewById(R.id.taxi_option);
-        taxi_option.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                textOptionSelectedForService = (CustomizedTextView) getActivity().findViewById(R.id.textTaxi);
-                Intent intent = new Intent(getActivity(), HomeActivity_Handy.class);
-                intent.putExtra("option", textOptionSelectedForService.getText().toString());
-                getActivity().startActivity(intent);
-            }
-        });*/
-
+        });
 
         LinearLayout service_option = (LinearLayout) getView().findViewById(R.id.services_option);
         service_option.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textOptionSelectedForService = (CustomizedTextView) getActivity().findViewById(R.id.textServices);
-                Intent intent = new Intent(getActivity(), ServiceActivity.class);
-                intent.putExtra("option", textOptionSelectedForService.getText().toString());
-                getActivity().startActivity(intent);
+                sendToServices();
             }
         });
 

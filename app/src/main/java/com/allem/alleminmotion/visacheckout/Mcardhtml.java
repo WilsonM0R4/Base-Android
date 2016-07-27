@@ -56,6 +56,8 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
 
             }
         });
+
+        Log.d("juan", url);
     }
 
     @Override
@@ -107,8 +109,12 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
         }
 
         public boolean shouldOverrideUrlLoading(WebView webView, String url) {
-            if (url.equals("allegra:phone")) {
+            if (url.equals("allegra:touchcall")) {
                 Intent i = new Intent(context, CallActivity.class);
+                context.startActivity(i);
+                return true;
+            }else if (url.equals("allegra:chat")){
+                Intent i = new Intent(context,ChatActivity.class);
                 context.startActivity(i);
                 return true;
             }
