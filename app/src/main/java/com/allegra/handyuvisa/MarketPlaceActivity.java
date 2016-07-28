@@ -25,7 +25,7 @@ public class MarketPlaceActivity extends FrontBackAnimate implements FrontBackAn
     private static final String TAG = "MarketPlaceActivity";
 
     private static final String MARKET_PLACE_URL = "http://www.allegra.market/?logo=1&onepocket=1";
-    private static final String MARKET_URL_PRODUCTION = "https://www.allegra.market/?logo=1&onepocket=1";
+    private static final String MARKET_URL_PRODUCTION = "https://www.allegra.market/?logo=1&onecard=1";
     private static final String MARKET_PLACE_URL_TEST = "http://dev.allegra.market/?onepocket=1";
     private static final String EMPTY_SHOPPING_CART = "http://dev.allegra.market/purchaseintent/index/verifytransaction?hash=";
 

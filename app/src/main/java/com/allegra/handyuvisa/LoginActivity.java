@@ -277,7 +277,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         if (event.getCodeRequest() == Constants.ACTIVITY_LOGIN) {
             setWaitinUI(false);
             if (event.getResult() != null) {
-                Log.e("Entro una vez","Al onAsyncTaskResult");
+
                 AllemUser user = SoapObjectParsers.toAllemUser(event.getResult());
                 ((VisaCheckoutApp) this.getApplication()).setIdSession(user.idSesion);
                 ((VisaCheckoutApp) this.getApplication()).setIdCuenta(user.idCuenta);
