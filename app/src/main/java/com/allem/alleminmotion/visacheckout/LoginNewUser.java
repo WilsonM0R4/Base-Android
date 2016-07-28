@@ -448,6 +448,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 }
             }
         });
+
         et_surname.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {

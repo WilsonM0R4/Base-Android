@@ -70,6 +70,8 @@ public class AsyncSoapObject extends AsyncTask<String,Void,SoapObject> {
     }
 
     //**************Getters overloaded*******************
+
+    //*********************Login, **********************************
     public static AsyncSoapObject getInstance(String url,String namespace,String method,ArrayList<NameValuePair> postValues,int codeRequest){
         Server server = new Server(url,namespace,Constants.SOAP_AUTH_USER,Constants.SOAP_AUTH_PASS);
         return new AsyncSoapObject(server,method,postValues,null,codeRequest);
@@ -80,6 +82,7 @@ public class AsyncSoapObject extends AsyncTask<String,Void,SoapObject> {
         return new AsyncSoapObject(server,method,null,property,codeRequest);
     }
 
+    //*********************New User, Forgot Password, EditProfile**********************************
     public static AsyncSoapObject getInstance(String url,String namespace,String method,PropertyInfo property,int codeRequest){
         Server server = new Server(url,namespace,Constants.SOAP_AUTH_USER,Constants.SOAP_AUTH_PASS);
         return new AsyncSoapObject(server,method,null,property,codeRequest);

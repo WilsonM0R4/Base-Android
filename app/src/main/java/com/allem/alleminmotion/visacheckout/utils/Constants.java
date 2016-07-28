@@ -34,7 +34,7 @@ public class Constants {
     public final static String USERNAME = "userkey";
     public final static String PASSWORD = "passkey";
 
-    public final static boolean TESTING = true;
+    public final static boolean TESTING = false;
     public final static boolean TESTING_AIR = true;
 /*
 *Cualquier SOAP_ACTION = URL_ALLEM_BASE+"/"+METHOD;
@@ -76,7 +76,7 @@ public class Constants {
 
     public final static String NAMESPACE_ALLEM= "http://ws.alleminmotion.iatai.com/";
     public final static String URL_ALLEM_BASE_TEST = "https://pruebas.allegraplatform.com/AllemInMotion/AllemInMotion";
-    public final static String URL_ALLEM_BASE_PROD = "https://secureacceptance.allegraplatform.com/AllemInMotion/AllemInMotion";
+    public final static String URL_ALLEM_BASE_PROD = "https://secureacceptance.allegraplatform.com/AllemInMotion";///AllemInMotion
     public final static String URL_ALLEM_WSDL_TEST = URL_ALLEM_BASE_TEST+"?wsdl";
     public final static String URL_ALLEM_WSDL_PROD = URL_ALLEM_BASE_PROD+"?wsdl";
 
@@ -111,7 +111,7 @@ public class Constants {
     public final static String METHOD_CERRAR_SESION = "CerrarSesion";
     public final static String METHOD_VALIDAR_SESION = "ValidarSesion";
     public final static String METHOD_ENVIAR_PASSWORD = "EnviarPassword";
-    public final static String METHOD_RECUPERAR_PASSWORD = "RestablecerContrasenaToken";
+    public final static String METHOD_RECUPERAR_PASSWORD = "CambiarContrasenaToken";//Restablecer
     public final static String METHOD_CREAR_CUENTA = "CrearCuenta";
     public final static String METHOD_ACTUALIZAR_CUENTA = "ActualizarCuenta";
 
