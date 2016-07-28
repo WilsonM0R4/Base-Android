@@ -271,7 +271,6 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
     }
 
 
-
     @Subscribe
     public void onAsyncTaskResult(AsyncTaskSoapObjectResultEvent event) {
 
@@ -298,12 +297,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 editor.putString("apellido", apellido);
                 editor.putString("nombre", nombre);
                 editor.apply();
-
-                Log.e("Serfar", "nombre " + nombre);
-                Log.e("Serfar", " apellido" + apellido);
                 idCuenta = user.idCuenta;
-
-                Toast.makeText(ctx, "Serfar idCuenta onAsync"+String.valueOf(idCuenta), Toast.LENGTH_LONG).show();
                 //Launch SOAP request for mCard
                 if (postValues.size() > 0) postValues.clear();
                 postValues.add(new BasicNameValuePair("idCuenta", String.valueOf(idCuenta)));
@@ -323,9 +317,6 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         } else{
             if (event.getCodeRequest() == Constants.MCARD_CODE){
                 if (event.getResult() != null) {
-                    Toast.makeText(ctx,"Result != null", Toast.LENGTH_LONG).show();
-                    String res = event.getResult().toString();
-                    Log.e("REsult",res);
                     //Get data
                     McardCliente user = SoapObjectParsers.toMcardCliente(event.getResult());
                     String idMcard = user.getIdProducto();

@@ -10,7 +10,9 @@ import java.util.Hashtable;
  */
 public class McardCliente implements KvmSerializable {
 
+    //**************GLOBAL ATTRIBUTES********************
     public String idProducto;
+    public final static String ID_PRODUCTO="idProducto", PROPERTY="mCardCliente";
 
     //************CONSTRUCTOR ***********
     public McardCliente(String idProducto){
@@ -18,28 +20,14 @@ public class McardCliente implements KvmSerializable {
 
     }
 
-    //**************GLOBAL ATTRIBUTES********************
-   // public int idCuenta;
 
     public String getIdProducto() {
         return idProducto;
     }
-
     public void setIdProducto(String idProducto) {
         this.idProducto = idProducto;
     }
 
-
-    public final static String ID_PRODUCTO="idProducto", PROPERTY="mCardCliente";
-
-    //***************GETTERS Y SETTERS*************************
-   /* public int getIdCuenta() {
-        return idCuenta;
-    }*/
-
-  /*  public void setIdCuenta(int idCuenta) {
-        this.idProducto = idCuenta;
-    }*/
 
     //**************OVERRIDE METHODS*********************
 

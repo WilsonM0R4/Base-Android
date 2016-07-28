@@ -39,8 +39,8 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
     CustomizedEditText txtName, txtLastName, txtMobile, txtEmail, txtPass, txtNewPass, txtNewPassConfirm;
     Button cancel, save;
     AllemUser user;
-    private ProgressBar pb_create;private NumberPicker countryPicker, typeOfIdPicker;
-
+    private ProgressBar pb_create;
+    private NumberPicker countryPicker, typeOfIdPicker;
     private Context ctx;
     TextView txtTypeOfIdSelected;
 
@@ -257,7 +257,8 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                animate();
+                //animate();
+                onBackPressed();
             }
         });
 
