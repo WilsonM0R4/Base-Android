@@ -54,7 +54,7 @@
     <application
         android:name=".VisaCheckoutApp"
         android:allowBackup="true"
-        android:icon="@mipmap/handy-visa"
+        android:icon="@mipmap/handy_visa"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:supportsRtl="true"
