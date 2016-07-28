@@ -2,6 +2,7 @@ package com.allegra.handyuvisa.parsers;
 
 import android.util.Log;
 
+import com.allegra.handyuvisa.models.McardCliente;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.models.AllemUser;
 import com.allegra.handyuvisa.models.Compra;
@@ -22,6 +23,18 @@ public class SoapObjectParsers {
     public static final boolean DESC=false;
     public static final String TAG="SoapObjectParsers";
 
+
+    public static McardCliente toMcardCliente(SoapObject soapObject){
+        McardCliente mcardCliente = null;
+        String idProducto = "";
+        if (soapObject.hasProperty("idProducto")){
+            idProducto= soapObject.getPropertyAsString("idProducto");
+        }
+        mcardCliente = new McardCliente(soapObject.getPropertyAsString("idProducto"));
+        return  mcardCliente;
+    }
+
+
     public static AllemUser toAllemUser(SoapObject soapObject){
         AllemUser allemUser = null;
         String saludo="",idSesion="", celular="";
@@ -35,8 +48,6 @@ public class SoapObjectParsers {
             SoapObject additionalInfo= (SoapObject)soapObject.getProperty("cuentaClienteInformacionAdicional");
             if(additionalInfo.hasProperty("celular")) celular= additionalInfo.getPropertyAsString("celular");
         }
-
-
 
         allemUser = new AllemUser(saludo,
                 soapObject.getPropertyAsString("nombre"),

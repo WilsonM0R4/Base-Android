@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -19,10 +20,6 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
     String valueOfMcard, nombre, apellido;
     int idMcard = 0;
 
-    //getResources().getString(R.string.UnlimitedMcard),
-    //Get idMcard from intent extras
-
-
     //********************OVERRIDE METHODS*******************
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +32,9 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
 
         nombre = prefs.getString("nombre", "Santiago");
         apellido = prefs.getString("apellido", "Castro");
+        valueOfMcard = prefs.getString("idMcard","0");
+        //Log.e("valueOfMcard",valueOfMcard);
+        idMcard = Integer.valueOf(valueOfMcard);
 
     }
 
@@ -77,7 +77,7 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
             case 210:
                 valueOfMcard = arrayMcards[3];
                 break;
-            case 0://Don´t have
+            case 0://Don´t have mCard
                 setGetYourCertificateLayout();
                 break;
 
