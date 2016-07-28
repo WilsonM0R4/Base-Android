@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/iv_header"
         android:layout_below="@+id/ll_header"
-        android:src="@drawable/separator"
+        android:src="@drawable/separator_thin"
         android:contentDescription="Divider" />
 
     <!--</LinearLayout>-->
