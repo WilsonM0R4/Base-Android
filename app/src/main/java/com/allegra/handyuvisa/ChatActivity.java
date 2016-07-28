@@ -345,4 +345,8 @@ public class ChatActivity extends LoadAnimate
         }
         super.onHome(view);
     }
+
+    public void onMenu(View view) {
+        animate();
+    }
 }
