@@ -27,7 +27,7 @@
         android:gravity="center_horizontal"
         android:onClick="onConciergeLocation">
 
-        <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/txt_lbl_destination"
@@ -50,7 +50,7 @@
             android:id="@+id/selec_destination_concierge"
             />
 
-        <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="360dp"
             android:layout_height="wrap_content"
             android:gravity="center"

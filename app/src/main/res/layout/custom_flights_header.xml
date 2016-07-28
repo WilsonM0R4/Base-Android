@@ -77,7 +77,7 @@
                     android:layout_centerHorizontal="true"
                     />
 
-                <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+                <com.allegra.handyuvisa.utils.CustomizedTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -92,7 +92,7 @@
                     android:layout_centerHorizontal="true"
                     app:font="@string/font_muli_light"
                     />
-                <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+                <com.allegra.handyuvisa.utils.CustomizedTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/tv_city_departure"
@@ -130,7 +130,7 @@
                     android:id="@+id/iv_arrival"
                     android:onClick="onDepartingLocation"/>
 
-                <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+                <com.allegra.handyuvisa.utils.CustomizedTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -145,7 +145,7 @@
                     app:font="@string/font_muli_light"
                     />
 
-                <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+                <com.allegra.handyuvisa.utils.CustomizedTextView
                     android:layout_width="wrap_content"
                     android:textColor="@color/white"
                     android:layout_height="wrap_content"

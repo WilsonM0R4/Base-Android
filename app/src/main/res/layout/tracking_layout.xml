@@ -29,7 +29,7 @@
                 android:layout_margin="10dp"
                 >
 
-                <com.allem.alleminmotion.visacheckout.MapWrapperLayout
+                <com.allegra.handyuvisa.MapWrapperLayout
                     android:id="@+id/map_relative_layout21"
                     android:layout_width="match_parent"
                     android:layout_height="fill_parent"
@@ -41,7 +41,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         class="com.google.android.gms.maps.MapFragment" />
-                </com.allem.alleminmotion.visacheckout.MapWrapperLayout>
+                </com.allegra.handyuvisa.MapWrapperLayout>
             </FrameLayout>
 
 

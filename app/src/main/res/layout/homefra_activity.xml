@@ -32,7 +32,7 @@
         android:visibility="gone"
         android:orientation="horizontal">
 
-        <com.allem.alleminmotion.visacheckout.utils.MyTextView
+        <com.allegra.handyuvisa.utils.MyTextView
             android:id="@+id/tv_service_homefra"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -91,7 +91,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                    <com.allegra.handyuvisa.utils.MyTextView
                         android:id="@+id/tv_plumbing_homefra"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -101,7 +101,7 @@
                         android:text="Plumbing"
                         android:textSize="17dp" />
 
-                    <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                    <com.allegra.handyuvisa.utils.MyTextView
                         android:id="@+id/tv_glasses_homefra"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -140,7 +140,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                    <com.allegra.handyuvisa.utils.MyTextView
                         android:id="@+id/tv_locaksmith_homefra"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -150,7 +150,7 @@
                         android:text="Locksmith"
                         android:textSize="17dp" />
 
-                    <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                    <com.allegra.handyuvisa.utils.MyTextView
                         android:id="@+id/tv_electricity_homefra"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"

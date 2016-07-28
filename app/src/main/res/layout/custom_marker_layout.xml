@@ -21,7 +21,7 @@
         android:id="@+id/checkpin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-        <com.allem.alleminmotion.visacheckout.utils.CircularImageView
+        <com.allegra.handyuvisa.utils.CircularImageView
             android:id="@+id/user_chg_pro_image_update"
             android:layout_width="28dp"
             android:layout_height="28dp"

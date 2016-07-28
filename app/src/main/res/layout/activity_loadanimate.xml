@@ -5,14 +5,14 @@
     android:layout_height="match_parent"
     android:id="@+id/container_load_animate"
     android:background="@drawable/bg_gradient"
-    tools:context="com.allem.alleminmotion.visacheckout.LoadAnimate">
+    tools:context=".LoadAnimate">
 
     <fragment
         android:id="@+id/fragment_bottom"
         android:tag="FRAGMENT_BACK"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.allem.alleminmotion.visacheckout.BackFragment">
+        android:name="com.allegra.handyuvisa.BackFragment">
     </fragment>
 
 </FrameLayout>

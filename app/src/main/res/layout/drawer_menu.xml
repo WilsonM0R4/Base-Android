@@ -17,7 +17,7 @@
         android:paddingBottom="15dp"
         android:paddingTop="15dp">
 
-        <com.allem.alleminmotion.visacheckout.utils.CircularImageView
+        <com.allegra.handyuvisa.utils.CircularImageView
             android:id="@+id/cv_icon"
             android:layout_width="80dp"
             android:layout_height="80dp"
@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                <com.allegra.handyuvisa.utils.MyTextView
                     android:id="@+id/tv_name_drawermenu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                <com.allegra.handyuvisa.utils.MyTextView
                     android:id="@+id/tv_editprofile_drawermenu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -78,7 +78,7 @@
             android:padding="15dp"
             android:src="@drawable/icon_leftmenu_home" />
 
-        <com.allem.alleminmotion.visacheckout.utils.MyTextView
+        <com.allegra.handyuvisa.utils.MyTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -106,7 +106,7 @@
             android:padding="15dp"
             android:src="@drawable/icon_leftmenu_myprofile" />
 
-        <com.allem.alleminmotion.visacheckout.utils.MyTextView
+        <com.allegra.handyuvisa.utils.MyTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -133,7 +133,7 @@
             android:padding="15dp"
             android:src="@drawable/icon_leftmenu_mywallet" />
 
-        <com.allem.alleminmotion.visacheckout.utils.MyTextView
+        <com.allegra.handyuvisa.utils.MyTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -160,7 +160,7 @@
             android:padding="15dp"
             android:src="@drawable/address_book_icon" />
 
-        <com.allem.alleminmotion.visacheckout.utils.MyTextView
+        <com.allegra.handyuvisa.utils.MyTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -189,7 +189,7 @@
             android:padding="15dp"
             android:src="@drawable/icon_leftmenu_about" />
 
-        <com.allem.alleminmotion.visacheckout.utils.MyTextView
+        <com.allegra.handyuvisa.utils.MyTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -216,7 +216,7 @@
             android:padding="15dp"
             android:src="@drawable/icon_leftmenu_logout" />
 
-        <com.allem.alleminmotion.visacheckout.utils.MyTextView
+        <com.allegra.handyuvisa.utils.MyTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

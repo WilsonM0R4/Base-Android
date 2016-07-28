@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.2"
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
-        applicationId "com.allem.alleminmotion.visacheckout"
+        applicationId "com.allegra.handyuvisa"
         minSdkVersion 21
         targetSdkVersion 23
         versionCode 322

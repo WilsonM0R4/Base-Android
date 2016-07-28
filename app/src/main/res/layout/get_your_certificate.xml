@@ -74,7 +74,7 @@
             android:layout_below="@+id/iv_header_3"
             android:id="@+id/imvLogoHandyMcard"/>
 
-        <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txtEnjoyAllBenefits"
@@ -96,7 +96,7 @@
         android:layout_below="@+id/txtEnjoyAllBenefits"
         android:orientation="vertical">
 
-        <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"

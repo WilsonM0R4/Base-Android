@@ -33,7 +33,7 @@
 
     </LinearLayout>-->
 
-<com.allem.alleminmotion.visacheckout.utils.MyTextView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.allegra.handyuvisa.utils.MyTextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/tab"

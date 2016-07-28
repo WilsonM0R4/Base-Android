@@ -27,7 +27,7 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
@@ -50,7 +50,7 @@
             android:padding="10dp"
             android:src="@drawable/hotels__destination" />
 
-        <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        <com.allegra.handyuvisa.utils.CustomizedTextView
             android:id="@+id/txt_select_your_destination"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

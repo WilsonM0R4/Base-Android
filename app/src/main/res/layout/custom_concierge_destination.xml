@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/txtDestinationNameConcierge"
@@ -29,7 +29,7 @@
             app:font="@string/font_varela"
             android:text=""/>
 
-        <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/txtConciergeStateOrCountry"

@@ -58,7 +58,7 @@
                     android:src="@drawable/logo_aboutus"
                     android:visibility="gone" />
 
-                <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                <com.allegra.handyuvisa.utils.MyTextView
                     android:id="@+id/tv_logotext_hedermap"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
                     android:visibility="gone" />
 
 
-                <com.allem.alleminmotion.visacheckout.utils.MyAutoCompleteTextView
+                <com.allegra.handyuvisa.utils.MyAutoCompleteTextView
                     android:id="@+id/ed_search_headermap"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -100,7 +100,7 @@
                     android:padding="5dp"
                     android:src="@drawable/icon_search" />
 
-                <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                <com.allegra.handyuvisa.utils.MyTextView
                     android:id="@+id/tv_go_headermap"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"

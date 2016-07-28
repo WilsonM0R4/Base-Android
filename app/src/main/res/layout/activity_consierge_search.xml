@@ -6,7 +6,7 @@
     android:id="@+id/rl_search_in_progress"
     android:background="@drawable/background"
     android:clickable="true"
-    tools:context="com.allem.alleminmotion.visacheckout.ConciergeSearchActivity">
+    tools:context=".ConciergeSearchActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"

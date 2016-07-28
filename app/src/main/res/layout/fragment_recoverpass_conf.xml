@@ -92,7 +92,7 @@
                 android:textColor="@color/magenta"
                 android:textSize="18sp" />
 
-            <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+            <com.allegra.handyuvisa.utils.CustomizedTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/gray_concierge_text"
@@ -117,7 +117,7 @@
                 android:textSize="15dp"
                 android:textStyle="bold" />
 
-            <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+            <com.allegra.handyuvisa.utils.CustomizedTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/gray_concierge_text"
@@ -129,7 +129,7 @@
                 android:layout_marginTop="1dp"
                 app:font="@string/font_muli_light"/>
 
-            <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+            <com.allegra.handyuvisa.utils.CustomizedTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/gray_concierge_text"

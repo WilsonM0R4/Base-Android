@@ -6,7 +6,7 @@
     android:id="@+id/rl_call_body"
     android:background="@drawable/background"
     android:clickable="true"
-    tools:context="com.allem.alleminmotion.visacheckout.CallActivity">
+    tools:context=".CallActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"

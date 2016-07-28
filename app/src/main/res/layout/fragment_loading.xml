@@ -7,7 +7,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/bg_gradient"
     android:clickable="true"
-    tools:context="com.allem.alleminmotion.visacheckout.CallActivity">
+    tools:context=".CallActivity">
 
     <ImageView
         android:layout_width="wrap_content"

@@ -79,7 +79,7 @@
                 android:layout_margin="5dp"
                 android:layout_marginTop="20dp">
 
-                <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                <com.allegra.handyuvisa.utils.MyTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/tv_currentbook_mybooking"
@@ -93,7 +93,7 @@
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/tab_booking_selected"/>
 
-                <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                <com.allegra.handyuvisa.utils.MyTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/tv_compltebook_mybooking"

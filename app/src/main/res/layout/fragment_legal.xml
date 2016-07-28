@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.allem.alleminmotion.visacheckout.MyAccountMenuActivity"
+    tools:context=".MyAccountMenuActivity"
     android:background="@color/white"
     android:weightSum="1"
     android:id="@+id/my_account_menu_layout"

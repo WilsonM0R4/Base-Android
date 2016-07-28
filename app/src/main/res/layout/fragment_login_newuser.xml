@@ -27,7 +27,7 @@
             android:onClick="onUp"
             android:src="@drawable/navigation_close" />
 
-        <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        <com.allegra.handyuvisa.utils.CustomizedTextView
             android:id="@+id/tv_title_secc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -66,7 +66,7 @@
             android:paddingRight="8dp"
             android:visibility="visible">
 
-            <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+            <com.allegra.handyuvisa.utils.CustomizedTextView
                 android:id="@+id/tv_lbl_join_new_experience"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -77,7 +77,7 @@
                 app:font="@string/font_muli_extraLight"
                 android:layout_marginTop="10dp" />
 
-            <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+            <com.allegra.handyuvisa.utils.CustomizedTextView
                 android:id="@+id/tv_lbl_enter_new_information"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -89,7 +89,7 @@
                 android:layout_marginTop="5dp"
                 app:font="@string/font_muli"/>
 
-            <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+            <com.allegra.handyuvisa.utils.CustomizedTextView
                 android:id="@+id/tv_lbl_register"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -101,7 +101,7 @@
                 android:textColor="@color/magenta"
                 android:textSize="16sp" />
 
-            <com.allem.alleminmotion.visacheckout.utils.CustomizedEditText
+            <com.allegra.handyuvisa.utils.CustomizedEditText
                 android:id="@+id/et_names"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -115,7 +115,7 @@
                 app:fontEdit="@string/font_muli"
                 android:background="@drawable/apptheme_edit_text_holo_light" />
 
-            <com.allem.alleminmotion.visacheckout.utils.CustomizedEditText
+            <com.allegra.handyuvisa.utils.CustomizedEditText
                 android:id="@+id/et_surname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -131,7 +131,7 @@
                 />
 
 
-            <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+            <com.allegra.handyuvisa.utils.CustomizedTextView
                 android:id="@+id/etTypeOfId"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
@@ -157,7 +157,7 @@
                 android:layout_marginRight="12dp"
                 android:background="@drawable/default_state_edit_text"/>
 
-            <com.allem.alleminmotion.visacheckout.utils.CustomizedEditText
+            <com.allegra.handyuvisa.utils.CustomizedEditText
                 android:id="@+id/etIdNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -174,7 +174,7 @@
                 android:background="@drawable/apptheme_edit_text_holo_light"
                 />
 
-            <com.allem.alleminmotion.visacheckout.utils.CustomizedEditText
+            <com.allegra.handyuvisa.utils.CustomizedEditText
                 android:id="@+id/et_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -191,7 +191,7 @@
                 android:background="@drawable/apptheme_edit_text_holo_light"
                 />
 
-            <com.allem.alleminmotion.visacheckout.utils.CustomizedEditText
+            <com.allegra.handyuvisa.utils.CustomizedEditText
                 android:id="@+id/et_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -208,7 +208,7 @@
                 android:textColorHint="@color/register_input_inactive"
                 />
 
-                <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+                <com.allegra.handyuvisa.utils.CustomizedTextView
                     android:id="@+id/et_country_mobile"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
@@ -236,7 +236,7 @@
                 android:layout_marginRight="12dp"
                 android:background="@drawable/default_state_edit_text"/>
 
-            <com.allem.alleminmotion.visacheckout.utils.CustomizedEditText
+            <com.allegra.handyuvisa.utils.CustomizedEditText
                 android:id="@+id/et_mobile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -261,7 +261,7 @@
                 android:layout_marginTop="30dp"
                 android:weightSum="2">
 
-                <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+                <com.allegra.handyuvisa.utils.CustomizedTextView
                     android:id="@+id/btn_login_new"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -276,7 +276,7 @@
                     android:gravity="center"
                     android:textSize="16sp"/>
 
-                <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+                <com.allegra.handyuvisa.utils.CustomizedTextView
                     android:id="@+id/btn_sendreg"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"

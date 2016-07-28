@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
 
-    <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+    <com.allegra.handyuvisa.utils.CustomizedTextView
         android:id="@+id/text_passengers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="80dp" />
 
-    <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+    <com.allegra.handyuvisa.utils.CustomizedTextView
         android:id="@+id/tv_cabin"
         android:layout_width="match_parent"
         android:layout_height="30dp"

@@ -3,20 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.allem.alleminmotion.visacheckout.FlightsSearchActivity">
+    tools:context=".FlightsSearchActivity">
 
     <fragment
         android:id="@+id/fragment_searchInProgress"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.allem.alleminmotion.visacheckout.FlightsSearchActivity$InProgressFragment">
+        android:name="com.allegra.handyuvisa.FlightsSearchActivity$InProgressFragment">
     </fragment>
 
     <fragment
         android:id="@+id/fragment_waiting"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.allem.alleminmotion.visacheckout.FlightsSearchActivity$WaitingFragment">
+        android:name="com.allegra.handyuvisa.FlightsSearchActivity$WaitingFragment">
     </fragment>
 
 

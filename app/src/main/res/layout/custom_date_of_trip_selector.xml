@@ -17,7 +17,7 @@
         android:id="@+id/linLayDateBegin"
         >
 
-        <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/txt_departure_date"
@@ -28,7 +28,7 @@
             android:textSize="14sp"
             app:font="@string/font_muli_light"/>
 
-        <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
@@ -48,7 +48,7 @@
             android:gravity="center"
             android:layout_gravity="center_horizontal">
 
-            <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+            <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
@@ -59,7 +59,7 @@
             android:textSize="15sp"
                 app:font="@string/font_muli_semiBold"/>
 
-            <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+            <com.allegra.handyuvisa.utils.CustomizedTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
@@ -92,7 +92,7 @@
         android:id="@+id/llyReturnDate"
         android:layout_alignParentEnd="true">
 
-        <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/txt_return_date"
@@ -103,7 +103,7 @@
             android:textSize="14sp"
             app:font="@string/font_muli_light"/>
 
-        <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/txt_select_date"
@@ -122,7 +122,7 @@
         android:layout_gravity="center_horizontal"
         android:gravity="center">
 
-        <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
@@ -133,7 +133,7 @@
             android:textSize="15sp"
             app:font="@string/font_muli_semiBold"/>
 
-        <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""

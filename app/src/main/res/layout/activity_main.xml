@@ -10,14 +10,14 @@
         android:id="@+id/fragment_bottom"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.allem.alleminmotion.visacheckout.BackFragment">
+        android:name="com.allegra.handyuvisa.BackFragment">
     </fragment>
 
     <fragment
         android:id="@+id/fragment_top"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.allem.alleminmotion.visacheckout.FrontFragment">
+        android:name="com.allegra.handyuvisa.FrontFragment">
     </fragment>
 
 </RelativeLayout>

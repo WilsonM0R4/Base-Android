@@ -17,7 +17,7 @@
         android:background="@color/white"
         android:onClick="onCloseMenu">
 
-        <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        <com.allegra.handyuvisa.utils.CustomizedTextView
             android:id="@+id/tv_title_secc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
         android:background="@drawable/separator_medium_mag" />
 
 
-    <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+    <com.allegra.handyuvisa.utils.CustomizedTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -59,7 +59,7 @@
         android:background="@drawable/approved"
         android:layout_gravity="center_horizontal" />
 
-    <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+    <com.allegra.handyuvisa.utils.CustomizedTextView
         android:id="@+id/txtNameRegisterSuccessful"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
         android:layout_gravity="center_horizontal"
         android:text="Santiago"/>
 
-    <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+    <com.allegra.handyuvisa.utils.CustomizedTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -80,7 +80,7 @@
         android:text="@string/you_can_enjoy_benefits"/>
 
 
-    <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+    <com.allegra.handyuvisa.utils.CustomizedTextView
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:id="@+id/txtBtnContinue"

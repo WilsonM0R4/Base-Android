@@ -6,7 +6,7 @@
     android:orientation="vertical">8
 
 
-    <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+    <com.allegra.handyuvisa.utils.CustomizedTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/orange"
@@ -17,7 +17,7 @@
         android:layout_gravity="center_horizontal"
         app:font="@string/font_muli_extraLight"/>
 
-    <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+    <com.allegra.handyuvisa.utils.CustomizedTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/gray_concierge_text"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+    <com.allegra.handyuvisa.utils.CustomizedTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/IATAI_CERTIFICA"
@@ -16,7 +16,7 @@
         android:layout_marginTop="25dp" />
 
 
-    <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+    <com.allegra.handyuvisa.utils.CustomizedTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Santiago Castro"
@@ -26,7 +26,7 @@
         app:font="@string/font_muli"
         android:layout_gravity="center_horizontal"/>
 
-    <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+    <com.allegra.handyuvisa.utils.CustomizedTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="CC 90.877.878"
@@ -42,7 +42,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="15dp" />
 
-    <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+    <com.allegra.handyuvisa.utils.CustomizedTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/coverage"

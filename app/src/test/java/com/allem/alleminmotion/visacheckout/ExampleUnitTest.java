@@ -1,4 +1,4 @@
-package com.allem.alleminmotion.visacheckout;
+package com.allem.handyuvisa.visacheckout;
 
 import org.junit.Test;
 

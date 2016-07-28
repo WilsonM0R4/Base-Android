@@ -12,7 +12,7 @@
         android:layout_gravity="center"
         android:src="@drawable/icon_plumbing" />
 
-    <com.allem.alleminmotion.visacheckout.utils.MyTextView
+    <com.allegra.handyuvisa.utils.MyTextView
         android:id="@+id/tv_homefr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

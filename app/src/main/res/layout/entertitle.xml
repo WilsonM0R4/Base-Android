@@ -34,7 +34,7 @@
             android:textStyle="bold" />
 
 
-        <com.allem.alleminmotion.visacheckout.utils.MyEditText
+        <com.allegra.handyuvisa.utils.MyEditText
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

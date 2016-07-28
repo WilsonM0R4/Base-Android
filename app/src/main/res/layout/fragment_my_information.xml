@@ -6,7 +6,7 @@
     android:background="@drawable/background"
     android:clickable="true"
     android:onClick="onCloseMenu"
-    tools:context="com.allem.alleminmotion.visacheckout.MyAccountActivity">
+    tools:context=".MyAccountActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"

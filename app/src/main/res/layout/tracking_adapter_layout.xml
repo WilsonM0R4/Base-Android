@@ -24,7 +24,7 @@
                 android:orientation="vertical"
                 >
 
-                <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                <com.allegra.handyuvisa.utils.MyTextView
                     android:id="@+id/txt_tracking_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

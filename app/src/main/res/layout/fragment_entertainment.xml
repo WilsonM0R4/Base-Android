@@ -8,7 +8,7 @@
     android:id="@+id/rl_entertainment"
     android:onClick="onCloseMenu"
     android:clickable="true"
-    tools:context="com.allem.alleminmotion.visacheckout.EntertainmentActivity">
+    tools:context=".EntertainmentActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"

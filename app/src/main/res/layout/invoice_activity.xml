@@ -38,14 +38,14 @@
                         android:background="@drawable/invoice_top_bg"
                         android:orientation="vertical">
 
-                        <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                        <com.allegra.handyuvisa.utils.MyTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:textColor="@color/black"
                             android:text="Provider Name" />
 
-                        <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                        <com.allegra.handyuvisa.utils.MyTextView
                             android:id="@+id/Tv_providername"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -64,7 +64,7 @@
                             android:orientation="horizontal">
 
 
-                            <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                            <com.allegra.handyuvisa.utils.MyTextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -74,7 +74,7 @@
                                 android:text="Start Time"
                                 android:textSize="9dp" />
 
-                            <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                            <com.allegra.handyuvisa.utils.MyTextView
                                 android:id="@+id/Tv_serviceStarttime"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
                                 android:text="18/12/2015 10.00PM"
                                 android:textSize="9dp" />
 
-                            <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                            <com.allegra.handyuvisa.utils.MyTextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -95,7 +95,7 @@
                                 android:text="End Time"
                                 android:textSize="9dp" />
 
-                            <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                            <com.allegra.handyuvisa.utils.MyTextView
                                 android:id="@+id/Tv_serviceendtime"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
@@ -121,7 +121,7 @@
                             android:orientation="horizontal"
                             android:padding="15dp">
 
-                            <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                            <com.allegra.handyuvisa.utils.MyTextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
@@ -130,7 +130,7 @@
                                 android:text="Types Work"
                                 android:textSize="18dp" />
 
-                            <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                            <com.allegra.handyuvisa.utils.MyTextView
                                 android:id="@+id/tv_sevice_name"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
@@ -154,7 +154,7 @@
                             android:padding="15dp"
                             android:visibility="gone">
 
-                            <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                            <com.allegra.handyuvisa.utils.MyTextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
@@ -163,7 +163,7 @@
                                 android:text="Rate"
                                 android:textSize="18dp" />
 
-                            <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                            <com.allegra.handyuvisa.utils.MyTextView
                                 android:id="@+id/tv_service_price"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
@@ -186,7 +186,7 @@
                             android:orientation="horizontal"
                             android:padding="15dp">
 
-                            <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                            <com.allegra.handyuvisa.utils.MyTextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
@@ -195,7 +195,7 @@
                                 android:textColor="@color/white"
                                 android:textSize="18dp" />
 
-                            <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                            <com.allegra.handyuvisa.utils.MyTextView
                                 android:id="@+id/tv_quantity"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
@@ -219,7 +219,7 @@
                         android:background="@drawable/jobdetail_total_bg"
                         android:orientation="horizontal">
 
-                        <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                        <com.allegra.handyuvisa.utils.MyTextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -229,7 +229,7 @@
                             android:padding="5dp"
                             android:textSize="18dp" />
 
-                        <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                        <com.allegra.handyuvisa.utils.MyTextView
                             android:id="@+id/tv_total_serviceprice"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -249,7 +249,7 @@
                         android:background="@drawable/feedback_box"
                         android:orientation="horizontal">
 
-                        <com.allem.alleminmotion.visacheckout.utils.MyEditText
+                        <com.allegra.handyuvisa.utils.MyEditText
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:id="@+id/ed_feedback_invoice"
@@ -278,7 +278,7 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <com.allem.alleminmotion.visacheckout.utils.MyTextView
+            <com.allegra.handyuvisa.utils.MyTextView
                 android:id="@+id/tv_accept_subbooking"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

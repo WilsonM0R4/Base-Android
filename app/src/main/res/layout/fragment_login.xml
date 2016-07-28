@@ -28,7 +28,7 @@
             android:layout_alignParentStart="true"
             android:onClick="onUp" /> <!--android:layout_marginLeft="16dp"-->
 
-        <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -78,7 +78,7 @@
         android:layout_alignWithParentIfMissing="false"
         android:layout_alignParentBottom="true">
 
-        <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tv_welcome"
@@ -89,7 +89,7 @@
             app:font="@string/font_muli_extraLight"
             />
 
-        <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tv_greet"
@@ -121,7 +121,7 @@
                 android:layout_marginLeft="5dp"
                 />-->
 
-            <com.allem.alleminmotion.visacheckout.utils.CustomizedEditText
+            <com.allegra.handyuvisa.utils.CustomizedEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/et_email"
@@ -157,7 +157,7 @@
                 />-->
 
 
-            <com.allem.alleminmotion.visacheckout.utils.CustomizedEditText
+            <com.allegra.handyuvisa.utils.CustomizedEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
@@ -194,7 +194,7 @@
             android:layout_marginTop="400dp"
             android:weightSum="2">
 
-            <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+            <com.allegra.handyuvisa.utils.CustomizedTextView
                 android:id="@+id/btn_login"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -209,7 +209,7 @@
                 android:gravity="center"
                 android:textSize="16sp"/>
 
-            <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+            <com.allegra.handyuvisa.utils.CustomizedTextView
                 android:id="@+id/btn_register"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

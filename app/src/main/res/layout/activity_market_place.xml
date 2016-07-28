@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:onClick="onCloseMenu"
-    tools:context="com.allem.alleminmotion.visacheckout.MarketPlaceActivity">
+    tools:context=".MarketPlaceActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"

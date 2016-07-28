@@ -24,7 +24,7 @@
                 android:layout_centerHorizontal="true"
                 android:id="@+id/ll_header">                <!-- android:background="@color/white"-->
 
-                <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+                <com.allegra.handyuvisa.utils.CustomizedTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"

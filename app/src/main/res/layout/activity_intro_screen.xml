@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/bg_gradient"
     android:id="@+id/fl_guest"
-    tools:context="com.allem.alleminmotion.visacheckout.MainActivity">
+    tools:context=".MainActivity">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
@@ -61,7 +61,7 @@
             android:layout_alignParentStart="false"
             android:layout_marginBottom="30dp">
 
-            <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+            <com.allegra.handyuvisa.utils.CustomizedTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/tv_all_in_one"
@@ -73,7 +73,7 @@
                 android:textSize="28sp"
                 app:font="@string/font_muli_semiBold"/>
 
-            <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+            <com.allegra.handyuvisa.utils.CustomizedTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_all_in_one"
@@ -124,7 +124,7 @@
 
             </LinearLayout>
 
-            <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+            <com.allegra.handyuvisa.utils.CustomizedTextView
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:id="@+id/skip_intro"
@@ -137,7 +137,7 @@
                 android:textSize="18sp"
                 app:font="@string/font_muli_light"/> <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
 
-            <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+            <com.allegra.handyuvisa.utils.CustomizedTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

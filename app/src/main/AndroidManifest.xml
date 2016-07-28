@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.allem.alleminmotion.visacheckout"
+    package="com.allegra.handyuvisa"
     android:versionCode="1"
     android:versionName="0.9.18">
 
@@ -130,11 +130,6 @@
             android:name=".LoginForgotActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".BrandingScreenActivity"
-            android:label="@string/title_activity_intro_screen"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-        <activity
             android:name=".IntroScreenActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
@@ -150,7 +145,7 @@
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.allem.alleminmotion.visacheckout.MainActivity" />
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".McardActivity"
@@ -195,7 +190,7 @@
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.allem.alleminmotion.visacheckout.MainActivity" />
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".FlightsActivity"
@@ -205,14 +200,14 @@
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.allem.alleminmotion.visacheckout.MainActivity" />
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".EntertainmentActivity"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.allem.alleminmotion.visacheckout.MainActivity" />
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".LoginForgotConfirmation"
@@ -224,7 +219,7 @@
             android:windowSoftInputMode="stateHidden">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.allem.alleminmotion.visacheckout.MainActivity" />
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".LoginActivity"
@@ -232,7 +227,7 @@
             android:windowSoftInputMode="adjustPan">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.allem.alleminmotion.visacheckout.MainActivity" />
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".LoginNewUser"
@@ -343,7 +338,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.allem.alleminmotion.visacheckout.MyAccountMenuActivity" />
+                android:value=".MyAccountMenuActivity" />
             />
         </activity>
         <activity
@@ -357,7 +352,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.allem.alleminmotion.visacheckout.MainActivity" />
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".ActivationActivity"
@@ -365,7 +360,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.allem.alleminmotion.visacheckout.MyAccountMenuActivity" />
+                android:value=".MyAccountMenuActivity" />
         </activity>
         <activity
             android:name=".EditProfileActivity"
@@ -381,10 +376,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".OnepocketContainerActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".OnepocketAddCardActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity

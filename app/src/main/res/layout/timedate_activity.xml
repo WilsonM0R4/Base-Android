@@ -55,7 +55,7 @@
                     android:textColor="@color/black"
                     android:textSize="17dp" />
 
-                <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                <com.allegra.handyuvisa.utils.MyTextView
                     android:id="@+id/tv_timepicker_timedate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

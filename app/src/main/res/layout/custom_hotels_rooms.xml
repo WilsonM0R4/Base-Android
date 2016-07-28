@@ -25,7 +25,7 @@
             android:padding="12dp"
             android:layout_marginTop="3dp" />
 
-        <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/hotels_guests_per_room"
@@ -47,7 +47,7 @@
 
     </RelativeLayout>
 
-    <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+    <com.allegra.handyuvisa.utils.CustomizedTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -77,7 +77,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal">
 
-        <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+        <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -120,7 +120,7 @@
                 android:id="@+id/rooms_icon"
 
                 />
-            <com.allem.alleminmotion.visacheckout.utils.CustomizedTextView
+            <com.allegra.handyuvisa.utils.CustomizedTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/room_and_guests_title"

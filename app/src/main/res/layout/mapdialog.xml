@@ -14,7 +14,7 @@
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
-        <com.allem.alleminmotion.visacheckout.utils.CircularImageView
+        <com.allegra.handyuvisa.utils.CircularImageView
             android:id="@+id/map_img"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -33,14 +33,14 @@
                 android:gravity="center_vertical"
                 android:layout_marginLeft="5dp"
                 android:orientation="horizontal">
-                <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                <com.allegra.handyuvisa.utils.MyTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Provider Name: "
                     android:layout_marginTop="5dp"
                     android:textSize="14sp"
                     android:textColor="@android:color/black"/>
-                <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                <com.allegra.handyuvisa.utils.MyTextView
                     android:id="@+id/map_providername"
                     android:layout_width="0dp"
                     android:layout_weight="1"
@@ -59,14 +59,14 @@
                 android:layout_marginLeft="5dp"
                 android:paddingBottom="5dp"
                 android:orientation="horizontal">
-                <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                <com.allegra.handyuvisa.utils.MyTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Service Name: "
                     android:layout_marginTop="5dp"
                     android:textSize="14sp"
                     android:textColor="@android:color/black"/>
-                <com.allem.alleminmotion.visacheckout.utils.MyTextView
+                <com.allegra.handyuvisa.utils.MyTextView
                     android:id="@+id/map_servicename"
                     android:layout_width="0dp"
                     android:layout_weight="1"

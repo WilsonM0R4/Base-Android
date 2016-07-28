@@ -6,7 +6,7 @@
     android:layout_alignParentLeft="true"
     android:layout_alignParentStart="false"
     android:id="@+id/rl_search_in_progress"
-    tools:context="com.allem.alleminmotion.visacheckout.HotelSearchActivity">
+    tools:context=".HotelSearchActivity">
 
     <WebView
         android:layout_width="fill_parent"
