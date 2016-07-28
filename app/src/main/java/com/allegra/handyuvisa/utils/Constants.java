@@ -28,6 +28,7 @@ public class Constants {
     public final static String SOAP_URL_MCARD_PROD = "http://52.7.111.227:8080/SAU/MembersiaClienteServicio?wsdl";
     public final static String MCARD_METHOD = "consultaMembresiaClienteRequest";
     public final static String MCARD_NAMESPACE = "http://www.ws.iatai.com/MembersiaClienteServicio/";
+    public final static int MCARD_CODE = 9780970;
 
     //*******************************************
     public final static String TAG = "AllemConstants";
@@ -76,7 +77,7 @@ public class Constants {
 
     public final static String NAMESPACE_ALLEM= "http://ws.alleminmotion.iatai.com/";
     public final static String URL_ALLEM_BASE_TEST = "https://pruebas.allegraplatform.com/AllemInMotion/AllemInMotion";
-    public final static String URL_ALLEM_BASE_PROD = "https://secureacceptance.allegraplatform.com/AllemInMotion/AllemInMotion/AllemInMotion";
+    public final static String URL_ALLEM_BASE_PROD = "https://secureacceptance.allegraplatform.com/AllemInMotion/AllemInMotion";///AllemInMotion
     public final static String URL_ALLEM_WSDL_TEST = URL_ALLEM_BASE_TEST+"?wsdl";
     public final static String URL_ALLEM_WSDL_PROD = URL_ALLEM_BASE_PROD+"?wsdl";
 

@@ -127,7 +127,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         }
 
         setListeners();
-        new TareaWSConsulta().execute();
+        //new TareaWSConsulta().execute();
         //getHigherMcard();
     }
 
@@ -233,6 +233,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                     postValues.add(new BasicNameValuePair("password", password.getText().toString()));
                     AsyncSoapObject.getInstance(Constants.getWSDL(), Constants.NAMESPACE_ALLEM,
                             Constants.METHOD_INICIAR_SESION, postValues, Constants.ACTIVITY_LOGIN).execute();
+
                 } else {
                     Toast.makeText(ctx, R.string.err_no_internet, Toast.LENGTH_SHORT).show();
                 }
@@ -335,6 +336,12 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 Log.e("Serfar", " apellido" + apellido);
                 idCuenta = user.idCuenta;
                 Log.e("Serfar idCuenta onAsync",String.valueOf(idCuenta));
+                //Launch SOAP request for mCard
+                /*if (postValues.size() > 0) postValues.clear();
+                postValues.add(new BasicNameValuePair("idCuenta", String.valueOf(idCuenta)));
+                //postValues.add(new BasicNameValuePair("password", password.getText().toString()));  Constants.getWSDL()
+                AsyncSoapObject.getInstance2(Constants.SOAP_URL_MCARD_PROD, Constants.MCARD_NAMESPACE,
+                        Constants.MCARD_METHOD, postValues, Constants.MCARD_CODE).execute();*/
 
                 Constants.saveUser(ctx, user, channel);
                 ((VisaCheckoutApp) this.getApplication()).unSetParseChannels();
@@ -346,7 +353,13 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 Toast.makeText(ctx, event.getFaultString(), Toast.LENGTH_LONG).show();
             }
             //getHigherMcard();
-        }
+        } /*else{
+            if (event.getCodeRequest() == Constants.MCARD_CODE){
+                if (event.getResult() != null) {
+                    Log.e("Sergio", "OK Mcard");
+                }
+            }
+        }*/
 
     }
 
@@ -364,7 +377,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         animate();
     }
 
-    private Element[] buildAuthHeader(SoapSerializationEnvelope envelope) {
+   /* private Element[] buildAuthHeader(SoapSerializationEnvelope envelope) {
 
         Element headers[] = new Element[1];
         headers[0]= new Element().createElement("http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd", "Security");
@@ -384,14 +397,14 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         to.addChild(Node.ELEMENT,action2);
         headers[0].addChild(Node.ELEMENT, to);
         return headers;
-    }
+    }*/
 
     //**********************INNER CLASSES**************
 
     //Llamar al servicio web a una AsyncTask que realice las operaciones en segundo
     // plano utilizando un hilo secundario
 
-    private class TareaWSConsulta extends AsyncTask<String,Integer,Boolean> {
+    /*private class TareaWSConsulta extends AsyncTask<String,Integer,Boolean> {
 
         @Override
         protected Boolean doInBackground(String... strings) {
@@ -405,14 +418,14 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                     new SoapSerializationEnvelope(SoapEnvelope.VER11);
 
             envelope.setOutputSoapObject(request);
-            /*McardCliente cuentaCliente = new McardCliente();
+            *//*McardCliente cuentaCliente = new McardCliente();
             cuentaCliente.setIdCuenta(idCuenta);
             PropertyInfo property = new PropertyInfo();
             property.setName(McardCliente.PROPERTY);
             property.setValue(cuentaCliente);
-            property.setType(cuentaCliente.getClass());*/
+            property.setType(cuentaCliente.getClass());*//*
 
-            HttpTransportSE transporte = new HttpTransportSE(Constants.SOAP_URL_MCARD);
+            HttpTransportSE transporte = new HttpTransportSE(Constants.SOAP_URL_MCARD_PROD);
 
             try
             {
@@ -430,8 +443,8 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 }
 
 
-                /*McardCliente cli = new McardCliente();
-                cli.idProducto = Integer.parseInt(ic.getProperty(1).toString());*/
+                *//*McardCliente cli = new McardCliente();
+                cli.idProducto = Integer.parseInt(ic.getProperty(1).toString());*//*
 
                 //Log.e("idProdcuto",String.valueOf(cli.idProducto));
                 SoapPrimitive resultado_xml =(SoapPrimitive)envelope.getResponse();
@@ -439,7 +452,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 Log.e("Resposn",res);
                 //listaClientes = new McardCliente[resSoap.getPropertyCount()];
 
-               /*/*//* for (int i = 0; i < 1; i++)
+               *//**//*//**//* for (int i = 0; i < 1; i++)
                 {
                     SoapObject ic = (SoapObject)resSoap.getProperty(i);
 
@@ -447,7 +460,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                     cli.idCuenta = Integer.parseInt(ic.getProperty(0).toString());
 
                     //listaClientes[i] = cli;
-                }*/
+                }*//*
             }
             catch (Exception e)
             {
@@ -456,6 +469,6 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
 
             return resul;
         }
-    }
+    }*/
 
     }

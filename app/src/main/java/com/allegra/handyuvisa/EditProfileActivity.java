@@ -32,6 +32,7 @@ import org.ksoap2.serialization.PropertyInfo;
 
 import java.lang.reflect.Field;
 
+//TODO: Wilson Bug
 public class EditProfileActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
 
     private final String M_SELECTION_DIVIDER = "mSelectionDivider";
