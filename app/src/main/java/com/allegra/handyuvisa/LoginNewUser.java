@@ -376,7 +376,8 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         ccia.setCelular(celular);
         ccia.setCiudad("");
         ccia.setClase("");
-        //ccia.setCodigoPais("");
+        ccia.setCodigoPais("");
+        ccia.setCelularCodigo("");
 
         CuentaCliente cuentaCliente = new CuentaCliente();
         cuentaCliente.setSegmento(String.valueOf(1));
@@ -612,6 +613,8 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             case 3:
                 textCountrySelected.setText(getString(R.string.UNITED_STATES));
                 break;
+            case 4:
+                textCountrySelected.setText(getString(R.string.ARGENTINA));
         }
 
     }
@@ -629,11 +632,19 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 txtTypeOfIdSelected.setText(getString(R.string.txt_Foreigner_ID));
                 break;
             case 2:
-                txtTypeOfIdSelected.setText(getString(R.string.txt_passport));
+                txtTypeOfIdSelected.setText( getString(R.string.txt_nit));
                 break;
             case 3:
                 txtTypeOfIdSelected.setText(getString(R.string.txt_identity_card));
                 break;
+            case 4:
+                txtTypeOfIdSelected.setText(getString(R.string.txt_passport));
+                break;
+            case 5:
+                txtTypeOfIdSelected.setText(getString(R.string.txt_otro));
+                break;
+            case 6:
+                txtTypeOfIdSelected.setText(getString(R.string.txt_nuip));
         }
 
     }

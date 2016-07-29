@@ -11,15 +11,15 @@ import java.util.Hashtable;
  */
 public class CuentaClienteInfoAdicional implements KvmSerializable {
 
-    public final static String PROPERTY="cuentaClienteInformacionAdicional";
-    private final static String EMPRESA="empresa",CARGO="cargo",CELULAR="celular",
-    CIUDAD="ciudad",CLASE="clase", CODIGO_PAIS = "codigoPais";
-    private String empresa,cargo,celular,ciudad,clase, codigoPais;
+    public final static String PROPERTY = "cuentaClienteInformacionAdicional";
+    private final static String EMPRESA = "empresa", CARGO = "cargo", CELULAR = "celular",
+            CIUDAD = "ciudad", CLASE = "clase", CODIGO_PAIS = "pais", CELULAR_CODIGO="celular_codigo";
+    private String empresa, cargo, celular, ciudad, clase, pais, celular_codigo;
 
 
     @Override
     public Object getProperty(int i) {
-        switch(i){
+        switch (i) {
             case 0:
                 return empresa;
             case 1:
@@ -30,20 +30,22 @@ public class CuentaClienteInfoAdicional implements KvmSerializable {
                 return ciudad;
             case 4:
                 return clase;
-          /*  case 5:
-                return codigoPais;*/
+            case 5:
+                return pais;
+            case 6:
+                return celular_codigo;
         }
         return null;
     }
 
     @Override
     public int getPropertyCount() {
-        return 6;
+        return 7;
     }
 
     @Override
     public void setProperty(int i, Object o) {
-        switch(i){
+        switch (i) {
             case 0:
                 empresa = (String) o;
                 break;
@@ -51,48 +53,55 @@ public class CuentaClienteInfoAdicional implements KvmSerializable {
                 cargo = (String) o;
                 break;
             case 2:
-                celular= (String) o;
+                celular = (String) o;
                 break;
             case 3:
-                ciudad= (String) o;
+                ciudad = (String) o;
                 break;
             case 4:
-                clase= (String) o;
+                clase = (String) o;
                 break;
-            /*case 5:
-                codigoPais= (String) o;
-                break;*/
+            case 5:
+                pais= (String) o;
+                break;
+            case 6:
+                celular_codigo = (String) o;
+                break;
         }
     }
 
     @Override
     public void getPropertyInfo(int i, Hashtable hashtable, PropertyInfo propertyInfo) {
 
-        switch(i){
+        switch (i) {
             case 0:
-                propertyInfo.type= PropertyInfo.STRING_CLASS;
-                propertyInfo.name=EMPRESA;
+                propertyInfo.type = PropertyInfo.STRING_CLASS;
+                propertyInfo.name = EMPRESA;
                 break;
             case 1:
-                propertyInfo.type= PropertyInfo.STRING_CLASS;
-                propertyInfo.name=CARGO;
+                propertyInfo.type = PropertyInfo.STRING_CLASS;
+                propertyInfo.name = CARGO;
                 break;
             case 2:
-                propertyInfo.type= PropertyInfo.STRING_CLASS;
-                propertyInfo.name=CELULAR;
+                propertyInfo.type = PropertyInfo.STRING_CLASS;
+                propertyInfo.name = CELULAR;
                 break;
             case 3:
-                propertyInfo.type= PropertyInfo.STRING_CLASS;
-                propertyInfo.name=CIUDAD;
+                propertyInfo.type = PropertyInfo.STRING_CLASS;
+                propertyInfo.name = CIUDAD;
                 break;
             case 4:
-                propertyInfo.type= PropertyInfo.STRING_CLASS;
-                propertyInfo.name=CLASE;
+                propertyInfo.type = PropertyInfo.STRING_CLASS;
+                propertyInfo.name = CLASE;
                 break;
-            /*case 5:
+            case 5:
                 propertyInfo.type= PropertyInfo.STRING_CLASS;
                 propertyInfo.name=CODIGO_PAIS;
-                break;*/
+                break;
+            case 6:
+                propertyInfo.type = PropertyInfo.STRING_CLASS;
+                propertyInfo.name=CELULAR_CODIGO;
+                break;
         }
     }
 
@@ -137,7 +146,16 @@ public class CuentaClienteInfoAdicional implements KvmSerializable {
         this.clase = clase;
     }
 
-    public void setCodigoPais(String codigoPais){
-        this.codigoPais = codigoPais;
+    public String getCodigoPais(){
+        return pais;
     }
+
+    public void setCodigoPais(String pais){this.pais = pais;}
+
+    public String getCelularCodigo (){
+        return celular_codigo;
+    }
+
+    public void setCelularCodigo (String celular_codigo) { this.celular_codigo = celular_codigo;}
+
 }
