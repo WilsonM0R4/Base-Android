@@ -56,7 +56,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
     private Context ctx;
     private ImageButton ib_showhidepass, ib_showhiderepass;
     private boolean passIsVisible = false, repassIsVisible = false;
-    private EditText et_username, et_password, et_names, et_surname, et_mobile;
+    private EditText et_username, et_password, et_names, et_surname, et_mobile, et_document_number;
     private NumberPicker countryPicker, typeOfIdPicker;
     private CustomizedTextView btn_sendreg, btn_login;
     private ProgressBar pb_create;
@@ -147,6 +147,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         btn_login = (CustomizedTextView) root.findViewById(R.id.btn_login_new);
         pb_create = (ProgressBar) root.findViewById(R.id.pb_create);
         et_mobile = (EditText) root.findViewById(R.id.et_mobile);
+        et_document_number = (EditText)root.findViewById(R.id.etIdNumber);
         textCountrySelected = (TextView) root.findViewById(R.id.et_country_mobile);
         txtTypeOfIdSelected = (TextView) root.findViewById(R.id.etTypeOfId);
         setListeners();
@@ -382,12 +383,14 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         CuentaCliente cuentaCliente = new CuentaCliente();
         cuentaCliente.setSegmento(String.valueOf(1));
         cuentaCliente.setSaludo(String.valueOf(greet));
+
         cuentaCliente.setNombre(et_names.getText().toString());
         cuentaCliente.setApellido(et_surname.getText().toString());
         cuentaCliente.setEmail(et_username.getText().toString());
         cuentaCliente.setPassword(et_password.getText().toString());
         cuentaCliente.setUserAgent(System.getProperty(HTTP_AGENT));
         cuentaCliente.setTipoDocumento(getTypeOfIdToSend(txtTypeOfIdSelected.getText().toString()));
+        cuentaCliente.setNumeroDocumento(et_document_number.getText().toString());
         cuentaCliente.setCuentaClienteInformacionAdicional(ccia);
 
         PropertyInfo property = new PropertyInfo();
@@ -588,6 +591,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         et_password.setEnabled(!b);
         btn_sendreg.setEnabled(!b);
         et_mobile.setEnabled(!b);
+        et_document_number.setEnabled(!b);
     }
 
     private void onAlertSelectCountry() {

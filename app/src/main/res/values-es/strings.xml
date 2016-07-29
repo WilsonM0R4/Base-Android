@@ -132,7 +132,7 @@
     <string name="txt_lbl_adults">ADULTOS</string>
     <string name="txt_version">Versión</string>
     <string name="txt_lbl_child">NIÑOS</string>
-    <string name="ARGENTINA">(+54) Argentina</string>
+
     <!-- For send in WS of LoginNewUser -->
     <string name="ISO_COLOMBIA">CO</string>
     <string name="ISO_ECUADOR">EC</string>
@@ -426,7 +426,7 @@
     <string name="ECUADOR">(+593) Ecuador</string>
     <string name="PERU">(+51) Perú</string>
     <string name="UNITED_STATES">(+1) Estados unidos</string>
-
+    <string name="ARGENTINA">(+54) Argentina</string>
     <!-- For send in WS of LoginNewUser -->
     <string name="PhoneCode_COLOMBIA">+57</string>
     <string name="PhoneCode_ECUADOR">+593</string>

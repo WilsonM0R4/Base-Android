@@ -69,7 +69,7 @@ public class CuentaClienteInfoAdicional implements KvmSerializable {
 
     @Override
     public int getPropertyCount() {
-        return 9;
+        return 7;
     }
 
     @Override
