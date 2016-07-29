@@ -10,33 +10,18 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="35cf9269-6e1a-4af8-861f-53c4d8b69051" name="Default" comment="- U">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/onepocket-sdk-0.9.63-100/onepocket-sdk-0.9.63-100.aar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/onepocket-sdk-0.9.63-100/build.gradle" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/onepocket-sdk-0.9.63-100/onepocket-sdk-0.9.63-100.iml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/onepocket-sdk-0.9.62-323/build.gradle" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/onepocket-sdk-0.9.62-323/onepocket-sdk-0.9.62-323.aar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/onepocket-sdk-0.9.62-323/onepocket-sdk-0.9.62-323.iml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/onepocket_sdk_0_9_62_323_unspecified.xml" afterPath="$PROJECT_DIR$/.idea/libraries/onepocket_sdk_0_9_63_100_unspecified.xml" />
+    <list default="true" id="35cf9269-6e1a-4af8-861f-53c4d8b69051" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/onepocket-sdk-0.9.63-100/onepocket-sdk-0.9.63-100.iml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugAndroidTestJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugAndroidTestJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugAndroidTestJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugAndroidTestJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugAndroidTestJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugAndroidTestJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/onepocket-sdk-0.9.63-100/onepocket-sdk-0.9.63-100.aar" afterPath="$PROJECT_DIR$/onepocket-sdk-0.9.63-100/onepocket-sdk-0.9.63-100.aar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Allegra-Android.iws" />
@@ -80,11 +65,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5016949">
+            <state vertical-scroll-proportion="0.0">
               <caret line="47" column="22" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MarketPlaceActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/MarketPlaceActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.15363881">
+              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -2119,7 +2114,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="5879051705000" />
+        <entry key="$PROJECT_DIR$" value="5879056202000" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -2810,7 +2805,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/FrontFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/SplashScreenActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/MarketPlaceActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/utils/Constants.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/MyAccountActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/LoginActivity.java" />
@@ -2818,6 +2812,7 @@
         <option value="$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-0.9.62-323/unspecified/jars/classes.jar!/com/allem/onepocket/MCardFragment.class" />
         <option value="$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-0.9.62-323/unspecified/jars/classes.jar!/com/allem/onepocket/utils/OneTransactionParser.class" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/MarketPlaceActivity.java" />
       </list>
     </option>
   </component>
@@ -2879,7 +2874,7 @@
     <property name="settings.editor.selected.configurable" value="android.sdk-updates" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
-    <property name="SearchEverywhereHistoryKey" value="onepoc&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OnepocketPurchaseActivity.java&#10;mcardfrag&#9;PSI&#9;JAVA://com.allem.onepocket.MCardFragment&#10;m&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/Mcardhtml.java&#10;onecon&#9;PSI&#9;JAVA://com.allegra.handyuvisa.OnepocketContainerActivity&#10;one&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OnepocketPurchaseActivity.java&#10;asynconstan&#9;PSI&#9;JAVA://com.allem.onepocket.async.AsyncConstants&#10;mcard&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/Mcardhtml.java&#10;log&#9;PSI&#9;JAVA://com.allegra.handyuvisa.LoginActivity&#10;gra&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build.gradle&#10;mcar&#9;PSI&#9;JAVA://com.allegra.handyuvisa.Mcardhtml&#10;mark&#9;PSI&#9;JAVA://com.allegra.handyuvisa.MarketPlaceActivity&#10;consta&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/utils/Constants.java&#10;makevc&#9;PSI&#9;JAVA://com.allem.onepocket.async.vco.MakeVCOPayment&#10;onepo&#9;PSI&#9;JAVA://com.allegra.handyuvisa.OnepocketPurchaseActivity&#10;android&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/AndroidManifest.xml&#10;spl&#9;PSI&#9;JAVA://com.allegra.handyuvisa.SplashScreenActivity&#10;frontfra&#9;PSI&#9;JAVA://com.allegra.handyuvisa.FrontFragment&#10;fron&#9;PSI&#9;JAVA://com.allegra.handyuvisa.FrontBackAnimate.FrontFragment&#10;build.&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build.gradle&#10;androidman&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/AndroidManifest.xml" />
+    <property name="SearchEverywhereHistoryKey" value="market&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/MarketPlaceActivity.java&#10;onepoc&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OnepocketPurchaseActivity.java&#10;mcardfrag&#9;PSI&#9;JAVA://com.allem.onepocket.MCardFragment&#10;m&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/Mcardhtml.java&#10;onecon&#9;PSI&#9;JAVA://com.allegra.handyuvisa.OnepocketContainerActivity&#10;one&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OnepocketPurchaseActivity.java&#10;asynconstan&#9;PSI&#9;JAVA://com.allem.onepocket.async.AsyncConstants&#10;mcard&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/Mcardhtml.java&#10;log&#9;PSI&#9;JAVA://com.allegra.handyuvisa.LoginActivity&#10;gra&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build.gradle&#10;mcar&#9;PSI&#9;JAVA://com.allegra.handyuvisa.Mcardhtml&#10;mark&#9;PSI&#9;JAVA://com.allegra.handyuvisa.MarketPlaceActivity&#10;consta&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/utils/Constants.java&#10;makevc&#9;PSI&#9;JAVA://com.allem.onepocket.async.vco.MakeVCOPayment&#10;onepo&#9;PSI&#9;JAVA://com.allegra.handyuvisa.OnepocketPurchaseActivity&#10;android&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/AndroidManifest.xml&#10;spl&#9;PSI&#9;JAVA://com.allegra.handyuvisa.SplashScreenActivity&#10;frontfra&#9;PSI&#9;JAVA://com.allegra.handyuvisa.FrontFragment&#10;fron&#9;PSI&#9;JAVA://com.allegra.handyuvisa.FrontBackAnimate.FrontFragment&#10;build.&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build.gradle&#10;androidman&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/AndroidManifest.xml" />
     <property name="ignore_missing_gitignore" value="true" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="01157df1d2dc7d1b" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_5_API_22" />
@@ -3074,6 +3069,13 @@
       <option name="number" value="Default" />
       <updated>1469694619924</updated>
     </task>
+    <task id="LOCAL-00001" summary="- onepocket SDK 0.9.63-100">
+      <created>1469784289689</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1469784289689</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -3089,7 +3091,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34745762" sideWeight="0.4914163" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.54378533" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.43644068" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909605" sideWeight="0.4914163" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -3125,7 +3127,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="- Change app id to com.allegra.handyuvisa in build.gradle and package name to com.allegra.handyuvisa in AndroidManifest.xml. Also, refactor the source code to use  com.allegra.handyuvisa as the java package" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Change app id to com.allegra.handyuvisa in build.gradle and package name to com.allegra.handyuvisa in AndroidManifest.xml. Also, refactor the source code to use  com.allegra.handyuvisa as the java package" />
+    <MESSAGE value="- onepocket SDK 0.9.63-100" />
+    <option name="LAST_COMMIT_MESSAGE" value="- onepocket SDK 0.9.63-100" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3467,14 +3470,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/MarketPlaceActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/com/allegra/handyuvisa/BuildConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.8148148">
@@ -3556,8 +3551,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5016949">
+        <state vertical-scroll-proportion="0.0">
           <caret line="47" column="22" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/MarketPlaceActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15363881">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
       </provider>
