@@ -81,7 +81,6 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
-
     @Override
     public void onStart() {
         super.onStart();
@@ -151,6 +150,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         textCountrySelected = (TextView) root.findViewById(R.id.et_country_mobile);
         txtTypeOfIdSelected = (TextView) root.findViewById(R.id.etTypeOfId);
         setListeners();
+        setTextWatchers();
     }
 
     @Override
@@ -242,10 +242,10 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                     } else if (!Patterns.EMAIL_ADDRESS.matcher(et_username.getText().toString()).matches()) {
                         showToast(getString(R.string.txt_invalid_email));
                         et_username.setTextColor(Color.RED);
-                        //et_username.setHintTextColor(Color.RED);
+                        et_username.setHintTextColor(Color.RED);
                     } else {
                         et_username.setTextColor(getResources().getColor(R.color.register_input_active));
-                        //et_username.setHintTextColor(Color.BLACK);
+                        et_username.setHintTextColor(Color.BLACK);
                     }
                 }
             }
@@ -261,7 +261,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                         et_names.setHintTextColor(Color.RED);
                     } else {
                         et_names.setTextColor(getResources().getColor(R.color.register_input_active));
-                        //et_names.setHintTextColor(Color.BLACK);
+                        et_names.setHintTextColor(Color.BLACK);
                     }
                 }
             }
@@ -277,7 +277,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                         et_surname.setHintTextColor(Color.RED);
                     } else {
                         et_surname.setTextColor(getResources().getColor(R.color.register_input_active));
-                        //et_surname.setHintTextColor(Color.BLACK);
+                        et_surname.setHintTextColor(Color.BLACK);
                     }
                 }
             }
@@ -294,7 +294,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                         et_password.setHintTextColor(Color.RED);
                     } else {
                         et_password.setTextColor(getResources().getColor(R.color.register_input_active));
-                        //et_password.setHintTextColor(Color.BLACK);
+                        et_password.setHintTextColor(Color.BLACK);
                     }
                 }
             }
@@ -313,6 +313,24 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 onAlertSelectTypeOfId();
             }
         });
+
+       /* et_document_number.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+               // if (!b) {
+                    if (et_password.getText().toString().length() < 4) {
+                        showToast(getString(R.string.txt_password_incorrectly_entered));
+                        et_password.setTextColor(Color.RED);
+                        et_password.setHintTextColor(Color.RED);
+                    } else {
+                        et_password.setTextColor(getResources().getColor(R.color.register_input_active));
+                        et_password.setHintTextColor(Color.BLACK);
+                    }
+               // }else{
+
+                //}
+            }
+        });*/
 
     }
 
@@ -408,8 +426,8 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
     }
 
     private String getTypeOfIdToSend(String optionSelected){
-        String typeOfIdToSend = "";
 
+        String typeOfIdToSend = "";
         if (optionSelected.equals(getString(R.string.txt_citizenship_card))){
             return "1";
         }else {
@@ -419,11 +437,8 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             if (optionSelected.equals(getString(R.string.txt_passport)))return "5";
             if (optionSelected.equals(getString(R.string.txt_nuip)))return "10";
             if (optionSelected.equals(getString(R.string.txt_otro)))return "9";
-
         }
-
         return typeOfIdToSend;
-
     }
 
 
@@ -465,7 +480,34 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
       return phoneCodetoSend;
     }
 
+    //-------------------Change color of text when is valid in each EditText-------------
     private void setTextWatchers() {
+
+        et_document_number.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (et_document_number.getText().toString().length() < 4) {
+                    //Toast.makeText(getApplicationContext(),"PIlas con el tipo" ,Toast.LENGTH_LONG).show();
+                    et_document_number.setHintTextColor(Color.RED);
+                    et_document_number.setTextColor(Color.RED);
+                } else{
+                    et_document_number.setHintTextColor(Color.BLACK);
+                    et_document_number.setTextColor(Color.BLACK);
+                }
+
+            }
+        });
+
         et_username.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
@@ -479,13 +521,13 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if (editable.length() < 7) {
+                /*if (editable.length() < 7) {
                     et_username.setTextColor(Color.RED);
                     et_username.setHintTextColor(Color.RED);
                 } else {
                     et_username.setTextColor(Color.BLACK);
                     et_username.setHintTextColor(Color.BLACK);
-                }
+                }*/
             }
         });
         et_names.addTextChangedListener(new TextWatcher() {
@@ -524,6 +566,14 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
 
             @Override
             public void afterTextChanged(Editable editable) {
+
+                if (editable.length() < 2) {
+                    et_surname.setTextColor(Color.RED);
+                    et_surname.setHintTextColor(Color.RED);
+                } else {
+                    et_surname.setTextColor(Color.BLACK);
+                    et_surname.setHintTextColor(Color.BLACK);
+                }
                 btn_sendreg.setEnabled(checkFields());
             }
         });
@@ -540,9 +590,17 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
 
             @Override
             public void afterTextChanged(Editable editable) {
+                if (editable.length() < 2) {
+                    et_password.setTextColor(Color.RED);
+                    et_password.setHintTextColor(Color.RED);
+                } else {
+                    et_password.setTextColor(Color.BLACK);
+                    et_password.setHintTextColor(Color.BLACK);
+                }
                 btn_sendreg.setEnabled(checkFields());
             }
         });
+
 
     }
 
@@ -550,34 +608,62 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         Toast.makeText(ctx, s, Toast.LENGTH_SHORT).show();
     }
 
+    //******Validate fields************
     private boolean checkFields() {
+
         boolean result = true;
+
+        //***************Email***************
         if (et_username.getText().toString().length() < 7) {
             et_username.setTextColor(Color.RED);
             et_username.setHintTextColor(Color.RED);
             result = false;
         }
-        if (et_names.getText().toString().length() < 2) {
-            et_names.setTextColor(Color.RED);
-            et_names.setHintTextColor(Color.RED);
-            result = false;
-        }
-        if (et_surname.getText().toString().length() < 2) {
-            et_surname.setTextColor(Color.RED);
-            et_surname.setHintTextColor(Color.RED);
-            result = false;
-        }
-        if (et_password.getText().toString().length() < 6) {
-            et_password.setTextColor(Color.RED);
-            et_password.setHintTextColor(Color.RED);
-            result = false;
-        }
-
         if (!Patterns.EMAIL_ADDRESS.matcher(et_username.getText().toString()).matches()) {
             et_username.setTextColor(Color.RED);
             et_username.setHintTextColor(Color.RED);
             result = false;
         }
+        //***************Name***************
+        if (et_names.getText().toString().length() < 2) {
+            et_names.setTextColor(Color.RED);
+            et_names.setHintTextColor(Color.RED);
+            result = false;
+        }
+        //***************Last Name***************
+        if (et_surname.getText().toString().length() < 2) {
+            et_surname.setTextColor(Color.RED);
+            et_surname.setHintTextColor(Color.RED);
+            result = false;
+        }
+        //***************Password***************
+        if (et_password.getText().toString().length() < 6) {
+            et_password.setTextColor(Color.RED);
+            et_password.setHintTextColor(Color.RED);
+            result = false;
+        }
+        //***************Type of ID***************
+        if (txtTypeOfIdSelected.getText().toString().equals("")){
+            //Toast.makeText(getApplicationContext(),"PIlas con el tipo" ,Toast.LENGTH_LONG).show();
+            txtTypeOfIdSelected.setHintTextColor(Color.RED);
+            result = false;
+        }
+        //***************Number of ID***************
+        if (et_document_number.getText().toString().length() < 4){
+            //Toast.makeText(getApplicationContext(),"PIlas con el tipo" ,Toast.LENGTH_LONG).show();
+            et_document_number.setHintTextColor(Color.RED);
+            et_document_number.setTextColor(Color.RED);
+            result = false;
+        }
+        //***************Select Country***************
+        if (textCountrySelected.getText().toString().equals("")){
+            //Toast.makeText(getApplicationContext(),"PIlas con el country" ,Toast.LENGTH_LONG).show();
+            textCountrySelected.setHintTextColor(Color.RED);
+            result = false;
+        }
+
+
+
         return result;
     }
 
