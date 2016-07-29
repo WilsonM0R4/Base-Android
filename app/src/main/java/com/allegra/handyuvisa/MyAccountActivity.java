@@ -33,7 +33,7 @@ public class MyAccountActivity extends FrontBackAnimate implements FrontBackAnim
     private ActionBar actionBar;
     private Context ctx;
     private ArrayList<NameValuePair> postValues;
-    private TextView tv_fullname,tv_email;
+    private TextView tv_fullname,tv_email, tv_phone;
     private Button btn_logout;
     private ProgressBar pb_cerrarsesion;
     private ImageButton editButton;
@@ -76,8 +76,10 @@ public class MyAccountActivity extends FrontBackAnimate implements FrontBackAnim
         setActionbar();
         tv_fullname = (TextView) root.findViewById(R.id.tv_fullname);
         tv_email = (TextView) root.findViewById(R.id.tv_email);
+        tv_phone = (TextView)root.findViewById(R.id.tv_phone);
         btn_logout = (Button) root.findViewById(R.id.btn_logout);
         tv_email.setText(KeySaver.getStringSavedShare(ctx, Constants.KEY_EMAIL));
+        tv_phone.setText(KeySaver.getStringSavedShare(ctx, Constants.KEY_MOBILE_NUMBER));
         tv_fullname.setText(KeySaver.getStringSavedShare(ctx,Constants.KEY_GREET)+" "+
                 KeySaver.getStringSavedShare(ctx,Constants.KEY_NAME)+" "+
                 KeySaver.getStringSavedShare(ctx, Constants.KEY_SURNAME));

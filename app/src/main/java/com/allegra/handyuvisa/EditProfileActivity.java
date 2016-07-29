@@ -21,11 +21,11 @@ import com.allegra.handyuvisa.async.AsyncTaskSoapObjectResultEvent;
 import com.allegra.handyuvisa.async.MyBus;
 import com.allegra.handyuvisa.models.AllemUser;
 import com.allegra.handyuvisa.models.CuentaClienteInfo;
+import com.allegra.handyuvisa.models.CuentaClienteInfoAdicional;
 import com.allegra.handyuvisa.parsers.SoapObjectParsers;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.CustomizedEditText;
 import com.allegra.handyuvisa.utils.Util;
-import com.allegra.handyuvisa.models.CuentaClienteInfoAdicional;
 import com.squareup.otto.Subscribe;
 
 import org.ksoap2.serialization.PropertyInfo;
@@ -80,6 +80,8 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
         txtLastName.setText(user.apellido);
         if(user.celular.length()>0) txtMobile.setText(user.celular);
         txtEmail.setText(user.email);
+        CuentaClienteInfoAdicional codigoPais = new CuentaClienteInfoAdicional();
+
     }
 
     private void updateTextOfTypeOfId() {
