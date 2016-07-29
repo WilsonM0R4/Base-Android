@@ -47,6 +47,8 @@ public class SoapObjectParsers {
         if (soapObject.hasProperty("cuentaClienteInformacionAdicional")){
             SoapObject additionalInfo= (SoapObject)soapObject.getProperty("cuentaClienteInformacionAdicional");
             if(additionalInfo.hasProperty("celular")) celular= additionalInfo.getPropertyAsString("celular");
+            if(additionalInfo.hasProperty("pais")) celular= additionalInfo.getPropertyAsString("pais");
+            if(additionalInfo.hasProperty("celular_codigo")) celular= additionalInfo.getPropertyAsString("celular_codigo");
         }
 
         allemUser = new AllemUser(saludo,

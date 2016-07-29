@@ -510,16 +510,25 @@
     <string name="txt_name_incorrect">Name should have 2 characters or more </string>
     <string name="txt_invalid_email">Is not a valid e-mail</string>
     <string name="txt_email_should_have_7_characters">E-mail should have 7 characters or more</string>
+    <!-- For show in dialog -->
     <string name="COLOMBIA">(+57) Colombia</string>
     <string name="ECUADOR">(+593) Ecuador</string>
     <string name="PERU">(+51) Peru</string>
     <string name="UNITED_STATES">(+1) United states</string>
     <string name="ARGENTINA">(+54) Argentina</string>
+    <!-- For send in WS of LoginNewUser -->
     <string name="ISO_COLOMBIA">CO</string>
     <string name="ISO_ECUADOR">EC</string>
     <string name="ISO_PERU">PE</string>
     <string name="ISO_USA">US</string>
     <string name="ISO_ARGENTINA">AR</string>
+    <!-- For send in WS of LoginNewUser -->
+    <string name="PhoneCode_COLOMBIA">+57</string>
+    <string name="PhoneCode_ECUADOR">+593</string>
+    <string name="PhoneCode_PERU">+51</string>
+    <string name="PhoneCode_USA">+1</string>
+    <string name="PhoneCode_ARGENTINA">+54</string>
+
 
     <!-- all fonts-->
     <string name="font_muli" translatable="false">fonts/Muli.ttf</string>

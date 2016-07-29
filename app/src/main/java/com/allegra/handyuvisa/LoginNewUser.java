@@ -376,8 +376,8 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         ccia.setCelular(celular);
         ccia.setCiudad("");
         ccia.setClase("");
-        ccia.setCodigoPais("");
-        ccia.setCelularCodigo("");
+        ccia.setCodigoPais(getCountryIsoCodeToSend(textCountrySelected.getText().toString()));//ISO Code
+        ccia.setCelularCodigo(getCountryCodeToSend(textCountrySelected.getText().toString()));//Phone Code
 
         CuentaCliente cuentaCliente = new CuentaCliente();
         cuentaCliente.setSegmento(String.valueOf(1));
@@ -386,6 +386,8 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         cuentaCliente.setApellido(et_surname.getText().toString());
         cuentaCliente.setEmail(et_username.getText().toString());
         cuentaCliente.setPassword(et_password.getText().toString());
+        //Get code country to send
+
         cuentaCliente.setUserAgent(System.getProperty(HTTP_AGENT));
         cuentaCliente.setCuentaClienteInformacionAdicional(ccia);
 
@@ -401,6 +403,44 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         } else {
             Toast.makeText(ctx, getString(R.string.err_no_internet), Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private String getCountryIsoCodeToSend(String optionSelected){
+
+        String phoneCodetoSend = "";
+        String phoneCodeColombia = "+57", phoneCodeEcuador = "+593", phoneCodePeru = "+51",
+                phoneCodeUsa = "+1", phoneCodeArgentina = "+54";
+
+        if (optionSelected.contains(phoneCodeColombia))
+        {
+            return "CO";
+        } else {
+            if(optionSelected.contains(phoneCodeEcuador)) return "EC";
+            if(optionSelected.contains(phoneCodePeru)) return "PE";
+            if(optionSelected.contains(phoneCodeUsa)) return "US";
+            if(optionSelected.contains(phoneCodeArgentina)) return "AR";
+        }
+
+        return phoneCodetoSend;
+    }
+
+    private String getCountryCodeToSend(String optionSelected){
+
+        String phoneCodetoSend = "";
+        String phoneCodeColombia = "+57", phoneCodeEcuador = "+593", phoneCodePeru = "+51",
+                phoneCodeUsa = "+1", phoneCodeArgentina = "+54";
+
+        if (optionSelected.contains(phoneCodeColombia))
+        {
+            return phoneCodeColombia;
+        } else {
+            if(optionSelected.contains(phoneCodeEcuador)) return phoneCodeEcuador;
+            if(optionSelected.contains(phoneCodePeru)) return phoneCodePeru;
+            if(optionSelected.contains(phoneCodeUsa)) return phoneCodeUsa;
+            if(optionSelected.contains(phoneCodeArgentina)) return phoneCodeArgentina;
+        }
+
+      return phoneCodetoSend;
     }
 
     private void setTextWatchers() {
@@ -540,9 +580,9 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         countryPicker = new NumberPicker(this);
         countryPicker = (NumberPicker) dialog.findViewById(R.id.selectCountryPicker);
         countryPicker.setMinValue(0);
-        countryPicker.setMaxValue(3);
+        countryPicker.setMaxValue(4);
         countryPicker.setDisplayedValues(new String[]{getString(R.string.COLOMBIA),
-                getString(R.string.ECUADOR), getString(R.string.PERU), getString(R.string.UNITED_STATES)});
+                getString(R.string.ECUADOR), getString(R.string.PERU), getString(R.string.UNITED_STATES),getString(R.string.ARGENTINA)});
         setDividerColor(countryPicker);
         //TextViews (Cancel and Ok)
         TextView textCancel = (TextView) dialog.findViewById(R.id.textCancelDialogCountry);
