@@ -34,6 +34,9 @@
     <string name="payment_hotel_guest">Huéspedes</string>
     <string name="payment_hotel_room">Habitaciones</string>
     <string name="payment_hotel_checking">INGRESO</string>
+    <string name="txt_nit">NIT</string>
+    <string name="txt_otro">OTRO</string>
+    <string name="txt_nuip">NUIP</string>
     <string name="payment_hotel_checkout">SALIDA</string>
     <string name="payment_hotel_onepocket">PAGAR CON ONE POCKET</string>
     <string name="payment_hotel_taxes_fees">IMPUESTOS</string>
@@ -129,6 +132,12 @@
     <string name="txt_lbl_adults">ADULTOS</string>
     <string name="txt_version">Versión</string>
     <string name="txt_lbl_child">NIÑOS</string>
+    <string name="ARGENTINA">(+54) Argentina</string>
+    <string name="ISO_COLOMBIA">CO</string>
+    <string name="ISO_ECUADOR">EC</string>
+    <string name="ISO_PERU">PE</string>
+    <string name="ISO_USA">US</string>
+    <string name="ISO_ARGENTINA">AR</string>
     <string name="txt_lbl_child_description">2&#8211;11 años</string>
     <string name="txt_lbl_infants">BEBÉS</string>
     <string name="txt_lbl_infants_description">0&#8211;24 meses</string>

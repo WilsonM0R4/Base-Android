@@ -514,6 +514,12 @@
     <string name="ECUADOR">(+593) Ecuador</string>
     <string name="PERU">(+51) Peru</string>
     <string name="UNITED_STATES">(+1) United states</string>
+    <string name="ARGENTINA">(+54) Argentina</string>
+    <string name="ISO_COLOMBIA">CO</string>
+    <string name="ISO_ECUADOR">EC</string>
+    <string name="ISO_PERU">PE</string>
+    <string name="ISO_USA">US</string>
+    <string name="ISO_ARGENTINA">AR</string>
 
     <!-- all fonts-->
     <string name="font_muli" translatable="false">fonts/Muli.ttf</string>
@@ -609,6 +615,9 @@
     <string name="txt_Foreigner_ID">FI</string>
     <string name="txt_identity_card">IC</string>
     <string name="txt_passport">PS</string>
+    <string name="txt_nit">NIT</string>
+    <string name="txt_otro">OTHER</string>
+    <string name="txt_nuip">NUIP</string>
     <string name="sign_in">Sign in</string>
     <string name="greet">Good to see you again</string>
     <string name="IATAI_CERTIFICA">IATAI CERTIFIES</string>
