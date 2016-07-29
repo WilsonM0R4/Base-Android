@@ -21,11 +21,11 @@ import com.allegra.handyuvisa.async.AsyncTaskSoapObjectResultEvent;
 import com.allegra.handyuvisa.async.MyBus;
 import com.allegra.handyuvisa.models.AllemUser;
 import com.allegra.handyuvisa.models.CuentaClienteInfo;
+import com.allegra.handyuvisa.models.CuentaClienteInfoAdicional;
 import com.allegra.handyuvisa.parsers.SoapObjectParsers;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.CustomizedEditText;
 import com.allegra.handyuvisa.utils.Util;
-import com.allegra.handyuvisa.models.CuentaClienteInfoAdicional;
 import com.squareup.otto.Subscribe;
 
 import org.ksoap2.serialization.PropertyInfo;
@@ -36,7 +36,7 @@ import java.lang.reflect.Field;
 public class EditProfileActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
 
     private final String M_SELECTION_DIVIDER = "mSelectionDivider";
-    CustomizedEditText txtName, txtLastName, txtMobile, txtEmail, txtPass, txtNewPass, txtNewPassConfirm, txtCodigoPais;
+    CustomizedEditText txtName, txtLastName, txtMobile, txtEmail, txtPass, txtNewPass, txtNewPassConfirm;
     Button cancel, save;
     AllemUser user;
     private ProgressBar pb_create;
@@ -58,7 +58,6 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
         txtName= (CustomizedEditText) root.findViewById(R.id.et_names);
         txtLastName= (CustomizedEditText) root.findViewById(R.id.et_surname);
         txtMobile= (CustomizedEditText) root.findViewById(R.id.et_mobile);
-        txtCodigoPais = (CustomizedEditText) root.findViewById(R.id.et_country_mobile);
         txtEmail= (CustomizedEditText)root.findViewById(R.id.et_email);
         cancel= (Button) root.findViewById(R.id.btn_ed_cancel);
         save= (Button)root.findViewById(R.id.btn_ed_save);
@@ -82,7 +81,6 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
         if(user.celular.length()>0) txtMobile.setText(user.celular);
         txtEmail.setText(user.email);
         CuentaClienteInfoAdicional codigoPais = new CuentaClienteInfoAdicional();
-        txtCodigoPais.setText(codigoPais.getCelularCodigo());
 
     }
 
