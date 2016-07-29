@@ -386,9 +386,8 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         cuentaCliente.setApellido(et_surname.getText().toString());
         cuentaCliente.setEmail(et_username.getText().toString());
         cuentaCliente.setPassword(et_password.getText().toString());
-        //Get code country to send
-
         cuentaCliente.setUserAgent(System.getProperty(HTTP_AGENT));
+        cuentaCliente.setTipoDocumento(getTypeOfIdToSend(txtTypeOfIdSelected.getText().toString()));
         cuentaCliente.setCuentaClienteInformacionAdicional(ccia);
 
         PropertyInfo property = new PropertyInfo();
@@ -404,6 +403,26 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             Toast.makeText(ctx, getString(R.string.err_no_internet), Toast.LENGTH_SHORT).show();
         }
     }
+
+    private String getTypeOfIdToSend(String optionSelected){
+        String typeOfIdToSend = "";
+
+        if (optionSelected.equals(getString(R.string.txt_citizenship_card))){
+            return "1";
+        }else {
+            if (optionSelected.equals(getString(R.string.txt_Foreigner_ID)))return "2";
+            if (optionSelected.equals(getString(R.string.txt_nit)))return "3";
+            if (optionSelected.equals(getString(R.string.txt_identity_card)))return "4";
+            if (optionSelected.equals(getString(R.string.txt_passport)))return "5";
+            if (optionSelected.equals(getString(R.string.txt_nuip)))return "10";
+            if (optionSelected.equals(getString(R.string.txt_otro)))return "9";
+
+        }
+
+        return typeOfIdToSend;
+
+    }
+
 
     private String getCountryIsoCodeToSend(String optionSelected){
 
@@ -581,6 +600,8 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         countryPicker = (NumberPicker) dialog.findViewById(R.id.selectCountryPicker);
         countryPicker.setMinValue(0);
         countryPicker.setMaxValue(4);
+        countryPicker.setWrapSelectorWheel(false);
+        countryPicker.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
         countryPicker.setDisplayedValues(new String[]{getString(R.string.COLOMBIA),
                 getString(R.string.ECUADOR), getString(R.string.PERU), getString(R.string.UNITED_STATES),getString(R.string.ARGENTINA)});
         setDividerColor(countryPicker);
@@ -612,9 +633,12 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         typeOfIdPicker = new NumberPicker(this);
         typeOfIdPicker = (NumberPicker) dialog.findViewById(R.id.selectTypeOfIdPicker);
         typeOfIdPicker.setMinValue(0);
-        typeOfIdPicker.setMaxValue(3);
+        typeOfIdPicker.setMaxValue(6);
+        typeOfIdPicker.setWrapSelectorWheel(false);
+        typeOfIdPicker.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
         typeOfIdPicker.setDisplayedValues(new String[]{getString(R.string.txt_citizenship_card),
-                getString(R.string.txt_Foreigner_ID), getString(R.string.txt_passport), getString(R.string.txt_identity_card)});
+                getString(R.string.txt_Foreigner_ID), getString(R.string.txt_nit),
+                getString(R.string.txt_identity_card), getString(R.string.txt_passport), getString(R.string.txt_nuip), getString(R.string.txt_otro)});
         setDividerColor(typeOfIdPicker);
         //TextViews (Cancel and Ok)
         TextView textCancel = (TextView) dialog.findViewById(R.id.textCancelDialogTypeOfId);
@@ -672,7 +696,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 txtTypeOfIdSelected.setText(getString(R.string.txt_Foreigner_ID));
                 break;
             case 2:
-                txtTypeOfIdSelected.setText( getString(R.string.txt_nit));
+                txtTypeOfIdSelected.setText(getString(R.string.txt_nit));
                 break;
             case 3:
                 txtTypeOfIdSelected.setText(getString(R.string.txt_identity_card));
@@ -681,10 +705,11 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 txtTypeOfIdSelected.setText(getString(R.string.txt_passport));
                 break;
             case 5:
-                txtTypeOfIdSelected.setText(getString(R.string.txt_otro));
+                txtTypeOfIdSelected.setText(getString(R.string.txt_nuip));
                 break;
             case 6:
-                txtTypeOfIdSelected.setText(getString(R.string.txt_nuip));
+                txtTypeOfIdSelected.setText(getString(R.string.txt_otro));
+                break;
         }
 
     }

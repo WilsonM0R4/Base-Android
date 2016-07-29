@@ -14,7 +14,32 @@ public class CuentaClienteInfoAdicional implements KvmSerializable {
     public final static String PROPERTY = "cuentaClienteInformacionAdicional";
     private final static String EMPRESA = "empresa", CARGO = "cargo", CELULAR = "celular",
             CIUDAD = "ciudad", CLASE = "clase", CODIGO_PAIS = "pais", CELULAR_CODIGO="celular_codigo";
-    private String empresa, cargo, celular, ciudad, clase, pais, celular_codigo;
+    private String empresa;
+    private String cargo;
+    private String celular;
+    private String ciudad;
+    private String clase;
+    private String pais;
+    private String celular_codigo;
+    /*private String tipoDocumento;
+    private String numeroDocumento;*/
+
+
+  /*  public String getTipoDocumento() {
+        return tipoDocumento;
+    }
+
+    public void setTipoDocumento(String tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
+    }
+
+    public String getNumeroDocumento() {
+        return numeroDocumento;
+    }
+
+    public void setNumeroDocumento(String numeroDocumento) {
+        this.numeroDocumento = numeroDocumento;
+    }*/
 
 
     @Override
@@ -34,13 +59,17 @@ public class CuentaClienteInfoAdicional implements KvmSerializable {
                 return pais;
             case 6:
                 return celular_codigo;
+          /*  case 7:
+                return tipoDocumento;
+            case 8:
+                return numeroDocumento;*/
         }
         return null;
     }
 
     @Override
     public int getPropertyCount() {
-        return 7;
+        return 9;
     }
 
     @Override
@@ -62,11 +91,17 @@ public class CuentaClienteInfoAdicional implements KvmSerializable {
                 clase = (String) o;
                 break;
             case 5:
-                pais= (String) o;
+                pais = (String) o;
                 break;
             case 6:
                 celular_codigo = (String) o;
                 break;
+            /*case 7:
+                tipoDocumento = (String) o;
+                break;
+            case 8:
+                numeroDocumento = (String) o;
+                break;*/
         }
     }
 
@@ -102,6 +137,14 @@ public class CuentaClienteInfoAdicional implements KvmSerializable {
                 propertyInfo.type = PropertyInfo.STRING_CLASS;
                 propertyInfo.name=CELULAR_CODIGO;
                 break;
+           /* case 7:
+                propertyInfo.type= PropertyInfo.STRING_CLASS;
+                propertyInfo.name=TIPO_DOCUMENTO;
+                break;
+            case 8:
+                propertyInfo.type = PropertyInfo.STRING_CLASS;
+                propertyInfo.name=NUMERO_DOCUMENTO;
+                break;*/
         }
     }
 
