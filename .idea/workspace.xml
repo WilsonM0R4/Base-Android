@@ -6,230 +6,38 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="OPK|Async" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="35cf9269-6e1a-4af8-861f-53c4d8b69051" name="Default" comment="- Change app id to com.allegra.handyuvisa in build.gradle and package name to com.allegra.handyuvisa in AndroidManifest.xml. Also, refactor the source code to use  com.allegra.handyuvisa as the java package">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/CallActivityMcard.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/BrandingScreenActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/CallActivityMcard.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/OnepocketAddCardActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_onepocket_add_card.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/onepocket-sdk-0.9.34-230/build.gradle" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/onepocket-sdk-0.9.34-230/onepocket-sdk-0.9.34-230.aar" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/allem/alleminmotion/visacheckout/ApplicationTest.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/allegra/handyuvisa/visacheckout/ApplicationTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/ActivationActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/ActivationActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/AllInOneBenefitsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/AllInOneBenefitsActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/AppJavaScriptProxyConcierge.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/AppJavaScriptProxyConcierge.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/AppJavaScriptProxyFlights.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/AppJavaScriptProxyFlights.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/AppJavaScriptProxyHotels.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/AppJavaScriptProxyHotels.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/AppJavaScriptProxyMarketPlace.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/AppJavaScriptProxyMarketPlace.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/AppJavaScriptProxyMcard.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/AppJavaScriptProxyMcard.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/AppJavaScriptProxyServices.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/AppJavaScriptProxyServices.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/BackFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/BackFragment.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/BookNowActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/BookNowActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/CallActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/CallActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/CardInfoActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/CardInfoActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/ChatActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/ChatActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/ChatMsgAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/ChatMsgAdapter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/ConciergeActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/ConciergeActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/ConciergeSearchActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/ConciergeSearchActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/CustomQrActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/CustomQrActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/EditProfileActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/EditProfileActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/EntertainmentActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/EntertainmentActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/FlightsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/FlightsActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/FlightsPaymentActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/FlightsPaymentActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/FlightsSearchActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/FlightsSearchActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/FrontBackAnimate.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/FrontBackAnimate.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/FrontFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/FrontFragment.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/GuestsPickerFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/GuestsPickerFragment.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/HomeActivity_Handy.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/HomeActivity_Handy.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/HomeFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/HomeFragment.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/HotelSearchActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/HotelSearchActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/HotelsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/HotelsActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/HotelsPaymentActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/HotelsPaymentActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/IntroScreenActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/IntroScreenActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/InvoiceActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/InvoiceActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/LegalActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/LegalActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/LoadAnimate.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/LoadAnimate.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/LoginActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/LoginForgotActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/LoginForgotActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/LoginForgotConfirmation.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/LoginForgotConfirmation.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/LoginNewUser.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/LoginNewUser.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/LoginPassRecover.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/LoginPassRecover.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/MainActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/MainMenuAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/MainMenuAdapter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/MapActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/MapActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/MapWrapperLayout.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/MapWrapperLayout.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/MarketPlaceActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/MarketPlaceActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/McardActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/McardActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/Mcardexclusive.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/Mcardexclusive.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/Mcardhtml.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/Mcardhtml.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/Mcardpremium.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/Mcardpremium.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/Mcardprivilege.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/Mcardprivilege.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/Mcardunlimited.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/Mcardunlimited.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/MyAccountActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/MyAccountActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/MyAccountMenuActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/MyAccountMenuActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/MyAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/MyAdapter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/MyBenefits.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/MyBenefits.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/MyBookingActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/MyBookingActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/OneTransactionsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OneTransactionsActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/OnepocketContainerActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OnepocketContainerActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/OnepocketPurchaseActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OnepocketPurchaseActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/PayParsers.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/PayParsers.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/PoliticalActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/PoliticalActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/ProofOfCoverageActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/ProofOfCoverageActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/PurchaseDetailActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/PurchaseDetailActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/QRScanActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/QRScanActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/RestaurantsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/RestaurantsActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/SearchAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/SearchAdapter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/SearchAdapterAutoCompleteConcierge.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/SearchAdapterAutoCompleteConcierge.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/SearchAdapterHotels.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/SearchAdapterHotels.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/SearchViewBuilder.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/SearchViewBuilder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/SendLogActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/SendLogActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/ServiceActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/ServiceActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/SplashScreenActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/SplashScreenActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/TaxiActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/TaxiActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/TermsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/TermsActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/TrackingActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/TrackingActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/TransactionHistoryActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/TransactionHistoryActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/VisaCheckoutActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/VisaCheckoutActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/VisaCheckoutApp.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/VisaCheckoutApp.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/adapters/ExpandableTransactionsAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/adapters/ExpandableTransactionsAdapter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/async/APIInfo.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/async/APIInfo.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/async/AddChatLines.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/async/AddChatLines.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/async/AirportCodes.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/async/AirportCodes.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/async/AsyncDownload.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/async/AsyncDownload.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/async/AsyncJSON.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/async/AsyncJSON.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/async/AsyncRestConciergeHelper.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/async/AsyncRestConciergeHelper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/async/AsyncRestHelper.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/async/AsyncRestHelper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/async/AsyncSoapObject.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/async/AsyncSoapObject.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/async/AsyncSoapObjectTest.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/async/AsyncSoapObjectTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/async/AsyncSoapPrimitive.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/async/AsyncSoapPrimitive.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/async/AsyncTaskBooleanResultEvent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/async/AsyncTaskBooleanResultEvent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/async/AsyncTaskIntegerResultEvent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/async/AsyncTaskIntegerResultEvent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/async/AsyncTaskMPosResultEvent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/async/AsyncTaskMPosResultEvent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/async/AsyncTaskSoapObjectResultEvent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/async/AsyncTaskSoapObjectResultEvent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/async/AsyncTaskSoapPrimitiveResultEvent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/async/AsyncTaskSoapPrimitiveResultEvent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/async/AsyncTaskStringResultEvent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/async/AsyncTaskStringResultEvent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/async/ChatEventsNext.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/async/ChatEventsNext.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/async/ChatInfo.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/async/ChatInfo.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/async/ChatRequest.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/async/ChatRequest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/async/ChatResourceEventsInfo.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/async/ChatResourceEventsInfo.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/async/CheckAvailability.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/async/CheckAvailability.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/async/ConciergeCodes.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/async/ConciergeCodes.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/async/EndChat.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/async/EndChat.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/async/GetBaseResource.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/async/GetBaseResource.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/async/LivePersonConstants.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/async/LivePersonConstants.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/async/MyBus.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/async/MyBus.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/broadcast/PushReceiver.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/broadcast/PushReceiver.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/models/AllemCommerceAccount.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/models/AllemCommerceAccount.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/models/AllemCommerceUser.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/models/AllemCommerceUser.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/models/AllemUser.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/models/AllemUser.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/models/Compra.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/models/Compra.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/models/CuentaCliente.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/models/CuentaCliente.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/models/CuentaClienteInfo.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/models/CuentaClienteInfo.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/models/CuentaClienteInfoAdicional.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/models/CuentaClienteInfoAdicional.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/models/CuentaClienteRecover.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/models/CuentaClienteRecover.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/models/McardCliente.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/models/McardCliente.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/models/Notifications.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/models/Notifications.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/models/Room.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/models/Room.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/models/Server.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/models/Server.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/models/SolicitudCobro.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/models/SolicitudCobro.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/models/Transaccion.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/models/Transaccion.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/models/TransactionDetails.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/models/TransactionDetails.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/parsers/SoapObjectParsers.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/parsers/SoapObjectParsers.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/twilio/BasicPhone.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/twilio/BasicPhone.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/utils/CircularImageView.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/utils/CircularImageView.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/utils/Constants.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/utils/Constants.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/utils/Contents.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/utils/Contents.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/utils/CustomizedEditText.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/utils/CustomizedEditText.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/utils/CustomizedTextView.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/utils/CustomizedTextView.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/utils/DrawerMenu.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/utils/DrawerMenu.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/utils/GPSTracker.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/utils/GPSTracker.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/utils/GraphicsUtils.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/utils/GraphicsUtils.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/utils/JSONParser.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/utils/JSONParser.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/utils/KeySaver.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/utils/KeySaver.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/utils/MyAutoCompleteTextView.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/utils/MyAutoCompleteTextView.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/utils/MyButton.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/utils/MyButton.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/utils/MyEditText.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/utils/MyEditText.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/utils/MyTextView.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/utils/MyTextView.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/utils/QRCodeEncoder.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/utils/QRCodeEncoder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/utils/SlideHolder.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/utils/SlideHolder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/visacheckout/utils/Util.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/utils/Util.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/test/java/com/allem/alleminmotion/visacheckout/ExampleUnitTest.java" afterPath="$PROJECT_DIR$/app/src/test/java/com/allem/alleminmotion/visacheckout/ExampleUnitTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_activation.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_activation.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_consierge_search.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_consierge_search.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_profile.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_profile.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_flights_search.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_flights_search.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_front_back.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_front_back.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_hotel_search.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_hotel_search.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_hotels_payment.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_hotels_payment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_intro_screen.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_intro_screen.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_loadanimate.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_loadanimate.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_market_place.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_market_place.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_my_account_menu.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_my_account_menu.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_one_transactions.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_one_transactions.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_onepocket_container.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_onepocket_container.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_onepocket_purchase.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_onepocket_purchase.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_proof_of_coverage.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_proof_of_coverage.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_qrscan.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_qrscan.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_restaurants.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_restaurants.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_send_log.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_send_log.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_splash_screen.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_splash_screen.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_visa_checkout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_visa_checkout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/booknow_activity.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/booknow_activity.xml" />
+    <list default="true" id="35cf9269-6e1a-4af8-861f-53c4d8b69051" name="Default" comment="- U">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/onepocket-sdk-0.9.63-100/onepocket-sdk-0.9.63-100.aar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/onepocket-sdk-0.9.63-100/build.gradle" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/onepocket-sdk-0.9.63-100/onepocket-sdk-0.9.63-100.iml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/onepocket-sdk-0.9.62-323/build.gradle" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/onepocket-sdk-0.9.62-323/onepocket-sdk-0.9.62-323.aar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/onepocket-sdk-0.9.62-323/onepocket-sdk-0.9.62-323.iml" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/onepocket_sdk_0_9_62_323_unspecified.xml" afterPath="$PROJECT_DIR$/.idea/libraries/onepocket_sdk_0_9_63_100_unspecified.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugAndroidTestJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugAndroidTestJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugAndroidTestJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugAndroidTestJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugAndroidTestJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugAndroidTestJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_adults_children_infants_textviews.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_adults_children_infants_textviews.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_alert_dialog_accept_terms_conditions.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_alert_dialog_accept_terms_conditions.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_concierge_destination.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_concierge_destination.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_concierge_header.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_concierge_header.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_coverage_header.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_coverage_header.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_date_of_trip_selector.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_date_of_trip_selector.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_date_selector_without_onclick.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_date_selector_without_onclick.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_flights_header.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_flights_header.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_hotels_header.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_hotels_header.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_hotels_rooms.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_hotels_rooms.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_marker_layout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_marker_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_passengers_cabin_search_flights.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_passengers_cabin_search_flights.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_search_concierge.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_search_concierge.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_tab.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_tab.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/drawer_menu.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/drawer_menu.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/entertitle.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/entertitle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_back.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_back.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_call_in_progress.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_call_in_progress.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_card_info.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_card_info.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_chat_in_progress.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_chat_in_progress.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_concierge.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_concierge.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_entertainment.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_entertainment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_front.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_front.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_hotels.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_hotels.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_legal.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_legal.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_loading.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_loading.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login_newuser.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login_newuser.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_my_information.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_my_information.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_recover_password.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_recover_password.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_recoverpass_conf.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_recoverpass_conf.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_search_concierge_in_progress.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_search_concierge_in_progress.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_search_hotel_in_progress.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_search_hotel_in_progress.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/get_your_certificate.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/get_your_certificate.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/header_map.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/header_map.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/homeactivity_handy.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/homeactivity_handy.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/homeadapter.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/homeadapter.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/homefra_activity.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/homefra_activity.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/invoice_activity.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/invoice_activity.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/map_activity.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/map_activity.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/mapdialog.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/mapdialog.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_search.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_search.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/mybooking_activity.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/mybooking_activity.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/mybooking_cv_adapter.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/mybooking_cv_adapter.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/successful_register.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/successful_register.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/timedate_activity.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/timedate_activity.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/tracking_adapter_layout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/tracking_adapter_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/tracking_layout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/tracking_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Allegra-Android.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -245,124 +53,45 @@
     <option name="PATCH_PATH" value="" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view />
+      </state>
+    </system>
+  </component>
   <component name="FavoritesManager">
     <favorites_list name="Allegra-Android" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MapActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/MapActivity.java">
+      <file leaf-file-name="OnepocketPurchaseActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OnepocketPurchaseActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="468" column="102" selection-start-line="468" selection-start-column="102" selection-end-line="468" selection-end-column="102" />
+              <caret line="131" column="0" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
               <folding>
-                <element signature="e#17399#17400#0" expanded="false" />
-                <element signature="e#17439#17440#0" expanded="false" />
-                <element signature="e#19522#19523#0" expanded="false" />
-                <element signature="e#19570#19571#0" expanded="false" />
-                <element signature="e#19632#19633#0" expanded="false" />
-                <element signature="e#19684#19685#0" expanded="false" />
-                <element signature="e#33761#33762#0" expanded="false" />
-                <element signature="e#33825#33826#0" expanded="false" />
-                <element signature="e#42871#42872#0" expanded="false" />
-                <element signature="e#42946#42947#0" expanded="false" />
+                <element signature="e#4187#4314#0" expanded="true" />
+                <element signature="e#4313#4314#0" expanded="true" />
+                <element signature="e#4356#4999#0" expanded="true" />
+                <element signature="e#4998#4999#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.29753914">
-              <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.5016949">
+              <caret line="47" column="22" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="autocomplete_cell.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/autocomplete_cell.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FrontBackAnimate.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/FrontBackAnimate.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="56" column="17" selection-start-line="56" selection-start-column="15" selection-end-line="56" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#2415#2416#0" expanded="false" />
-                <element signature="e#2461#2462#0" expanded="false" />
-                <element signature="e#5546#5547#0" expanded="false" />
-                <element signature="e#5586#5587#0" expanded="false" />
-                <element signature="e#6232#6233#0" expanded="false" />
-                <element signature="e#6269#6270#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FrontFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/FrontFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#1638#1846#0" expanded="false" />
-                <element signature="e#1845#1846#0" expanded="false" />
-                <element signature="e#4495#4496#0" expanded="false" />
-                <element signature="e#4531#4532#0" expanded="false" />
-                <element signature="e#5185#5186#0" expanded="false" />
-                <element signature="e#5213#5214#0" expanded="false" />
-                <element signature="e#9114#9969#0" expanded="false" />
-                <element signature="e#9968#9969#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChatActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/ChatActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="277" column="0" selection-start-line="277" selection-start-column="0" selection-end-line="277" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#3293#3294#0" expanded="false" />
-                <element signature="e#3317#3318#0" expanded="false" />
-                <element signature="e#4008#4278#0" expanded="false" />
-                <element signature="e#4277#4278#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_intro_screen.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_intro_screen.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="12" column="48" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="info.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/raw/info.json">
+      <file leaf-file-name="settings.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/settings.gradle">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -371,25 +100,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="events.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/raw/events.json">
+      <file leaf-file-name="FrontBackAnimate.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/FrontBackAnimate.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+              <caret line="91" column="29" selection-start-line="91" selection-start-column="29" selection-end-line="91" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SplashScreenActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/SplashScreenActivity.java">
+      <file leaf-file-name="OnepocketContainerActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OnepocketContainerActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+              <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Mcardhtml.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/Mcardhtml.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="81" column="32" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="32" />
               <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#999#1306#0" expanded="false" />
-                <element signature="e#1305#1306#0" expanded="false" />
+                <marker date="1469783849000" expanded="true" signature="979:1154" placeholder="//..." />
               </folding>
             </state>
           </provider>
@@ -421,8 +158,8 @@
                 <option name="path" value="$PROJECT_DIR$" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
-                <option name="name" value=":onepocket-sdk-0.9.62-323" />
-                <option name="path" value="$PROJECT_DIR$/onepocket-sdk-0.9.62-323" />
+                <option name="name" value=":onepocket-sdk-0.9.63-100" />
+                <option name="path" value="$PROJECT_DIR$/onepocket-sdk-0.9.63-100" />
               </ExternalProjectPojo>
             </list>
           </value>
@@ -895,9 +632,9 @@
                 <option name="name" value="preReleaseUnitTestBuild" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare Allegra-Android:onepocket-sdk-0.9.62-323:unspecified" />
+                <option name="description" value="Prepare Allegra-Android:onepocket-sdk-0.9.63-100:unspecified" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareAllegraAndroidOnepocketSdk0962323UnspecifiedLibrary" />
+                <option name="name" value="prepareAllegraAndroidOnepocketSdk0963100UnspecifiedLibrary" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Prepare :card.io-5.3.0:" />
@@ -1798,9 +1535,9 @@
                 <option name="name" value="preReleaseUnitTestBuild" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare Allegra-Android:onepocket-sdk-0.9.62-323:unspecified" />
+                <option name="description" value="Prepare Allegra-Android:onepocket-sdk-0.9.63-100:unspecified" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareAllegraAndroidOnepocketSdk0962323UnspecifiedLibrary" />
+                <option name="name" value="prepareAllegraAndroidOnepocketSdk0963100UnspecifiedLibrary" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Prepare :card.io-5.3.0:" />
@@ -2327,11 +2064,62 @@
             </list>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/onepocket-sdk-0.9.63-100">
+          <value>
+            <list>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays all buildscript dependencies declared in project ':onepocket-sdk-0.9.63-100'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-0.9.63-100" />
+                <option name="name" value="buildEnvironment" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the components produced by project ':onepocket-sdk-0.9.63-100'. [incubating]" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-0.9.63-100" />
+                <option name="name" value="components" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays all dependencies declared in project ':onepocket-sdk-0.9.63-100'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-0.9.63-100" />
+                <option name="name" value="dependencies" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the insight into a specific dependency in project ':onepocket-sdk-0.9.63-100'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-0.9.63-100" />
+                <option name="name" value="dependencyInsight" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays a help message." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-0.9.63-100" />
+                <option name="name" value="help" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the configuration model of project ':onepocket-sdk-0.9.63-100'. [incubating]" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-0.9.63-100" />
+                <option name="name" value="model" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the sub-projects of project ':onepocket-sdk-0.9.63-100'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-0.9.63-100" />
+                <option name="name" value="projects" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the properties of project ':onepocket-sdk-0.9.63-100'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-0.9.63-100" />
+                <option name="name" value="properties" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the tasks runnable from project ':onepocket-sdk-0.9.63-100'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-0.9.63-100" />
+                <option name="name" value="tasks" />
+              </ExternalTaskPojo>
+            </list>
+          </value>
+        </entry>
       </map>
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="5878778442000" />
+        <entry key="$PROJECT_DIR$" value="5879051705000" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -2757,6 +2545,119 @@
                       </ExternalModuleBuildClasspathPojo>
                     </value>
                   </entry>
+                  <entry key="$PROJECT_DIR$/onepocket-sdk-0.9.63-100">
+                    <value>
+                      <ExternalModuleBuildClasspathPojo>
+                        <option name="entries">
+                          <list>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/gradle/2.1.2/831c63d2b30ed5f96a1cd9fd141594baf947b956/gradle-2.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/gradle/2.1.2/a15b8a1abdb158716cb2eca322c8c055dcf3c73d/gradle-2.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/gradle-core/2.1.2/b0d10d83f1147cb8182c0ded4d5403d8d37331ef/gradle-core-2.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/gradle-core/2.1.2/23fa54cbd68abe0d190b3f19b8db553c22b1e95e/gradle-core-2.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/builder/2.1.2/10a052d4d411f30a12b21f942449a1f5deea1860/builder-2.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/builder/2.1.2/b0f8f1b2be1cca433af04ac59c032bb65f104f68/builder-2.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.lint/lint/25.1.2/cf990f1875849b4a3a3dcd4c7427b950a1ae5b02/lint-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.lint/lint/25.1.2/73b0fca79c61b7d4212354d2dc54310f18d3eab1/lint-25.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/transform-api/2.0.0-deprecated-use-gradle-api/e4075c49e16e086140fe40eea56b2de7516874ee/transform-api-2.0.0-deprecated-use-gradle-api-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/transform-api/2.0.0-deprecated-use-gradle-api/85bee1acea9e27152b920746c68133b30b11431/transform-api-2.0.0-deprecated-use-gradle-api.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/gradle-api/2.1.2/95dab283a496d4434ecfa3b456fc9902e85bcb51/gradle-api-2.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/gradle-api/2.1.2/13a4ad6e82603eca38f0f46e308db7b2374bd33a/gradle-api-2.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.databinding/compilerCommon/2.1.2/553d79a3f70520b5d4b642f8fdd44f010be02980/compilerCommon-2.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.databinding/compilerCommon/2.1.2/658479d60a2ad7f511ea43028a9dbe6f7658779d/compilerCommon-2.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm/5.0.3/asm-5.0.3-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm/5.0.3/asm-5.0.3.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-commons/5.0.3/f0f24f6666c1a15c7e202e91610476bd4ce59368/asm-commons-5.0.3-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-commons/5.0.3/a7111830132c7f87d08fe48cb0ca07630f8cb91c/asm-commons-5.0.3.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-gradle/5.2.1/proguard-gradle-5.2.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-gradle/5.2.1/proguard-gradle-5.2.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/jacoco/org.jacoco.core/0.7.4.201502262128/org.jacoco.core-0.7.4.201502262128-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/jacoco/org.jacoco.core/0.7.4.201502262128/org.jacoco.core-0.7.4.201502262128.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/antlr/antlr/3.5.2/antlr-3.5.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/builder-model/2.1.2/f19905b8b3f1ee051f3557d25bf1ce83e97e9ba3/builder-model-2.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/builder-model/2.1.2/54929c8a9d8c2dd13c945c3f5ad0ec5546cdc006/builder-model-2.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/builder-test-api/2.1.2/5b452a5ddbdd43c47f519be4d93b57562d495aca/builder-test-api-2.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/builder-test-api/2.1.2/ee73cc6c008005128538d86c1c56a27e2d96c32/builder-test-api-2.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/sdklib/25.1.2/21775dd82ab275653b7d1d76f5026b7675841e90/sdklib-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/sdklib/25.1.2/59cdf46da07c365d456606d3985a51702db87c24/sdklib-25.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/sdk-common/25.1.2/1ab12362d3631876ff7108cee05860cdcdae2aae/sdk-common-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/sdk-common/25.1.2/1dcda99e022faddbf24336c0c8b37398773f4c36/sdk-common-25.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/common/25.1.2/6916af9c1306f7eb55428cef97d8beeae1a69670/common-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/common/25.1.2/c15c73c5ddedc9ac2afdfda827fa23a9b59b9b9d/common-25.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/manifest-merger/25.1.2/c31b678259df5cffbf0892be0e3fff8525705f1c/manifest-merger-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/manifest-merger/25.1.2/2f070c6b90be1642f37aafe15e42f21ba73394da/manifest-merger-25.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.ddms/ddmlib/25.1.2/838cad7e7534af0207b3cdf5685724ac93c4fcfd/ddmlib-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.ddms/ddmlib/25.1.2/521439862ec854d683a19a351fcc3beda4653346/ddmlib-25.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.jack/jack-api/0.10.0/93c3b096c028929ae9ec7414bd8da03b4feb6893/jack-api-0.10.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.jack/jack-api/0.10.0/f44f53e8f713714f9a1bf9b2cabfea3584b00878/jack-api-0.10.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.jill/jill-api/0.10.0/86d40c97b995035915303e5aa051980b9ec2d252/jill-api-0.10.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.jill/jill-api/0.10.0/7dfd6360ae4af1e171ec67b92e0cf065d59eef19/jill-api-0.10.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/squareup/javawriter/2.5.0/javawriter-2.5.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/squareup/javawriter/2.5.0/javawriter-2.5.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcpkix-jdk15on/1.48/bcpkix-jdk15on-1.48-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcpkix-jdk15on/1.48/bcpkix-jdk15on-1.48.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcprov-jdk15on/1.48/bcprov-jdk15on-1.48-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcprov-jdk15on/1.48/bcprov-jdk15on-1.48.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-tree/5.0.3/asm-tree-5.0.3-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-tree/5.0.3/asm-tree-5.0.3.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.lint/lint-checks/25.1.2/433c9236b299a30633c7a82ac4ab1b2b7fa52e0/lint-checks-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.lint/lint-checks/25.1.2/68583e445a033021d9792c9d84ac7ce8ea549c81/lint-checks-25.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/eclipse/jdt/core/compiler/ecj/4.4.2/ecj-4.4.2-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/eclipse/jdt/core/compiler/ecj/4.4.2/ecj-4.4.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/annotations/25.1.2/e7aa50c5649e0ad23ce4fa6b2aa7b53fc5ce8bd7/annotations-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/annotations/25.1.2/9dbfadaaf19097c12787c68cf43a12c739936345/annotations-25.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/guava/guava/17.0/guava-17.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/guava/guava/17.0/guava-17.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.databinding/baseLibrary/2.1.2/2d98da9b8a210c81d0456a09c702b84beea32be/baseLibrary-2.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.databinding/baseLibrary/2.1.2/d0395908c940f4171fb024435b25f7458c1147f3/baseLibrary-2.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/tunnelvisionlabs/antlr4/4.5/antlr4-4.5.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-io/commons-io/2.4/commons-io-2.4-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-io/commons-io/2.4/commons-io-2.4.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/googlecode/juniversalchardet/juniversalchardet/1.0.3/juniversalchardet-1.0.3.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-base/5.2.1/proguard-base-5.2.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-base/5.2.1/proguard-base-5.2.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-debug-all/5.0.1/asm-debug-all-5.0.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-debug-all/5.0.1/asm-debug-all-5.0.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/antlr/antlr-runtime/3.5.2/antlr-runtime-3.5.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/antlr/ST4/4.0.8/ST4-4.0.8.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.layoutlib/layoutlib-api/25.1.2/77d6be5f7434bbee7ba7e259f1ccad79e2fbde6/layoutlib-api-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.layoutlib/layoutlib-api/25.1.2/b93f0de181063ee2f673d7d6cac0bdbb94cc1b90/layoutlib-api-25.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/dvlib/25.1.2/7d06048ed915a03eaf99c70bbc6e68d10324c30e/dvlib-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/dvlib/25.1.2/bfcb16fb0e44568bd8e31c6aaf1850c1dcd06483/dvlib-25.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/repository/25.1.2/d5bc6e179c237124e51b4af951e4caf0f31d4837/repository-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/repository/25.1.2/1a1f5f59b21a42817eec50b7aced4400bb72273b/repository-25.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/code/gson/gson/2.2.4/gson-2.2.4-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/commons/commons-compress/1.8.1/commons-compress-1.8.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/commons/commons-compress/1.8.1/commons-compress-1.8.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpclient/4.1.1/httpclient-4.1.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpclient/4.1.1/httpclient-4.1.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpmime/4.1/httpmime-4.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpmime/4.1/httpmime-4.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.lint/lint-api/25.1.2/2a9b10f19fc2bf1cca643a9770e4738d9b121ed3/lint-api-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.lint/lint-api/25.1.2/f9f6807b68d486eaf34cc3f08b6f098f89cf3db8/lint-api-25.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-analysis/5.0.3/asm-analysis-5.0.3-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-analysis/5.0.3/asm-analysis-5.0.3.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/tunnelvisionlabs/antlr4-runtime/4.5/antlr4-runtime-4.5.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/tunnelvisionlabs/antlr4-annotations/4.5/antlr4-annotations-4.5.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/intellij/annotations/12.0/annotations-12.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/intellij/annotations/12.0/annotations-12.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpcore/4.1/httpcore-4.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpcore/4.1/httpcore-4.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-codec/commons-codec/1.4/commons-codec-1.4-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-codec/commons-codec/1.4/commons-codec-1.4.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.3/lombok-ast-0.2.3-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.3/lombok-ast-0.2.3.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/abego/treelayout/org.abego.treelayout.core/1.0.1/org.abego.treelayout.core-1.0.1.jar" />
+                          </list>
+                        </option>
+                        <option name="path" value="$PROJECT_DIR$/onepocket-sdk-0.9.63-100" />
+                      </ExternalModuleBuildClasspathPojo>
+                    </value>
+                  </entry>
                 </map>
               </option>
               <option name="name" value="app" />
@@ -2891,8 +2792,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/ActivationActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/allem/alleminmotion/utils/CustomizedEditText.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/allem/handyuvisa/utils/CustomizedEditText.java" />
@@ -2910,6 +2809,15 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/autocomplete_cell.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/FrontFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/SplashScreenActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/MarketPlaceActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/utils/Constants.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/MyAccountActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/Mcardhtml.java" />
+        <option value="$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-0.9.62-323/unspecified/jars/classes.jar!/com/allem/onepocket/MCardFragment.class" />
+        <option value="$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-0.9.62-323/unspecified/jars/classes.jar!/com/allem/onepocket/utils/OneTransactionParser.class" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
       </list>
     </option>
   </component>
@@ -2951,6 +2859,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
       <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
@@ -2960,320 +2870,8 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Allegra-Android" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Allegra-Android" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pdfviewer" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Allegra-Android" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fonts" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Allegra-Android" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xml" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Allegra-Android" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="values" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Allegra-Android" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="raw" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Allegra-Android" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Allegra-Android" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Allegra-Android" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drawable" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Allegra-Android" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="color" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Allegra-Android" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="animator" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Allegra-Android" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="anim" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Allegra-Android" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Allegra-Android" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Allegra-Android" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="allegra" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="handyuvisa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Allegra-Android" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="allegra" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="handyuvisa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Allegra-Android" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="allegra" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="ProjectPane" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -3281,10 +2879,16 @@
     <property name="settings.editor.selected.configurable" value="android.sdk-updates" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
-    <property name="SearchEverywhereHistoryKey" value="android&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/AndroidManifest.xml&#10;spl&#9;PSI&#9;JAVA://com.allegra.handyuvisa.SplashScreenActivity&#10;frontfra&#9;PSI&#9;JAVA://com.allegra.handyuvisa.FrontFragment&#10;fron&#9;PSI&#9;JAVA://com.allegra.handyuvisa.FrontBackAnimate.FrontFragment&#10;build.&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build.gradle&#10;androidman&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/AndroidManifest.xml&#10;consta&#9;PSI&#9;JAVA://com.allem.alleminmotion.visacheckout.utils.Constants" />
+    <property name="SearchEverywhereHistoryKey" value="onepoc&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OnepocketPurchaseActivity.java&#10;mcardfrag&#9;PSI&#9;JAVA://com.allem.onepocket.MCardFragment&#10;m&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/Mcardhtml.java&#10;onecon&#9;PSI&#9;JAVA://com.allegra.handyuvisa.OnepocketContainerActivity&#10;one&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OnepocketPurchaseActivity.java&#10;asynconstan&#9;PSI&#9;JAVA://com.allem.onepocket.async.AsyncConstants&#10;mcard&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/Mcardhtml.java&#10;log&#9;PSI&#9;JAVA://com.allegra.handyuvisa.LoginActivity&#10;gra&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build.gradle&#10;mcar&#9;PSI&#9;JAVA://com.allegra.handyuvisa.Mcardhtml&#10;mark&#9;PSI&#9;JAVA://com.allegra.handyuvisa.MarketPlaceActivity&#10;consta&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/utils/Constants.java&#10;makevc&#9;PSI&#9;JAVA://com.allem.onepocket.async.vco.MakeVCOPayment&#10;onepo&#9;PSI&#9;JAVA://com.allegra.handyuvisa.OnepocketPurchaseActivity&#10;android&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/AndroidManifest.xml&#10;spl&#9;PSI&#9;JAVA://com.allegra.handyuvisa.SplashScreenActivity&#10;frontfra&#9;PSI&#9;JAVA://com.allegra.handyuvisa.FrontFragment&#10;fron&#9;PSI&#9;JAVA://com.allegra.handyuvisa.FrontBackAnimate.FrontFragment&#10;build.&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build.gradle&#10;androidman&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/AndroidManifest.xml" />
     <property name="ignore_missing_gitignore" value="true" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="01157df1d2dc7d1b" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_5_API_22" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../OnePocket-Android/onepocket/build/outputs/aar/onepocket-sdk-0.9.63-100.aar" />
+    <property name="DEBUGGABLE_DEVICE" value="samsung-sm_g920f-01157df1d2dc7d1b" />
+    <property name="DEBUGGABLE_PROCESS" value="com.allegra.handyuvisa" />
+    <property name="SHOW_ALL_PROCESSES" value="false" />
+    <property name="android.project.structure.last.selected" value="SDK Location" />
+    <property name="android.project.structure.proportion" value="0.15" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -3346,6 +2950,15 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workDir" value="file://$PROJECT_DIR$" />
+      <setting name="debug" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -3475,8 +3088,9 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27824858" sideWeight="0.4914163" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32909605" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34745762" sideWeight="0.4914163" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.54378533" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909605" sideWeight="0.4914163" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -3487,17 +3101,24 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3559322" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909605" sideWeight="0.4914163" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909605" sideWeight="0.49356222" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -3507,96 +3128,55 @@
     <option name="LAST_COMMIT_MESSAGE" value="- Change app id to com.allegra.handyuvisa in build.gradle and package name to com.allegra.handyuvisa in AndroidManifest.xml. Also, refactor the source code to use  com.allegra.handyuvisa as the java package" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OnepocketPurchaseActivity.java</url>
+          <line>105</line>
+          <properties />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-0.9.62-323/unspecified/jars/classes.jar!/com/allem/onepocket/async/vco/MakeVCOPayment.class</url>
+          <line>72</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-0.9.62-323/unspecified/jars/classes.jar!/com/allem/onepocket/MCardFragment.class</url>
+          <line>134</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OnepocketPurchaseActivity.java</url>
+          <line>28</line>
+          <properties />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OnepocketPurchaseActivity.java</url>
+          <line>131</line>
+          <properties />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-0.9.62-323/unspecified/jars/classes.jar!/com/allem/onepocket/PurchaseSummaryFragment.class</url>
+          <line>48</line>
+          <properties />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-0.9.62-323/unspecified/jars/classes.jar!/com/allem/onepocket/utils/OneTransactionParser.class</url>
+          <line>93</line>
+          <properties />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="7" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/MapActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="468" column="102" selection-start-line="468" selection-start-column="102" selection-end-line="468" selection-end-column="102" />
-          <folding>
-            <element signature="e#17399#17400#0" expanded="false" />
-            <element signature="e#17439#17440#0" expanded="false" />
-            <element signature="e#19522#19523#0" expanded="false" />
-            <element signature="e#19570#19571#0" expanded="false" />
-            <element signature="e#19632#19633#0" expanded="false" />
-            <element signature="e#19684#19685#0" expanded="false" />
-            <element signature="e#33761#33762#0" expanded="false" />
-            <element signature="e#33825#33826#0" expanded="false" />
-            <element signature="e#42871#42872#0" expanded="false" />
-            <element signature="e#42946#42947#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/autocomplete_cell.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/FrontBackAnimate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="56" column="17" selection-start-line="56" selection-start-column="15" selection-end-line="56" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2415#2416#0" expanded="false" />
-            <element signature="e#2461#2462#0" expanded="false" />
-            <element signature="e#5546#5547#0" expanded="false" />
-            <element signature="e#5586#5587#0" expanded="false" />
-            <element signature="e#6232#6233#0" expanded="false" />
-            <element signature="e#6269#6270#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/FrontFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1638#1846#0" expanded="false" />
-            <element signature="e#1845#1846#0" expanded="false" />
-            <element signature="e#4495#4496#0" expanded="false" />
-            <element signature="e#4531#4532#0" expanded="false" />
-            <element signature="e#5185#5186#0" expanded="false" />
-            <element signature="e#5213#5214#0" expanded="false" />
-            <element signature="e#9114#9969#0" expanded="false" />
-            <element signature="e#9968#9969#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/ChatActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="277" column="0" selection-start-line="277" selection-start-column="0" selection-end-line="277" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#3293#3294#0" expanded="false" />
-            <element signature="e#3317#3318#0" expanded="false" />
-            <element signature="e#4008#4278#0" expanded="false" />
-            <element signature="e#4277#4278#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_intro_screen.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -3664,9 +3244,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3674,7 +3251,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3682,17 +3258,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/utils/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="112" column="21" selection-start-line="112" selection-start-column="21" selection-end-line="112" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3700,9 +3265,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3710,17 +3272,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="52" column="5" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="45" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3728,7 +3279,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3744,7 +3294,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3752,7 +3301,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="29" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3768,7 +3316,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3776,7 +3323,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3792,7 +3338,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3838,18 +3383,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="468" column="102" selection-start-line="468" selection-start-column="102" selection-end-line="468" selection-end-column="102" />
-          <folding>
-            <element signature="e#17399#17400#0" expanded="false" />
-            <element signature="e#17439#17440#0" expanded="false" />
-            <element signature="e#19522#19523#0" expanded="false" />
-            <element signature="e#19570#19571#0" expanded="false" />
-            <element signature="e#19632#19633#0" expanded="false" />
-            <element signature="e#19684#19685#0" expanded="false" />
-            <element signature="e#33761#33762#0" expanded="false" />
-            <element signature="e#33825#33826#0" expanded="false" />
-            <element signature="e#42871#42872#0" expanded="false" />
-            <element signature="e#42946#42947#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3864,37 +3398,11 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/FrontBackAnimate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="56" column="17" selection-start-line="56" selection-start-column="15" selection-end-line="56" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2415#2416#0" expanded="false" />
-            <element signature="e#2461#2462#0" expanded="false" />
-            <element signature="e#5546#5547#0" expanded="false" />
-            <element signature="e#5586#5587#0" expanded="false" />
-            <element signature="e#6232#6233#0" expanded="false" />
-            <element signature="e#6269#6270#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/FrontFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1638#1846#0" expanded="false" />
-            <element signature="e#1845#1846#0" expanded="false" />
-            <element signature="e#4495#4496#0" expanded="false" />
-            <element signature="e#4531#4532#0" expanded="false" />
-            <element signature="e#5185#5186#0" expanded="false" />
-            <element signature="e#5213#5214#0" expanded="false" />
-            <element signature="e#9114#9969#0" expanded="false" />
-            <element signature="e#9968#9969#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3929,13 +3437,13 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/ChatActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="277" column="0" selection-start-line="277" selection-start-column="0" selection-end-line="277" selection-end-column="0" />
+          <caret line="281" column="0" selection-start-line="281" selection-start-column="0" selection-end-line="281" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
             <element signature="e#3293#3294#0" expanded="false" />
             <element signature="e#3317#3318#0" expanded="false" />
             <element signature="e#4008#4278#0" expanded="false" />
             <element signature="e#4277#4278#0" expanded="false" />
+            <marker date="1469765145000" expanded="false" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -3953,8 +3461,103 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.29753914">
-          <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/MarketPlaceActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/com/allegra/handyuvisa/BuildConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.8148148">
+          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/MyAccountActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="104" column="39" selection-start-line="104" selection-start-column="39" selection-end-line="104" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/utils/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="65" column="32" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="206" column="17" selection-start-line="206" selection-start-column="17" selection-end-line="206" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/Mcardhtml.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="81" column="32" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="32" />
+          <folding>
+            <marker date="1469783849000" expanded="true" signature="979:1154" placeholder="//..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OnepocketContainerActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/FrontBackAnimate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="91" column="29" selection-start-line="91" selection-start-column="29" selection-end-line="91" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OnepocketPurchaseActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="131" column="0" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
+          <folding>
+            <element signature="e#4187#4314#0" expanded="true" />
+            <element signature="e#4313#4314#0" expanded="true" />
+            <element signature="e#4356#4999#0" expanded="true" />
+            <element signature="e#4998#4999#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5016949">
+          <caret line="47" column="22" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="22" />
           <folding />
         </state>
       </provider>

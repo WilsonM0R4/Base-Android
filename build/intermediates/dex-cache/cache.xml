@@ -317,13 +317,6 @@
         <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/TrustDefenderMobile_NoLog-3.2-98_7e70cb8287f83efd508a94bdde89c4b14f9733ad/classes.dex" />
     </item>
     <item
-        jar="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-0.9.62-323/unspecified/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="a1fe5ae38d047b00c982e032716943be96d6e9fa">
-        <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/4/Allegra-Android-onepocket-sdk-0.9.62-323-unspecified_2ddcd81bd8d5a243e4f44141d72750fadaebc2bc/classes.dex" />
-    </item>
-    <item
         jar="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager/9.0.2/jars/classes.jar"
         jumboMode="false"
         revision="23.0.2"
@@ -371,6 +364,13 @@
         revision="23.0.2"
         sha1="03d38bb042efe3e5ce27ba66b729a9523c36d8fe">
         <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.0.0_ee85639fffdd1125f97d615d13bad96703452b6f/classes.dex" />
+    </item>
+    <item
+        jar="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-0.9.63-100/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="9bff9bc315ab84bd24dd396785a8c5dc04b2ac3f">
+        <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/4/Allegra-Android-onepocket-sdk-0.9.63-100-unspecified_1caa66bdea55a84b404d515f5e20b73f83cf5791/classes.dex" />
     </item>
     <item
         jar="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-storage-common/9.0.2/jars/classes.jar"

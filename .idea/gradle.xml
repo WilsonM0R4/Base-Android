@@ -10,7 +10,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/onepocket-sdk-0.9.62-323" />
+            <option value="$PROJECT_DIR$/onepocket-sdk-0.9.63-100" />
           </set>
         </option>
       </GradleProjectSettings>
