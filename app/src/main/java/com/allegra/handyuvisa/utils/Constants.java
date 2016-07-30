@@ -35,8 +35,8 @@ public class Constants {
     public final static String USERNAME = "userkey";
     public final static String PASSWORD = "passkey";
 
-    public final static boolean TESTING = true;
-    public final static boolean TESTING_AIR = true;
+    public final static boolean TESTING = false;
+    public final static boolean TESTING_AIR = false;
 /*
 *Cualquier SOAP_ACTION = URL_ALLEM_BASE+"/"+METHOD;
 *
