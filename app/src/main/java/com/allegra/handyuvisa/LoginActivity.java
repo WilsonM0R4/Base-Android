@@ -64,6 +64,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
     private ProgressBar pb_login;
     private TextView version, forgotpass;
 
+    //*************************OVERRIDE METHODS*********************
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -278,10 +279,16 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
             setWaitinUI(false);
             if (event.getResult() != null) {
 
+                //Create an AllemUser object and set values
                 AllemUser user = SoapObjectParsers.toAllemUser(event.getResult());
                 ((VisaCheckoutApp) this.getApplication()).setIdSession(user.idSesion);
                 ((VisaCheckoutApp) this.getApplication()).setIdCuenta(user.idCuenta);
                 ((VisaCheckoutApp) this.getApplication()).setRawPassword(password.getText().toString());
+
+
+
+
+                //Get values for work with these
                 String name = user.email.substring(0, user.email.indexOf('@'));
                 String domain = user.email.substring(user.email.indexOf('@') + 1, user.email.length()).replace(".", "");
                 String channel = name + domain + user.idCuenta;

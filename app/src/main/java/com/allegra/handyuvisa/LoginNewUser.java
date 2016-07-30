@@ -574,7 +574,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                     et_surname.setTextColor(Color.BLACK);
                     et_surname.setHintTextColor(Color.BLACK);
                 }
-                btn_sendreg.setEnabled(checkFields());
+                //btn_sendreg.setEnabled(checkFields());
             }
         });
         et_password.addTextChangedListener(new TextWatcher() {
@@ -597,7 +597,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                     et_password.setTextColor(Color.BLACK);
                     et_password.setHintTextColor(Color.BLACK);
                 }
-                btn_sendreg.setEnabled(checkFields());
+                //btn_sendreg.setEnabled(checkFields());
             }
         });
 

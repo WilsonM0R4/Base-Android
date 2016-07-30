@@ -32,9 +32,10 @@ import org.ksoap2.serialization.PropertyInfo;
 
 import java.lang.reflect.Field;
 
-//TODO: Wilson Bug
+
 public class EditProfileActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
 
+    //*********GLOBAL ATTRIBUTES****************
     private final String M_SELECTION_DIVIDER = "mSelectionDivider";
     CustomizedEditText txtName, txtLastName, txtMobile, txtEmail, txtPass, txtNewPass, txtNewPassConfirm;
     Button cancel, save;
@@ -42,8 +43,10 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
     private ProgressBar pb_create;
     private NumberPicker countryPicker, typeOfIdPicker;
     private Context ctx;
-    TextView txtTypeOfIdSelected;
+    TextView txtTypeOfIdSelected, txtSelectCountry;
 
+
+    //*********OVERRIDE METHODS****************
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +55,21 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
         MyBus.getInstance().register(this);
     }
 
+    @Override
+    public void initViews(View root) {
+        setViewElements(root);
+        setListeners();
+    }
+
+    @Override
+    protected void onDestroy() {
+        MyBus.getInstance().unregister(this);
+        super.onDestroy();
+    }
+
+    //*********PROPER METHODS****************
+
+    //CUMPLE LA FUNCIÓN DEL MÉTODO initViews
     private void setViewElements(View root){
 
         txtTypeOfIdSelected = (TextView) root.findViewById(R.id.etTypeOfId);
@@ -65,21 +83,19 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
         txtNewPass=(CustomizedEditText) root.findViewById(R.id.et_new_password);
         pb_create = (ProgressBar) root.findViewById(R.id.pb_create);
         txtNewPassConfirm=(CustomizedEditText) root.findViewById(R.id.et_reppassword);
+        txtSelectCountry = (TextView)root.findViewById(R.id.et_country_mobile);
         loadUserProfile();
     }
 
-    @Override
-    protected void onDestroy() {
-        MyBus.getInstance().unregister(this);
-        super.onDestroy();
-    }
-
+    //Carga y setea los datos del usuario
     private void loadUserProfile(){
+
         user = Constants.getUser(this);
         txtName.setText(user.nombre);
         txtLastName.setText(user.apellido);
         if(user.celular.length()>0) txtMobile.setText(user.celular);
         txtEmail.setText(user.email);
+        //txtTypeOfIdSelected.setText(user.get?);
         CuentaClienteInfoAdicional codigoPais = new CuentaClienteInfoAdicional();
 
     }
@@ -160,6 +176,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
 
     }
 
+    //Validate and send new user information
     private void updateUser(){
 
         if(validateData()) {
@@ -221,8 +238,6 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
 
         if(txtPass.getText().toString().length()>0 || txtNewPass.getText().toString().length()>0 || txtNewPassConfirm.getText().toString().length()>0) {
 
-
-
             if (txtPass.getText().toString().length() < 6) {
                 txtPass.setTextColor(Color.RED);
                 txtPass.setHintTextColor(Color.RED);
@@ -245,15 +260,12 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             }
 
         }
-
-
         return result;
     }
 
     public void onMenu(View view) {
         animate();
     }
-
 
     private void setListeners(){
         cancel.setOnClickListener(new View.OnClickListener() {
@@ -277,6 +289,70 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             }
         });
 
+        txtSelectCountry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onAlertSelectCountry();
+            }
+        });
+
+    }
+
+    private void onAlertSelectCountry() {
+
+        Log.e("Bug 1", "Entro");
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.custom_country_selector_picker_dialog);
+        dialog.show();
+        countryPicker = new NumberPicker(this);
+        countryPicker = (NumberPicker) dialog.findViewById(R.id.selectCountryPicker);
+        countryPicker.setMinValue(0);
+        countryPicker.setMaxValue(4);
+        countryPicker.setWrapSelectorWheel(false);
+        countryPicker.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
+        countryPicker.setDisplayedValues(new String[]{getString(R.string.COLOMBIA),
+                getString(R.string.ECUADOR), getString(R.string.PERU), getString(R.string.UNITED_STATES),getString(R.string.ARGENTINA)});
+        setDividerColor(countryPicker);
+        //TextViews (Cancel and Ok)
+        TextView textCancel = (TextView) dialog.findViewById(R.id.textCancelDialogCountry);
+        textCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+        TextView textOk = (TextView) dialog.findViewById(R.id.textOkDialogCountry);
+        textOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                updateTextOfCountry();
+            }
+        });
+    }
+
+    private void updateTextOfCountry() {
+
+        txtSelectCountry = (TextView) findViewById(R.id.et_country_mobile);
+        int country = countryPicker.getValue();
+
+        switch (country) {
+            case 0:
+                txtSelectCountry.setText(getString(R.string.PhoneCode_COLOMBIA));
+                break;
+            case 1:
+                txtSelectCountry.setText(getString(R.string.PhoneCode_ECUADOR));
+                break;
+            case 2:
+                txtSelectCountry.setText(getString(R.string.PhoneCode_PERU));
+                break;
+            case 3:
+                txtSelectCountry.setText(getString(R.string.PhoneCode_USA));
+                break;
+            case 4:
+                txtSelectCountry.setText(getString(R.string.PhoneCode_ARGENTINA));
+        }
 
     }
 
@@ -293,12 +369,8 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
         cancel.setEnabled(!b);
     }
 
-    @Override
-    public void initViews(View root) {
-        setViewElements(root);
-        setListeners();
-    }
 
+    //Called when execute AsyncSoapObject request
     @Subscribe
     public void onAsyncTaskResult(AsyncTaskSoapObjectResultEvent event) {
 

@@ -188,8 +188,7 @@ public class Constants {
     public final static String KEY_CCARD_ESTADO="estado";
     public final static String KEY_CCARD_BANCO="banco";
     public final static String KEY_CCARD_MARCA="marca";
-    public final static String KEY_CCARD_DEFAULT="tarjetaPorDefecto"
-;
+    public final static String KEY_CCARD_DEFAULT="tarjetaPorDefecto";
     public final static String KEY_CCARD_NUMERO = "numeroTarjeta";
     public final static String KEY_CCARD_MES_EXP= "mesExpiracion";
     public final static String KEY_CCARD_ANO_EXP= "anoExpiracion";
