@@ -15,6 +15,8 @@ public class AllemUser {
     public boolean estado;
     public String channel;
     public String celular;
+    public String idNumber;
+    public String idType;
 
     /**
      *
@@ -28,7 +30,7 @@ public class AllemUser {
      * @param estado
      */
 
-    public AllemUser(String saludo, String nombre, String apellido, String email, String hashpassword, String idSesion, int idCuenta, boolean estado, String celular){
+    public AllemUser(String saludo, String nombre, String apellido, String email, String hashpassword, String idSesion, int idCuenta, boolean estado, String celular, String idNumber, String idType){
         this.saludo = saludo;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -38,6 +40,8 @@ public class AllemUser {
         this.idCuenta = idCuenta;
         this.estado = estado;
         this.celular= celular;
+        this.idNumber= idNumber;
+        this.idType= idType;
     }
 
 }
