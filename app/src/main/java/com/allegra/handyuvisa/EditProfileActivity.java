@@ -97,12 +97,44 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
         txtLastName.setText(user.apellido);
         if(user.celular.length()>0) txtMobile.setText(user.celular);
         txtEmail.setText(user.email);
-        txtTypeOfIdSelected.setText(user.idType);
+        txtTypeOfIdSelected.setText(getTypeOfIdForDisplay(user.idType));
         txtSelectCountry.setText(user.celular_codigo);
         etNumberOfId.setText(user.idNumber);
-        CuentaClienteInfoAdicional codigoPais = new CuentaClienteInfoAdicional();
+        //CuentaClienteInfoAdicional codigoPais = new CuentaClienteInfoAdicional();
 
     }
+
+    private String getTypeOfIdForDisplay(String idType){
+
+        String strType = "";
+        switch(idType) {
+
+            case "1":
+                return getResources().getString(R.string.txt_citizenship_card);
+                //break;
+            case "2":
+                return getResources().getString(R.string.txt_Foreigner_ID);
+            case "3":
+                return getResources().getString(R.string.txt_nit);
+            //break;
+            case "4":
+                return getResources().getString(R.string.txt_identity_card);
+            case "5":
+                return getResources().getString(R.string.txt_passport);
+            //break;
+            case "10":
+                return getResources().getString(R.string.txt_nuip);
+            case "9":
+                return getResources().getString(R.string.txt_otro);
+                //break;
+
+        }
+
+
+        return strType;
+
+    }
+
 
     private void updateTextOfTypeOfId() {
 
@@ -338,7 +370,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
 
     private void updateTextOfCountry() {
 
-        txtSelectCountry = (TextView) findViewById(R.id.et_country_mobile);
+        //txtSelectCountry = (TextView) findViewById(R.id.et_country_mobile);
         int country = countryPicker.getValue();
 
         switch (country) {
