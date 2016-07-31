@@ -35,7 +35,7 @@
     <string name="payment_hotel_room">Habitaciones</string>
     <string name="payment_hotel_checking">INGRESO</string>
     <string name="txt_nit">NIT</string>
-    <string name="txt_otro">OTRO</string>
+    <string name="txt_otro">Otro</string>
     <string name="txt_nuip">NUIP</string>
     <string name="payment_hotel_checkout">SALIDA</string>
     <string name="payment_hotel_onepocket">PAGAR CON ONE POCKET</string>
@@ -509,10 +509,10 @@
     <string name="hintTypeOfId">Tipo de documento</string>
     <string name="hintIdNumber">Número de documento</string>
     <string name="txt_select_type_id">SELECCIONA TIPO DE DOCUMENTO</string>
-    <string name="txt_citizenship_card">CC</string>
-    <string name="txt_Foreigner_ID">CE</string>
-    <string name="txt_identity_card">TI</string>
-    <string name="txt_passport">PS</string>
+    <string name="txt_citizenship_card">Cedula de Ciudadanía</string>
+    <string name="txt_Foreigner_ID">Cedula de Extranjería</string>
+    <string name="txt_identity_card">Tarjeta de Identidad</string>
+    <string name="txt_passport">Pasaporte</string>
     <string name="sign_in">Iniciar sesión</string>
     <string name="greet">Qué bueno verte de nuevo</string>
     <string name="IATAI_CERTIFICA">IATAI CERTIFICA</string>
