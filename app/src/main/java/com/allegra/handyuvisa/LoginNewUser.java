@@ -34,6 +34,7 @@ import android.widget.Toast;
 import com.allegra.handyuvisa.async.MyBus;
 import com.allegra.handyuvisa.models.CuentaCliente;
 import com.allegra.handyuvisa.utils.Constants;
+import com.allegra.handyuvisa.utils.KeySaver;
 import com.allegra.handyuvisa.utils.Util;
 import com.allegra.handyuvisa.async.AsyncSoapObject;
 import com.allegra.handyuvisa.async.AsyncTaskSoapObjectResultEvent;
@@ -183,6 +184,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 ((VisaCheckoutApp) this.getApplication()).parseUser(user.email, channel);
                 /*if(KeySaver.isExist(ctx,Constants.USER_PUSH)) ((AsobancariaApplication) this.getApplication()).unSetParseChannels();
                 ((AsobancariaApplication)this.getApplication()).setParseChannel(channel);*/
+
                 //Remove all views from layout
                /* LinearLayout formLayout = (LinearLayout) findViewById(R.id.rl_body);
                 formLayout.removeAllViews();
