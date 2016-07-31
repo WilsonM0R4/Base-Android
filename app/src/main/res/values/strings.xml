@@ -620,12 +620,12 @@
     <string name="hintTypeOfId">Type of ID</string>
     <string name="hintIdNumber">ID Number</string>
     <string name="txt_select_type_id">SELECT TYPE OF ID</string>
-    <string name="txt_citizenship_card">CC</string>
-    <string name="txt_Foreigner_ID">FI</string>
-    <string name="txt_identity_card">IC</string>
-    <string name="txt_passport">PS</string>
+    <string name="txt_citizenship_card">Citizenship card</string>
+    <string name="txt_Foreigner_ID">Foreigner id</string>
+    <string name="txt_identity_card">Identity card</string>
+    <string name="txt_passport">Passport</string>
     <string name="txt_nit">NIT</string>
-    <string name="txt_otro">OTHER</string>
+    <string name="txt_otro">Other</string>
     <string name="txt_nuip">NUIP</string>
     <string name="sign_in">Sign in</string>
     <string name="greet">Good to see you again</string>
