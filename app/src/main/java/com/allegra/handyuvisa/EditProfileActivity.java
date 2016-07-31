@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -37,7 +38,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
 
     //*********GLOBAL ATTRIBUTES****************
     private final String M_SELECTION_DIVIDER = "mSelectionDivider";
-    CustomizedEditText txtName, txtLastName, txtMobile, txtEmail, txtPass, txtNewPass, txtNewPassConfirm;
+    CustomizedEditText txtName, txtLastName, txtMobile, txtEmail, txtPass, txtNewPass, txtNewPassConfirm, etNumberOfId;
     Button cancel, save;
     AllemUser user;
     private ProgressBar pb_create;
@@ -72,6 +73,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
     //CUMPLE LA FUNCIÓN DEL MÉTODO initViews
     private void setViewElements(View root){
 
+        etNumberOfId = (CustomizedEditText)root.findViewById(R.id.etIdNumber);
         txtTypeOfIdSelected = (TextView) root.findViewById(R.id.etTypeOfId);
         txtName= (CustomizedEditText) root.findViewById(R.id.et_names);
         txtLastName= (CustomizedEditText) root.findViewById(R.id.et_surname);
@@ -95,7 +97,9 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
         txtLastName.setText(user.apellido);
         if(user.celular.length()>0) txtMobile.setText(user.celular);
         txtEmail.setText(user.email);
-        //txtTypeOfIdSelected.setText(user.get?);
+        txtTypeOfIdSelected.setText(user.idType);
+        txtSelectCountry.setText(user.celular_codigo);
+        etNumberOfId.setText(user.idNumber);
         CuentaClienteInfoAdicional codigoPais = new CuentaClienteInfoAdicional();
 
     }

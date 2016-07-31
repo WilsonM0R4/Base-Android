@@ -149,6 +149,8 @@ public class Constants {
     public final static String KEY_MOBILE_NUMBER = "celular";
     public final static String KEY_ID_NUMBER = "idNumber";
     public final static String KEY_ID_TYPE = "idType";
+    public final static String KEY_ID_COUNTRY = "pais";
+    public final static String KEY_ID_MOBILE_CODE = "celular_codigo";
 
 
 
@@ -354,7 +356,9 @@ public class Constants {
             user = new AllemUser(KeySaver.getStringSavedShare(ctx,KEY_GREET),
                     KeySaver.getStringSavedShare(ctx,KEY_NAME),
                     KeySaver.getStringSavedShare(ctx,KEY_SURNAME),
-                    KeySaver.getStringSavedShare(ctx,KEY_EMAIL),"","",0,false,KeySaver.getStringSavedShare(ctx,KEY_MOBILE_NUMBER),KeySaver.getStringSavedShare(ctx,KEY_ID_NUMBER),KeySaver.getStringSavedShare(ctx,KEY_ID_TYPE) );
+                    KeySaver.getStringSavedShare(ctx,KEY_EMAIL),"","",0,false,KeySaver.getStringSavedShare(ctx,KEY_MOBILE_NUMBER),
+                    KeySaver.getStringSavedShare(ctx,KEY_ID_NUMBER),KeySaver.getStringSavedShare(ctx,KEY_ID_TYPE),
+                    KeySaver.getStringSavedShare(ctx,KEY_ID_COUNTRY) , KeySaver.getStringSavedShare(ctx,KEY_ID_MOBILE_CODE) );
                     user.channel=KeySaver.getStringSavedShare(ctx,KEY_PUSH_CHANNEL);
         }
         return user;

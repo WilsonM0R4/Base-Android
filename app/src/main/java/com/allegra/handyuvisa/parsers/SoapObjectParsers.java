@@ -37,7 +37,7 @@ public class SoapObjectParsers {
 
     public static AllemUser toAllemUser(SoapObject soapObject){
         AllemUser allemUser = null;
-        String saludo="",idSesion="", celular="", idNumber="", idType="";
+        String saludo="",idSesion="", celular="", idNumber="", idType="", pais = "", celular_codigo = "";
         if (soapObject.hasProperty("saludo")){
             saludo= soapObject.getPropertyAsString("saludo");
         }
@@ -47,8 +47,8 @@ public class SoapObjectParsers {
         if (soapObject.hasProperty("cuentaClienteInformacionAdicional")){
             SoapObject additionalInfo= (SoapObject)soapObject.getProperty("cuentaClienteInformacionAdicional");
             if(additionalInfo.hasProperty("celular")) celular= additionalInfo.getPropertyAsString("celular");
-            if(additionalInfo.hasProperty("pais")) celular= additionalInfo.getPropertyAsString("pais");
-            if(additionalInfo.hasProperty("celular_codigo")) celular= additionalInfo.getPropertyAsString("celular_codigo");
+            if(additionalInfo.hasProperty("pais")) pais= additionalInfo.getPropertyAsString("pais");
+            if(additionalInfo.hasProperty("celular_codigo")) celular_codigo= additionalInfo.getPropertyAsString("celular_codigo");
         }
 
         if (soapObject.hasProperty("numeroDocumento")){
@@ -68,7 +68,7 @@ public class SoapObjectParsers {
                 soapObject.getPropertyAsString("password"),
                 idSesion,
                 Integer.valueOf(soapObject.getProperty("idCuenta").toString()),
-                Boolean.valueOf(soapObject.getProperty("estado").toString()),celular,idNumber,idType);
+                Boolean.valueOf(soapObject.getProperty("estado").toString()),celular,idNumber,idType, pais, celular_codigo);
 
         return allemUser;
     }
