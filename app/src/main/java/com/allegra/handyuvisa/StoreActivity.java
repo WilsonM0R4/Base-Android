@@ -2,6 +2,7 @@ package com.allegra.handyuvisa;
 
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageButton;
@@ -31,6 +32,7 @@ public class StoreActivity extends FrontBackAnimate implements FrontBackAnimate.
 
         webStore = (WebView)root.findViewById(R.id.webStore);
         webStore.getSettings().setJavaScriptEnabled(true);
+        webStore.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
         webStore.loadUrl(url);
         webStore.setWebViewClient(new MyBrowser());
         arrowBack = (ImageButton) root.findViewById(R.id.arrow_back_store);
