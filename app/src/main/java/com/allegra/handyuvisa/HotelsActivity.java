@@ -286,7 +286,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
 
     //Button Cancel Guests per Room pressed
     public void listenerForCancelRoomsHotel (final View mView){
-
+        Log.d("Cancel Listener","Canceling");
         ImageButton btnCancel = (ImageButton)mView.findViewById(R.id.btn_cancel_hotels_rooms_for_select);
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override

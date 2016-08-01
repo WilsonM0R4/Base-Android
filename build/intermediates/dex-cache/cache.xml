@@ -1,12 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" >
-
-    <item
-        jar="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-0.9.63-100/unspecified/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="49459c8b4e3489ceb4d0caacf80acd0aeccf033d">
-        <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/4/Allegra-Android-onepocket-sdk-0.9.63-100-unspecified_1caa66bdea55a84b404d515f5e20b73f83cf5791/classes.dex" />
-    </item>
-
-</items>
+<items version="2" />

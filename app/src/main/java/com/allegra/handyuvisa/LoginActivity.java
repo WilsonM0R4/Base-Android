@@ -315,8 +315,8 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                         Constants.MCARD_METHOD, postValues, Constants.MCARD_CODE).execute();
 
                 Constants.saveUser(ctx, user, channel);
-                ((VisaCheckoutApp) this.getApplication()).unSetParseChannels();
-                ((VisaCheckoutApp) this.getApplication()).parseUser(user.email, channel);
+                //((VisaCheckoutApp) this.getApplication()).unSetParseChannels();
+                //((VisaCheckoutApp) this.getApplication()).parseUser(user.email, channel);
 
                 setResult(RESULT_OK);
                 finish();

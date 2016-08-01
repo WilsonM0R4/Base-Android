@@ -180,8 +180,8 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 String domain = user.email.substring(user.email.indexOf('@') + 1, user.email.length()).replace(".", "");
                 String channel = name + domain + user.idCuenta;
                 Constants.saveUser(ctx, user, channel);
-                ((VisaCheckoutApp) this.getApplication()).unSetParseChannels();
-                ((VisaCheckoutApp) this.getApplication()).parseUser(user.email, channel);
+                //((VisaCheckoutApp) this.getApplication()).unSetParseChannels();
+                //((VisaCheckoutApp) this.getApplication()).parseUser(user.email, channel);
                 /*if(KeySaver.isExist(ctx,Constants.USER_PUSH)) ((AsobancariaApplication) this.getApplication()).unSetParseChannels();
                 ((AsobancariaApplication)this.getApplication()).setParseChannel(channel);*/
 
