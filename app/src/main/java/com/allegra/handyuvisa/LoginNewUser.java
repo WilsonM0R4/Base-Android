@@ -485,6 +485,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
     //-------------------Change color of text when is valid in each EditText-------------
     private void setTextWatchers() {
 
+        //********************DOCUMENT NUMBER*******************
         et_document_number.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -532,6 +533,8 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 }*/
             }
         });
+
+        //********************NAME*******************
         et_names.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
@@ -555,6 +558,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             }
         });
 
+        //********************LAST NAME*******************
         et_surname.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
@@ -579,6 +583,32 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 //btn_sendreg.setEnabled(checkFields());
             }
         });
+
+        //********************PHONE NUMBER*******************
+        et_mobile.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (editable.length() < 3) {
+                    et_mobile.setTextColor(Color.RED);
+                    et_mobile.setHintTextColor(Color.RED);
+                } else {
+                    et_mobile.setTextColor(Color.BLACK);
+                    et_mobile.setHintTextColor(Color.BLACK);
+                }
+            }
+        });
+
+        //********************PASSWORD*******************
         et_password.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
@@ -592,7 +622,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if (editable.length() < 2) {
+                if (editable.length() < 6) {
                     et_password.setTextColor(Color.RED);
                     et_password.setHintTextColor(Color.RED);
                 } else {
@@ -657,14 +687,17 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             et_document_number.setTextColor(Color.RED);
             result = false;
         }
-        //***************Select Country***************
+        //***************Select Country PhoneCode***************
         if (textCountrySelected.getText().toString().equals("")){
             //Toast.makeText(getApplicationContext(),"PIlas con el country" ,Toast.LENGTH_LONG).show();
             textCountrySelected.setHintTextColor(Color.RED);
             result = false;
         }
-
-
+        //***************PhoneNumber***************
+        if(et_mobile.getText().toString().length() <3){
+            et_mobile.setHintTextColor(Color.RED);
+            result = false;
+        }
 
         return result;
     }

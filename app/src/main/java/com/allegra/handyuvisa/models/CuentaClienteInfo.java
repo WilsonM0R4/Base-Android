@@ -12,9 +12,38 @@ import java.util.Hashtable;
 public class CuentaClienteInfo implements KvmSerializable {
     public final static String PROPERTY="cuentaClienteInfo";
     private final static String SEGMENTO="segmento",SALUDO="saludo",NOMBRE="nombre",
-    APELLIDO="apellido", ID_SESSION ="idSesion",PASSWORD="password",CURRENT_PASSWORD="passwordActual",USERAGENT="userAgent",CCIA="cuentaClienteInformacionAdicional";
-    private String segmento,saludo,nombre,apellido, idSesion,password,userAgent, currentPassword;
+    APELLIDO="apellido", ID_SESSION ="idSesion",PASSWORD="password",CURRENT_PASSWORD="passwordActual",
+            USERAGENT="userAgent",CCIA="cuentaClienteInformacionAdicional", TIPO_DOCUMENTO = "tipoDocumento",
+            NUMERO_DOCUMENTO="numeroDocumento";
+    private String segmento;
+    private String saludo;
+    private String nombre;
+    private String apellido;
+    private String idSesion;
+    private String password;
+    private String userAgent;
+    private String currentPassword;
+    private String numeroDocumento;
+    private String tipoDocumento;
     private CuentaClienteInfoAdicional cuentaClienteInformacionAdicional;
+
+    public String getNumeroDocumento() {
+        return numeroDocumento;
+    }
+
+    public void setNumeroDocumento(String numeroDocumento) {
+        this.numeroDocumento = numeroDocumento;
+    }
+
+    public String getTipoDocumento() {
+        return tipoDocumento;
+    }
+
+    public void setTipoDocumento(String tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
+    }
+
+
 
 
     @Override
@@ -38,13 +67,17 @@ public class CuentaClienteInfo implements KvmSerializable {
                 return cuentaClienteInformacionAdicional;
             case 8:
                 return  currentPassword;
+            case 9:
+                return tipoDocumento;
+            case 10:
+                return  numeroDocumento;
         }
         return null;
     }
 
     @Override
     public int getPropertyCount() {
-        return 9;
+        return 11;
     }
 
     @Override
@@ -76,6 +109,12 @@ public class CuentaClienteInfo implements KvmSerializable {
                 break;
             case 8:
                 currentPassword = (String) o;
+                break;
+            case 9:
+                tipoDocumento = (String) o;
+                break;
+            case 10:
+                numeroDocumento = (String) o;
                 break;
         }
     }
@@ -120,14 +159,18 @@ public class CuentaClienteInfo implements KvmSerializable {
                 propertyInfo.type= PropertyInfo.STRING_CLASS;
                 propertyInfo.name=CURRENT_PASSWORD;
                 break;
+            case 9:
+                propertyInfo.type=PropertyInfo.STRING_CLASS;
+                propertyInfo.name=TIPO_DOCUMENTO;
+                break;
+
+            case 10:
+                propertyInfo.type= PropertyInfo.STRING_CLASS;
+                propertyInfo.name= NUMERO_DOCUMENTO;
+                break;
 
         }
     }
-
-
-
-
-
 
     public String getSegmento() {
         return segmento;

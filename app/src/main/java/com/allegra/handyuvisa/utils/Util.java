@@ -30,8 +30,10 @@ public class Util {
     public static SimpleDateFormat M_Formatter = new SimpleDateFormat("MMM");
     public static SimpleDateFormat Bookings_Formatter = new SimpleDateFormat("yyyy-MM-dd");
     public static SimpleDateFormat Day_Formatter = new SimpleDateFormat("EEE dd");
-
     public static SimpleDateFormat Bookings_Formatter_Hotels = new SimpleDateFormat("MM/dd/yyyy");
+
+
+   // public static
 
 
     public static boolean packageExists(Context ctx,String targetPackage){
@@ -56,6 +58,8 @@ public class Util {
         }
         return false;
     }
+
+
     public static boolean isFileUrl(String url, String extension){
         boolean isFile=false;
         url=url.toLowerCase();extension=extension.toLowerCase();

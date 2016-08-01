@@ -9,7 +9,11 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.allegra.handyuvisa.async.MyBus;
+import com.allegra.handyuvisa.models.McardCliente;
+import com.allegra.handyuvisa.parsers.SoapObjectParsers;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
+import com.allegra.handyuvisa.utils.Util;
 
 public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontBackAnimate.InflateReadyListener {
 
@@ -26,16 +30,35 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_proof_of_coverage);
         super.setView(R.layout.activity_proof_of_coverage, this);
+        MyBus.getInstance().register(this);
         //**************Get SharedPreferences**************
         SharedPreferences prefs =
                 getSharedPreferences("MisPreferencias", MODE_PRIVATE);
 
         nombre = prefs.getString("nombre", "Santiago");
         apellido = prefs.getString("apellido", "Castro");
-        valueOfMcard = prefs.getString("idMcard","0");
+        //Si hay internet: consumier el servicio para mCards
+        if (Util.hasInternetConnectivity(getApplicationContext())) {
+            /*McardCliente user = SoapObjectParsers.toMcardCliente(event.getResult());
+            String idMcard = user.getIdProducto();
+            //Save in SharedPreferences
+           *//* SharedPreferences prefs =
+                    getSharedPreferences("MisPreferencias", MODE_PRIVATE);*//*
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString("idMcard", idMcard);
+            editor.apply();*/
+        }else {
+            valueOfMcard = prefs.getString("idMcard", "0");
+        }
         //Log.e("valueOfMcard",valueOfMcard);
         idMcard = Integer.valueOf(valueOfMcard);
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        MyBus.getInstance().unregister(this);
+        super.onDestroy();
     }
 
     @Override

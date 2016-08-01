@@ -87,7 +87,6 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         super.onConfigurationChanged(newConfig);
     }
 
-
     @Override
     public void initViews(View root) {
 
@@ -129,7 +128,6 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         }
         setListeners();
     }
-
 
     private void setListeners() {
 
@@ -242,7 +240,6 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         }
     }
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -298,6 +295,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
 
                 String nombre = user.nombre;
                 String apellido = user.apellido;
+                idCuenta = user.idCuenta;
                 //Save in SharedPreferences
                 SharedPreferences prefs =
                         getSharedPreferences("MisPreferencias", MODE_PRIVATE);
@@ -306,8 +304,9 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 editor.putString("apellido", apellido);
                 editor.putString("nombre", nombre);
                 editor.putString("celular_codigo",cel_code);
+                editor.putString("idCuenta",String.valueOf(idCuenta));
                 editor.apply();
-                idCuenta = user.idCuenta;
+
                 //Launch SOAP request for mCard
                 if (postValues.size() > 0) postValues.clear();
                 postValues.add(new BasicNameValuePair("idCuenta", String.valueOf(idCuenta)));

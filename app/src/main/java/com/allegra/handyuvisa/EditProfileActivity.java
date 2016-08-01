@@ -9,7 +9,10 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -72,6 +75,161 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
 
     //*********PROPER METHODS****************
 
+    private void setTextWatchers() {
+
+        //********************DOCUMENT NUMBER*******************
+        etNumberOfId.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (etNumberOfId.getText().toString().length() < 4) {
+                    //Toast.makeText(getApplicationContext(),"PIlas con el tipo" ,Toast.LENGTH_LONG).show();
+                    etNumberOfId.setHintTextColor(Color.RED);
+                    etNumberOfId.setTextColor(Color.RED);
+                } else{
+                    etNumberOfId.setHintTextColor(Color.BLACK);
+                    etNumberOfId.setTextColor(Color.BLACK);
+                }
+
+            }
+        });
+
+        //********************NAME*******************
+        txtName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (editable.length() < 2) {
+                    txtName.setTextColor(Color.RED);
+                    txtName.setHintTextColor(Color.RED);
+                } else {
+                    txtName.setTextColor(Color.BLACK);
+                    txtName.setHintTextColor(Color.BLACK);
+                }
+            }
+        });
+
+        //********************LAST NAME*******************
+        txtLastName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+                if (editable.length() < 2) {
+                    txtLastName.setTextColor(Color.RED);
+                    txtLastName.setHintTextColor(Color.RED);
+                } else {
+                    txtLastName.setTextColor(Color.BLACK);
+                    txtLastName.setHintTextColor(Color.BLACK);
+                }
+                //btn_sendreg.setEnabled(checkFields());
+            }
+        });
+
+        //********************PHONE NUMBER*******************
+        txtMobile.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (editable.length() < 3) {
+                    txtMobile.setTextColor(Color.RED);
+                    txtMobile.setHintTextColor(Color.RED);
+                } else {
+                    txtMobile.setTextColor(Color.BLACK);
+                    txtMobile.setHintTextColor(Color.BLACK);
+                }
+            }
+        });
+
+        //******************** New PASSWORD*******************  txtNewPass, txtNewPassConfirm
+        txtNewPass.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (editable.length() < 6) {
+                    txtNewPass.setTextColor(Color.RED);
+                    txtNewPass.setHintTextColor(Color.RED);
+                } else {
+                    txtNewPass.setTextColor(Color.BLACK);
+                    txtNewPass.setHintTextColor(Color.BLACK);
+                }
+                //btn_sendreg.setEnabled(checkFields());
+            }
+        });
+
+        //********************Confirm PASSWORD*******************
+        txtNewPassConfirm.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (editable.length() < 6) {
+                    txtNewPassConfirm.setTextColor(Color.RED);
+                    txtNewPassConfirm.setHintTextColor(Color.RED);
+                } else {
+                    txtNewPassConfirm.setTextColor(Color.BLACK);
+                    txtNewPassConfirm.setHintTextColor(Color.BLACK);
+                }
+                //btn_sendreg.setEnabled(checkFields());
+            }
+        });
+
+
+    }
+
     //CUMPLE LA FUNCIÓN DEL MÉTODO initViews
     private void setViewElements(View root){
 
@@ -89,6 +247,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
         txtNewPassConfirm=(CustomizedEditText) root.findViewById(R.id.et_reppassword);
         txtSelectCountry = (TextView)root.findViewById(R.id.et_country_mobile);
         loadUserProfile();
+        setTextWatchers();
     }
 
     //Carga y setea los datos del usuario
@@ -101,13 +260,15 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
         txtEmail.setText(user.email);
         txtTypeOfIdSelected.setText(getTypeOfIdForDisplay(user.idType));
         //Get celular_codigo from SharedPreferences
-        SharedPreferences prefs =
+     /*   SharedPreferences prefs =
                 getSharedPreferences("MisPreferencias", MODE_PRIVATE);
 
-        cel_code = prefs.getString("celular_codigo", "+57");
-        txtSelectCountry.setText(cel_code);
+        cel_code = prefs.getString("celular_codigo", "+57");*/
+        txtSelectCountry.setText(user.celular_codigo);
         etNumberOfId.setText(user.idNumber);
-        //CuentaClienteInfoAdicional codigoPais = new CuentaClienteInfoAdicional();
+
+        /*CuentaClienteInfoAdicional ccia = new CuentaClienteInfoAdicional();
+        ccia = user.*/
 
     }
 
@@ -219,25 +380,46 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
 
     }
 
-    //Validate and send new user information
+    private String getTypeOfIdToSend(String optionSelected){
+
+        String typeOfIdToSend = "";
+        if (optionSelected.equals(getString(R.string.txt_citizenship_card))){
+            return "1";
+        }else {
+            if (optionSelected.equals(getString(R.string.txt_Foreigner_ID)))return "2";
+            if (optionSelected.equals(getString(R.string.txt_nit)))return "3";
+            if (optionSelected.equals(getString(R.string.txt_identity_card)))return "4";
+            if (optionSelected.equals(getString(R.string.txt_passport)))return "5";
+            if (optionSelected.equals(getString(R.string.txt_nuip)))return "10";
+            if (optionSelected.equals(getString(R.string.txt_otro)))return "9";
+        }
+        return typeOfIdToSend;
+    }
+
+    //Validate and send new user information for ActualizarCuenta web service
     private void updateUser(){
 
         if(validateData()) {
+            //Model class for basic Info
             CuentaClienteInfo client = new CuentaClienteInfo();
-            CuentaClienteInfoAdicional additionalInfo = new CuentaClienteInfoAdicional();
             client.setSaludo("1");
-            client.setCurrentPassword(txtPass.getText().toString());
             client.setIdSesion(((VisaCheckoutApp) this.getApplication()).getIdSession());
             client.setNombre(txtName.getText().toString());
             client.setApellido(txtLastName.getText().toString());
+            client.setTipoDocumento(getTypeOfIdToSend(txtTypeOfIdSelected.getText().toString()));
+            client.setNumeroDocumento(etNumberOfId.getText().toString());
+            client.setCurrentPassword(txtPass.getText().toString());
             if(txtNewPass.getText().toString().length()>0) {
                 client.setPassword(txtNewPass.getText().toString());
             }
+            //Model class for additional Info
+            CuentaClienteInfoAdicional additionalInfo = new CuentaClienteInfoAdicional();
             additionalInfo.setCelular(txtMobile.getText().toString());
             additionalInfo.setEmpresa("");
             additionalInfo.setCargo("");
             additionalInfo.setCiudad("");
             additionalInfo.setClase("");
+            additionalInfo.setCelularCodigo(txtSelectCountry.getText().toString());
 
             client.setCuentaClienteInformacionAdicional(additionalInfo);
 
@@ -264,21 +446,47 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
 
     }
 
+
+    //Validate fields
     private boolean validateData(){
 
         boolean result=true;
 
+        //****************NAME*************
         if(txtName.getText().toString().length()<2){
             txtName.setTextColor(Color.RED);
             txtName.setHintTextColor(Color.RED);
             result=false;
         }
+        //****************LAST NAME*************
         if(txtLastName.getText().toString().length()<2){
             txtLastName.setTextColor(Color.RED);
             txtLastName.setHintTextColor(Color.RED);
             result=false;
         }
 
+        //***************Type of ID***************
+        if (txtTypeOfIdSelected.getText().toString().equals("")){
+            //Toast.makeText(getApplicationContext(),"PIlas con el tipo" ,Toast.LENGTH_LONG).show();
+            txtTypeOfIdSelected.setHintTextColor(Color.RED);
+            result = false;
+        }
+        //***************Number of ID***************
+        if (etNumberOfId.getText().toString().length() < 4){
+            etNumberOfId.setHintTextColor(Color.RED);
+            etNumberOfId.setTextColor(Color.RED);
+            result = false;
+        }
+        //*************** Country CelularCode***************
+        if (txtSelectCountry.getText().toString().equals("")){
+            txtSelectCountry.setHintTextColor(Color.RED);
+            result = false;
+        }
+
+
+
+
+        //****************PASSWORD *************
         if(txtPass.getText().toString().length()>0 || txtNewPass.getText().toString().length()>0 || txtNewPassConfirm.getText().toString().length()>0) {
 
             if (txtPass.getText().toString().length() < 6) {
