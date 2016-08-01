@@ -110,6 +110,8 @@
         <activity
             android:name=".MapActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".StoreActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".BookNowActivity"
             android:screenOrientation="portrait" />
