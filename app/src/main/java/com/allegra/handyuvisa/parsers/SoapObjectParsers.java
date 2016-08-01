@@ -48,7 +48,10 @@ public class SoapObjectParsers {
             SoapObject additionalInfo= (SoapObject)soapObject.getProperty("cuentaClienteInformacionAdicional");
             if(additionalInfo.hasProperty("celular")) celular= additionalInfo.getPropertyAsString("celular");
             if(additionalInfo.hasProperty("pais")) pais= additionalInfo.getPropertyAsString("pais");
-            if(additionalInfo.hasProperty("celular_codigo")) celular_codigo= additionalInfo.getPropertyAsString("celular_codigo");
+            if(additionalInfo.hasProperty("celular_codigo")) {
+                celular_codigo = additionalInfo.getPropertyAsString("celular_codigo");
+                Log.d("Sergio", "Es: " + celular_codigo);
+            }
         }
 
         if (soapObject.hasProperty("numeroDocumento")){

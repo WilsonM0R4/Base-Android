@@ -285,7 +285,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 ((VisaCheckoutApp) this.getApplication()).setIdCuenta(user.idCuenta);
                 ((VisaCheckoutApp) this.getApplication()).setRawPassword(password.getText().toString());
 
-
+                //((VisaCheckoutApp) this.getApplication()).set
 
 
                 //Get values for work with these
@@ -293,6 +293,8 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 String domain = user.email.substring(user.email.indexOf('@') + 1, user.email.length()).replace(".", "");
                 String channel = name + domain + user.idCuenta;
                 String password = user.hashpassword;
+                String cel_code = user.celular_codigo;
+                Log.d("Sergio", "Es: "+cel_code);
 
                 String nombre = user.nombre;
                 String apellido = user.apellido;
@@ -303,6 +305,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 SharedPreferences.Editor editor = prefs.edit();
                 editor.putString("apellido", apellido);
                 editor.putString("nombre", nombre);
+                editor.putString("celular_codigo",cel_code);
                 editor.apply();
                 idCuenta = user.idCuenta;
                 //Launch SOAP request for mCard

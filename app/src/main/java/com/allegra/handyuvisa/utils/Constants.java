@@ -328,6 +328,7 @@ public class Constants {
         KeySaver.saveShare(ctx,KEY_MOBILE_NUMBER,user.celular);
         KeySaver.saveShare(ctx,KEY_ID_NUMBER,user.idNumber);
         KeySaver.saveShare(ctx,KEY_ID_TYPE,user.idType);
+        KeySaver.saveShare(ctx,KEY_ID_MOBILE_CODE, user.celular_codigo);
     }
 
     /**

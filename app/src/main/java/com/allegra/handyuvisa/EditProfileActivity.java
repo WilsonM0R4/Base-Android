@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -38,6 +39,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
 
     //*********GLOBAL ATTRIBUTES****************
     private final String M_SELECTION_DIVIDER = "mSelectionDivider";
+    private String cel_code;
     CustomizedEditText txtName, txtLastName, txtMobile, txtEmail, txtPass, txtNewPass, txtNewPassConfirm, etNumberOfId;
     Button cancel, save;
     AllemUser user;
@@ -98,7 +100,12 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
         if(user.celular.length()>0) txtMobile.setText(user.celular);
         txtEmail.setText(user.email);
         txtTypeOfIdSelected.setText(getTypeOfIdForDisplay(user.idType));
-        txtSelectCountry.setText(user.celular_codigo);
+        //Get celular_codigo from SharedPreferences
+        SharedPreferences prefs =
+                getSharedPreferences("MisPreferencias", MODE_PRIVATE);
+
+        cel_code = prefs.getString("celular_codigo", "+57");
+        txtSelectCountry.setText(cel_code);
         etNumberOfId.setText(user.idNumber);
         //CuentaClienteInfoAdicional codigoPais = new CuentaClienteInfoAdicional();
 
