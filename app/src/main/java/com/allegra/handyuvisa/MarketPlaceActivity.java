@@ -68,6 +68,7 @@ public class MarketPlaceActivity extends FrontBackAnimate implements FrontBackAn
         WebSettings webSettings = webView.getSettings();
         webSettings.setDomStorageEnabled(true);
         webSettings.setJavaScriptEnabled(true);
+        webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);// http://stackoverflow.com/questions/31509277/webview-images-are-not-showing-with-https
         webView.setWebViewClient(new MyWebViewClient());
         webView.addJavascriptInterface(new AppJavaScriptProxyMarketPlace(this), "androidProxy");
         progressBar.setVisibility(View.VISIBLE);
