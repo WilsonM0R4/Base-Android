@@ -582,6 +582,55 @@
         android:padding="2dip"
         />
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/store_options"
+        android:gravity="center_vertical"
+        android:background="@drawable/main_menu_table_row"
+        android:padding="10dp">
+
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:src="@drawable/store"
+            android:layout_gravity="left"
+            android:layout_marginLeft="35dp"
+            android:id="@+id/imageView30" />
+
+        <com.allegra.handyuvisa.utils.CustomizedTextView
+            android:id="@+id/txt_store"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/title_store"
+            android:textColor="@android:color/white"
+            android:textSize="17sp"
+            android:layout_marginLeft="10dp"
+            app:font="@string/font_varela"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <ImageView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:src="@drawable/menu__gotob"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:layout_weight="1"
+        android:background="@drawable/separator_gradient"
+        android:padding="2dip"
+        />
+
    <!-- <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

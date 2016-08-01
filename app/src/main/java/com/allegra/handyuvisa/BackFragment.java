@@ -95,6 +95,7 @@ public class BackFragment extends Fragment  {
                 new MenuActivity(R.string.title_concierge, R.drawable.concierge5,ConciergeActivity.class),
                 new MenuActivity(R.string.title_services, R.drawable.menu__services, ServiceActivity.class),
                 new MenuActivity(R.string.title_restaurants, R.drawable.restaurants,RestaurantsActivity.class),
+                new MenuActivity(R.string.title_store,R.drawable.store, StoreActivity.class),
                 new MenuActivity(R.string.title_qr_scan, R.drawable.menu__qr__code, QRScanActivity.class),
                 new MenuActivity(R.string.title_chat, R.drawable.menu__onetouch__chat, ChatActivity.class),
                 new MenuActivity(R.string.title_call, R.drawable.menu__onetouch__call, CallActivity.class),
@@ -214,6 +215,11 @@ public class BackFragment extends Fragment  {
         getActivity().startActivity(intent);
     }
 
+    public void sendToStore(){
+        Intent intent = new Intent(getActivity(),StoreActivity.class);
+        getActivity().startActivity(intent);
+    }
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -310,6 +316,14 @@ public class BackFragment extends Fragment  {
             @Override
             public void onClick(View v) {
                 sendToServices();
+            }
+        });
+
+        LinearLayout store_option = (LinearLayout) getView().findViewById(R.id.store_options);
+        store_option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendToStore();
             }
         });
 
