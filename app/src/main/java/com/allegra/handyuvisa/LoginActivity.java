@@ -309,7 +309,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
 
                 //Launch SOAP request for mCard
                 if (postValues.size() > 0) postValues.clear();
-                postValues.add(new BasicNameValuePair("idCuenta", String.valueOf(idCuenta)));
+                postValues.add(new BasicNameValuePair("idCuenta",String.valueOf(idCuenta)));
                 AsyncSoapObject.getInstance2(Constants.SOAP_URL_MCARD_PROD, Constants.MCARD_NAMESPACE,
                         Constants.MCARD_METHOD, postValues, Constants.MCARD_CODE).execute();
 
@@ -335,6 +335,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                     SharedPreferences.Editor editor = prefs.edit();
                     editor.putString("idMcard", idMcard);
                     editor.apply();
+                    Log.d("SERfar","!= null");
                 }
                 else{
                     //Save in SharedPreferences
@@ -343,6 +344,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                     SharedPreferences.Editor editor = prefs.edit();
                     editor.putString("idMcard","0");
                     editor.apply();
+                    Log.d("SERfar","Else");
                     //Toast.makeText(ctx, event.getFaultString(), Toast.LENGTH_LONG).show();
                 }
             }

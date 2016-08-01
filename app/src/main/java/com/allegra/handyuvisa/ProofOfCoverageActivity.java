@@ -57,9 +57,9 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
             AsyncSoapObject.getInstance2(Constants.SOAP_URL_MCARD_PROD, Constants.MCARD_NAMESPACE,
                     Constants.MCARD_METHOD, postValues, Constants.MCARD_CODE).execute();
         }
-        valueOfMcard = prefs.getString("idMcard", "0");
+        /*valueOfMcard = prefs.getString("idMcard", "0");
         //Log.e("valueOfMcard",valueOfMcard);
-        idMcard = Integer.valueOf(valueOfMcard);
+        idMcard = Integer.valueOf(valueOfMcard);*/
 
     }
 
@@ -84,8 +84,8 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
         header = (LinearLayout)root.findViewById(R.id.customCoverageHeader);
         centerListView = (LinearLayout)root.findViewById(R.id.customListView);
         bottomTexts = (LinearLayout)root.findViewById(R.id.customTextCoverage);
-        findValueOfMcard();
-        setValues();
+        //findValueOfMcard();
+        //setValues();
     }
 
 
