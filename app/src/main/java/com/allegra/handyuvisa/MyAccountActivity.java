@@ -150,7 +150,7 @@ public class MyAccountActivity extends FrontBackAnimate implements FrontBackAnim
                 if(Boolean.valueOf(event.getResult().toString())){
                     Constants.deleteUser(ctx);
                     ((VisaCheckoutApp)this.getApplication()).deleteSesion();
-                    ((VisaCheckoutApp)this.getApplication()).unSetParseChannels();
+                    //((VisaCheckoutApp)this.getApplication()).unSetParseChannels();
                 }else{
                     Log.d(TAG, "No se pudo desloguear o ya se encuentra deslogueado");
                     ((VisaCheckoutApp)this.getApplication()).deleteSesion();
@@ -172,7 +172,7 @@ public class MyAccountActivity extends FrontBackAnimate implements FrontBackAnim
 
     private void sendLogoutIntent(boolean cleanupParse) {
         if (cleanupParse) {
-            ((VisaCheckoutApp)this.getApplication()).unSetParseChannels();
+           // ((VisaCheckoutApp)this.getApplication()).unSetParseChannels();
         }
         Intent resultIntent = new Intent(this, MainActivity.class);
         startActivity(resultIntent);

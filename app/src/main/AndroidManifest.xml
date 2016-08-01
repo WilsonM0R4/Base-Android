@@ -45,9 +45,7 @@
       IMPORTANT: Change "com.parse.starter.permission.C2D_MESSAGE" in the lines below
       to match your app's package name + ".permission.C2D_MESSAGE".
     -->
-    <permission
-        android:name="com.parse.starter.permission.C2D_MESSAGE"
-        android:protectionLevel="signature" />
+
 
     <uses-permission android:name="com.allem.alleminmotion.visacheckout.permission.C2D_MESSAGE" />
 
@@ -296,7 +294,7 @@
             android:name="com.twilio.client.TwilioClientService"
             android:exported="false" />
 
-        <!-- Push Parse services configuration -->
+        <!-- Push Parse services configuration
         <service android:name="com.parse.PushService" />
 
         <receiver android:name="com.parse.ParseBroadcastReceiver">
@@ -321,10 +319,10 @@
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 
-                <!-- IMPORTANT: Change "com.parse.starter" to match your app's package name. -->
+
                 <category android:name="com.allem.alleminmotion.visacheckout" />
             </intent-filter>
-        </receiver>
+        </receiver>-->
 
         <activity
             android:name=".HotelsPaymentActivity"

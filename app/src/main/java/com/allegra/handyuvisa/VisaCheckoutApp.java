@@ -13,6 +13,7 @@ import com.parse.ParseInstallation;
 import com.parse.ParsePush;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
+import com.urbanairship.UAirship;
 
 import java.util.List;
 
@@ -26,7 +27,6 @@ public class VisaCheckoutApp extends MultiDexApplication {
     private String idSession=null,channel,urlResto;
     private String rawPassword;
     private int idCuenta;
-    private ParseUser currentUser;
 
     private String urlHotel;
 
@@ -36,7 +36,16 @@ public class VisaCheckoutApp extends MultiDexApplication {
         //SystemClock.sleep(0);   // For running splash screen
 
         super.onCreate();
-        Parse.enableLocalDatastore(getApplicationContext());
+        UAirship.takeOff(this, new UAirship.OnReadyCallback() {
+            @Override
+            public void onAirshipReady(UAirship airship) {
+
+                // Enable user notifications
+                airship.getPushManager().setUserNotificationsEnabled(true);
+            }
+        });
+
+        /*Parse.enableLocalDatastore(getApplicationContext());
         Parse.initialize(this, "YLafvQVsiUgpHPhTBZFuEIEfdnCtzHNV6fwiOWnY", "PpAKINbIw42zMgFuzstKl6IOrrQqRFAxupHqkGdn");
         ParseInstallation.getCurrentInstallation().saveEventually(new SaveCallback() {
             @Override
@@ -63,7 +72,7 @@ public class VisaCheckoutApp extends MultiDexApplication {
                 }
             }
         });
-
+*/
         // Setup handler for uncaught exceptions.
         Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
             @Override
@@ -73,59 +82,12 @@ public class VisaCheckoutApp extends MultiDexApplication {
         });
     }
 
-    private void subscribeGlobal() {
-
-        ParsePush.subscribeInBackground(Constants.PUSH_GLOBAL, new SaveCallback() {
-            @Override
-            public void done(ParseException e) {
-                if (e == null) {
-                    Log.d(TAG, "successfully subscribed to the global " + Constants.PUSH_GLOBAL + " channel.");
-                } else {
-                    Log.e(TAG, "failed to subscribe for push", e);
-                }
-            }
-        });
-    }
-
-    public void setParseChannel(String channel) {
-        Log.d(TAG, "Suscribiendo al canal " + channel);
-        this.channel = channel;
-        ParsePush.subscribeInBackground(channel, new SaveCallback() {
-            @Override
-            public void done(ParseException e) {
-                if (e == null) {
-                    Log.d(TAG, "successfully subscribed to " + VisaCheckoutApp.this.channel + " broadcast channel.");
-                    KeySaver.saveShare(getApplicationContext(), Constants.USER_PUSH, VisaCheckoutApp.this.channel);
-                } else {
-                    Log.e(TAG, "failed to subscribe for push", e);
-                }
-            }
-        });
-    }
 
 
 
-    public void unSetParseChannels(){
-        final List<String> subscribedChannels = ParseInstallation.getCurrentInstallation().getList("channels");
-        final int channelsNbr=subscribedChannels.size();
-        for(int i=0;i<subscribedChannels.size();i++){
-            final String channel = subscribedChannels.get(i);
-            if (!channel.equals(Constants.PUSH_GLOBAL)){
-                ParsePush.unsubscribeInBackground(subscribedChannels.get(i), new SaveCallback() {
-                    @Override
-                    public void done(ParseException e) {
-                        if (e == null) {
-                            Log.d(TAG, "successfully unsubscribed to " + channel + " broadcast channel.");
-                        } else {
-                            Log.e(TAG, "failed to subscribe for push", e);
-                        }
-                    }
-                });
-            }
-        }
 
 
-    }
+
     public String getIdSession() {
         return idSession;
     }
@@ -155,34 +117,7 @@ public class VisaCheckoutApp extends MultiDexApplication {
         this.idSession=null;
     }
 
-    public void parseUser(String username,String channel){
-        final String userchannel=channel;
-        setParseChannel(userchannel);
-       /* currentUser = ParseUser.getCurrentUser();
-        if (currentUser != null) {
-            Log.d(TAG,currentUser.toString());
-            Log.d(TAG, "Setting user: " + username);
-            currentUser.put("email",username);
-//            if(mLastLocation!=null) {
-//                Log.d(TAG,"ubicación lat: "+mLastLocation.getLatitude()+" - lon: "+mLastLocation.getLongitude());
-//                currentUser.put("location", new ParseGeoPoint(mLastLocation.getLatitude(), mLastLocation.getLongitude()));
-//            }
 
-
-            currentUser.saveInBackground(new SaveCallback() {
-                @Override
-                public void done(ParseException e) {
-
-                    if(e!=null){
-                        Log.e(TAG,"Error saving currrent user ");
-                        e.printStackTrace();
-                    }
-                    Log.d(TAG, "Set Instalation User: " + currentUser.toString());
-
-                }
-            });
-        }*/
-    }
 
     public String getUrlHotel() {
         return urlHotel;
