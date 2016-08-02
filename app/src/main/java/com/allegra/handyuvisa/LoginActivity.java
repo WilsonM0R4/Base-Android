@@ -26,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.allegra.handyuvisa.async.AsyncSoapObject;
+import com.allegra.handyuvisa.async.AsyncSoapObjectTest;
 import com.allegra.handyuvisa.async.AsyncTaskSoapObjectResultEvent;
 import com.allegra.handyuvisa.async.MyBus;
 import com.allegra.handyuvisa.models.AllemUser;
@@ -311,7 +312,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 //Launch SOAP request for mCard
                 if (postValues.size() > 0) postValues.clear();
                 postValues.add(new BasicNameValuePair("idCuenta", String.valueOf(idCuenta)));
-                AsyncSoapObject.getInstance2(Constants.SOAP_URL_MCARD_PROD, Constants.MCARD_NAMESPACE,
+                AsyncSoapObjectTest.getInstance2(Constants.SOAP_URL_MCARD_PROD, Constants.MCARD_NAMESPACE,
                         Constants.MCARD_METHOD, postValues, Constants.MCARD_CODE).execute();
 
                 Constants.saveUser(ctx, user, channel);
@@ -326,6 +327,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
 
         } else{
             if (event.getCodeRequest() == Constants.MCARD_CODE){
+                Log.e("Sergio", event.getFaultString());
                 if (event.getResult() != null) {
                     //Get data
                     McardCliente user = SoapObjectParsers.toMcardCliente(event.getResult());
@@ -336,6 +338,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                     SharedPreferences.Editor editor = prefs.edit();
                     editor.putString("idMcard", idMcard);
                     editor.apply();
+                    Log.e("Sergio", "!= null");
                 }
                 else{
                     //Save in SharedPreferences
@@ -344,6 +347,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                     SharedPreferences.Editor editor = prefs.edit();
                     editor.putString("idMcard","0");
                     editor.apply();
+                    Log.e("Sergio", "else");
                     //Toast.makeText(ctx, event.getFaultString(), Toast.LENGTH_LONG).show();
                 }
             }

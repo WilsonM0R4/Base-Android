@@ -77,10 +77,6 @@ public class AsyncSoapObject extends AsyncTask<String,Void,SoapObject> {
         return new AsyncSoapObject(server,method,postValues,null,codeRequest);
     }
 
-    public static AsyncSoapObject getInstance2(String url,String namespace,String method,ArrayList<NameValuePair> postValues,int codeRequest){
-        Server server = new Server(url,namespace,Constants.SOAP_AUTH_EMAIL_MCARD,Constants.SOAP_AUTH_PASSWORD_MCARD);
-        return new AsyncSoapObject(server,method,postValues,null,codeRequest);
-    }
 
     //*********************New User, Forgot Password, EditProfile**********************************
     public static AsyncSoapObject getInstance(String url,String namespace,String method,PropertyInfo property,int codeRequest){
@@ -145,7 +141,7 @@ public class AsyncSoapObject extends AsyncTask<String,Void,SoapObject> {
     }
 
     @Override
-    protected void onPostExecute(SoapObject result) {//(SoapObject)
+    protected void onPostExecute(SoapObject result) {
         MyBus.getInstance().post(new AsyncTaskSoapObjectResultEvent(result,codeRequest,faultcode,faultstring));
     }
 

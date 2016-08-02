@@ -5,31 +5,27 @@ import org.ksoap2.serialization.SoapObject;
 import java.util.Vector;
 
 /**
- * Created by victor on 27/02/15.
- * com.allem.allemevent.async
+ * Created by sergio on 1/08/16.
  */
-public class AsyncTaskSoapObjectResultEvent {
+public class AsyncTaskSoapObjectResultEventMcard {
 
-    private SoapObject result;
     private int codeRequest, faultcode;
     private String faultstring;
-    //private Vector<SoapObject> soapObjectVector;
+    private Vector<SoapObject> soapObjectVector;
 
-
-    public AsyncTaskSoapObjectResultEvent(SoapObject result, int codeRequest,int faultcode, String faultstring) {
-        this.result = result;
+    public void AsyncTaskSoapObjectResultEventMcard(Vector<SoapObject> soapObjectVector, int codeRequest, int faultcode, String faultstring) {
+        this.soapObjectVector = soapObjectVector;
         this.codeRequest = codeRequest;
         this.faultcode = faultcode;
         this.faultstring = faultstring;
     }
 
 
-
-    public SoapObject getResult() {
+    public Vector<SoapObject> getResult() {
        /* SoapObject response = (SoapObject)envelope.getResponse();
         String resp = response.toString();*/
 
-        return result;
+        return soapObjectVector;
     }
 
     public int getCodeRequest(){
@@ -44,6 +40,4 @@ public class AsyncTaskSoapObjectResultEvent {
 
         return faultstring;
     }
-
-
 }

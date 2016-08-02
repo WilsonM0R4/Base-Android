@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.allegra.handyuvisa.models.Server;
+import com.allegra.handyuvisa.utils.Constants;
 
 import org.apache.http.NameValuePair;
 import org.ksoap2.SoapEnvelope;
@@ -15,12 +16,13 @@ import org.kxml2.kdom.Element;
 import org.kxml2.kdom.Node;
 
 import java.util.ArrayList;
+import java.util.Vector;
 
 /**
  * Created by victor on 27/02/15.
  * com.allem.allemevent.async
  */
-public class AsyncSoapObjectTest extends AsyncTask<String,Void,SoapObject> {
+public class AsyncSoapObjectTest extends AsyncTask<String,Void,Vector<SoapObject>> {
 
     private static final String TAG = "AsyncSoap" ;
     private String url,namespace,method,soapaction,faultstring;
@@ -30,43 +32,32 @@ public class AsyncSoapObjectTest extends AsyncTask<String,Void,SoapObject> {
     private String userserver,passserver;
     private SoapObject soapObject;
 
-    private AsyncSoapObjectTest(Server server, String method, SoapObject soapObject, int codeRequest){
+    private AsyncSoapObjectTest(Server server, String method, ArrayList<NameValuePair> postValues, int codeRequest){
         this.url = server.wsdl;
         this.namespace=server.namespace;
         this.method = method;
         this.soapaction =namespace+method;
         this.codeRequest = codeRequest;
-        this.soapObject = soapObject;
+        this.postValues = postValues;
         this.userserver = server.user;
         this.passserver = server.pass;
     }
 
-    public static AsyncSoapObjectTest getInstance(Server server,String method,SoapObject soapObject,int codeRequest){
+   /* public static AsyncSoapObjectTest getInstance(Server server,String method,SoapObject soapObject,int codeRequest){
         return new AsyncSoapObjectTest(server,method,soapObject,codeRequest);
-    }
+    }*/
 
     @Override
-    protected SoapObject doInBackground(String... strings) {
+    protected Vector<SoapObject> doInBackground(String... strings) {
         Log.d(TAG, "url: " + url);
         Log.d(TAG, "namespace: " + namespace);
         Log.d(TAG, "soapaction:" + soapaction);
         HttpTransportSE transporte = new HttpTransportSE(url,30000);
 
-        SoapObject request = new SoapObject(namespace, method),result = null;
+        SoapObject request = new SoapObject(namespace, method);
+        Vector<SoapObject> result = null;
         request.addSoapObject(soapObject);
         try {
-            /*if (postValues!=null){
-                for (int i=0;i<postValues.size();i++){
-                    Log.d(TAG, postValues.get(i).getName() + ":"+postValues.get(i).getValue());
-                    request.addProperty(postValues.get(i).getName(),postValues.get(i).getValue());
-                }
-            }
-
-
-
-            if (property!=null){
-                request.addProperty(property);
-            }*/
 
             SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
             envelope.implicitTypes = true;
@@ -78,14 +69,13 @@ public class AsyncSoapObjectTest extends AsyncTask<String,Void,SoapObject> {
             transporte.debug=true;
             transporte.call(soapaction, envelope);
             Log.d(TAG, transporte.requestDump);
-            result = (SoapObject) envelope.getResponse();
+            result = (Vector<SoapObject>) envelope.getResponse();
 
             Log.d(TAG, transporte.responseDump);
             faultcode =-1;
             faultstring="OK";
         } catch (Exception e) {
 
-            //faultcode=Integer.valueOf(error);
             faultcode=-1000;
             faultstring=e.getMessage();
         }
@@ -94,9 +84,22 @@ public class AsyncSoapObjectTest extends AsyncTask<String,Void,SoapObject> {
     }
 
     @Override
-    protected void onPostExecute(SoapObject result) {
-        MyBus.getInstance().post(new AsyncTaskSoapObjectResultEvent((SoapObject)result,codeRequest,faultcode,faultstring));
+    protected void onPostExecute(Vector<SoapObject> result) {//
+        if (result != null) {
+            Log.e("Sergini", result.toString());
+            MyBus.getInstance().post(new AsyncTaskSoapObjectResultEventMcard());
+
+        }
     }
+
+
+
+    public static AsyncSoapObjectTest getInstance2(String url,String namespace,String method,ArrayList<NameValuePair> postValues,int codeRequest){
+        Server server = new Server(url,namespace, Constants.SOAP_AUTH_EMAIL_MCARD,Constants.SOAP_AUTH_PASSWORD_MCARD);
+        return new AsyncSoapObjectTest (server,method,postValues,codeRequest);
+    }
+
+
 
     private Element[] buildAuthHeader(SoapSerializationEnvelope envelope) {
         Element headers[] = new Element[1];
