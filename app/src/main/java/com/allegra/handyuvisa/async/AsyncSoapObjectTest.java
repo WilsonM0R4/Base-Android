@@ -79,9 +79,10 @@ public class AsyncSoapObjectTest extends AsyncTask<String,Void,Vector<SoapObject
             transporte.call(soapaction, envelope);
             Log.d(TAG, transporte.requestDump);
             Object obj = envelope.getResponse();
-            if(obj instanceof Vector){
+
+            if(obj instanceof Vector){//2 Mcards or more
                 result = (Vector) envelope.getResponse();
-            }else if(obj instanceof SoapObject){
+            }else if(obj instanceof SoapObject){//One or 0 Mcards
                 result = new Vector();
                 result.add((SoapObject) obj);
             }

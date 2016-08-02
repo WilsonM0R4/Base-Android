@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.allegra.handyuvisa.async.AsyncSoapObject;
+import com.allegra.handyuvisa.async.AsyncSoapObjectTest;
 import com.allegra.handyuvisa.async.AsyncTaskSoapObjectResultEvent;
 import com.allegra.handyuvisa.async.MyBus;
 import com.allegra.handyuvisa.models.McardCliente;
@@ -54,7 +55,7 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
         if (Util.hasInternetConnectivity(getApplicationContext())) {
             //Launch SOAP request for mCard
             postValues.add(new BasicNameValuePair("idCuenta", String.valueOf(idCuenta)));
-            AsyncSoapObject.getInstance2(Constants.SOAP_URL_MCARD_PROD, Constants.MCARD_NAMESPACE,
+            AsyncSoapObjectTest.getInstance2(Constants.SOAP_URL_MCARD_PROD, Constants.MCARD_NAMESPACE,
                     Constants.MCARD_METHOD, postValues, Constants.MCARD_CODE).execute();
         }
         /*valueOfMcard = prefs.getString("idMcard", "0");
