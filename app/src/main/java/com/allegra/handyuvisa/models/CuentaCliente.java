@@ -2,6 +2,7 @@ package com.allegra.handyuvisa.models;
 
 
 
+
 import org.ksoap2.serialization.KvmSerializable;
 import org.ksoap2.serialization.PropertyInfo;
 
@@ -157,6 +158,16 @@ public class CuentaCliente implements KvmSerializable {
                 break;
 
         }
+    }
+
+    @Override
+    public String getInnerText() {
+        return null;
+    }
+
+    @Override
+    public void setInnerText(String s) {
+
     }
 
 

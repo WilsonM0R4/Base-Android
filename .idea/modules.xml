@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Android.iml" filepath="$PROJECT_DIR$/Android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Allegra-Android.iml" filepath="$PROJECT_DIR$/Allegra-Android.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/onepocket-sdk-0.9.63-100/onepocket-sdk-0.9.63-100.iml" filepath="$PROJECT_DIR$/onepocket-sdk-0.9.63-100/onepocket-sdk-0.9.63-100.iml" />
       <module fileurl="file://$PROJECT_DIR$/onepocket-sdk-0.9.63-100/onepocket-sdk-0.9.63-100.iml" filepath="$PROJECT_DIR$/onepocket-sdk-0.9.63-100/onepocket-sdk-0.9.63-100.iml" />
     </modules>
   </component>

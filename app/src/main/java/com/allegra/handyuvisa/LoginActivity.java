@@ -271,6 +271,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
 
     @Subscribe
     public void onAsyncTaskResult(AsyncTaskSoapObjectResultEvent event) {
+        //Log.e("FARFA",ev);
 
         if (event.getCodeRequest() == Constants.ACTIVITY_LOGIN) {
             setWaitinUI(false);
@@ -325,9 +326,10 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
 
         } else{
             if (event.getCodeRequest() == Constants.MCARD_CODE){
+                Log.e("FARFA",event.getFaultString());
                 if (event.getResult() != null) {
                     //Get data
-                    McardCliente user = SoapObjectParsers.toMcardCliente(event.getResult());
+                   /* McardCliente user = SoapObjectParsers.toMcardCliente(event.getResult());
                     String idMcard = user.getIdProducto();
                     //Save in SharedPreferences
                     SharedPreferences prefs =
@@ -335,7 +337,8 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                     SharedPreferences.Editor editor = prefs.edit();
                     editor.putString("idMcard", idMcard);
                     editor.apply();
-                    Log.d("SERfar","!= null");
+                    */
+                    Log.e("SERfar","!= null");
                 }
                 else{
                     //Save in SharedPreferences
@@ -344,7 +347,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                     SharedPreferences.Editor editor = prefs.edit();
                     editor.putString("idMcard","0");
                     editor.apply();
-                    Log.d("SERfar","Else");
+                    Log.e("SERfar","Else");
                     //Toast.makeText(ctx, event.getFaultString(), Toast.LENGTH_LONG).show();
                 }
             }

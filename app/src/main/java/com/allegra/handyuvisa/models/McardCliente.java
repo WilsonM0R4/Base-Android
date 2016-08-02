@@ -69,4 +69,14 @@ public class McardCliente implements KvmSerializable {
                 break;
         }
     }
+
+    @Override
+    public String getInnerText() {
+        return null;
+    }
+
+    @Override
+    public void setInnerText(String s) {
+
+    }
 }

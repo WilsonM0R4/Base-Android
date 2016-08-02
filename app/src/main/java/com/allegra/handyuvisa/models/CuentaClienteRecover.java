@@ -49,6 +49,16 @@ public class CuentaClienteRecover implements KvmSerializable {
         }
     }
 
+    @Override
+    public String getInnerText() {
+        return null;
+    }
+
+    @Override
+    public void setInnerText(String s) {
+
+    }
+
     public String getEmail() {
         return email;
     }
