@@ -36,6 +36,7 @@
     <string name="payment_hotel_checking">INGRESO</string>
     <string name="txt_nit">NIT</string>
     <string name="txt_otro">Otro</string>
+    <string name="title_store">Comercios</string>
     <string name="txt_nuip">NUIP</string>
     <string name="payment_hotel_checkout">SALIDA</string>
     <string name="payment_hotel_onepocket">PAGAR CON ONE POCKET</string>
@@ -431,7 +432,7 @@
     <string name="PhoneCode_COLOMBIA">+57</string>
     <string name="PhoneCode_ECUADOR">+593</string>
     <string name="PhoneCode_PERU">+51</string>
-    <string name="PhoneCode_USA">+1</string>
+    <string name="PhoneCode_USA">+01</string>
     <string name="PhoneCode_ARGENTINA">+54</string>
     <string name="mcard_no_age_limit">sin límite de edad</string>
     <string name="title_services">Servicios</string>
@@ -442,7 +443,7 @@
     <string name="font_varela">fonts/VarelaRound-Regular.ttf</string>
     <string name="txt_city_concierge_not_selected">Por favor selecciona tu destino</string>
     <string name="send_log_request">Por favor pulse aquí para enviarnos el log.</string>
-    <string name="send_log_instruction">Por favor agregar pasos de reproducción y información adicional aquí.  Gracias!</string>
+    <string name="send_log_instruction">Por favor agregar pasos de reproducción e información adicional aquí.  Gracias!</string>
 
     <!--HANDY U STRINGS-->
 
@@ -509,8 +510,8 @@
     <string name="hintTypeOfId">Tipo de documento</string>
     <string name="hintIdNumber">Número de documento</string>
     <string name="txt_select_type_id">SELECCIONA TIPO DE DOCUMENTO</string>
-    <string name="txt_citizenship_card">Cedula de Ciudadanía</string>
-    <string name="txt_Foreigner_ID">Cedula de Extranjería</string>
+    <string name="txt_citizenship_card">Cédula de Ciudadanía</string>
+    <string name="txt_Foreigner_ID">Cédula de Extranjería</string>
     <string name="txt_identity_card">Tarjeta de Identidad</string>
     <string name="txt_passport">Pasaporte</string>
     <string name="sign_in">Iniciar sesión</string>

@@ -9,7 +9,20 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.allegra.handyuvisa.async.AsyncSoapObject;
+import com.allegra.handyuvisa.async.AsyncTaskSoapObjectResultEvent;
+import com.allegra.handyuvisa.async.MyBus;
+import com.allegra.handyuvisa.models.McardCliente;
+import com.allegra.handyuvisa.parsers.SoapObjectParsers;
+import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
+import com.allegra.handyuvisa.utils.Util;
+import com.squareup.otto.Subscribe;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+
+import java.util.ArrayList;
 
 public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontBackAnimate.InflateReadyListener {
 
@@ -18,7 +31,8 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
     TextView  txtCoverage1, txtCoverage2,txtCoverage3;
     CustomizedTextView textNameLastName, txtGetYourCertificate;
     String valueOfMcard, nombre, apellido;
-    int idMcard = 0;
+    int idMcard = 0, idCuenta = 0;
+    private ArrayList<NameValuePair> postValues = new ArrayList<>();
 
     //********************OVERRIDE METHODS*******************
     @Override
@@ -26,16 +40,33 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_proof_of_coverage);
         super.setView(R.layout.activity_proof_of_coverage, this);
+        MyBus.getInstance().register(this);
         //**************Get SharedPreferences**************
         SharedPreferences prefs =
                 getSharedPreferences("MisPreferencias", MODE_PRIVATE);
 
         nombre = prefs.getString("nombre", "Santiago");
         apellido = prefs.getString("apellido", "Castro");
-        valueOfMcard = prefs.getString("idMcard","0");
+        String strIdCuenta = prefs.getString("idCuenta", "0");
+        Log.d("Sergio",strIdCuenta);
+        idCuenta = Integer.valueOf(strIdCuenta);
+        //Si hay internet: consumir el servicio para mCards
+        if (Util.hasInternetConnectivity(getApplicationContext())) {
+            //Launch SOAP request for mCard
+            postValues.add(new BasicNameValuePair("idCuenta", String.valueOf(idCuenta)));
+            AsyncSoapObject.getInstance2(Constants.SOAP_URL_MCARD_PROD, Constants.MCARD_NAMESPACE,
+                    Constants.MCARD_METHOD, postValues, Constants.MCARD_CODE).execute();
+        }
+        /*valueOfMcard = prefs.getString("idMcard", "0");
         //Log.e("valueOfMcard",valueOfMcard);
-        idMcard = Integer.valueOf(valueOfMcard);
+        idMcard = Integer.valueOf(valueOfMcard);*/
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        MyBus.getInstance().unregister(this);
+        super.onDestroy();
     }
 
     @Override
@@ -53,8 +84,41 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
         header = (LinearLayout)root.findViewById(R.id.customCoverageHeader);
         centerListView = (LinearLayout)root.findViewById(R.id.customListView);
         bottomTexts = (LinearLayout)root.findViewById(R.id.customTextCoverage);
-        findValueOfMcard();
-        setValues();
+        //findValueOfMcard();
+        //setValues();
+    }
+
+
+    ///*************SOAP RESULT***************
+
+    @Subscribe
+    public void onAsyncTaskResult(AsyncTaskSoapObjectResultEvent event) {
+        if (event.getCodeRequest() == Constants.MCARD_CODE){
+            if (event.getResult() != null) {
+                //Get data
+                McardCliente user = SoapObjectParsers.toMcardCliente(event.getResult());
+                String strIdMcard = user.getIdProducto();
+                //Save in SharedPreferences
+                SharedPreferences prefs =
+                        getSharedPreferences("MisPreferencias", MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putString("idMcard", strIdMcard);
+                editor.apply();
+                idMcard = Integer.valueOf(strIdMcard);
+                //******************
+                findValueOfMcard();
+                setValues();
+
+            }
+           /* else{
+                //Save in SharedPreferences
+                SharedPreferences prefs =
+                        getSharedPreferences("MisPreferencias", MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putString("idMcard","0");
+                editor.apply();
+            }*/
+        }
     }
 
     //********************PROPER METHODS*******************

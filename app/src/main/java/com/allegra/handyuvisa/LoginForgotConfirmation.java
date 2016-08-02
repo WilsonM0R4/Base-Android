@@ -1,18 +1,20 @@
 package com.allegra.handyuvisa;
 
-import  android.content.Context;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.async.AsyncSoapPrimitive;
+import com.allegra.handyuvisa.utils.Constants;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -29,6 +31,9 @@ public class LoginForgotConfirmation extends FrontBackAnimate implements FrontBa
     private Button login, email;
     private TextView emailtext;
     private Button send_again;
+    private LayoutInflater inflater;
+    private View rootview;
+    private ViewGroup container;
     private int recover;
     private ArrayList<NameValuePair> postValues;
     private Context ctx;
@@ -50,16 +55,14 @@ public class LoginForgotConfirmation extends FrontBackAnimate implements FrontBa
         close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ctx,LoginActivity.class);
-                startActivity(intent);
+                onHome(v);
             }
         });
         login = (Button)root.findViewById(R.id.to_login);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ctx,LoginActivity.class);
-                startActivity(intent);
+                onHome(v);
             }
         });
      /*   email = (Button)root.findViewById(R.id.go_to_email);

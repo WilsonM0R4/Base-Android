@@ -16,6 +16,7 @@ import org.kxml2.kdom.Element;
 import org.kxml2.kdom.Node;
 
 import java.util.ArrayList;
+import java.util.Vector;
 
 /**
  * Created by victor on 27/02/15.
@@ -125,7 +126,9 @@ public class AsyncSoapObject extends AsyncTask<String,Void,SoapObject> {
             transporte.debug=true;
             transporte.call(soapaction, envelope);
             Log.d(TAG, transporte.requestDump);
+
             result = (SoapObject) envelope.getResponse();
+
 
             Log.d(TAG, transporte.responseDump);
             faultcode =-1;
@@ -135,6 +138,7 @@ public class AsyncSoapObject extends AsyncTask<String,Void,SoapObject> {
             //faultcode=Integer.valueOf(error);
             faultcode=-1000;
             faultstring=e.getMessage();
+
         }
 
         return result;

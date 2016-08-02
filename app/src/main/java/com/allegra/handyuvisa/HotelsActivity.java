@@ -286,7 +286,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
 
     //Button Cancel Guests per Room pressed
     public void listenerForCancelRoomsHotel (final View mView){
-
+        Log.d("Cancel Listener","Canceling");
         ImageButton btnCancel = (ImageButton)mView.findViewById(R.id.btn_cancel_hotels_rooms_for_select);
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -907,24 +907,42 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
 
     //Persist Guests Per rooms selected data when Save button is pressed
     public void persistGuestsPerRoomSelected(){
+        paramAdults = 0;
+        paramChildren = 0;
+        paramInfants = 0;
+
+        paramChildren2 = 0;
+        paramAdults2 = 0;
+        paramInfants2 = 0;
+
+        paramAdults3 = 0;
+        paramChildren3 = 0;
+        paramInfants3 = 0;
+
+        paramAdults4 = 0;
+        paramChildren4 =0;
+        paramInfants4 = 0;
 
         int totalTemporalOfRooms = roomsContainer.getChildCount();
         View v;
         //int paramAdultsTotal2 = 0, paramChildrenTotal2 = 0, paramInfantsTotal2 = 0;
+
         for (short j = 0; j < totalTemporalOfRooms; j++){
             v = roomsContainer.getChildAt(j);
             TextView textAdults = (TextView) v.findViewById(R.id.adultsTextView);
             TextView textChildren = (TextView)v.findViewById(R.id.childrenTextView);
             TextView textInfants = (TextView)v.findViewById(R.id.infantsTextView);
-            String valueOfAdults = String.valueOf(textAdults.getText());
-            String valueOfChildren = String.valueOf(textChildren.getText());
-            String valueOfInfants = String.valueOf(textInfants.getText());
+            String valueOfAdults = textAdults.getText().toString();
+            String valueOfChildren = textChildren.getText().toString();
+            String valueOfInfants = textInfants.getText().toString();
             //Assign respective guests for each room
             switch (j){
                 case 0://Room 1
                     paramAdults = Integer.parseInt(valueOfAdults);
                     paramChildren = Integer.parseInt(valueOfChildren);
                     paramInfants = Integer.parseInt(valueOfInfants);
+
+
                     break;
                 case 1://Room 2
                     paramAdults2 = Integer.parseInt(valueOfAdults);

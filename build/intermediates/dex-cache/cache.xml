@@ -2,11 +2,543 @@
 <items version="2" >
 
     <item
-        jar="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-0.9.63-100/unspecified/jars/classes.jar"
-        jumboMode="false"
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/9.0.2/jars/classes.jar"
+        jumboMode="true"
         revision="23.0.2"
-        sha1="49459c8b4e3489ceb4d0caacf80acd0aeccf033d">
-        <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/4/Allegra-Android-onepocket-sdk-0.9.63-100-unspecified_1caa66bdea55a84b404d515f5e20b73f83cf5791/classes.dex" />
+        sha1="53f10fcd322a3931495d6ca2078a81f4957cdbce">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-fitness-9.0.2_df69dcbe99fc8c7483292268e3a6283892c4d413/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="94d9cedd04b124aed044ac71c451a292856d854c">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-base-9.0.2_88cae78d87fa36afec09a1e349e3c9529a690a24/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.android.support/support-v13/23.1.1/jars/libs/internal_impl-23.1.1.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="f4d7a07120e76988f3a15403838d323c2400db83">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.1.1_08be3916e040c0b990cdd2304b579827c323953d/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="20e1a0f0de6276a5f36062b655f8b20f8cc00cc4">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-maps-9.0.2_0f8ce37ae84687a3f9cee682229b8fe23c449390/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="e11da70cff6a544a45cdc21f419802d9bb9043ac">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-appinvite-9.0.2_04da9e4e558900d8e964c3d9f201052fc5ff595a/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads-lite/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="b8e0372ca6dc89ac4fe22b76eeea4f68ece435b8">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-ads-lite-9.0.2_78969048978639e1cb8304b5e7c4bcdf0241aa39/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="b6af089f583d547bcffc0689b2e80bc7aaa54b15">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-safetynet-9.0.2_55add6bb32d08023aff84f9eb050ef26900093ff/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="764d32faf85bc6f7bd2cdcb3a70a482c1884fdd2">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-wearable-9.0.2_a39fda4e2e93d82544b473d62b6d11eedc7f9049/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="cf16220db9128d91a215aedc739584181d5ca6a4">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-iid-9.0.2_e61e48d5bcb9a7bbc3169d2bb77aa9bc7ba4eb0d/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/libs/org.apache.http.legacy.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="5320fd78dd7f154e586970d4f02befc9b58432aa">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/2/org.apache.http.legacy_b5418f3517133f7dc34fc70637d1e330d29eb1c8/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="b3d0809a742c5f768c6aa9efc6decd5c1d6cd227">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-iid-9.0.2_2187d530b5ea88fa0352bcaac02269305af0fc1e/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="e6970f0554f9508c041f1f6960af15cc888c9f35">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-gcm-9.0.2_d32cd4f28e809a8b9e1f6fc3822d0e68da69727c/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/mbanje.kurt/fabbutton/1.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="956cc091512b0eebbc32ced9474adc6fe1834ab3">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/mbanje.kurt-fabbutton-1.2.1_a516d33ef73f94efa4e7126791623b7ff980c170/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/.gradle/caches/modules-2/files-2.1/com.google.zxing/core/3.2.0/e019d15a13a9786f881141d2df6654b8510bce8b/core-3.2.0.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="e019d15a13a9786f881141d2df6654b8510bce8b">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/core-3.2.0_d7b2669979e865b17b7fccc6d4ef8e31fde77224/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="d9ea4cdaafa29ec4651d6e4715788d3fcaa7b913">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tagmanager-9.0.2_1938af252a8e706bec1d6ac300cf007ea295177a/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="f2774b1e02e5fbc524590311a744263c3b152d63">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-messaging-9.0.2_4aa74c7eb603f0d88bfc7a847149c486f42cc0ae/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="a45bc1ed812137b21dddd1cedaa3712b308f0b3f">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-cast-9.0.2_9c377b5a5db896beed3212852cfe8502ae57ec25/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/bolts-tasks-1.4.0_0c043fef87ed8b307641af56be50f5fa34ba62a2/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="d900f2a1ff098cac8befe6c023d723e9afb154be">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-appindexing-9.0.2_c1f9ebbe68e6d78695bed0159da64e2b060e596e/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database-connection/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="9819419ce8d79f3f81a0fc70f9345ac8c843af9c">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-connection-9.0.2_8ac8a294f92d2c252e2a9759f39f0dc89a4f3e9e/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.urbanairship.android/urbanairship-sdk/7.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="258633611a1f8f04ec2a853ff8d1a9a781bc6221">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.urbanairship.android-urbanairship-sdk-7.2.1_cbff2b5dc17929885d81cf0d8ab3510acfa5a12f/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.squareup/android-times-square/1.6.4/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="b556ad328d970ba09148ffe5e874bcbd77bf56a6">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.squareup-android-times-square-1.6.4_f6adb28758b4ed39baaaa629147493e230bede10/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.4.0_8d2789d83152f37bb59a0e5ecc153d3d54301f8c/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-config/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="604ecf403feb0084dc6d0c12f1677a490cf45e4c">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-config-9.0.2_06cd4bdba2aaf8312b4851035ca695709c569ca7/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.android.support/support-v13/23.1.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="5ddf5f4817565c9db82613c16093f76640a54e15">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v13-23.1.1_e0947bc27756fae5e6fd4d5fef64fd35515e30aa/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/card.io-5.3.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="e3fa9adf2238ba0a4160f56d69a3cc5a23f9a98b">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/intermediates-exploded-aar-card.io-5.3.0_5981330481e893accc535ccf4a1dbe714153afcc/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-vision/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="2ab5be19bbd34bae74662ea6b2d4451314d92d97">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-vision-9.0.2_f88e24418faeebe4c3b50a3729b8eb8b07b0c30c/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="8e8b71d50c6f0e1116741f8066ec77dd1ef8b925">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_c12a4d41bfdee7f6cd30115457343d97cdf727f5/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="4ec890171a97b5ab98292f131aa784e0f3792c73">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-9.0.2_15aa7bf129931464065da8832fe3194cf292d7b3/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="4022261eeea0d92eb2997a68d2c1f084a16abad9">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-9.0.2_67a106168236003f057a88d6d4a6a08f1bc06f41/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="c96952c162c9f6076f44c5939982cb35491442ea">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-plus-9.0.2_6a1b360a6166cf64517db62e2afe1db47e923334/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/libs/httpmime-4.1-beta1.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="c6a4817fb147dd523dd0239b6fcfc9fe4ba2dcfc">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/2/httpmime-4.1-beta1_c62cb0b8e2f03acf108cd983ab796ec84a361ddb/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-23.4.0_5ee873e7089375e36de29e0dbbb7428f35df33fe/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-storage/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="cd4c7c54e15d9ccbc448384fa2c4684d69ca73f0">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-storage-9.0.2_88d12047d82eb280cd7cc82e3c7fa27e8256c60e/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/.gradle/caches/modules-2/files-2.1/com.parse/parse-android/1.13.1/ef266d93357210b530c5b400e3d40de64fd86a0d/parse-android-1.13.1.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="ef266d93357210b530c5b400e3d40de64fd86a0d">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/parse-android-1.13.1_2651d637026df9114983bfbb971ef1600c6472ab/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.android.support/multidex/1.0.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="78ea232052df889856dcb7b7b542707c89bb3bfb">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-multidex-1.0.1_9aa79934253961b98e86f3a894b73dbc2356fe7a/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth-base/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="829c6e46cb221c2102801221c648b77113743e81">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-auth-base-9.0.2_5c4ef6a59cb5b362ca76c00dafe4accc59bcc0df/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="143813b18381b28de1e04aae1d92fcb374a0add9">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-drive-9.0.2_6c15c5e7b759ed96ed0f75422ff283306d85e836/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-crash/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="922c24fbfc4247947fcfaf2b95f295a16a8c3d17">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-crash-9.0.2_09e5729d9c32d02ba3b5e40a75b0bd8f812b30df/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="fa472b7cbd3897bf6bed6068ac0b00e494987688">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-auth-9.0.2_f36b3a320cb7e736e8e3ad488efcb1c29522cb6d/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="92a1d5f71b0fc8938f1d3f2e6ef984b52b894b4d">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-location-9.0.2_9d0ec66649502a0e6350eaa9533bdcd1fc4e128b/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/.gradle/caches/modules-2/files-2.1/com.squareup/otto/1.3.6/ee373b6d0d6ea36a0a9b0cbabaf16be7e7fc3e30/otto-1.3.6.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="ee373b6d0d6ea36a0a9b0cbabaf16be7e7fc3e30">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/otto-1.3.6_a90b79efdcdfff3382973f9e37469def30cb87ba/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth-common/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="568d5bda0b4d51f90d978ace369bb9ad024d2057">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-auth-common-9.0.2_b66250efb7448f2f645934a127707cd8d0249e3c/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/VisaCheckout-Android-SDK-4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="4baefabae6efdb89a2f75e06238c5ef35f2b2544">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/intermediates-exploded-aar-VisaCheckout-Android-SDK-4.0_36f0ff87791d210fd7ee38a90eac70c12d0b9003/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/libs/internal_impl-23.4.0.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.4.0_8f30161de21c4de5aad1146abe58d12df766212d/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/libs/twilioclient-android.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="5f08525ba3ea72265f395be2c895e51ce1639e3c">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/2/twilioclient-android_67f98e869b35c725d0963447a9f6c3da715b2728/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="51a11c41a08f099a204e1b8dcc04f27217de50ec">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-9.0.2_ea29464f49bd6838090cfdd478d24cd14fe08f1b/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="bc156efaaee99f1ef6bf471347373a4cbb28e2a1">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-wallet-9.0.2_05994e73dda40f6a5a1c9d5e7aea9d7af9e7fcfd/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="a511c684ea4c2cf31a3377d51e7677cb76696e07">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-impl-9.0.2_5a808c931dc177c44f0df58fc84e6b9d8aaa05a9/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth-module/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="79e298d7fed2fcada58da7032d07d34ee198a545">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-auth-module-9.0.2_40a1cb5093af5882adf41bdb60dccb7ef472b431/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/19.0/6ce200f6b23222af3d8abb6b6459e6c44f4bb0e9/guava-19.0.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="6ce200f6b23222af3d8abb6b6459e6c44f4bb0e9">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/guava-19.0_bc5a676aaeb57fa5fcf16141c776a45bbab01b57/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="aec1bc54964a85d851c2c1b1cb7f90f7dbd755ab">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tasks-9.0.2_55a8b0d5976ac212d360a56727acd795f03d44c2/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.1.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="5e412e954a24c5310a459c09870e4e2081aceb03">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-cardview-v7-23.1.1_d8ca40151fbc125dc49e63b0f30aa6afc765b5ca/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="9919563cffd8e3732e944d3c437d4b9575a08448">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-common-9.0.2_de5d6f9ad056cc72ba84da9fda343b3b3b28c5ca/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/libs/ksoap2-android-assembly-3.4.0-jar-with-dependencies.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="45fbaab416fb5cff992e662d1f7a83786f084fc3">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/2/ksoap2-android-assembly-3.4.0-jar-with-dependencies_005578ab1e9dfcc8acfd2495ab51a8905aad6193/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/VisaCheckout-Android-SDK-4.0/jars/libs/TrustDefenderMobile_NoLog-3.2-98.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="60036c279a7851999fee91f81110eaed9620f568">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/TrustDefenderMobile_NoLog-3.2-98_0ed527d6d5ec5085fa15ddbde28f9980bc9fc7d5/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="0c835e9f3875cf245877c9b17d1c69bc98f16057">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-identity-9.0.2_f2d10a31065746fb41c98bcb4b34bf65b497d0df/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-storage-common/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="6ff48ef26bc539c78af4aa061cb9bad6abcbf5e8">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-storage-common-9.0.2_204188404421363e9f6cfc91d5a7ab62d25139fb/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="060a7157438a0b1b0706b99c430fb3ecbc5a79a4">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-auth-9.0.2_daebfbed5c96a51f99e02be5ccd0e73979ad4f05/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="d358b3dd49a7c67844622dcbc9cf4339e13952ce">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-mediarouter-v7-23.0.0_654da6430bbd0923909ea587ecee861ff35e8d55/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.journeyapps/zxing-android-embedded/3.1.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="c236cfec8fc080b9ad129d64e634c24deb2e8e95">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.journeyapps-zxing-android-embedded-3.1.0_de488d20e0c74b71ccd6eb13e97898247bb86fbe/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-api/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="f399a2fde7888450cadcaec4974bfd169d8cce43">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tagmanager-api-9.0.2_2c571090d8723ba9fac903dceaca83c9add30823/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/.gradle/caches/modules-2/files-2.1/joda-time/joda-time/2.9.2/70282c96e61f85cf9eebaddc748c3163fee18995/joda-time-2.9.2-no-tzdb.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="70282c96e61f85cf9eebaddc748c3163fee18995">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/joda-time-2.9.2-no-tzdb_2993195f7039c5b52a27f2e25aa4182b46a1b945/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-23.1.1_03040d3fcdd74ec4e7cc1fa9f3effe8da22b91d9/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-applinks/1.4.0/8ad21bf21784dacce5f2043afb97218cc377e835/bolts-applinks-1.4.0.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/bolts-applinks-1.4.0_6407b9c44aedf04f210914412ba6768ae0939517/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.mcxiaoke.volley/library/1.0.19/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="73e061a8655216be05a577bea062138def6a4232">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.mcxiaoke.volley-library-1.0.19_826808c749a451bceaa1285caa630e4c3668e704/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.android.support/design/23.1.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-23.1.1_86f0fe5db37905950a4392210db2e70c8d2b5776/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="eeb36316135c0e4965bba9cb89abc8dca463cf83">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_2e6fbadeeec9bc916c8833139d397911aa47ae4d/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="7e52b440a26498c56b4f263e215223b5451c955e">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-nearby-9.0.2_dfb6f6725d7736bfda81a61aa7614180ca5a5883/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.1.1_77ed9f443dd3b82ccfd57ce72de23d39f5864044/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="8c0fc9b1ea0bac0cb31d60c8b1bf2feb0518e3a9">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-panorama-9.0.2_9672c3b1f0c728f5b359814087d4c39b1f3282cb/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="f4fb6981392ca7680d02fd57d26d6124c141d9d9">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-ads-9.0.2_a1b99e3d51cbe43e80562c2b6ffafa60da09fe77/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="a498fab72f8663c26fbf3d4496eb6b673b17bcae">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-games-9.0.2_ec9589825c65f0f29aa1bc1901d9b4c23081c7c6/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics-impl/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="6c58c14d15602fea2c50138c73bb107e8b832b62">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-analytics-impl-9.0.2_46377f8319fddc808880efd8c6c0a4cab904747f/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="fe5b47e764869f1076cb9cfe12801ed2ef4e9117">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-analytics-9.0.2_b19e5e82ca47a17c334331810e063307d4e99f8e/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/net.danlew/android.joda/2.9.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="4886cba500c95f4d301136fc3fe77f686a61a3de">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/net.danlew-android.joda-2.9.2_17d5a8e7f31d2e5290fbabd417e48d83c0287207/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/jars/libs/internal_impl-23.0.0.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="03d38bb042efe3e5ce27ba66b729a9523c36d8fe">
+        <dex dex="/Users/sergiofarfan/StudioProjects/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.0.0_a08b04cdaaa1c4af08271e641a0295704b965374/classes.dex" />
     </item>
 
 </items>

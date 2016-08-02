@@ -8,8 +8,8 @@ android {
         applicationId "com.allegra.handyuvisa"
         minSdkVersion 21
         targetSdkVersion 23
-        versionCode 326
-        versionName "0.9.66 (326)"
+        versionCode 328
+        versionName "0.9.68-328"
         dependencies {
             compile fileTree(include: ['*.jar'], dir: 'libs')
             testCompile 'junit:junit:4.12'
@@ -34,7 +34,6 @@ android {
             compile 'com.google.zxing:core:3.2.0'
             compile 'com.google.android.gms:play-services:9.0.2'
             compile 'com.android.support:multidex:1.0.1'
-            compile 'com.google.code.ksoap2-android:ksoap2-android:3.6.0'
             compile 'com.google.android.gms:play-services-ads:9.0.2'
             compile 'com.google.android.gms:play-services-identity:9.0.2'
             compile 'com.google.android.gms:play-services-gcm:9.0.2'
@@ -79,8 +78,6 @@ dependencies {
     compile 'com.android.support:support-v4:23.1.1'
     compile 'com.android.support:design:23.1.1'
     compile 'com.squareup:otto:1.3.6'
-    compile 'com.parse.bolts:bolts-android:1.+'
-    compile 'com.parse:parse-android:1.+'
     compile 'net.danlew:android.joda:2.9.2'
     compile 'mbanje.kurt:fabbutton:1.+'
     compile 'com.google.guava:guava:19.0'
@@ -90,8 +87,8 @@ dependencies {
     compile 'com.google.zxing:core:3.2.0'
     compile 'com.google.android.gms:play-services:9.0.2'
     compile 'com.android.support:multidex:1.0.1'
-    compile 'com.google.code.ksoap2-android:ksoap2-android:3.6.0'
     compile 'com.google.android.gms:play-services-ads:9.0.2'
     compile 'com.google.android.gms:play-services-identity:9.0.2'
     compile 'com.google.android.gms:play-services-gcm:9.0.2'
+    compile 'com.urbanairship.android:urbanairship-sdk:7.2.+'
 }

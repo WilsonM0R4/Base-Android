@@ -148,6 +148,16 @@ public class CuentaClienteInfoAdicional implements KvmSerializable {
         }
     }
 
+    @Override
+    public String getInnerText() {
+        return null;
+    }
+
+    @Override
+    public void setInnerText(String s) {
+
+    }
+
 
     public String getEmpresa() {
         return empresa;
