@@ -13,7 +13,7 @@ public class AsyncTaskSoapObjectResultEventMcard {
     private String faultstring;
     private Vector<SoapObject> soapObjectVector;
 
-    public void AsyncTaskSoapObjectResultEventMcard(Vector<SoapObject> soapObjectVector, int codeRequest, int faultcode, String faultstring) {
+    public  AsyncTaskSoapObjectResultEventMcard (Vector<SoapObject> soapObjectVector, int codeRequest, int faultcode, String faultstring) {
         this.soapObjectVector = soapObjectVector;
         this.codeRequest = codeRequest;
         this.faultcode = faultcode;

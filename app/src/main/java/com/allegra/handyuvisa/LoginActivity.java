@@ -28,6 +28,7 @@ import android.widget.Toast;
 import com.allegra.handyuvisa.async.AsyncSoapObject;
 import com.allegra.handyuvisa.async.AsyncSoapObjectTest;
 import com.allegra.handyuvisa.async.AsyncTaskSoapObjectResultEvent;
+import com.allegra.handyuvisa.async.AsyncTaskSoapObjectResultEventMcard;
 import com.allegra.handyuvisa.async.MyBus;
 import com.allegra.handyuvisa.models.AllemUser;
 import com.allegra.handyuvisa.models.McardCliente;
@@ -274,8 +275,39 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
 
 
     @Subscribe
-    public void onAsyncTaskResult(AsyncTaskSoapObjectResultEvent event) {
+    public void onAsyncTaskResult(AsyncTaskSoapObjectResultEventMcard event) {
+        Log.e("SergioMcardEntra", event.getFaultString());
+        if (event.getCodeRequest() == Constants.MCARD_CODE){
+            Log.e("SergioMcard", event.getFaultString());
+            if (event.getResult() != null) {
+                //Get data
+                /*McardCliente user = SoapObjectParsers.toMcardCliente(event.getResult());
+                String idMcard = user.getIdProducto();*/
+                //Save in SharedPreferences
+               /* SharedPreferences prefs =
+                        getSharedPreferences("MisPreferencias", MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putString("idMcard", idMcard);
+                editor.apply();*/
+                Log.e("Sergio", "!= null");
+            }
+            else{
+                //Save in SharedPreferences
+                SharedPreferences prefs =
+                        getSharedPreferences("MisPreferencias", MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putString("idMcard","0");
+                editor.apply();
+                Log.e("Sergio", "else");
+                //Toast.makeText(ctx, event.getFaultString(), Toast.LENGTH_LONG).show();
+            }
+        }
+    }
 
+
+    @Subscribe
+    public void onAsyncTaskResult(AsyncTaskSoapObjectResultEvent event) {
+        Log.e("SergioEntra", event.getFaultString());
         if (event.getCodeRequest() == Constants.ACTIVITY_LOGIN) {
             setWaitinUI(false);
             if (event.getResult() != null) {
@@ -316,8 +348,8 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                         Constants.MCARD_METHOD, postValues, Constants.MCARD_CODE).execute();
 
                 Constants.saveUser(ctx, user, channel);
-                ((VisaCheckoutApp) this.getApplication()).unSetParseChannels();
-                ((VisaCheckoutApp) this.getApplication()).parseUser(user.email, channel);
+                /*((VisaCheckoutApp) this.getApplication()).unSetParseChannels();
+                ((VisaCheckoutApp) this.getApplication()).parseUser(user.email, channel);*/
 
                 setResult(RESULT_OK);
                 finish();
@@ -326,31 +358,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
             }
 
         } else{
-            if (event.getCodeRequest() == Constants.MCARD_CODE){
-                Log.e("Sergio", event.getFaultString());
-                if (event.getResult() != null) {
-                    //Get data
-                    McardCliente user = SoapObjectParsers.toMcardCliente(event.getResult());
-                    String idMcard = user.getIdProducto();
-                    //Save in SharedPreferences
-                    SharedPreferences prefs =
-                            getSharedPreferences("MisPreferencias", MODE_PRIVATE);
-                    SharedPreferences.Editor editor = prefs.edit();
-                    editor.putString("idMcard", idMcard);
-                    editor.apply();
-                    Log.e("Sergio", "!= null");
-                }
-                else{
-                    //Save in SharedPreferences
-                    SharedPreferences prefs =
-                            getSharedPreferences("MisPreferencias", MODE_PRIVATE);
-                    SharedPreferences.Editor editor = prefs.edit();
-                    editor.putString("idMcard","0");
-                    editor.apply();
-                    Log.e("Sergio", "else");
-                    //Toast.makeText(ctx, event.getFaultString(), Toast.LENGTH_LONG).show();
-                }
-            }
+
         }
 
     }

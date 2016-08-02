@@ -52,42 +52,60 @@ public class AsyncSoapObjectTest extends AsyncTask<String,Void,Vector<SoapObject
         Log.d(TAG, "url: " + url);
         Log.d(TAG, "namespace: " + namespace);
         Log.d(TAG, "soapaction:" + soapaction);
-        HttpTransportSE transporte = new HttpTransportSE(url,30000);
+        HttpTransportSE transporte = new HttpTransportSE(url);
 
         SoapObject request = new SoapObject(namespace, method);
-        Vector<SoapObject> result = null;
-        request.addSoapObject(soapObject);
+
+                 Vector        result = null;
+
         try {
+            if (postValues!=null){
+                for (int i=0;i<postValues.size();i++){
+                    Log.d(TAG, postValues.get(i).getName() + ":" + postValues.get(i).getValue());
+                    request.addProperty(postValues.get(i).getName(),postValues.get(i).getValue());
+                }
+            }
+
+            if (property!=null){
+                request.addProperty(property);
+            }
 
             SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-            envelope.implicitTypes = true;
             envelope.setOutputSoapObject(request);
-
             envelope.headerOut = buildAuthHeader(envelope);
 
 
             transporte.debug=true;
             transporte.call(soapaction, envelope);
             Log.d(TAG, transporte.requestDump);
-            result = (Vector<SoapObject>) envelope.getResponse();
+            Object obj = envelope.getResponse();
+            if(obj instanceof Vector){
+                result = (Vector) envelope.getResponse();
+            }else if(obj instanceof SoapObject){
+                result = new Vector();
+                result.add((SoapObject) obj);
+            }
+
 
             Log.d(TAG, transporte.responseDump);
             faultcode =-1;
             faultstring="OK";
         } catch (Exception e) {
 
+            //faultcode=Integer.valueOf(error);
             faultcode=-1000;
             faultstring=e.getMessage();
+            Log.e("faultstring", faultstring);
         }
 
         return result;
     }
 
     @Override
-    protected void onPostExecute(Vector<SoapObject> result) {//
+    protected void onPostExecute(Vector<SoapObject> result) {
         if (result != null) {
             Log.e("Sergini", result.toString());
-            MyBus.getInstance().post(new AsyncTaskSoapObjectResultEventMcard());
+            MyBus.getInstance().post(new AsyncTaskSoapObjectResultEventMcard(result, codeRequest, faultcode,faultstring));
 
         }
     }
@@ -95,6 +113,7 @@ public class AsyncSoapObjectTest extends AsyncTask<String,Void,Vector<SoapObject
 
 
     public static AsyncSoapObjectTest getInstance2(String url,String namespace,String method,ArrayList<NameValuePair> postValues,int codeRequest){
+        Log.e("Sergio","Entra a getInstance2");
         Server server = new Server(url,namespace, Constants.SOAP_AUTH_EMAIL_MCARD,Constants.SOAP_AUTH_PASSWORD_MCARD);
         return new AsyncSoapObjectTest (server,method,postValues,codeRequest);
     }
@@ -102,6 +121,7 @@ public class AsyncSoapObjectTest extends AsyncTask<String,Void,Vector<SoapObject
 
 
     private Element[] buildAuthHeader(SoapSerializationEnvelope envelope) {
+
         Element headers[] = new Element[1];
         headers[0]= new Element().createElement("http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd", "Security");
         headers[0].setAttribute(envelope.env, "mustUnderstand", "1");
@@ -119,6 +139,7 @@ public class AsyncSoapObjectTest extends AsyncTask<String,Void,Vector<SoapObject
         action2.addChild(Node.TEXT, passserver);
         to.addChild(Node.ELEMENT,action2);
         headers[0].addChild(Node.ELEMENT, to);
+        Log.e("Faul","Entra al header");
         return headers;
     }
 }
