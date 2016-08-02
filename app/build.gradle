@@ -8,8 +8,8 @@ android {
         applicationId "com.allegra.handyuvisa"
         minSdkVersion 21
         targetSdkVersion 23
-        versionCode 326
-        versionName "0.9.66 (326)"
+        versionCode 328
+        versionName "0.9.68-328"
         dependencies {
             compile fileTree(include: ['*.jar'], dir: 'libs')
             testCompile 'junit:junit:4.12'
