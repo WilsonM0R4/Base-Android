@@ -28,7 +28,7 @@
             android:id="@+id/profileOptionText"
             android:gravity="center_vertical"
             android:layout_marginLeft="5dp"
-            app:font="@string/font_muli_bold"
+            app:font="@string/font_varela"
             />
         <RelativeLayout
             android:layout_width="match_parent"
