@@ -40,7 +40,7 @@
     <string name="payment_hotel_checking">INGRESO</string>
     <string name="txt_nit">NIT</string>
     <string name="txt_otro">Otro</string>
-    <string name="title_store">Comercios</string>
+    <string name="title_store">Tiendas</string>
     <string name="txt_nuip">NUIP</string>
     <string name="payment_hotel_checkout">SALIDA</string>
     <string name="payment_hotel_onepocket">PAGAR CON ONE POCKET</string>

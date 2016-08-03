@@ -26,7 +26,6 @@ public class OneTransactionsActivity extends FrontBackAnimate  implements FrontB
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        checkLogin();
         super.setView(R.layout.activity_one_transactions, this);
 
         RegisterCallback.registerNext(new NextHandler() {
@@ -113,24 +112,7 @@ public class OneTransactionsActivity extends FrontBackAnimate  implements FrontB
 
     @Override
     public void initViews(View root) {
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        Bundle bundle = new Bundle();
-        AllemUser user = Constants.getUser(this);
-        VisaCheckoutApp app = (VisaCheckoutApp) getApplication();
-        OneTransaction data = new OneTransaction();
-        data.add("sessionId", app.getIdSession());
-        data.add("first", user.nombre);
-        data.add("last", user.apellido);
-        data.add("userName", user.email);
-        data.add("rawPassword", app.getRawPassword());
-        data.add("idCuenta", Integer.toString(app.getIdCuenta()));
-
-        bundle.putParcelable(OPKConstants.EXTRA_DATA, data);
-        oneTransctions = new TransactionsFragment();
-        oneTransctions.setArguments(bundle);
-        transaction.add(R.id.opk_top, oneTransctions);
-
-        transaction.commit();
+        checkLogin();
 
     }
 
@@ -155,6 +137,23 @@ public class OneTransactionsActivity extends FrontBackAnimate  implements FrontB
             Intent i =new Intent(OneTransactionsActivity.this, LoginActivity.class);
             this.startActivityForResult(i, Constants.ONE_POCKET_NEEDS_LOGIN);
             finish();
+        }else {
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+            Bundle bundle = new Bundle();
+            AllemUser user = Constants.getUser(this);
+            VisaCheckoutApp app = (VisaCheckoutApp) getApplication();
+            OneTransaction data = new OneTransaction();
+            data.add("sessionId", app.getIdSession());
+            data.add("first", user.nombre);
+            data.add("last", user.apellido);
+            data.add("userName", user.email);
+            data.add("rawPassword", app.getRawPassword());
+            data.add("idCuenta", Integer.toString(app.getIdCuenta()));
+            bundle.putParcelable(OPKConstants.EXTRA_DATA, data);
+            oneTransctions = new TransactionsFragment();
+            oneTransctions.setArguments(bundle);
+            transaction.add(R.id.opk_top, oneTransctions);
+            transaction.commit();
         }
     }
 
