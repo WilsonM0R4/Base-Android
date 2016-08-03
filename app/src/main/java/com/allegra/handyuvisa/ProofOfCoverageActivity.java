@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.allegra.handyuvisa.async.AsyncSoapObject;
 import com.allegra.handyuvisa.async.AsyncSoapObjectTest;
 import com.allegra.handyuvisa.async.AsyncTaskSoapObjectResultEvent;
+import com.allegra.handyuvisa.async.AsyncTaskSoapObjectResultEventMcard;
 import com.allegra.handyuvisa.async.MyBus;
 import com.allegra.handyuvisa.models.McardCliente;
 import com.allegra.handyuvisa.parsers.SoapObjectParsers;
@@ -49,7 +50,7 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
         nombre = prefs.getString("nombre", "Santiago");
         apellido = prefs.getString("apellido", "Castro");
         String strIdCuenta = prefs.getString("idCuenta", "0");
-        Log.d("Sergio",strIdCuenta);
+        Log.d("strIdCuenta",strIdCuenta);
         idCuenta = Integer.valueOf(strIdCuenta);
         //Si hay internet: consumir el servicio para mCards
         if (Util.hasInternetConnectivity(getApplicationContext())) {
@@ -57,10 +58,13 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
             postValues.add(new BasicNameValuePair("idCuenta", String.valueOf(idCuenta)));
             AsyncSoapObjectTest.getInstance2(Constants.SOAP_URL_MCARD_PROD, Constants.MCARD_NAMESPACE,
                     Constants.MCARD_METHOD, postValues, Constants.MCARD_CODE).execute();
+        } else {
+        valueOfMcard = prefs.getString("idMcard", "0");
+        Log.e("valueOfMcard",valueOfMcard);
+        idMcard = Integer.valueOf(valueOfMcard);
+            findValueOfMcard();
+            setValues();
         }
-        /*valueOfMcard = prefs.getString("idMcard", "0");
-        //Log.e("valueOfMcard",valueOfMcard);
-        idMcard = Integer.valueOf(valueOfMcard);*/
 
     }
 
@@ -85,15 +89,15 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
         header = (LinearLayout)root.findViewById(R.id.customCoverageHeader);
         centerListView = (LinearLayout)root.findViewById(R.id.customListView);
         bottomTexts = (LinearLayout)root.findViewById(R.id.customTextCoverage);
-        //findValueOfMcard();
-        //setValues();
+        /*findValueOfMcard();
+        setValues();*/
     }
 
 
     ///*************SOAP RESULT***************
 
     @Subscribe
-    public void onAsyncTaskResult(AsyncTaskSoapObjectResultEvent event) {
+    public void onAsyncTaskResult(AsyncTaskSoapObjectResultEventMcard event) {
         if (event.getCodeRequest() == Constants.MCARD_CODE){
             if (event.getResult() != null) {
                 //Get data
@@ -103,9 +107,17 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
                 SharedPreferences prefs =
                         getSharedPreferences("MisPreferencias", MODE_PRIVATE);
                 SharedPreferences.Editor editor = prefs.edit();
-                editor.putString("idMcard", strIdMcard);
+                if (strIdMcard.equals("")){
+                    strIdMcard = "0";
+                    editor.putString("idMcard", strIdMcard);
+                }
+                else {
+                    editor.putString("idMcard", strIdMcard);
+                }
                 editor.apply();
+                Log.e("strIdMcard","Es "+strIdMcard);
                 idMcard = Integer.valueOf(strIdMcard);
+                valueOfMcard = strIdMcard;
                 //******************
                 findValueOfMcard();
                 setValues();
@@ -180,6 +192,7 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
         //Launch mCard Activity
         Intent i = new Intent(getApplicationContext(), Mcardhtml.class);
         startActivity(i);
+        finish();
     }
 
     public void onUpProof(View view) {

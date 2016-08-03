@@ -1,10 +1,5 @@
 package com.allegra.handyuvisa;
 
-/**
- * Created by victor on 19/02/15.
- * com.allem.allemevent.fragactiv
- */
-
 import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
@@ -24,7 +19,6 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.allegra.handyuvisa.async.AsyncSoapObject;
 import com.allegra.handyuvisa.async.AsyncSoapObjectTest;
 import com.allegra.handyuvisa.async.AsyncTaskSoapObjectResultEvent;
@@ -38,19 +32,14 @@ import com.allegra.handyuvisa.utils.Util;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
 import com.allegra.handyuvisa.utils.KeySaver;
 import com.squareup.otto.Subscribe;
-
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
-import org.ksoap2.SoapEnvelope;
-import org.ksoap2.serialization.SoapObject;
-import org.ksoap2.serialization.SoapPrimitive;
-import org.ksoap2.serialization.SoapSerializationEnvelope;
-import org.ksoap2.transport.HttpTransportSE;
-import org.kxml2.kdom.Element;
-import org.kxml2.kdom.Node;
-
 import java.util.ArrayList;
 
+/**
+ * Created by victor on 19/02/15.
+ * com.allem.allemevent.fragactiv
+ */
 public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
 
     private final String TAG = "LoginActivity";
@@ -233,7 +222,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         btn_newaccount.setEnabled(!b);
     }
 
-    private void setActionbar() {
+    /*private void setActionbar() {
         actionBar = getActionBar();
         if (actionBar != null) {
             actionBar.setIcon(R.drawable.ab_icon_back);
@@ -242,7 +231,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
             actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM
                     | ActionBar.DISPLAY_SHOW_HOME);
         }
-    }
+    }*/
 
 
     @Override
@@ -273,38 +262,31 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         }
     }
 
-
+    //Response from SOAP Service, get Mcards purchased by an user
     @Subscribe
     public void onAsyncTaskResult(AsyncTaskSoapObjectResultEventMcard event) {
         Log.e("SergioMcardEntra", event.getFaultString());
         if (event.getCodeRequest() == Constants.MCARD_CODE){
             Log.e("SergioMcard", event.getFaultString());
+            //At least one mCard
             if (event.getResult() != null) {
+
                 //Get data
-                /*McardCliente user = SoapObjectParsers.toMcardCliente(event.getResult());
-                String idMcard = user.getIdProducto();*/
-                //Save in SharedPreferences
-               /* SharedPreferences prefs =
-                        getSharedPreferences("MisPreferencias", MODE_PRIVATE);
-                SharedPreferences.Editor editor = prefs.edit();
-                editor.putString("idMcard", idMcard);
-                editor.apply();*/
-                Log.e("Sergio", "!= null");
-            }
-            else{
+                McardCliente mcardCliente = SoapObjectParsers.toMcardCliente(event.getResult());
+                String idMcard = mcardCliente.getIdProducto();
                 //Save in SharedPreferences
                 SharedPreferences prefs =
                         getSharedPreferences("MisPreferencias", MODE_PRIVATE);
                 SharedPreferences.Editor editor = prefs.edit();
-                editor.putString("idMcard","0");
+                if (idMcard.equals(""))editor.putString("idMcard", "0");
+                else editor.putString("idMcard", idMcard);
                 editor.apply();
-                Log.e("Sergio", "else");
-                //Toast.makeText(ctx, event.getFaultString(), Toast.LENGTH_LONG).show();
+                Log.e("idMcard", "Es"+ idMcard);
             }
         }
     }
 
-
+    //Response from SOAP Service, get user login info
     @Subscribe
     public void onAsyncTaskResult(AsyncTaskSoapObjectResultEvent event) {
         Log.e("SergioEntra", event.getFaultString());
@@ -317,17 +299,13 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 ((VisaCheckoutApp) this.getApplication()).setIdSession(user.idSesion);
                 ((VisaCheckoutApp) this.getApplication()).setIdCuenta(user.idCuenta);
                 ((VisaCheckoutApp) this.getApplication()).setRawPassword(password.getText().toString());
-
-                //((VisaCheckoutApp) this.getApplication()).set
-
-
                 //Get values for work with these
                 String name = user.email.substring(0, user.email.indexOf('@'));
                 String domain = user.email.substring(user.email.indexOf('@') + 1, user.email.length()).replace(".", "");
                 String channel = name + domain + user.idCuenta;
                 String password = user.hashpassword;
                 String cel_code = user.celular_codigo;
-                Log.d("Sergio", "Es: "+cel_code);
+                //Log.e("Sergio", "Es: "+cel_code);
 
                 String nombre = user.nombre;
                 String apellido = user.apellido;
@@ -338,29 +316,24 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 SharedPreferences.Editor editor = prefs.edit();
                 editor.putString("apellido", apellido);
                 editor.putString("nombre", nombre);
-                editor.putString("celular_codigo",cel_code);
-                editor.apply();
+                //editor.putString("celular_codigo",cel_code);
                 idCuenta = user.idCuenta;
+                editor.putString("idCuenta",String.valueOf(idCuenta));
+                editor.apply();
                 //Launch SOAP request for mCard
                 if (postValues.size() > 0) postValues.clear();
                 postValues.add(new BasicNameValuePair("idCuenta", String.valueOf(idCuenta)));
-                AsyncSoapObjectTest.getInstance2(Constants.SOAP_URL_MCARD_PROD, Constants.MCARD_NAMESPACE,
+                AsyncSoapObjectTest asyncSoapObjectTest = new AsyncSoapObjectTest(getApplicationContext());
+                asyncSoapObjectTest.getInstance2(Constants.SOAP_URL_MCARD_PROD, Constants.MCARD_NAMESPACE,
                         Constants.MCARD_METHOD, postValues, Constants.MCARD_CODE).execute();
-
                 Constants.saveUser(ctx, user, channel);
-                /*((VisaCheckoutApp) this.getApplication()).unSetParseChannels();
-                ((VisaCheckoutApp) this.getApplication()).parseUser(user.email, channel);*/
-
                 setResult(RESULT_OK);
                 finish();
             } else {
                 Toast.makeText(ctx, event.getFaultString(), Toast.LENGTH_LONG).show();
             }
 
-        } else{
-
         }
-
     }
 
     @Override
@@ -377,5 +350,4 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         animate();
     }
 
-
-    }
+}
