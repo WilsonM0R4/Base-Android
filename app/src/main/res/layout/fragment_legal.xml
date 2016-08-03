@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,8 +9,7 @@
     android:background="@color/white"
     android:weightSum="1"
     android:id="@+id/my_account_menu_layout"
-    android:onClick="onCloseMenu"
-    >
+    android:onClick="onCloseMenu">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -19,7 +18,7 @@
         android:layout_centerHorizontal="true"
         android:background="@color/white"
         android:id="@+id/ll_header">
-        <TextView
+        <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -27,7 +26,8 @@
             android:text="@string/legal_title"
             android:id="@+id/tv_title_secc_con"
             android:layout_centerHorizontal="true"
-            android:textColor="@color/magenta" />
+            android:textColor="@color/magenta"
+            app:font="@string/font_varela"/>
         <ImageButton
             android:layout_width="25dp"
             android:layout_height="25dp"
@@ -68,7 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp">
 
-        <TextView
+        <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -77,9 +77,10 @@
             android:id="@+id/allegra_visa"
             android:layout_centerHorizontal="true"
             android:textColor="@color/orange"
-            android:textSize="25dp" />
+            android:textSize="25dp"
+            app:font="@string/font_varela"/>
 
-        <TextView
+        <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -87,7 +88,8 @@
             android:text="@string/legal_title"
             android:id="@+id/version_legal"
             android:layout_centerHorizontal="true"
-            android:textColor="@color/gray" />
+            android:textColor="@color/gray"
+            app:font="@string/font_muli_light"/>
     </LinearLayout>
 
     <ImageView
