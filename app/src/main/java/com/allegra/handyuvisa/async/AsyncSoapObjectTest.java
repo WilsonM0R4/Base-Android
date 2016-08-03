@@ -1,5 +1,7 @@
 package com.allegra.handyuvisa.async;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -31,6 +33,11 @@ public class AsyncSoapObjectTest extends AsyncTask<String,Void,Vector<SoapObject
     private PropertyInfo property;
     private String userserver,passserver;
     private SoapObject soapObject;
+    private Context mContext;
+
+    public AsyncSoapObjectTest(Context context){
+        mContext = context;
+    }
 
     private AsyncSoapObjectTest(Server server, String method, ArrayList<NameValuePair> postValues, int codeRequest){
         this.url = server.wsdl;
@@ -43,20 +50,16 @@ public class AsyncSoapObjectTest extends AsyncTask<String,Void,Vector<SoapObject
         this.passserver = server.pass;
     }
 
-   /* public static AsyncSoapObjectTest getInstance(Server server,String method,SoapObject soapObject,int codeRequest){
-        return new AsyncSoapObjectTest(server,method,soapObject,codeRequest);
-    }*/
-
     @Override
     protected Vector<SoapObject> doInBackground(String... strings) {
+
         Log.d(TAG, "url: " + url);
         Log.d(TAG, "namespace: " + namespace);
         Log.d(TAG, "soapaction:" + soapaction);
         HttpTransportSE transporte = new HttpTransportSE(url);
 
         SoapObject request = new SoapObject(namespace, method);
-
-                 Vector        result = null;
+        Vector<SoapObject> result = null;
 
         try {
             if (postValues!=null){
@@ -74,17 +77,25 @@ public class AsyncSoapObjectTest extends AsyncTask<String,Void,Vector<SoapObject
             envelope.setOutputSoapObject(request);
             envelope.headerOut = buildAuthHeader(envelope);
 
-
             transporte.debug=true;
             transporte.call(soapaction, envelope);
             Log.d(TAG, transporte.requestDump);
             Object obj = envelope.getResponse();
 
+            if (obj==null) {//0 mcards
+                result = new Vector<SoapObject>();
+                Log.e("Lista", "0 mcards");
+            }
+
             if(obj instanceof Vector){//2 Mcards or more
-                result = (Vector) envelope.getResponse();
-            }else if(obj instanceof SoapObject){//One or 0 Mcards
-                result = new Vector();
+                result = (Vector<SoapObject>) envelope.getResponse();
+                int size = result.size();
+                Log.e("Tamaño","Es "+String.valueOf(size));
+            }else if(obj instanceof SoapObject){//One Mcard: Privilege
+                result = new Vector<SoapObject>();
                 result.add((SoapObject) obj);
+                int size = result.size();
+                Log.e("Tamaño","Es "+String.valueOf(size));
             }
 
 
@@ -96,7 +107,7 @@ public class AsyncSoapObjectTest extends AsyncTask<String,Void,Vector<SoapObject
             //faultcode=Integer.valueOf(error);
             faultcode=-1000;
             faultstring=e.getMessage();
-            Log.e("faultstring", faultstring);
+            //Log.e("faultstring", faultstring);
         }
 
         return result;
@@ -105,16 +116,26 @@ public class AsyncSoapObjectTest extends AsyncTask<String,Void,Vector<SoapObject
     @Override
     protected void onPostExecute(Vector<SoapObject> result) {
         if (result != null) {
-            Log.e("Sergini", result.toString());
+            //One mcard: Privilege
+
+
+
+            //2 or more Mcards
+            //Log.e("Sergini", result.toString());
             MyBus.getInstance().post(new AsyncTaskSoapObjectResultEventMcard(result, codeRequest, faultcode,faultstring));
 
-        }
+        } /*else{//0 Mcards
+                //Save in SharedPreferences
+                SharedPreferences prefs = mContext.getSharedPreferences("MisPreferencias", mContext.MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putString("idMcard", "0");
+                editor.apply();
+            Log.e("Sergini null", "Null");
+        }*/
     }
 
-
-
     public static AsyncSoapObjectTest getInstance2(String url,String namespace,String method,ArrayList<NameValuePair> postValues,int codeRequest){
-        Log.e("Sergio","Entra a getInstance2");
+        //Log.e("Sergio","Entra a getInstance2");
         Server server = new Server(url,namespace, Constants.SOAP_AUTH_EMAIL_MCARD,Constants.SOAP_AUTH_PASSWORD_MCARD);
         return new AsyncSoapObjectTest (server,method,postValues,codeRequest);
     }
@@ -140,7 +161,7 @@ public class AsyncSoapObjectTest extends AsyncTask<String,Void,Vector<SoapObject
         action2.addChild(Node.TEXT, passserver);
         to.addChild(Node.ELEMENT,action2);
         headers[0].addChild(Node.ELEMENT, to);
-        Log.e("Faul","Entra al header");
+        //Log.e("Faul","Entra al header");
         return headers;
     }
 }

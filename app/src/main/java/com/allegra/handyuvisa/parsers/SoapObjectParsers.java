@@ -11,6 +11,8 @@ import org.ksoap2.serialization.SoapObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Vector;
 
 
 /**
@@ -31,6 +33,42 @@ public class SoapObjectParsers {
             idProducto= soapObject.getPropertyAsString("idProducto");
         }
         mcardCliente = new McardCliente(soapObject.getPropertyAsString("idProducto"));
+        return  mcardCliente;
+    }
+
+    public static McardCliente toMcardCliente(Vector<SoapObject> vector){
+        McardCliente mcardCliente = null;
+        ArrayList<String> arrayProducto = new ArrayList<>();
+        String idProducto = "", idMayorProducto = "";
+        Iterator<SoapObject> itr = vector.iterator();
+        SoapObject soapObject = new SoapObject();
+
+        while(itr.hasNext()){
+            //System.out.println(itr.next().toString());
+            soapObject = itr.next();
+            if (soapObject.hasProperty("idProducto")){
+                idProducto = soapObject.getPropertyAsString("idProducto");
+                arrayProducto.add(idProducto);
+            }
+            Log.e("idProducto",idProducto);
+        }
+
+        //******Validate idProducto*********
+        /*int size = arrayProducto.size();
+        for (int i = 0; i < size; i++){*/
+            if (arrayProducto.contains("210")) idMayorProducto = "210";//UNLIMITED
+            else if (arrayProducto.contains("209")) idMayorProducto = "209";//EXCLUSIVE
+            else if (arrayProducto.contains("208")) idMayorProducto = "208";//PREMIUM
+            else if (arrayProducto.contains("212")) idMayorProducto = "212";//PRIVILEGE
+       // }
+
+       /* switch (idProducto){
+            case "212":
+
+                break;
+        }*/
+        Log.e("idMayorProducto",idMayorProducto);
+        mcardCliente = new McardCliente(idMayorProducto);//soapObject.getPropertyAsString("idProducto")
         return  mcardCliente;
     }
 
