@@ -26,14 +26,34 @@
         app:font="@string/font_muli"
         android:layout_gravity="center_horizontal"/>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal">
+
     <com.allegra.handyuvisa.utils.CustomizedTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CC 90.877.878"
+        android:text="CC"
+        android:id="@+id/txtTypeOfId"
         android:textColor="@color/dark_gray"
         android:textSize="18sp"
         app:font="@string/font_muli"
-        android:layout_gravity="center_horizontal"/>
+        />
+
+        <com.allegra.handyuvisa.utils.CustomizedTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtNumberOfId"
+            android:layout_marginLeft="10dp"
+            android:text="90.877.878"
+            android:textColor="@color/dark_gray"
+            android:textSize="18sp"
+            app:font="@string/font_muli"
+            />
+
+    </LinearLayout>
 
     <ImageView
         android:layout_width="wrap_content"
@@ -45,7 +65,7 @@
     <com.allegra.handyuvisa.utils.CustomizedTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/coverage"
+        android:text="@string/coverage_limite"
         app:font="@string/font_muli"
         android:textColor="@color/magenta"
         android:textSize="15sp"

@@ -267,7 +267,7 @@
     <string name="copy_related_privilege">Copia relacionada con la membresía</string>
     <string name="regular_price">PRECIO REGULAR</string>
     <string name="visa_price">PAGO CON VISA</string>
-    <string name="coverage_limite">Limite de Cobertura</string>
+    <string name="coverage_limite">Limites de Cobertura</string>
 
     <!--DR HELP INFORMATION-->
     <string-array name="header_titles">

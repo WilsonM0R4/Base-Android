@@ -322,6 +322,16 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             case 3:
                 txtTypeOfIdSelected.setText(getString(R.string.txt_identity_card));
                 break;
+            case 4:
+                txtTypeOfIdSelected.setText(getString(R.string.txt_nit));
+                break;
+            case 5:
+                txtTypeOfIdSelected.setText(getString(R.string.txt_nuip));
+                break;
+            case 6:
+                txtTypeOfIdSelected.setText(getString(R.string.txt_otro));
+                break;
+
         }
 
     }
@@ -335,9 +345,12 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
         typeOfIdPicker = new NumberPicker(this);
         typeOfIdPicker = (NumberPicker) dialog.findViewById(R.id.selectTypeOfIdPicker);
         typeOfIdPicker.setMinValue(0);
-        typeOfIdPicker.setMaxValue(3);
+        typeOfIdPicker.setMaxValue(6);
+        typeOfIdPicker.setWrapSelectorWheel(false);
+        typeOfIdPicker.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
         typeOfIdPicker.setDisplayedValues(new String[]{getString(R.string.txt_citizenship_card),
-                getString(R.string.txt_Foreigner_ID), getString(R.string.txt_passport), getString(R.string.txt_identity_card)});
+                getString(R.string.txt_Foreigner_ID), getString(R.string.txt_passport), getString(R.string.txt_identity_card), getString(R.string.txt_nit),
+                getString(R.string.txt_nuip), getString(R.string.txt_otro)});
         setDividerColor(typeOfIdPicker);
         //TextViews (Cancel and Ok)
         TextView textCancel = (TextView) dialog.findViewById(R.id.textCancelDialogTypeOfId);
@@ -629,10 +642,17 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             setWaitinUI(false);
             Intent returnIntent = new Intent();
             if (event.getResult()!=null){
+                Log.e("Response",event.getResult().toString());
                 AllemUser user = SoapObjectParsers.toAllemUser(event.getResult());
                 AllemUser currentUser= Constants.getUser(EditProfileActivity.this);
                 user.saludo= currentUser.saludo;
                 user.idSesion= currentUser.idSesion;
+                /*user.idType = currentUser.idType;
+                user.idNumber = currentUser.idNumber;
+                user.nombre = currentUser.nombre;
+                user.apellido = currentUser.apellido;*/
+                //Save in SharedPReferences TypeOfID and Number OfID
+
                Constants.saveUser(EditProfileActivity.this,user,currentUser.channel);
 
                 new AlertDialog.Builder(ctx).setTitle(getString(R.string.txt_lbl_notification)).setMessage(getString(R.string.edit_successful)).setPositiveButton("ok", null).show();

@@ -306,6 +306,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 String password = user.hashpassword;
                 String cel_code = user.celular_codigo;
                 String typeOfId = user.idType;
+
                 String numberOfId = user.idNumber;
                 //Log.e("Sergio", "Es: "+cel_code);
 
@@ -318,7 +319,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
 
                 editor.putString("apellido", apellido);
                 editor.putString("nombre", nombre);
-                editor.putString("typeOfId",typeOfId);
+                editor.putString("typeOfId",getTypeOfDocumentFromIdCode(typeOfId));
                 editor.putString("numberOfId",numberOfId);
                 //editor.putString("celular_codigo",cel_code);
                 idCuenta = user.idCuenta;
@@ -338,6 +339,29 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
             }
 
         }
+    }
+
+    public String getTypeOfDocumentFromIdCode(String typeOfId){
+        String defaultType = "";
+
+        switch (typeOfId){
+            case "1":
+                return "CC";
+            case "2":
+                return "CE";
+            case "3":
+                return "NIT";
+            case "4":
+                return "TI";
+            case "5":
+                return "PS";
+            case "10":
+                return "NUIP";
+            case "9":
+                return "OTRO";
+        }
+
+        return defaultType;
     }
 
     @Override
