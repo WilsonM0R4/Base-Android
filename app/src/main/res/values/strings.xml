@@ -5,6 +5,10 @@
     <string name="payment_hotel_your">YOUR HOTEL</string>
     <string name="payment_hotel_nights">nights</string>
     <string name="forgot_password">Recover Passwords</string>
+    <string name="location_permision">Your GPS seems to be disabled, do you want to enable it?</string>
+    <string name="location_failed">Fail to fetch your current location. Please check your GPS status and try again</string>
+    <string name="location_yes">Yes</string>
+    <string name="location_no">No</string>
     <string name="TODAY">TODAY</string>
     <string name="room">ROOMS</string>
     <string name="hotels_room_description">If you are traveling, please include yourself in Room 1</string>
