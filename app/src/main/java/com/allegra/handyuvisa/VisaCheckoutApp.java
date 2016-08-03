@@ -7,12 +7,13 @@ import android.util.Log;
 
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.KeySaver;
-import com.parse.Parse;
+/*import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseInstallation;
 import com.parse.ParsePush;
 import com.parse.ParseUser;
-import com.parse.SaveCallback;
+import com.parse.SaveCallback;*/
+import com.splunk.mint.Mint;
 import com.urbanairship.UAirship;
 
 import java.util.List;
@@ -27,12 +28,14 @@ public class VisaCheckoutApp extends MultiDexApplication {
     private String idSession=null,channel,urlResto;
     private String rawPassword;
     private int idCuenta;
-
     private String urlHotel;
+    //final String SPLUNK_API_KEY = "d87dc4ae6083e6b16e3b473";
+    //Mint.initAndStartSession(MyActivity.this, "e74061f2");
+    final String SPLUNK_API_KEY = "e74061f2";
 
     @Override
     public void onCreate() {
-        super.onCreate();
+        //super.onCreate();
         //SystemClock.sleep(0);   // For running splash screen
 
         super.onCreate();
@@ -44,6 +47,9 @@ public class VisaCheckoutApp extends MultiDexApplication {
                 airship.getPushManager().setUserNotificationsEnabled(true);
             }
         });
+
+        //For Splunk tool
+        Mint.initAndStartSession(getApplicationContext(), SPLUNK_API_KEY);
 
         /*Parse.enableLocalDatastore(getApplicationContext());
         Parse.initialize(this, "YLafvQVsiUgpHPhTBZFuEIEfdnCtzHNV6fwiOWnY", "PpAKINbIw42zMgFuzstKl6IOrrQqRFAxupHqkGdn");
@@ -81,11 +87,6 @@ public class VisaCheckoutApp extends MultiDexApplication {
             }
         });
     }
-
-
-
-
-
 
 
     public String getIdSession() {

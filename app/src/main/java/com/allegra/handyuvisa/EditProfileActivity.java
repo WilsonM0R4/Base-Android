@@ -338,7 +338,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
 
     private void onAlertSelectTypeOfId() {//View view
 
-        Log.e("Bug 1", "Entro");
+
         final Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.custom_dialog_select_type_of_id);
         dialog.show();
@@ -564,7 +564,6 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
 
     private void onAlertSelectCountry() {
 
-        Log.e("Bug 1", "Entro");
         final Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.custom_country_selector_picker_dialog);
         dialog.show();
@@ -642,7 +641,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             setWaitinUI(false);
             Intent returnIntent = new Intent();
             if (event.getResult()!=null){
-                Log.e("Response",event.getResult().toString());
+                Log.d("Response",event.getResult().toString());
                 AllemUser user = SoapObjectParsers.toAllemUser(event.getResult());
                 AllemUser currentUser= Constants.getUser(EditProfileActivity.this);
                 user.saludo= currentUser.saludo;

@@ -17,10 +17,10 @@ import android.widget.Toast;
 
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.Util;
-import com.parse.FindCallback;
+/*import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
-import com.parse.ParseQuery;
+import com.parse.ParseQuery;*/
 
 import java.util.List;
 
@@ -64,7 +64,7 @@ public class EntertainmentActivity extends FrontBackAnimate implements FrontBack
         animate();
     }
 
-    private void getParseURL() {
+    /*private void getParseURL() {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Config");
         query.whereEqualTo("name", "entertaimentURL");
         query.findInBackground(new FindCallback<ParseObject>() {
@@ -79,7 +79,7 @@ public class EntertainmentActivity extends FrontBackAnimate implements FrontBack
                 }
             }
         });
-    }
+    }*/
 
     @Override
     public void initViews(View root) {
@@ -122,7 +122,7 @@ public class EntertainmentActivity extends FrontBackAnimate implements FrontBack
 //        if (((VisaCheckoutApp)this.getApplication()).getUrlHotel()!=null){
 //            webView.loadUrl(((VisaCheckoutApp)this.getApplication()).getUrlHotel());
 //        }else{
-            getParseURL();
+            //getParseURL();
 //        }
     }
 

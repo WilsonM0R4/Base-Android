@@ -49,8 +49,10 @@
 
     <uses-permission android:name="com.allem.alleminmotion.visacheckout.permission.C2D_MESSAGE" />
 
+    <!--  android:name=".VisaCheckoutApp"-->
     <application
-        android:name=".VisaCheckoutApp"
+
+        android:name="com.allegra.handyuvisa.VisaCheckoutApp"
         android:allowBackup="true"
         android:icon="@mipmap/handy_visa"
         android:label="@string/app_name"

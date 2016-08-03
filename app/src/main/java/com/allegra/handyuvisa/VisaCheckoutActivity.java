@@ -12,10 +12,10 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.allegra.handyuvisa.utils.Util;
-import com.parse.FindCallback;
+/*import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
-import com.parse.ParseQuery;
+import com.parse.ParseQuery;*/
 
 import java.util.List;
 
@@ -60,7 +60,7 @@ public class VisaCheckoutActivity extends Activity {
     private void loadWebView() {
         progressBar.setVisibility(View.VISIBLE);
 
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("Config");
+        /*ParseQuery<ParseObject> query = ParseQuery.getQuery("Config");
         query.whereEqualTo("name", "visaCheckoutSignupURL");
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
@@ -71,7 +71,7 @@ public class VisaCheckoutActivity extends Activity {
                     webView.loadUrl(SIGNUP_URL);
                 }
             }
-        });
+        });*/
     }
 
     private class MyWebViewClient extends WebViewClient {

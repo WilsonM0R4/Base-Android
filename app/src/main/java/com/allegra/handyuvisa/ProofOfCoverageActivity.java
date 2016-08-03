@@ -118,7 +118,7 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
                 }
                 editor.putString("idMcard", strIdMcard);
                 editor.apply();
-                Log.e("strIdMcard","Es "+strIdMcard);
+                Log.d("strIdMcard","Es "+strIdMcard);
                 idMcard = Integer.valueOf(strIdMcard);
                 valueOfMcard = strIdMcard;
                 //******Update values for user
@@ -129,10 +129,10 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
                 apellido = allemUser.apellido;
                 typeOfId = getTypeOfIdForDisplay(allemUser.idType);
                 numberOfId = allemUser.idNumber;
-                Log.e("nombre",nombre);
-                Log.e("apellido",apellido);
-                Log.e("typeOfId",typeOfId);
-                Log.e("numberOfId",numberOfId);
+                Log.d("nombre",nombre);
+                Log.d("apellido",apellido);
+                Log.d("typeOfId",typeOfId);
+                Log.d("numberOfId",numberOfId);
                 //******************
                 findValueOfMcard();
                 setValues();

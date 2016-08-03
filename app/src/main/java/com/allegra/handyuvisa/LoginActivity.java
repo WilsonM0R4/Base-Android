@@ -89,7 +89,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 version.setText("Version: " + versionName);
             }
         } catch (PackageManager.NameNotFoundException e) {
-            Log.e(TAG, "No Version number found");
+            Log.d(TAG, "No Version number found");
         }
         forgotpass = (TextView)root.findViewById(R.id.forgotPassword);
         forgotpass.setOnClickListener(new View.OnClickListener() {
@@ -222,18 +222,6 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         btn_newaccount.setEnabled(!b);
     }
 
-    /*private void setActionbar() {
-        actionBar = getActionBar();
-        if (actionBar != null) {
-            actionBar.setIcon(R.drawable.ab_icon_back);
-            actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setHomeButtonEnabled(true);
-            actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM
-                    | ActionBar.DISPLAY_SHOW_HOME);
-        }
-    }*/
-
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -265,9 +253,9 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
     //Response from SOAP Service, get Mcards purchased by an user
     @Subscribe
     public void onAsyncTaskResult(AsyncTaskSoapObjectResultEventMcard event) {
-        Log.e("SergioMcardEntra", event.getFaultString());
+        Log.d("SergioMcardEntra", event.getFaultString());
         if (event.getCodeRequest() == Constants.MCARD_CODE){
-            Log.e("SergioMcard", event.getFaultString());
+            Log.d("SergioMcard", event.getFaultString());
             //At least one mCard
             if (event.getResult() != null) {
 
@@ -281,7 +269,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 if (idMcard.equals(""))editor.putString("idMcard", "0");
                 else editor.putString("idMcard", idMcard);
                 editor.apply();
-                Log.e("idMcard", "Es"+ idMcard);
+                Log.d("idMcard", "Es"+ idMcard);
             }
         }
     }
@@ -289,7 +277,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
     //Response from SOAP Service, get user login info
     @Subscribe
     public void onAsyncTaskResult(AsyncTaskSoapObjectResultEvent event) {
-        Log.e("SergioEntra", event.getFaultString());
+        Log.d("SergioEntra", event.getFaultString());
         if (event.getCodeRequest() == Constants.ACTIVITY_LOGIN) {
             setWaitinUI(false);
             if (event.getResult() != null) {
@@ -308,7 +296,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 String typeOfId = user.idType;
 
                 String numberOfId = user.idNumber;
-                //Log.e("Sergio", "Es: "+cel_code);
+                //Log.d("Sergio", "Es: "+cel_code);
 
                 String nombre = user.nombre;
                 String apellido = user.apellido;

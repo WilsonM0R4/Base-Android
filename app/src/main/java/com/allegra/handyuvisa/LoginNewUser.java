@@ -191,7 +191,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 /*//******Add all new views*****
                 SuccessfulRegister successfulRegister = new SuccessfulRegister(getApplicationContext());
                 formLayout.addView(successfulRegister);
-                Log.e("Serfar Prueba", channel);*/
+                Log.d("Serfar Prueba", channel);*/
             //Temporary
                 Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
@@ -717,7 +717,6 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
 
     private void onAlertSelectCountry() {
 
-        Log.e("Bug 1", "Entro");
         final Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.custom_country_selector_picker_dialog);
         dialog.show();
@@ -751,7 +750,6 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
 
     private void onAlertSelectTypeOfId() {//View view
 
-        Log.e("Bug 1", "Entro");
         final Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.custom_dialog_select_type_of_id);
         dialog.show();
