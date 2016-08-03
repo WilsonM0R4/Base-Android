@@ -31,6 +31,7 @@ import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.Util;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
 import com.allegra.handyuvisa.utils.KeySaver;
+import com.splunk.mint.Mint;
 import com.squareup.otto.Subscribe;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -54,6 +55,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
     private ArrayList<String> arrayListMemberships;
     private ProgressBar pb_login;
     private TextView version, forgotpass;
+    final String SPLUNK_API_KEY = "e74061f2";
 
     //*************************OVERRIDE METHODS*********************
     @Override
@@ -65,6 +67,15 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         MyBus.getInstance().register(this);
         super.setView(R.layout.fragment_login, this);
         postValues = new ArrayList<>();
+
+        //Splunk
+        Mint.setApplicationEnvironment(Mint.appEnvironmentTesting);
+        Mint.initAndStartSession(getApplicationContext(), SPLUNK_API_KEY);
+        // Enable logging
+        Mint.enableLogging(true);
+        // Log last 100 messages
+        Mint.setLogging(200);
+
     }
 
     @Override

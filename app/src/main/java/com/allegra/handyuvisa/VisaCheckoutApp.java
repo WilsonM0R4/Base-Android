@@ -31,7 +31,7 @@ public class VisaCheckoutApp extends MultiDexApplication {
     private String urlHotel;
     //final String SPLUNK_API_KEY = "d87dc4ae6083e6b16e3b473";
     //Mint.initAndStartSession(MyActivity.this, "e74061f2");
-    final String SPLUNK_API_KEY = "e74061f2";
+    //final String SPLUNK_API_KEY = "e74061f2";
 
     @Override
     public void onCreate() {
@@ -48,8 +48,14 @@ public class VisaCheckoutApp extends MultiDexApplication {
             }
         });
 
+       /* Mint.setApplicationEnvironment(Mint.appEnvironmentTesting);
         //For Splunk tool
         Mint.initAndStartSession(getApplicationContext(), SPLUNK_API_KEY);
+        // Enable logging
+        Mint.enableLogging(true);
+
+        // Log last 100 messages
+        Mint.setLogging(200);*/
 
         /*Parse.enableLocalDatastore(getApplicationContext());
         Parse.initialize(this, "YLafvQVsiUgpHPhTBZFuEIEfdnCtzHNV6fwiOWnY", "PpAKINbIw42zMgFuzstKl6IOrrQqRFAxupHqkGdn");
