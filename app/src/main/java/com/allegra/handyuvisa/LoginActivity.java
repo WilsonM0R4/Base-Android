@@ -305,6 +305,8 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 String channel = name + domain + user.idCuenta;
                 String password = user.hashpassword;
                 String cel_code = user.celular_codigo;
+                String typeOfId = user.idType;
+                String numberOfId = user.idNumber;
                 //Log.e("Sergio", "Es: "+cel_code);
 
                 String nombre = user.nombre;
@@ -312,10 +314,12 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 //Save in SharedPreferences
                 SharedPreferences prefs =
                         getSharedPreferences("MisPreferencias", MODE_PRIVATE);
-
                 SharedPreferences.Editor editor = prefs.edit();
+
                 editor.putString("apellido", apellido);
                 editor.putString("nombre", nombre);
+                editor.putString("typeOfId",typeOfId);
+                editor.putString("numberOfId",numberOfId);
                 //editor.putString("celular_codigo",cel_code);
                 idCuenta = user.idCuenta;
                 editor.putString("idCuenta",String.valueOf(idCuenta));

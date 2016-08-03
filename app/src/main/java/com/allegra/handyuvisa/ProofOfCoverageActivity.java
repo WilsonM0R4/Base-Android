@@ -32,7 +32,7 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
     LinearLayout header, centerListView, bottomTexts;
     TextView  txtCoverage1, txtCoverage2,txtCoverage3;
     CustomizedTextView textNameLastName, txtGetYourCertificate;
-    String valueOfMcard, nombre, apellido;
+    String valueOfMcard, nombre, apellido, typeOfId, numberOfId;
     int idMcard = 0, idCuenta = 0;
     private ArrayList<NameValuePair> postValues = new ArrayList<>();
 
@@ -49,8 +49,11 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
 
         nombre = prefs.getString("nombre", "Santiago");
         apellido = prefs.getString("apellido", "Castro");
+        typeOfId = prefs.getString("typeOfId", "CC");
+        numberOfId = prefs.getString("numberOfId", "7887787");
         String strIdCuenta = prefs.getString("idCuenta", "0");
-        Log.d("strIdCuenta",strIdCuenta);
+        Log.e("typeOfId",typeOfId);
+        Log.e("numberOfId",numberOfId);
         idCuenta = Integer.valueOf(strIdCuenta);
         //Si hay internet: consumir el servicio para mCards
         if (Util.hasInternetConnectivity(getApplicationContext())) {

@@ -150,8 +150,8 @@ public class StoreActivity extends FrontBackAnimate implements FrontBackAnimate.
                     Log.d("stateName",stateName);
                     Log.d("countryName",countryName);
                 } else {
-                    Toast.makeText(StoreActivity.this, R.string.location_failed,
-                            Toast.LENGTH_SHORT).show();
+                    /*Toast.makeText(StoreActivity.this, R.string.location_failed,
+                            Toast.LENGTH_SHORT).show();*/
                 }
             }
 
@@ -163,7 +163,7 @@ public class StoreActivity extends FrontBackAnimate implements FrontBackAnimate.
 
     private void buildAlertMessageNoGps() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(
+        /*builder.setMessage(
                 R.string.location_permision)
                 .setCancelable(false)
                 .setPositiveButton(R.string.location_yes,
@@ -177,7 +177,7 @@ public class StoreActivity extends FrontBackAnimate implements FrontBackAnimate.
                         dialog.cancel();
                         //buildAlertMessageNoGps();
                     }
-                });
+                });*/
         final AlertDialog alert = builder.create();
         alert.show();
     }
