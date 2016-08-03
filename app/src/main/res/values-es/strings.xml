@@ -7,6 +7,10 @@
     <string name="SAME_MONTH">ÚLTIMO MES</string>
     <string name="BEFORE">ANTERIORES</string>
     <string name="forgot_password">Recuperación de Contraseña</string>
+    <string name="location_permision">Tu GPS parece estar deshabilitado. ¿Quieres habilitarlo?</string>
+    <string name="location_failed">Falló al buscar a tu ubicación actual. Por favor, comprueba el estado de tu GPS y vuelve a intentarlo</string>
+    <string name="location_yes">Si</string>
+    <string name="location_no">No</string>
     <string name="more_info">mas info.</string>
     <string name="coverage">Prueba de Cobertura</string>
     <string name="benefits">Mis Beneficios</string>
