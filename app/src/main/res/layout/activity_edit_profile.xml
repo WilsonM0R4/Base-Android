@@ -83,13 +83,14 @@
             android:id="@+id/rl_req"
             android:visibility="visible">
 
-            <TextView
+            <com.allegra.handyuvisa.utils.CustomizedTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/edit_personal_info"
                 android:textColor="@color/magenta"
                 android:textSize="20sp"
                 android:layout_marginTop="20dp"
+                app:font="@string/font_muli"
                 />
 
             <com.allegra.handyuvisa.utils.CustomizedEditText
@@ -230,7 +231,8 @@
                 android:textSize="15sp"
                 app:fontEdit="@string/font_muli"
                 android:textColorHint="@color/register_input_inactive"
-                android:background="@drawable/apptheme_edit_text_holo_light" />
+                android:background="@drawable/apptheme_edit_text_holo_light"
+                android:inputType="number" />
 
             </LinearLayout>
 
@@ -252,13 +254,14 @@
                 android:textColorHint="@color/orange"
                 android:background="@drawable/apptheme_edit_text_holo_light" />
 
-            <TextView
+            <com.allegra.handyuvisa.utils.CustomizedTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/edit_change_password"
                 android:textColor="@color/magenta"
                 android:textSize="20sp"
                 android:layout_marginTop="10dp"
+                app:font="@string/font_muli"
                 />
 
             <com.allegra.handyuvisa.utils.CustomizedEditText

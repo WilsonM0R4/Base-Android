@@ -265,22 +265,24 @@
     android:gravity="center"
             android:layout_below="@+id/ll_login_register_new_user"
         >   <!--android:layout_marginTop="400dp"-->
-    <TextView
+    <com.allegra.handyuvisa.utils.CustomizedTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/recover_password"
         android:textColor="@color/magenta"
         android:background="@android:color/transparent"
         android:id="@+id/forgotPassword"
+        app:font="@string/font_muli_light"
         />
 
-    <TextView
+    <com.allegra.handyuvisa.utils.CustomizedTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
         android:background="@android:color/transparent"
         android:id="@+id/version"
         android:textAlignment="center"
+        app:font="@string/font_muli_light"
  />        <!--
  android:text="@string/txt_version"
  android:layout_alignParentBottom="false"

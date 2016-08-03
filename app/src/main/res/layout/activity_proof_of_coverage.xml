@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     android:orientation="vertical"
     tools:context=".ProofOfCoverageActivity">
@@ -38,7 +39,7 @@
                 android:onClick="onUp"
                 android:src="@drawable/navigation__back" />
 
-            <TextView
+            <com.allegra.handyuvisa.utils.CustomizedTextView
                 android:id="@+id/tv_title_secc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -46,7 +47,8 @@
                 android:layout_marginTop="20dp"
                 android:text="@string/coverage"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/magenta" />
+                android:textColor="@color/magenta"
+                app:font="@string/font_varela"/>
 
             <ImageButton
                 android:id="@+id/ib_menu"

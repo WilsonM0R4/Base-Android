@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -9,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal">
 
-        <TextView
+        <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textAppearance="?android:attr/textAppearanceLarge"
@@ -20,9 +22,10 @@
             android:layout_marginTop="10dp"
             android:textColor="@color/dark_gray"
             android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp" />
+            android:layout_marginRight="2dp"
+            app:font="@string/font_muli_light"/>
 
-        <TextView
+        <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textAppearance="?android:attr/textAppearanceLarge"
@@ -34,7 +37,9 @@
             android:textColor="@color/dark_gray"
             android:text="@string/coverage_string2"
             android:layout_marginRight="3dp"
-            android:layout_marginLeft="3dp" />
+            android:layout_marginLeft="3dp"
+            app:font="@string/font_muli_light"
+            />
 
         <LinearLayout
             android:orientation="horizontal"
