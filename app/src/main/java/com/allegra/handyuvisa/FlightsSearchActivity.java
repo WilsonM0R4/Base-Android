@@ -72,16 +72,16 @@ public class FlightsSearchActivity extends LoadAnimate implements LoadAnimate.In
         paramArriveAt = getIntent().getStringExtra("arriveAt");//IATA CODE ARRIVAL
         paramArriveAtName = getIntent().getStringExtra("arriveAtName");//LARGE NAME ARRIVAL
 
-        Log.e("paramCabin",String.valueOf(paramCabin));
-        Log.e("paramAdult",String.valueOf(paramAdult));
-        Log.e("paramChildren",String.valueOf(paramChildren));
-        Log.e("paramDepartDate",String.valueOf(paramDepartDate));
-        Log.e("paramArriveDate",String.valueOf(paramArriveDate));
-        Log.e("paramDepartFrom",String.valueOf(paramDepartFrom));
-        Log.e("paramDepartFromName",String.valueOf(paramDepartFromName));
-        Log.e("paramArriveAt",String.valueOf(paramArriveAt));
-        Log.e("paramArriveAtName",String.valueOf(paramArriveAtName));
-        Log.e("paramInfant",String.valueOf(paramInfant));
+        Log.d("paramCabin",String.valueOf(paramCabin));
+        Log.d("paramAdult",String.valueOf(paramAdult));
+        Log.d("paramChildren",String.valueOf(paramChildren));
+        Log.d("paramDepartDate",String.valueOf(paramDepartDate));
+        Log.d("paramArriveDate",String.valueOf(paramArriveDate));
+        Log.d("paramDepartFrom",String.valueOf(paramDepartFrom));
+        Log.d("paramDepartFromName",String.valueOf(paramDepartFromName));
+        Log.d("paramArriveAt",String.valueOf(paramArriveAt));
+        Log.d("paramArriveAtName",String.valueOf(paramArriveAtName));
+        Log.d("paramInfant",String.valueOf(paramInfant));
 
     }
 

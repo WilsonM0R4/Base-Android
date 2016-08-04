@@ -45,8 +45,8 @@ public class ConciergeSearchActivity extends LoadAnimate implements LoadAnimate.
         super.setView(R.layout.fragment_search_in_progress, R.drawable.concierge4, R.string.txt_lbl_searchConciergeWait, this);
         id_destino_ser = getIntent().getStringExtra("&idCity");
         nombre_destino_ser = getIntent().getStringExtra("&labelCity");
-        Log.e("ID DESTINO SER ",String.valueOf(id_destino_ser));
-        Log.e("NOMBRE DESTINO SER",String.valueOf(nombre_destino_ser));
+        Log.d("ID DESTINO SER ",String.valueOf(id_destino_ser));
+        Log.d("NOMBRE DESTINO SER",String.valueOf(nombre_destino_ser));
     }
 
     @Override

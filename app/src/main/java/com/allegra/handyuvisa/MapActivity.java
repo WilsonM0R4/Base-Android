@@ -515,7 +515,7 @@ public class MapActivity extends Activity implements View.OnClickListener,Servic
                         // Assign the data to the FilterResults
                         filterResults.values = resultList;
                         filterResults.count = resultList.size();
-                        Log.e("System out", "Values " + filterResults.values);
+                        Log.d("System out", "Values " + filterResults.values);
                     }
                     return filterResults;
                 }

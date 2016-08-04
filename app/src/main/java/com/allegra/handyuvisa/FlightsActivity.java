@@ -1036,7 +1036,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
 
         paramString = String.valueOf(textAdults.getText());
         int adults = Integer.parseInt(paramString);
-        Log.e("adults", paramString);
+        Log.d("adults", paramString);
 
         paramString = String.valueOf(textChildren.getText());
         int children = Integer.parseInt(paramString);

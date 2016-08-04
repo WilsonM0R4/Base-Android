@@ -29,7 +29,7 @@
             android:src="@drawable/icon_booking_xxxhdpi"
             android:background="@android:color/transparent"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp" />
+            android:layout_marginLeft="10dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -40,7 +40,7 @@
             android:textStyle="bold"
             android:id="@+id/tv_title_secc"
             android:layout_centerHorizontal="true"
-            android:textColor="@color/magenta" />
+            android:textColor="@color/magenta"/>
 
         <ImageButton
             android:layout_width="36dp"
@@ -52,7 +52,7 @@
             android:onClick="onMenu"
             android:contentDescription="menu"
             android:layout_alignBottom="@+id/tv_title_secc"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"/>
 
     </RelativeLayout>
 

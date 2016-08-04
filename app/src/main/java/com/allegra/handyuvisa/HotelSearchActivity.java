@@ -86,20 +86,20 @@ public class HotelSearchActivity extends LoadAnimate implements LoadAnimate.Infl
         paramDestinationName = getIntent().getStringExtra("&cityHotel");
         paramDestination = getIntent().getStringExtra("&cityHotelHidden");
 
-        Log.e("paramAdult",String.valueOf(paramAdults));
-        Log.e("paramChildren",String.valueOf(paramChildren));
-        Log.e("paramAdult2",String.valueOf(paramAdults2));
-        Log.e("paramChildren2",String.valueOf(paramChildren2));
-        Log.e("paramAdult3",String.valueOf(paramAdults3));
-        Log.e("paramChildren3",String.valueOf(paramChildren3));
-        Log.e("paramAdult4",String.valueOf(paramAdults4));
-        Log.e("paramChildren4",String.valueOf(paramChildren4));
-        Log.e("paramInfant",String.valueOf(paramInfant));
-        Log.e("paramCheckIn",String.valueOf(paramCheckIn));
-        Log.e("paramCheckOut",String.valueOf(paramCheckOut));
-        Log.e("roomHotel", String.valueOf(paramRooms));
-        Log.e("cityHotel", String.valueOf(paramDestinationName));
-        Log.e("cityHotelHidden", String.valueOf(paramDestination));
+        Log.d("paramAdult",String.valueOf(paramAdults));
+        Log.d("paramChildren",String.valueOf(paramChildren));
+        Log.d("paramAdult2",String.valueOf(paramAdults2));
+        Log.d("paramChildren2",String.valueOf(paramChildren2));
+        Log.d("paramAdult3",String.valueOf(paramAdults3));
+        Log.d("paramChildren3",String.valueOf(paramChildren3));
+        Log.d("paramAdult4",String.valueOf(paramAdults4));
+        Log.d("paramChildren4",String.valueOf(paramChildren4));
+        Log.d("paramInfant",String.valueOf(paramInfant));
+        Log.d("paramCheckIn",String.valueOf(paramCheckIn));
+        Log.d("paramCheckOut",String.valueOf(paramCheckOut));
+        Log.d("roomHotel", String.valueOf(paramRooms));
+        Log.d("cityHotel", String.valueOf(paramDestinationName));
+        Log.d("cityHotelHidden", String.valueOf(paramDestination));
     }
 
 

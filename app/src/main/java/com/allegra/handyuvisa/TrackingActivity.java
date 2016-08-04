@@ -92,7 +92,7 @@ public class TrackingActivity extends Activity implements View.OnClickListener,T
 
         try {
             bookingId=getIntent().getStringExtra("bookingId");
-            Log.e("System out","bookingId "+bookingId);
+            Log.d("System out","bookingId "+bookingId);
             BeanConstants.service.GetBookingTracking(TrackingActivity.this, bookingId);
         } catch (Exception e) {
             e.printStackTrace();
@@ -436,7 +436,7 @@ public class TrackingActivity extends Activity implements View.OnClickListener,T
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             convertView = mInflater.inflate(R.layout.tracking_adapter_layout, null);
-            Log.e("System out", "In get View...");
+            Log.d("System out", "In get View...");
             final TextView txt_tracking_name = (TextView) convertView.findViewById(R.id.txt_tracking_name);
             final TextView txt_tracking_type = (TextView) convertView.findViewById(R.id.txt_tracking_type);
             final ImageView trcking_img = (ImageView) convertView.findViewById(R.id.trcking_img);

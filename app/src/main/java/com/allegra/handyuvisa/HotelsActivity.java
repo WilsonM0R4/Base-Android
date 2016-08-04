@@ -147,14 +147,6 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
 
     //PROPER METHODS
 
-    void persistRoomsDataSelected(){
-
-           /* paramRoomsTotal =
-            paramAdultsTotal   = paramAdultsTotal2  + Integer.parseInt(valueOfAdults);
-            paramChildrenTotal = paramChildrenTotal2+ Integer.parseInt(valueOfChildren);
-            paramInfantsTotal  = paramInfantsTotal2 + Integer.parseInt(valueOfInfants);*/
-    }
-
     /**
      * Called when there are 3 o more characters wrote in City or Airport EditText Search
      * @param query
@@ -212,10 +204,10 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
                 //I need a flag for save data selected about rooms and re inflate them
                 //if (enterToCancelRoomsSelector){//Btn Cancel pressed: There is nothing selected previously
                     //selectGuestInRooms();
-                Log.e("paramRoomsTotal",String.valueOf(paramRoomsTotal));
-                Log.e("paramAdultsTotal",String.valueOf(paramAdultsTotal));
-                Log.e("paramChildrenTotal",String.valueOf(paramChildrenTotal));
-                Log.e("paramInfantsTotal",String.valueOf(paramInfantsTotal));
+                Log.d("paramRoomsTotal",String.valueOf(paramRoomsTotal));
+                Log.d("paramAdultsTotal",String.valueOf(paramAdultsTotal));
+                Log.d("paramChildrenTotal",String.valueOf(paramChildrenTotal));
+                Log.d("paramInfantsTotal",String.valueOf(paramInfantsTotal));
 
                     if (paramRoomsTotal == 1 && paramAdultsTotal == 1 && paramChildrenTotal == 0 && paramInfantsTotal == 0) {
                         roomsContainer.removeAllViews();
@@ -372,10 +364,10 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
 
         } else {//Default values
             TextView textRoomsForEachGuest = (TextView) findViewById(R.id.room_title);
-            Log.e("Total Rooms TEst",String.valueOf(paramRoomsTotal));
-            Log.e("paramAdultsTotal TEst",String.valueOf(paramAdultsTotal));
-            Log.e("paramChildrenTotal TEst",String.valueOf(paramChildrenTotal));
-            Log.e("paramInfantsTotal",String.valueOf(paramInfantsTotal));
+            Log.d("Total Rooms TEst",String.valueOf(paramRoomsTotal));
+            Log.d("paramAdultsTotal TEst",String.valueOf(paramAdultsTotal));
+            Log.d("paramChildrenTotal TEst",String.valueOf(paramChildrenTotal));
+            Log.d("paramInfantsTotal",String.valueOf(paramInfantsTotal));
             //textRoomsForEachGuest.setText(R.string.room_and_guests_title);
 
         }
@@ -438,7 +430,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
             if (requestCode == REQUEST_CODE_DESTINATION) {
                 paramDestination = data.getStringExtra(IATA);
                 paramDestinationName = data.getStringExtra("NameCity");
-                Log.e("IATA EditText",paramDestination);
+                Log.d("IATA EditText",paramDestination);
 
             }
         }
@@ -890,7 +882,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
                     text = (TextView)room.findViewById(R.id.adultsTextView);
                     String paramString = String.valueOf(text.getText());
                     int  adults = Integer.parseInt(paramString);
-                    Log.e("adults",paramString);
+                    Log.d("adults",paramString);
 
                     text = (TextView)room.findViewById(R.id.childrenTextView);
                     paramString = String.valueOf(text.getText());
@@ -963,9 +955,9 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
                     break;
             }
 
-            Log.e("T adults",valueOfAdults);
-            Log.e("T Children",valueOfChildren);
-            Log.e("T Infants",valueOfInfants);
+            Log.d("T adults",valueOfAdults);
+            Log.d("T Children",valueOfChildren);
+            Log.d("T Infants",valueOfInfants);
 
         }
         paramRooms = totalTemporalOfRooms;
@@ -1001,7 +993,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
         adultsPicker = (NumberPicker)dialog.findViewById(R.id.adultsNumberPicker);
         childrenPicker = (NumberPicker) dialog.findViewById(R.id.childrenNumberPicker);
         infantsPicker = (NumberPicker) dialog.findViewById(R.id.infantsNumberPicker);
-        Log.e("adults in onAlertDialog",String.valueOf(adults));
+        Log.d("adults in onAlertDialog",String.valueOf(adults));
         setNumberPickersTest2(adults, children, infants);
 
         TextView title = (TextView)dialog.findViewById(R.id.textTitle);
@@ -1057,7 +1049,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
 
     public void setAdultsPicker(int adults){
 
-        Log.e("adults setAdultsPicker",String.valueOf(adults));
+        Log.d("adults setAdultsPicker",String.valueOf(adults));
 
             adultsPicker.setMinValue(1);
             adultsPicker.setMaxValue(Constants.NUMBER_PICKER_SIZE);

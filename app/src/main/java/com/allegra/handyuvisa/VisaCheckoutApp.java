@@ -48,14 +48,6 @@ public class VisaCheckoutApp extends MultiDexApplication {
             }
         });
 
-       /* Mint.setApplicationEnvironment(Mint.appEnvironmentTesting);
-        //For Splunk tool
-        Mint.initAndStartSession(getApplicationContext(), SPLUNK_API_KEY);
-        // Enable logging
-        Mint.enableLogging(true);
-
-        // Log last 100 messages
-        Mint.setLogging(200);*/
 
         /*Parse.enableLocalDatastore(getApplicationContext());
         Parse.initialize(this, "YLafvQVsiUgpHPhTBZFuEIEfdnCtzHNV6fwiOWnY", "PpAKINbIw42zMgFuzstKl6IOrrQqRFAxupHqkGdn");
@@ -123,7 +115,6 @@ public class VisaCheckoutApp extends MultiDexApplication {
         this.idCuenta=-1;
         this.idSession=null;
     }
-
 
 
     public String getUrlHotel() {
