@@ -23,7 +23,6 @@ public class MyBenefits extends FrontBackAnimate implements FrontBackAnimate.Inf
 
         super.onCreate(savedInstanceState);
         setView(R.layout.fragment_my_benefits,this);
-
     }
 
     @Override
