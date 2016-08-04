@@ -320,6 +320,7 @@
     <string name="txt_departure_date">DEPARTURE</string>
     <string name="txt_return_date">RETURN</string>
     <string name="alert_message_departure_or_arrive_not_selected_hotels">Please select your departure city</string>
+    <string name="alert_message_no_flights">There are no available flights</string>
     <string name="alert_message_departure_or_arrive_not_selected">Please select your departure city and your destination city</string>
     <string name="alert_message_return_date_not_selected">Please select your return date</string>
     <string name="alert_message_return_date_not_selected_hotels">Please select your Check In Date and Check Out Date</string>

@@ -46,7 +46,7 @@
             android:layout_alignBottom="@+id/tv_title_secc_con"
             android:src="@drawable/icon_menu"
             android:background="@android:color/transparent"
-            android:id="@+id/ib_menu"
+            android:id="@+id/menu_image"
             android:onClick="onMenu"
             android:contentDescription="menu"
             android:layout_alignParentEnd="true" />

@@ -44,7 +44,7 @@ public class ServiceActivity extends  FrontBackAnimate implements FrontBackAnima
     public void initViews(View root) {
 
         url = "http://allegra.global/app/servicios/search/?name="+userNombre+"&havemcard="+mcard+"&email="+userMail;
-        menu = (ImageButton) root.findViewById(R.id.menu_image_services);
+        menu = (ImageButton) root.findViewById(R.id.menu_image);
         webServices = (WebView) root.findViewById(R.id.webView3);
         webServices.getSettings().setJavaScriptEnabled(true);
         webServices.loadUrl(url);

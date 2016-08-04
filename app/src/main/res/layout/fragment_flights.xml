@@ -41,7 +41,7 @@
                     android:layout_marginRight="10dp"
                     android:src="@drawable/icon_menu"
                     android:background="@android:color/transparent"
-                    android:id="@+id/ib_menu"
+                    android:id="@+id/menu_image"
                     android:onClick="onMenu"
                     android:contentDescription="menu"
                     android:layout_alignBottom="@+id/tv_title_secc"
@@ -77,11 +77,10 @@
 
             <include layout="@layout/custom_date_of_trip_selector"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:id="@+id/custom_date_of_trip"
                 android:layout_below="@+id/custom_flights_header"
-                android:layout_toEndOf="@+id/search_airport"
-                android:layout_marginStart="61dp" />
+                android:layout_toEndOf="@+id/search_airport" />
 
             <include layout="@layout/custom_passengers_cabin_search_flights"
                 android:layout_width="match_parent"

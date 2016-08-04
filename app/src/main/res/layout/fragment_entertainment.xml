@@ -36,7 +36,7 @@
             android:layout_marginRight="16dp"
             android:src="@drawable/icon_menu"
             android:background="@android:color/transparent"
-            android:id="@+id/ib_menu"
+            android:id="@+id/menu_image"
             android:onClick="onMenu"
             android:contentDescription="menu"
             android:layout_centerVertical="true"
