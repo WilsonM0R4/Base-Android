@@ -45,7 +45,8 @@
                     android:onClick="onMenu"
                     android:contentDescription="menu"
                     android:layout_alignBottom="@+id/tv_title_secc"
-                    android:layout_alignParentEnd="true" />
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="10dp" />
 
             </RelativeLayout>
 
@@ -53,18 +54,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/iv_header"
-                android:layout_marginRight="-4dp"
-                android:layout_marginLeft="-4dp"
                 android:layout_below="@+id/ll_header"
+                android:paddingEnd="-2dp"
+                android:paddingStart="-2dp"
                 android:src="@drawable/separator_medium_mag"
-                android:contentDescription="Divider"/>
+                android:contentDescription="Divider" />
 
             <include layout="@layout/custom_flights_header"
                 android:id="@+id/custom_flights_header"
                 android:layout_height="200dp"
-                android:layout_marginTop="-3dp"
                 android:layout_width="match_parent"
-                android:layout_below="@+id/iv_header"/>
+                android:layout_below="@+id/iv_header"
+                android:layout_marginTop="-1dp" />
 
            <include layout="@layout/activity_search"
                 android:layout_width="match_parent"
@@ -77,9 +78,10 @@
             <include layout="@layout/custom_date_of_trip_selector"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:layout_marginTop="10dp"
-                android:layout_below="@+id/search_airport"
-                android:id="@+id/custom_date_of_trip"/>
+                android:id="@+id/custom_date_of_trip"
+                android:layout_below="@+id/custom_flights_header"
+                android:layout_toEndOf="@+id/search_airport"
+                android:layout_marginStart="61dp" />
 
             <include layout="@layout/custom_passengers_cabin_search_flights"
                 android:layout_width="match_parent"

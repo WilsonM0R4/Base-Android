@@ -32,11 +32,12 @@
             android:layout_marginRight="10dp"
             android:src="@drawable/icon_menu"
             android:background="@android:color/transparent"
-            android:id="@+id/menu_image"
+            android:id="@+id/ib_menu"
+            android:onClick="onMenu"
             android:contentDescription="menu"
-            android:layout_alignBottom="@+id/textView45"
+            android:layout_alignBottom="@+id/tv_title_secc"
             android:layout_alignParentEnd="true"
-            android:onClick="onMenu" />
+            android:layout_marginTop="10dp" />
 
         <RelativeLayout
             android:layout_width="100dp"
@@ -78,6 +79,8 @@
         android:id="@+id/iv_header"
         android:src="@drawable/separator_medium_mag"
         android:contentDescription="Divider"
+        android:paddingEnd="-2dp"
+        android:paddingStart="-2dp"
         android:layout_below="@+id/ll_header" />
 
     <WebView

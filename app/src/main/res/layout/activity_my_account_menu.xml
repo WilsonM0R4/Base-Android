@@ -39,7 +39,8 @@
             android:onClick="onMenu"
             android:contentDescription="menu"
             android:layout_alignBottom="@+id/tv_title_secc"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp" />
     </RelativeLayout>
 
     <ImageView

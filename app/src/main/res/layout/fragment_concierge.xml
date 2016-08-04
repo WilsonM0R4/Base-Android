@@ -1,93 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:clickable="true"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:clickable="true">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content">
 
         <RelativeLayout
+            android:id="@+id/rl_body"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/rl_body"
             android:onClick="onCloseMenu">
 
             <RelativeLayout
+                android:id="@+id/ll_header"
                 android:layout_width="match_parent"
                 android:layout_height="?android:attr/actionBarSize"
                 android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/ll_header">                <!-- android:background="@color/white"-->
+                android:layout_centerHorizontal="true">                <!-- android:background="@color/white"-->
 
                 <com.allegra.handyuvisa.utils.CustomizedTextView
+                    android:id="@+id/tv_title_secc_con"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginTop="20dp"
                     android:text="@string/title_concierge"
-                    android:textSize="18sp"
-                    android:id="@+id/tv_title_secc_con"
-                    android:layout_centerHorizontal="true"
                     android:textColor="@color/magenta"
-                    app:font="@string/font_varela"/>
+                    android:textSize="18sp"
+                    app:font="@string/font_varela" />
 
                 <ImageButton
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginRight="10dp"
-                    android:src="@drawable/icon_menu"
-                    android:background="@android:color/transparent"
                     android:id="@+id/ib_menu"
-                    android:onClick="onMenu"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_alignBottom="@+id/tv_title_secc"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@android:color/transparent"
                     android:contentDescription="menu"
-                    android:layout_alignBottom="@+id/tv_title_secc_con"
-                    android:layout_alignParentEnd="true" />
+                    android:onClick="onMenu"
+                    android:src="@drawable/icon_menu" />
 
             </RelativeLayout>
 
             <ImageView
+                android:id="@+id/iv_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/iv_header"
-                android:layout_marginTop="-5dp"
-                android:layout_marginRight="-4dp"
-                android:layout_marginLeft="-4dp"
                 android:layout_below="@+id/ll_header"
+                android:layout_marginLeft="-4dp"
+                android:layout_marginRight="-4dp"
+                android:layout_marginTop="-5dp"
                 android:background="@drawable/separator"
                 android:contentDescription="Divider"
-                android:src="@drawable/separator_medium_mag" />
+                android:paddingEnd="-2dp"
+                android:paddingStart="-2dp"
+                android:src="@drawable/separator_medium_mag"
 
-            <include layout="@layout/custom_concierge_header"
-                android:id="@+id/custom_concierge_header"
-                android:layout_height="200dp"
-                android:layout_width="match_parent"
-                android:layout_below="@+id/ll_header" />
-
-            <include layout="@layout/activity_search"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/activity_search_concierge"
-                android:layout_below="@+id/custom_concierge_header"
-                android:visibility="gone"
                 />
 
-            <include layout="@layout/custom_search_concierge"
+            <include
+                android:id="@+id/custom_concierge_header"
+                layout="@layout/custom_concierge_header"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_below="@+id/ll_header" />
+
+            <include
+                android:id="@+id/activity_search_concierge"
+                layout="@layout/activity_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/custom_concierge_header"
+                android:visibility="gone" />
+
+            <include
+                android:id="@+id/custom_search_concierge"
+                layout="@layout/custom_search_concierge"
                 android:layout_width="match_parent"
                 android:layout_height="360dp"
-                android:layout_marginTop="40dp"
-                android:id="@+id/custom_search_concierge"
-                android:layout_below="@+id/activity_search_concierge"/>
+                android:layout_below="@+id/activity_search_concierge"
+                android:layout_marginTop="40dp" />
 
             <ProgressBar
+                android:id="@+id/pb_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/pb_login"
                 android:layout_centerInParent="true"
-                android:visibility="gone"/>
+                android:visibility="gone" />
 
         </RelativeLayout>
 

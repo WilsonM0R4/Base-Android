@@ -47,6 +47,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/iv_header"
         android:layout_below="@+id/ll_header"
+        android:paddingEnd="-2dp"
+        android:paddingStart="-2dp"
         android:src="@drawable/separator_medium_mag"
         android:contentDescription="Divider" />
 
