@@ -180,7 +180,7 @@ public class PurchaseDetailActivity extends Activity {
     private void setCustomActionBar(boolean backOption, String activityTitle){
         TextView title = (TextView)findViewById(R.id.tv_title_secc);
         ImageButton backButton = (ImageButton) findViewById(R.id.btn_back);
-        ImageButton menuButton = (ImageButton) findViewById(R.id.ib_menu);
+        ImageButton menuButton = (ImageButton) findViewById(R.id.menu_image);
         menuButton.setVisibility(View.INVISIBLE);
         if (backOption) backButton.setVisibility(View.VISIBLE); else backButton.setVisibility(View.INVISIBLE);
         title.setText(activityTitle);

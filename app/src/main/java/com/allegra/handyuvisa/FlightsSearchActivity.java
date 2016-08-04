@@ -1,6 +1,8 @@
 package com.allegra.handyuvisa;
 
 import android.app.ActionBar;
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -185,7 +188,28 @@ public class FlightsSearchActivity extends LoadAnimate implements LoadAnimate.In
 
     }
 
+    public void onalertDialogDepartureOrArriveNotSelected(){
+
+
+        final Context context = this;
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.custom_no_flights_dialog);
+        dialog.show();
+
+        Button btnOk = (Button)dialog.findViewById(R.id.ButtonOkAlertDialogNoFlights);
+        btnOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(context, FlightsActivity.class);
+                context.startActivity(i);
+                dialog.dismiss();
+            }
+        });
+    }
+
     private class MyWebViewClient extends WebViewClient {
+
+
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
 
@@ -198,7 +222,10 @@ public class FlightsSearchActivity extends LoadAnimate implements LoadAnimate.In
                 }else if(url.contains("detalleventaht:")&& Util.hasInternetConnectivity(FlightsSearchActivity.this)){
 //                    urlWebView=HotelsActivity.this.url;
                     // TODO replace with Onepocket pay activity
-                }else{
+                }else if(url.equals("allegra:callbackFlights")){
+                    onalertDialogDepartureOrArriveNotSelected();
+                }
+                else{
                     view.loadUrl(url);
                     urlWebView=url;
                 }
