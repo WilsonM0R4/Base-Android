@@ -51,17 +51,17 @@
                 app:font="@string/font_varela"/>
 
             <ImageButton
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/icon_menu"
+                android:background="@android:color/transparent"
                 android:id="@+id/ib_menu"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:onClick="onMenu"
+                android:contentDescription="menu"
                 android:layout_alignBottom="@+id/tv_title_secc"
                 android:layout_alignParentEnd="true"
-                android:layout_marginRight="16dp"
-                android:background="@android:color/transparent"
-                android:contentDescription="menu"
-                android:onClick="onMenu"
-                android:src="@drawable/icon_menu" />
-
+                android:layout_marginTop="10dp" />
         </RelativeLayout>
 
         <ImageView
@@ -69,6 +69,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ll_header"
+            android:paddingEnd="-2dp"
+            android:paddingStart="-2dp"
             android:contentDescription="Divider"
             android:src="@drawable/separator_medium_mag" />
 
