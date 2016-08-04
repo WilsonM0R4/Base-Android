@@ -287,7 +287,7 @@
     <string name="title_activity_edit_profile">EditProfileActivity</string>
     <string name="btn_save">SAVE</string>
     <string name="legal_title">Legal</string>
-    <string name="privacy_policy"><u>privacy policy</u></string>
+    <string name="privacy_policy">Privacy policy</string>
     <string name="terms_condition">Terms and Conditions</string>
     <string name="btn_cancel">CANCEL</string>
     <string name="btn_cancel_one_touch">Cancel</string>

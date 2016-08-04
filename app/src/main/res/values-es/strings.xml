@@ -170,7 +170,7 @@
     <string name="txt_lbl_tax_amount">%1$s$ %2$f</string>
     <string name="txt_lbl_total">PRECIO TOTAL</string>
     <string name="txt_lbl_total_amount">%1$s$ %2$s</string>
-    <string name="privacy_policy"><u>Política de privacidad</u></string>
+    <string name="privacy_policy">Política de privacidad</string>
     <string name="terms_condition">Terminos y condiciones</string>
     <string name="txt_lbl_your_hotel">TU HOTEL</string>
     <string name="txt_lbl_room_guest_details">%1$d Huésped | %2$s cuarto | %3$d noches</string>
