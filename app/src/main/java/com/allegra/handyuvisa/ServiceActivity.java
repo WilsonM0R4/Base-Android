@@ -2,6 +2,7 @@ package com.allegra.handyuvisa;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -36,12 +37,26 @@ public class ServiceActivity extends  FrontBackAnimate implements FrontBackAnima
         setView(R.layout.activity_services, this);
         AllemUser user = Constants.getUser(this);
         userNombre = user.nombre;
-        mcard = "yes";
         userMail = user.email;
+        SharedPreferences prefs =
+                getSharedPreferences("MisPreferencias", MODE_PRIVATE);
+        mcard = prefs.getString("idMcard", "0");
+        if(mcard.equals("0")){
+            mcard = "no";
+        }
+        else {
+            mcard = "yes";
+        }
+
+        Log.d("JUAN SANDOVAL ", mcard);
+        /*editor.putString("idMcard", strIdMcard);
+        editor.apply();
+        Log.d("strIdMcard","Es "+strIdMcard);*/
     }
 
     @Override
     public void initViews(View root) {
+
 
         url = "http://allegra.global/app/servicios/search/?name="+userNombre+"&havemcard="+mcard+"&email="+userMail;
         menu = (ImageButton) root.findViewById(R.id.menu_image);
