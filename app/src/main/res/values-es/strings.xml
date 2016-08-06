@@ -19,6 +19,9 @@
     <string name="login">INGRESA</string>
     <string name="onepocket">Onepocket</string>
     <string name="mCard">mCard</string>
+    <string name="GPSAlertDialogTitle">Handy U Visa Localizacion</string>
+    <string name="GPSAlertDialogMessage">Handy U Visa desea usar tu localizacion</string>
+    <string name="cancel">Cancelar</string>
     <string name="btn_cancel_one_touch">Cancelar</string>
     <string name="mCard_Premium">Disfruta tus viajes sin preocupaciones durante todo el año. Tendrás 100.000 USD en gastos médicos que te dan tranquilidad y confianza.</string>
     <string name="mCard_Unlimited">Viaja tranquilo todo el año con gastos médicos ilimitados, podrás recuperar la inversión si cancelas y hacer compras online al mejor precio.</string>

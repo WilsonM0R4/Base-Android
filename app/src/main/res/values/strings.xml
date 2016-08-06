@@ -330,6 +330,9 @@
     <string name="text_single_adult">ADULT</string>
     <string name="text_single_child">CHILD</string>
     <string name="text_single_infant">INFANT</string>
+    <string name="GPSAlertDialogTitle">Handy U Visa Location</string>
+    <string name="GPSAlertDialogMessage">Handy U Visa wants to use your location</string>
+    <string name="cancel">Cancel</string>
     <string name="aditional_protection">ADITIONAL PROTECTION</string>
     <string name="aditional_protection_string">Feel protected on your travels with unique and exclusive experiences designed for you.</string>
     <string name="financiera_proteccion">We protect you even in unexpected situations that can jeopardize your finances .</string>
