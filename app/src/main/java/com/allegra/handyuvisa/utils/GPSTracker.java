@@ -10,15 +10,20 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import com.google.android.gms.location.LocationListener;*/
 
+import android.app.AlertDialog;
 import android.app.Service;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.provider.Settings;
 import android.util.Log;
+
+import com.allegra.handyuvisa.R;
 
 /**
  * Created by sergiofarfan on 16/06/16.
@@ -31,9 +36,10 @@ GPSTracker extends Service implements LocationListener {
     boolean isGPSEnabled = false;
     boolean isNetworkEnabled = false;
     boolean canGetLocation = false;
+    boolean isGPSTrackingEnabled = false;
     Location location; // location
-    double latitude; // latitude
-    double longitude; // longitude
+    public double latitude; // latitude
+    public double longitude; // longitude
     // The minimum distance to change Updates in meters
     private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 1; // 10 meters
     // The minimum time between updates in milliseconds
@@ -172,5 +178,42 @@ GPSTracker extends Service implements LocationListener {
         return longitude;
     }
 
+    public boolean getIsGPSTrackingEnabled() {
+
+        return this.isGPSTrackingEnabled;
+    }
+
+    public void showSettingsAlert() {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(mContext);
+
+        //Setting Dialog Title
+        alertDialog.setTitle(R.string.GPSAlertDialogTitle);
+
+        //Setting Dialog Message
+        alertDialog.setMessage(R.string.GPSAlertDialogMessage);
+
+        //On Pressing Setting button
+        alertDialog.setPositiveButton(R.string.action_settings, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                mContext.startActivity(intent);
+            }
+        });
+
+        //On pressing cancel button
+        alertDialog.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                dialog.cancel();
+            }
+        });
+
+        alertDialog.show();
+    }
 
 }

@@ -2,16 +2,22 @@ package com.allegra.handyuvisa;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.Looper;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 import android.webkit.GeolocationPermissions;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -19,8 +25,10 @@ import android.webkit.WebViewClient;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+import android.os.Handler;
 
 import com.allegra.handyuvisa.utils.GPSTracker;
+import com.urbanairship.location.LocationService;
 
 import java.net.URLEncoder;
 import java.util.List;
@@ -36,10 +44,12 @@ public class StoreActivity extends FrontBackAnimate implements FrontBackAnimate.
     private ImageButton arrowBack, arrowF;
     private ProgressBar progressBar;
     private LocationManager locationManager;
+    public String stringLatitude, stringLongitude;
     private boolean isGPSEnabled, isNetworkEnabled, enterToGetLocation;
     private Location location;
     GPSTracker gp;
     Double latitude, longitude;
+    String mLat, mLong;
     Dialog dialog;
 
 
@@ -56,10 +66,36 @@ public class StoreActivity extends FrontBackAnimate implements FrontBackAnimate.
             if (url.equals("about:blank")) {
                 webStore.loadUrl(returnURL);
             }
+            view.loadUrl("javascript:myCurrentLocation();void(0);");
+            JsInterface jsInterface = new JsInterface(getApplicationContext());
             loadArrows();
         }
 
     }
+
+    private class JsInterface {
+
+        private Context mContext;
+        JsInterface(Context context) {
+            mContext = context;
+        }
+
+        @JavascriptInterface
+        public void myGeoLocation(String mlat, String mLon) {
+
+            mlat = latitude.toString();
+            mLon = longitude.toString();
+            new Handler(Looper.getMainLooper()).post(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(mContext, mLat,Toast.LENGTH_LONG);
+                }
+            });
+
+        }
+
+    }
+
 
     public class GeoWebChromeClient extends WebChromeClient {
         @Override
@@ -120,8 +156,10 @@ public class StoreActivity extends FrontBackAnimate implements FrontBackAnimate.
             isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
 
             if (!isGPSEnabled) {
+                Log.d("JUANCHO ", "ESTOY ACA");
                 buildAlertMessageNoGps();
             } else {
+                Log.d("JUANCHO ","ESTOY ACA 2");
                 gp = new GPSTracker(this);
                 latitude = gp.getLatitude();
                 longitude = gp.getLongitude();
@@ -149,6 +187,9 @@ public class StoreActivity extends FrontBackAnimate implements FrontBackAnimate.
                     Log.d("cityName",cityName);
                     Log.d("stateName",stateName);
                     Log.d("countryName",countryName);
+                    Log.d("LATITUDE", latitude.toString());
+                    Log.d("LONGITUDE", longitude.toString());
+
                 } else {
                     Toast.makeText(StoreActivity.this, R.string.location_failed,
                             Toast.LENGTH_SHORT).show();
@@ -159,6 +200,22 @@ public class StoreActivity extends FrontBackAnimate implements FrontBackAnimate.
             e.printStackTrace();
         }
         return location;
+    }
+
+    public void showCurrentLocation(){
+
+        Log.e("JUAN ", "ENTRE ACA");
+        if ( ContextCompat.checkSelfPermission( this, android.Manifest.permission.ACCESS_COARSE_LOCATION ) != PackageManager.PERMISSION_GRANTED ) {
+
+            ActivityCompat.requestPermissions( this, new String[] {  android.Manifest.permission.ACCESS_COARSE_LOCATION },
+                    Integer.parseInt(LocationService.LOCATION_SERVICE));
+        }
+
+        location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        latitude = location.getLatitude();
+        longitude = location.getLongitude();
+
+
     }
 
     private void buildAlertMessageNoGps() {
