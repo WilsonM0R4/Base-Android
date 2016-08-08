@@ -44,7 +44,7 @@ public class SoapObjectParsers {
         SoapObject soapObject = new SoapObject();
 
         while(itr.hasNext()){
-            //System.out.println(itr.next().toString());
+
             soapObject = itr.next();
             if (soapObject.hasProperty("idProducto")){
                 idProducto = soapObject.getPropertyAsString("idProducto");
@@ -54,19 +54,12 @@ public class SoapObjectParsers {
         }
 
         //******Validate idProducto*********
-        /*int size = arrayProducto.size();
-        for (int i = 0; i < size; i++){*/
+
             if (arrayProducto.contains("210")) idMayorProducto = "210";//UNLIMITED
             else if (arrayProducto.contains("209")) idMayorProducto = "209";//EXCLUSIVE
             else if (arrayProducto.contains("208")) idMayorProducto = "208";//PREMIUM
             else if (arrayProducto.contains("212")) idMayorProducto = "212";//PRIVILEGE
-       // }
 
-       /* switch (idProducto){
-            case "212":
-
-                break;
-        }*/
         Log.e("idMayorProducto",idMayorProducto);
         mcardCliente = new McardCliente(idMayorProducto);//soapObject.getPropertyAsString("idProducto")
         return  mcardCliente;

@@ -24,7 +24,6 @@ public class AsyncTaskSoapObjectResultEventMcard {
     public Vector<SoapObject> getResult() {
        /* SoapObject response = (SoapObject)envelope.getResponse();
         String resp = response.toString();*/
-
         return soapObjectVector;
     }
 
