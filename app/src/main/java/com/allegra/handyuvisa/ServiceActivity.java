@@ -6,6 +6,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.webkit.GeolocationPermissions;
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageButton;
@@ -62,6 +65,10 @@ public class ServiceActivity extends  FrontBackAnimate implements FrontBackAnima
         menu = (ImageButton) root.findViewById(R.id.menu_image);
         webServices = (WebView) root.findViewById(R.id.webView3);
         webServices.getSettings().setJavaScriptEnabled(true);
+        webServices.getSettings().setBuiltInZoomControls(true);
+        webServices.getSettings().setGeolocationEnabled(true);
+        webServices.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+        webServices.setWebChromeClient(new GeoWebChromeClient());
         webServices.loadUrl(url);
         webServices.setWebViewClient(new MyBrowser(this));
         arrowBack = (ImageButton) root.findViewById(R.id.arrow_back_services);
@@ -134,6 +141,16 @@ public class ServiceActivity extends  FrontBackAnimate implements FrontBackAnima
             loadArrows();
         }
 
+    }
+
+    public class GeoWebChromeClient extends WebChromeClient {
+        @Override
+        public void onGeolocationPermissionsShowPrompt(String origin,
+                                                       GeolocationPermissions.Callback callback) {
+            // Always grant permission since the app itself requires location
+            // permission and the user has therefore already granted it
+            callback.invoke(origin, true, false);
+        }
     }
 
 
