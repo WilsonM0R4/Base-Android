@@ -197,6 +197,8 @@ public class MarketPlaceActivity extends FrontBackAnimate implements FrontBackAn
         transaction.add("first", user.nombre);
         transaction.add("last", user.apellido);
         transaction.add("userName", user.email);
+        transaction.add("docType", user.idType);
+        transaction.add("docId", user.idNumber);
         transaction.add("rawPassword", app.getRawPassword());
         transaction.add("idCuenta", Integer.toString(app.getIdCuenta()));
 
