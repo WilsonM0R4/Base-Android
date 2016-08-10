@@ -62,6 +62,9 @@ public class CustomizedTextView extends TextView {
         return Typeface.createFromAsset(manager, fontName);
     }
 
+    /*private void  setFont(String font){
+        this.setTypeface(font);
+    }*/
 
     //customize the font size
     /*private void fontSize() {

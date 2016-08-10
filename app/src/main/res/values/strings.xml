@@ -615,7 +615,7 @@
     <string name="decline_register">DECLINE</string>
     <string name="accept_register">AGREE</string>
     <string name="congratulations">¡Congratulations!</string>
-    <string name="you_can_enjoy_benefits">You can now enjoy all the\n benefits it brings to you\n allegra</string>
+    <string name="you_can_enjoy_benefits">You can now enjoy all\n benefits it brings you\n Handy U Visa</string>
     <string name="txt_continue">CONTINUE</string>
     <string name="test_terms"><u>terms and conditions</u></string>
     <string name="by_clicking">By clicking agree you accept</string>
@@ -642,4 +642,5 @@
     <string name="UnlimitedMcard">UNLIMITED</string>
     <string name="enjoy_all_benefits">Enjoy all benefits that your membership\n brings to you through handy mCard</string>
     <string name="get_your_certificate">GET YOUR CERTIFICATE</string>
+    <string name="privacy_policy_underscore"><u>privacy policy</u></string>
 </resources>

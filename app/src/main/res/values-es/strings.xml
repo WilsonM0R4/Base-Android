@@ -505,7 +505,7 @@
     <string name="decline_register">RECHAZAR</string>
     <string name="accept_register">ACEPTAR</string>
     <string name="congratulations">¡Felicitaciones!</string>
-    <string name="you_can_enjoy_benefits">Ahora puedes disfrutar todos los beneficios que te trae allegra</string>
+    <string name="you_can_enjoy_benefits">Ahora podrás disfrutar/n de todos los beneficios que/n te da handy U Visa</string>
     <string name="txt_continue">CONTINUAR</string>
     <string name="test_terms"><u>términos y condiciones</u></string>
     <string name="by_clicking">Haciendo click en aceptar, aceptas</string>
@@ -528,4 +528,6 @@
     <string name="UnlimitedMcard">ILIMITADO</string>
     <string name="enjoy_all_benefits">Disfruta todos los beneficios que te trae\n tu membresía a través de handy mCard</string>
     <string name="get_your_certificate">OBTÉN TU CERTIFICADO</string>
+    <string name="privacy_policy_underscore"><u>política de privacidad</u></string>
+
 </resources>

@@ -12,13 +12,16 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.Patterns;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,6 +36,7 @@ import android.widget.Toast;
 
 import com.allegra.handyuvisa.async.MyBus;
 import com.allegra.handyuvisa.models.CuentaCliente;
+import com.allegra.handyuvisa.models.McardCliente;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.KeySaver;
 import com.allegra.handyuvisa.utils.Util;
@@ -62,6 +66,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
     private CustomizedTextView btn_sendreg, btn_login;
     private ProgressBar pb_create;
     TextView textCountrySelected, txtTypeOfIdSelected;
+
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -186,16 +191,17 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 ((AsobancariaApplication)this.getApplication()).setParseChannel(channel);*/
 
                 //Remove all views from layout
-               /* LinearLayout formLayout = (LinearLayout) findViewById(R.id.rl_body);
+                LinearLayout formLayout = (LinearLayout) findViewById(R.id.rl_body);
                 formLayout.removeAllViews();
-                /*//******Add all new views*****
+                //******Add all new views*****
                 SuccessfulRegister successfulRegister = new SuccessfulRegister(getApplicationContext());
                 formLayout.addView(successfulRegister);
-                Log.d("Serfar Prueba", channel);*/
+                Log.d("Serfar Prueba", channel);
+
             //Temporary
-                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                /*Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
-                finish();
+                finish();*/
 
             } else {
                 Toast.makeText(ctx, event.getFaultString(), Toast.LENGTH_LONG).show();
@@ -214,8 +220,8 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             public void onClick(View view) {
                 if (checkFields()) {
                     //Generate dialog for accept
-                     //   onAlertAcceptTermsAndConditions();
-                    sendInfo();
+                    onAlertAcceptTermsAndConditions();
+                    //sendInfo();
                 } else {
                     Toast.makeText(
                             ctx,
@@ -499,7 +505,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if (et_document_number.getText().toString().length() < 4) {
+                if (et_document_number.getText().toString().length() < 5) {
                     //Toast.makeText(getApplicationContext(),"PIlas con el tipo" ,Toast.LENGTH_LONG).show();
                     et_document_number.setHintTextColor(Color.RED);
                     et_document_number.setTextColor(Color.RED);
@@ -598,7 +604,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if (editable.length() < 3) {
+                if (editable.length() < 7) {
                     et_mobile.setTextColor(Color.RED);
                     et_mobile.setHintTextColor(Color.RED);
                 } else {
@@ -681,7 +687,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             result = false;
         }
         //***************Number of ID***************
-        if (et_document_number.getText().toString().length() < 4){
+        if (et_document_number.getText().toString().length() < 5){
             //Toast.makeText(getApplicationContext(),"PIlas con el tipo" ,Toast.LENGTH_LONG).show();
             et_document_number.setHintTextColor(Color.RED);
             et_document_number.setTextColor(Color.RED);
@@ -694,7 +700,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             result = false;
         }
         //***************PhoneNumber***************
-        if(et_mobile.getText().toString().length() <3){
+        if(et_mobile.getText().toString().length() <7){
             et_mobile.setHintTextColor(Color.RED);
             result = false;
         }
@@ -867,6 +873,19 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         onBackPressed();
     }
 
+    //Returns margin based in screen height in pixels
+    public int getMargin(int margin){
+
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+        int height = dm.heightPixels;
+        int newMargin = (margin*height)/800;
+        return newMargin;
+        /*Resources r = getResources();
+        float pxLeftMargin = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, margin, r.getDisplayMetrics());
+        return Math.round(pxLeftMargin);*/
+    }
+
     //**************INNER CLASSES*****************
 
     private class SuccessfulRegister extends LinearLayout{
@@ -874,6 +893,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         public SuccessfulRegister(Context context) {
 
             super(context);
+
             //****************COMPLETE LAYOUT****************************
             setOrientation(LinearLayout.VERTICAL);
             LayoutParams layoutParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
@@ -885,10 +905,10 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             addView(txtTitle);
             txtTitle.setTextColor(getResources().getColor(R.color.magenta));
             txtTitle.setGravity(Gravity.CENTER_HORIZONTAL);
-            txtTitle.setTextSize(18);
+            txtTitle.setTextSize(16);
             LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams)txtTitle.getLayoutParams();
             //int left, int top, int right, int bottom
-            layoutParams3.setMargins(0, 40, 0, 40);
+            layoutParams3.setMargins(0, getMargin(20), 0, getMargin(20));
             txtTitle.setLayoutParams(layoutParams3);
 
             //IMAGE VIEW SEPARATOR
@@ -898,7 +918,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             addView(imvSeparator);
             LinearLayout.LayoutParams params6 = (LinearLayout.LayoutParams)imvSeparator.getLayoutParams();
             //int left, int top, int right, int bottom
-            params6.setMargins(-6, 0, -6, -4);
+            params6.setMargins(getMargin(-6), 0, getMargin(-6), getMargin(-4));
             imvSeparator.setLayoutParams(params6);
 
             //****************CONTENT SUB-LAYOUT****************************
@@ -914,12 +934,14 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             CustomizedTextView txtCongrat = new CustomizedTextView(context);
             txtCongrat.setTextColor(getResources().getColor(R.color.white));
             txtCongrat.setText(R.string.congratulations);
-            txtCongrat.setTextSize(32);
+            Typeface font= Typeface.createFromAsset(getAssets(), getResources().getString(R.string.font_muli_extraLight));
+            txtCongrat.setTypeface(font);
+            txtCongrat.setTextSize(24);
             txtCongrat.setGravity(Gravity.CENTER_HORIZONTAL);
             layConfirmation.addView(txtCongrat);
             LinearLayout.LayoutParams params = (LinearLayout.LayoutParams)txtCongrat.getLayoutParams();
             //int left, int top, int right, int bottom
-            params.setMargins(0, 100, 0, 0);
+            params.setMargins(0, getMargin(30), 0, 0);
             txtCongrat.setLayoutParams(params);
 
 
@@ -930,27 +952,31 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                     LayoutParams.WRAP_CONTENT,
                     LayoutParams.WRAP_CONTENT);
             layoutParams1.gravity= Gravity.CENTER_HORIZONTAL;
-            layoutParams1.setMargins(0, 100, 0, 0);
+            layoutParams1.setMargins(0, getMargin(50), 0, 0);
             imvCheck.setLayoutParams(layoutParams1);
             layConfirmation.addView(imvCheck);
 
             //TEXT USER NAME
             CustomizedTextView txtUserName = new CustomizedTextView(context);
+            Typeface font2= Typeface.createFromAsset(getAssets(), getResources().getString(R.string.font_muli));
+            txtUserName.setTypeface(font2);
             txtUserName.setTextColor(getResources().getColor(R.color.white));
             AllemUser user = Constants.getUser(getApplicationContext());
             String value = user.nombre;
             txtUserName.setText(value);
             txtUserName.setGravity(Gravity.CENTER_HORIZONTAL);
             layConfirmation.addView(txtUserName);
-            txtUserName.setTextSize(32);
+            txtUserName.setTextSize(24);
             LinearLayout.LayoutParams params1 = (LinearLayout.LayoutParams)txtUserName.getLayoutParams();
             //int left, int top, int right, int bottom
-            params1.setMargins(0, 100, 0, 0);
+            params1.setMargins(0, getMargin(15), 0, 0);
             txtUserName.setLayoutParams(params1);
 
 
             //TEXT ENJOY
             CustomizedTextView txtEnjoy = new CustomizedTextView(context);
+            Typeface font3= Typeface.createFromAsset(getAssets(), getResources().getString(R.string.font_muli));
+            txtEnjoy.setTypeface(font3);
             txtEnjoy.setTextColor(getResources().getColor(R.color.white));
             txtEnjoy.setText(R.string.you_can_enjoy_benefits);
             txtEnjoy.setGravity(Gravity.CENTER_HORIZONTAL);
@@ -958,49 +984,53 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             layConfirmation.addView(txtEnjoy);
             LinearLayout.LayoutParams params2 = (LinearLayout.LayoutParams)txtEnjoy.getLayoutParams();
             //int left, int top, int right, int bottom
-            params2.setMargins(0, 100, 0, 0);
+            params2.setMargins(0, getMargin(30), 0, 0);
             txtUserName.setLayoutParams(params2);
 
             //TEXT ACTIVATE
-            CustomizedTextView txtActivateNow = new CustomizedTextView(context);
+            /*CustomizedTextView txtActivateNow = new CustomizedTextView(context);
             txtActivateNow.setTextColor(getResources().getColor(R.color.white));
             txtActivateNow.setText(R.string.TXT_ACTIVATE_NOW);
             txtActivateNow.setGravity(Gravity.CENTER_HORIZONTAL);
-            txtActivateNow.setTextSize(18);
+            txtActivateNow.setTextSize(getMargin(18));
             layConfirmation.addView(txtActivateNow);
             LinearLayout.LayoutParams params3 = (LinearLayout.LayoutParams)txtActivateNow.getLayoutParams();
             //int left, int top, int right, int bottom
-            params3.setMargins(0, 120, 0, 0);
-            txtUserName.setLayoutParams(params3);
+            params3.setMargins(0, getMargin(60), 0, 0);
+            txtUserName.setLayoutParams(params3);*/
 
-            //TEXT BUTTON LETS_TALK
+            //TEXT BUTTON CONTINUE
             CustomizedTextView txtLetsTalk = new CustomizedTextView(context);
             txtLetsTalk.setTextColor(getResources().getColor(R.color.white));
-            txtLetsTalk.setText(R.string.TXT_LETS_TALK);
+            Typeface font4= Typeface.createFromAsset(getAssets(), getResources().getString(R.string.font_muli_extraLight));
+            txtLetsTalk.setTypeface(font4);
+            //txtLetsTalk.setTextSize(18);
+            txtLetsTalk.setText(R.string.opk_continue);
             txtLetsTalk.setBackground(getResources().getDrawable(R.drawable.round_corner_transparent));
             txtLetsTalk.setGravity(Gravity.CENTER);
             layConfirmation.addView(txtLetsTalk);
             LinearLayout.LayoutParams params4 = (LinearLayout.LayoutParams)txtLetsTalk.getLayoutParams();
             //int left, int top, int right, int bottom
-            params4.setMargins(32, 50, 32, 0);
+            params4.setMargins(getMargin(32), getMargin(90), getMargin(32), 0);
             txtUserName.setLayoutParams(params4);
             txtLetsTalk.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(getApplicationContext(),CallActivity.class);
+                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                     startActivity(intent);
+                    finish();
                 }
             });
 
             //TEXT LATER
-            CustomizedTextView txtLater = new CustomizedTextView(context);
+            /*CustomizedTextView txtLater = new CustomizedTextView(context);
             txtLater.setTextColor(getResources().getColor(R.color.white));
             txtLater.setText(R.string.TXT_LATER);
             txtLater.setGravity(Gravity.CENTER_HORIZONTAL);
             layConfirmation.addView(txtLater);
             LinearLayout.LayoutParams params5 = (LinearLayout.LayoutParams)txtLater.getLayoutParams();
             //int left, int top, int right, int bottom
-            params5.setMargins(0, 90, 0, 0);
+            params5.setMargins(0, getMargin(90), 0, 0);
             txtUserName.setLayoutParams(params5);
             txtLater.setOnClickListener(new OnClickListener() {
                 @Override
@@ -1009,7 +1039,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                     startActivity(intent);
                     finish();
                 }
-            });
+            });*/
 
         }
     }
