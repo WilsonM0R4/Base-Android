@@ -905,7 +905,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             addView(txtTitle);
             txtTitle.setTextColor(getResources().getColor(R.color.magenta));
             txtTitle.setGravity(Gravity.CENTER_HORIZONTAL);
-            txtTitle.setTextSize(16);
+            txtTitle.setTextSize(18);
             LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams)txtTitle.getLayoutParams();
             //int left, int top, int right, int bottom
             layoutParams3.setMargins(0, getMargin(20), 0, getMargin(20));
