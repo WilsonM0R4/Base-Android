@@ -82,7 +82,7 @@
         <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/privacy_policy"
+            android:text="@string/privacy_policy_underscore"
             android:layout_marginLeft="6dp"
             android:textSize="19sp"
             android:id="@+id/txtPrivacyPolicy"
