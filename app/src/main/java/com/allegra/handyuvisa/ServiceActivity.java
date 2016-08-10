@@ -133,6 +133,14 @@ public class ServiceActivity extends  FrontBackAnimate implements FrontBackAnima
             this.context = context;
         }
 
+        public boolean shouldOverrideUrlLoading(WebView webView, String url) {
+            if (url.equals("allegra:onetouchcall")) {
+                Intent i = new Intent(context, CallActivityServices.class);
+                context.startActivity(i);
+                return true;
+            }
+            return super.shouldOverrideUrlLoading(webView, url);
+            }
         public void onPageFinished(WebView view, String url) {
             progressBar.setVisibility(View.GONE);
             if (url.equals("about:blank")) {
