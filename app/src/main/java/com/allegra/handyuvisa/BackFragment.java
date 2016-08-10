@@ -201,13 +201,23 @@ public class BackFragment extends Fragment  {
     }
 
     public void sendToHotels(){
-        Intent intent = new Intent(getActivity(),HotelsActivity.class);
-        getActivity().startActivity(intent);
+        if(Util.isAuthenticated(getActivity())) {
+            Intent intent = new Intent(getActivity(), HotelsActivity.class);
+            getActivity().startActivity(intent);
+        }else {
+            Intent intent = new Intent(getActivity(),LoginActivity.class);
+            getActivity().startActivity(intent);
+        }
     }
 
     public void sendToConcierge(){
-        Intent intent = new Intent(getActivity(),ConciergeActivity.class);
-        getActivity().startActivity(intent);
+        if(Util.isAuthenticated(getActivity())) {
+            Intent intent = new Intent(getActivity(), ConciergeActivity.class);
+            getActivity().startActivity(intent);
+        }else{
+            Intent intent = new Intent(getActivity(), LoginActivity.class);
+            getActivity().startActivity(intent);
+        }
     }
 
     public void sendToRestaurants(){
