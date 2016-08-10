@@ -112,6 +112,8 @@
         <activity
             android:name=".BookNowActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".CallActivityServices"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Mcardhtml"
             android:screenOrientation="portrait" />

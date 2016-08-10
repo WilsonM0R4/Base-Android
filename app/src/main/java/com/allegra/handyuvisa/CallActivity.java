@@ -25,7 +25,7 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
         SensorEventListener, LoadAnimate.InflateReadyListener,
         BackFragment.MenuSelectListener {
 
-    protected String OTC_NUMBER = "+5714862013";
+    protected String OTC_NUMBER = "+13055605384";
 
     private static final int CALLING = 1;
     private static final int CALLIP = 2;
