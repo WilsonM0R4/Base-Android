@@ -4,6 +4,7 @@ package com.allegra.handyuvisa;
 
 import android.app.ActionBar;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -48,6 +49,7 @@ public class HotelSearchActivity extends LoadAnimate implements LoadAnimate.Infl
     private String url,urlWebView;
     private ImageButton arrowBack;//, arrowF
     public String onePocketmessage;
+    public String mcard;
     private String returnURL;
 
     @Override
@@ -100,6 +102,16 @@ public class HotelSearchActivity extends LoadAnimate implements LoadAnimate.Infl
         Log.d("roomHotel", String.valueOf(paramRooms));
         Log.d("cityHotel", String.valueOf(paramDestinationName));
         Log.d("cityHotelHidden", String.valueOf(paramDestination));
+
+        SharedPreferences prefs =
+                getSharedPreferences("MisPreferencias", MODE_PRIVATE);
+        mcard = prefs.getString("idMcard", "0");
+        if(mcard.equals("0")){
+            mcard = "Standard";
+        }
+        else {
+            mcard = "mcard";
+        }
     }
 
 
@@ -153,7 +165,8 @@ public class HotelSearchActivity extends LoadAnimate implements LoadAnimate.Infl
                         "&roomHotel="+ paramRooms+
                         "&adultHotel1=" +paramAdults+
                         "&childHotel1="+paramChildren+
-                        "&language=es-CO&PaymentMethod=OnePocket";
+                        "&language=es-CO&PaymentMethod=OnePocket"+
+                        "&Group="+mcard;
                 break;
             case 2:
                 postData = "cityHotel="+paramDestinationName+
@@ -165,7 +178,8 @@ public class HotelSearchActivity extends LoadAnimate implements LoadAnimate.Infl
                         "&childHotel1="+paramChildren+
                         "&adultHotel2=" +paramAdults2+
                         "&childHotel2="+paramChildren2+
-                        "&language=es-CO&PaymentMethod=OnePocket";
+                        "&language=es-CO&PaymentMethod=OnePocket"+
+                        "&Group="+mcard;
                 break;
 
             case 3:
@@ -180,7 +194,8 @@ public class HotelSearchActivity extends LoadAnimate implements LoadAnimate.Infl
                         "&childHotel2="+paramChildren2+
                         "&adultHotel3=" +paramAdults3+
                         "&childHotel3="+paramChildren3+
-                        "&language=es-CO&PaymentMethod=OnePocket";
+                        "&language=es-CO&PaymentMethod=OnePocket"+
+                        "&Group="+mcard;
                 break;
 
             case 4:
@@ -197,7 +212,8 @@ public class HotelSearchActivity extends LoadAnimate implements LoadAnimate.Infl
                         "&childHotel3="+paramChildren3+
                         "&adultHotel4=" +paramAdults4+
                         "&childHotel4="+paramChildren4+
-                        "&language=es-CO&PaymentMethod=OnePocket";
+                        "&language=es-CO&PaymentMethod=OnePocket"+
+                        "&Group="+mcard;
                 break;
         }
         //webView.postUrl(url, EncodingUtils.getBytes(postData, "BASE64"));

@@ -4,6 +4,7 @@ package com.allegra.handyuvisa;
  */
 import android.app.ActionBar;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
@@ -35,6 +36,7 @@ public class ConciergeSearchActivity extends LoadAnimate implements LoadAnimate.
     private ImageButton arrowBack;
     private String returnURL;
     public String onePocketmessage;
+    public String mcard;
     ProgressBar progressBar;
     TextView title;
 
@@ -47,6 +49,16 @@ public class ConciergeSearchActivity extends LoadAnimate implements LoadAnimate.
         nombre_destino_ser = getIntent().getStringExtra("&labelCity");
         Log.d("ID DESTINO SER ",String.valueOf(id_destino_ser));
         Log.d("NOMBRE DESTINO SER",String.valueOf(nombre_destino_ser));
+
+        SharedPreferences prefs =
+                getSharedPreferences("MisPreferencias", MODE_PRIVATE);
+        mcard = prefs.getString("idMcard", "0");
+        if(mcard.equals("0")){
+            mcard = "Standard";
+        }
+        else {
+            mcard = "mcard";
+        }
     }
 
     @Override
@@ -95,7 +107,7 @@ public class ConciergeSearchActivity extends LoadAnimate implements LoadAnimate.
     private void loadWebView() {
         url = "http://viatorallegra.vuelos.ninja/Actividad/ResultadosGet?id_destino_ser=" +
                 id_destino_ser + "&nombre_destino_ser1=" + nombre_destino_ser +
-                "&Payment=3";
+                "&Payment=3"+"&Group="+mcard;
 
         webView.addJavascriptInterface(new AppJavaScriptProxyConcierge(this), "androidProxy");
 
@@ -108,7 +120,7 @@ public class ConciergeSearchActivity extends LoadAnimate implements LoadAnimate.
         }
         url = "http://viatorallegra.vuelos.ninja/Actividad/ResultadosGet?id_destino_ser=" +
                 id_destino_ser + "&nombre_destino_ser1=" + encodedUrl +
-                "&Payment=3";
+                "&Payment=3"+"&Group="+mcard;
         Log.d("url con data",url);
         //webView.postUrl(url, EncodingUtils.getBytes(postData, "BASE64"));
         webView.loadUrl(url);

@@ -61,7 +61,7 @@ public class ServiceActivity extends  FrontBackAnimate implements FrontBackAnima
     public void initViews(View root) {
 
 
-        url = "http://allegra.global/app/servicios/search/?name="+userNombre+"&havemcard="+mcard+"&email="+userMail;
+        url = "http://allegra.global/app/servicios_v2/search/?name="+userNombre+"&havemcard="+mcard+"&email="+userMail+"&v=1";
         menu = (ImageButton) root.findViewById(R.id.menu_image);
         webServices = (WebView) root.findViewById(R.id.webView3);
         webServices.getSettings().setJavaScriptEnabled(true);
@@ -83,6 +83,7 @@ public class ServiceActivity extends  FrontBackAnimate implements FrontBackAnima
         });
 
         Log.d("juan", url);
+
     }
 
     @Override
@@ -134,7 +135,7 @@ public class ServiceActivity extends  FrontBackAnimate implements FrontBackAnima
         }
 
         public boolean shouldOverrideUrlLoading(WebView webView, String url) {
-            if (url.equals("allegra:onetouchcall")) {
+            if (url.equals("allegra:touchcallService")) {
                 Intent i = new Intent(context, CallActivityServices.class);
                 context.startActivity(i);
                 return true;
