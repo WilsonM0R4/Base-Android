@@ -9,9 +9,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.allegra.handyuvisa.async.AsyncSoapObject;
 import com.allegra.handyuvisa.async.AsyncSoapObjectTest;
-import com.allegra.handyuvisa.async.AsyncTaskSoapObjectResultEvent;
 import com.allegra.handyuvisa.async.AsyncTaskSoapObjectResultEventMcard;
 import com.allegra.handyuvisa.async.MyBus;
 import com.allegra.handyuvisa.models.AllemUser;
@@ -32,8 +30,8 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
     //*************GLOBAL ATTRIBUTES***********
     LinearLayout header, centerListView, bottomTexts;
     TextView  txtCoverage1, txtCoverage2,txtCoverage3;
-    CustomizedTextView textNameLastName, txtGetYourCertificate, txtTypeOfId, txtNumberOfId;
-    String valueOfMcard, nombre, apellido, typeOfId, numberOfId;
+    CustomizedTextView textNameLastName, txtGetYourCertificate, txtTypeOfId, txtNumberOfId, txtNumberOfMcard;
+    String valueOfMcard, nombre, apellido, typeOfId, numberOfId, numberOfMcard;
     int idMcard = 0, idCuenta = 0;
     private ArrayList<NameValuePair> postValues = new ArrayList<>();
 
@@ -52,9 +50,11 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
         apellido = prefs.getString("apellido", "Castro");
         typeOfId = prefs.getString("typeOfId", "CC");
         numberOfId = prefs.getString("numberOfId", "7887787");
+        numberOfMcard = prefs.getString("numberOfMcard","123456789");
         String strIdCuenta = prefs.getString("idCuenta", "0");
         Log.e("typeOfId",typeOfId);
         Log.e("numberOfId",numberOfId);
+        Log.e("numberOfMcard",numberOfMcard);
         idCuenta = Integer.valueOf(strIdCuenta);
         //Si hay internet: consumir el servicio para mCards
         if (Util.hasInternetConnectivity(getApplicationContext())) {
@@ -92,6 +92,7 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
         textNameLastName = (CustomizedTextView)root.findViewById(R.id.textNameLastNAme);
         txtTypeOfId = (CustomizedTextView)root.findViewById(R.id.txtTypeOfId);
         txtNumberOfId = (CustomizedTextView)root.findViewById(R.id.txtNumberOfId);
+        txtNumberOfMcard = (CustomizedTextView)root.findViewById(R.id.txtNumberOfMcard);
         header = (LinearLayout)root.findViewById(R.id.customCoverageHeader);
         centerListView = (LinearLayout)root.findViewById(R.id.customListView);
         bottomTexts = (LinearLayout)root.findViewById(R.id.customTextCoverage);
@@ -109,6 +110,7 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
                 //Get data
                 McardCliente mcardCliente = SoapObjectParsers.toMcardCliente(event.getResult());
                 String strIdMcard = mcardCliente.getIdProducto();
+                String strNumMcard = mcardCliente.getNumeroMembresia();
                 //Save in SharedPreferences
                 SharedPreferences prefs =
                         getSharedPreferences("MisPreferencias", MODE_PRIVATE);
@@ -119,8 +121,10 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
                 editor.putString("idMcard", strIdMcard);
                 editor.apply();
                 Log.d("strIdMcard","Es "+strIdMcard);
+
                 idMcard = Integer.valueOf(strIdMcard);
                 valueOfMcard = strIdMcard;
+                numberOfMcard = strNumMcard;
                 //******Update values for user
                 AllemUser allemUser = Constants.getUser(getApplicationContext());
                 //AllemUser allemUser = SoapObjectParsers.toAllemUser(event.getResult());
@@ -184,7 +188,7 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
 
     void findValueOfMcard(){
         //********************* PRIVILEGE       PREMIUM         EXCLUSIVE            UNLIMITED
-        String[] arrayMcards = {"USD $50,000",  "USD $100,000",  "USD $500,000", getResources().getString(R.string.UnlimitedMcard)};
+        String[] arrayMcards = {"USD $100,000",  "USD $250,000",  "USD $1'000,000", "USD $2'000,000"};
         //********************      212             208             209             210
 
         switch(idMcard){
@@ -217,6 +221,7 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
         textNameLastName.setText(nombre + " "+ apellido);
         txtTypeOfId.setText(typeOfId);
         txtNumberOfId.setText(numberOfId);
+        txtNumberOfMcard.setText(numberOfMcard);
     }
 
     void setGetYourCertificateLayout(){

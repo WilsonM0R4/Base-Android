@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Handy U Visa</string>
     <string name="app_name_legal">Handy U Visa</string>
+    <string name="txtInfoCertifications"># CERTIFICADO</string>
     <string name="TODAY">HOY</string>
     <string name="room">HAB</string>
     <string name="SAME_WEEK">ÚLTIMA SEMANA</string>

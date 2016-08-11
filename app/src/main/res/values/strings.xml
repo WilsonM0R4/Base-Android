@@ -2,6 +2,7 @@
     <string name="app_name">Handy U Visa</string>
     <string name="app_name_legal">Handy U Visa</string>
     <string name="title_activity_branding_screen">BrandingScreenActivity</string>
+    <string name="txtInfoCertifications"># CERTIFICATE</string>
     <string name="payment_hotel_your">YOUR HOTEL</string>
     <string name="payment_hotel_nights">nights</string>
     <string name="forgot_password">Recover Passwords</string>

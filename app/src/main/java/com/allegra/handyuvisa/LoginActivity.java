@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -19,6 +18,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.allegra.handyuvisa.async.AsyncSoapObject;
 import com.allegra.handyuvisa.async.AsyncSoapObjectTest;
 import com.allegra.handyuvisa.async.AsyncTaskSoapObjectResultEvent;
@@ -28,13 +28,15 @@ import com.allegra.handyuvisa.models.AllemUser;
 import com.allegra.handyuvisa.models.McardCliente;
 import com.allegra.handyuvisa.parsers.SoapObjectParsers;
 import com.allegra.handyuvisa.utils.Constants;
-import com.allegra.handyuvisa.utils.Util;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
 import com.allegra.handyuvisa.utils.KeySaver;
+import com.allegra.handyuvisa.utils.Util;
 import com.splunk.mint.Mint;
 import com.squareup.otto.Subscribe;
+
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
+
 import java.util.ArrayList;
 
 /**
@@ -273,6 +275,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 //Get data
                 McardCliente mcardCliente = SoapObjectParsers.toMcardCliente(event.getResult());
                 String idMcard = mcardCliente.getIdProducto();
+                String numMcard = mcardCliente.getNumeroMembresia();
                 //Save in SharedPreferences
                 SharedPreferences prefs =
                         getSharedPreferences("MisPreferencias", MODE_PRIVATE);
@@ -281,6 +284,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 else editor.putString("idMcard", idMcard);
                 editor.apply();
                 Log.d("idMcard", "Es"+ idMcard);
+                Log.d("numMcard", "Es"+numMcard);
             }
         }
     }

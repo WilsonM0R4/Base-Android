@@ -29,10 +29,13 @@ public class SoapObjectParsers {
     public static McardCliente toMcardCliente(SoapObject soapObject){
         McardCliente mcardCliente = null;
         String idProducto = "";
+        String numMembresia = "";
         if (soapObject.hasProperty("idProducto")){
             idProducto= soapObject.getPropertyAsString("idProducto");
+        }else if (soapObject.hasProperty("numeroMembresia")){
+            numMembresia = soapObject.getPropertyAsString("numeroMembresia");
         }
-        mcardCliente = new McardCliente(soapObject.getPropertyAsString("idProducto"));
+        mcardCliente = new McardCliente(soapObject.getPropertyAsString("idProducto"),(soapObject.getPropertyAsString("numeroMembresia")));
         return  mcardCliente;
     }
 
@@ -40,6 +43,7 @@ public class SoapObjectParsers {
         McardCliente mcardCliente = null;
         ArrayList<String> arrayProducto = new ArrayList<>();
         String idProducto = "", idMayorProducto = "";
+        String numMembresia = "";
         Iterator<SoapObject> itr = vector.iterator();
         SoapObject soapObject = new SoapObject();
 
@@ -49,8 +53,12 @@ public class SoapObjectParsers {
             if (soapObject.hasProperty("idProducto")){
                 idProducto = soapObject.getPropertyAsString("idProducto");
                 arrayProducto.add(idProducto);
+            }else if (soapObject.hasProperty("numeroMembresia")){
+                idProducto = soapObject.getPropertyAsString("numeroMembresia");
+                arrayProducto.add(numMembresia);
             }
             Log.e("idProducto",idProducto);
+            Log.e("numeroMembresia",numMembresia);
         }
 
         //******Validate idProducto*********
@@ -61,7 +69,8 @@ public class SoapObjectParsers {
             else if (arrayProducto.contains("212")) idMayorProducto = "212";//PRIVILEGE
 
         Log.e("idMayorProducto",idMayorProducto);
-        mcardCliente = new McardCliente(idMayorProducto);//soapObject.getPropertyAsString("idProducto")
+        Log.e("numMcard",numMembresia);
+        mcardCliente = new McardCliente(idMayorProducto,numMembresia);//soapObject.getPropertyAsString("idProducto")
         return  mcardCliente;
     }
 
