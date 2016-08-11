@@ -93,7 +93,7 @@
                 android:layout_height="wrap_content"
                 layout="@layout/custom_text_coverage"
                 android:id="@+id/customTextCoverage"
-                android:layout_marginTop="485dp" />
+                android:layout_marginTop="510dp" />
         </RelativeLayout>
     </ScrollView>
 </LinearLayout>
