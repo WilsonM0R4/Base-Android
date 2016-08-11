@@ -280,8 +280,14 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 SharedPreferences prefs =
                         getSharedPreferences("MisPreferencias", MODE_PRIVATE);
                 SharedPreferences.Editor editor = prefs.edit();
-                if (idMcard.equals(""))editor.putString("idMcard", "0");
-                else editor.putString("idMcard", idMcard);
+                if (idMcard.equals("")){
+                    editor.putString("idMcard", "0");
+                    editor.putString("numMcard","XXXYXYY");
+                } else{
+                    editor.putString("idMcard", idMcard);
+                    editor.putString("numMcard",numMcard);
+                }
+
                 editor.apply();
                 Log.d("idMcard", "Es"+ idMcard);
                 Log.d("numMcard", "Es"+numMcard);
