@@ -16,13 +16,6 @@
         <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/intermediates-exploded-aar-VisaCheckout-Android-SDK-4.0_9dc56180b7d00b02cbf091f3bc12858e4ad86956/classes.dex" />
     </item>
     <item
-        jar="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-0.9.63-110/unspecified/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="9e85206a5262ec8fb449296cbd66126d99d67edb">
-        <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/4/Allegra-Android-onepocket-sdk-0.9.63-110-unspecified_f2112cb226fbf6c20270f444d637d99a80ad0dc3/classes.dex" />
-    </item>
-    <item
         jar="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.0.2/jars/classes.jar"
         jumboMode="false"
         revision="23.0.2"
@@ -119,6 +112,13 @@
         revision="23.0.2"
         sha1="f399a2fde7888450cadcaec4974bfd169d8cce43">
         <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tagmanager-api-9.0.2_489bd7e732b23c9ca1d1c874d9f9af62de9cca10/classes.dex" />
+    </item>
+    <item
+        jar="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-0.9.68-328/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a23544f0e66d149bb506f1058543271f29d1e32e">
+        <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/4/Allegra-Android-onepocket-sdk-0.9.68-328-unspecified_06eb0f61ad0904457bb64e84fced9b5924c64311/classes.dex" />
     </item>
     <item
         jar="/Users/lchui/.gradle/caches/modules-2/files-2.1/com.splunk.mint/mint/5.0.0/631f08ead30884985af1f7e32efcf2f5af1a898e/mint-5.0.0.jar"
@@ -317,6 +317,13 @@
         <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/TrustDefenderMobile_NoLog-3.2-98_7e70cb8287f83efd508a94bdde89c4b14f9733ad/classes.dex" />
     </item>
     <item
+        jar="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/com.urbanairship.android/urbanairship-sdk/7.2.3/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a07a6c45215e05747e09e0dcdfb3e792b0316897">
+        <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.urbanairship.android-urbanairship-sdk-7.2.3_f5ffab9969d9ce200f712bb3610063899b69864e/classes.dex" />
+    </item>
+    <item
         jar="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager/9.0.2/jars/classes.jar"
         jumboMode="false"
         revision="23.0.2"
@@ -420,13 +427,6 @@
         revision="23.0.2"
         sha1="6c58c14d15602fea2c50138c73bb107e8b832b62">
         <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-analytics-impl-9.0.2_0c1013a0bc8a767bda1a978fdf12e937bf05f7e5/classes.dex" />
-    </item>
-    <item
-        jar="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/com.urbanairship.android/urbanairship-sdk/7.2.2/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="40219b08a3c1ab696f35888152086bb8d92eb80a">
-        <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.urbanairship.android-urbanairship-sdk-7.2.2_c2ce56eef1e37684154dd041bbcbf93c1da06324/classes.dex" />
     </item>
     <item
         jar="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/9.0.2/jars/classes.jar"
