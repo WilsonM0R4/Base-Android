@@ -53,10 +53,11 @@ public class SoapObjectParsers {
             if (soapObject.hasProperty("idProducto")){
                 idProducto = soapObject.getPropertyAsString("idProducto");
                 arrayProducto.add(idProducto);
-            }else if (soapObject.hasProperty("numeroMembresia")){
+                numMembresia  = soapObject.getPropertyAsString("numeroMembresia");
+            }/*else if (soapObject.hasProperty("numeroMembresia")){
                 idProducto = soapObject.getPropertyAsString("numeroMembresia");
                 arrayProducto.add(numMembresia);
-            }
+            }*/
             Log.e("idProducto",idProducto);
             Log.e("numeroMembresia",numMembresia);
         }
