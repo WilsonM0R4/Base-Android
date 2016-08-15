@@ -69,7 +69,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/bundles" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/classes" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/dependency-cache" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.1-335/unspecified/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.1-336/unspecified/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/VisaCheckout-Android-SDK-4.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/card.io-5.3.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/jars" />
@@ -222,8 +222,8 @@
     <orderEntry type="library" exported="" name="play-services-safetynet-9.0.2" level="project" />
     <orderEntry type="library" exported="" name="firebase-analytics-9.0.2" level="project" />
     <orderEntry type="library" exported="" name="play-services-tagmanager-9.0.2" level="project" />
-    <orderEntry type="module" module-name="onepocket-sdk-1.0.1-335" exported="" />
+    <orderEntry type="module" module-name="onepocket-sdk-1.0.1-336" exported="" />
     <orderEntry type="library" exported="" name="org.apache.http.legacy-android-23" level="project" />
-    <orderEntry type="library" exported="" name="onepocket-sdk-1.0.1-335-unspecified" level="project" />
+    <orderEntry type="library" exported="" name="onepocket-sdk-1.0.1-336-unspecified" level="project" />
   </component>
 </module>

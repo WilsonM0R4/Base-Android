@@ -51,6 +51,13 @@
         <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/2/httpmime-4.1-beta1_dec702f496821744dd618350411a0531215c2cb6/classes.dex" />
     </item>
     <item
+        jar="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.1-336/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="0134440fc29fa3825a85c909a00945534da6960b">
+        <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/4/Allegra-Android-onepocket-sdk-1.0.1-336-unspecified_a3ce2be8bd7ddc0a07562676901b50fc90aca575/classes.dex" />
+    </item>
+    <item
         jar="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/9.0.2/jars/classes.jar"
         jumboMode="false"
         revision="23.0.2"
@@ -154,13 +161,6 @@
         revision="23.0.2"
         sha1="be29b24233711c419ce935aa0a1b12ebc49d1c9a">
         <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/firebase-client-android-2.3.1_c14675b6f6b97a40134c02df5b2d2ebc7d83d0d7/classes.dex" />
-    </item>
-    <item
-        jar="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.1-335/unspecified/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="0caa25270c8dc0cf9c749a2059ed350678e60928">
-        <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/4/Allegra-Android-onepocket-sdk-1.0.1-335-unspecified_b00c8f440da56d533146e5e83f3f5d288199ac5b/classes.dex" />
     </item>
     <item
         jar="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/9.0.2/jars/classes.jar"
