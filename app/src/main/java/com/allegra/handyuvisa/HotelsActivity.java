@@ -431,7 +431,6 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
                 paramDestination = data.getStringExtra(IATA);
                 paramDestinationName = data.getStringExtra("NameCity");
                 Log.d("IATA EditText",paramDestination);
-
             }
         }
 

@@ -195,6 +195,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 }
             }
         });
+
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -212,7 +213,6 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 }
             }
         });
-
 
         btn_newaccount.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -237,6 +237,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
         switch (item.getItemId()) {
             case android.R.id.home:
                 this.finish();
@@ -254,13 +255,41 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        if (requestCode == Constants.ACTIVITY_LOGIN_NEW_USER) {
+       /* if (requestCode == Constants.ACTIVITY_LOGIN_NEW_USER) {
             Intent returnIntent = new Intent();
             if (resultCode == RESULT_OK) {
                 setResult(resultCode, returnIntent);
                 finish();
             }
+        }*/
+
+        Log.e("Sergio","Llega al if antes");
+        super.onActivityResult(requestCode, resultCode, data);
+        Class classForReturn = null;
+
+        switch (requestCode){
+
+            case Constants.REQUEST_CODE_MCARD:
+                classForReturn = Mcardhtml.class;
+                break;
+            case Constants.REQUEST_CODE_HOTELS:
+                classForReturn = HotelsActivity.class;
+                break;
+            case Constants.REQUEST_CODE_CONCIERGE:
+                classForReturn = ConciergeActivity.class;
+                break;
+            case Constants.REQUEST_CODE_SERVICES:
+                classForReturn = ServiceActivity.class;
+                break;
+            case Constants.REQUEST_CODE_SCAN_QR:
+                classForReturn = QRScanActivity.class;
+                break;
         }
+
+        Intent intent = new Intent(getApplicationContext(),classForReturn);
+        startActivity(intent);
+        Log.e("Sergio","Llega al if");
+        finish();
     }
 
     //Response from SOAP Service, get Mcards purchased by an user
