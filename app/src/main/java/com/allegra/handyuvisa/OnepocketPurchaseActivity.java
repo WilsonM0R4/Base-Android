@@ -60,7 +60,7 @@ public class OnepocketPurchaseActivity extends FrontBackAnimate implements Front
                 confirm.getArguments().putParcelable(OPKConstants.EXTRA_RESULT, bundle);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.remove(currentTop);
-                transaction.remove(confirm).attach(confirm).show(confirm);
+                transaction.detach(confirm).attach(confirm).show(confirm);
                 transaction.commit();
 
                 stack.remove(size - 1);

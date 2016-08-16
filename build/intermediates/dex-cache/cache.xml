@@ -2,6 +2,13 @@
 <items version="2" >
 
     <item
+        jar="/Users/lchui/.gradle/caches/modules-2/files-2.1/com.firebase/tubesock/0.0.11/d37cb67277928cf59344b4196af8d9cee1f1a27c/tubesock-0.0.11.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d37cb67277928cf59344b4196af8d9cee1f1a27c">
+        <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/tubesock-0.0.11_d0b3b1198c3acc8c570868dc8ab5e8e6a97f2a6e/classes.dex" />
+    </item>
+    <item
         jar="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/9.0.2/jars/classes.jar"
         jumboMode="false"
         revision="23.0.2"
@@ -42,6 +49,13 @@
         revision="23.0.2"
         sha1="c6a4817fb147dd523dd0239b6fcfc9fe4ba2dcfc">
         <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/2/httpmime-4.1-beta1_dec702f496821744dd618350411a0531215c2cb6/classes.dex" />
+    </item>
+    <item
+        jar="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.1-336/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="0134440fc29fa3825a85c909a00945534da6960b">
+        <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/4/Allegra-Android-onepocket-sdk-1.0.1-336-unspecified_a3ce2be8bd7ddc0a07562676901b50fc90aca575/classes.dex" />
     </item>
     <item
         jar="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/9.0.2/jars/classes.jar"
@@ -114,13 +128,6 @@
         <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tagmanager-api-9.0.2_489bd7e732b23c9ca1d1c874d9f9af62de9cca10/classes.dex" />
     </item>
     <item
-        jar="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-0.9.68-328/unspecified/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="a23544f0e66d149bb506f1058543271f29d1e32e">
-        <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/4/Allegra-Android-onepocket-sdk-0.9.68-328-unspecified_06eb0f61ad0904457bb64e84fced9b5924c64311/classes.dex" />
-    </item>
-    <item
         jar="/Users/lchui/.gradle/caches/modules-2/files-2.1/com.splunk.mint/mint/5.0.0/631f08ead30884985af1f7e32efcf2f5af1a898e/mint-5.0.0.jar"
         jumboMode="false"
         revision="23.0.2"
@@ -149,6 +156,13 @@
         <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-analytics-9.0.2_02c59bcf196245cbce5eafb547690e9ac13fbcf1/classes.dex" />
     </item>
     <item
+        jar="/Users/lchui/.gradle/caches/modules-2/files-2.1/com.firebase/firebase-client-android/2.3.1/be29b24233711c419ce935aa0a1b12ebc49d1c9a/firebase-client-android-2.3.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="be29b24233711c419ce935aa0a1b12ebc49d1c9a">
+        <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/firebase-client-android-2.3.1_c14675b6f6b97a40134c02df5b2d2ebc7d83d0d7/classes.dex" />
+    </item>
+    <item
         jar="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/9.0.2/jars/classes.jar"
         jumboMode="false"
         revision="23.0.2"
@@ -168,6 +182,13 @@
         revision="23.0.2"
         sha1="78ea232052df889856dcb7b7b542707c89bb3bfb">
         <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-multidex-1.0.1_03f0aefcc902f480a6e2169a0ed0cdaff3afefd7/classes.dex" />
+    </item>
+    <item
+        jar="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/com.twilio/client-android/1.2.17/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="b9e61c824a5df82c9935f89a875d1ef31a59000e">
+        <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.twilio-client-android-1.2.17_135454bc8fa908779796a75c6449c68e66cb7b76/classes.dex" />
     </item>
     <item
         jar="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/com.android.support/support-v13/23.1.1/jars/libs/internal_impl-23.1.1.jar"
@@ -198,6 +219,13 @@
         <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/core-3.2.0_6f5cda37199a15981256602ccfb2401b50bb32ca/classes.dex" />
     </item>
     <item
+        jar="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/com.urbanairship.android/urbanairship-sdk/7.2.4/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8d7decf67176ac4bb63ead6694fd758a8dd22c28">
+        <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.urbanairship.android-urbanairship-sdk-7.2.4_f7142dd66d60b3a577f24e7472309d99f9a270fc/classes.dex" />
+    </item>
+    <item
         jar="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/com.mcxiaoke.volley/library/1.0.19/jars/classes.jar"
         jumboMode="false"
         revision="23.0.2"
@@ -212,11 +240,11 @@
         <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-9.0.2_49ca6862df1943cab34eccd1985b150d7ca80667/classes.dex" />
     </item>
     <item
-        jar="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/libs/twilioclient-android.jar"
+        jar="/Users/lchui/.gradle/caches/modules-2/files-2.1/com.firebase/firebase-client-jvm/2.3.1/4d53b7d6983247af02b8fe7e4228fff555a5e828/firebase-client-jvm-2.3.1.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="5f08525ba3ea72265f395be2c895e51ce1639e3c">
-        <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/2/twilioclient-android_8e18d9a81d00042b14008aa2e02ad04d6fc225b2/classes.dex" />
+        sha1="4d53b7d6983247af02b8fe7e4228fff555a5e828">
+        <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/firebase-client-jvm-2.3.1_059d2b857e05b1b79ba1a99ec891dee7a489b2ef/classes.dex" />
     </item>
     <item
         jar="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/9.0.2/jars/classes.jar"
@@ -238,6 +266,13 @@
         revision="23.0.2"
         sha1="604ecf403feb0084dc6d0c12f1677a490cf45e4c">
         <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-config-9.0.2_3a5e448f0e7e1628be03fbf19eeb4ce22ee5f6a1/classes.dex" />
+    </item>
+    <item
+        jar="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/com.twilio/client-android/1.2.17/jars/libs/org.apache.http.legacy.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="559154f0a7dbb0b6911a27169f5fbb2b391baf8c">
+        <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/org.apache.http.legacy_e1619614513f6078219b6ba1db7ba7a8b3509d36/classes.dex" />
     </item>
     <item
         jar="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/libs/org.apache.http.legacy.jar"
@@ -317,11 +352,11 @@
         <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/TrustDefenderMobile_NoLog-3.2-98_7e70cb8287f83efd508a94bdde89c4b14f9733ad/classes.dex" />
     </item>
     <item
-        jar="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/com.urbanairship.android/urbanairship-sdk/7.2.3/jars/classes.jar"
+        jar="/Users/lchui/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.2.2/d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b/jackson-core-2.2.2.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="a07a6c45215e05747e09e0dcdfb3e792b0316897">
-        <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.urbanairship.android-urbanairship-sdk-7.2.3_f5ffab9969d9ce200f712bb3610063899b69864e/classes.dex" />
+        sha1="d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b">
+        <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-core-2.2.2_e59e586c4fb0f6e60d6983032130bcc4c4cce7e4/classes.dex" />
     </item>
     <item
         jar="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager/9.0.2/jars/classes.jar"
@@ -364,6 +399,13 @@
         revision="23.0.2"
         sha1="03d38bb042efe3e5ce27ba66b729a9523c36d8fe">
         <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.0.0_ee85639fffdd1125f97d615d13bad96703452b6f/classes.dex" />
+    </item>
+    <item
+        jar="/Users/lchui/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.2.2/3c8f6018eaa72d43b261181e801e6f8676c16ef6/jackson-databind-2.2.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="3c8f6018eaa72d43b261181e801e6f8676c16ef6">
+        <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-databind-2.2.2_d90af5b30c15cbfc4dab34aed1af0e59eafe8a88/classes.dex" />
     </item>
     <item
         jar="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-storage-common/9.0.2/jars/classes.jar"
@@ -462,6 +504,13 @@
         revision="23.0.2"
         sha1="a45bc1ed812137b21dddd1cedaa3712b308f0b3f">
         <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-cast-9.0.2_d1e4e80fdb506db3a02af8bbd0ac51892317db1a/classes.dex" />
+    </item>
+    <item
+        jar="/Users/lchui/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.2.2/285cb9c666f0f0f3dd8a1be04e1f457eb7b15113/jackson-annotations-2.2.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="285cb9c666f0f0f3dd8a1be04e1f457eb7b15113">
+        <dex dex="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-annotations-2.2.2_2081dda3aa9bbaff779aa4c8776144111e8ded90/classes.dex" />
     </item>
     <item
         jar="/Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/9.0.2/jars/classes.jar"

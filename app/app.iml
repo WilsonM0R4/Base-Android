@@ -69,7 +69,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/bundles" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/classes" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/dependency-cache" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-0.9.68-328/unspecified/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.1-336/unspecified/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/VisaCheckout-Android-SDK-4.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/card.io-5.3.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/jars" />
@@ -127,7 +127,8 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.journeyapps/zxing-android-embedded/3.1.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.mcxiaoke.volley/library/1.0.19/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.squareup/android-times-square/1.6.4/jars" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.urbanairship.android/urbanairship-sdk/7.2.3/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.twilio/client-android/1.2.17/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.urbanairship.android/urbanairship-sdk/7.2.4/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/mbanje.kurt/fabbutton/1.2.1/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/net.danlew/android.joda/2.9.2/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
@@ -148,9 +149,9 @@
     <orderEntry type="library" exported="" name="library-1.0.19" level="project" />
     <orderEntry type="library" exported="" name="play-services-base-9.0.2" level="project" />
     <orderEntry type="library" exported="" name="httpmime-4.1-beta1" level="project" />
-    <orderEntry type="library" exported="" name="twilioclient-android" level="project" />
     <orderEntry type="library" exported="" name="firebase-database-9.0.2" level="project" />
-    <orderEntry type="library" exported="" name="urbanairship-sdk-7.2.3" level="project" />
+    <orderEntry type="library" exported="" name="firebase-client-jvm-2.3.1" level="project" />
+    <orderEntry type="library" exported="" name="urbanairship-sdk-7.2.4" level="project" />
     <orderEntry type="library" exported="" name="card.io-5.3.0-" level="project" />
     <orderEntry type="library" exported="" name="recyclerview-v7-23.1.1" level="project" />
     <orderEntry type="library" exported="" name="ksoap2-android-assembly-3.4.0-jar-with-dependencies" level="project" />
@@ -159,6 +160,7 @@
     <orderEntry type="library" exported="" name="support-v4-23.4.0" level="project" />
     <orderEntry type="library" exported="" name="firebase-storage-9.0.2" level="project" />
     <orderEntry type="library" exported="" name="play-services-drive-9.0.2" level="project" />
+    <orderEntry type="library" exported="" name="jackson-annotations-2.2.2" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-23.1.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-tagmanager-api-9.0.2" level="project" />
     <orderEntry type="library" exported="" name="firebase-common-9.0.2" level="project" />
@@ -190,6 +192,7 @@
     <orderEntry type="library" exported="" name="play-services-nearby-9.0.2" level="project" />
     <orderEntry type="library" exported="" name="firebase-auth-module-9.0.2" level="project" />
     <orderEntry type="library" exported="" name="play-services-plus-9.0.2" level="project" />
+    <orderEntry type="library" exported="" name="firebase-client-android-2.3.1" level="project" />
     <orderEntry type="library" exported="" name="firebase-storage-common-9.0.2" level="project" />
     <orderEntry type="library" exported="" name="play-services-appindexing-9.0.2" level="project" />
     <orderEntry type="library" exported="" name="firebase-auth-common-9.0.2" level="project" />
@@ -205,8 +208,12 @@
     <orderEntry type="library" exported="" name="play-services-analytics-9.0.2" level="project" />
     <orderEntry type="library" exported="" name="cardview-v7-23.1.1" level="project" />
     <orderEntry type="library" exported="" name="android-times-square-1.6.4" level="project" />
+    <orderEntry type="library" exported="" name="jackson-core-2.2.2" level="project" />
     <orderEntry type="library" exported="" name="design-23.1.1" level="project" />
+    <orderEntry type="library" exported="" name="jackson-databind-2.2.2" level="project" />
+    <orderEntry type="library" exported="" name="tubesock-0.0.11" level="project" />
     <orderEntry type="library" exported="" name="mediarouter-v7-23.0.0" level="project" />
+    <orderEntry type="library" exported="" name="client-android-1.2.17" level="project" />
     <orderEntry type="library" exported="" name="fabbutton-1.2.1" level="project" />
     <orderEntry type="library" exported="" name="multidex-1.0.1" level="project" />
     <orderEntry type="library" exported="" name="firebase-crash-9.0.2" level="project" />
@@ -215,8 +222,8 @@
     <orderEntry type="library" exported="" name="play-services-safetynet-9.0.2" level="project" />
     <orderEntry type="library" exported="" name="firebase-analytics-9.0.2" level="project" />
     <orderEntry type="library" exported="" name="play-services-tagmanager-9.0.2" level="project" />
-    <orderEntry type="module" module-name="onepocket-sdk-0.9.68-328" exported="" />
+    <orderEntry type="module" module-name="onepocket-sdk-1.0.1-336" exported="" />
     <orderEntry type="library" exported="" name="org.apache.http.legacy-android-23" level="project" />
-    <orderEntry type="library" exported="" name="onepocket-sdk-0.9.68-328-unspecified" level="project" />
+    <orderEntry type="library" exported="" name="onepocket-sdk-1.0.1-336-unspecified" level="project" />
   </component>
 </module>
