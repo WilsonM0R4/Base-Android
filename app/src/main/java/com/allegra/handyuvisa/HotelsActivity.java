@@ -118,9 +118,6 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
         super.onCreate(savedInstanceState);
         System.gc();
         setView(R.layout.fragment_hotels, this);
-        //Intentionally crash
-        /*String a = null;
-        a.toString();*/
     }
 
     @Override
@@ -833,6 +830,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
         Log.d("cityHotelHidden", String.valueOf(paramDestination));
 
         startActivity(intent);
+            System.gc();
     }
 
     }

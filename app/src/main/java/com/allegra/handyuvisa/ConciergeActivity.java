@@ -79,7 +79,7 @@ public class ConciergeActivity extends FrontBackAnimate implements FrontBackAnim
         super.onCreate(savedInstanceState);
         setView(R.layout.fragment_concierge,this);
         System.gc();
-        //MyBus.getInstance().register(this);
+        MyBus.getInstance().register(this);
         //airportData = new ArrayList<>();
         //getLocation();
     }
@@ -247,8 +247,8 @@ public class ConciergeActivity extends FrontBackAnimate implements FrontBackAnim
             }
         });
 
-        if (!alreadyEnterToThisMethod) MyBus.getInstance().register(this);
-        alreadyEnterToThisMethod = true;
+        /*if (!alreadyEnterToThisMethod) MyBus.getInstance().register(this);
+        alreadyEnterToThisMethod = true;*/
 
     }
 

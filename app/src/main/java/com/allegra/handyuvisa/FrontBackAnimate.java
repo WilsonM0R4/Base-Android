@@ -27,13 +27,13 @@ public class FrontBackAnimate extends FragmentActivity implements BackFragment.M
 
     private static final String TAG = "FrontBackAnimate";
     private static final String FRAGMENT_FRONT = "FRAGMENT_FRONT";
-
     private FrontFragment frontFragment;
     private BackFragment backFragment;
     private static FrontBackAnimate.InflateReadyListener inflateListener;
     protected static int frontLayoutResId = R.layout.fragment_front;
     private int state = 0;
 
+    //*************OVERRIDE METHODS**************
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +50,47 @@ public class FrontBackAnimate extends FragmentActivity implements BackFragment.M
         //Log.d(TAG,FRAGMENT_FRONT);
     }
 
+    @Override
+    public void getStartActivity(Intent intent) {
+        startActivity(intent);
+        overridePendingTransition(R.animator.front_slide_in, R.animator.back_slide_out);
+        finish();
+    }
+
+    /*@Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        Log.e("Sergio","Llega al if antes");
+        super.onActivityResult(requestCode, resultCode, data);
+        Class classForReturn = null;
+
+        switch (requestCode){
+
+            case Constants.REQUEST_CODE_MCARD:
+                classForReturn = Mcardhtml.class;
+                break;
+            case Constants.REQUEST_CODE_HOTELS:
+                classForReturn = HotelsActivity.class;
+                break;
+            case Constants.REQUEST_CODE_CONCIERGE:
+                classForReturn = ConciergeActivity.class;
+                break;
+            case Constants.REQUEST_CODE_SERVICES:
+                classForReturn = ServiceActivity.class;
+                break;
+            case Constants.REQUEST_CODE_SCAN_QR:
+                classForReturn = QRScanActivity.class;
+                break;
+        }
+
+        Intent intent = new Intent(getApplicationContext(),classForReturn);
+        startActivity(intent);
+        Log.e("Sergio","Llega al if");
+        //finish();
+    }*/
+
+
+    //**********************INNER CLASSES***************************
     public static class FrontFragment extends Fragment {
 
         public FrontFragment() {
@@ -66,6 +107,7 @@ public class FrontBackAnimate extends FragmentActivity implements BackFragment.M
     }
 
 
+    //********************PROPER METHODS**********************
     protected void setView(int resId, FrontBackAnimate.InflateReadyListener listener) {
         frontLayoutResId = resId;
         inflateListener = listener;
@@ -155,46 +197,6 @@ public class FrontBackAnimate extends FragmentActivity implements BackFragment.M
                 finish();
             }
         });
-    }
-
-    @Override
-    public void getStartActivity(Intent intent) {
-        startActivity(intent);
-        overridePendingTransition(R.animator.front_slide_in, R.animator.back_slide_out);
-        finish();
-    }
-
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        Log.e("Sergio","Llega al if antes");
-        super.onActivityResult(requestCode, resultCode, data);
-        Class classForReturn = null;
-
-        switch (requestCode){
-
-            case Constants.REQUEST_CODE_MCARD:
-                classForReturn = Mcardhtml.class;
-                break;
-            case Constants.REQUEST_CODE_HOTELS:
-                classForReturn = HotelsActivity.class;
-                break;
-            case Constants.REQUEST_CODE_CONCIERGE:
-                classForReturn = ConciergeActivity.class;
-                break;
-            case Constants.REQUEST_CODE_SERVICES:
-                classForReturn = ServiceActivity.class;
-                break;
-            case Constants.REQUEST_CODE_SCAN_QR:
-                classForReturn = QRScanActivity.class;
-                break;
-        }
-
-        Intent intent = new Intent(getApplicationContext(),classForReturn);
-        startActivity(intent);
-        Log.e("Sergio","Llega al if");
-        finish();
     }
 
     public void onCloseMenu(View view) {

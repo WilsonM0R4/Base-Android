@@ -26,8 +26,8 @@ import android.widget.TextView;
 public class LoadAnimate extends Activity implements BackFragment.MenuSelectListener {
 
     public interface InflateReadyListener {
-        public void initViews(View root);
 
+        public void initViews(View root);
         public void onCancelLoading();
     }
 
