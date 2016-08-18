@@ -119,6 +119,8 @@ public class HotelSearchActivity extends LoadAnimate implements LoadAnimate.Infl
     public void onConfigurationChanged(Configuration newConfig){
         super.onConfigurationChanged(newConfig);
     }
+
+
     private void setActionbar(boolean hide) {
 
         actionBar = getActionBar();
@@ -219,6 +221,7 @@ public class HotelSearchActivity extends LoadAnimate implements LoadAnimate.Infl
         //webView.postUrl(url, EncodingUtils.getBytes(postData, "BASE64"));
         url = url + postData;
         Log.d("murl",url);
+
         webView.loadUrl(url);
     }
 
@@ -235,6 +238,7 @@ public class HotelSearchActivity extends LoadAnimate implements LoadAnimate.Infl
         //btn_buy = (Button) findViewById(R.id.btn_buy);
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
+        webSettings.setLoadsImagesAutomatically(true);
         webView.setWebViewClient(new MyWebViewClient());
         TextView title = (TextView) root.findViewById(R.id.tv_title_secc);
         title.setText(R.string.title_hotel_results);
@@ -242,6 +246,7 @@ public class HotelSearchActivity extends LoadAnimate implements LoadAnimate.Infl
         arrowBack= (ImageButton)root.findViewById(R.id.arrow_back);
         //arrowF= (ImageButton)root.findViewById(R.id.arrow_forward);
         webView.addJavascriptInterface(new AppJavaScriptProxyHotels(this), "androidProxy");
+        System.gc();
     }
 
     @Override
@@ -280,7 +285,6 @@ public class HotelSearchActivity extends LoadAnimate implements LoadAnimate.Infl
             loadArrows();
               animate();
         }
-
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon){
             //progressBar.setVisibility(View.VISIBLE);

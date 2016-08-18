@@ -38,7 +38,7 @@ public class VisaCheckoutApp extends MultiDexApplication {
         //super.onCreate();
         //SystemClock.sleep(0);   // For running splash screen
 
-        super.onCreate();
+               super.onCreate();
         UAirship.takeOff(this, new UAirship.OnReadyCallback() {
             @Override
             public void onAirshipReady(UAirship airship) {

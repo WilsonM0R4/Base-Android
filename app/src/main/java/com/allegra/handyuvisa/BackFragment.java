@@ -38,6 +38,7 @@ public class BackFragment extends Fragment  {
     public MenuSelectListener menulistener;
     public static MenuActivity[] activities;
 
+    //*********OnActivityResult***********
 
     public class MenuActivity {
 
@@ -65,26 +66,22 @@ public class BackFragment extends Fragment  {
     }
 
 
- /*   @Override
+    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        //super.onActivityResult(requestCode, resultCode, data);
+        Log.e("Sergio","Llega al del BackFragment");
+        super.onActivityResult(requestCode, resultCode, data);
         // Check which request we're responding to
-        if (requestCode == SCAN_QR_CODE) {
+        if (requestCode == Constants.REQUEST_CODE_HOTELS) {
             // Make sure the request was successful
-            //if (resultCode == RESULT_OK) {
-                // The user picked a contact.
-                // The Intent's data Uri identifies which contact was selected.
+            if (resultCode == Activity.RESULT_OK) {
 
-                // Do something with the contact here (bigger example below)
-            //}
+            }
         }
-    }*/
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
 
         activities = new MenuActivity[] {
                 new MenuActivity(R.string.title_my_account, R.drawable.menu__account,  MyAccountActivity.class),
@@ -122,13 +119,14 @@ public class BackFragment extends Fragment  {
     }
 
     public void sendToQrScan(){
-        if (Util.isAuthenticated(getActivity())) {
+        sendToActivity(QRScanActivity.class, Constants.REQUEST_CODE_SCAN_QR);
+        /*if (Util.isAuthenticated(getActivity())) {
             Intent intent = new Intent(getActivity(),QRScanActivity.class);
             getActivity().startActivity(intent);
         } else {
             Intent intent = new Intent(getActivity(),LoginActivity.class);
             getActivity().startActivity(intent);
-        }
+        }*/
         /*Intent intent = new Intent(getActivity(),QRScanActivity.class);
         //getActivity().startActivityForResult(intent, SCAN_QR_CODE);
         startActivity(intent);*/
@@ -171,28 +169,28 @@ public class BackFragment extends Fragment  {
     }
 
     public void sendToMcard(){
-        if (Util.isAuthenticated(getActivity())) {
+        sendToActivity(Mcardhtml.class, Constants.REQUEST_CODE_MCARD);
+       /* if (Util.isAuthenticated(getActivity())) {
             Intent intent = new Intent(getActivity(),Mcardhtml.class);
             getActivity().startActivity(intent);
         } else {
             Intent intent = new Intent(getActivity(),LoginActivity.class);
             getActivity().startActivity(intent);
-        }
-
-
+        }*/
         /*
         *         Intent intent = new Intent(getActivity(),McardActivity.class);
         getActivity().startActivity(intent);*///MCARD NATIVE
     }
 
     public void sendToServices(){
-        if(Util.isAuthenticated(getActivity())){
+        sendToActivity(ServiceActivity.class, Constants.REQUEST_CODE_SERVICES);
+        /*if(Util.isAuthenticated(getActivity())){
             Intent intent = new Intent(getActivity(),ServiceActivity.class);
             getActivity().startActivity(intent);
         } else {
             Intent intent = new Intent(getActivity(),LoginActivity.class);
             getActivity().startActivity(intent);
-        }
+        }*/
     }
 
     public void sendToFlights(){
@@ -201,22 +199,38 @@ public class BackFragment extends Fragment  {
     }
 
     public void sendToHotels(){
-        if(Util.isAuthenticated(getActivity())) {
+      /*  if(Util.isAuthenticated(getActivity())) {
             Intent intent = new Intent(getActivity(), HotelsActivity.class);
             getActivity().startActivity(intent);
+            getActivity().finish();
         }else {
             Intent intent = new Intent(getActivity(),LoginActivity.class);
-            getActivity().startActivity(intent);
-        }
+            getActivity().startActivityForResult(intent, Constants.SUCCESSFUL_CODE);
+        }*/
+        sendToActivity(HotelsActivity.class, Constants.REQUEST_CODE_HOTELS);
     }
 
     public void sendToConcierge(){
-        if(Util.isAuthenticated(getActivity())) {
+        sendToActivity(ConciergeActivity.class, Constants.REQUEST_CODE_CONCIERGE);
+        /*if(Util.isAuthenticated(getActivity())) {
             Intent intent = new Intent(getActivity(), ConciergeActivity.class);
             getActivity().startActivity(intent);
         }else{
             Intent intent = new Intent(getActivity(), LoginActivity.class);
             getActivity().startActivity(intent);
+        }*/
+    }
+
+    //***********REFACTORING METHOD**************
+    private void sendToActivity(Class activity, int code){
+
+        if(Util.isAuthenticated(getActivity())) {
+            Intent intent = new Intent(getActivity(), activity);
+            getActivity().startActivity(intent);
+            getActivity().finish();
+        }else {
+            Intent intent = new Intent(getActivity(),LoginActivity.class);
+            getActivity().startActivityForResult(intent, code);
         }
     }
 
@@ -250,7 +264,7 @@ public class BackFragment extends Fragment  {
             }
         });
 
-        LinearLayout mcard_option = (LinearLayout) getView().findViewById(R.id.mCard_option);//getActivity()
+        LinearLayout mcard_option = (LinearLayout) getView().findViewById(R.id.mCard_option);
         mcard_option.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 sendToMcard();

@@ -20,6 +20,15 @@ import java.util.HashMap;
  * com.allem.allemevent.utils
  */
 public class Constants {
+    public final static int REQUEST_CODE_TRANSACTION_HISTORY = 8891;
+    public final static int REQUEST_CODE_PROOF_OF_COVERAGE = 8890;
+    public final static int REQUEST_CODE_MY_PROFILE = 8889;
+
+    public final static int REQUEST_CODE_MCARD = 8888;
+    public final static int REQUEST_CODE_HOTELS = 8887;
+    public final static int REQUEST_CODE_SCAN_QR = 8886;
+    public final static int REQUEST_CODE_CONCIERGE = 8885;
+    public final static int REQUEST_CODE_SERVICES = 8884;
 
     //*******ADDED BY SERGIO FARFÁN FOR GET MCARD**********
     public final static String SOAP_AUTH_EMAIL_MCARD = "allegrapp@iatai.com";

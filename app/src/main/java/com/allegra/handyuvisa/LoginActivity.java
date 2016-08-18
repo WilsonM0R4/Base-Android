@@ -33,6 +33,7 @@ import com.allegra.handyuvisa.utils.KeySaver;
 import com.allegra.handyuvisa.utils.Util;
 import com.splunk.mint.Mint;
 import com.squareup.otto.Subscribe;
+import com.urbanairship.UAirship;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -195,6 +196,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 }
             }
         });
+
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -212,7 +214,6 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 }
             }
         });
-
 
         btn_newaccount.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -237,6 +238,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
         switch (item.getItemId()) {
             case android.R.id.home:
                 this.finish();
@@ -261,6 +263,16 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 finish();
             }
         }
+        /*if (requestCode == Constants.REQUEST_CODE_HOTELS) {
+            Intent returnIntent = new Intent();
+            if (resultCode == RESULT_OK) {
+                Log.e("Sergio", "Acá sí");
+                setResult(resultCode, returnIntent);
+                finish();
+            }
+        }*/
+
+
     }
 
     //Response from SOAP Service, get Mcards purchased by an user
@@ -312,6 +324,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 String name = user.email.substring(0, user.email.indexOf('@'));
                 String domain = user.email.substring(user.email.indexOf('@') + 1, user.email.length()).replace(".", "");
                 String channel = name + domain + user.idCuenta;
+                UAirship.shared().getNamedUser().setId(channel);
                 String password = user.hashpassword;
                 String cel_code = user.celular_codigo;
                 String typeOfId = user.idType;
@@ -341,8 +354,11 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 asyncSoapObjectTest.getInstance2(Constants.SOAP_URL_MCARD_PROD, Constants.MCARD_NAMESPACE,
                         Constants.MCARD_METHOD, postValues, Constants.MCARD_CODE).execute();
                 Constants.saveUser(ctx, user, channel);
-                setResult(RESULT_OK);
-                finish();
+                //********
+                Intent returnIntent = new Intent();
+                    Log.e("Sergio", "Acá sí");
+                    setResult(RESULT_OK, returnIntent);
+                    finish();
             } else {
                 Toast.makeText(ctx, event.getFaultString(), Toast.LENGTH_LONG).show();
             }
