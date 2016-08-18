@@ -62,7 +62,8 @@ public class Constants {
     public final static int CAT_HOTEL=750;
     public final static int CAT_RESTO=749;
     public final static int CAT_EVENTO=748;
-    public final static int NUMBER_PICKER_SIZE = 12;
+    public final static int NUMBER_PICKER_SIZE = 7;
+    public final static int PICKER_SIZE_CHILDREN_AND_INFANTS = 6;
 
     public final static String URL_ALLEM_AIR_PROD = "https://secure.allegraplatform.com/GatewayIatai/IPPG";
     public final static String URL_ALLEM_AIR_TEST =  "https://pruebas.allegraplatform.com/GatewayIatai/IPPG";
