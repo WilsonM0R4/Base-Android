@@ -1066,7 +1066,6 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
             infantsPicker.setMaxValue(infantsPicker.getValue() + delta);
             childrenPicker.setMaxValue(childrenPicker.getValue() + delta);
             adultsPicker.setMaxValue(adultsPicker.getValue() + delta);
-
             adultsPicker.setMinValue(1);
        // }
 

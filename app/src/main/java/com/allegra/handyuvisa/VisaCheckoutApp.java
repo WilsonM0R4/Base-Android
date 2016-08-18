@@ -79,12 +79,12 @@ public class VisaCheckoutApp extends MultiDexApplication {
         });
 */
         // Setup handler for uncaught exceptions.
-        Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
+        /*Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
             @Override
             public void uncaughtException(Thread thread, Throwable e) {
                 handleUncaughtException(thread, e);
             }
-        });
+        });*/
     }
 
 
