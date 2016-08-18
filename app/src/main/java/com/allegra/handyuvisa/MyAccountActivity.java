@@ -21,6 +21,7 @@ import com.allegra.handyuvisa.utils.Util;
 import com.allegra.handyuvisa.async.AsyncSoapPrimitive;
 import com.allegra.handyuvisa.utils.KeySaver;
 import com.squareup.otto.Subscribe;
+import com.urbanairship.UAirship;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -150,6 +151,7 @@ public class MyAccountActivity extends FrontBackAnimate implements FrontBackAnim
                 if(Boolean.valueOf(event.getResult().toString())){
                     Constants.deleteUser(ctx);
                     ((VisaCheckoutApp)this.getApplication()).deleteSesion();
+                    UAirship.shared().getNamedUser().setId(null);
                     //((VisaCheckoutApp)this.getApplication()).unSetParseChannels();
                 }else{
                     Log.d(TAG, "No se pudo desloguear o ya se encuentra deslogueado");

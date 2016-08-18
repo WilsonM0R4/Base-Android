@@ -45,6 +45,7 @@ public class VisaCheckoutApp extends MultiDexApplication {
 
                 // Enable user notifications
                 airship.getPushManager().setUserNotificationsEnabled(true);
+                UAirship.shared().getNamedUser().setId(null);
             }
         });
 
