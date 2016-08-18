@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -12,10 +11,8 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -497,6 +494,15 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
         }
 
 
+        if(txtMobile.getText().toString().equals("")){
+            txtMobile.setHintTextColor(Color.RED);
+            result = false;
+        }
+
+        if (txtMobile.getText().toString().length()<7){
+            txtMobile.setHintTextColor(Color.RED);
+            result = false;
+        }
 
 
         //****************PASSWORD *************
