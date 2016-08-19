@@ -154,9 +154,9 @@ public class FlightsSearchActivity extends LoadAnimate implements LoadAnimate.In
     }*/
 
     private void loadWebView() {
-        url = "http://allegra.vuelos.ninja/Vuelos/ResultadosGet?";
-        //url="http://allegra.vuelos.ninja/Vuelos/ResultadosGet?";
 
+        url="http://allegra.vuelos.ninja/Vuelos/ResultadosGet?";
+        //url = "http://vuelos.allegra.travel?%@";
         //url = "http://allegra.vuelos.ninja/Vuelos/ResultadosGet?AirFlightType=OW&AirOriginLocation=Bogota+
         // Eldorado%2C+Colombia+%28BOG%29&AirOriginLocationIATA=BOG&AirDestinationLocation=Miami+International%2C+
         // FL+%28MIA%29&AirDestinationLocationIATA=MIA&AirDepartureDateTime=2016-05-13&AirTravelAvailAdt=1&
@@ -223,6 +223,7 @@ public class FlightsSearchActivity extends LoadAnimate implements LoadAnimate.In
 //                    urlWebView=HotelsActivity.this.url;
                     // TODO replace with Onepocket pay activity
                 }else if(url.equals("allegra:callbackFlights")){
+                    Log.d("Sergio","Llega rodallega");
                     onalertDialogDepartureOrArriveNotSelected();
                 }
                 else{

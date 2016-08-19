@@ -644,4 +644,6 @@
     <string name="enjoy_all_benefits">Enjoy all benefits that your membership\n brings to you through handy mCard</string>
     <string name="get_your_certificate">GET YOUR CERTIFICATE</string>
     <string name="privacy_policy_underscore"><u>privacy policy</u></string>
+    <string name="ups_try_again">Oops! try again</string>
+    <string name="your_search_no_results">Your search show no results</string>
 </resources>

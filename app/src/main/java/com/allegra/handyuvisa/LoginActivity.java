@@ -71,6 +71,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         super.setView(R.layout.fragment_login, this);
         postValues = new ArrayList<>();
 
+        //TODO: Uncomment this before push
         //Splunk
         Mint.setApplicationEnvironment(Mint.appEnvironmentTesting);
         Mint.initAndStartSession(getApplicationContext(), SPLUNK_API_KEY);

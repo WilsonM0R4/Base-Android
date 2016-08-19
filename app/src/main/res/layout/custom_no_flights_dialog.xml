@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/title_alert_dialog_warning"
+        android:text="@string/ups_try_again"
         android:textSize="19sp"
         android:textStyle="bold"
         android:layout_marginTop="40dp"
@@ -21,7 +21,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/alert_message_no_flights"
+        android:text="@string/your_search_no_results"
         android:textSize="19sp"
         android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"

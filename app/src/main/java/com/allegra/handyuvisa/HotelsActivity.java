@@ -783,9 +783,6 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
             paramCheckOut = Util.Bookings_Formatter_Hotels.format(tomorrow);
         }
 
-        /*if (!paramDestination.equals("")) {
-            paramDestination = paramDestination.substring(0, 3);
-        }*/
         Log.d("CodigoIATAonSearchHotel",paramDestination);
 
         if (paramDestination.equals("")) {
@@ -805,25 +802,25 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
 
                 case 2:
                     intent.putExtra("&adultHotel2", paramAdults2);
-                    intent.putExtra("&childHotel2", paramChildren2);
+                    intent.putExtra("&childHotel2", paramChildren2+paramInfants2);
                     break;
                 case 3:
                     intent.putExtra("&adultHotel2", paramAdults2);
-                    intent.putExtra("&childHotel2", paramChildren2);
+                    intent.putExtra("&childHotel2", paramChildren2+paramInfants2);
                     intent.putExtra("&adultHotel3", paramAdults3);
-                    intent.putExtra("&childHotel3", paramChildren3);
+                    intent.putExtra("&childHotel3", paramChildren3+paramInfants3);
                     break;
                 case 4:
                     intent.putExtra("&adultHotel2", paramAdults2);
-                    intent.putExtra("&childHotel2", paramChildren2);
+                    intent.putExtra("&childHotel2", paramChildren2+paramInfants2);
                     intent.putExtra("&adultHotel3", paramAdults3);
-                    intent.putExtra("&childHotel3", paramChildren3);
+                    intent.putExtra("&childHotel3", paramChildren3+paramInfants3);
                     intent.putExtra("&adultHotel4", paramAdults4);
-                    intent.putExtra("&childHotel4", paramChildren4);
+                    intent.putExtra("&childHotel4", paramChildren4+paramInfants4);
                     break;
             }
 
-            //TODO: Here are totals
+
         Log.d("adult", String.valueOf(paramAdultsTotal));
         Log.d("children", String.valueOf(paramChildren));
         Log.d("infant", String.valueOf(paramInfants));
@@ -1036,7 +1033,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
         setAdultsPicker(adults);
         setChildrenPicker(children);
         setInfantsPicker(infants);
-        validateGuestQuantity(1,4);
+        validateGuestQuantity();
     }
 
     public void setNumberPickersTest(final View root){
@@ -1049,19 +1046,14 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
     }
 
     //Validate each numberPicker
-    private void validateGuestQuantity(int idNumberPicker, int temporal){
+    private void validateGuestQuantity(){
 
         //Formula
         int newTotal = adultsPicker.getValue() + infantsPicker.getValue() +  childrenPicker.getValue();
         int delta = Constants.NUMBER_PICKER_SIZE - newTotal;
         Log.d("Sergio newTotal", String.valueOf(newTotal));
         Log.d("Sergio delta", String.valueOf(delta));
-        Log.d("Sergio temporal", String.valueOf(temporal));
-       /* if (delta == 0){
-            infantsPicker.setMaxValue(infantsPicker.getValue()+delta);
-            childrenPicker.setMaxValue(childrenPicker.getValue()+delta);
-            adultsPicker.setMaxValue(adultsPicker.getValue()+delta);
-        } else {*/
+
         if (delta >= 0) {
             infantsPicker.setMaxValue(infantsPicker.getValue() + delta);
             childrenPicker.setMaxValue(childrenPicker.getValue() + delta);
@@ -1070,27 +1062,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
         }else{
             Log.d("Sergio","Permitió mas de 7");
         }
-       // }
 
-        /*//if (delta ) {
-            switch (idNumberPicker) {
-                case 1://Adults
-                    infantsPicker.setMaxValue(infantsPicker.getValue()+delta);
-                    childrenPicker.setMaxValue(childrenPicker.getValue()+delta);
-                    //adultsPicker.setMaxValue(adultsPicker.getValue()+delta);
-                    break;
-                case 2://Children
-                    //childrenPicker.setMaxValue(childrenPicker.getValue()+delta);
-                    infantsPicker.setMaxValue(infantsPicker.getValue()+delta);
-                    adultsPicker.setMaxValue(adultsPicker.getValue()+delta);
-                    break;
-                case 3://Infants
-                    childrenPicker.setMaxValue(childrenPicker.getValue()+delta);
-                    adultsPicker.setMaxValue(adultsPicker.getValue()+delta);
-                    //infantsPicker.setMaxValue(infantsPicker.getValue()+delta);
-                    break;
-            }
-        //}*/
     }
 
     public void setAdultsPicker(int adults){
@@ -1107,7 +1079,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
                 paramAdults = newVal;
-                validateGuestQuantity(1, newVal);
+                validateGuestQuantity();
             }
         });
 
@@ -1126,7 +1098,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
                 paramChildren = newVal;
-                validateGuestQuantity(2, newVal);
+                validateGuestQuantity();
             }
         });
         setDividerColor(childrenPicker);
@@ -1143,7 +1115,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
             @Override
             public void onValueChange(NumberPicker numberPicker, int i, int i1) {
                 paramInfants = i1;
-                validateGuestQuantity(3, i1);
+                validateGuestQuantity();
             }
         });
         setDividerColor(infantsPicker);
