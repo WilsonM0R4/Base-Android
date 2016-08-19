@@ -155,7 +155,8 @@ public class FlightsSearchActivity extends LoadAnimate implements LoadAnimate.In
 
     private void loadWebView() {
 
-        url="http://allegra.vuelos.ninja/Vuelos/ResultadosGet?";
+        url = "http://vuelos.allegra.travel/Vuelos/ResultadosGet?";
+        //url="http://allegra.vuelos.ninja/Vuelos/ResultadosGet?";
         //url = "http://vuelos.allegra.travel?%@";
         //url = "http://allegra.vuelos.ninja/Vuelos/ResultadosGet?AirFlightType=OW&AirOriginLocation=Bogota+
         // Eldorado%2C+Colombia+%28BOG%29&AirOriginLocationIATA=BOG&AirDestinationLocation=Miami+International%2C+
