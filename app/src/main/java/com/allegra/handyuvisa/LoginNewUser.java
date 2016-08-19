@@ -9,6 +9,7 @@ package com.allegra.handyuvisa;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -21,7 +22,6 @@ import android.text.TextWatcher;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.Patterns;
-import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -34,22 +34,21 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.allegra.handyuvisa.async.MyBus;
-import com.allegra.handyuvisa.models.CuentaCliente;
-import com.allegra.handyuvisa.models.McardCliente;
-import com.allegra.handyuvisa.utils.Constants;
-import com.allegra.handyuvisa.utils.KeySaver;
-import com.allegra.handyuvisa.utils.Util;
 import com.allegra.handyuvisa.async.AsyncSoapObject;
 import com.allegra.handyuvisa.async.AsyncTaskSoapObjectResultEvent;
+import com.allegra.handyuvisa.async.MyBus;
 import com.allegra.handyuvisa.models.AllemUser;
+import com.allegra.handyuvisa.models.CuentaCliente;
 import com.allegra.handyuvisa.models.CuentaClienteInfoAdicional;
 import com.allegra.handyuvisa.parsers.SoapObjectParsers;
+import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
+import com.allegra.handyuvisa.utils.Util;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.squareup.otto.Subscribe;
+
 import org.ksoap2.serialization.PropertyInfo;
 
 import java.lang.reflect.Field;
@@ -62,10 +61,15 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
     private ImageButton ib_showhidepass, ib_showhiderepass;
     private boolean passIsVisible = false, repassIsVisible = false;
     private EditText et_username, et_password, et_names, et_surname, et_mobile, et_document_number;
+    private String username, name, suraname, mobile, documentnumber;
+    private String tmpUsername, tmpName, tmpSurname, tmpMobile, tmpDocumentNumber;
     private NumberPicker countryPicker, typeOfIdPicker;
     private CustomizedTextView btn_sendreg, btn_login;
     private ProgressBar pb_create;
     TextView textCountrySelected, txtTypeOfIdSelected;
+    SharedPreferences prefs;
+    SharedPreferences.Editor editor;
+    String strData = "";
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -85,7 +89,11 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+        prefs = getSharedPreferences("RegistroTemp", MODE_PRIVATE);
+        editor = prefs.edit();
+
     }
+
 
     @Override
     public void onStart() {
@@ -141,6 +149,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
     @Override
     public void initViews(View root) {
 
+
         System.gc();
         ib_showhidepass = (ImageButton) root.findViewById(R.id.ib_showhide_pass);
         ib_showhiderepass = (ImageButton) root.findViewById(R.id.ib_showhide_repass);
@@ -152,12 +161,13 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         btn_login = (CustomizedTextView) root.findViewById(R.id.btn_login_new);
         pb_create = (ProgressBar) root.findViewById(R.id.pb_create);
         et_mobile = (EditText) root.findViewById(R.id.et_mobile);
-        et_document_number = (EditText)root.findViewById(R.id.etIdNumber);
+        et_document_number = (EditText) root.findViewById(R.id.etIdNumber);
         textCountrySelected = (TextView) root.findViewById(R.id.et_country_mobile);
         txtTypeOfIdSelected = (TextView) root.findViewById(R.id.etTypeOfId);
         setListeners();
         setTextWatchers();
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -198,7 +208,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 formLayout.addView(successfulRegister);
                 Log.d("Serfar Prueba", channel);
 
-            //Temporary
+                //Temporary
                 /*Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
                 finish();*/
@@ -373,7 +383,8 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         txtTermsAndConditions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(),TermsActivity.class);
+                saveTmpInfo();
+                Intent i = new Intent(getApplicationContext(), TermsActivity.class);
                 startActivity(i);
             }
         });
@@ -383,13 +394,59 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         txtPrivacyPolicy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(),PoliticalActivity.class);
+                saveTmpInfo();
+                Intent i = new Intent(getApplicationContext(), PoliticalActivity.class);
                 startActivity(i);
             }
         });
 
 
     }
+
+    private void saveTmpInfo() {
+
+        username = et_username.getText().toString();
+        name = et_names.getText().toString();
+        suraname = et_surname.getText().toString();
+        mobile = et_mobile.getText().toString();
+        documentnumber = et_document_number.getText().toString();
+        editor.putString("usernametmp", username);
+        editor.putString("nombretmp", name);
+        editor.putString("apellidotmp", suraname);
+        editor.putString("mobiletmp", mobile);
+        editor.putString("documentnumbertmp", documentnumber);
+        editor.apply();
+        Log.d("SAVE TMP INFO", "SAVING...!");
+        Log.d("UsernameTMP", username);
+        Log.d("NombreTMP", name);
+        Log.d("ApellidoTMP", suraname);
+        Log.d("MobileTMP", mobile);
+        Log.d("DocumentNumTMP", documentnumber);
+        Log.d("---------", "--------------");
+
+    }
+
+    private void loadTmpInfo(){
+        String tmpUser, tmpName, tmpSurname, tmpMobile, tmpDocumentNum;
+        tmpUser = prefs.getString("usernametmp",username);
+        tmpName = prefs.getString("nombretmp",name);
+        tmpSurname = prefs.getString("apellidotmp",suraname);
+        tmpMobile = prefs.getString("mobiletmp",mobile);
+        tmpDocumentNum = prefs.getString("documentnumbertmp",documentnumber);
+        et_username.setText(tmpUser);
+        et_names.setText(tmpName);
+        et_surname.setText(tmpSurname);
+        et_mobile.setText(tmpMobile);
+        et_document_number.setText(tmpDocumentNum);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        loadTmpInfo();
+    }
+
+
 
     //Called when the user information is valid
     private void sendInfo() {
@@ -433,59 +490,57 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         }
     }
 
-    private String getTypeOfIdToSend(String optionSelected){
+    private String getTypeOfIdToSend(String optionSelected) {
 
         String typeOfIdToSend = "";
-        if (optionSelected.equals(getString(R.string.txt_citizenship_card))){
+        if (optionSelected.equals(getString(R.string.txt_citizenship_card))) {
             return "1";
-        }else {
-            if (optionSelected.equals(getString(R.string.txt_Foreigner_ID)))return "2";
-            if (optionSelected.equals(getString(R.string.txt_nit)))return "3";
-            if (optionSelected.equals(getString(R.string.txt_identity_card)))return "4";
-            if (optionSelected.equals(getString(R.string.txt_passport)))return "5";
-            if (optionSelected.equals(getString(R.string.txt_nuip)))return "10";
-            if (optionSelected.equals(getString(R.string.txt_otro)))return "9";
+        } else {
+            if (optionSelected.equals(getString(R.string.txt_Foreigner_ID))) return "2";
+            if (optionSelected.equals(getString(R.string.txt_nit))) return "3";
+            if (optionSelected.equals(getString(R.string.txt_identity_card))) return "4";
+            if (optionSelected.equals(getString(R.string.txt_passport))) return "5";
+            if (optionSelected.equals(getString(R.string.txt_nuip))) return "10";
+            if (optionSelected.equals(getString(R.string.txt_otro))) return "9";
         }
         return typeOfIdToSend;
     }
 
 
-    private String getCountryIsoCodeToSend(String optionSelected){
+    private String getCountryIsoCodeToSend(String optionSelected) {
 
         String phoneCodetoSend = "";
         String phoneCodeColombia = "+57", phoneCodeEcuador = "+593", phoneCodePeru = "+51",
                 phoneCodeUsa = "+1", phoneCodeArgentina = "+54";
 
-        if (optionSelected.contains(phoneCodeColombia))
-        {
+        if (optionSelected.contains(phoneCodeColombia)) {
             return "CO";
         } else {
-            if(optionSelected.contains(phoneCodeEcuador)) return "EC";
-            if(optionSelected.contains(phoneCodePeru)) return "PE";
-            if(optionSelected.contains(phoneCodeUsa)) return "US";
-            if(optionSelected.contains(phoneCodeArgentina)) return "AR";
+            if (optionSelected.contains(phoneCodeEcuador)) return "EC";
+            if (optionSelected.contains(phoneCodePeru)) return "PE";
+            if (optionSelected.contains(phoneCodeUsa)) return "US";
+            if (optionSelected.contains(phoneCodeArgentina)) return "AR";
         }
 
         return phoneCodetoSend;
     }
 
-    private String getCountryCodeToSend(String optionSelected){
+    private String getCountryCodeToSend(String optionSelected) {
 
         String phoneCodetoSend = "";
         String phoneCodeColombia = "+57", phoneCodeEcuador = "+593", phoneCodePeru = "+51",
                 phoneCodeUsa = "+1", phoneCodeArgentina = "+54";
 
-        if (optionSelected.contains(phoneCodeColombia))
-        {
+        if (optionSelected.contains(phoneCodeColombia)) {
             return phoneCodeColombia;
         } else {
-            if(optionSelected.contains(phoneCodeEcuador)) return phoneCodeEcuador;
-            if(optionSelected.contains(phoneCodePeru)) return phoneCodePeru;
-            if(optionSelected.contains(phoneCodeUsa)) return phoneCodeUsa;
-            if(optionSelected.contains(phoneCodeArgentina)) return phoneCodeArgentina;
+            if (optionSelected.contains(phoneCodeEcuador)) return phoneCodeEcuador;
+            if (optionSelected.contains(phoneCodePeru)) return phoneCodePeru;
+            if (optionSelected.contains(phoneCodeUsa)) return phoneCodeUsa;
+            if (optionSelected.contains(phoneCodeArgentina)) return phoneCodeArgentina;
         }
 
-      return phoneCodetoSend;
+        return phoneCodetoSend;
     }
 
     //-------------------Change color of text when is valid in each EditText-------------
@@ -509,7 +564,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                     //Toast.makeText(getApplicationContext(),"PIlas con el tipo" ,Toast.LENGTH_LONG).show();
                     et_document_number.setHintTextColor(Color.RED);
                     et_document_number.setTextColor(Color.RED);
-                } else{
+                } else {
                     et_document_number.setHintTextColor(Color.BLACK);
                     et_document_number.setTextColor(Color.BLACK);
                 }
@@ -681,26 +736,26 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             result = false;
         }
         //***************Type of ID***************
-        if (txtTypeOfIdSelected.getText().toString().equals("")){
+        if (txtTypeOfIdSelected.getText().toString().equals("")) {
             //Toast.makeText(getApplicationContext(),"PIlas con el tipo" ,Toast.LENGTH_LONG).show();
             txtTypeOfIdSelected.setHintTextColor(Color.RED);
             result = false;
         }
         //***************Number of ID***************
-        if (et_document_number.getText().toString().length() < 5){
+        if (et_document_number.getText().toString().length() < 5) {
             //Toast.makeText(getApplicationContext(),"PIlas con el tipo" ,Toast.LENGTH_LONG).show();
             et_document_number.setHintTextColor(Color.RED);
             et_document_number.setTextColor(Color.RED);
             result = false;
         }
         //***************Select Country PhoneCode***************
-        if (textCountrySelected.getText().toString().equals("")){
+        if (textCountrySelected.getText().toString().equals("")) {
             //Toast.makeText(getApplicationContext(),"PIlas con el country" ,Toast.LENGTH_LONG).show();
             textCountrySelected.setHintTextColor(Color.RED);
             result = false;
         }
         //***************PhoneNumber***************
-        if(et_mobile.getText().toString().length() <7){
+        if (et_mobile.getText().toString().length() < 7) {
             et_mobile.setHintTextColor(Color.RED);
             result = false;
         }
@@ -733,7 +788,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         countryPicker.setWrapSelectorWheel(false);
         countryPicker.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
         countryPicker.setDisplayedValues(new String[]{getString(R.string.COLOMBIA),
-                getString(R.string.ECUADOR), getString(R.string.PERU), getString(R.string.UNITED_STATES),getString(R.string.ARGENTINA)});
+                getString(R.string.ECUADOR), getString(R.string.PERU), getString(R.string.UNITED_STATES), getString(R.string.ARGENTINA)});
         setDividerColor(countryPicker);
         //TextViews (Cancel and Ok)
         TextView textCancel = (TextView) dialog.findViewById(R.id.textCancelDialogCountry);
@@ -874,12 +929,12 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
     }
 
     //Returns margin based in screen height in pixels
-    public int getMargin(int margin){
+    public int getMargin(int margin) {
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         int height = dm.heightPixels;
-        int newMargin = (margin*height)/800;
+        int newMargin = (margin * height) / 800;
         return newMargin;
         /*Resources r = getResources();
         float pxLeftMargin = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, margin, r.getDisplayMetrics());
@@ -888,7 +943,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
 
     //**************INNER CLASSES*****************
 
-    private class SuccessfulRegister extends LinearLayout{
+    private class SuccessfulRegister extends LinearLayout {
 
         public SuccessfulRegister(Context context) {
 
@@ -906,7 +961,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             txtTitle.setTextColor(getResources().getColor(R.color.magenta));
             txtTitle.setGravity(Gravity.CENTER_HORIZONTAL);
             txtTitle.setTextSize(18);
-            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams)txtTitle.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) txtTitle.getLayoutParams();
             //int left, int top, int right, int bottom
             layoutParams3.setMargins(0, getMargin(20), 0, getMargin(20));
             txtTitle.setLayoutParams(layoutParams3);
@@ -916,7 +971,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             imvSeparator.setBackground(getResources().getDrawable(R.drawable.separator_medium_mag));
             imvSeparator.setImageResource(R.drawable.separator);
             addView(imvSeparator);
-            LinearLayout.LayoutParams params6 = (LinearLayout.LayoutParams)imvSeparator.getLayoutParams();
+            LinearLayout.LayoutParams params6 = (LinearLayout.LayoutParams) imvSeparator.getLayoutParams();
             //int left, int top, int right, int bottom
             params6.setMargins(getMargin(-6), 0, getMargin(-6), getMargin(-4));
             imvSeparator.setLayoutParams(params6);
@@ -925,7 +980,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             LinearLayout layConfirmation = new LinearLayout(context);
             layConfirmation.setOrientation(LinearLayout.VERTICAL);
             LayoutParams layoutParams2 = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-            layoutParams2.gravity= Gravity.CENTER_HORIZONTAL;
+            layoutParams2.gravity = Gravity.CENTER_HORIZONTAL;
             layConfirmation.setLayoutParams(layoutParams2);
             layConfirmation.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_successfull_account));
             addView(layConfirmation);
@@ -934,31 +989,31 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             CustomizedTextView txtCongrat = new CustomizedTextView(context);
             txtCongrat.setTextColor(getResources().getColor(R.color.white));
             txtCongrat.setText(R.string.congratulations);
-            Typeface font= Typeface.createFromAsset(getAssets(), getResources().getString(R.string.font_muli_extraLight));
+            Typeface font = Typeface.createFromAsset(getAssets(), getResources().getString(R.string.font_muli_extraLight));
             txtCongrat.setTypeface(font);
             txtCongrat.setTextSize(24);
             txtCongrat.setGravity(Gravity.CENTER_HORIZONTAL);
             layConfirmation.addView(txtCongrat);
-            LinearLayout.LayoutParams params = (LinearLayout.LayoutParams)txtCongrat.getLayoutParams();
+            LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) txtCongrat.getLayoutParams();
             //int left, int top, int right, int bottom
             params.setMargins(0, getMargin(30), 0, 0);
             txtCongrat.setLayoutParams(params);
 
 
             //IMAGE VIEW CHECK
-           ImageView imvCheck = new ImageView(context);
-           imvCheck.setBackground(getResources().getDrawable(R.drawable.approved));
-           LayoutParams layoutParams1 = new LayoutParams(
+            ImageView imvCheck = new ImageView(context);
+            imvCheck.setBackground(getResources().getDrawable(R.drawable.approved));
+            LayoutParams layoutParams1 = new LayoutParams(
                     LayoutParams.WRAP_CONTENT,
                     LayoutParams.WRAP_CONTENT);
-            layoutParams1.gravity= Gravity.CENTER_HORIZONTAL;
+            layoutParams1.gravity = Gravity.CENTER_HORIZONTAL;
             layoutParams1.setMargins(0, getMargin(50), 0, 0);
             imvCheck.setLayoutParams(layoutParams1);
             layConfirmation.addView(imvCheck);
 
             //TEXT USER NAME
             CustomizedTextView txtUserName = new CustomizedTextView(context);
-            Typeface font2= Typeface.createFromAsset(getAssets(), getResources().getString(R.string.font_muli));
+            Typeface font2 = Typeface.createFromAsset(getAssets(), getResources().getString(R.string.font_muli));
             txtUserName.setTypeface(font2);
             txtUserName.setTextColor(getResources().getColor(R.color.white));
             AllemUser user = Constants.getUser(getApplicationContext());
@@ -967,7 +1022,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             txtUserName.setGravity(Gravity.CENTER_HORIZONTAL);
             layConfirmation.addView(txtUserName);
             txtUserName.setTextSize(24);
-            LinearLayout.LayoutParams params1 = (LinearLayout.LayoutParams)txtUserName.getLayoutParams();
+            LinearLayout.LayoutParams params1 = (LinearLayout.LayoutParams) txtUserName.getLayoutParams();
             //int left, int top, int right, int bottom
             params1.setMargins(0, getMargin(15), 0, 0);
             txtUserName.setLayoutParams(params1);
@@ -975,14 +1030,14 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
 
             //TEXT ENJOY
             CustomizedTextView txtEnjoy = new CustomizedTextView(context);
-            Typeface font3= Typeface.createFromAsset(getAssets(), getResources().getString(R.string.font_muli));
+            Typeface font3 = Typeface.createFromAsset(getAssets(), getResources().getString(R.string.font_muli));
             txtEnjoy.setTypeface(font3);
             txtEnjoy.setTextColor(getResources().getColor(R.color.white));
             txtEnjoy.setText(R.string.you_can_enjoy_benefits);
             txtEnjoy.setGravity(Gravity.CENTER_HORIZONTAL);
             txtEnjoy.setTextSize(20);
             layConfirmation.addView(txtEnjoy);
-            LinearLayout.LayoutParams params2 = (LinearLayout.LayoutParams)txtEnjoy.getLayoutParams();
+            LinearLayout.LayoutParams params2 = (LinearLayout.LayoutParams) txtEnjoy.getLayoutParams();
             //int left, int top, int right, int bottom
             params2.setMargins(0, getMargin(30), 0, 0);
             txtUserName.setLayoutParams(params2);
@@ -1002,21 +1057,21 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             //TEXT BUTTON CONTINUE
             CustomizedTextView txtLetsTalk = new CustomizedTextView(context);
             txtLetsTalk.setTextColor(getResources().getColor(R.color.white));
-            Typeface font4= Typeface.createFromAsset(getAssets(), getResources().getString(R.string.font_muli_extraLight));
+            Typeface font4 = Typeface.createFromAsset(getAssets(), getResources().getString(R.string.font_muli_extraLight));
             txtLetsTalk.setTypeface(font4);
             //txtLetsTalk.setTextSize(18);
             txtLetsTalk.setText(R.string.opk_continue);
             txtLetsTalk.setBackground(getResources().getDrawable(R.drawable.round_corner_transparent));
             txtLetsTalk.setGravity(Gravity.CENTER);
             layConfirmation.addView(txtLetsTalk);
-            LinearLayout.LayoutParams params4 = (LinearLayout.LayoutParams)txtLetsTalk.getLayoutParams();
+            LinearLayout.LayoutParams params4 = (LinearLayout.LayoutParams) txtLetsTalk.getLayoutParams();
             //int left, int top, int right, int bottom
             params4.setMargins(getMargin(32), getMargin(90), getMargin(32), 0);
             txtUserName.setLayoutParams(params4);
             txtLetsTalk.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
                     finish();
                 }
