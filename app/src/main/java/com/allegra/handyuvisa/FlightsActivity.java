@@ -313,6 +313,14 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
         helper.execute();
     }
 
+    //Validate each numberPicker
+    private void validateGuestQuantity(){
+
+      /*  int adultTotal =  adultsPicker.getValue();
+        Log.d("Sergio","adultTotal"+ String.valueOf(adultTotal));*/
+        infantsPicker.setMaxValue(adultsPicker.getValue());
+    }
+
     //NUMBER PICKERS FOR SELECT PASSENGERS
 
     public void setNumberPickers(int adults, int children, int infants) {
@@ -334,6 +342,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
                 paramAdults = newVal;
+                validateGuestQuantity();
 
             }
         });
@@ -371,6 +380,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
             @Override
             public void onValueChange(NumberPicker numberPicker, int i, int i1) {
                 paramInfants = i1;
+                validateGuestQuantity();
             }
         });
         setDividerColor(infantsPicker);
@@ -821,7 +831,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
     public void onSearchFlights(View view) {
 
         //VALIDATIONS
-        if (paramDepartFrom.equals("") || paramDepartFromName.equals("") || paramArriveAt.equals("") || paramArriveAtName.equals("")) {
+        if (paramDepartFrom.equals("") || paramArriveAt.equals("")) { //   || paramDepartFromName.equals("") || paramArriveAtName.equals("")
             onalertDialogDepartureOrArriveNotSelected();
         } else {
             if (paramTrip == 0 && paramArriveDate.equals("")) {
@@ -835,6 +845,13 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
                 intent.putExtra("adult", paramAdults);
                 intent.putExtra("children", paramChildren);
                 intent.putExtra("infant", paramInfants);
+                if (paramDepartDate.equals("")){
+                    Log.d("Sergio","Entra al vacio");
+                    Calendar now = Calendar.getInstance();
+                    Date today = now.getTime();
+                    paramDepartDate = Util.Bookings_Formatter.format(today);
+                    Log.d("Sergio", String.valueOf(paramDepartDate));
+                }
                 intent.putExtra("departOn", paramDepartDate);
                 intent.putExtra("arriveOn", paramArriveDate);
                 intent.putExtra("departFrom", paramDepartFrom);
