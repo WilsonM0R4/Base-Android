@@ -1,9 +1,11 @@
 package com.allegra.handyuvisa;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.allegra.handyuvisa.models.AllemUser;
@@ -20,6 +22,7 @@ import java.util.Stack;
 
 public class OnepocketPurchaseActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
 
+    private static final String TAG = "OPK_purchaseActivity";
     private String sessionId;
     private PurchaseSummaryFragment summary;
     private Stack<Fragment> stack = new Stack<>();
@@ -68,17 +71,21 @@ public class OnepocketPurchaseActivity extends FrontBackAnimate implements Front
 
             @Override
             public void perform(int i, String data) {
+                Intent result = new Intent();
+                result.putExtra(OPKConstants.EXTRA_RESULT, data);
+                OnepocketPurchaseActivity.this.setResult(Activity.RESULT_OK, result);
                 OnepocketPurchaseActivity.this.finish();
-                Intent intent;
+
+//                Intent intent;
 
                 switch (i) {
                     case 0:
-                        intent = new Intent(OnepocketPurchaseActivity.this, CallActivityMcard.class);
-                        startActivity(intent);
+                        Log.e(TAG, "Invalid perform id: 0");
                         break;
 
+
                     case 1:
-                        intent = new Intent(OnepocketPurchaseActivity.this, OnepocketContainerActivity.class);
+                        Intent intent = new Intent(OnepocketPurchaseActivity.this, OnepocketContainerActivity.class);
                         Bundle bundle = new Bundle();
                         AllemUser user = Constants.getUser(OnepocketPurchaseActivity.this);
                         VisaCheckoutApp app = ((VisaCheckoutApp) OnepocketPurchaseActivity.this.getApplication());
@@ -139,6 +146,11 @@ public class OnepocketPurchaseActivity extends FrontBackAnimate implements Front
         transaction.add(R.id.opk_top, summary);
 
         transaction.commit();
+
+    }
+
+    @Override
+    public void onBackPressed() {
 
     }
 
