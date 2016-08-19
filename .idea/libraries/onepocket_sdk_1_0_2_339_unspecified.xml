@@ -2,15 +2,7 @@
   <library name="onepocket-sdk-1.0.2-339-unspecified">
     <CLASSES>
       <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/res" />
-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/libs/Samsung-sdk-v1.0.0.jar!/" />
-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/libs/eventbus-2.4.0.jar!/" />
-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/libs/okio-1.6.0.jar!/" />
-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/libs/okhttp-2.5.0.jar!/" />
-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/libs/retrofit-1.9.0.jar!/" />
-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/libs/picasso-2.5.2.jar!/" />
       <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/classes.jar!/" />
-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/libs/gson-2.3.1.jar!/" />
-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/libs/Samsung-pass-v1.1.4.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
