@@ -6,35 +6,18 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="OPK|Message|Async" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="OPK|Async|Mess" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3cfc89f4-528f-4af4-bb6d-76af492c7cbf" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/onepocket-sdk-1.0.2-338/onepocket-sdk-1.0.2-338.aar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/onepocket-sdk-1.0.2-338/build.gradle" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/onepocket-sdk-1.0.1-337/build.gradle" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/onepocket-sdk-1.0.1-337/onepocket-sdk-1.0.1-337.aar" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/onepocket_sdk_1_0_1_337_unspecified.xml" afterPath="$PROJECT_DIR$/.idea/libraries/onepocket_sdk_1_0_2_338_unspecified.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugAndroidTestJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugAndroidTestJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugAndroidTestJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugAndroidTestJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugAndroidTestJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugAndroidTestJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/onepocket-sdk-1.0.1-336/onepocket-sdk-1.0.1-336.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/onepocket-sdk-1.0.1-337/onepocket-sdk-1.0.1-337.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/onepocket-sdk-1.0.2-338/onepocket-sdk-1.0.2-338.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/onepocket-sdk-1.0.2-339/onepocket-sdk-1.0.2-339.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/onepocket_sdk_1_0_2_339_unspecified.xml" afterPath="$PROJECT_DIR$/.idea/libraries/onepocket_sdk_1_0_2_339_unspecified.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Allegra-Android.iws" />
@@ -63,42 +46,42 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <file leaf-file-name="OnepocketPurchaseActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OnepocketPurchaseActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+            <state vertical-scroll-proportion="-5.6296296">
+              <caret line="119" column="37" selection-start-line="119" selection-start-column="37" selection-end-line="119" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PurchaseDetailActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/PurchaseDetailActivity.java">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="207" column="64" selection-start-line="207" selection-start-column="64" selection-end-line="207" selection-end-column="64" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#6068#6069#0" expanded="false" />
-                <element signature="e#6108#6109#0" expanded="false" />
-              </folding>
+            <state vertical-scroll-proportion="1.8125">
+              <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OnepocketPurchaseActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OnepocketPurchaseActivity.java">
+      <file leaf-file-name="OPKConstants.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/classes.jar!/com/allem/onepocket/utils/OPKConstants.class">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="56" column="40" selection-start-line="56" selection-start-column="40" selection-end-line="56" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#1788#1789#0" expanded="false" />
-                <element signature="e#1841#1842#0" expanded="false" />
-                <element signature="e#4262#4263#0" expanded="false" />
-                <element signature="e#4303#4304#0" expanded="false" />
-              </folding>
+              <caret line="16" column="43" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MCardJSProxy.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/classes.jar!/com/allem/onepocket/MCardJSProxy.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -107,47 +90,70 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OnepocketContainerActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="158" column="32" selection-start-line="158" selection-start-column="32" selection-end-line="158" selection-end-column="32" />
+              <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#1874#1875#0" expanded="false" />
-                <element signature="e#1927#1928#0" expanded="false" />
-                <element signature="e#4428#4429#0" expanded="false" />
-                <element signature="e#4469#4470#0" expanded="false" />
+                <element signature="e#7111#7112#0" expanded="false" />
+                <element signature="e#7152#7153#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/LoginActivity.java">
+      <file leaf-file-name="HotelSearchActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/HotelSearchActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="241" column="35" selection-start-line="241" selection-start-column="35" selection-end-line="241" selection-end-column="35" />
+              <caret line="318" column="20" selection-start-line="318" selection-start-column="20" selection-end-line="318" selection-end-column="20" />
               <folding>
-                <element signature="e#8260#8284#0" expanded="true" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#9098#9099#0" expanded="false" />
+                <element signature="e#9123#9124#0" expanded="false" />
+                <element signature="e#10154#10155#0" expanded="false" />
+                <element signature="e#10178#10179#0" expanded="false" />
+                <element signature="e#11658#11659#0" expanded="false" />
+                <element signature="e#11682#11683#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/utils/Constants.java">
+      <file leaf-file-name="LoginNewUser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/LoginNewUser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7873418">
-              <caret line="74" column="54" selection-start-line="74" selection-start-column="54" selection-end-line="74" selection-end-column="54" />
-              <folding />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#13798#13799#0" expanded="false" />
+                <element signature="e#13852#13853#0" expanded="false" />
+                <element signature="e#14008#14009#0" expanded="false" />
+                <element signature="e#14063#14064#0" expanded="false" />
+                <element signature="e#27875#27876#0" expanded="false" />
+                <element signature="e#27940#27941#0" expanded="false" />
+                <element signature="e#31995#31996#0" expanded="false" />
+                <element signature="e#32043#32044#0" expanded="false" />
+                <element signature="e#33565#33566#0" expanded="false" />
+                <element signature="e#33613#33614#0" expanded="false" />
+                <element signature="e#36653#36654#0" expanded="false" />
+                <element signature="e#36678#36679#0" expanded="false" />
+                <element signature="e#36713#36714#0" expanded="false" />
+                <element signature="e#36744#36745#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AsyncTaskSoapObjectResultEvent.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-338/unspecified/jars/classes.jar!/com/allem/onepocket/async/AsyncTaskSoapObjectResultEvent.class">
+      <file leaf-file-name="FrontBackAnimate.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/FrontBackAnimate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.5555553">
-              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="131" column="22" selection-start-line="131" selection-start-column="22" selection-end-line="131" selection-end-column="22" />
               <folding>
-                <element signature="e#689#690#0" expanded="true" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#3953#3954#0" expanded="false" />
+                <element signature="e#3999#4000#0" expanded="false" />
+                <element signature="e#7085#7086#0" expanded="false" />
+                <element signature="e#7125#7126#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -179,8 +185,8 @@
                 <option name="path" value="$PROJECT_DIR$/app" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
-                <option name="name" value=":onepocket-sdk-1.0.2-338" />
-                <option name="path" value="$PROJECT_DIR$/onepocket-sdk-1.0.2-338" />
+                <option name="name" value=":onepocket-sdk-1.0.2-339" />
+                <option name="path" value="$PROJECT_DIR$/onepocket-sdk-1.0.2-339" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="Allegra-Android" />
@@ -657,9 +663,9 @@
                 <option name="name" value="preReleaseUnitTestBuild" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare Allegra-Android:onepocket-sdk-1.0.2-338:unspecified" />
+                <option name="description" value="Prepare Allegra-Android:onepocket-sdk-1.0.2-339:unspecified" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareAllegraAndroidOnepocketSdk102338UnspecifiedLibrary" />
+                <option name="name" value="prepareAllegraAndroidOnepocketSdk102339UnspecifiedLibrary" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Prepare :card.io-5.3.0:" />
@@ -1570,9 +1576,9 @@
                 <option name="name" value="preReleaseUnitTestBuild" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare Allegra-Android:onepocket-sdk-1.0.2-338:unspecified" />
+                <option name="description" value="Prepare Allegra-Android:onepocket-sdk-1.0.2-339:unspecified" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareAllegraAndroidOnepocketSdk102338UnspecifiedLibrary" />
+                <option name="name" value="prepareAllegraAndroidOnepocketSdk102339UnspecifiedLibrary" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Prepare :card.io-5.3.0:" />
@@ -2058,103 +2064,52 @@
             </list>
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/onepocket-sdk-1.0.1-337">
+        <entry key="$PROJECT_DIR$/onepocket-sdk-1.0.2-339">
           <value>
             <list>
               <ExternalTaskPojo>
-                <option name="description" value="Displays all buildscript dependencies declared in project ':onepocket-sdk-1.0.1-337'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.1-337" />
+                <option name="description" value="Displays all buildscript dependencies declared in project ':onepocket-sdk-1.0.2-339'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.2-339" />
                 <option name="name" value="buildEnvironment" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the components produced by project ':onepocket-sdk-1.0.1-337'. [incubating]" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.1-337" />
+                <option name="description" value="Displays the components produced by project ':onepocket-sdk-1.0.2-339'. [incubating]" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.2-339" />
                 <option name="name" value="components" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays all dependencies declared in project ':onepocket-sdk-1.0.1-337'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.1-337" />
+                <option name="description" value="Displays all dependencies declared in project ':onepocket-sdk-1.0.2-339'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.2-339" />
                 <option name="name" value="dependencies" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the insight into a specific dependency in project ':onepocket-sdk-1.0.1-337'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.1-337" />
+                <option name="description" value="Displays the insight into a specific dependency in project ':onepocket-sdk-1.0.2-339'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.2-339" />
                 <option name="name" value="dependencyInsight" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Displays a help message." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.1-337" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.2-339" />
                 <option name="name" value="help" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the configuration model of project ':onepocket-sdk-1.0.1-337'. [incubating]" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.1-337" />
+                <option name="description" value="Displays the configuration model of project ':onepocket-sdk-1.0.2-339'. [incubating]" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.2-339" />
                 <option name="name" value="model" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the sub-projects of project ':onepocket-sdk-1.0.1-337'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.1-337" />
+                <option name="description" value="Displays the sub-projects of project ':onepocket-sdk-1.0.2-339'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.2-339" />
                 <option name="name" value="projects" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the properties of project ':onepocket-sdk-1.0.1-337'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.1-337" />
+                <option name="description" value="Displays the properties of project ':onepocket-sdk-1.0.2-339'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.2-339" />
                 <option name="name" value="properties" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the tasks runnable from project ':onepocket-sdk-1.0.1-337'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.1-337" />
-                <option name="name" value="tasks" />
-              </ExternalTaskPojo>
-            </list>
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/onepocket-sdk-1.0.2-338">
-          <value>
-            <list>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays all buildscript dependencies declared in project ':onepocket-sdk-1.0.2-338'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.2-338" />
-                <option name="name" value="buildEnvironment" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the components produced by project ':onepocket-sdk-1.0.2-338'. [incubating]" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.2-338" />
-                <option name="name" value="components" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays all dependencies declared in project ':onepocket-sdk-1.0.2-338'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.2-338" />
-                <option name="name" value="dependencies" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the insight into a specific dependency in project ':onepocket-sdk-1.0.2-338'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.2-338" />
-                <option name="name" value="dependencyInsight" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays a help message." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.2-338" />
-                <option name="name" value="help" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the configuration model of project ':onepocket-sdk-1.0.2-338'. [incubating]" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.2-338" />
-                <option name="name" value="model" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the sub-projects of project ':onepocket-sdk-1.0.2-338'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.2-338" />
-                <option name="name" value="projects" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the properties of project ':onepocket-sdk-1.0.2-338'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.2-338" />
-                <option name="name" value="properties" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the tasks runnable from project ':onepocket-sdk-1.0.2-338'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.2-338" />
+                <option name="description" value="Displays the tasks runnable from project ':onepocket-sdk-1.0.2-339'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.2-339" />
                 <option name="name" value="tasks" />
               </ExternalTaskPojo>
             </list>
@@ -2164,7 +2119,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="5885372252000" />
+        <entry key="$PROJECT_DIR$" value="5885587930000" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -3380,6 +3335,119 @@
                       </ExternalModuleBuildClasspathPojo>
                     </value>
                   </entry>
+                  <entry key="$PROJECT_DIR$/onepocket-sdk-1.0.2-339">
+                    <value>
+                      <ExternalModuleBuildClasspathPojo>
+                        <option name="entries">
+                          <list>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/gradle/2.1.2/831c63d2b30ed5f96a1cd9fd141594baf947b956/gradle-2.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/gradle/2.1.2/a15b8a1abdb158716cb2eca322c8c055dcf3c73d/gradle-2.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/gradle-core/2.1.2/b0d10d83f1147cb8182c0ded4d5403d8d37331ef/gradle-core-2.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/gradle-core/2.1.2/23fa54cbd68abe0d190b3f19b8db553c22b1e95e/gradle-core-2.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/builder/2.1.2/10a052d4d411f30a12b21f942449a1f5deea1860/builder-2.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/builder/2.1.2/b0f8f1b2be1cca433af04ac59c032bb65f104f68/builder-2.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.lint/lint/25.1.2/cf990f1875849b4a3a3dcd4c7427b950a1ae5b02/lint-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.lint/lint/25.1.2/73b0fca79c61b7d4212354d2dc54310f18d3eab1/lint-25.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/transform-api/2.0.0-deprecated-use-gradle-api/e4075c49e16e086140fe40eea56b2de7516874ee/transform-api-2.0.0-deprecated-use-gradle-api-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/transform-api/2.0.0-deprecated-use-gradle-api/85bee1acea9e27152b920746c68133b30b11431/transform-api-2.0.0-deprecated-use-gradle-api.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/gradle-api/2.1.2/95dab283a496d4434ecfa3b456fc9902e85bcb51/gradle-api-2.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/gradle-api/2.1.2/13a4ad6e82603eca38f0f46e308db7b2374bd33a/gradle-api-2.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.databinding/compilerCommon/2.1.2/553d79a3f70520b5d4b642f8fdd44f010be02980/compilerCommon-2.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.databinding/compilerCommon/2.1.2/658479d60a2ad7f511ea43028a9dbe6f7658779d/compilerCommon-2.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm/5.0.3/asm-5.0.3-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm/5.0.3/asm-5.0.3.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-commons/5.0.3/f0f24f6666c1a15c7e202e91610476bd4ce59368/asm-commons-5.0.3-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-commons/5.0.3/a7111830132c7f87d08fe48cb0ca07630f8cb91c/asm-commons-5.0.3.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-gradle/5.2.1/proguard-gradle-5.2.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-gradle/5.2.1/proguard-gradle-5.2.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/jacoco/org.jacoco.core/0.7.4.201502262128/org.jacoco.core-0.7.4.201502262128-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/jacoco/org.jacoco.core/0.7.4.201502262128/org.jacoco.core-0.7.4.201502262128.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/antlr/antlr/3.5.2/antlr-3.5.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/builder-model/2.1.2/f19905b8b3f1ee051f3557d25bf1ce83e97e9ba3/builder-model-2.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/builder-model/2.1.2/54929c8a9d8c2dd13c945c3f5ad0ec5546cdc006/builder-model-2.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/builder-test-api/2.1.2/5b452a5ddbdd43c47f519be4d93b57562d495aca/builder-test-api-2.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/builder-test-api/2.1.2/ee73cc6c008005128538d86c1c56a27e2d96c32/builder-test-api-2.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/sdklib/25.1.2/21775dd82ab275653b7d1d76f5026b7675841e90/sdklib-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/sdklib/25.1.2/59cdf46da07c365d456606d3985a51702db87c24/sdklib-25.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/sdk-common/25.1.2/1ab12362d3631876ff7108cee05860cdcdae2aae/sdk-common-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/sdk-common/25.1.2/1dcda99e022faddbf24336c0c8b37398773f4c36/sdk-common-25.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/common/25.1.2/6916af9c1306f7eb55428cef97d8beeae1a69670/common-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/common/25.1.2/c15c73c5ddedc9ac2afdfda827fa23a9b59b9b9d/common-25.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/manifest-merger/25.1.2/c31b678259df5cffbf0892be0e3fff8525705f1c/manifest-merger-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/manifest-merger/25.1.2/2f070c6b90be1642f37aafe15e42f21ba73394da/manifest-merger-25.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.ddms/ddmlib/25.1.2/838cad7e7534af0207b3cdf5685724ac93c4fcfd/ddmlib-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.ddms/ddmlib/25.1.2/521439862ec854d683a19a351fcc3beda4653346/ddmlib-25.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.jack/jack-api/0.10.0/93c3b096c028929ae9ec7414bd8da03b4feb6893/jack-api-0.10.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.jack/jack-api/0.10.0/f44f53e8f713714f9a1bf9b2cabfea3584b00878/jack-api-0.10.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.jill/jill-api/0.10.0/86d40c97b995035915303e5aa051980b9ec2d252/jill-api-0.10.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.jill/jill-api/0.10.0/7dfd6360ae4af1e171ec67b92e0cf065d59eef19/jill-api-0.10.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/squareup/javawriter/2.5.0/javawriter-2.5.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/squareup/javawriter/2.5.0/javawriter-2.5.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcpkix-jdk15on/1.48/bcpkix-jdk15on-1.48-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcpkix-jdk15on/1.48/bcpkix-jdk15on-1.48.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcprov-jdk15on/1.48/bcprov-jdk15on-1.48-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcprov-jdk15on/1.48/bcprov-jdk15on-1.48.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-tree/5.0.3/asm-tree-5.0.3-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-tree/5.0.3/asm-tree-5.0.3.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.lint/lint-checks/25.1.2/433c9236b299a30633c7a82ac4ab1b2b7fa52e0/lint-checks-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.lint/lint-checks/25.1.2/68583e445a033021d9792c9d84ac7ce8ea549c81/lint-checks-25.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/eclipse/jdt/core/compiler/ecj/4.4.2/ecj-4.4.2-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/eclipse/jdt/core/compiler/ecj/4.4.2/ecj-4.4.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/annotations/25.1.2/e7aa50c5649e0ad23ce4fa6b2aa7b53fc5ce8bd7/annotations-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/annotations/25.1.2/9dbfadaaf19097c12787c68cf43a12c739936345/annotations-25.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/guava/guava/17.0/guava-17.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/guava/guava/17.0/guava-17.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.databinding/baseLibrary/2.1.2/2d98da9b8a210c81d0456a09c702b84beea32be/baseLibrary-2.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.databinding/baseLibrary/2.1.2/d0395908c940f4171fb024435b25f7458c1147f3/baseLibrary-2.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/tunnelvisionlabs/antlr4/4.5/antlr4-4.5.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-io/commons-io/2.4/commons-io-2.4-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-io/commons-io/2.4/commons-io-2.4.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/googlecode/juniversalchardet/juniversalchardet/1.0.3/juniversalchardet-1.0.3.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-base/5.2.1/proguard-base-5.2.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-base/5.2.1/proguard-base-5.2.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-debug-all/5.0.1/asm-debug-all-5.0.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-debug-all/5.0.1/asm-debug-all-5.0.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/antlr/antlr-runtime/3.5.2/antlr-runtime-3.5.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/antlr/ST4/4.0.8/ST4-4.0.8.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.layoutlib/layoutlib-api/25.1.2/77d6be5f7434bbee7ba7e259f1ccad79e2fbde6/layoutlib-api-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.layoutlib/layoutlib-api/25.1.2/b93f0de181063ee2f673d7d6cac0bdbb94cc1b90/layoutlib-api-25.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/dvlib/25.1.2/7d06048ed915a03eaf99c70bbc6e68d10324c30e/dvlib-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/dvlib/25.1.2/bfcb16fb0e44568bd8e31c6aaf1850c1dcd06483/dvlib-25.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/repository/25.1.2/d5bc6e179c237124e51b4af951e4caf0f31d4837/repository-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/repository/25.1.2/1a1f5f59b21a42817eec50b7aced4400bb72273b/repository-25.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/code/gson/gson/2.2.4/gson-2.2.4-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/commons/commons-compress/1.8.1/commons-compress-1.8.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/commons/commons-compress/1.8.1/commons-compress-1.8.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpclient/4.1.1/httpclient-4.1.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpclient/4.1.1/httpclient-4.1.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpmime/4.1/httpmime-4.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpmime/4.1/httpmime-4.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.lint/lint-api/25.1.2/2a9b10f19fc2bf1cca643a9770e4738d9b121ed3/lint-api-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.lint/lint-api/25.1.2/f9f6807b68d486eaf34cc3f08b6f098f89cf3db8/lint-api-25.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-analysis/5.0.3/asm-analysis-5.0.3-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-analysis/5.0.3/asm-analysis-5.0.3.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/tunnelvisionlabs/antlr4-runtime/4.5/antlr4-runtime-4.5.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/tunnelvisionlabs/antlr4-annotations/4.5/antlr4-annotations-4.5.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/intellij/annotations/12.0/annotations-12.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/intellij/annotations/12.0/annotations-12.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpcore/4.1/httpcore-4.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpcore/4.1/httpcore-4.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-codec/commons-codec/1.4/commons-codec-1.4-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-codec/commons-codec/1.4/commons-codec-1.4.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.3/lombok-ast-0.2.3-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.3/lombok-ast-0.2.3.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/abego/treelayout/org.abego.treelayout.core/1.0.1/org.abego.treelayout.core-1.0.1.jar" />
+                          </list>
+                        </option>
+                        <option name="path" value="$PROJECT_DIR$/onepocket-sdk-1.0.2-339" />
+                      </ExternalModuleBuildClasspathPojo>
+                    </value>
+                  </entry>
                 </map>
               </option>
               <option name="name" value="app" />
@@ -3518,11 +3586,9 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/ConciergeSearchActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/HotelSearchActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/MarketPlaceActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OnepocketContainerActivity.java" />
         <option value="$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-0.9.68-328/unspecified/jars/classes.jar!/com/allem/onepocket/async/vco/MakeVCOPayment.class" />
         <option value="$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-0.9.68-328/unspecified/jars/classes.jar!/com/allem/onepocket/utils/CurrencyFormatter.class" />
         <option value="$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-0.9.68-328/unspecified/jars/classes.jar!/com/allem/onepocket/OPKPurchaseFragment.class" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OnepocketPurchaseActivity.java" />
         <option value="$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-0.9.68-328/unspecified/jars/classes.jar!/com/allem/onepocket/ConfirmCardFragment.class" />
         <option value="$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.1-335/unspecified/jars/classes.jar!/com/allem/onepocket/ConfirmCardFragment.class" />
         <option value="$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.1-335/unspecified/jars/classes.jar!/com/allem/onepocket/PurchaseSummaryFragment.class" />
@@ -3533,10 +3599,14 @@
         <option value="$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.1-337/unspecified/jars/classes.jar!/com/allem/onepocket/async/vco/MakeVCOPayment.class" />
         <option value="$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.1-337/unspecified/jars/classes.jar!/com/allem/onepocket/async/points/MakePointPayment.class" />
         <option value="$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.1-337/unspecified/jars/classes.jar!/com/allem/onepocket/ConfirmCardFragment.class" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/LoginActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/utils/Constants.java" />
         <option value="$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-338/unspecified/jars/classes.jar!/com/allem/onepocket/ShippingAddrHandler.class" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/VisaCheckoutApp.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/utils/Constants.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/classes.jar!/com/allem/onepocket/MCardFragment.class" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OnepocketContainerActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OnepocketPurchaseActivity.java" />
       </list>
     </option>
   </component>
@@ -3566,7 +3636,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="AndroidView" proportions="" version="1">
+    <navigator currentView="Scope" currentSubView="Changed Files" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -3578,6 +3648,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="ProjectPane" />
       <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
@@ -3589,21 +3661,28 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="ProjectPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
+      <pane id="Scope">
+        <subPane subId="Changed Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="android.sdk-updates" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../OnePocket-Android/onepocket/build/outputs/aar/onepocket-sdk-1.0.2-338.aar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../OnePocket-Android/onepocket/build/outputs/aar/onepocket-sdk-1.0.2-339.aar" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="01157df1d2dc7d1b" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_5_API_22" />
-    <property name="SearchEverywhereHistoryKey" value="ship&#9;PSI&#9;JAVA://com.allem.onepocket.model.ShippingAddr&#10;shipp&#9;PSI&#9;JAVA://com.allem.onepocket.ShippingAddrHandler&#10;build&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build.gradle&#10;login&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/LoginActivity.java&#10;consta&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/utils/Constants.java&#10;buil&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build.gradle&#10;makepo&#9;FILE&#9;jar:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.1-337/unspecified/jars/classes.jar!/com/allem/onepocket/async/points/MakePointPayment.class&#10;confirm&#9;FILE&#9;jar:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.1-337/unspecified/jars/classes.jar!/com/allem/onepocket/ConfirmCardFragment.class&#10;const&#9;PSI&#9;JAVA://com.allegra.handyuvisa.utils.Constants&#10;onepur&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OnepocketPurchaseActivity.java&#10;confirmcard&#9;PSI&#9;JAVA://com.allem.onepocket.ConfirmCardFragment&#10;makepoin&#9;PSI&#9;JAVA://com.allem.onepocket.async.points.MakePointPayment&#10;makevco&#9;PSI&#9;JAVA://com.allem.onepocket.async.vco.MakeVCOPayment&#10;log&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/LoginActivity.java&#10;purch&#9;PSI&#9;JAVA://com.allegra.handyuvisa.PurchaseDetailActivity&#10;opkpur&#9;PSI&#9;JAVA://com.allem.onepocket.OPKPurchaseFragment&#10;opkpu&#9;PSI&#9;JAVA://com.allem.onepocket.OPKPurchaseFragment&#10;onepoc&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OnepocketContainerActivity.java&#10;onep&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OnepocketPurchaseActivity.java&#10;one&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OnepocketContainerActivity.java&#10;opks&#9;PSI&#9;JAVA://com.allem.onepocket.OPKSummaryFragment&#10;opk&#9;FILE&#9;jar:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.1-335/unspecified/jars/classes.jar!/com/allem/onepocket/OPKPurchaseFragment.class&#10;OPK&#9;PSI&#9;JAVA://com.allem.onepocket.OPKPurchaseFragment&#10;PurchaseSumm&#9;PSI&#9;JAVA://com.allem.onepocket.PurchaseSummaryFragment&#10;opkPurchasefragment&#9;null&#9;null&#10;confir&#9;FILE&#9;jar:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-0.9.68-328/unspecified/jars/classes.jar!/com/allem/onepocket/ConfirmCardFragment.class&#10;s&#9;FILE&#9;jar:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-0.9.68-328/unspecified/jars/classes.jar!/com/allem/onepocket/ShippingAddrHandler.class&#10;makevcop&#9;PSI&#9;JAVA://com.allem.onepocket.async.vco.MakeVCOPayment&#10;on&#9;FILE&#9;jar:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-0.9.68-328/unspecified/jars/classes.jar!/com/allem/onepocket/ConfirmCardFragment.class&#10;confr&#9;FILE&#9;jar:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-0.9.68-328/unspecified/jars/classes.jar!/com/allem/onepocket/ConfirmCardFragment.class&#10;addsh&#9;PSI&#9;JAVA://com.allem.onepocket.AddShippingFragment&#10;onepocket&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OnepocketContainerActivity.java&#10;market&#9;PSI&#9;JAVA://com.allegra.handyuvisa.MarketPlaceActivity&#10;hotel&#9;PSI&#9;JAVA://com.allegra.handyuvisa.HotelSearchActivity&#10;con&#9;PSI&#9;JAVA://com.allegra.handyuvisa.ConciergeSearchActivity&#10;flig&#9;PSI&#9;JAVA://com.allegra.handyuvisa.FlightsSearchActivity&#10;build.gra&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build.gradle" />
+    <property name="SearchEverywhereHistoryKey" value="mcard&#9;FILE&#9;jar:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/classes.jar!/com/allem/onepocket/MCardJSProxy.class&#10;sessioncon&#9;PSI&#9;JAVA://com.allem.onepocket.utils.SessionController&#10;opkcon&#9;PSI&#9;JAVA://com.allem.onepocket.utils.OPKConstants&#10;onepu&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OnepocketPurchaseActivity.java&#10;m&#9;FILE&#9;jar:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/classes.jar!/com/allem/onepocket/MCardFragment.class&#10;one&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OnepocketContainerActivity.java&#10;o&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OnepocketPurchaseActivity.java&#10;loginnew&#9;PSI&#9;JAVA://com.allegra.handyuvisa.LoginNewUser&#10;hotels&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/HotelSearchActivity.java&#10;hotel&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/HotelsActivity.java&#10;mcar&#9;FILE&#9;jar:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/classes.jar!/com/allem/onepocket/MCardFragment.class&#10;p&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OnepocketContainerActivity.java&#10;mcardf&#9;PSI&#9;JAVA://com.allem.onepocket.MCardFragment&#10;on&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OnepocketContainerActivity.java&#10;con&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OnepocketContainerActivity.java&#10;tra&#9;FILE&#9;jar:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/classes.jar!/com/allem/onepocket/TransactionRecordFragment.class&#10;opk&#9;FILE&#9;jar:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/classes.jar!/com/allem/onepocket/OPKSummaryFragment.class&#10;opksu&#9;PSI&#9;JAVA://com.allem.onepocket.OPKSummaryFragment&#10;mcardpro&#9;PSI&#9;JAVA://com.allem.onepocket.MCardJSProxy&#10;transact&#9;FILE&#9;jar:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/classes.jar!/com/allem/onepocket/TransactionRecordFragment.class&#10;transactionrec&#9;PSI&#9;JAVA://com.allem.onepocket.TransactionRecordFragment&#10;onepock&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OnepocketPurchaseActivity.java&#10;login&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/LoginActivity.java&#10;constan&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/utils/Constants.java&#10;fligh&#9;PSI&#9;JAVA://com.allegra.handyuvisa.FlightsActivity&#10;onco&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OnepocketContainerActivity.java&#10;onepoc&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OnepocketContainerActivity.java&#10;build&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build.gradle&#10;visach&#9;PSI&#9;JAVA://com.allegra.handyuvisa.VisaCheckoutApp&#10;send&#9;PSI&#9;JAVA://com.allegra.handyuvisa.SendLogActivity&#10;buil&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build.gradle&#10;ship&#9;PSI&#9;JAVA://com.allem.onepocket.model.ShippingAddr&#10;shipp&#9;PSI&#9;JAVA://com.allem.onepocket.ShippingAddrHandler&#10;consta&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/utils/Constants.java&#10;makepo&#9;FILE&#9;jar:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.1-337/unspecified/jars/classes.jar!/com/allem/onepocket/async/points/MakePointPayment.class&#10;confirm&#9;FILE&#9;jar:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.1-337/unspecified/jars/classes.jar!/com/allem/onepocket/ConfirmCardFragment.class&#10;const&#9;PSI&#9;JAVA://com.allegra.handyuvisa.utils.Constants&#10;onepur&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OnepocketPurchaseActivity.java&#10;confirmcard&#9;PSI&#9;JAVA://com.allem.onepocket.ConfirmCardFragment&#10;makepoin&#9;PSI&#9;JAVA://com.allem.onepocket.async.points.MakePointPayment&#10;makevco&#9;PSI&#9;JAVA://com.allem.onepocket.async.vco.MakeVCOPayment&#10;log&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/LoginActivity.java&#10;purch&#9;PSI&#9;JAVA://com.allegra.handyuvisa.PurchaseDetailActivity&#10;opkpur&#9;PSI&#9;JAVA://com.allem.onepocket.OPKPurchaseFragment&#10;opkpu&#9;PSI&#9;JAVA://com.allem.onepocket.OPKPurchaseFragment&#10;onep&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OnepocketPurchaseActivity.java&#10;opks&#9;PSI&#9;JAVA://com.allem.onepocket.OPKSummaryFragment&#10;OPK&#9;PSI&#9;JAVA://com.allem.onepocket.OPKPurchaseFragment&#10;PurchaseSumm&#9;PSI&#9;JAVA://com.allem.onepocket.PurchaseSummaryFragment&#10;opkPurchasefragment&#9;null&#9;null" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="android.project.structure.last.selected" value="SDK Location" />
+    <property name="android.project.structure.last.selected" value="onepocket-sdk-1.0.2-338" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="DEBUGGABLE_DEVICE" value="samsung-sm_g920f-01157df1d2dc7d1b" />
     <property name="DEBUGGABLE_PROCESS" value="com.allegra.handyuvisa" />
@@ -3611,6 +3690,8 @@
     <property name="ExportApk.ApkPath" value="$PROJECT_DIR$/app" />
     <property name="ExportApk.Flavors" value="" />
     <property name="ExportApk.BuildType" value="release" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="OverrideImplement.overriding.sorted" value="false" />
   </component>
   <component name="RunManager" selected="Android Application.app">
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
@@ -3827,7 +3908,13 @@
       <option name="project" value="LOCAL" />
       <updated>1471536290192</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="- Latest onepocket SDK 1.0.2-338 (add shipping address crash)">
+      <created>1471558310400</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1471558310400</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -3839,12 +3926,12 @@
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32531825" sideWeight="0.5028612" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3248227" sideWeight="0.50572246" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27234042" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3248227" sideWeight="0.49713877" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3716312" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.49078014" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3248227" sideWeight="0.49427754" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -3855,7 +3942,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30496454" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32907802" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -3882,7 +3969,8 @@
     <MESSAGE value="- Latest onepocket SDK 1.0.1-335 (points conversion, shipping address fixes)" />
     <MESSAGE value="- Latest onepocket SDK 1.0.1-336 (split payment fixes, money formatting fixes, enable/disable Continue button when completing purchase, enable/disable handy and points button when purchasing mCard, corrected VCO charged amount when points selection is no longer used.  )" />
     <MESSAGE value="- Latest onepocket SDK 1.0.1-337 (split payment taxes, fix fraud protection/decline by bank dialog UI)" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Latest onepocket SDK 1.0.1-337 (split payment taxes, fix fraud protection/decline by bank dialog UI)" />
+    <MESSAGE value="- Latest onepocket SDK 1.0.2-338 (add shipping address crash)" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Latest onepocket SDK 1.0.2-338 (add shipping address crash)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -4013,12 +4101,142 @@
           <properties />
           <option name="timeStamp" value="41" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OnepocketContainerActivity.java</url>
+          <properties />
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/classes.jar!/com/allem/onepocket/MCardJSProxy.class</url>
+          <line>17</line>
+          <properties />
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OnepocketPurchaseActivity.java</url>
+          <line>76</line>
+          <properties />
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/classes.jar!/com/allem/onepocket/OPKSummaryFragment.class</url>
+          <line>141</line>
+          <properties />
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OnepocketContainerActivity.java</url>
+          <line>20</line>
+          <properties />
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OnepocketContainerActivity.java</url>
+          <line>43</line>
+          <properties />
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OnepocketContainerActivity.java</url>
+          <line>70</line>
+          <properties />
+          <option name="timeStamp" value="77" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="49" />
+      <option name="time" value="81" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OnepocketPurchaseActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/classes.jar!/com/allem/onepocket/utils/OPKConstants.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="43" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/classes.jar!/com/allem/onepocket/MCardJSProxy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OnepocketContainerActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding>
+            <element signature="e#7111#7112#0" expanded="false" />
+            <element signature="e#7152#7153#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/HotelSearchActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="318" column="20" selection-start-line="318" selection-start-column="20" selection-end-line="318" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#9098#9099#0" expanded="false" />
+            <element signature="e#9123#9124#0" expanded="false" />
+            <element signature="e#10154#10155#0" expanded="false" />
+            <element signature="e#10178#10179#0" expanded="false" />
+            <element signature="e#11658#11659#0" expanded="false" />
+            <element signature="e#11682#11683#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/LoginNewUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#13798#13799#0" expanded="false" />
+            <element signature="e#13852#13853#0" expanded="false" />
+            <element signature="e#14008#14009#0" expanded="false" />
+            <element signature="e#14063#14064#0" expanded="false" />
+            <element signature="e#27875#27876#0" expanded="false" />
+            <element signature="e#27940#27941#0" expanded="false" />
+            <element signature="e#31995#31996#0" expanded="false" />
+            <element signature="e#32043#32044#0" expanded="false" />
+            <element signature="e#33565#33566#0" expanded="false" />
+            <element signature="e#33613#33614#0" expanded="false" />
+            <element signature="e#36653#36654#0" expanded="false" />
+            <element signature="e#36678#36679#0" expanded="false" />
+            <element signature="e#36713#36714#0" expanded="false" />
+            <element signature="e#36744#36745#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/FrontBackAnimate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="131" column="22" selection-start-line="131" selection-start-column="22" selection-end-line="131" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#3953#3954#0" expanded="false" />
+            <element signature="e#3999#4000#0" expanded="false" />
+            <element signature="e#7085#7086#0" expanded="false" />
+            <element signature="e#7125#7126#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -4031,11 +4249,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="207" column="64" selection-start-line="207" selection-start-column="64" selection-end-line="207" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#6068#6069#0" expanded="false" />
-            <element signature="e#6108#6109#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4043,13 +4256,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="56" column="40" selection-start-line="56" selection-start-column="40" selection-end-line="56" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1788#1789#0" expanded="false" />
-            <element signature="e#1841#1842#0" expanded="false" />
-            <element signature="e#4262#4263#0" expanded="false" />
-            <element signature="e#4303#4304#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -4058,11 +4265,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="158" column="32" selection-start-line="158" selection-start-column="32" selection-end-line="158" selection-end-column="32" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1874#1875#0" expanded="false" />
-            <element signature="e#1927#1928#0" expanded="false" />
-            <element signature="e#4428#4429#0" expanded="false" />
-            <element signature="e#4469#4470#0" expanded="false" />
+            <element signature="e#7111#7112#0" expanded="false" />
+            <element signature="e#7152#7153#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -4071,9 +4275,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="210" column="65" selection-start-line="210" selection-start-column="65" selection-end-line="210" selection-end-column="65" />
-          <folding>
-            <element signature="e#8260#8284#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4089,13 +4290,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1788#1789#0" expanded="false" />
-            <element signature="e#1841#1842#0" expanded="false" />
-            <element signature="e#4262#4263#0" expanded="false" />
-            <element signature="e#4303#4304#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -4103,226 +4298,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1963" column="0" selection-start-line="1963" selection-start-column="0" selection-end-line="1963" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#380970#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#26586#26587#0" expanded="false" />
-            <element signature="e#26621#26622#0" expanded="false" />
-            <element signature="e#63358#63359#0" expanded="false" />
-            <element signature="e#63386#63387#0" expanded="false" />
-            <element signature="e#63531#63532#0" expanded="false" />
-            <element signature="e#63558#63559#0" expanded="false" />
-            <element signature="e#64096#64097#0" expanded="false" />
-            <element signature="e#64124#64125#0" expanded="false" />
-            <element signature="e#64246#64247#0" expanded="false" />
-            <element signature="e#64283#64284#0" expanded="false" />
-            <element signature="e#65170#65171#0" expanded="false" />
-            <element signature="e#65200#65201#0" expanded="false" />
-            <element signature="e#65358#65359#0" expanded="false" />
-            <element signature="e#65392#65393#0" expanded="false" />
-            <element signature="e#70320#70321#0" expanded="false" />
-            <element signature="e#70352#70353#0" expanded="false" />
-            <element signature="e#72139#72140#0" expanded="false" />
-            <element signature="e#72177#72178#0" expanded="false" />
-            <element signature="e#78447#78448#0" expanded="false" />
-            <element signature="e#78494#78495#0" expanded="false" />
-            <element signature="e#78647#78648#0" expanded="false" />
-            <element signature="e#78695#78696#0" expanded="false" />
-            <element signature="e#78848#78849#0" expanded="false" />
-            <element signature="e#78896#78897#0" expanded="false" />
-            <element signature="e#79043#79044#0" expanded="false" />
-            <element signature="e#79089#79090#0" expanded="false" />
-            <element signature="e#79345#79346#0" expanded="false" />
-            <element signature="e#79417#79418#0" expanded="false" />
-            <element signature="e#104215#104216#0" expanded="false" />
-            <element signature="e#104251#104252#0" expanded="false" />
-            <element signature="e#104886#104887#0" expanded="false" />
-            <element signature="e#104936#104937#0" expanded="false" />
-            <element signature="e#108087#108088#0" expanded="false" />
-            <element signature="e#108136#108137#0" expanded="false" />
-            <element signature="e#109075#109076#0" expanded="false" />
-            <element signature="e#109122#109123#0" expanded="false" />
-            <element signature="e#109329#109330#0" expanded="false" />
-            <element signature="e#109397#109398#0" expanded="false" />
-            <element signature="e#110354#110355#0" expanded="false" />
-            <element signature="e#110415#110416#0" expanded="false" />
-            <element signature="e#111520#111521#0" expanded="false" />
-            <element signature="e#111569#111570#0" expanded="false" />
-            <element signature="e#113255#113256#0" expanded="false" />
-            <element signature="e#113302#113303#0" expanded="false" />
-            <element signature="e#113747#113748#0" expanded="false" />
-            <element signature="e#113803#113804#0" expanded="false" />
-            <element signature="e#114043#114044#0" expanded="false" />
-            <element signature="e#114095#114096#0" expanded="false" />
-            <element signature="e#115025#115026#0" expanded="false" />
-            <element signature="e#115083#115084#0" expanded="false" />
-            <element signature="e#115974#115975#0" expanded="false" />
-            <element signature="e#116011#116012#0" expanded="false" />
-            <element signature="e#116859#116860#0" expanded="false" />
-            <element signature="e#116903#116904#0" expanded="false" />
-            <element signature="e#118986#118987#0" expanded="false" />
-            <element signature="e#119019#119020#0" expanded="false" />
-            <element signature="e#119214#119215#0" expanded="false" />
-            <element signature="e#119250#119251#0" expanded="false" />
-            <element signature="e#119864#119865#0" expanded="false" />
-            <element signature="e#119902#119903#0" expanded="false" />
-            <element signature="e#121940#121941#0" expanded="false" />
-            <element signature="e#121976#121977#0" expanded="false" />
-            <element signature="e#122206#122207#0" expanded="false" />
-            <element signature="e#122238#122239#0" expanded="false" />
-            <element signature="e#122466#122467#0" expanded="false" />
-            <element signature="e#122498#122499#0" expanded="false" />
-            <element signature="e#122734#122735#0" expanded="false" />
-            <element signature="e#122769#122770#0" expanded="false" />
-            <element signature="e#122956#122957#0" expanded="false" />
-            <element signature="e#122989#122990#0" expanded="false" />
-            <element signature="e#123299#123300#0" expanded="false" />
-            <element signature="e#123335#123336#0" expanded="false" />
-            <element signature="e#123751#123752#0" expanded="false" />
-            <element signature="e#123792#123793#0" expanded="false" />
-            <element signature="e#124161#124162#0" expanded="false" />
-            <element signature="e#124199#124200#0" expanded="false" />
-            <element signature="e#126083#126084#0" expanded="false" />
-            <element signature="e#126120#126121#0" expanded="false" />
-            <element signature="e#127584#127585#0" expanded="false" />
-            <element signature="e#127621#127622#0" expanded="false" />
-            <element signature="e#129184#129185#0" expanded="false" />
-            <element signature="e#129215#129216#0" expanded="false" />
-            <element signature="e#129362#129363#0" expanded="false" />
-            <element signature="e#129406#129407#0" expanded="false" />
-            <element signature="e#130744#130745#0" expanded="false" />
-            <element signature="e#130789#130790#0" expanded="false" />
-            <element signature="e#131617#131618#0" expanded="false" />
-            <element signature="e#131673#131674#0" expanded="false" />
-            <element signature="e#132437#132438#0" expanded="false" />
-            <element signature="e#132494#132495#0" expanded="false" />
-            <element signature="e#133231#133232#0" expanded="false" />
-            <element signature="e#133287#133288#0" expanded="false" />
-            <element signature="e#134135#134136#0" expanded="false" />
-            <element signature="e#134192#134193#0" expanded="false" />
-            <element signature="e#135932#135933#0" expanded="false" />
-            <element signature="e#135992#135993#0" expanded="false" />
-            <element signature="e#136676#136677#0" expanded="false" />
-            <element signature="e#136739#136740#0" expanded="false" />
-            <element signature="e#137412#137413#0" expanded="false" />
-            <element signature="e#137472#137473#0" expanded="false" />
-            <element signature="e#138155#138156#0" expanded="false" />
-            <element signature="e#138218#138219#0" expanded="false" />
-            <element signature="e#140237#140238#0" expanded="false" />
-            <element signature="e#140272#140273#0" expanded="false" />
-            <element signature="e#140628#140629#0" expanded="false" />
-            <element signature="e#140662#140663#0" expanded="false" />
-            <element signature="e#140898#140899#0" expanded="false" />
-            <element signature="e#140944#140945#0" expanded="false" />
-            <element signature="e#146870#147089#0" expanded="false" />
-            <element signature="e#147088#147089#0" expanded="false" />
-            <element signature="e#148002#148003#0" expanded="false" />
-            <element signature="e#148044#148045#0" expanded="false" />
-            <element signature="e#148310#148311#0" expanded="false" />
-            <element signature="e#148345#148346#0" expanded="false" />
-            <element signature="e#149532#149533#0" expanded="false" />
-            <element signature="e#149574#149575#0" expanded="false" />
-            <element signature="e#149918#149919#0" expanded="false" />
-            <element signature="e#149969#149970#0" expanded="false" />
-            <element signature="e#159810#159811#0" expanded="false" />
-            <element signature="e#159838#159839#0" expanded="false" />
-            <element signature="e#159868#159869#0" expanded="false" />
-            <element signature="e#159902#159903#0" expanded="false" />
-            <element signature="e#177694#177695#0" expanded="false" />
-            <element signature="e#177756#177757#0" expanded="false" />
-            <element signature="e#181597#181598#0" expanded="false" />
-            <element signature="e#181628#181629#0" expanded="false" />
-            <element signature="e#192381#192382#0" expanded="false" />
-            <element signature="e#192444#192445#0" expanded="false" />
-            <element signature="e#192684#192685#0" expanded="false" />
-            <element signature="e#192751#192752#0" expanded="false" />
-            <element signature="e#192811#192812#0" expanded="false" />
-            <element signature="e#192878#192879#0" expanded="false" />
-            <element signature="e#203618#203619#0" expanded="false" />
-            <element signature="e#203642#203643#0" expanded="false" />
-            <element signature="e#213193#213194#0" expanded="false" />
-            <element signature="e#213260#213261#0" expanded="false" />
-            <element signature="e#239470#239471#0" expanded="false" />
-            <element signature="e#239531#239532#0" expanded="false" />
-            <element signature="e#239565#239566#0" expanded="false" />
-            <element signature="e#239624#239625#0" expanded="false" />
-            <element signature="e#240604#240605#0" expanded="false" />
-            <element signature="e#240632#240633#0" expanded="false" />
-            <element signature="e#254163#254300#0" expanded="false" />
-            <element signature="e#254299#254300#0" expanded="false" />
-            <element signature="e#255890#255891#0" expanded="false" />
-            <element signature="e#255924#255925#0" expanded="false" />
-            <element signature="e#280789#280790#0" expanded="false" />
-            <element signature="e#280847#280848#0" expanded="false" />
-            <element signature="e#281924#281925#0" expanded="false" />
-            <element signature="e#281985#281986#0" expanded="false" />
-            <element signature="e#282146#282147#0" expanded="false" />
-            <element signature="e#282205#282206#0" expanded="false" />
-            <element signature="e#283079#283080#0" expanded="false" />
-            <element signature="e#283114#283115#0" expanded="false" />
-            <element signature="e#287254#287255#0" expanded="false" />
-            <element signature="e#287304#287305#0" expanded="false" />
-            <element signature="e#287733#287734#0" expanded="false" />
-            <element signature="e#287775#287776#0" expanded="false" />
-            <element signature="e#287981#287982#0" expanded="false" />
-            <element signature="e#288014#288015#0" expanded="false" />
-            <element signature="e#311201#311202#0" expanded="false" />
-            <element signature="e#311270#311271#0" expanded="false" />
-            <element signature="e#311807#311808#0" expanded="false" />
-            <element signature="e#311836#311837#0" expanded="false" />
-            <element signature="e#323535#323536#0" expanded="false" />
-            <element signature="e#323563#323564#0" expanded="false" />
-            <element signature="e#324452#324596#0" expanded="false" />
-            <element signature="e#324595#324596#0" expanded="false" />
-            <element signature="e#326644#326645#0" expanded="false" />
-            <element signature="e#326691#326692#0" expanded="false" />
-            <element signature="e#352080#352081#0" expanded="false" />
-            <element signature="e#352139#352140#0" expanded="false" />
-            <element signature="e#352164#352165#0" expanded="false" />
-            <element signature="e#352223#352224#0" expanded="false" />
-            <element signature="e#352817#352818#0" expanded="false" />
-            <element signature="e#352849#352850#0" expanded="false" />
-            <element signature="e#363777#363778#0" expanded="false" />
-            <element signature="e#363805#363806#0" expanded="false" />
-            <element signature="e#365330#365331#0" expanded="false" />
-            <element signature="e#365372#365373#0" expanded="false" />
-            <element signature="e#365460#365461#0" expanded="false" />
-            <element signature="e#365487#365488#0" expanded="false" />
-            <element signature="e#365579#365580#0" expanded="false" />
-            <element signature="e#365619#365620#0" expanded="false" />
-            <element signature="e#367778#367779#0" expanded="false" />
-            <element signature="e#367819#367820#0" expanded="false" />
-            <element signature="e#369104#369105#0" expanded="false" />
-            <element signature="e#369161#369162#0" expanded="false" />
-            <element signature="e#369215#369216#0" expanded="false" />
-            <element signature="e#369274#369275#0" expanded="false" />
-            <element signature="e#370331#370332#0" expanded="false" />
-            <element signature="e#370369#370370#0" expanded="false" />
-            <element signature="e#370408#370409#0" expanded="false" />
-            <element signature="e#370459#370460#0" expanded="false" />
-            <element signature="e#370513#370514#0" expanded="false" />
-            <element signature="e#370579#370580#0" expanded="false" />
-            <element signature="e#374233#374393#0" expanded="false" />
-            <element signature="e#374392#374393#0" expanded="false" />
-            <element signature="e#374457#374726#0" expanded="false" />
-            <element signature="e#374725#374726#0" expanded="false" />
-            <element signature="e#374792#375144#0" expanded="false" />
-            <element signature="e#375143#375144#0" expanded="false" />
-            <element signature="e#377663#377664#0" expanded="false" />
-            <element signature="e#377706#377707#0" expanded="false" />
-            <element signature="e#377735#377736#0" expanded="false" />
-            <element signature="e#377773#377774#0" expanded="false" />
-            <element signature="e#377809#377810#0" expanded="false" />
-            <element signature="e#377854#377855#0" expanded="false" />
-            <element signature="e#377894#377895#0" expanded="false" />
-            <element signature="e#377945#377946#0" expanded="false" />
-            <element signature="e#377982#377983#0" expanded="false" />
-            <element signature="e#378064#378065#0" expanded="false" />
-            <element signature="e#378095#378096#0" expanded="false" />
-            <element signature="e#378152#378153#0" expanded="false" />
-            <element signature="e#378183#378184#0" expanded="false" />
-            <element signature="e#378240#378241#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4330,9 +4305,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="101" column="42" selection-start-line="101" selection-start-column="42" selection-end-line="101" selection-end-column="42" />
-          <folding>
-            <element signature="e#8260#8284#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4340,7 +4312,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4372,7 +4343,12 @@
           <caret line="335" column="61" selection-start-line="335" selection-start-column="61" selection-end-line="335" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="false" />
-            <element signature="e#10075#10076#0" expanded="false" />
+            <element signature="e#9098#9099#0" expanded="false" />
+            <element signature="e#9123#9124#0" expanded="false" />
+            <element signature="e#10154#10155#0" expanded="false" />
+            <element signature="e#10178#10179#0" expanded="false" />
+            <element signature="e#11658#11659#0" expanded="false" />
+            <element signature="e#11682#11683#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -4389,11 +4365,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="86" column="46" selection-start-line="86" selection-start-column="46" selection-end-line="86" selection-end-column="46" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1874#1875#0" expanded="false" />
-            <element signature="e#1927#1928#0" expanded="false" />
-            <element signature="e#4428#4429#0" expanded="false" />
-            <element signature="e#4469#4470#0" expanded="false" />
+            <element signature="e#7111#7112#0" expanded="false" />
+            <element signature="e#7152#7153#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -4419,22 +4392,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/HotelSearchActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="335" column="61" selection-start-line="335" selection-start-column="61" selection-end-line="335" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#10075#10076#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4442,226 +4403,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1963" column="0" selection-start-line="1963" selection-start-column="0" selection-end-line="1963" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#380970#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#26586#26587#0" expanded="false" />
-            <element signature="e#26621#26622#0" expanded="false" />
-            <element signature="e#63358#63359#0" expanded="false" />
-            <element signature="e#63386#63387#0" expanded="false" />
-            <element signature="e#63531#63532#0" expanded="false" />
-            <element signature="e#63558#63559#0" expanded="false" />
-            <element signature="e#64096#64097#0" expanded="false" />
-            <element signature="e#64124#64125#0" expanded="false" />
-            <element signature="e#64246#64247#0" expanded="false" />
-            <element signature="e#64283#64284#0" expanded="false" />
-            <element signature="e#65170#65171#0" expanded="false" />
-            <element signature="e#65200#65201#0" expanded="false" />
-            <element signature="e#65358#65359#0" expanded="false" />
-            <element signature="e#65392#65393#0" expanded="false" />
-            <element signature="e#70320#70321#0" expanded="false" />
-            <element signature="e#70352#70353#0" expanded="false" />
-            <element signature="e#72139#72140#0" expanded="false" />
-            <element signature="e#72177#72178#0" expanded="false" />
-            <element signature="e#78447#78448#0" expanded="false" />
-            <element signature="e#78494#78495#0" expanded="false" />
-            <element signature="e#78647#78648#0" expanded="false" />
-            <element signature="e#78695#78696#0" expanded="false" />
-            <element signature="e#78848#78849#0" expanded="false" />
-            <element signature="e#78896#78897#0" expanded="false" />
-            <element signature="e#79043#79044#0" expanded="false" />
-            <element signature="e#79089#79090#0" expanded="false" />
-            <element signature="e#79345#79346#0" expanded="false" />
-            <element signature="e#79417#79418#0" expanded="false" />
-            <element signature="e#104215#104216#0" expanded="false" />
-            <element signature="e#104251#104252#0" expanded="false" />
-            <element signature="e#104886#104887#0" expanded="false" />
-            <element signature="e#104936#104937#0" expanded="false" />
-            <element signature="e#108087#108088#0" expanded="false" />
-            <element signature="e#108136#108137#0" expanded="false" />
-            <element signature="e#109075#109076#0" expanded="false" />
-            <element signature="e#109122#109123#0" expanded="false" />
-            <element signature="e#109329#109330#0" expanded="false" />
-            <element signature="e#109397#109398#0" expanded="false" />
-            <element signature="e#110354#110355#0" expanded="false" />
-            <element signature="e#110415#110416#0" expanded="false" />
-            <element signature="e#111520#111521#0" expanded="false" />
-            <element signature="e#111569#111570#0" expanded="false" />
-            <element signature="e#113255#113256#0" expanded="false" />
-            <element signature="e#113302#113303#0" expanded="false" />
-            <element signature="e#113747#113748#0" expanded="false" />
-            <element signature="e#113803#113804#0" expanded="false" />
-            <element signature="e#114043#114044#0" expanded="false" />
-            <element signature="e#114095#114096#0" expanded="false" />
-            <element signature="e#115025#115026#0" expanded="false" />
-            <element signature="e#115083#115084#0" expanded="false" />
-            <element signature="e#115974#115975#0" expanded="false" />
-            <element signature="e#116011#116012#0" expanded="false" />
-            <element signature="e#116859#116860#0" expanded="false" />
-            <element signature="e#116903#116904#0" expanded="false" />
-            <element signature="e#118986#118987#0" expanded="false" />
-            <element signature="e#119019#119020#0" expanded="false" />
-            <element signature="e#119214#119215#0" expanded="false" />
-            <element signature="e#119250#119251#0" expanded="false" />
-            <element signature="e#119864#119865#0" expanded="false" />
-            <element signature="e#119902#119903#0" expanded="false" />
-            <element signature="e#121940#121941#0" expanded="false" />
-            <element signature="e#121976#121977#0" expanded="false" />
-            <element signature="e#122206#122207#0" expanded="false" />
-            <element signature="e#122238#122239#0" expanded="false" />
-            <element signature="e#122466#122467#0" expanded="false" />
-            <element signature="e#122498#122499#0" expanded="false" />
-            <element signature="e#122734#122735#0" expanded="false" />
-            <element signature="e#122769#122770#0" expanded="false" />
-            <element signature="e#122956#122957#0" expanded="false" />
-            <element signature="e#122989#122990#0" expanded="false" />
-            <element signature="e#123299#123300#0" expanded="false" />
-            <element signature="e#123335#123336#0" expanded="false" />
-            <element signature="e#123751#123752#0" expanded="false" />
-            <element signature="e#123792#123793#0" expanded="false" />
-            <element signature="e#124161#124162#0" expanded="false" />
-            <element signature="e#124199#124200#0" expanded="false" />
-            <element signature="e#126083#126084#0" expanded="false" />
-            <element signature="e#126120#126121#0" expanded="false" />
-            <element signature="e#127584#127585#0" expanded="false" />
-            <element signature="e#127621#127622#0" expanded="false" />
-            <element signature="e#129184#129185#0" expanded="false" />
-            <element signature="e#129215#129216#0" expanded="false" />
-            <element signature="e#129362#129363#0" expanded="false" />
-            <element signature="e#129406#129407#0" expanded="false" />
-            <element signature="e#130744#130745#0" expanded="false" />
-            <element signature="e#130789#130790#0" expanded="false" />
-            <element signature="e#131617#131618#0" expanded="false" />
-            <element signature="e#131673#131674#0" expanded="false" />
-            <element signature="e#132437#132438#0" expanded="false" />
-            <element signature="e#132494#132495#0" expanded="false" />
-            <element signature="e#133231#133232#0" expanded="false" />
-            <element signature="e#133287#133288#0" expanded="false" />
-            <element signature="e#134135#134136#0" expanded="false" />
-            <element signature="e#134192#134193#0" expanded="false" />
-            <element signature="e#135932#135933#0" expanded="false" />
-            <element signature="e#135992#135993#0" expanded="false" />
-            <element signature="e#136676#136677#0" expanded="false" />
-            <element signature="e#136739#136740#0" expanded="false" />
-            <element signature="e#137412#137413#0" expanded="false" />
-            <element signature="e#137472#137473#0" expanded="false" />
-            <element signature="e#138155#138156#0" expanded="false" />
-            <element signature="e#138218#138219#0" expanded="false" />
-            <element signature="e#140237#140238#0" expanded="false" />
-            <element signature="e#140272#140273#0" expanded="false" />
-            <element signature="e#140628#140629#0" expanded="false" />
-            <element signature="e#140662#140663#0" expanded="false" />
-            <element signature="e#140898#140899#0" expanded="false" />
-            <element signature="e#140944#140945#0" expanded="false" />
-            <element signature="e#146870#147089#0" expanded="false" />
-            <element signature="e#147088#147089#0" expanded="false" />
-            <element signature="e#148002#148003#0" expanded="false" />
-            <element signature="e#148044#148045#0" expanded="false" />
-            <element signature="e#148310#148311#0" expanded="false" />
-            <element signature="e#148345#148346#0" expanded="false" />
-            <element signature="e#149532#149533#0" expanded="false" />
-            <element signature="e#149574#149575#0" expanded="false" />
-            <element signature="e#149918#149919#0" expanded="false" />
-            <element signature="e#149969#149970#0" expanded="false" />
-            <element signature="e#159810#159811#0" expanded="false" />
-            <element signature="e#159838#159839#0" expanded="false" />
-            <element signature="e#159868#159869#0" expanded="false" />
-            <element signature="e#159902#159903#0" expanded="false" />
-            <element signature="e#177694#177695#0" expanded="false" />
-            <element signature="e#177756#177757#0" expanded="false" />
-            <element signature="e#181597#181598#0" expanded="false" />
-            <element signature="e#181628#181629#0" expanded="false" />
-            <element signature="e#192381#192382#0" expanded="false" />
-            <element signature="e#192444#192445#0" expanded="false" />
-            <element signature="e#192684#192685#0" expanded="false" />
-            <element signature="e#192751#192752#0" expanded="false" />
-            <element signature="e#192811#192812#0" expanded="false" />
-            <element signature="e#192878#192879#0" expanded="false" />
-            <element signature="e#203618#203619#0" expanded="false" />
-            <element signature="e#203642#203643#0" expanded="false" />
-            <element signature="e#213193#213194#0" expanded="false" />
-            <element signature="e#213260#213261#0" expanded="false" />
-            <element signature="e#239470#239471#0" expanded="false" />
-            <element signature="e#239531#239532#0" expanded="false" />
-            <element signature="e#239565#239566#0" expanded="false" />
-            <element signature="e#239624#239625#0" expanded="false" />
-            <element signature="e#240604#240605#0" expanded="false" />
-            <element signature="e#240632#240633#0" expanded="false" />
-            <element signature="e#254163#254300#0" expanded="false" />
-            <element signature="e#254299#254300#0" expanded="false" />
-            <element signature="e#255890#255891#0" expanded="false" />
-            <element signature="e#255924#255925#0" expanded="false" />
-            <element signature="e#280789#280790#0" expanded="false" />
-            <element signature="e#280847#280848#0" expanded="false" />
-            <element signature="e#281924#281925#0" expanded="false" />
-            <element signature="e#281985#281986#0" expanded="false" />
-            <element signature="e#282146#282147#0" expanded="false" />
-            <element signature="e#282205#282206#0" expanded="false" />
-            <element signature="e#283079#283080#0" expanded="false" />
-            <element signature="e#283114#283115#0" expanded="false" />
-            <element signature="e#287254#287255#0" expanded="false" />
-            <element signature="e#287304#287305#0" expanded="false" />
-            <element signature="e#287733#287734#0" expanded="false" />
-            <element signature="e#287775#287776#0" expanded="false" />
-            <element signature="e#287981#287982#0" expanded="false" />
-            <element signature="e#288014#288015#0" expanded="false" />
-            <element signature="e#311201#311202#0" expanded="false" />
-            <element signature="e#311270#311271#0" expanded="false" />
-            <element signature="e#311807#311808#0" expanded="false" />
-            <element signature="e#311836#311837#0" expanded="false" />
-            <element signature="e#323535#323536#0" expanded="false" />
-            <element signature="e#323563#323564#0" expanded="false" />
-            <element signature="e#324452#324596#0" expanded="false" />
-            <element signature="e#324595#324596#0" expanded="false" />
-            <element signature="e#326644#326645#0" expanded="false" />
-            <element signature="e#326691#326692#0" expanded="false" />
-            <element signature="e#352080#352081#0" expanded="false" />
-            <element signature="e#352139#352140#0" expanded="false" />
-            <element signature="e#352164#352165#0" expanded="false" />
-            <element signature="e#352223#352224#0" expanded="false" />
-            <element signature="e#352817#352818#0" expanded="false" />
-            <element signature="e#352849#352850#0" expanded="false" />
-            <element signature="e#363777#363778#0" expanded="false" />
-            <element signature="e#363805#363806#0" expanded="false" />
-            <element signature="e#365330#365331#0" expanded="false" />
-            <element signature="e#365372#365373#0" expanded="false" />
-            <element signature="e#365460#365461#0" expanded="false" />
-            <element signature="e#365487#365488#0" expanded="false" />
-            <element signature="e#365579#365580#0" expanded="false" />
-            <element signature="e#365619#365620#0" expanded="false" />
-            <element signature="e#367778#367779#0" expanded="false" />
-            <element signature="e#367819#367820#0" expanded="false" />
-            <element signature="e#369104#369105#0" expanded="false" />
-            <element signature="e#369161#369162#0" expanded="false" />
-            <element signature="e#369215#369216#0" expanded="false" />
-            <element signature="e#369274#369275#0" expanded="false" />
-            <element signature="e#370331#370332#0" expanded="false" />
-            <element signature="e#370369#370370#0" expanded="false" />
-            <element signature="e#370408#370409#0" expanded="false" />
-            <element signature="e#370459#370460#0" expanded="false" />
-            <element signature="e#370513#370514#0" expanded="false" />
-            <element signature="e#370579#370580#0" expanded="false" />
-            <element signature="e#374233#374393#0" expanded="false" />
-            <element signature="e#374392#374393#0" expanded="false" />
-            <element signature="e#374457#374726#0" expanded="false" />
-            <element signature="e#374725#374726#0" expanded="false" />
-            <element signature="e#374792#375144#0" expanded="false" />
-            <element signature="e#375143#375144#0" expanded="false" />
-            <element signature="e#377663#377664#0" expanded="false" />
-            <element signature="e#377706#377707#0" expanded="false" />
-            <element signature="e#377735#377736#0" expanded="false" />
-            <element signature="e#377773#377774#0" expanded="false" />
-            <element signature="e#377809#377810#0" expanded="false" />
-            <element signature="e#377854#377855#0" expanded="false" />
-            <element signature="e#377894#377895#0" expanded="false" />
-            <element signature="e#377945#377946#0" expanded="false" />
-            <element signature="e#377982#377983#0" expanded="false" />
-            <element signature="e#378064#378065#0" expanded="false" />
-            <element signature="e#378095#378096#0" expanded="false" />
-            <element signature="e#378152#378153#0" expanded="false" />
-            <element signature="e#378183#378184#0" expanded="false" />
-            <element signature="e#378240#378241#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4669,7 +4410,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4677,46 +4417,49 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="207" column="64" selection-start-line="207" selection-start-column="64" selection-end-line="207" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#6068#6069#0" expanded="false" />
-            <element signature="e#6108#6109#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OnepocketContainerActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/SendLogActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="158" column="32" selection-start-line="158" selection-start-column="32" selection-end-line="158" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1874#1875#0" expanded="false" />
-            <element signature="e#1927#1928#0" expanded="false" />
-            <element signature="e#4428#4429#0" expanded="false" />
-            <element signature="e#4469#4470#0" expanded="false" />
-          </folding>
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OnepocketPurchaseActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/VisaCheckoutApp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="56" column="40" selection-start-line="56" selection-start-column="40" selection-end-line="56" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1788#1789#0" expanded="false" />
-            <element signature="e#1841#1842#0" expanded="false" />
-            <element signature="e#4262#4263#0" expanded="false" />
-            <element signature="e#4303#4304#0" expanded="false" />
-          </folding>
+          <caret line="78" column="11" selection-start-line="78" selection-start-column="11" selection-end-line="78" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/Mcardhtml.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+          <caret line="99" column="48" selection-start-line="99" selection-start-column="48" selection-end-line="99" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/ConciergeActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="90" column="5" selection-start-line="90" selection-start-column="5" selection-end-line="90" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/FlightsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.4444447">
+          <caret line="211" column="61" selection-start-line="211" selection-start-column="55" selection-end-line="211" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/utils/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="46" selection-start-line="46" selection-start-column="46" selection-end-line="46" selection-end-column="46" />
           <folding />
         </state>
       </provider>
@@ -4724,35 +4467,133 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="241" column="35" selection-start-line="241" selection-start-column="35" selection-end-line="241" selection-end-column="35" />
-          <folding>
-            <element signature="e#8260#8284#0" expanded="true" />
-          </folding>
+          <caret line="249" column="0" selection-start-line="249" selection-start-column="0" selection-end-line="249" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-338/unspecified/jars/classes.jar!/com/allem/onepocket/async/AsyncTaskSoapObjectResultEvent.class">
+    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-23/android/os/BaseBundle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.5555553">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <element signature="e#689#690#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0">
+          <caret line="658" column="0" selection-start-line="658" selection-start-column="0" selection-end-line="658" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-338/unspecified/jars/classes.jar!/com/allem/onepocket/model/ShippingAddr.class">
+    <entry file="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/classes.jar!/com/allem/onepocket/OPKSummaryFragment.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3097826">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        <state vertical-scroll-proportion="-5.3703704">
+          <caret line="239" column="0" selection-start-line="239" selection-start-column="0" selection-end-line="239" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/utils/Constants.java">
+    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-23/android/app/Fragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7873418">
-          <caret line="74" column="54" selection-start-line="74" selection-start-column="54" selection-end-line="74" selection-end-column="54" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="741" column="0" selection-start-line="741" selection-start-column="0" selection-end-line="741" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/HotelsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="587" column="5" selection-start-line="587" selection-start-column="5" selection-end-line="587" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/HotelSearchActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="318" column="20" selection-start-line="318" selection-start-column="20" selection-end-line="318" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#9098#9099#0" expanded="false" />
+            <element signature="e#9123#9124#0" expanded="false" />
+            <element signature="e#10154#10155#0" expanded="false" />
+            <element signature="e#10178#10179#0" expanded="false" />
+            <element signature="e#11658#11659#0" expanded="false" />
+            <element signature="e#11682#11683#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/LoginNewUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#13798#13799#0" expanded="false" />
+            <element signature="e#13852#13853#0" expanded="false" />
+            <element signature="e#14008#14009#0" expanded="false" />
+            <element signature="e#14063#14064#0" expanded="false" />
+            <element signature="e#27875#27876#0" expanded="false" />
+            <element signature="e#27940#27941#0" expanded="false" />
+            <element signature="e#31995#31996#0" expanded="false" />
+            <element signature="e#32043#32044#0" expanded="false" />
+            <element signature="e#33565#33566#0" expanded="false" />
+            <element signature="e#33613#33614#0" expanded="false" />
+            <element signature="e#36653#36654#0" expanded="false" />
+            <element signature="e#36678#36679#0" expanded="false" />
+            <element signature="e#36713#36714#0" expanded="false" />
+            <element signature="e#36744#36745#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/FrontBackAnimate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="131" column="22" selection-start-line="131" selection-start-column="22" selection-end-line="131" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#3953#3954#0" expanded="false" />
+            <element signature="e#3999#4000#0" expanded="false" />
+            <element signature="e#7085#7086#0" expanded="false" />
+            <element signature="e#7125#7126#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/classes.jar!/com/allem/onepocket/utils/OPKConstants.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="43" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/classes.jar!/com/allem/onepocket/MCardJSProxy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OnepocketContainerActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding>
+            <element signature="e#7111#7112#0" expanded="false" />
+            <element signature="e#7152#7153#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OnepocketPurchaseActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.6296296">
+          <caret line="119" column="37" selection-start-line="119" selection-start-column="37" selection-end-line="119" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.8125">
+          <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
           <folding />
         </state>
       </provider>

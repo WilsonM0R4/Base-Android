@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.allegra.handyuvisa.models.AllemUser;
@@ -21,6 +22,7 @@ import java.util.Stack;
 
 public class OnepocketContainerActivity extends FrontBackAnimate  implements FrontBackAnimate.InflateReadyListener {
 
+    private static final String TAG = "OPK_ContainerActivity";
     private static final int REQUEST_CALL = 1;
     private static final int REQUEST_MCARD = 2;
 
@@ -33,108 +35,23 @@ public class OnepocketContainerActivity extends FrontBackAnimate  implements Fro
         checkLogin();
 
         super.setView(R.layout.activity_onepocket_container, this);
+        initCallBack();
 
-        RegisterCallback.registerNext(new NextHandler() {
-            @Override
-            public void handler(Fragment fragment) {
-                if (fragment != null) {
-                    addFragment(fragment);
-                } else {
-                    // clear the stack
-                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                    while (!stack.isEmpty()) {
-                        Fragment top = stack.pop();
-                        transaction.remove(top);
-                    }
-                    transaction.show(onePocket);
-                    transaction.commit();
-                }
-            }
-
-            @Override
-            public void handler2(Fragment fragment) {
-                addFragment(fragment);
-            }
-
-            @Override
-            public void returnResult (Bundle bundle) {
-                int size = stack.size();
-                Fragment currentTop = stack.get(size - 1);
-                Fragment confirm = stack.get(size - 2);
-                confirm.getArguments().putParcelable(OPKConstants.EXTRA_RESULT, bundle);
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.remove(currentTop);
-                transaction.detach(confirm).attach(confirm).show(confirm);
-                transaction.commit();
-
-                stack.remove(size - 1);
-            }          @Override
-            public void perform(int i, String onePocketmessage) {
-                switch (i) {
-                    case 0:
-                        Intent i1 = new Intent(OnepocketContainerActivity.this, OnepocketPurchaseActivity.class);
-
-                        Bundle bundle = new Bundle();
-                        AllemUser user = Constants.getUser(OnepocketContainerActivity.this);
-                        VisaCheckoutApp app = (VisaCheckoutApp) getApplication();
-                        OneTransaction transaction = new OneTransaction();
-                        transaction.add("jsonPayment", onePocketmessage);
-                        transaction.add("type", OPKConstants.TYPE_MCARD);
-                        transaction.add("sessionId", app.getIdSession());
-                        transaction.add("first", user.nombre);
-                        transaction.add("last", user.apellido);
-                        transaction.add("userName", user.email);
-                        transaction.add("docType", user.idType);
-                        transaction.add("docId", user.idNumber);
-                        transaction.add("rawPassword", app.getRawPassword());
-                        transaction.add("idCuenta", Integer.toString(app.getIdCuenta()));
-
-                        bundle.putParcelable(OPKConstants.EXTRA_PAYMENT, transaction);
-                        i1.putExtras(bundle);
-                        startActivityForResult(i1, 2);
-                        break;
-
-                    case 1:
-                        Intent i2 = new Intent(OnepocketContainerActivity.this, CallActivity.class);
-                        startActivityForResult(i2, 1);
-                        break;
-
-                }
-
-            }
-        });
-
-        RegisterCallback.registerMenu(new MenuHandler() {
-            @Override
-            public void handle() {
-                animate();
-            }
-        });
-
-        RegisterCallback.registerBack(new BackHandler() {
-            @Override
-            public void handle() {
-                if (!stack.empty()) {
-                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                    Fragment top = stack.pop();
-                    transaction.remove(top);
-                    if (!stack.empty()) {
-                        transaction.show(stack.peek());
-                    } else {
-                        transaction.show(onePocket);
-                    }
-                    transaction.commit();
-                } else {
-                    onUp(null);
-                }
-
-            }
-        });
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
-//    public void swap(Fragment fragment) {
-//        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        if (OPKConstants.oneTransaction != null && data != null) {
+            String result = data.getStringExtra(OPKConstants.EXTRA_RESULT);
+            OPKConstants.oneTransaction.add(result, result);
+        }
+        initCallBack();
+    }
+
+    //    public void swap(Fragment fragment) {
+//        FragmentTransaction transaction = getFragmentManager().begionTransaction();
 //
 //        if (fragment != null) {
 //            Fragment current = getFragmentManager().findFragmentById(R.id.opk_bottom);
@@ -186,6 +103,10 @@ public class OnepocketContainerActivity extends FrontBackAnimate  implements Fro
 
     }
 
+    @Override
+    public void onBackPressed() {
+
+    }
 
     private void checkLogin() {
         if(((VisaCheckoutApp)this.getApplication()).getIdSession()==null){
@@ -195,4 +116,104 @@ public class OnepocketContainerActivity extends FrontBackAnimate  implements Fro
         }
     }
 
+    // TODO Refactor for non static solution
+    private void initCallBack() {
+        RegisterCallback.registerNext(new NextHandler() {
+            @Override
+            public void handler(Fragment fragment) {
+                if (fragment != null) {
+                    addFragment(fragment);
+                } else {
+                    // clear the stack
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    while (!stack.isEmpty()) {
+                        Fragment top = stack.pop();
+                        transaction.remove(top);
+                    }
+                    transaction.show(onePocket);
+                    transaction.commit();
+                }
+            }
+
+            @Override
+            public void handler2(Fragment fragment) {
+                addFragment(fragment);
+            }
+
+            @Override
+            public void returnResult (Bundle bundle) {
+                int size = stack.size();
+                Fragment currentTop = stack.get(size - 1);
+                Fragment confirm = stack.get(size - 2);
+                confirm.getArguments().putParcelable(OPKConstants.EXTRA_RESULT, bundle);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.remove(currentTop);
+                transaction.detach(confirm).attach(confirm).show(confirm);
+                transaction.commit();
+
+                stack.remove(size - 1);
+            }
+
+            @Override
+            public void perform(int i, String onePocketmessage) {
+                switch (i) {
+                    case 0:
+                        Intent i1 = new Intent(OnepocketContainerActivity.this, OnepocketPurchaseActivity.class);
+
+                        Bundle bundle = new Bundle();
+                        AllemUser user = Constants.getUser(OnepocketContainerActivity.this);
+                        VisaCheckoutApp app = (VisaCheckoutApp) getApplication();
+                        OneTransaction transaction = new OneTransaction();
+                        transaction.add("jsonPayment", onePocketmessage);
+                        transaction.add("type", OPKConstants.TYPE_MCARD);
+                        transaction.add("sessionId", app.getIdSession());
+                        transaction.add("first", user.nombre);
+                        transaction.add("last", user.apellido);
+                        transaction.add("userName", user.email);
+                        transaction.add("docType", user.idType);
+                        transaction.add("docId", user.idNumber);
+                        transaction.add("rawPassword", app.getRawPassword());
+                        transaction.add("idCuenta", Integer.toString(app.getIdCuenta()));
+
+                        bundle.putParcelable(OPKConstants.EXTRA_PAYMENT, transaction);
+                        i1.putExtras(bundle);
+                        startActivityForResult(i1, 2);
+                        break;
+
+                    case 1:
+                        Log.e(TAG, "invalid perform id: " + 1);
+                        break;
+
+                }
+
+            }
+        });
+
+        RegisterCallback.registerMenu(new MenuHandler() {
+            @Override
+            public void handle() {
+                animate();
+            }
+        });
+
+        RegisterCallback.registerBack(new BackHandler() {
+            @Override
+            public void handle() {
+                if (!stack.empty()) {
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    Fragment top = stack.pop();
+                    transaction.remove(top);
+                    if (!stack.empty()) {
+                        transaction.show(stack.peek());
+                    } else {
+                        transaction.show(onePocket);
+                    }
+                    transaction.commit();
+                } else {
+                    onUp(null);
+                }
+
+            }
+        });
+    }
 }
