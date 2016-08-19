@@ -46,7 +46,7 @@ import java.util.List;
 public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimate.InflateReadyListener  {
 
     public static final int REQUEST_CODE_DESTINATION = 1;
-    private static final int MINIMUN_AGE_CHILDREN= 2, MAXIMUM_AGE_CHILDREN= 11, MAXIMUM_GUESS_IN_ROOM= 12;
+    private static final int MINIMUN_AGE_CHILDREN= 2, MAXIMUM_AGE_CHILDREN= 11, MAXIMUM_GUESS_IN_ROOM= 7;
     private final String TAG = "HotelsActivity";
     private String paramDestination="", paramDestinationName = "", paramCheckIn = "", paramCheckOut = "";
     private int paramRooms = 1;
@@ -143,6 +143,8 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
 
 
     //PROPER METHODS
+
+
 
     /**
      * Called when there are 3 o more characters wrote in City or Airport EditText Search
@@ -780,10 +782,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
             paramCheckIn = Util.Bookings_Formatter_Hotels.format(today);
             paramCheckOut = Util.Bookings_Formatter_Hotels.format(tomorrow);
         }
-        //TODO: Fix IATA code
-        /*if (!paramDestination.equals("")) {
-            paramDestination = paramDestination.substring(0, 3);
-        }*/
+
         Log.d("CodigoIATAonSearchHotel",paramDestination);
 
         if (paramDestination.equals("")) {
@@ -796,33 +795,35 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
             intent.putExtra("&departureHotel", paramCheckOut);
             intent.putExtra("&roomHotel", paramRooms);
             intent.putExtra("&adultHotel1", paramAdults);
+            paramChildren = paramChildren+paramInfants;
             intent.putExtra("&childHotel1", paramChildren);
 
             switch(paramRooms){
 
                 case 2:
                     intent.putExtra("&adultHotel2", paramAdults2);
-                    intent.putExtra("&childHotel2", paramChildren2);
+                    intent.putExtra("&childHotel2", paramChildren2+paramInfants2);
                     break;
                 case 3:
                     intent.putExtra("&adultHotel2", paramAdults2);
-                    intent.putExtra("&childHotel2", paramChildren2);
+                    intent.putExtra("&childHotel2", paramChildren2+paramInfants2);
                     intent.putExtra("&adultHotel3", paramAdults3);
-                    intent.putExtra("&childHotel3", paramChildren3);
+                    intent.putExtra("&childHotel3", paramChildren3+paramInfants3);
                     break;
                 case 4:
                     intent.putExtra("&adultHotel2", paramAdults2);
-                    intent.putExtra("&childHotel2", paramChildren2);
+                    intent.putExtra("&childHotel2", paramChildren2+paramInfants2);
                     intent.putExtra("&adultHotel3", paramAdults3);
-                    intent.putExtra("&childHotel3", paramChildren3);
+                    intent.putExtra("&childHotel3", paramChildren3+paramInfants3);
                     intent.putExtra("&adultHotel4", paramAdults4);
-                    intent.putExtra("&childHotel4", paramChildren4);
+                    intent.putExtra("&childHotel4", paramChildren4+paramInfants4);
                     break;
             }
 
+
         Log.d("adult", String.valueOf(paramAdultsTotal));
         Log.d("children", String.valueOf(paramChildren));
-        //Log.d("infant", String.valueOf(paramInfants));
+        Log.d("infant", String.valueOf(paramInfants));
         Log.d("CheckIn", String.valueOf(paramCheckIn));
         Log.d("CheckOut", String.valueOf(paramCheckOut));
         Log.d("roomHotel", String.valueOf(paramRooms));
@@ -932,8 +933,6 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
                     paramAdults = Integer.parseInt(valueOfAdults);
                     paramChildren = Integer.parseInt(valueOfChildren);
                     paramInfants = Integer.parseInt(valueOfInfants);
-
-
                     break;
                 case 1://Room 2
                     paramAdults2 = Integer.parseInt(valueOfAdults);
@@ -1034,6 +1033,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
         setAdultsPicker(adults);
         setChildrenPicker(children);
         setInfantsPicker(infants);
+        validateGuestQuantity();
     }
 
     public void setNumberPickersTest(final View root){
@@ -1041,6 +1041,27 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
         roomsContainer.setVisibility(View.VISIBLE);
         roomsContainer.addView(root);
         globalSizeOfRooms = roomsContainer.getChildCount();
+
+
+    }
+
+    //Validate each numberPicker
+    private void validateGuestQuantity(){
+
+        //Formula
+        int newTotal = adultsPicker.getValue() + infantsPicker.getValue() +  childrenPicker.getValue();
+        int delta = Constants.NUMBER_PICKER_SIZE - newTotal;
+        Log.d("Sergio newTotal", String.valueOf(newTotal));
+        Log.d("Sergio delta", String.valueOf(delta));
+
+        if (delta >= 0) {
+            infantsPicker.setMaxValue(infantsPicker.getValue() + delta);
+            childrenPicker.setMaxValue(childrenPicker.getValue() + delta);
+            adultsPicker.setMaxValue(adultsPicker.getValue() + delta);
+            adultsPicker.setMinValue(1);
+        }else{
+            Log.d("Sergio","Permitió mas de 7");
+        }
 
     }
 
@@ -1058,6 +1079,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
                 paramAdults = newVal;
+                validateGuestQuantity();
             }
         });
 
@@ -1067,15 +1089,16 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
     public void setChildrenPicker(int children){
 
         childrenPicker.setMinValue(0);
-        childrenPicker.setMaxValue(Constants.NUMBER_PICKER_SIZE);
+        childrenPicker.setMaxValue(Constants.PICKER_SIZE_CHILDREN_AND_INFANTS);
         childrenPicker.setWrapSelectorWheel(false);
         childrenPicker.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
         childrenPicker.setValue(children);
-        adultsPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+        childrenPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
 
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
                 paramChildren = newVal;
+                validateGuestQuantity();
             }
         });
         setDividerColor(childrenPicker);
@@ -1084,7 +1107,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
     public void setInfantsPicker(int infants){
 
         infantsPicker.setMinValue(0);
-        infantsPicker.setMaxValue(Constants.NUMBER_PICKER_SIZE);
+        infantsPicker.setMaxValue(Constants.PICKER_SIZE_CHILDREN_AND_INFANTS);
         infantsPicker.setWrapSelectorWheel(false);
         infantsPicker.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
         infantsPicker.setValue(infants);
@@ -1092,6 +1115,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
             @Override
             public void onValueChange(NumberPicker numberPicker, int i, int i1) {
                 paramInfants = i1;
+                validateGuestQuantity();
             }
         });
         setDividerColor(infantsPicker);
@@ -1178,6 +1202,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
     /**** Method for Setting the Height of the ListView dynamically.
      **** Hack to fix the issue of not showing all the items of the ListView
      **** when placed inside a ScrollView  ****/
+
     public  void setListViewHeightBasedOnChildren(ListView listView) {
 
         int desiredWidth = View.MeasureSpec.makeMeasureSpec(listView.getWidth(), View.MeasureSpec.UNSPECIFIED);
@@ -1195,7 +1220,6 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
         params.height = totalHeight + (listView.getDividerHeight() * (adapter.getCount() - 1));
         listView.setLayoutParams(params);
     }
-
 
     public void onalertDialogDepartureOrArriveNotSelected(){
 
