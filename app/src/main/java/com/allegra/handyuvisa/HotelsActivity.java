@@ -936,8 +936,6 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
                     paramAdults = Integer.parseInt(valueOfAdults);
                     paramChildren = Integer.parseInt(valueOfChildren);
                     paramInfants = Integer.parseInt(valueOfInfants);
-
-
                     break;
                 case 1://Room 2
                     paramAdults2 = Integer.parseInt(valueOfAdults);
@@ -1038,6 +1036,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
         setAdultsPicker(adults);
         setChildrenPicker(children);
         setInfantsPicker(infants);
+        validateGuestQuantity(1,4);
     }
 
     public void setNumberPickersTest(final View root){
@@ -1045,6 +1044,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
         roomsContainer.setVisibility(View.VISIBLE);
         roomsContainer.addView(root);
         globalSizeOfRooms = roomsContainer.getChildCount();
+
 
     }
 
@@ -1057,16 +1057,19 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
         Log.d("Sergio newTotal", String.valueOf(newTotal));
         Log.d("Sergio delta", String.valueOf(delta));
         Log.d("Sergio temporal", String.valueOf(temporal));
-
        /* if (delta == 0){
             infantsPicker.setMaxValue(infantsPicker.getValue()+delta);
             childrenPicker.setMaxValue(childrenPicker.getValue()+delta);
             adultsPicker.setMaxValue(adultsPicker.getValue()+delta);
         } else {*/
+        if (delta >= 0) {
             infantsPicker.setMaxValue(infantsPicker.getValue() + delta);
             childrenPicker.setMaxValue(childrenPicker.getValue() + delta);
             adultsPicker.setMaxValue(adultsPicker.getValue() + delta);
             adultsPicker.setMinValue(1);
+        }else{
+            Log.d("Sergio","Permitió mas de 7");
+        }
        // }
 
         /*//if (delta ) {
@@ -1118,7 +1121,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
         childrenPicker.setWrapSelectorWheel(false);
         childrenPicker.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
         childrenPicker.setValue(children);
-        adultsPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+        childrenPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
 
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
@@ -1227,6 +1230,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
     /**** Method for Setting the Height of the ListView dynamically.
      **** Hack to fix the issue of not showing all the items of the ListView
      **** when placed inside a ScrollView  ****/
+
     public  void setListViewHeightBasedOnChildren(ListView listView) {
 
         int desiredWidth = View.MeasureSpec.makeMeasureSpec(listView.getWidth(), View.MeasureSpec.UNSPECIFIED);
@@ -1244,7 +1248,6 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
         params.height = totalHeight + (listView.getDividerHeight() * (adapter.getCount() - 1));
         listView.setLayoutParams(params);
     }
-
 
     public void onalertDialogDepartureOrArriveNotSelected(){
 
