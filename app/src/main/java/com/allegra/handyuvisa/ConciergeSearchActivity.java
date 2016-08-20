@@ -103,7 +103,9 @@ public class ConciergeSearchActivity extends LoadAnimate implements LoadAnimate.
     }
 
     private void loadWebView() {
-        url = "http://viatorallegra.vuelos.ninja/Actividad/ResultadosGet?id_destino_ser=" +
+        //OLD: http://viatorallegra.vuelos.ninja/Actividad/ResultadosGet?id_destino_ser=
+        //URL_CONCIERGE_PROD :”http://actividades.allegra.travel/Actividad/ResultadosGet?id_destino_ser="
+        url = "http://actividades.allegra.travel/Actividad/ResultadosGet?id_destino_ser=" +
                 id_destino_ser + "&nombre_destino_ser1=" + nombre_destino_ser +
                 "&Payment=3"+"&Group="+mcard;
 
@@ -116,7 +118,7 @@ public class ConciergeSearchActivity extends LoadAnimate implements LoadAnimate.
         } catch (UnsupportedEncodingException ignored) {
             // Can be safely ignored because UTF-8 is always supported
         }
-        url = "http://viatorallegra.vuelos.ninja/Actividad/ResultadosGet?id_destino_ser=" +
+        url = "http://actividades.allegra.travel/Actividad/ResultadosGet?id_destino_ser=" +
                 id_destino_ser + "&nombre_destino_ser1=" + encodedUrl +
                 "&Payment=3"+"&Group="+mcard;
         Log.d("url con data",url);
