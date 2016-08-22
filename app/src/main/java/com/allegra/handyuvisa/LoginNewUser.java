@@ -941,6 +941,15 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         onBackPressed();
     }
 
+    @Override
+    public void onBackPressed()
+    {
+        editor = prefs.edit();
+        editor.clear();
+        editor.commit();
+        super.onBackPressed();  // optional depending on your needs
+    }
+
     //Returns margin based in screen height in pixels
     public int getMargin(int margin) {
 
