@@ -1,0 +1,39 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+
+<animation-list android:oneshot="false"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/load_allegra1"
+    android:duration="333"/>
+    <item android:drawable="@drawable/load_allegra2"
+        android:duration="333"/>
+    <item android:drawable="@drawable/load_allegra3"
+        android:duration="333"/>
+    <item android:drawable="@drawable/load_allegra4"
+        android:duration="333"/>
+    <item android:drawable="@drawable/load_allegra5"
+        android:duration="333"/>
+    <item android:drawable="@drawable/load_allegra6"
+    android:duration="333"/>
+    <item android:drawable="@drawable/load_allegra7"
+        android:duration="333"/>
+    <item android:drawable="@drawable/load_allegra8"
+        android:duration="333"/>
+    <item android:drawable="@drawable/load_allegra9"
+        android:duration="333"/>
+    <item android:drawable="@drawable/load_allegra10"
+        android:duration="333"/>
+    <item android:drawable="@drawable/load_allegra11"
+    android:duration="333"/>
+    <item android:drawable="@drawable/load_allegra12"
+        android:duration="333"/>
+    <item android:drawable="@drawable/load_allegra13"
+        android:duration="333"/>
+    <item android:drawable="@drawable/load_allegra14"
+        android:duration="333"/>
+    <item android:drawable="@drawable/load_allegra15"
+        android:duration="333"/>
+    <item android:drawable="@drawable/load_allegra16"
+        android:duration="333"/>
+
+</animation-list>

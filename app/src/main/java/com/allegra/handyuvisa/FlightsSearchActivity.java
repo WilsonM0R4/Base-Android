@@ -6,7 +6,9 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.webkit.WebSettings;
@@ -14,6 +16,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,7 +36,7 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
     private WebView webView;
     private String url,urlWebView;
     private ImageButton arrowBack;//, arrowF
-    private ProgressBar progressBar;
+    //private ProgressBar progressBar;
     private int paramTrip = 0; // 0 - round trip; 1 - one way
     private int paramCabin = 0; // 0 - economy; 1 - business; 2 - first
     private int paramAdult = 0;
@@ -48,6 +51,8 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
     private String flightType = "";
     public String onePocketmessage;
     private String returnURL;
+
+    private ImageView imgProgress;
 
 
     @Override
@@ -65,8 +70,26 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
         TextView title = (TextView) findViewById(R.id.tv_title_secc);
         title.setText(R.string.title_flight_results);
         arrowBack= (ImageButton)findViewById(R.id.arrow_back);
+        imgProgress = (ImageView)findViewById(R.id.imgProgress);
+        //final Handler handler = new Handler();
+        imgProgress.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                //handler.postDelayed(this, 2000);
+                ((AnimationDrawable) imgProgress.getBackground()).start();
+            }
+        }, 100);
+        imgProgress.postInvalidateOnAnimation();
+        /*synchronized (imgProgress) {
+            try {
+                imgProgress.wait(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+     imgProgress.setVisibility(View.GONE);*/
         //arrowF= (ImageButton)root.findViewById(R.id.arrow_forward);
-        progressBar = (ProgressBar) findViewById(R.id.pb_search);
+        //progressBar = (ProgressBar) findViewById(R.id.pb_search);
 
 
         paramTrip = getIntent().getIntExtra("trip", 0);
@@ -259,7 +282,7 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
 
         @Override
         public void onPageFinished(WebView view, String url) {
-            progressBar.setVisibility(View.GONE);
+            //progressBar.setVisibility(View.GONE);
             if (url.equals("about:blank")) {
                 webView.loadUrl(returnURL);
             }
@@ -294,7 +317,7 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
                 returnURL = data.getStringExtra("RESULT");
                 webView.clearHistory();
                 webView.loadUrl("about:blank");
-                progressBar.setVisibility(View.VISIBLE);
+                //progressBar.setVisibility(View.VISIBLE);
                 //progressBar.setBackground();
             }
         }

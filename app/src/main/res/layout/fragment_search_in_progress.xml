@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/rl_search_in_progress"
-    android:background="@drawable/background"
+    android:background="@color/white"
     android:clickable="true">
 
     <RelativeLayout
@@ -12,7 +12,6 @@
         android:layout_height="?android:attr/actionBarSize"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:background="@color/white"
         android:id="@+id/ll_header">
 
         <ImageButton
@@ -82,13 +81,20 @@
         android:id="@+id/webView"
         android:layout_centerVertical="true" />
 
-    <ProgressBar
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgProgress"
+        android:background="@drawable/run_animation"
+        android:layout_centerInParent="true"/>
+
+    <!--<ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/pb_search"
         android:layout_centerInParent="true"
         android:visibility="gone"
         android:background="@drawable/logo_allegra_loader"
-        />
+        />-->
 
 </RelativeLayout>
