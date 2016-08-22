@@ -266,7 +266,8 @@ public class ConciergeActivity extends FrontBackAnimate implements FrontBackAnim
     @Subscribe
     public void onAsyncTaskResult(AsyncTaskMPosResultEvent event) {
 
-        progressBar.setVisibility(View.GONE);
+        if (progressBar!=null)progressBar.setVisibility(View.GONE);
+
         HashMap<String, String> data;
 
         if (event.getResult() != null) {
