@@ -58,7 +58,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
     //************GLOBAL ATTRIBUTES***************
     private final String TAG = "LoginNewUser", M_SELECTION_DIVIDER = "mSelectionDivider", HTTP_AGENT = "http.agent";
     private Context ctx;
-    private ImageButton ib_showhidepass, ib_showhiderepass;
+    private ImageButton ib_showhidepass, ib_showhiderepass, ib_close;
     private boolean passIsVisible = false, repassIsVisible = false;
     private EditText et_username, et_password, et_names, et_surname, et_mobile, et_document_number;
     private String username, name, suraname, mobile, documentnumber;
@@ -164,6 +164,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         et_document_number = (EditText) root.findViewById(R.id.etIdNumber);
         textCountrySelected = (TextView) root.findViewById(R.id.et_country_mobile);
         txtTypeOfIdSelected = (TextView) root.findViewById(R.id.etTypeOfId);
+        ib_close = (ImageButton)root.findViewById(R.id.ib_up);
         setListeners();
         setTextWatchers();
     }
@@ -223,7 +224,16 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
 
     //************ PROPER METHODS**************
 
+
+
     private void setListeners() {
+
+        ib_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onUpLogin(v);
+            }
+        });
 
         btn_sendreg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -924,7 +934,10 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         animate();
     }
 
-    public void onUp(View view) {
+    public void onUpLogin(View view) {
+        editor = prefs.edit();
+        editor.clear();
+        editor.commit();
         onBackPressed();
     }
 
