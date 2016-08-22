@@ -93,10 +93,10 @@ public class ConciergeActivity extends FrontBackAnimate implements FrontBackAnim
     //If search is active => GetUpAnimation  else Lock onBackButton
     @Override
     public void onBackPressed() {
-
-        if (isSearchActive) {
+    Log.e("Sergio","Llega al back");
+        /*if (isSearchActive) {
             onGetUpAnimationFlights();
-        }
+        }*/
     }
 
     @Override

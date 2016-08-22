@@ -1,6 +1,7 @@
 package com.allegra.handyuvisa;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -26,10 +27,9 @@ import com.allem.onepocket.utils.OPKConstants;
 /**
     Activity for search flights in WebSite and display them inside a webView.
  */
-public class FlightsSearchActivity extends LoadAnimate implements LoadAnimate.InflateReadyListener {
+public class FlightsSearchActivity extends Activity {//LoadAnimate  implements LoadAnimate.InflateReadyListener
 
     private static final String TAG = "FlightsSearchActivity";
-
     //private static final String URLSAMPLE = "http://www.viajemos.com.co/";
     private ActionBar actionBar;
     private WebView webView;
@@ -55,7 +55,21 @@ public class FlightsSearchActivity extends LoadAnimate implements LoadAnimate.In
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.setView(R.layout.fragment_search_in_progress, R.drawable.load__flight, R.string.txt_lbl_searchFlightsWait, this);
+        //super.setView(R.layout.fragment_search_in_progress, R.drawable.load__flight, R.string.txt_lbl_searchFlightsWait, this);
+
+        setContentView(R.layout.fragment_search_in_progress);
+        setActionbar(true);
+        webView = (WebView)findViewById(R.id.webView);
+        //btn_buy = (Button) findViewById(R.id.btn_buy);
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webView.setWebViewClient(new MyWebViewClient());
+        TextView title = (TextView) findViewById(R.id.tv_title_secc);
+        title.setText(R.string.title_flight_results);
+        arrowBack= (ImageButton)findViewById(R.id.arrow_back);
+        //arrowF= (ImageButton)root.findViewById(R.id.arrow_forward);
+        progressBar = (ProgressBar) findViewById(R.id.pb_search);
+
 
         paramTrip = getIntent().getIntExtra("trip", 0);
         if (paramTrip == 1){//One Way
@@ -100,10 +114,10 @@ public class FlightsSearchActivity extends LoadAnimate implements LoadAnimate.In
         loadWebView();
     }
 
-    @Override
+   /*@Override
     public void initViews(View root) {
         //getWindow().requestFeature(Window.FEATURE_ACTION_BAR_OVERLAY);  //permits the action bar overlay over the screen
-        setActionbar(true);
+       *//* setActionbar(true);
         webView = (WebView)root.findViewById(R.id.webView);
         //btn_buy = (Button) findViewById(R.id.btn_buy);
         WebSettings webSettings = webView.getSettings();
@@ -113,14 +127,22 @@ public class FlightsSearchActivity extends LoadAnimate implements LoadAnimate.In
         title.setText(R.string.title_flight_results);
         arrowBack= (ImageButton)root.findViewById(R.id.arrow_back);
         //arrowF= (ImageButton)root.findViewById(R.id.arrow_forward);
-        progressBar = (ProgressBar) root.findViewById(R.id.pb_search);
+        progressBar = (ProgressBar) root.findViewById(R.id.pb_search);*//*
     }
 
     @Override
     public void onCancelLoading() {
         finish();
+    }*/
+
+
+    public void onBackButton(View view){
+        finish();
     }
 
+    public void onUp(View view) {
+        super.onBackPressed();
+    }
 
     private void setActionbar(boolean hide) {
 
@@ -244,12 +266,12 @@ public class FlightsSearchActivity extends LoadAnimate implements LoadAnimate.In
                 webView.loadUrl(returnURL);
             }
             loadArrows();
-            animate();
+            //animate();
         }
 
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon){
-            showProgress(true);
+            //showProgress(true);
         }
     }
 
@@ -275,6 +297,7 @@ public class FlightsSearchActivity extends LoadAnimate implements LoadAnimate.In
                 webView.clearHistory();
                 webView.loadUrl("about:blank");
                 progressBar.setVisibility(View.VISIBLE);
+                //progressBar.setBackground();
             }
         }
 
