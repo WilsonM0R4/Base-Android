@@ -322,7 +322,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
 
                 //Create an AllemUser object and set values
                 AllemUser user = SoapObjectParsers.toAllemUser(event.getResult());
-                McardCliente mcardCliente = SoapObjectParsers.toMcardCliente(event.getResult());
+//                McardCliente mcardCliente = SoapObjectParsers.toMcardCliente(event.getResult());
                 ((VisaCheckoutApp) this.getApplication()).setIdSession(user.idSesion);
                 ((VisaCheckoutApp) this.getApplication()).setIdCuenta(user.idCuenta);
                 ((VisaCheckoutApp) this.getApplication()).setRawPassword(password.getText().toString());
@@ -334,7 +334,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 String password = user.hashpassword;
                 String cel_code = user.celular_codigo;
                 String typeOfId = user.idType;
-                String numMcard = mcardCliente.getNumeroMembresia();
+ //               String numMcard = mcardCliente.getNumeroMembresia();
                 String numberOfId = user.idNumber;
                 //Log.d("Sergio", "Es: "+cel_code);
 
@@ -360,7 +360,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 asyncSoapObjectTest.getInstance2(Constants.SOAP_URL_MCARD_PROD, Constants.MCARD_NAMESPACE,
                         Constants.MCARD_METHOD, postValues, Constants.MCARD_CODE).execute();
                 Constants.saveUser(ctx, user, channel);
-                db.addUser(new UserDataBase(nombre,apellido,getTypeOfDocumentFromIdCode(typeOfId),numberOfId,numMcard,"$100.000", "$100.000","$100.000"));
+                db.addUser(new UserDataBase(nombre,apellido,getTypeOfDocumentFromIdCode(typeOfId),numberOfId,numberOfId,"$100.000", "$100.000","$100.000"));
                 //********
                 Intent returnIntent = new Intent();
                     Log.e("Sergio", "Acá sí");
