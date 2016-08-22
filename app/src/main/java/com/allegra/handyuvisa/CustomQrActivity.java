@@ -17,7 +17,6 @@ public class CustomQrActivity extends AppCompatActivity implements
     private CaptureManager capture;
     private CompoundBarcodeView barcodeScannerView;
 
-    public static final int PERMISSIONS_REQUEST_CAMERA = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,14 +27,7 @@ public class CustomQrActivity extends AppCompatActivity implements
         barcodeScannerView = (CompoundBarcodeView)findViewById(R.id.zxing_barcode_scanner);
         barcodeScannerView.setTorchListener(this);
 
-        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA)
-                == PackageManager.PERMISSION_GRANTED) {
-            init(getIntent(), savedInstanceState);
-        } else {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{android.Manifest.permission.CAMERA},
-                    PERMISSIONS_REQUEST_CAMERA);
-        }
+        init(getIntent(), savedInstanceState);
     }
 
     @Override
@@ -54,23 +46,6 @@ public class CustomQrActivity extends AppCompatActivity implements
     protected void onDestroy() {
         super.onDestroy();
         capture.onDestroy();
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        switch (requestCode) {
-            case PERMISSIONS_REQUEST_CAMERA: {
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    // permission was granted
-                    init(getIntent(), null);
-
-                } else {
-                    setResult(Activity.RESULT_CANCELED);
-                    finish();
-                }
-            }
-        }
     }
 
     @Override

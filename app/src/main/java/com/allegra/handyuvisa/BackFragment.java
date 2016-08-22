@@ -149,22 +149,8 @@ public class BackFragment extends Fragment  {
 
     public void sendToPocket(){
         Intent intent = new Intent(getActivity(), OnepocketContainerActivity.class);
-        Bundle bundle = new Bundle();
-        AllemUser user = Constants.getUser(getActivity());
-        VisaCheckoutApp app = ((VisaCheckoutApp) getActivity().getApplication());
-
-        if (user != null) {
-            OneTransaction transaction = new OneTransaction();
-            transaction.add("sessionId", app.getIdSession());
-            transaction.add("first", user.nombre);
-            transaction.add("last", user.apellido);
-            transaction.add("userName", user.email);
-            transaction.add("rawPassword", app.getRawPassword());
-            transaction.add("idCuenta", Integer.toString(app.getIdCuenta()));
-
-            bundle.putParcelable(OPKConstants.EXTRA_DATA, transaction);
-            intent.putExtras(bundle);
-        }
+        Bundle bundle = Constants.createDataBundle(Constants.getUser(getActivity()), (VisaCheckoutApp) getActivity().getApplication());
+        intent.putExtras(bundle);
         getActivity().startActivity(intent);
     }
 

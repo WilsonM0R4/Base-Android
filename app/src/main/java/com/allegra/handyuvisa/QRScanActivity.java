@@ -1,8 +1,12 @@
 package com.allegra.handyuvisa;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -25,6 +29,7 @@ import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+import com.journeyapps.barcodescanner.CaptureManager;
 import com.squareup.otto.Subscribe;
 
 import org.apache.http.NameValuePair;
@@ -48,6 +53,7 @@ public class QRScanActivity extends FrontBackAnimate{// implements FrontBackAnim
     private String currency, reference;
 
     //************OVERRIDE AND SUBSCRIBE METHODS
+    public static final int PERMISSIONS_REQUEST_CAMERA = 10001;
 
     @Override
     public void onCreate(Bundle state) {
@@ -57,9 +63,34 @@ public class QRScanActivity extends FrontBackAnimate{// implements FrontBackAnim
         //setContentView(R.layout.activity_qrscan);
         //setView(R.layout.activity_qrscan, this);
         if (checkLogin()) {
-            openScan();
+            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA)
+                    == PackageManager.PERMISSION_GRANTED) {
+                openScan();
+            } else {
+                ActivityCompat.requestPermissions(this,
+                        new String[]{android.Manifest.permission.CAMERA},
+                        PERMISSIONS_REQUEST_CAMERA);
+            }
         }
 
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        switch (requestCode) {
+            case PERMISSIONS_REQUEST_CAMERA: {
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // permission was granted
+                    openScan();
+
+                } else {
+                    setResult(Activity.RESULT_CANCELED);
+                    finish();
+                }
+            }
+        }
     }
 
     @Override
@@ -100,7 +131,6 @@ public class QRScanActivity extends FrontBackAnimate{// implements FrontBackAnim
 
                     //Testing
                     Intent intent2 = new Intent(QRScanActivity.this, OnepocketPurchaseActivity.class);
-                    Bundle bundle = new Bundle();
                     String data = "{\"businessName\":\"" + solicitud.razonSocial +//vendor.getText()
                             "\",\"purchaseValue\":\"" + ("$ " + adjTotal).toString().replace("$", "").trim() +//total.getText()
                             "\",\"taxValue\":\"" + ("$  " + adjIVA).toString().replace("$", "").trim() +
@@ -108,18 +138,7 @@ public class QRScanActivity extends FrontBackAnimate{// implements FrontBackAnim
                             "\",\"codeISO\":\"" + currency +
                             "\",\"reference\":\"" + reference +
                             "\"}";
-                    OneTransaction transaction = new OneTransaction();
-                    transaction.add("jsonPayment", data);
-                    transaction.add("type", OPKConstants.TYPE_QRCODE);
-                    transaction.add("sessionId", ((VisaCheckoutApp)QRScanActivity.this.getApplication()).getIdSession());
-                    transaction.add("first", Constants.getUser(QRScanActivity.this).nombre);
-                    transaction.add("last", Constants.getUser(QRScanActivity.this).apellido);
-                    transaction.add("userName", Constants.getUser(QRScanActivity.this).email);
-                    transaction.add("rawPassword", ((VisaCheckoutApp) getApplication()).getRawPassword());
-                    transaction.add("idCuenta", Integer.toString(Constants.getUser(QRScanActivity.this).idCuenta));
-                    transaction.add("merchantName", solicitud.usuarioCuenta);
-                    transaction.add("merchantPassword", solicitud.contrasenaCuenta);
-                    bundle.putParcelable(OPKConstants.EXTRA_PAYMENT, transaction);
+                    Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(QRScanActivity.this), data, OPKConstants.TYPE_QRCODE, (VisaCheckoutApp)QRScanActivity.this.getApplication());
                     intent2.putExtras(bundle);
                     startActivity(intent2);
 

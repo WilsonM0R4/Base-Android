@@ -26,10 +26,12 @@ import com.allegra.handyuvisa.async.AsyncTaskSoapObjectResultEventMcard;
 import com.allegra.handyuvisa.async.MyBus;
 import com.allegra.handyuvisa.models.AllemUser;
 import com.allegra.handyuvisa.models.McardCliente;
+import com.allegra.handyuvisa.models.UserDataBase;
 import com.allegra.handyuvisa.parsers.SoapObjectParsers;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
 import com.allegra.handyuvisa.utils.KeySaver;
+import com.allegra.handyuvisa.utils.UsuarioSQLiteHelper;
 import com.allegra.handyuvisa.utils.Util;
 import com.splunk.mint.Mint;
 import com.squareup.otto.Subscribe;
@@ -59,6 +61,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
     private ProgressBar pb_login;
     private TextView version, forgotpass;
     final String SPLUNK_API_KEY = "e74061f2";
+    UsuarioSQLiteHelper db;
 
     //*************************OVERRIDE METHODS*********************
     @Override
@@ -71,6 +74,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         super.setView(R.layout.fragment_login, this);
         postValues = new ArrayList<>();
 
+        db = new UsuarioSQLiteHelper(this);
         //TODO: Uncomment this before push
         //Splunk
         Mint.setApplicationEnvironment(Mint.appEnvironmentTesting);
@@ -318,6 +322,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
 
                 //Create an AllemUser object and set values
                 AllemUser user = SoapObjectParsers.toAllemUser(event.getResult());
+                McardCliente mcardCliente = SoapObjectParsers.toMcardCliente(event.getResult());
                 ((VisaCheckoutApp) this.getApplication()).setIdSession(user.idSesion);
                 ((VisaCheckoutApp) this.getApplication()).setIdCuenta(user.idCuenta);
                 ((VisaCheckoutApp) this.getApplication()).setRawPassword(password.getText().toString());
@@ -329,7 +334,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 String password = user.hashpassword;
                 String cel_code = user.celular_codigo;
                 String typeOfId = user.idType;
-
+                String numMcard = mcardCliente.getNumeroMembresia();
                 String numberOfId = user.idNumber;
                 //Log.d("Sergio", "Es: "+cel_code);
 
@@ -355,11 +360,13 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 asyncSoapObjectTest.getInstance2(Constants.SOAP_URL_MCARD_PROD, Constants.MCARD_NAMESPACE,
                         Constants.MCARD_METHOD, postValues, Constants.MCARD_CODE).execute();
                 Constants.saveUser(ctx, user, channel);
+                db.addUser(new UserDataBase(nombre,apellido,getTypeOfDocumentFromIdCode(typeOfId),numberOfId,numMcard,"$100.000", "$100.000","$100.000"));
                 //********
                 Intent returnIntent = new Intent();
                     Log.e("Sergio", "Acá sí");
                     setResult(RESULT_OK, returnIntent);
                     finish();
+
             } else {
                 Toast.makeText(ctx, event.getFaultString(), Toast.LENGTH_LONG).show();
             }

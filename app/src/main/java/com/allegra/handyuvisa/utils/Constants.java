@@ -2,10 +2,14 @@ package com.allegra.handyuvisa.utils;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
+import android.os.Bundle;
 import android.util.Log;
 
+import com.allegra.handyuvisa.VisaCheckoutApp;
 import com.allegra.handyuvisa.models.AllemCommerceUser;
 import com.allegra.handyuvisa.models.AllemUser;
+import com.allem.onepocket.model.OneTransaction;
+import com.allem.onepocket.utils.OPKConstants;
 
 import java.io.File;
 import java.io.IOException;
@@ -436,4 +440,33 @@ public class Constants {
         }
     }
 
+    public static Bundle createPurchaseBundle(AllemUser user, String onePocketmessage, String purchaseType, VisaCheckoutApp app) {
+        Bundle bundle = new Bundle();
+        OneTransaction transaction = initOneTransaction(user, app);
+        transaction.add("jsonPayment", onePocketmessage);
+        transaction.add("type", purchaseType);
+        bundle.putParcelable(OPKConstants.EXTRA_PAYMENT, transaction);
+        return bundle;
+    }
+
+    public static Bundle createDataBundle(AllemUser user, VisaCheckoutApp app) {
+        Bundle bundle = new Bundle();
+        OneTransaction transaction = initOneTransaction(user, app);
+        bundle.putParcelable(OPKConstants.EXTRA_DATA, transaction);
+        return bundle;
+    }
+
+    private static OneTransaction initOneTransaction(AllemUser user, VisaCheckoutApp app) {
+        OneTransaction transaction = new OneTransaction();
+        transaction.add("sessionId", app.getIdSession());
+        transaction.add("first", user.nombre);
+        transaction.add("last", user.apellido);
+        transaction.add("userName", user.email);
+        transaction.add("rawPassword", app.getRawPassword());
+        transaction.add("idCuenta", Integer.toString(app.getIdCuenta()));
+        transaction.add("docType", user.idType);
+        transaction.add("docId", user.idNumber);
+        return transaction;
+
+    }
 }

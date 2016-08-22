@@ -20,6 +20,10 @@ public class AsyncTaskSoapObjectResultEventMcard {
         this.faultstring = faultstring;
     }
 
+    public AsyncTaskSoapObjectResultEventMcard(){
+
+    }
+
 
     public Vector<SoapObject> getResult() {
        /* SoapObject response = (SoapObject)envelope.getResponse();

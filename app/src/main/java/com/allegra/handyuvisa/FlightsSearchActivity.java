@@ -18,10 +18,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.allegra.handyuvisa.models.AllemUser;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.Util;
-import com.allem.onepocket.model.OneTransaction;
 import com.allem.onepocket.utils.OPKConstants;
 
 /**
@@ -306,22 +304,7 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
 
     public void openOnePocket(){
         Intent intent = new Intent(this, OnepocketPurchaseActivity.class);
-        Bundle bundle = new Bundle();
-        AllemUser user = Constants.getUser(this);
-        VisaCheckoutApp app = (VisaCheckoutApp) getApplication();
-        OneTransaction transaction = new OneTransaction();
-        transaction.add("jsonPayment", onePocketmessage);
-        transaction.add("type", OPKConstants.TYPE_FLIGHT);
-        transaction.add("sessionId", app.getIdSession());
-        transaction.add("first", user.nombre);
-        transaction.add("last", user.apellido);
-        transaction.add("userName", user.email);
-        transaction.add("docType", user.idType);
-        transaction.add("docId", user.idNumber);
-        transaction.add("rawPassword", app.getRawPassword());
-        transaction.add("idCuenta", Integer.toString(app.getIdCuenta()));
-
-        bundle.putParcelable(OPKConstants.EXTRA_PAYMENT, transaction);
+        Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(this), onePocketmessage, OPKConstants.TYPE_FLIGHT, (VisaCheckoutApp) getApplication());
         intent.putExtras(bundle);
         startActivityForResult(intent, Constants.REQUEST_ONEPOCKET_RETURN);
     }
