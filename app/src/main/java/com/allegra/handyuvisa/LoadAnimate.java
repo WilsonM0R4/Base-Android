@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -142,15 +143,24 @@ public class LoadAnimate extends Activity implements BackFragment.MenuSelectList
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View root = inflater.inflate(R.layout.fragment_loading, container, false);
 
-            fabButton = (ImageView) root.findViewById(R.id.load_circle);
+             fabButton = (ImageView) root.findViewById(R.id.load_circle);
             ImageView icon_wait = (ImageView)root.findViewById(R.id.frame_gif);
             Button endCall = (Button) root.findViewById(R.id.cancel_one_touch);
             int iconRes = statusIconRes;
             icon_wait.setImageDrawable(getResources().getDrawable(iconRes));
             status = (TextView) root.findViewById(R.id.tv_status_otc);
             status.setText(statusRes);
-            Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.custom_louder);
+
+            Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.custom_louder);//R.anim.custom_louder
             fabButton.startAnimation(animation);
+            //Animation
+            /*fabButton.setVisibility(View.VISIBLE);
+            fabButton.post(new Runnable() {
+                @Override
+                public void run() {
+                    ((AnimationDrawable) fabButton.getBackground()).start();
+                }
+            });*/
             endCall.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
