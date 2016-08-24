@@ -27,45 +27,20 @@ import com.allem.onepocket.utils.OPKConstants;
 //Example: new MenuActivity (R.string.title_call, R.drawable.menu__onetouch__call, CallActivity.class)
 public class BackFragment extends Fragment  {
 
-    private String optionSelectedForService = "";
+    //*************GLOBAL ATTRIBUTES*******************
+    //private String optionSelectedForService = "";
     private CustomizedTextView textOptionSelectedForService;
     private ImageButton home;
     //public int SCAN_QR_CODE = 123456;
-
-    public interface MenuSelectListener {
-        public void getStartActivity(Intent intent);
-    }
     public MenuSelectListener menulistener;
     public static MenuActivity[] activities;
 
-    //*********OnActivityResult***********
-
-    public class MenuActivity {
-
-        private CharSequence title;
-        private int iconResource;
-        private Class<? extends Activity> activityClass;
-
-
-        public MenuActivity(int titleResId, int iconResource, Class<? extends Activity> activityClass) {
-            this.activityClass = activityClass;
-            this.title = getResources().getString(titleResId);
-            this.iconResource = iconResource;
-        }
-
-        @Override
-        public String toString() {
-            return title.toString();
-        }
-
-        public int getIconResource() { return iconResource; }
-
-        public Class<? extends Activity> getActivityClass()  {
-            return activityClass;
-        }
+    //***************INTERFACES*****************
+    public interface MenuSelectListener {
+        void getStartActivity(Intent intent);
     }
 
-
+    //***************OVERRIDE METHODS**************
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         Log.e("Sergio","Llega al del BackFragment");
@@ -108,11 +83,151 @@ public class BackFragment extends Fragment  {
         return inflater.inflate(R.layout.fragment_back, container, false);
     }
 
-   /* public void sendToServices (){
-        Intent intent = new Intent(getActivity(), ServiceActivity.class);
-        getActivity().startActivity(intent);
-    }*/
 
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        LinearLayout account_option = (LinearLayout) getView().findViewById(R.id.account_option);
+        account_option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendToAccount();
+            }
+        });
+
+        LinearLayout pocket_option = (LinearLayout) getView().findViewById(R.id.onepocket_option);
+        pocket_option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendToPocket();
+            }
+        });
+
+        LinearLayout mcard_option = (LinearLayout) getView().findViewById(R.id.mCard_option);
+        mcard_option.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                sendToMcard();
+            }
+        });
+
+        LinearLayout qr_option = (LinearLayout) getView().findViewById(R.id.scanqr_option);
+        qr_option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendToQrScan();
+            }
+        });
+
+        LinearLayout market_option = (LinearLayout) getView().findViewById(R.id.market_option);
+        market_option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendToMarket();
+            }
+        });
+
+        LinearLayout flights_option = (LinearLayout) getView().findViewById(R.id.flights_option);
+        flights_option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendToFlights();
+            }
+        });
+
+        LinearLayout hotels_option = (LinearLayout) getView().findViewById(R.id.hotels_option);
+        hotels_option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendToHotels();
+            }
+        });
+
+        LinearLayout concierge_option = (LinearLayout) getView().findViewById(R.id.concierge_option);
+        concierge_option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendToConcierge();
+            }
+        });
+
+        LinearLayout call_option = (LinearLayout) getView().findViewById(R.id.call_option);
+        call_option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendToCall();
+            }
+        });
+
+        LinearLayout chat_option = (LinearLayout) getView().findViewById(R.id.chat_option);
+        chat_option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendToChat();
+            }
+        });
+
+        LinearLayout restaurants_option = (LinearLayout) getView().findViewById(R.id.restaurants_options);
+        restaurants_option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendToRestaurants();
+            }
+        });
+
+        LinearLayout service_option = (LinearLayout) getView().findViewById(R.id.services_option);
+        service_option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendToServices();
+            }
+        });
+
+        LinearLayout store_option = (LinearLayout) getView().findViewById(R.id.store_options);
+        store_option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendToStore();
+            }
+        });
+
+        home = (ImageButton)getView().findViewById(R.id.iv_home);
+        home.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Log.d("Juan","Presionado");
+                Intent intent = new Intent(getActivity(), SendLogActivity.class);
+                getActivity().startActivity(intent);
+                return true;
+            }
+        });
+
+
+      /*  ListView mainMenu = (ListView)(getActivity().findViewById(R.id.main_menu));
+        mainMenu.setScrollbarFadingEnabled(false);
+        mainMenu.setVerticalScrollbarPosition(View.SCROLLBAR_POSITION_LEFT);
+        mainMenu.setAdapter(new MainMenuAdapter(getActivity(), activities));
+        mainMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (menulistener != null) {
+                    menulistener.getStartActivity(new Intent(getActivity(), activities[position].activityClass));
+                }
+            }
+        });*/
+
+        if (Util.isAuthenticated(getActivity())) {
+            AllemUser user = Constants.getUser(getActivity());
+            TextView greeting = (TextView) getActivity().findViewById(R.id.tv_username_2);
+            greeting.setVisibility(View.GONE);
+            String format = getActivity().getResources().getString(R.string.txt_user_greeting);
+            String value = String.format(format, user.nombre);
+            greeting.setText(value);
+        }
+
+    }
+
+    //***************PROPER METHODS**************
     public void sendToAccount(){
         Intent intent = new Intent(getActivity(),MyAccountMenuActivity.class);
         getActivity().startActivity(intent);
@@ -207,7 +322,7 @@ public class BackFragment extends Fragment  {
         }*/
     }
 
-    //***********REFACTORING METHOD**************
+    //REFACTORING METHOD
     private void sendToActivity(Class activity, int code){
 
         if(Util.isAuthenticated(getActivity())) {
@@ -230,147 +345,29 @@ public class BackFragment extends Fragment  {
         getActivity().startActivity(intent);
     }
 
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    //**************INNER CLASSES******************
+    public class MenuActivity {
 
-        LinearLayout account_option = (LinearLayout) getView().findViewById(R.id.account_option);
-        account_option.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendToAccount();
-            }
-        });
-
-        LinearLayout pocket_option = (LinearLayout) getView().findViewById(R.id.onepocket_option);
-        pocket_option.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendToPocket();
-            }
-        });
-
-        LinearLayout mcard_option = (LinearLayout) getView().findViewById(R.id.mCard_option);
-        mcard_option.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                sendToMcard();
-            }
-        });
-
-        LinearLayout qr_option = (LinearLayout) getView().findViewById(R.id.scanqr_option);
-        qr_option.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendToQrScan();
-            }
-        });
-
-        LinearLayout market_option = (LinearLayout) getView().findViewById(R.id.market_option);
-        market_option.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendToMarket();
-            }
-        });
-
-        LinearLayout flights_option = (LinearLayout) getView().findViewById(R.id.flights_option);
-        flights_option.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendToFlights();
-            }
-        });
-
-        LinearLayout hotels_option = (LinearLayout) getView().findViewById(R.id.hotels_option);
-        hotels_option.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendToHotels();
-            }
-        });
-
-        LinearLayout concierge_option = (LinearLayout) getView().findViewById(R.id.concierge_option);
-        concierge_option.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendToConcierge();
-            }
-        });
-
-        LinearLayout call_option = (LinearLayout) getView().findViewById(R.id.call_option);
-        call_option.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendToCall();
-            }
-        });
-
-        LinearLayout chat_option = (LinearLayout) getView().findViewById(R.id.chat_option);
-        chat_option.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendToChat();
-            }
-        });
-
-       LinearLayout restaurants_option = (LinearLayout) getView().findViewById(R.id.restaurants_options);
-        restaurants_option.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendToRestaurants();
-            }
-        });
-
-        LinearLayout service_option = (LinearLayout) getView().findViewById(R.id.services_option);
-        service_option.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendToServices();
-            }
-        });
-
-        LinearLayout store_option = (LinearLayout) getView().findViewById(R.id.store_options);
-        store_option.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendToStore();
-            }
-        });
-
-        home = (ImageButton)getView().findViewById(R.id.iv_home);
-        home.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                Log.d("Juan","Presionado");
-                Intent intent = new Intent(getActivity(), SendLogActivity.class);
-                getActivity().startActivity(intent);
-                return true;
-            }
-        });
+        private CharSequence title;
+        private int iconResource;
+        private Class<? extends Activity> activityClass;
 
 
-      /*  ListView mainMenu = (ListView)(getActivity().findViewById(R.id.main_menu));
-        mainMenu.setScrollbarFadingEnabled(false);
-        mainMenu.setVerticalScrollbarPosition(View.SCROLLBAR_POSITION_LEFT);
-        mainMenu.setAdapter(new MainMenuAdapter(getActivity(), activities));
-        mainMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (menulistener != null) {
-                    menulistener.getStartActivity(new Intent(getActivity(), activities[position].activityClass));
-                }
-            }
-        });*/
-
-        if (Util.isAuthenticated(getActivity())) {
-            AllemUser user = Constants.getUser(getActivity());
-            TextView greeting = (TextView) getActivity().findViewById(R.id.tv_username_2);
-            greeting.setVisibility(View.GONE);
-            String format = getActivity().getResources().getString(R.string.txt_user_greeting);
-            String value = String.format(format, user.nombre);
-            greeting.setText(value);
+        public MenuActivity(int titleResId, int iconResource, Class<? extends Activity> activityClass) {
+            this.activityClass = activityClass;
+            this.title = getResources().getString(titleResId);
+            this.iconResource = iconResource;
         }
 
-    }
+        @Override
+        public String toString() {
+            return title.toString();
+        }
 
+        public int getIconResource() { return iconResource; }
+
+        public Class<? extends Activity> getActivityClass()  {
+            return activityClass;
+        }
+    }
 }

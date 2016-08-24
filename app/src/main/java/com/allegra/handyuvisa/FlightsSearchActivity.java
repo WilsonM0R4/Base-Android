@@ -1,11 +1,15 @@
 package com.allegra.handyuvisa;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.webkit.WebSettings;
@@ -13,27 +17,23 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.Util;
 import com.allem.onepocket.utils.OPKConstants;
 
-/**
-    Activity for search flights in WebSite and display them inside a webView.
- */
-public class FlightsSearchActivity extends LoadAnimate implements LoadAnimate.InflateReadyListener {
+/**      Activity for search flights in WebSite and display them inside a webView.        **/
+public class FlightsSearchActivity extends Activity {//LoadAnimate  implements LoadAnimate.InflateReadyListener
 
+    //******************GLOBAL ATTRIBUTES**********************
     private static final String TAG = "FlightsSearchActivity";
-
-    //private static final String URLSAMPLE = "http://www.viajemos.com.co/";
     private ActionBar actionBar;
     private WebView webView;
     private String url,urlWebView;
     private ImageButton arrowBack;//, arrowF
-    private ProgressBar progressBar;
     private int paramTrip = 0; // 0 - round trip; 1 - one way
     private int paramCabin = 0; // 0 - economy; 1 - business; 2 - first
     private int paramAdult = 0;
@@ -48,12 +48,37 @@ public class FlightsSearchActivity extends LoadAnimate implements LoadAnimate.In
     private String flightType = "";
     public String onePocketmessage;
     private String returnURL;
+    private ImageView imgProgress, progressBar;
+    private TextView txtLoading;
 
-
+    //******************OVERRIDE METHODS**********************
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.setView(R.layout.fragment_search_in_progress, R.drawable.load__flight, R.string.txt_lbl_searchFlightsWait, this);
+        //super.setView(R.layout.fragment_search_in_progress, R.drawable.load__flight, R.string.txt_lbl_searchFlightsWait, this);
+
+        setContentView(R.layout.fragment_search_in_progress);
+        setActionbar(true);
+        webView = (WebView)findViewById(R.id.webView);
+        txtLoading = (TextView)findViewById(R.id.txtLoading);
+        //btn_buy = (Button) findViewById(R.id.btn_buy);
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webView.setWebViewClient(new MyWebViewClient());
+        TextView title = (TextView) findViewById(R.id.tv_title_secc);
+        title.setText(R.string.title_flight_results);
+        arrowBack = (ImageButton)findViewById(R.id.arrow_back);
+        imgProgress = (ImageView) findViewById(R.id.imgProgress);
+        progressBar = (ImageView) findViewById(R.id.pb_search_loader);
+        webView.setVisibility(View.GONE);
+        //Animation
+        progressBar.setVisibility(View.VISIBLE);
+        progressBar.post(new Runnable() {
+            @Override
+            public void run() {
+                ((AnimationDrawable) progressBar.getBackground()).start();
+            }
+        });
 
         paramTrip = getIntent().getIntExtra("trip", 0);
         if (paramTrip == 1){//One Way
@@ -99,156 +124,8 @@ public class FlightsSearchActivity extends LoadAnimate implements LoadAnimate.In
     }
 
     @Override
-    public void initViews(View root) {
-        //getWindow().requestFeature(Window.FEATURE_ACTION_BAR_OVERLAY);  //permits the action bar overlay over the screen
-        setActionbar(true);
-        webView = (WebView)root.findViewById(R.id.webView);
-        //btn_buy = (Button) findViewById(R.id.btn_buy);
-        WebSettings webSettings = webView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
-        webView.setWebViewClient(new MyWebViewClient());
-        TextView title = (TextView) root.findViewById(R.id.tv_title_secc);
-        title.setText(R.string.title_flight_results);
-        arrowBack= (ImageButton)root.findViewById(R.id.arrow_back);
-        //arrowF= (ImageButton)root.findViewById(R.id.arrow_forward);
-        progressBar = (ProgressBar) root.findViewById(R.id.pb_search);
-    }
-
-    @Override
-    public void onCancelLoading() {
-        finish();
-    }
-
-
-    private void setActionbar(boolean hide) {
-
-        actionBar = getActionBar();
-        if(actionBar!=null){
-            if (hide) {
-                actionBar.hide();
-            } else {
-                actionBar.setDisplayHomeAsUpEnabled(true);
-                actionBar.setHomeButtonEnabled(true);
-            }
-        }
-
-    }
-
-    /*private void getParseURL() {
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("Config");
-        query.whereEqualTo("name", "flightsURL");
-        query.findInBackground(new FindCallback<ParseObject>() {
-            @Override
-            public void done(List<ParseObject> list, ParseException e) {
-                if (e == null && list.size() > 0) {
-                    url = list.get(0).getString("value");
-                    webView.loadUrl(url);
-                } else {
-                    //Toast.makeText(ctx,"Revise su conexión a Internet",Toast.LENGTH_LONG).show();
-                    webView.loadUrl(URLSAMPLE);
-                }
-            }
-        });
-    }*/
-
-    private void loadWebView() {
-
-        url = "http://vuelos.allegra.travel/Vuelos/ResultadosGet?";
-        //url="http://allegra.vuelos.ninja/Vuelos/ResultadosGet?";
-        //url = "http://vuelos.allegra.travel?%@";
-        //url = "http://allegra.vuelos.ninja/Vuelos/ResultadosGet?AirFlightType=OW&AirOriginLocation=Bogota+
-        // Eldorado%2C+Colombia+%28BOG%29&AirOriginLocationIATA=BOG&AirDestinationLocation=Miami+International%2C+
-        // FL+%28MIA%29&AirDestinationLocationIATA=MIA&AirDepartureDateTime=2016-05-13&AirTravelAvailAdt=1&
-        // AirTravelAvailChd=0&AirTravelAvailInf=0&AirBookingClassPref=*&AirlineCode=*&AirFlexDateDeparture=*&
-        // AirTravelTimeStart=*&AirFlexDatesReturn=*&AirTravelTimeEnd=*&AirTravelDic=*&AirRestricTar=*&AirSeg=1"&Payment=3;
-
-
-        String flightClass ="";
-        switch (paramCabin){
-            case 0:
-                flightClass="Economy";
-                break;
-            case 1:
-                flightClass="Business";
-                break;
-            case 2:
-                flightClass="First";
-                break;
-        }
-        webView.addJavascriptInterface(new AppJavaScriptProxyFlights(this), "androidProxy");
-
-
-        String postData = "AirFlightType="+flightType+"&AirOriginLocation="+paramDepartFromName+"&AirOriginLocationIATA="+paramDepartFrom+"&AirDestinationLocation="+paramArriveAtName+"&AirReturnDateTime="+paramArriveDate+"&AirDestinationLocationIATA="+paramArriveAt+"&AirDepartureDateTime="+paramDepartDate+"&AirTravelAvailAdt="+paramAdult+
-                "&AirTravelAvailChd="+paramChildren+"&AirTravelAvailInf="+paramInfant+"&AirBookingClassPref="+flightClass+"&AirlineCode=*&AirFlexDateDeparture=*&AirTravelTimeStart=*&AirFlexDatesReturn=*&AirTravelTimeEnd=*&AirTravelDic=*&AirRestricTar=*&AirSeg=1&Payment=3";
-        url = url + postData;
-        Log.d("url con data",url);
-        //webView.postUrl(url, EncodingUtils.getBytes(postData, "BASE64"));
-        webView.loadUrl(url);
-
-    }
-
-    public void onalertDialogDepartureOrArriveNotSelected(){
-
-
-        final Context context = this;
-        final Dialog dialog = new Dialog(this);
-        dialog.setContentView(R.layout.custom_no_flights_dialog);
-        dialog.show();
-
-        Button btnOk = (Button)dialog.findViewById(R.id.ButtonOkAlertDialogNoFlights);
-        btnOk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(context, FlightsActivity.class);
-                context.startActivity(i);
-                dialog.dismiss();
-            }
-        });
-    }
-
-    private class MyWebViewClient extends WebViewClient {
-
-
-        @Override
-        public boolean shouldOverrideUrlLoading(WebView view, String url) {
-
-            Log.d(TAG, "url: " + url);
-
-            if (Util.hasInternetConnectivity(FlightsSearchActivity.this)){
-                if (url.contains("http://")||url.contains("https://")){
-                    view.loadUrl(url);
-                    urlWebView=url;
-                }else if(url.contains("detalleventaht:")&& Util.hasInternetConnectivity(FlightsSearchActivity.this)){
-//                    urlWebView=HotelsActivity.this.url;
-                    // TODO replace with Onepocket pay activity
-                }else if(url.equals("allegra:callbackFlights")){
-                    Log.d("Sergio","Llega rodallega");
-                    onalertDialogDepartureOrArriveNotSelected();
-                }
-                else{
-                    view.loadUrl(url);
-                    urlWebView=url;
-                }
-            }else{
-                Toast.makeText(FlightsSearchActivity.this, R.string.err_no_internet, Toast.LENGTH_SHORT).show();
-            }
-            return true;
-        }
-
-        @Override
-        public void onPageFinished(WebView view, String url) {
-            progressBar.setVisibility(View.GONE);
-            if (url.equals("about:blank")) {
-                webView.loadUrl(returnURL);
-            }
-            loadArrows();
-            animate();
-        }
-
-        @Override
-        public void onPageStarted(WebView view, String url, Bitmap favicon){
-            showProgress(true);
-        }
+    public void onConfigurationChanged(Configuration newConfig){
+        super.onConfigurationChanged(newConfig);
     }
 
     @Override
@@ -273,10 +150,82 @@ public class FlightsSearchActivity extends LoadAnimate implements LoadAnimate.In
                 webView.clearHistory();
                 webView.loadUrl("about:blank");
                 progressBar.setVisibility(View.VISIBLE);
+
+            }
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        urlWebView=this.url;
+    }
+
+    //******************PROPER METHODS**********************
+    public void onBackButton(View view){
+        finish();
+    }
+
+    public void onUp(View view) {
+        super.onBackPressed();
+    }
+
+    private void setActionbar(boolean hide) {
+
+        actionBar = getActionBar();
+        if(actionBar!=null){
+            if (hide) {
+                actionBar.hide();
+            } else {
+                actionBar.setDisplayHomeAsUpEnabled(true);
+                actionBar.setHomeButtonEnabled(true);
             }
         }
 
+    }
 
+    private void loadWebView() {
+
+        url = "http://vuelos.allegra.travel/Vuelos/ResultadosGet?";
+        String flightClass ="";
+        switch (paramCabin){
+            case 0:
+                flightClass="Economy";
+                break;
+            case 1:
+                flightClass="Business";
+                break;
+            case 2:
+                flightClass="First";
+                break;
+        }
+        webView.addJavascriptInterface(new AppJavaScriptProxyFlights(this), "androidProxy");
+
+        String postData = "AirFlightType="+flightType+"&AirOriginLocation="+paramDepartFromName+"&AirOriginLocationIATA="+paramDepartFrom+"&AirDestinationLocation="+paramArriveAtName+"&AirReturnDateTime="+paramArriveDate+"&AirDestinationLocationIATA="+paramArriveAt+"&AirDepartureDateTime="+paramDepartDate+"&AirTravelAvailAdt="+paramAdult+
+                "&AirTravelAvailChd="+paramChildren+"&AirTravelAvailInf="+paramInfant+"&AirBookingClassPref="+flightClass+"&AirlineCode=*&AirFlexDateDeparture=*&AirTravelTimeStart=*&AirFlexDatesReturn=*&AirTravelTimeEnd=*&AirTravelDic=*&AirRestricTar=*&AirSeg=1&Payment=3";
+        url = url + postData;
+        Log.d("url con data",url);
+        //webView.postUrl(url, EncodingUtils.getBytes(postData, "BASE64"));
+        webView.loadUrl(url);
+
+    }
+
+    public void onalertDialogDepartureOrArriveNotSelected(){
+
+        final Context context = this;
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.custom_no_flights_dialog);
+        dialog.show();
+
+        Button btnOk = (Button)dialog.findViewById(R.id.ButtonOkAlertDialogNoFlights);
+        btnOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(context, FlightsActivity.class);
+                context.startActivity(i);
+                dialog.dismiss();
+            }
+        });
     }
 
     public void openOnePocket(){
@@ -313,10 +262,52 @@ public class FlightsSearchActivity extends LoadAnimate implements LoadAnimate.In
             webView.goForward();
         }
     }
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        urlWebView=this.url;
+
+    //******************INNER CLASSES**********************
+    private class MyWebViewClient extends WebViewClient {
+
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            Log.d(TAG, "url: " + url);
+            if (Util.hasInternetConnectivity(FlightsSearchActivity.this)){
+                if (url.contains("http://")||url.contains("https://")){
+                    view.loadUrl(url);
+                    urlWebView=url;
+                }else if(url.contains("detalleventaht:")&& Util.hasInternetConnectivity(FlightsSearchActivity.this)){
+                //urlWebView=HotelsActivity.this.url;
+                    // TODO replace with Onepocket pay activity
+                }else if(url.equals("allegra:callbackFlights")){
+                    Log.d("Sergio","Llega rodallega");
+                    onalertDialogDepartureOrArriveNotSelected();
+                }
+                else{
+                    view.loadUrl(url);
+                    urlWebView=url;
+                }
+            }else{
+                Toast.makeText(FlightsSearchActivity.this, R.string.err_no_internet, Toast.LENGTH_SHORT).show();
+            }
+            return true;
+        }
+
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            progressBar.setVisibility(View.GONE);
+            imgProgress.setVisibility(View.GONE);
+            txtLoading.setVisibility(View.GONE);
+            webView.setVisibility(View.VISIBLE);
+            if (url.equals("about:blank")) {
+                webView.loadUrl(returnURL);
+            }
+            loadArrows();
+            //animate();
+        }
+
+        @Override
+        public void onPageStarted(WebView view, String url, Bitmap favicon){
+            progressBar.setVisibility(View.VISIBLE);
+            //showProgress(true);
+        }
     }
 
 }

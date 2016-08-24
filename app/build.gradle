@@ -9,8 +9,8 @@ android {
         applicationId "com.allegra.handyuvisa"
         minSdkVersion 21
         targetSdkVersion 23
-        versionCode 338
-        versionName "1.0.3-338"
+        versionCode 340
+        versionName "1.0.3-340"
 
 
         ndk {

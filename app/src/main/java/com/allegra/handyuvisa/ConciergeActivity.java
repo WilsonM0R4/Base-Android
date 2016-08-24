@@ -93,10 +93,10 @@ public class ConciergeActivity extends FrontBackAnimate implements FrontBackAnim
     //If search is active => GetUpAnimation  else Lock onBackButton
     @Override
     public void onBackPressed() {
-
-        if (isSearchActive) {
+    Log.e("Sergio","Llega al back");
+        /*if (isSearchActive) {
             onGetUpAnimationFlights();
-        }
+        }*/
     }
 
     @Override
@@ -266,7 +266,8 @@ public class ConciergeActivity extends FrontBackAnimate implements FrontBackAnim
     @Subscribe
     public void onAsyncTaskResult(AsyncTaskMPosResultEvent event) {
 
-        progressBar.setVisibility(View.GONE);
+        if (progressBar!=null)progressBar.setVisibility(View.GONE);
+
         HashMap<String, String> data;
 
         if (event.getResult() != null) {

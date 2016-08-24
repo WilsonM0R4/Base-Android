@@ -3,10 +3,12 @@
 package com.allegra.handyuvisa;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,6 +16,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,8 +25,9 @@ import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.Util;
 import com.allem.onepocket.utils.OPKConstants;
 
-public class HotelSearchActivity extends LoadAnimate implements LoadAnimate.InflateReadyListener  {
+public class HotelSearchActivity extends Activity {//LoadAnimate implements LoadAnimate.InflateReadyListener
 
+    //******************GLOBAL ATTRIBUTES**********************
     private static final String TAG = "HotelSearchActivity";
     public static final int REQUEST_ONEPOCKET_RETURN = 10001;
     private ActionBar actionBar;
@@ -34,7 +38,6 @@ public class HotelSearchActivity extends LoadAnimate implements LoadAnimate.Infl
     private int hotel = 1;
     private int paramRooms;
     private WebView webView;
-    ProgressBar progressBar;
     private int paramAdults = 0, paramAdults2 = 0, paramAdults3 = 0, paramAdults4 = 0;
     private int paramChildren = 0, paramChildren2 = 0, paramChildren3 = 0, paramChildren4 = 0;
     private int paramInfant = 0, paramInfant2 = 0, paramInfant3 = 0,paramInfant4 = 0;
@@ -49,12 +52,44 @@ public class HotelSearchActivity extends LoadAnimate implements LoadAnimate.Infl
     public String onePocketmessage;
     public String mcard;
     private String returnURL;
+    private ImageView imgLogoAllegra, progressBar;
+    private TextView txtLoading;
 
+    //******************OVERRIDE METHODS**********************
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.setView(R.layout.fragment_search_in_progress, R.drawable.load__hotel, R.string.txt_lbl_searchFlightsWait, this);
+        //super.setView(R.layout.fragment_search_in_progress, R.drawable.load__hotel, R.string.txt_lbl_searchFlightsWait, this);
         setActionbar(true);
+        setContentView(R.layout.fragment_search_in_progress);
+        //*********
+
+        webView = (WebView)findViewById(R.id.webView);
+        progressBar= (ImageView) findViewById(R.id.pb_search_loader);
+        imgLogoAllegra = (ImageView)findViewById(R.id.imgProgress);
+        txtLoading = (TextView)findViewById(R.id.txtLoading);
+        txtLoading.setVisibility(View.GONE);
+        //btn_buy = (Button) findViewById(R.id.btn_buy);
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setLoadsImagesAutomatically(true);
+        webView.setWebViewClient(new MyWebViewClient());
+        TextView title = (TextView)findViewById(R.id.tv_title_secc);
+        title.setText(R.string.title_hotel_results);
+        //Animation
+        progressBar.setVisibility(View.VISIBLE);
+        progressBar.post(new Runnable() {
+            @Override
+            public void run() {
+                ((AnimationDrawable) progressBar.getBackground()).start();
+            }
+        });
+
+        arrowBack= (ImageButton)findViewById(R.id.arrow_back);
+        //arrowF= (ImageButton)root.findViewById(R.id.arrow_forward);
+        webView.addJavascriptInterface(new AppJavaScriptProxyHotels(this), "androidProxy");
+
+        ///********
 
         paramChildren = getIntent().getIntExtra("&childHotel1", 0);
         paramAdults = getIntent().getIntExtra("&adultHotel1", 1);
@@ -130,7 +165,6 @@ public class HotelSearchActivity extends LoadAnimate implements LoadAnimate.Infl
                 actionBar.setHomeButtonEnabled(true);
             }
         }
-
     }
 
     @Override
@@ -224,10 +258,10 @@ public class HotelSearchActivity extends LoadAnimate implements LoadAnimate.Infl
     }
 
     public void onMenu(View view) {
-        animate();
+        //animate();
     }
 
-    @Override
+    /*@Override
     public void initViews(View root) {
         //url = getIntent().getStringExtra("url");
         //Log.d("URL HOTELS",url);
@@ -250,7 +284,7 @@ public class HotelSearchActivity extends LoadAnimate implements LoadAnimate.Infl
     @Override
     public void onCancelLoading() {
         finish();
-    }
+    }*/
 
     private class MyWebViewClient extends WebViewClient {
         @Override
@@ -277,15 +311,17 @@ public class HotelSearchActivity extends LoadAnimate implements LoadAnimate.Infl
         @Override
         public void onPageFinished(WebView view, String url) {
             progressBar.setVisibility(View.GONE);
+            imgLogoAllegra.setVisibility(View.GONE);
+            txtLoading.setVisibility(View.GONE);
             if (url.equals("about:blank")) {
                 webView.loadUrl(returnURL);
             }
             loadArrows();
-              animate();
+              //animate();
         }
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon){
-            //progressBar.setVisibility(View.VISIBLE);
+            progressBar.setVisibility(View.VISIBLE);
             //showProgress(true);
         }
     }

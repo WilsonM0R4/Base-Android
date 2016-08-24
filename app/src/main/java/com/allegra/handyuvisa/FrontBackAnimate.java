@@ -152,7 +152,7 @@ public class FrontBackAnimate extends FragmentActivity implements BackFragment.M
 
     }
 
-    public void animateBetter(){
+    public  void animateBetter(){
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);

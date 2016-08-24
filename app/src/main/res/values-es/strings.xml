@@ -110,15 +110,15 @@
     <string name="txt_hint_pass">Contraseña</string>
     <string name="txt_username">Nombre</string>
     <string name="txt_hint_repass">Confirmar contraseña</string>
-    <string name="txt_hint_register">Por favor, introduzca su información personal para crear su cuenta.</string>
+    <string name="txt_hint_register">Por favor, introduce tu información personal para crear tu cuenta.</string>
     <string name="txt_hint_chat">Escriba su mensaje</string>
     <string name="txt_hint_search_airport">Buscar aeropuerto; Mínimo 3 caracteres</string>
     <string name="txt_btnaskrecover">Recuperar contraseña</string>
-    <string name="txt_lbl_callwait">Por favor espere mientras te conectamos con un asesor.</string>
+    <string name="txt_lbl_callwait">Por favor espera mientras te conectamos con un asesor.</string>
     <string name="txt_lbl_callready">OneTouch Call está listo</string>
     <string name="txt_lbl_callcalling">OneTouch Call está llamando</string>
     <string name="txt_lbl_callInProgress">OneTouch Call llamada en progreso</string>
-    <string name="txt_lbl_setupChat">Le estamos conectando a un asesor.</string>
+    <string name="txt_lbl_setupChat">Te estamos conectando a un asesor.</string>
     <string name="txt_lbl_endcall">FINALIZAR LLAMADA</string>
     <string name="txt_lbl_speaker">Altavoz</string>
     <string name="txt_lbl_agent">Estás hablando con: %s</string>
@@ -532,5 +532,8 @@
     <string name="privacy_policy_underscore"><u>política de privacidad</u></string>
     <string name="ups_try_again">¡Ups! Inténtalo de nuevo</string>
     <string name="your_search_no_results">Tu búsqueda no muestra resultados</string>
+    <string name="txt_loading_loader">Loading</string>
+    <string name="title_onetouch_call">Onetouch call</string>
+    <string name="title_onetouch_chat">Onetouch chat</string>
 
 </resources>

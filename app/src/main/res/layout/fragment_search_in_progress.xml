@@ -3,8 +3,9 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/rl_search_in_progress"
-    android:background="@drawable/background"
+    android:background="@color/white"
     android:clickable="true">
 
     <RelativeLayout
@@ -12,7 +13,6 @@
         android:layout_height="?android:attr/actionBarSize"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:background="@color/white"
         android:id="@+id/ll_header">
 
         <ImageButton
@@ -82,12 +82,37 @@
         android:id="@+id/webView"
         android:layout_centerVertical="true" />
 
-    <ProgressBar
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/pb_search"
+        android:layout_marginTop="135dp"
+        android:layout_below="@+id/ll_header"
+        android:id="@+id/imgProgress"
+        android:background="@drawable/logo_allegra_loader"
+        android:layout_centerInParent="true"/>
+
+    <ImageView
+        android:layout_width="111dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="73dp"
+        android:id="@+id/pb_search_loader"
         android:layout_centerInParent="true"
-        android:visibility="gone"
+        android:background="@drawable/run_animation"
+        android:layout_below="@+id/imgProgress"
         />
+
+    <com.allegra.handyuvisa.utils.CustomizedTextView
+        android:id="@+id/txtLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="77dp"
+        android:layout_centerInParent="true"
+        android:textColor="@color/loading_salmon"
+        android:textSize="22sp"
+        android:layout_below="@+id/pb_search_loader"
+        app:font="@string/font_varela"
+        android:text="@string/txt_loading_loader"/>
+
+        <!-- android:visibility="gone"-->
 
 </RelativeLayout>
