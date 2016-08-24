@@ -50,7 +50,7 @@ public class Constants {
 
     public final static boolean TESTING = false;
     public final static boolean TESTING_AIR = false;
-/*
+/*lo
 *Cualquier SOAP_ACTION = URL_ALLEM_BASE+"/"+METHOD;
 *
 * URL Webviews

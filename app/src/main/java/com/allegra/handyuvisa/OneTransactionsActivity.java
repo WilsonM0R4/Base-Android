@@ -54,11 +54,11 @@ public class OneTransactionsActivity extends FrontBackAnimate  implements FrontB
             public void returnResult(Bundle bundle) {
                 int size = stack.size();
                 Fragment currentTop = stack.get(size - 1);
-                Fragment confirm = stack.get(size - 2);
-                confirm.getArguments().putParcelable(OPKConstants.EXTRA_RESULT, bundle);
+//                Fragment confirm = stack.get(size - 1);
+                oneTransctions.getArguments().putParcelable(OPKConstants.EXTRA_RESULT, bundle);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.remove(currentTop);
-                transaction.detach(confirm).attach(confirm).show(confirm);
+                transaction.detach(oneTransctions).attach(oneTransctions).show(oneTransctions);
                 transaction.commit();
 
                 stack.remove(size - 1);
@@ -116,6 +116,11 @@ public class OneTransactionsActivity extends FrontBackAnimate  implements FrontB
 
     }
 
+    @Override
+    public void onBackPressed() {
+
+    }
+
     private void addFragment(Fragment fragment) {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         Fragment currentTop = getFragmentManager().findFragmentById(R.id.opk_top);
@@ -146,5 +151,6 @@ public class OneTransactionsActivity extends FrontBackAnimate  implements FrontB
             transaction.commit();
         }
     }
+
 
 }

@@ -51,7 +51,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile(name: 'VisaCheckout-Android-SDK-4.0', ext: 'aar')
     compile(name: 'card.io-5.3.0', ext: 'aar')
-    compile project(':onepocket-sdk-1.0.3-341')
+    compile project(':onepocket-sdk-1.0.3-342')
     compile files('libs/httpmime-4.1-beta1.jar')
     compile 'com.android.support:support-v13:23.1.1'
     compile 'com.android.support:appcompat-v7:23.1.1'

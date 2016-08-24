@@ -6,16 +6,28 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="OPK|Async|Mess" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="OPK|Async|Message" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cfc89f4-528f-4af4-bb6d-76af492c7cbf" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/onepocket-sdk-1.0.3-341/onepocket-sdk-1.0.3-341.aar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/onepocket-sdk-1.0.3-341/build.gradle" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/onepocket-sdk-1.0.3-340/onepocket-sdk-1.0.3-340.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/onepocket-sdk-1.0.3-341/onepocket-sdk-1.0.3-341.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/onepocket_sdk_1_0_3_340_unspecified.xml" afterPath="$PROJECT_DIR$/.idea/libraries/onepocket_sdk_1_0_3_341_unspecified.xml" />
+    <list default="true" id="3cfc89f4-528f-4af4-bb6d-76af492c7cbf" name="Default" comment="- Update onepocket SDK: 1.0.3-341 (Fix typo &quot;Apellido&quot;; Hardcode COP conversion factor to 2920; partial implementaion of transaction history search)">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/onepocket-sdk-1.0.3-342/onepocket-sdk-1.0.3-342.aar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/onepocket-sdk-1.0.3-342/build.gradle" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/onepocket-sdk-1.0.3-342/onepocket-sdk-1.0.3-342.iml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_23_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/cardview_v7_23_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/design_23_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_23_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_23_4_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_v13_23_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_23_4_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/onepocket-sdk-1.0.3-340/build.gradle" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/onepocket-sdk-1.0.3-340/onepocket-sdk-1.0.3-340.aar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/onepocket-sdk-1.0.3-340/onepocket-sdk-1.0.3-340.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/onepocket-sdk-1.0.3-341/build.gradle" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/onepocket-sdk-1.0.3-341/onepocket-sdk-1.0.3-341.aar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/onepocket-sdk-1.0.3-341/onepocket-sdk-1.0.3-341.iml" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/onepocket_sdk_1_0_3_341_unspecified.xml" afterPath="$PROJECT_DIR$/.idea/libraries/onepocket_sdk_1_0_3_342_unspecified.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" />
@@ -25,6 +37,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/utils/Constants.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/utils/Constants.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OneTransactionsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OneTransactionsActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
@@ -59,136 +73,86 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="OnepocketPurchaseActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OnepocketPurchaseActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#1904#1905#0" expanded="false" />
-                <element signature="e#1957#1958#0" expanded="false" />
-                <element signature="e#3693#3694#0" expanded="false" />
-                <element signature="e#3734#3735#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="OneTransactionsActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OneTransactionsActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="141" column="0" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#1762#1763#0" expanded="false" />
-                <element signature="e#1815#1816#0" expanded="false" />
-                <element signature="e#3130#3131#0" expanded="false" />
-                <element signature="e#3171#3172#0" expanded="false" />
-              </folding>
+              <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="QRScanActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/QRScanActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="113" column="57" selection-start-line="113" selection-start-column="57" selection-end-line="113" selection-end-column="57" />
-              <folding>
-                <element signature="e#3342#3343#0" expanded="false" />
-                <element signature="e#3374#3375#0" expanded="false" />
-                <element signature="e#3417#3418#0" expanded="false" />
-                <element signature="e#3448#3449#0" expanded="false" />
-                <element signature="e#6307#6308#0" expanded="false" />
-                <element signature="e#6332#6333#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ServiceActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/ServiceActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#3899#3900#0" expanded="false" />
-                <element signature="e#3924#3925#0" expanded="false" />
-                <element signature="e#4056#4057#0" expanded="false" />
-                <element signature="e#4102#4103#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MarketPlaceActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/MarketPlaceActivity.java">
+      <file leaf-file-name="ChatActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/ChatActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-5.5555553">
-              <caret line="171" column="5" selection-start-line="171" selection-start-column="5" selection-end-line="171" selection-end-column="5" />
+              <caret line="285" column="35" selection-start-line="285" selection-start-column="27" selection-end-line="285" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JSONObject.java" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-23/org/json/JSONObject.java">
+      <file leaf-file-name="HotelSearchActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/HotelSearchActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="554" column="0" selection-start-line="554" selection-start-column="0" selection-end-line="554" selection-end-column="0" />
+              <caret line="328" column="5" selection-start-line="328" selection-start-column="5" selection-end-line="328" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HotelsActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/HotelsActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.962963">
+              <caret line="438" column="41" selection-start-line="438" selection-start-column="41" selection-end-line="438" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TransactionsFragment.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.3-341/unspecified/jars/classes.jar!/com/allem/onepocket/TransactionsFragment.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="18.518518">
+              <caret line="85" column="37" selection-start-line="85" selection-start-column="37" selection-end-line="85" selection-end-column="37" />
               <folding>
-                <element signature="e#0#29272#0" expanded="false" />
-                <element signature="imports" expanded="false" />
-                <element signature="e#4878#4879#0" expanded="false" />
-                <element signature="e#4915#4916#0" expanded="false" />
-                <element signature="e#5095#5096#0" expanded="false" />
-                <element signature="e#5163#5164#0" expanded="false" />
-                <element signature="e#7938#7939#0" expanded="false" />
-                <element signature="e#7982#7983#0" expanded="false" />
-                <element signature="e#13885#13886#0" expanded="false" />
-                <element signature="e#13935#13936#0" expanded="false" />
-                <element signature="e#14385#14386#0" expanded="false" />
-                <element signature="e#14440#14441#0" expanded="false" />
-                <element signature="e#14989#14990#0" expanded="false" />
-                <element signature="e#15036#15037#0" expanded="false" />
-                <element signature="e#15782#15783#0" expanded="false" />
-                <element signature="e#15828#15829#0" expanded="false" />
-                <element signature="e#16937#16938#0" expanded="false" />
-                <element signature="e#16987#16988#0" expanded="false" />
-                <element signature="e#18056#18057#0" expanded="false" />
-                <element signature="e#18094#18095#0" expanded="false" />
-                <element signature="e#19426#19427#0" expanded="false" />
-                <element signature="e#19466#19467#0" expanded="false" />
-                <element signature="e#20645#20646#0" expanded="false" />
-                <element signature="e#20687#20688#0" expanded="false" />
-                <element signature="e#23784#23785#0" expanded="false" />
-                <element signature="e#23841#23842#0" expanded="false" />
-                <element signature="e#24258#24259#0" expanded="false" />
-                <element signature="e#24304#24305#0" expanded="false" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="60" column="37" selection-start-line="60" selection-start-column="37" selection-end-line="60" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.6495727">
+              <caret line="66" column="62" selection-start-line="66" selection-start-column="62" selection-end-line="66" selection-end-column="62" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/utils/Constants.java">
+      <file leaf-file-name="EditProfileActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/EditProfileActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.26865673">
-              <caret line="52" column="2" selection-start-line="52" selection-start-column="2" selection-end-line="52" selection-end-column="2" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="176" column="93" selection-start-line="176" selection-start-column="93" selection-end-line="176" selection-end-column="93" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomizedEditText.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/utils/CustomizedEditText.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -219,12 +183,12 @@
                 <option name="path" value="$PROJECT_DIR$/app" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
-                <option name="name" value="Allegra-Android" />
-                <option name="path" value="$PROJECT_DIR$" />
+                <option name="name" value=":onepocket-sdk-1.0.3-342" />
+                <option name="path" value="$PROJECT_DIR$/onepocket-sdk-1.0.3-342" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
-                <option name="name" value=":onepocket-sdk-1.0.3-341" />
-                <option name="path" value="$PROJECT_DIR$/onepocket-sdk-1.0.3-341" />
+                <option name="name" value="Allegra-Android" />
+                <option name="path" value="$PROJECT_DIR$" />
               </ExternalProjectPojo>
             </list>
           </value>
@@ -697,9 +661,9 @@
                 <option name="name" value="preReleaseUnitTestBuild" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare Allegra-Android:onepocket-sdk-1.0.3-341:unspecified" />
+                <option name="description" value="Prepare Allegra-Android:onepocket-sdk-1.0.3-342:unspecified" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareAllegraAndroidOnepocketSdk103341UnspecifiedLibrary" />
+                <option name="name" value="prepareAllegraAndroidOnepocketSdk103342UnspecifiedLibrary" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Prepare :card.io-5.3.0:" />
@@ -1610,9 +1574,9 @@
                 <option name="name" value="preReleaseUnitTestBuild" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare Allegra-Android:onepocket-sdk-1.0.3-341:unspecified" />
+                <option name="description" value="Prepare Allegra-Android:onepocket-sdk-1.0.3-342:unspecified" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareAllegraAndroidOnepocketSdk103341UnspecifiedLibrary" />
+                <option name="name" value="prepareAllegraAndroidOnepocketSdk103342UnspecifiedLibrary" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Prepare :card.io-5.3.0:" />
@@ -2098,57 +2062,6 @@
             </list>
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/onepocket-sdk-1.0.3-340">
-          <value>
-            <list>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays all buildscript dependencies declared in project ':onepocket-sdk-1.0.3-340'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.3-340" />
-                <option name="name" value="buildEnvironment" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the components produced by project ':onepocket-sdk-1.0.3-340'. [incubating]" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.3-340" />
-                <option name="name" value="components" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays all dependencies declared in project ':onepocket-sdk-1.0.3-340'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.3-340" />
-                <option name="name" value="dependencies" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the insight into a specific dependency in project ':onepocket-sdk-1.0.3-340'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.3-340" />
-                <option name="name" value="dependencyInsight" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays a help message." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.3-340" />
-                <option name="name" value="help" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the configuration model of project ':onepocket-sdk-1.0.3-340'. [incubating]" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.3-340" />
-                <option name="name" value="model" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the sub-projects of project ':onepocket-sdk-1.0.3-340'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.3-340" />
-                <option name="name" value="projects" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the properties of project ':onepocket-sdk-1.0.3-340'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.3-340" />
-                <option name="name" value="properties" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the tasks runnable from project ':onepocket-sdk-1.0.3-340'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.3-340" />
-                <option name="name" value="tasks" />
-              </ExternalTaskPojo>
-            </list>
-          </value>
-        </entry>
         <entry key="$PROJECT_DIR$/onepocket-sdk-1.0.3-341">
           <value>
             <list>
@@ -2200,11 +2113,62 @@
             </list>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/onepocket-sdk-1.0.3-342">
+          <value>
+            <list>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays all buildscript dependencies declared in project ':onepocket-sdk-1.0.3-342'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.3-342" />
+                <option name="name" value="buildEnvironment" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the components produced by project ':onepocket-sdk-1.0.3-342'. [incubating]" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.3-342" />
+                <option name="name" value="components" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays all dependencies declared in project ':onepocket-sdk-1.0.3-342'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.3-342" />
+                <option name="name" value="dependencies" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the insight into a specific dependency in project ':onepocket-sdk-1.0.3-342'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.3-342" />
+                <option name="name" value="dependencyInsight" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays a help message." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.3-342" />
+                <option name="name" value="help" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the configuration model of project ':onepocket-sdk-1.0.3-342'. [incubating]" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.3-342" />
+                <option name="name" value="model" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the sub-projects of project ':onepocket-sdk-1.0.3-342'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.3-342" />
+                <option name="name" value="projects" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the properties of project ':onepocket-sdk-1.0.3-342'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.3-342" />
+                <option name="name" value="properties" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the tasks runnable from project ':onepocket-sdk-1.0.3-342'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/onepocket-sdk-1.0.3-342" />
+                <option name="name" value="tasks" />
+              </ExternalTaskPojo>
+            </list>
+          </value>
+        </entry>
       </map>
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="5886446028000" />
+        <entry key="$PROJECT_DIR$" value="5886966560000" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -3759,6 +3723,119 @@
                       </ExternalModuleBuildClasspathPojo>
                     </value>
                   </entry>
+                  <entry key="$PROJECT_DIR$/onepocket-sdk-1.0.3-342">
+                    <value>
+                      <ExternalModuleBuildClasspathPojo>
+                        <option name="entries">
+                          <list>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/gradle/2.1.2/831c63d2b30ed5f96a1cd9fd141594baf947b956/gradle-2.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/gradle/2.1.2/a15b8a1abdb158716cb2eca322c8c055dcf3c73d/gradle-2.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/gradle-core/2.1.2/b0d10d83f1147cb8182c0ded4d5403d8d37331ef/gradle-core-2.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/gradle-core/2.1.2/23fa54cbd68abe0d190b3f19b8db553c22b1e95e/gradle-core-2.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/builder/2.1.2/10a052d4d411f30a12b21f942449a1f5deea1860/builder-2.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/builder/2.1.2/b0f8f1b2be1cca433af04ac59c032bb65f104f68/builder-2.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.lint/lint/25.1.2/cf990f1875849b4a3a3dcd4c7427b950a1ae5b02/lint-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.lint/lint/25.1.2/73b0fca79c61b7d4212354d2dc54310f18d3eab1/lint-25.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/transform-api/2.0.0-deprecated-use-gradle-api/e4075c49e16e086140fe40eea56b2de7516874ee/transform-api-2.0.0-deprecated-use-gradle-api-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/transform-api/2.0.0-deprecated-use-gradle-api/85bee1acea9e27152b920746c68133b30b11431/transform-api-2.0.0-deprecated-use-gradle-api.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/gradle-api/2.1.2/95dab283a496d4434ecfa3b456fc9902e85bcb51/gradle-api-2.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/gradle-api/2.1.2/13a4ad6e82603eca38f0f46e308db7b2374bd33a/gradle-api-2.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.databinding/compilerCommon/2.1.2/553d79a3f70520b5d4b642f8fdd44f010be02980/compilerCommon-2.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.databinding/compilerCommon/2.1.2/658479d60a2ad7f511ea43028a9dbe6f7658779d/compilerCommon-2.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm/5.0.3/asm-5.0.3-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm/5.0.3/asm-5.0.3.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-commons/5.0.3/f0f24f6666c1a15c7e202e91610476bd4ce59368/asm-commons-5.0.3-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-commons/5.0.3/a7111830132c7f87d08fe48cb0ca07630f8cb91c/asm-commons-5.0.3.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-gradle/5.2.1/proguard-gradle-5.2.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-gradle/5.2.1/proguard-gradle-5.2.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/jacoco/org.jacoco.core/0.7.4.201502262128/org.jacoco.core-0.7.4.201502262128-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/jacoco/org.jacoco.core/0.7.4.201502262128/org.jacoco.core-0.7.4.201502262128.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/antlr/antlr/3.5.2/antlr-3.5.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/builder-model/2.1.2/f19905b8b3f1ee051f3557d25bf1ce83e97e9ba3/builder-model-2.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/builder-model/2.1.2/54929c8a9d8c2dd13c945c3f5ad0ec5546cdc006/builder-model-2.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/builder-test-api/2.1.2/5b452a5ddbdd43c47f519be4d93b57562d495aca/builder-test-api-2.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/builder-test-api/2.1.2/ee73cc6c008005128538d86c1c56a27e2d96c32/builder-test-api-2.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/sdklib/25.1.2/21775dd82ab275653b7d1d76f5026b7675841e90/sdklib-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/sdklib/25.1.2/59cdf46da07c365d456606d3985a51702db87c24/sdklib-25.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/sdk-common/25.1.2/1ab12362d3631876ff7108cee05860cdcdae2aae/sdk-common-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/sdk-common/25.1.2/1dcda99e022faddbf24336c0c8b37398773f4c36/sdk-common-25.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/common/25.1.2/6916af9c1306f7eb55428cef97d8beeae1a69670/common-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/common/25.1.2/c15c73c5ddedc9ac2afdfda827fa23a9b59b9b9d/common-25.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/manifest-merger/25.1.2/c31b678259df5cffbf0892be0e3fff8525705f1c/manifest-merger-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/manifest-merger/25.1.2/2f070c6b90be1642f37aafe15e42f21ba73394da/manifest-merger-25.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.ddms/ddmlib/25.1.2/838cad7e7534af0207b3cdf5685724ac93c4fcfd/ddmlib-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.ddms/ddmlib/25.1.2/521439862ec854d683a19a351fcc3beda4653346/ddmlib-25.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.jack/jack-api/0.10.0/93c3b096c028929ae9ec7414bd8da03b4feb6893/jack-api-0.10.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.jack/jack-api/0.10.0/f44f53e8f713714f9a1bf9b2cabfea3584b00878/jack-api-0.10.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.jill/jill-api/0.10.0/86d40c97b995035915303e5aa051980b9ec2d252/jill-api-0.10.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.jill/jill-api/0.10.0/7dfd6360ae4af1e171ec67b92e0cf065d59eef19/jill-api-0.10.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/squareup/javawriter/2.5.0/javawriter-2.5.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/squareup/javawriter/2.5.0/javawriter-2.5.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcpkix-jdk15on/1.48/bcpkix-jdk15on-1.48-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcpkix-jdk15on/1.48/bcpkix-jdk15on-1.48.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcprov-jdk15on/1.48/bcprov-jdk15on-1.48-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcprov-jdk15on/1.48/bcprov-jdk15on-1.48.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-tree/5.0.3/asm-tree-5.0.3-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-tree/5.0.3/asm-tree-5.0.3.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.lint/lint-checks/25.1.2/433c9236b299a30633c7a82ac4ab1b2b7fa52e0/lint-checks-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.lint/lint-checks/25.1.2/68583e445a033021d9792c9d84ac7ce8ea549c81/lint-checks-25.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/eclipse/jdt/core/compiler/ecj/4.4.2/ecj-4.4.2-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/eclipse/jdt/core/compiler/ecj/4.4.2/ecj-4.4.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/annotations/25.1.2/e7aa50c5649e0ad23ce4fa6b2aa7b53fc5ce8bd7/annotations-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/annotations/25.1.2/9dbfadaaf19097c12787c68cf43a12c739936345/annotations-25.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/guava/guava/17.0/guava-17.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/guava/guava/17.0/guava-17.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.databinding/baseLibrary/2.1.2/2d98da9b8a210c81d0456a09c702b84beea32be/baseLibrary-2.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.databinding/baseLibrary/2.1.2/d0395908c940f4171fb024435b25f7458c1147f3/baseLibrary-2.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/tunnelvisionlabs/antlr4/4.5/antlr4-4.5.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-io/commons-io/2.4/commons-io-2.4-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-io/commons-io/2.4/commons-io-2.4.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/googlecode/juniversalchardet/juniversalchardet/1.0.3/juniversalchardet-1.0.3.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-base/5.2.1/proguard-base-5.2.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-base/5.2.1/proguard-base-5.2.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-debug-all/5.0.1/asm-debug-all-5.0.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-debug-all/5.0.1/asm-debug-all-5.0.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/antlr/antlr-runtime/3.5.2/antlr-runtime-3.5.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/antlr/ST4/4.0.8/ST4-4.0.8.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.layoutlib/layoutlib-api/25.1.2/77d6be5f7434bbee7ba7e259f1ccad79e2fbde6/layoutlib-api-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.layoutlib/layoutlib-api/25.1.2/b93f0de181063ee2f673d7d6cac0bdbb94cc1b90/layoutlib-api-25.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/dvlib/25.1.2/7d06048ed915a03eaf99c70bbc6e68d10324c30e/dvlib-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/dvlib/25.1.2/bfcb16fb0e44568bd8e31c6aaf1850c1dcd06483/dvlib-25.1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/repository/25.1.2/d5bc6e179c237124e51b4af951e4caf0f31d4837/repository-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools/repository/25.1.2/1a1f5f59b21a42817eec50b7aced4400bb72273b/repository-25.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/code/gson/gson/2.2.4/gson-2.2.4-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/commons/commons-compress/1.8.1/commons-compress-1.8.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/commons/commons-compress/1.8.1/commons-compress-1.8.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpclient/4.1.1/httpclient-4.1.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpclient/4.1.1/httpclient-4.1.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpmime/4.1/httpmime-4.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpmime/4.1/httpmime-4.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.lint/lint-api/25.1.2/2a9b10f19fc2bf1cca643a9770e4738d9b121ed3/lint-api-25.1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.lint/lint-api/25.1.2/f9f6807b68d486eaf34cc3f08b6f098f89cf3db8/lint-api-25.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-analysis/5.0.3/asm-analysis-5.0.3-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-analysis/5.0.3/asm-analysis-5.0.3.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/tunnelvisionlabs/antlr4-runtime/4.5/antlr4-runtime-4.5.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/tunnelvisionlabs/antlr4-annotations/4.5/antlr4-annotations-4.5.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/intellij/annotations/12.0/annotations-12.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/intellij/annotations/12.0/annotations-12.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpcore/4.1/httpcore-4.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpcore/4.1/httpcore-4.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-codec/commons-codec/1.4/commons-codec-1.4-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-codec/commons-codec/1.4/commons-codec-1.4.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.3/lombok-ast-0.2.3-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.3/lombok-ast-0.2.3.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/abego/treelayout/org.abego.treelayout.core/1.0.1/org.abego.treelayout.core-1.0.1.jar" />
+                          </list>
+                        </option>
+                        <option name="path" value="$PROJECT_DIR$/onepocket-sdk-1.0.3-342" />
+                      </ExternalModuleBuildClasspathPojo>
+                    </value>
+                  </entry>
                 </map>
               </option>
               <option name="name" value="app" />
@@ -3908,7 +3985,6 @@
         <option value="$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.1-337/unspecified/jars/classes.jar!/com/allem/onepocket/ConfirmCardFragment.class" />
         <option value="$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-338/unspecified/jars/classes.jar!/com/allem/onepocket/ShippingAddrHandler.class" />
         <option value="$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/classes.jar!/com/allem/onepocket/MCardFragment.class" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/VisaCheckoutApp.java" />
         <option value="$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/support-v4/23.4.0/support-v4-23.4.0-sources.jar!/android/support/v4/app/ActivityCompat.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/CustomQrActivity.java" />
@@ -3917,14 +3993,20 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/Mcardhtml.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OnepocketContainerActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OnepocketPurchaseActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OneTransactionsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/QRScanActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/ServiceActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/BackFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/ConciergeSearchActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/utils/Constants.java" />
         <option value="$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/classes.jar!/com/allem/onepocket/utils/CurrencyFormatter.class" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/MarketPlaceActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/utils/Constants.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.3-341/unspecified/jars/classes.jar!/com/allem/onepocket/database/OPKDbHelper.class" />
+        <option value="$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.3-341/unspecified/jars/classes.jar!/com/allem/onepocket/async/obtenerCompras/ObtenerCompras.class" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OneTransactionsActivity.java" />
+        <option value="$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.3-341/unspecified/jars/classes.jar!/com/allem/onepocket/FilterFragment.class" />
+        <option value="$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.3-341/unspecified/jars/classes.jar!/com/allem/onepocket/TransactionAdapter.class" />
+        <option value="$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.3-341/unspecified/jars/classes.jar!/com/allem/onepocket/TransactionsFragment.class" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
       </list>
     </option>
@@ -3967,6 +4049,9 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane" />
       <pane id="Scope">
         <subPane subId="Changed Files">
           <PATH>
@@ -3977,8 +4062,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="ProjectPane" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -3989,19 +4072,18 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="android.sdk-updates" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../OnePocket-Android/onepocket/build/outputs/aar/onepocket-sdk-1.0.3-341.aar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../OnePocket-Android/onepocket/build/outputs/aar/onepocket-sdk-1.0.3-342.aar" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="01157df1d2dc7d1b" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_5_API_22" />
-    <property name="SearchEverywhereHistoryKey" value="consta&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/utils/Constants.java&#10;currencyfor&#9;PSI&#9;JAVA://com.allem.onepocket.utils.CurrencyFormatter&#10;onepars&#9;PSI&#9;JAVA://com.allem.onepocket.utils.OneTransactionParser&#10;con&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/utils/Constants.java&#10;co&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/utils/Constants.java&#10;concierge&#9;PSI&#9;JAVA://com.allegra.handyuvisa.AppJavaScriptProxyConcierge&#10;concier&#9;PSI&#9;JAVA://com.allegra.handyuvisa.ConciergeSearchActivity&#10;const&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/utils/Constants.java&#10;conc&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/ConciergeSearchActivity.java&#10;one&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OnepocketPurchaseActivity.java&#10;back&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/BackFragment.java&#10;hotel&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/HotelsActivity.java&#10;mcardh&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/Mcardhtml.java&#10;mcardht&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/Mcardhtml.java&#10;o&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OnepocketContainerActivity.java&#10;qr&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/QRScanActivity.java&#10;mcardfrag&#9;PSI&#9;JAVA://com.allem.onepocket.MCardFragment&#10;androidmani&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/AndroidManifest.xml&#10;cust&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/CustomQrActivity.java&#10;transactionre&#9;PSI&#9;JAVA://com.allem.onepocket.TransactionRecordFragment&#10;makepay&#9;PSI&#9;JAVA://com.allem.onepocket.async.vco.MakeVCOPayment&#10;onepock&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OnepocketContainerActivity.java&#10;customqr&#9;PSI&#9;JAVA://com.allegra.handyuvisa.CustomQrActivity&#10;q&#9;PSI&#9;JAVA://com.allegra.handyuvisa.QRScanActivity&#10;visach&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/VisaCheckoutApp.java&#10;login&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/LoginActivity.java&#10;mcard&#9;FILE&#9;jar:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/classes.jar!/com/allem/onepocket/MCardJSProxy.class&#10;sessioncon&#9;PSI&#9;JAVA://com.allem.onepocket.utils.SessionController&#10;opkcon&#9;PSI&#9;JAVA://com.allem.onepocket.utils.OPKConstants&#10;onepu&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OnepocketPurchaseActivity.java&#10;m&#9;FILE&#9;jar:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/classes.jar!/com/allem/onepocket/MCardFragment.class&#10;loginnew&#9;PSI&#9;JAVA://com.allegra.handyuvisa.LoginNewUser&#10;hotels&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/HotelSearchActivity.java&#10;mcar&#9;FILE&#9;jar:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/classes.jar!/com/allem/onepocket/MCardFragment.class&#10;p&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OnepocketContainerActivity.java&#10;mcardf&#9;PSI&#9;JAVA://com.allem.onepocket.MCardFragment&#10;on&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OnepocketContainerActivity.java&#10;tra&#9;FILE&#9;jar:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/classes.jar!/com/allem/onepocket/TransactionRecordFragment.class&#10;opk&#9;FILE&#9;jar:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/classes.jar!/com/allem/onepocket/OPKSummaryFragment.class&#10;opksu&#9;PSI&#9;JAVA://com.allem.onepocket.OPKSummaryFragment&#10;mcardpro&#9;PSI&#9;JAVA://com.allem.onepocket.MCardJSProxy&#10;transact&#9;FILE&#9;jar:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/classes.jar!/com/allem/onepocket/TransactionRecordFragment.class&#10;transactionrec&#9;PSI&#9;JAVA://com.allem.onepocket.TransactionRecordFragment&#10;constan&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/utils/Constants.java&#10;fligh&#9;PSI&#9;JAVA://com.allegra.handyuvisa.FlightsActivity&#10;onco&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OnepocketContainerActivity.java&#10;onepoc&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OnepocketContainerActivity.java&#10;build&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build.gradle&#10;send&#9;PSI&#9;JAVA://com.allegra.handyuvisa.SendLogActivity&#10;buil&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build.gradle" />
+    <property name="SearchEverywhereHistoryKey" value="buil&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build.gradle&#10;tra&#9;FILE&#9;jar:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.3-341/unspecified/jars/classes.jar!/com/allem/onepocket/TransactionAdapter.class&#10;build&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build.gradle&#10;transac&#9;FILE&#9;jar:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.3-341/unspecified/jars/classes.jar!/com/allem/onepocket/TransactionsFragment.class&#10;hotela&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/HotelsActivity.java&#10;hotels&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/HotelSearchActivity.java&#10;chata&#9;PSI&#9;JAVA://com.allegra.handyuvisa.ChatActivity&#10;edit&#9;PSI&#9;JAVA://com.allegra.handyuvisa.EditProfileActivity&#10;one&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OneTransactionsActivity.java&#10;androi&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/AndroidManifest.xml&#10;r&#9;FILE&#9;jar:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.3-341/unspecified/jars/classes.jar!/com/allem/onepocket/TransactionsFragment.class&#10;transactionfrag&#9;PSI&#9;JAVA://com.allem.onepocket.TransactionsFragment&#10;onetr&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OneTransactionsActivity.java&#10;login&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/LoginActivity.java&#10;consta&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/utils/Constants.java&#10;currencyfor&#9;PSI&#9;JAVA://com.allem.onepocket.utils.CurrencyFormatter&#10;onepars&#9;PSI&#9;JAVA://com.allem.onepocket.utils.OneTransactionParser&#10;con&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/utils/Constants.java&#10;co&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/utils/Constants.java&#10;concierge&#9;PSI&#9;JAVA://com.allegra.handyuvisa.AppJavaScriptProxyConcierge&#10;concier&#9;PSI&#9;JAVA://com.allegra.handyuvisa.ConciergeSearchActivity&#10;const&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/utils/Constants.java&#10;conc&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/ConciergeSearchActivity.java&#10;back&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/BackFragment.java&#10;hotel&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/HotelsActivity.java&#10;mcardh&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/Mcardhtml.java&#10;mcardht&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/Mcardhtml.java&#10;o&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OnepocketContainerActivity.java&#10;qr&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/QRScanActivity.java&#10;mcardfrag&#9;PSI&#9;JAVA://com.allem.onepocket.MCardFragment&#10;androidmani&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/AndroidManifest.xml&#10;cust&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/CustomQrActivity.java&#10;transactionre&#9;PSI&#9;JAVA://com.allem.onepocket.TransactionRecordFragment&#10;makepay&#9;PSI&#9;JAVA://com.allem.onepocket.async.vco.MakeVCOPayment&#10;onepock&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OnepocketContainerActivity.java&#10;customqr&#9;PSI&#9;JAVA://com.allegra.handyuvisa.CustomQrActivity&#10;q&#9;PSI&#9;JAVA://com.allegra.handyuvisa.QRScanActivity&#10;visach&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/VisaCheckoutApp.java&#10;mcard&#9;FILE&#9;jar:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/classes.jar!/com/allem/onepocket/MCardJSProxy.class&#10;sessioncon&#9;PSI&#9;JAVA://com.allem.onepocket.utils.SessionController&#10;opkcon&#9;PSI&#9;JAVA://com.allem.onepocket.utils.OPKConstants&#10;onepu&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OnepocketPurchaseActivity.java&#10;m&#9;FILE&#9;jar:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/classes.jar!/com/allem/onepocket/MCardFragment.class&#10;loginnew&#9;PSI&#9;JAVA://com.allegra.handyuvisa.LoginNewUser&#10;mcar&#9;FILE&#9;jar:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/classes.jar!/com/allem/onepocket/MCardFragment.class&#10;p&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OnepocketContainerActivity.java&#10;mcardf&#9;PSI&#9;JAVA://com.allem.onepocket.MCardFragment&#10;on&#9;FILE&#9;file:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/src/main/java/com/allegra/handyuvisa/OnepocketContainerActivity.java&#10;opk&#9;FILE&#9;jar:///Users/lchui/Documents/Work/IATAI/git/Allegra-Android/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.2-339/unspecified/jars/classes.jar!/com/allem/onepocket/OPKSummaryFragment.class&#10;opksu&#9;PSI&#9;JAVA://com.allem.onepocket.OPKSummaryFragment" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="android.project.structure.last.selected" value="SDK Location" />
+    <property name="android.project.structure.last.selected" value="onepocket-sdk-1.0.3-341" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="DEBUGGABLE_DEVICE" value="samsung-sm_g920f-01157df1d2dc7d1b" />
     <property name="DEBUGGABLE_PROCESS" value="com.allegra.handyuvisa" />
@@ -4239,7 +4321,13 @@
       <option name="project" value="LOCAL" />
       <updated>1471647857976</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="- Update onepocket SDK: 1.0.3-341 (Fix typo &quot;Apellido&quot;; Hardcode COP conversion factor to 2920; partial implementaion of transaction history search)">
+      <created>1471905988289</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1471905988289</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -4247,16 +4335,16 @@
     <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32344633" sideWeight="0.49284694" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32062146" sideWeight="0.49284694" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3248227" sideWeight="0.5071531" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32107496" sideWeight="0.5028612" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39265537" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2980226" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32344633" sideWeight="0.49427754" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28531075" sideWeight="0.49713877" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29943502" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32062146" sideWeight="0.490701" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -4267,7 +4355,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3134752" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29096046" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -4297,7 +4385,8 @@
     <MESSAGE value="- Latest onepocket SDK 1.0.1-337 (split payment taxes, fix fraud protection/decline by bank dialog UI)" />
     <MESSAGE value="- Latest onepocket SDK 1.0.2-338 (add shipping address crash)" />
     <MESSAGE value="- Merge" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Merge" />
+    <MESSAGE value="- Update onepocket SDK: 1.0.3-341 (Fix typo &quot;Apellido&quot;; Hardcode COP conversion factor to 2920; partial implementaion of transaction history search)" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Update onepocket SDK: 1.0.3-341 (Fix typo &quot;Apellido&quot;; Hardcode COP conversion factor to 2920; partial implementaion of transaction history search)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -4541,138 +4630,48 @@
           <properties />
           <option name="timeStamp" value="99" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.3-341/unspecified/jars/classes.jar!/com/allem/onepocket/TransactionsFragment.class</url>
+          <line>63</line>
+          <properties />
+          <option name="timeStamp" value="112" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OneTransactionsActivity.java</url>
+          <line>54</line>
+          <properties />
+          <option name="timeStamp" value="118" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.3-341/unspecified/jars/classes.jar!/com/allem/onepocket/TransactionsFragment.class</url>
+          <line>103</line>
+          <properties />
+          <option name="timeStamp" value="119" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.3-341/unspecified/jars/classes.jar!/com/allem/onepocket/TransactionsFragment.class</url>
+          <line>70</line>
+          <properties />
+          <option name="timeStamp" value="120" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.3-341/unspecified/jars/classes.jar!/com/allem/onepocket/TransactionsFragment.class</url>
+          <line>148</line>
+          <properties />
+          <option name="timeStamp" value="121" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.3-341/unspecified/jars/classes.jar!/com/allem/onepocket/TransactionsFragment.class</url>
+          <line>74</line>
+          <properties />
+          <option name="timeStamp" value="123" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="100" />
+      <option name="time" value="127" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OnepocketPurchaseActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1904#1905#0" expanded="false" />
-            <element signature="e#1957#1958#0" expanded="false" />
-            <element signature="e#3693#3694#0" expanded="false" />
-            <element signature="e#3734#3735#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OneTransactionsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="141" column="0" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1762#1763#0" expanded="false" />
-            <element signature="e#1815#1816#0" expanded="false" />
-            <element signature="e#3130#3131#0" expanded="false" />
-            <element signature="e#3171#3172#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/QRScanActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="113" column="57" selection-start-line="113" selection-start-column="57" selection-end-line="113" selection-end-column="57" />
-          <folding>
-            <element signature="e#3342#3343#0" expanded="false" />
-            <element signature="e#3374#3375#0" expanded="false" />
-            <element signature="e#3417#3418#0" expanded="false" />
-            <element signature="e#3448#3449#0" expanded="false" />
-            <element signature="e#6307#6308#0" expanded="false" />
-            <element signature="e#6332#6333#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/ServiceActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#3899#3900#0" expanded="false" />
-            <element signature="e#3924#3925#0" expanded="false" />
-            <element signature="e#4056#4057#0" expanded="false" />
-            <element signature="e#4102#4103#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/MarketPlaceActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-23/org/json/JSONObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="554" column="0" selection-start-line="554" selection-start-column="0" selection-end-line="554" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#29272#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#4878#4879#0" expanded="false" />
-            <element signature="e#4915#4916#0" expanded="false" />
-            <element signature="e#5095#5096#0" expanded="false" />
-            <element signature="e#5163#5164#0" expanded="false" />
-            <element signature="e#7938#7939#0" expanded="false" />
-            <element signature="e#7982#7983#0" expanded="false" />
-            <element signature="e#13885#13886#0" expanded="false" />
-            <element signature="e#13935#13936#0" expanded="false" />
-            <element signature="e#14385#14386#0" expanded="false" />
-            <element signature="e#14440#14441#0" expanded="false" />
-            <element signature="e#14989#14990#0" expanded="false" />
-            <element signature="e#15036#15037#0" expanded="false" />
-            <element signature="e#15782#15783#0" expanded="false" />
-            <element signature="e#15828#15829#0" expanded="false" />
-            <element signature="e#16937#16938#0" expanded="false" />
-            <element signature="e#16987#16988#0" expanded="false" />
-            <element signature="e#18056#18057#0" expanded="false" />
-            <element signature="e#18094#18095#0" expanded="false" />
-            <element signature="e#19426#19427#0" expanded="false" />
-            <element signature="e#19466#19467#0" expanded="false" />
-            <element signature="e#20645#20646#0" expanded="false" />
-            <element signature="e#20687#20688#0" expanded="false" />
-            <element signature="e#23784#23785#0" expanded="false" />
-            <element signature="e#23841#23842#0" expanded="false" />
-            <element signature="e#24258#24259#0" expanded="false" />
-            <element signature="e#24304#24305#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="68" column="52" selection-start-line="68" selection-start-column="52" selection-end-line="68" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/FlightsSearchActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -4691,7 +4690,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="335" column="61" selection-start-line="335" selection-start-column="61" selection-end-line="335" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4716,7 +4714,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4958,11 +4955,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="207" column="64" selection-start-line="207" selection-start-column="64" selection-end-line="207" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#6068#6069#0" expanded="false" />
-            <element signature="e#6108#6109#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4996,31 +4988,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-23/android/app/Fragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="741" column="0" selection-start-line="741" selection-start-column="0" selection-end-line="741" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/LoginNewUser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-          <folding>
-            <element signature="e#14059#14060#0" expanded="false" />
-            <element signature="e#14113#14114#0" expanded="false" />
-            <element signature="e#14269#14270#0" expanded="false" />
-            <element signature="e#14324#14325#0" expanded="false" />
-            <element signature="e#28136#28137#0" expanded="false" />
-            <element signature="e#28201#28202#0" expanded="false" />
-            <element signature="e#32256#32257#0" expanded="false" />
-            <element signature="e#32304#32305#0" expanded="false" />
-            <element signature="e#33826#33827#0" expanded="false" />
-            <element signature="e#33874#33875#0" expanded="false" />
-            <element signature="e#37297#37298#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -5038,14 +5009,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="204" column="56" selection-start-line="204" selection-start-column="56" selection-end-line="204" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.journeyapps/zxing-android-embedded/3.1.0/7518709943761da3853b45aa720f22415ffd19a7/zxing-android-embedded-3.1.0-sources.jar!/com/journeyapps/barcodescanner/CaptureManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -5060,14 +5023,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.2222223">
-          <caret line="20" column="42" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/CustomQrActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.296296">
@@ -5076,19 +5031,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/HotelsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="43" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/FrontBackAnimate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="136" column="65" selection-start-line="136" selection-start-column="65" selection-end-line="136" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -5103,7 +5049,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="156" column="43" selection-start-line="156" selection-start-column="43" selection-end-line="156" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -5111,7 +5056,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="209" column="157" selection-start-line="209" selection-start-column="157" selection-end-line="209" selection-end-column="157" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -5119,15 +5063,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="285" column="39" selection-start-line="285" selection-start-column="39" selection-end-line="285" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/HotelSearchActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="328" column="39" selection-start-line="328" selection-start-column="39" selection-end-line="328" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -5144,34 +5079,6 @@
           <caret line="164" column="55" selection-start-line="164" selection-start-column="55" selection-end-line="164" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OnepocketPurchaseActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1904#1905#0" expanded="false" />
-            <element signature="e#1957#1958#0" expanded="false" />
-            <element signature="e#3693#3694#0" expanded="false" />
-            <element signature="e#3734#3735#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OneTransactionsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="141" column="0" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1762#1763#0" expanded="false" />
-            <element signature="e#1815#1816#0" expanded="false" />
-            <element signature="e#3130#3131#0" expanded="false" />
-            <element signature="e#3171#3172#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -5195,6 +5102,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="113" column="57" selection-start-line="113" selection-start-column="57" selection-end-line="113" selection-end-column="57" />
           <folding>
+            <element signature="imports" expanded="false" />
             <element signature="e#3342#3343#0" expanded="false" />
             <element signature="e#3374#3375#0" expanded="false" />
             <element signature="e#3417#3418#0" expanded="false" />
@@ -5244,24 +5152,280 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/MarketPlaceActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.5555553">
-          <caret line="171" column="5" selection-start-line="171" selection-start-column="5" selection-end-line="171" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="60" column="37" selection-start-line="60" selection-start-column="37" selection-end-line="60" selection-end-column="37" />
-          <folding />
+          <caret line="171" column="5" selection-start-line="171" selection-start-column="5" selection-end-line="171" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/utils/Constants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26865673">
-          <caret line="52" column="2" selection-start-line="52" selection-start-column="2" selection-end-line="52" selection-end-column="2" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="61" column="45" selection-start-line="61" selection-start-column="45" selection-end-line="61" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="239" column="33" selection-start-line="239" selection-start-column="33" selection-end-line="239" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#15959#15960#0" expanded="false" />
+            <element signature="e#15984#15985#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-23/android/database/sqlite/SQLiteOpenHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="318" column="25" selection-start-line="318" selection-start-column="25" selection-end-line="318" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#15977#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#5242#5243#0" expanded="false" />
+            <element signature="e#5270#5271#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-23/android/app/Fragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="801" column="0" selection-start-line="801" selection-start-column="0" selection-end-line="801" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#99011#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#4242#4243#0" expanded="false" />
+            <element signature="e#4266#4267#0" expanded="false" />
+            <element signature="e#4904#4905#0" expanded="false" />
+            <element signature="e#4956#4957#0" expanded="false" />
+            <element signature="e#5009#5010#0" expanded="false" />
+            <element signature="e#5063#5064#0" expanded="false" />
+            <element signature="e#20259#20260#0" expanded="false" />
+            <element signature="e#20297#20298#0" expanded="false" />
+            <element signature="e#20570#20571#0" expanded="false" />
+            <element signature="e#20602#20603#0" expanded="false" />
+            <element signature="e#20681#20682#0" expanded="false" />
+            <element signature="e#20729#20730#0" expanded="false" />
+            <element signature="e#20936#20937#0" expanded="false" />
+            <element signature="e#20999#21000#0" expanded="false" />
+            <element signature="e#21199#21200#0" expanded="false" />
+            <element signature="e#21258#21259#0" expanded="false" />
+            <element signature="e#21560#21561#0" expanded="false" />
+            <element signature="e#21601#21602#0" expanded="false" />
+            <element signature="e#26128#26129#0" expanded="false" />
+            <element signature="e#26172#26173#0" expanded="false" />
+            <element signature="e#26288#26289#0" expanded="false" />
+            <element signature="e#26326#26327#0" expanded="false" />
+            <element signature="e#26434#26435#0" expanded="false" />
+            <element signature="e#26473#26474#0" expanded="false" />
+            <element signature="e#27239#27240#0" expanded="false" />
+            <element signature="e#27273#27274#0" expanded="false" />
+            <element signature="e#27380#27381#0" expanded="false" />
+            <element signature="e#27407#27408#0" expanded="false" />
+            <element signature="e#28064#28065#0" expanded="false" />
+            <element signature="e#28097#28098#0" expanded="false" />
+            <element signature="e#29569#29570#0" expanded="false" />
+            <element signature="e#29599#29600#0" expanded="false" />
+            <element signature="e#29735#29736#0" expanded="false" />
+            <element signature="e#29776#29777#0" expanded="false" />
+            <element signature="e#29905#29906#0" expanded="false" />
+            <element signature="e#29969#29970#0" expanded="false" />
+            <element signature="e#30099#30100#0" expanded="false" />
+            <element signature="e#30164#30165#0" expanded="false" />
+            <element signature="e#30356#30357#0" expanded="false" />
+            <element signature="e#30419#30420#0" expanded="false" />
+            <element signature="e#31256#31257#0" expanded="false" />
+            <element signature="e#31310#31311#0" expanded="false" />
+            <element signature="e#32421#32422#0" expanded="false" />
+            <element signature="e#32460#32461#0" expanded="false" />
+            <element signature="e#33417#33418#0" expanded="false" />
+            <element signature="e#33455#33456#0" expanded="false" />
+            <element signature="e#33580#33581#0" expanded="false" />
+            <element signature="e#33626#33627#0" expanded="false" />
+            <element signature="e#33886#33887#0" expanded="false" />
+            <element signature="e#33918#33919#0" expanded="false" />
+            <element signature="e#34205#34206#0" expanded="false" />
+            <element signature="e#34237#34238#0" expanded="false" />
+            <element signature="e#34665#34666#0" expanded="false" />
+            <element signature="e#34697#34698#0" expanded="false" />
+            <element signature="e#34906#34907#0" expanded="false" />
+            <element signature="e#34937#34938#0" expanded="false" />
+            <element signature="e#35722#35723#0" expanded="false" />
+            <element signature="e#35752#35753#0" expanded="false" />
+            <element signature="e#37184#37185#0" expanded="false" />
+            <element signature="e#37222#37223#0" expanded="false" />
+            <element signature="e#39637#39638#0" expanded="false" />
+            <element signature="e#39676#39677#0" expanded="false" />
+            <element signature="e#40398#40399#0" expanded="false" />
+            <element signature="e#40441#40442#0" expanded="false" />
+            <element signature="e#50101#50102#0" expanded="false" />
+            <element signature="e#50131#50132#0" expanded="false" />
+            <element signature="e#55156#55157#0" expanded="false" />
+            <element signature="e#55186#55187#0" expanded="false" />
+            <element signature="e#55334#55335#0" expanded="false" />
+            <element signature="e#55361#55362#0" expanded="false" />
+            <element signature="e#56118#56119#0" expanded="false" />
+            <element signature="e#56148#56149#0" expanded="false" />
+            <element signature="e#58297#58298#0" expanded="false" />
+            <element signature="e#58325#58326#0" expanded="false" />
+            <element signature="e#59117#59118#0" expanded="false" />
+            <element signature="e#59147#59148#0" expanded="false" />
+            <element signature="e#59748#59749#0" expanded="false" />
+            <element signature="e#59778#59779#0" expanded="false" />
+            <element signature="e#60662#60663#0" expanded="false" />
+            <element signature="e#60692#60693#0" expanded="false" />
+            <element signature="e#61894#61895#0" expanded="false" />
+            <element signature="e#61924#61925#0" expanded="false" />
+            <element signature="e#62148#62149#0" expanded="false" />
+            <element signature="e#62178#62179#0" expanded="false" />
+            <element signature="e#62399#62400#0" expanded="false" />
+            <element signature="e#62429#62430#0" expanded="false" />
+            <element signature="e#62462#62463#0" expanded="false" />
+            <element signature="e#62492#62493#0" expanded="false" />
+            <element signature="e#62535#62536#0" expanded="false" />
+            <element signature="e#62565#62566#0" expanded="false" />
+            <element signature="e#63123#63124#0" expanded="false" />
+            <element signature="e#63153#63154#0" expanded="false" />
+            <element signature="e#64859#64860#0" expanded="false" />
+            <element signature="e#64889#64890#0" expanded="false" />
+            <element signature="e#67378#67379#0" expanded="false" />
+            <element signature="e#67406#67407#0" expanded="false" />
+            <element signature="e#69283#69284#0" expanded="false" />
+            <element signature="e#69340#69341#0" expanded="false" />
+            <element signature="e#69676#69677#0" expanded="false" />
+            <element signature="e#69733#69734#0" expanded="false" />
+            <element signature="e#70637#70638#0" expanded="false" />
+            <element signature="e#70665#70666#0" expanded="false" />
+            <element signature="e#72921#72922#0" expanded="false" />
+            <element signature="e#72966#72967#0" expanded="false" />
+            <element signature="e#73593#73594#0" expanded="false" />
+            <element signature="e#73632#73633#0" expanded="false" />
+            <element signature="e#74660#74661#0" expanded="false" />
+            <element signature="e#74706#74707#0" expanded="false" />
+            <element signature="e#76568#76569#0" expanded="false" />
+            <element signature="e#76612#76613#0" expanded="false" />
+            <element signature="e#77459#77460#0" expanded="false" />
+            <element signature="e#77497#77498#0" expanded="false" />
+            <element signature="e#78452#78453#0" expanded="false" />
+            <element signature="e#78499#78500#0" expanded="false" />
+            <element signature="e#80822#80823#0" expanded="false" />
+            <element signature="e#80874#80875#0" expanded="false" />
+            <element signature="e#90235#90236#0" expanded="false" />
+            <element signature="e#90289#90290#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="404" column="51" selection-start-line="404" selection-start-column="51" selection-end-line="404" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OnepocketPurchaseActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="141" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1904#1905#0" expanded="false" />
+            <element signature="e#1957#1958#0" expanded="false" />
+            <element signature="e#3693#3694#0" expanded="false" />
+            <element signature="e#3734#3735#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/attrs.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-23/android/graphics/Typeface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="181" column="27" selection-start-line="181" selection-start-column="27" selection-end-line="181" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/utils/CustomizedEditText.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/EditProfileActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="176" column="93" selection-start-line="176" selection-start-column="93" selection-end-line="176" selection-end-column="93" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/ChatActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.5555553">
+          <caret line="285" column="35" selection-start-line="285" selection-start-column="27" selection-end-line="285" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/HotelSearchActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="328" column="5" selection-start-line="328" selection-start-column="5" selection-end-line="328" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/HotelsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.962963">
+          <caret line="438" column="41" selection-start-line="438" selection-start-column="41" selection-end-line="438" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/allegra/handyuvisa/OneTransactionsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.3-341/unspecified/jars/classes.jar!/com/allem/onepocket/TransactionsFragment.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="18.518518">
+          <caret line="85" column="37" selection-start-line="85" selection-start-column="37" selection-end-line="85" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6495727">
+          <caret line="66" column="62" selection-start-line="66" selection-start-column="62" selection-end-line="66" selection-end-column="62" />
           <folding />
         </state>
       </provider>
