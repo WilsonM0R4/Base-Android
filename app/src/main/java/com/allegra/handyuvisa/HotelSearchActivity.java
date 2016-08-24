@@ -53,6 +53,7 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
     public String mcard;
     private String returnURL;
     private ImageView imgLogoAllegra, progressBar;
+    private TextView txtLoading;
 
     //******************OVERRIDE METHODS**********************
     @Override
@@ -66,6 +67,8 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
         webView = (WebView)findViewById(R.id.webView);
         progressBar= (ImageView) findViewById(R.id.pb_search_loader);
         imgLogoAllegra = (ImageView)findViewById(R.id.imgProgress);
+        txtLoading = (TextView)findViewById(R.id.txtLoading);
+        txtLoading.setVisibility(View.GONE);
         //btn_buy = (Button) findViewById(R.id.btn_buy);
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
@@ -309,6 +312,7 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
         public void onPageFinished(WebView view, String url) {
             progressBar.setVisibility(View.GONE);
             imgLogoAllegra.setVisibility(View.GONE);
+            txtLoading.setVisibility(View.GONE);
             if (url.equals("about:blank")) {
                 webView.loadUrl(returnURL);
             }

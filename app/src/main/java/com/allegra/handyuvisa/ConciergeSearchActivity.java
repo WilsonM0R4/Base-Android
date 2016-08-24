@@ -41,6 +41,7 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
     //ProgressBar progressBar;
     ImageView imgLogoAllegraLoader, progressBar;
     TextView title;
+    private TextView txtLoading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,7 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
 
         webView = (WebView)findViewById(R.id.webView);//Concierge
         progressBar= (ImageView)findViewById(R.id.pb_search_loader);//pb_concierge
+        txtLoading = (TextView)findViewById(R.id.txtLoading);
 
         progressBar.post(new Runnable() {
             @Override
@@ -182,6 +184,7 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
         public void onPageFinished(WebView view, String url) {
             progressBar.setVisibility(View.GONE);
             imgLogoAllegraLoader.setVisibility(View.GONE);
+            txtLoading.setVisibility(View.GONE);
             if (url.equals("about:blank")) {
                 webView.loadUrl(returnURL);
             }
@@ -228,6 +231,7 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
         intent.putExtras(bundle);
         startActivityForResult(intent, Constants.REQUEST_ONEPOCKET_RETURN);
     }
+
 
     private void loadArrows(){
 

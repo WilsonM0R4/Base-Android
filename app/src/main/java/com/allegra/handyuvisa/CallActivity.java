@@ -14,9 +14,8 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
-
+import android.widget.TextView;
 import com.allegra.handyuvisa.twilio.BasicPhone;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,13 +24,12 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
         SensorEventListener, LoadAnimate.InflateReadyListener,
         BackFragment.MenuSelectListener {
 
+    //*************GLOBAL ATTRIBUTES**************
     protected String OTC_NUMBER = "+13055605384";
-
     private static final int CALLING = 1;
     private static final int CALLIP = 2;
     private static final int HANGIP = 3;
     private static final int STANDBY = 4;
-
     private static final Handler handler = new Handler();
     private final String TAG="FA_OTC";
     private BasicPhone phone;
@@ -44,7 +42,9 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
     private float mSensorRange;
     private boolean speakerOff = true;
     private boolean muteOff = true;
+    private TextView txtTitle;
 
+    //*************OVERRIDE METHODS**************
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +60,6 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
         setListeners();
     }
 
-
     @Override
     public void onResume()
     {
@@ -71,11 +70,6 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
             addStatusMessage("Received incoming connection");
             //syncMainButton();
         }
-    }
-
-    protected void onPause() {
-        super.onPause();
-        if(mSensor!=null) mSensorManager.unregisterListener(this);
     }
 
     @Override
@@ -105,14 +99,12 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
         super.onConfigurationChanged(newConfig);
     }
 
-
     @Override
     public void onNewIntent(Intent intent)
     {
         super.onNewIntent(intent);
         setIntent(intent);
     }
-
 
     @Override
     public void initViews(View root) {
@@ -122,42 +114,6 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
     @Override
     public void onCancelLoading() {
         finish();
-    }
-
-    private void setActionbar() {
-        actionBar = getActionBar();
-        if(actionBar!=null){
-            actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setHomeButtonEnabled(true);
-        }
-
-    }
-
-    private void setListeners() {
-        phone.setListeners(this, this, this);
-    }
-
-    private void setButton(final int callstatus) {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                switch (callstatus) {
-                    case STANDBY:
-                        showProgress(true);
-                        break;
-                    case CALLIP:
-                        showProgress(true);
-                        break;
-                    case CALLING:
-                        showProgress(true);
-                        animate();
-                        break;
-                    default:
-                        showProgress(false);
-                }
-            }
-        });
-
     }
 
     @Override
@@ -172,22 +128,11 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
         }
     }
 
-    /* The BasicPhone Listeners*/
-
-    private void addStatusMessage(final String message)
-    {
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                Log.d(TAG, message);
-            }
-        });
-    }
-
     @Override
     public void onIncomingConnectionDisconnected() {
         addStatusMessage("Pending incoming connection disconnected");
     }
+
 
     @Override
     public void onConnectionConnecting() {
@@ -312,6 +257,66 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
 
     }
 
+    @Override
+    public void getStartActivity(Intent intent) {
+        onEndCall(null);
+        super.getStartActivity(intent);
+    }
+
+    //*******************PROPER METHODS**************
+    private void setActionbar() {
+        actionBar = getActionBar();
+        if(actionBar!=null){
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setHomeButtonEnabled(true);
+        }
+
+    }
+
+    private void setListeners() {
+        phone.setListeners(this, this, this);
+    }
+
+    private void setButton(final int callstatus) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                switch (callstatus) {
+                    case STANDBY:
+                        showProgress(true);
+                        break;
+                    case CALLIP:
+                        showProgress(true);
+                        break;
+                    case CALLING:
+                        showProgress(true);
+                        animate();
+                        break;
+                    default:
+                        showProgress(false);
+                }
+            }
+        });
+
+    }
+
+    protected void onPause() {
+        super.onPause();
+        if(mSensor!=null) mSensorManager.unregisterListener(this);
+    }
+
+    /* The BasicPhone Listeners*/
+
+    private void addStatusMessage(final String message)
+    {
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                Log.d(TAG, message);
+            }
+        });
+    }
+
     public void onEndCall(View view) {
         finish();
         overridePendingTransition(R.animator.back_slide_in, R.animator.front_slide_out);
@@ -341,12 +346,6 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
             phone.setCallMuted(false);
         }
 
-    }
-
-    @Override
-    public void getStartActivity(Intent intent) {
-        onEndCall(null);
-        super.getStartActivity(intent);
     }
 
     public void onHome(View view) {

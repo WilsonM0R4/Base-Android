@@ -35,8 +35,7 @@ import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class ChatActivity extends LoadAnimate
-                            implements LoadAnimate.InflateReadyListener,
+public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateReadyListener,
                                         BackFragment.MenuSelectListener {
 
     private final String TAG = "ChatActivity";
