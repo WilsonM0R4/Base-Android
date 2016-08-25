@@ -2,6 +2,7 @@ package com.allegra.handyuvisa.utils;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -27,6 +28,7 @@ public class UsuarioSQLiteHelper extends SQLiteOpenHelper {
     private static final String KEY_VALUE1 = "value1";
     private static final String KEY_VALUE2 = "value2";
     private static final String KEY_VALUE3 = "value3";
+    UserDataBase userDataBase = new UserDataBase();
 
     private static final String[] COLUMNS = {KEY_NAME,KEY_SURANAME,KEY_TYPEID, KEY_NUMID, KEY_NUMMCARD,
             KEY_VALUE1, KEY_VALUE2, KEY_VALUE3};
@@ -73,5 +75,13 @@ public class UsuarioSQLiteHelper extends SQLiteOpenHelper {
 
         db.close();
     }
+
+    public Cursor getInformationDatabase(SQLiteDatabase db){
+        Cursor cursor;
+        String[] projections= {KEY_NAME, KEY_SURANAME, KEY_TYPEID, KEY_NUMID, KEY_NUMMCARD, KEY_VALUE1, KEY_VALUE2, KEY_VALUE3};
+        cursor = db.query(TABLE_USER, projections, null,null,null,null,null);
+        return cursor;
+    }
+
 
 }

@@ -8,7 +8,6 @@
     android:versionName="0.9.18"
     -->
 
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -46,7 +45,12 @@
       IMPORTANT: Change "com.parse.starter.permission.C2D_MESSAGE" in the lines below
       to match your app's package name + ".permission.C2D_MESSAGE".
     -->
-    <uses-permission android:name="com.allem.alleminmotion.visacheckout.permission.C2D_MESSAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <permission android:name="com.allegra.handyuvisa.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+    <uses-permission android:name="com.allegra.handyuvisa.permission.C2D_MESSAGE" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
     <!-- android:name=".VisaCheckoutApp" -->
     <application
@@ -103,16 +107,7 @@
 
         </activity>
         <activity
-            android:name=".HomeActivity_Handy"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".MapActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".StoreActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".BookNowActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".CallActivityServices"
@@ -120,6 +115,8 @@
         <activity
             android:name=".Mcardhtml"
             android:screenOrientation="portrait" />
+        <activity android:name=".ProofOfCoverageActivityOff"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".SplashScreenActivity"
             android:screenOrientation="portrait"
@@ -153,9 +150,6 @@
         </activity>
         <activity
             android:name=".McardActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".MyBookingActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".MyBenefits"
@@ -299,6 +293,13 @@
             android:name="com.twilio.client.TwilioClientService"
             android:exported="false" />
 
+        <!-- APP FLYERS INTEGRATION -->
+        <receiver android:name="com.appsflyer.MultipleInstallBroadcastReceiver" android:exported="true">
+        <intent-filter>
+            <action android:name="com.android.vending.INSTALL_REFERRER" />
+        </intent-filter>
+        </receiver>
+
         <!--
         Push Parse services configuration
         <service android:name="com.parse.PushService" />
@@ -406,6 +407,15 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" >
         </activity>
+        <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

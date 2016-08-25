@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -61,7 +62,13 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
     private ProgressBar pb_login;
     private TextView version, forgotpass;
     final String SPLUNK_API_KEY = "e74061f2";
+    private String idMcard, numMcard;
+    int idMcard1 = 0;
+    private String valueOfMcard;
     UsuarioSQLiteHelper db;
+    SQLiteDatabase dbbase;
+
+
 
     //*************************OVERRIDE METHODS*********************
     @Override
@@ -75,6 +82,8 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         postValues = new ArrayList<>();
 
         db = new UsuarioSQLiteHelper(this);
+
+
         //TODO: Uncomment this before push
         //Splunk
         Mint.setApplicationEnvironment(Mint.appEnvironmentTesting);
@@ -83,6 +92,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         Mint.enableLogging(true);
         // Log last 100 messages
         Mint.setLogging(200);
+        findValueOfMcard();
 
     }
 
@@ -241,6 +251,8 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         btn_newaccount.setEnabled(!b);
     }
 
+
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -291,8 +303,8 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
 
                 //Get data
                 McardCliente mcardCliente = SoapObjectParsers.toMcardCliente(event.getResult());
-                String idMcard = mcardCliente.getIdProducto();
-                String numMcard = mcardCliente.getNumeroMembresia();
+                idMcard = mcardCliente.getIdProducto();
+                numMcard = mcardCliente.getNumeroMembresia();
                 //Save in SharedPreferences
                 SharedPreferences prefs =
                         getSharedPreferences("MisPreferencias", MODE_PRIVATE);
@@ -360,8 +372,10 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 asyncSoapObjectTest.getInstance2(Constants.SOAP_URL_MCARD_PROD, Constants.MCARD_NAMESPACE,
                         Constants.MCARD_METHOD, postValues, Constants.MCARD_CODE).execute();
                 Constants.saveUser(ctx, user, channel);
-                db.addUser(new UserDataBase(nombre,apellido,getTypeOfDocumentFromIdCode(typeOfId),numberOfId,numberOfId,"$100.000", "$100.000","$100.000"));
-                //********
+                valueOfMcard = prefs.getString("idMcard", "0");
+                idMcard1 = Integer.valueOf(valueOfMcard);
+                db.addUser(new UserDataBase(nombre,apellido,getTypeOfDocumentFromIdCode(typeOfId),numberOfId,prefs.getString("numMcard",numMcard),findValueOfMcard(), findValueOfMcard(),findValueOfMcard()));
+                /*CHECK IF DATA BASE EXIST*/
                 Intent returnIntent = new Intent();
                     Log.e("Sergio", "Acá sí");
                     setResult(RESULT_OK, returnIntent);
@@ -372,6 +386,32 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
             }
 
         }
+    }
+
+    public String findValueOfMcard(){
+
+        //********************* PRIVILEGE       PREMIUM         EXCLUSIVE            UNLIMITED
+        String[] arrayMcards = {"USD $100,000",  "USD $250,000",  "USD $1'000,000", "USD $2'000,000"};
+        //********************      212             208             209             210
+
+        switch(idMcard1){
+            case 212:
+                valueOfMcard = arrayMcards[0];
+                break;
+            case 208:
+                valueOfMcard = arrayMcards[1];
+                break;
+            case 209:
+                valueOfMcard = arrayMcards[2];
+                break;
+            case 210:
+                valueOfMcard = arrayMcards[3];
+                break;
+
+
+        }
+        return valueOfMcard;
+
     }
 
     public String getTypeOfDocumentFromIdCode(String typeOfId){

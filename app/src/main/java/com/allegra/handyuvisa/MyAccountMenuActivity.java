@@ -1,41 +1,41 @@
 package com.allegra.handyuvisa;
 
 import android.app.ActionBar;
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.text.TextPaint;
-import android.text.style.URLSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.allegra.handyuvisa.utils.Constants;
+import com.allegra.handyuvisa.utils.CustomizedTextView;
+import com.allegra.handyuvisa.utils.UsuarioSQLiteHelper;
+import com.allegra.handyuvisa.utils.Util;
 
 public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
 
-    //AllemUser user;
-    int idCuenta;
-    private Button btn_logout;
-    private ProgressBar pb_cerrarsesion;
+
     private ActionBar actionBar;
-    /*private Context ctx;
-    private ArrayList<NameValuePair> postValues;*/
+    private String nombre, apellido, tipoid, numid, nummcard, value1, value2, value3;
+    Context ctx;
+    CustomizedTextView txtGetYourCertificate;
+    SQLiteDatabase db;
+    Cursor cursor;
+    UsuarioSQLiteHelper usuarioSQLiteHelper;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setView(R.layout.activity_my_account_menu, this);
-        //MyBus.getInstance().register(this);
-         // ctx = this;
-        //Request Soap
-        //postValues = new ArrayList<>();
-        //checkLogin();
+        ctx = this;
+
     }
 
 
@@ -45,38 +45,8 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
         initializeListView(root);
     }
 
-
-  /*  @Subscribe
-    public void onAsyncTaskResult(AsyncTaskSoapObjectResultEvent event) {
-        if (event.getCodeRequest() == Constants.ACTIVITY_LOGIN) {
-            //setWaitinUI(false);
-            if (event.getResult() != null) {
-                AllemUser user = SoapObjectParsers.toAllemUser(event.getResult());
-                ((VisaCheckoutApp) this.getApplication()).setIdSession(user.idSesion);
-                ((VisaCheckoutApp) this.getApplication()).setIdCuenta(user.idCuenta);
-                //((VisaCheckoutApp) this.getApplication()).setRawPassword(password.getText().toString());
-                String name = user.email.substring(0, user.email.indexOf('@'));
-                String domain = user.email.substring(user.email.indexOf('@') + 1, user.email.length()).replace(".", "");
-                String channel = name + domain + user.idCuenta;
-                String password = user.hashpassword;
-
-                idCuenta = user.idCuenta;
-                Log.e("Serfar idCuenta MyAcc", String.valueOf(user.idCuenta));
-                //Log.e("Serfar", "password MyAcc" + password);
-                Log.e("Serfar", "chnel: MyAcc" + channel);
-               *//* Constants.saveUser(ctx, user, channel);
-                ((VisaCheckoutApp) this.getApplication()).unSetParseChannels();
-                ((VisaCheckoutApp) this.getApplication()).parseUser(user.email, channel);*//*
-
-                setResult(RESULT_OK);
-                finish();
-            } else {
-               // Toast.makeText(ctx, event.getFaultString(), Toast.LENGTH_LONG).show();
-            }
-        }
-    }*/
-
     private void initializeListView(View root) {
+
 
         ListView lv = (ListView) root.findViewById(R.id.profileOptionsListView);
         final String[] names= {
@@ -93,14 +63,55 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
         lv.setAdapter(new ArrayAdapter<String>(MyAccountMenuActivity.this, R.layout.profile_layout, names) {
 
             public View getView(final int position,View view,ViewGroup parent) {
-                LayoutInflater inflater= MyAccountMenuActivity.this.getLayoutInflater();
+                final LayoutInflater inflater= MyAccountMenuActivity.this.getLayoutInflater();
                 View rowView=inflater.inflate(R.layout.profile_layout, null,true);
 
                 rowView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         if (position==2){
-                            checkLogin();
+                            if(Util.hasInternetConnectivity(ctx)){
+                                if(((VisaCheckoutApp)ctx.getApplicationContext()).getIdSession()==null){
+                                    setGetYourCertificateLayout();
+                                }else {
+                                    Intent i = new Intent(ctx,ProofOfCoverageActivity.class);
+                                    startActivity(i);
+                                }
+                            }else {
+
+                                if(((VisaCheckoutApp)ctx.getApplicationContext()).getIdSession()==null){
+                                    setGetYourCertificateLayout();
+                                }else {
+                                    //Toast.makeText(ctx,"NO TENGO INTERNET Y YA ME HE LOGEADO ACA LLAMO LA BASE DE DATOS", Toast.LENGTH_SHORT).show();
+                                    usuarioSQLiteHelper = new UsuarioSQLiteHelper(getApplicationContext());
+                                    db = usuarioSQLiteHelper.getReadableDatabase();
+                                    cursor = usuarioSQLiteHelper.getInformationDatabase(db);
+                                    if (cursor.moveToFirst()){
+                                        do{
+                                            nombre = cursor.getString(0);
+                                            apellido = cursor.getString(1);
+                                            tipoid = cursor.getString(2);
+                                            numid = cursor.getString(3);
+                                            nummcard = cursor.getString(4);
+                                            value1 = cursor.getString(5);
+                                            value2 = cursor.getString(6);
+                                            value3 = cursor.getString(7);
+                                        }while (cursor.moveToNext());
+                                    }
+                                    Intent intent = new Intent(ctx, ProofOfCoverageActivityOff.class);
+                                    intent.putExtra("nombre",nombre);
+                                    intent.putExtra("apellido",apellido);
+                                    intent.putExtra("tipoid",tipoid);
+                                    intent.putExtra("numid",numid);
+                                    intent.putExtra("numcard",nummcard);
+                                    intent.putExtra("value1",value1);
+                                    intent.putExtra("value2",value2);
+                                    intent.putExtra("value3",value3);
+                                    startActivity(intent);
+
+                                }
+                            }
+
 
                         } else {
                             Intent intent = new Intent(MyAccountMenuActivity.this, activities[position]);
@@ -129,20 +140,33 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
         }
     }
 
-    public void onMenu(View view) {
-        animate();
+    void setGetYourCertificateLayout(){
+        //Change layout
+        setContentView(R.layout.get_your_certificate);
+        txtGetYourCertificate = (CustomizedTextView) findViewById(R.id.txtGetYourCertificate2);
+        txtGetYourCertificate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                launchloginActivity();
+            }
+        });
+
+
     }
 
-    private void checkLogin() {
+    public void onUpProof(View view) {
+        onBackPressed();
+    }
 
-        if(((VisaCheckoutApp)this.getApplication()).getIdSession()==null){
-            Intent i =new Intent(this,LoginActivity.class);
-            MyAccountMenuActivity.this.startActivityForResult(i, Constants.ACTIVITY_LOGIN);
-        } else {
-            Intent i = new Intent(this,ProofOfCoverageActivity.class);
-            this.startActivity(i);
-            //sendIntentForProofOfCoverage();
-        }
+    void launchloginActivity(){
+
+        Intent i = new Intent(this, LoginActivity.class);
+        startActivity(i);
+        finish();
+    }
+
+    public void onMenu(View view) {
+        animate();
     }
 
     @Override
@@ -156,26 +180,5 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
             //sendIntentForProofOfCoverage();
         }
 
-    }
-
-
-    //Get user's idCuenta and send to ProofOfCoverageActivity
-/*    private void sendIntentForProofOfCoverage(){
-        //Get user's idCuenta
-
-        //Log.e("SerfarsendIntentForProo",String.valueOf(idCuenta));
-        //Log.e("Sergini", "Entra al resultCode == RESULT_OK");
-        Intent i = new Intent( this,ProofOfCoverageActivity.class);
-        MyAccountMenuActivity.this.startActivity(i);
-    }*/
-
-    private static class URLSpanNoUnderline extends URLSpan {
-        public URLSpanNoUnderline(String url) {
-            super(url);
-        }
-        @Override public void updateDrawState(TextPaint ds) {
-            super.updateDrawState(ds);
-            ds.setUnderlineText(false);
-        }
     }
 }
