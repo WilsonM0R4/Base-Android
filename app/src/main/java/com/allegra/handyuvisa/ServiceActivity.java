@@ -3,6 +3,7 @@ package com.allegra.handyuvisa;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,7 +17,6 @@ import android.widget.ProgressBar;
 
 import com.allegra.handyuvisa.models.AllemUser;
 import com.allegra.handyuvisa.utils.Constants;
-import com.allem.onepocket.model.OneTransaction;
 import com.allem.onepocket.utils.OPKConstants;
 
 /**
@@ -67,7 +67,9 @@ public class ServiceActivity extends  FrontBackAnimate implements FrontBackAnima
         webServices.getSettings().setJavaScriptEnabled(true);
         webServices.getSettings().setBuiltInZoomControls(true);
         webServices.getSettings().setGeolocationEnabled(true);
-        webServices.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            webServices.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+        }
         webServices.setWebChromeClient(new GeoWebChromeClient());
         webServices.loadUrl(url);
         webServices.setWebViewClient(new MyBrowser(this));

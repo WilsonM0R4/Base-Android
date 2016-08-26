@@ -10,6 +10,7 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
 import android.support.v4.app.ActivityCompat;
@@ -125,7 +126,9 @@ public class StoreActivity extends FrontBackAnimate implements FrontBackAnimate.
         webStore.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
         webStore.getSettings().setBuiltInZoomControls(true);
         webStore.getSettings().setGeolocationEnabled(true);
-        webStore.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            webStore.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+        }
         webStore.setWebChromeClient(new GeoWebChromeClient());
         webStore.setWebViewClient(new MyBrowser());
         webStore.loadUrl(url);
