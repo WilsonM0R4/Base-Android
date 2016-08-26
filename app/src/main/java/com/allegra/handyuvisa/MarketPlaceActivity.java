@@ -2,6 +2,7 @@ package com.allegra.handyuvisa;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -66,7 +67,9 @@ public class MarketPlaceActivity extends FrontBackAnimate implements FrontBackAn
         WebSettings webSettings = webView.getSettings();
         webSettings.setDomStorageEnabled(true);
         webSettings.setJavaScriptEnabled(true);
-        webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);// http://stackoverflow.com/questions/31509277/webview-images-are-not-showing-with-https
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);
+        }// http://stackoverflow.com/questions/31509277/webview-images-are-not-showing-with-https
         webView.setWebViewClient(new MyWebViewClient());
         webView.addJavascriptInterface(new AppJavaScriptProxyMarketPlace(this), "androidProxy");
         progressBar.setVisibility(View.VISIBLE);
