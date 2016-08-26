@@ -22,7 +22,7 @@
             android:id="@+id/list_item_text_view"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="NameOfCity"
-            android:textColor="@color/text_color_hotels_selector"
+            android:textColor="@color/SearchItemNormalTitle"
             android:layout_marginLeft="16dp"/>
 
         <TextView
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/textCityAndCountry"
             android:text="NameOfCountry"
-            android:textColor="@color/text_color_hotels_city_selector"
+            android:textColor="@color/SearchItemNormalSubTitle_text"
             android:textSize="14sp"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:layout_marginLeft="16dp"/>

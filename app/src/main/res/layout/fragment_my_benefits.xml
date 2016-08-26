@@ -15,7 +15,7 @@
         android:layout_height="?android:attr/actionBarSize"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:background="@color/white"
+        android:background="@color/GeneralAppHeaderTitle_backgroud"
         android:id="@+id/relativeLayout8"
         >
 
@@ -40,13 +40,13 @@
             android:text="@string/benefits"
             android:id="@+id/textView47"
             android:layout_centerHorizontal="true"
-            android:textColor="@color/magenta" />
+            android:textColor="@color/GeneralAppHeaderTitle_text" />
 
         <RelativeLayout
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="@color/white"
+            android:background="@color/GeneralAppHeaderTitle_backgroud"
             android:id="@+id/navigation_panel"
             android:layout_alignParentRight="false"
             android:layout_alignWithParentIfMissing="false"

@@ -10,7 +10,7 @@
         android:layout_height="?android:attr/actionBarSize"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:background="@color/white"
+        android:background="@color/GeneralAppHeaderTitle_backgroud"
         android:id="@+id/ll_header">
 
         <ImageButton
@@ -36,7 +36,7 @@
             android:layout_toRightOf="@+id/btn_back"
             android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:textColor="@color/magenta" />
+            android:textColor="@color/GeneralAppHeaderTitle_text" />
 
         <ImageButton
             android:layout_width="25dp"

@@ -67,9 +67,9 @@
                 android:layout_above="@+id/tv_all_in_one"
                 android:id="@+id/tv_welcome"
                 android:text="@string/slogan_welcome"
-                android:textColor="@color/white"
+                android:textColor="@color/HomeTitle_text"
                 android:gravity="center_horizontal"
-                android:background="@android:color/transparent"
+                android:background="@color/HomeTitle_backgroung"
                 android:textSize="28sp"
                 app:font="@string/font_muli_semiBold"/>
 
@@ -79,9 +79,9 @@
                 android:id="@+id/tv_all_in_one"
                 android:layout_above="@+id/fullscreen_login_register"
                 android:text="@string/slogan_all_in_one"
-                android:textColor="@color/white"
+                android:textColor="@color/HomeDescription_text"
                 android:gravity="center_horizontal"
-                android:background="@android:color/transparent"
+                android:background="@color/HomeTitle_backgroung"
                 android:layout_marginBottom="15dp"
                 android:textSize="22sp"
                 app:font="@string/font_muli_light"/>
@@ -105,7 +105,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/login"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/SmallButton_text"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="5dp"
                     android:background="@drawable/round_corner_transparent"/>
@@ -117,7 +117,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/register"
-                    android:textColor="@color/magenta"
+                    android:textColor="@color/HomeButtonSmall_text"
                     android:layout_marginRight="30dp"
                     android:layout_marginLeft="5dp"
                     android:background="@drawable/round_corner_white"/>
@@ -131,8 +131,8 @@
                 android:layout_weight="1"
                 android:layout_gravity="center"
                 android:text="@string/skip_intro"
-                android:textColor="@color/white"
-                android:background="@android:color/transparent"
+                android:textColor="@color/HomeFooter_text"
+                android:background="@color/HomeTitle_backgroung"
                 android:onClick="onSkipIntro"
                 android:textSize="18sp"
                 app:font="@string/font_muli_light"/> <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
@@ -144,10 +144,10 @@
                 android:layout_below="@+id/skip_intro"
                 android:id="@+id/tv_version"
                 android:text="IATAI"
-                android:textColor="@color/white"
+                android:textColor="@color/HomeFooter_text"
                 android:textSize="12sp"
                 app:font="@string/font_muli"
-                android:background="@android:color/transparent" />
+                android:background="@color/HomeTitle_backgroung" />
         </LinearLayout>
     </RelativeLayout>
 </FrameLayout>

@@ -16,7 +16,7 @@
             android:background="@drawable/bubble_purple_half"
             android:paddingLeft="20dip"
             android:text="Visitor say hello!"
-            android:textColor="@android:color/white"
+            android:textColor="@color/ChatUserMessageLabel_text"
             android:layout_marginLeft="30dp"
             android:paddingRight="20dp" />
 
@@ -28,7 +28,7 @@
             android:background="@drawable/bubble_orange_half"
             android:paddingRight="20dip"
             android:text="Visitor say hello!"
-            android:textColor="@android:color/white"
+            android:textColor="@color/ChatUserMessageLabel_text"
             android:layout_marginRight="30dp"
             android:paddingLeft="20dp" />
 
@@ -52,7 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="5 min ago"
-            android:textColor="@color/gray"
+            android:textColor="@color/GeneralDescription"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:gravity="left" />
 

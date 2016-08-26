@@ -7,6 +7,7 @@
     android:layout_gravity="center"
     android:id="@+id/linLayTextsPassengersPerCategory"
     android:onClick="onAlertDialogNumberPicker"
+    android:background="@color/PersonSelectorContentBox_backgroung"
     android:weightSum="6">
 
 
@@ -23,7 +24,7 @@
             android:layout_height="wrap_content"
             android:text="@string/txt_lbl_adults"
             android:textSize="12sp"
-            android:textColor="@color/magenta"
+            android:textColor="@color/PersonSelectorItemDescriptionTitle_text"
             app:font="@string/font_muli"/>
 
         <com.allegra.handyuvisa.utils.CustomizedTextView
@@ -32,6 +33,7 @@
             android:text="@string/txt_lbl_adults_description"
             android:layout_marginTop="-4dp"
             android:textSize="10sp"
+            android:textColor="@color/PersonSelectorItemDescriptionSubTitle"
             app:font="@string/font_muli_light"/>
 
     </LinearLayout>
@@ -42,7 +44,7 @@
         android:layout_weight="1"
         android:textSize="24sp"
         android:text="1"
-        android:textColor="@color/black"
+        android:textColor="@color/PersonSelectorItemDescriptionNumber"
         android:textStyle="bold"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="2dp"
@@ -64,7 +66,7 @@
             android:layout_height="wrap_content"
             android:text="@string/txt_lbl_child"
             android:textSize="12sp"
-            android:textColor="@color/magenta"
+            android:textColor="@color/PersonSelectorItemDescriptionTitle_text"
             app:font="@string/font_muli"/>
         <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="wrap_content"
@@ -72,6 +74,7 @@
             android:text="@string/txt_lbl_child_description"
             android:layout_marginTop="-4dp"
             android:textSize="10sp"
+            android:textColor="@color/PersonSelectorItemDescriptionSubTitle"
             app:font="@string/font_muli_light"/>
 
     </LinearLayout>
@@ -83,7 +86,7 @@
         android:text="0"
         android:id="@+id/childrenTextView"
         android:textSize="24sp"
-        android:textColor="@color/black"
+        android:textColor="@color/PersonSelectorItemDescriptionNumber"
         android:textStyle="bold"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="-16dp"
@@ -102,7 +105,7 @@
         <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/magenta"
+            android:textColor="@color/PersonSelectorItemDescriptionTitle_text"
             android:text="@string/txt_lbl_infants"
             android:textSize="12sp"
             app:font="@string/font_muli"/>
@@ -113,6 +116,7 @@
             android:text="@string/txt_lbl_infants_description"
             android:layout_marginTop="-4dp"
             android:textSize="9sp"
+            android:textColor="@color/PersonSelectorItemDescriptionSubTitle"
             app:font="@string/font_muli_light"/>
 
     </LinearLayout>
@@ -123,7 +127,7 @@
         android:layout_weight="1"
         android:textSize="24sp"
         android:text="0"
-        android:textColor="@color/black"
+        android:textColor="@color/PersonSelectorItemDescriptionNumber"
         android:textStyle="bold"
         android:layout_gravity="center_vertical"
         android:id="@+id/infantsTextView"

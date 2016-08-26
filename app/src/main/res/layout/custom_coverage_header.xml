@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/IATAI_CERTIFICA"
-        android:textColor="@color/dark_gray"
+        android:textColor="@color/ProofOfCoverageTitle_text"
         android:textSize="18sp"
         app:font="@string/font_muli"
         android:layout_gravity="center_horizontal"
@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:text="Santiago Castro"
         android:id="@+id/textNameLastNAme"
-        android:textColor="@color/magenta"
+        android:textColor="@color/ProofOfCoverageName_text"
         android:textSize="18sp"
         app:font="@string/font_muli"
         android:layout_gravity="center_horizontal"/>
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:text="CC"
         android:id="@+id/txtTypeOfId"
-        android:textColor="@color/dark_gray"
+        android:textColor="@color/ProofOfCoverageCC_text"
         android:textSize="18sp"
         app:font="@string/font_muli"
         />
@@ -48,7 +48,7 @@
             android:id="@+id/txtNumberOfId"
             android:layout_marginLeft="10dp"
             android:text="90.877.878"
-            android:textColor="@color/dark_gray"
+            android:textColor="@color/ProofOfCoverageCC_text"
             android:textSize="18sp"
             app:font="@string/font_muli"
             />
@@ -66,7 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/txtInfoNumberMcard"
-            android:textColor="@color/dark_gray"
+            android:textColor="@color/ProofOfCoverageDescriptionTitle_text"
             android:textSize="18sp"
             app:font="@string/font_muli"
             android:text="@string/txtInfoCertifications" />
@@ -77,7 +77,7 @@
             android:id="@+id/txtNumberOfMcard"
             android:layout_marginLeft="10dp"
             android:text="90.877.878"
-            android:textColor="@color/dark_gray"
+            android:textColor="@color/ProofOfCoverageDescriptionTitle_text"
             android:textSize="18sp"
             app:font="@string/font_muli"
             />
@@ -97,7 +97,7 @@
         android:layout_height="wrap_content"
         android:text="@string/coverage_limite"
         app:font="@string/font_muli"
-        android:textColor="@color/magenta"
+        android:textColor="@color/ProofOfCoverageName_text"
         android:textSize="15sp"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="25dp" />

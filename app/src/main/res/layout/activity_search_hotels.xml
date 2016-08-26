@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white">
 
     <LinearLayout
@@ -34,19 +35,21 @@
 
     </ImageView>
 
-    <EditText
+    <com.allegra.handyuvisa.utils.CustomizedEditText
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:hint="@string/text_hint_enter_city"
         android:id="@+id/et_search"
         android:textSize="16sp"
         android:paddingTop="1dp"
-        android:textColor="@color/dark_gray"
+        android:textColor="@color/InputNormal_border_hit"
         android:layout_marginTop="50dp"
+        android:background="@drawable/apptheme_edit_text_holo_light"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_toRightOf="@+id/iv_search"
         android:layout_alignBottom="@+id/iv_search"
         android:imeOptions="actionDone"
+        app:fontEdit="@string/font_muli"
         android:singleLine="true" />
 
     <ImageView
@@ -67,7 +70,7 @@
         android:id="@+id/textSuggest"
         android:layout_below="@+id/iv_search"
         android:text="@string/text_suggest"
-        android:textColor="@color/magenta"/>
+        android:textColor="@color/SearchAlert_text"/>
 
     <LinearLayout
         android:orientation="vertical"

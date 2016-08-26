@@ -14,7 +14,7 @@
         android:layout_height="?android:attr/actionBarSize"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:background="@color/white"
+        android:background="@color/GeneralAppHeaderTitle_backgroud"
         android:onClick="onCloseMenu"
         android:id="@+id/ll_header">
 
@@ -37,14 +37,14 @@
             android:text="@string/forgot_password"
             android:id="@+id/tv_title_secc"
             android:layout_centerHorizontal="true"
-            android:textColor="@color/magenta"
+            android:textColor="@color/GeneralAppHeaderTitle_text"
             app:font="@string/font_varela"/>
 
     </RelativeLayout>
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="4dp"
         android:id="@+id/iv_header"
         android:layout_below="@+id/ll_header"
         android:paddingEnd="-2dp"
@@ -92,14 +92,14 @@
                 android:text="@string/check_email"
                 android:textAlignment="center"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/magenta"
+                android:textColor="@color/GeneralTitle2_text"
                 android:textSize="18sp"
                 app:font="@string/font_muli"/>
 
             <com.allegra.handyuvisa.utils.CustomizedTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/gray_concierge_text"
+                android:textColor="@color/GeneralDescription"
                 android:textSize="15sp"
                 android:text="@string/conf_email1"
                 android:textAlignment="center"
@@ -117,7 +117,7 @@
                 android:layout_marginTop="2dp"
                 android:textAlignment="center"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/black"
+                android:textColor="@color/DataRecoveryPassword_text"
                 android:textSize="15dp"
                 android:textStyle="bold"
                 app:font="@string/font_muli_bold"/>
@@ -125,7 +125,7 @@
             <com.allegra.handyuvisa.utils.CustomizedTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/gray_concierge_text"
+                android:textColor="@color/GeneralDescription"
                 android:textSize="15dp"
                 android:text="@string/conf_email2"
                 android:textAlignment="center"
@@ -137,7 +137,7 @@
             <com.allegra.handyuvisa.utils.CustomizedTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/gray_concierge_text"
+                android:textColor="@color/GeneralDescription"
                 android:textSize="15dp"
                 android:text="@string/conf_email3"
                 android:textAlignment="center"
@@ -153,7 +153,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/round_corner_transparent_orange"
                 android:text="@string/send_again"
-                android:textColor="@color/orange"
+                android:textColor="@color/SmallButtonWithBorder_text"
                 android:layout_marginTop="15dp" />
 
             <LinearLayout
@@ -169,7 +169,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/to_login"
                     android:text="@string/go_to_login"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/BigButton_text"
                     android:background="@drawable/round_corner_magenta"
                     android:layout_weight="1"
                     android:layout_gravity="center_horizontal" />

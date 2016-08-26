@@ -3,15 +3,15 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape>
-            <solid android:color="@color/custom_background"/>
+            <solid android:color="@color/CalendarSelectorRange_border"/>
         </shape>
     </item>
     <item>
         <shape android:shape="oval">
-            <solid android:color="@color/custom_selected"/>
+            <solid android:color="@color/CalendarSelectorRange_backgroung"/>
             <stroke
                 android:width="@dimen/dimen_margin_circle"
-                android:color="@color/transparent"/>
+                android:color="@color/CalendarSelectorRange_border"/>
         </shape>
     </item>
 </layer-list>

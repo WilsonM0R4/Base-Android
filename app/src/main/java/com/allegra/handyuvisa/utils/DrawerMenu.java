@@ -15,11 +15,10 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.allegra.handysdk.bean.BeanConstants;
+
 import com.allegra.handyuvisa.EditProfileActivity;
 import com.allegra.handyuvisa.HomeActivity_Handy;
 import com.allegra.handyuvisa.MainActivity;
-import com.allegra.handyuvisa.MyBookingActivity;
 import com.allegra.handyuvisa.R;
 import com.squareup.picasso.Picasso;
 
@@ -90,8 +89,6 @@ public class DrawerMenu extends LinearLayout implements View.OnClickListener {
         tvEditName=(TextView)findViewById(R.id.tv_editprofile_drawermenu);
         cv_icon=(CircularImageView)findViewById(R.id.cv_icon);
 
-        Picasso.with(context).load(BeanConstants.customer_img_get+BeanConstants.loginData.getUser_Profile_Image()+"&h=120").error(R.drawable.ic_launcher).placeholder(R.drawable.ic_launcher).into(cv_icon);
-        tvName.setText(BeanConstants.loginData.getUser_First_Name()+" "+BeanConstants.loginData.getUser_Last_Name());
 
     }
 
@@ -110,8 +107,8 @@ public class DrawerMenu extends LinearLayout implements View.OnClickListener {
         }
         else if (v == llMyBooking) {
             Constants.menu_selection = 2;
-            Intent intent=new Intent(context, MyBookingActivity.class);
-            context.startActivity(intent);
+
+
         } else if (v == llLogout) {
             editor.clear();
             editor.commit();

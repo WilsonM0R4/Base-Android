@@ -13,7 +13,7 @@
         android:layout_height="?android:attr/actionBarSize"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:background="@color/white"
+        android:background="@color/GeneralAppHeaderTitle_backgroud"
         android:onClick="onCloseMenu"
         android:id="@+id/ll_header">
 
@@ -25,7 +25,7 @@
             android:text="@string/title_call"
             android:id="@+id/tv_title_secc"
             android:layout_centerHorizontal="true"
-            android:textColor="@color/magenta"
+            android:textColor="@color/GeneralAppHeaderTitle_text"
 
             />
 
@@ -46,7 +46,7 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="4dp"
         android:id="@+id/iv_header"
         android:layout_below="@+id/ll_header"
         android:paddingEnd="-2dp"
@@ -58,7 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/magenta"
+        android:textColor="@color/GeneralTitle2_text"
         android:text="@string/txt_lbl_callInProgress"
         android:background="@android:color/transparent"
         android:id="@+id/tv_status_otc_connected"
@@ -117,7 +117,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/txt_lbl_mute"
-        android:textColor="@color/dark_gray"
+        android:textColor="@color/CallTitleComponent_text"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_below="@+id/toggle_mute"
         android:layout_alignStart="@+id/toggle_mute"
@@ -128,7 +128,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/txt_lbl_speaker"
-        android:textColor="@color/dark_gray"
+        android:textColor="@color/CallTitleComponent_text"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_below="@+id/toggle_speaker"
         android:layout_alignStart="@+id/toggle_speaker"
@@ -140,7 +140,7 @@
         android:text="@string/txt_lbl_endcall"
         android:id="@+id/endCall"
         android:background="@drawable/round_corner_magenta"
-        android:textColor="@color/white"
+        android:textColor="@color/BigButton_text"
         android:onClick="onEndCall"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"

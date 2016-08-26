@@ -15,7 +15,7 @@
         android:layout_marginTop="40dp"
         android:layout_centerHorizontal="true"
         android:id="@+id/titletextCancelDialog2"
-        android:textColor="@color/orange"
+        android:textColor="@color/HeaderAlert_text"
         />
 
     <TextView
@@ -27,7 +27,7 @@
         android:gravity="center_horizontal"
         android:id="@+id/txtprivilegeinfo"
         android:layout_marginTop="40dp"
-        android:textColor="@color/dark_gray"
+        android:textColor="@color/BodyAlert_text"
         android:layout_below="@+id/titletextCancelDialog2"
         />
 
@@ -35,9 +35,9 @@
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="OK"
-        android:textColor="@color/magenta"
+        android:textColor="@color/SmallButtonWithBorder_text"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/round_corner_white_border_magenta"
+        android:background="@drawable/round_corner_transparent_orange"
         android:textSize="17sp"
         android:layout_marginTop="50dp"
         android:layout_below="@+id/txtprivilegeinfo"

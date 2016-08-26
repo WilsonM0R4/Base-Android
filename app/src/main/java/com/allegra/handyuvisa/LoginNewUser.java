@@ -77,6 +77,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
      */
     private GoogleApiClient client;
 
+
     //************ OVERRIDE METHODS**************
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -265,15 +266,15 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 if (!hasFocus) {
                     if (et_username.getText().toString().length() < 7) {
                         showToast(getString(R.string.txt_email_should_have_7_characters));
-                        et_username.setTextColor(Color.RED);
-                        et_username.setHintTextColor(Color.RED);
+                        et_username.setTextColor(getResources().getColor(R.color.InputNormal_border_hit));
+                        et_username.setHintTextColor(getResources().getColor(R.color.InputNormal_border_hit));
                     } else if (!Patterns.EMAIL_ADDRESS.matcher(et_username.getText().toString()).matches()) {
                         showToast(getString(R.string.txt_invalid_email));
-                        et_username.setTextColor(Color.RED);
-                        et_username.setHintTextColor(Color.RED);
+                        et_username.setTextColor(getResources().getColor(R.color.InputNormal_border_hit));
+                        et_username.setHintTextColor(getResources().getColor(R.color.InputNormal_border_hit));
                     } else {
-                        et_username.setTextColor(getResources().getColor(R.color.register_input_active));
-                        et_username.setHintTextColor(Color.BLACK);
+                        et_username.setTextColor(getResources().getColor(R.color.InputFocus_text));
+                        et_username.setHintTextColor(getResources().getColor(R.color.InputFocus_text));
                     }
                 }
             }
@@ -285,11 +286,11 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 if (!hasFocus) {
                     if (et_names.getText().toString().length() < 2) {
                         showToast(getString(R.string.txt_name_incorrect));
-                        et_names.setTextColor(Color.RED);
-                        et_names.setHintTextColor(Color.RED);
+                        et_names.setTextColor(getResources().getColor(R.color.InputNormal_border_hit));
+                        et_names.setHintTextColor(getResources().getColor(R.color.InputNormal_border_hit));
                     } else {
-                        et_names.setTextColor(getResources().getColor(R.color.register_input_active));
-                        et_names.setHintTextColor(Color.BLACK);
+                        et_names.setTextColor(getResources().getColor(R.color.InputFocus_text));
+                        et_names.setHintTextColor(getResources().getColor(R.color.InputFocus_text));
                     }
                 }
             }
@@ -301,11 +302,11 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 if (!hasFocus) {
                     if (et_surname.getText().toString().length() < 2) {
                         showToast(getString(R.string.txt_last_name_incorrect));
-                        et_surname.setTextColor(Color.RED);
-                        et_surname.setHintTextColor(Color.RED);
+                        et_surname.setTextColor(getResources().getColor(R.color.InputNormal_border_hit));
+                        et_surname.setHintTextColor(getResources().getColor(R.color.InputNormal_border_hit));
                     } else {
-                        et_surname.setTextColor(getResources().getColor(R.color.register_input_active));
-                        et_surname.setHintTextColor(Color.BLACK);
+                        et_surname.setTextColor(getResources().getColor(R.color.InputFocus_text));
+                        et_surname.setHintTextColor(getResources().getColor(R.color.InputFocus_text));
                     }
                 }
             }
@@ -318,11 +319,11 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 if (!hasFocus) {
                     if (et_password.getText().toString().length() < 6) {
                         showToast(getString(R.string.txt_password_incorrectly_entered));
-                        et_password.setTextColor(Color.RED);
-                        et_password.setHintTextColor(Color.RED);
+                        et_password.setTextColor(getResources().getColor(R.color.InputNormal_border_hit));
+                        et_password.setHintTextColor(getResources().getColor(R.color.InputNormal_border_hit));
                     } else {
-                        et_password.setTextColor(getResources().getColor(R.color.register_input_active));
-                        et_password.setHintTextColor(Color.BLACK);
+                        et_password.setTextColor(getResources().getColor(R.color.InputFocus_text));
+                        et_password.setHintTextColor(getResources().getColor(R.color.InputFocus_text));
                     }
                 }
             }
@@ -572,11 +573,11 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             public void afterTextChanged(Editable editable) {
                 if (et_document_number.getText().toString().length() < 5) {
                     //Toast.makeText(getApplicationContext(),"PIlas con el tipo" ,Toast.LENGTH_LONG).show();
-                    et_document_number.setHintTextColor(Color.RED);
-                    et_document_number.setTextColor(Color.RED);
+                    et_document_number.setHintTextColor(getResources().getColor(R.color.InputNormal_border_hit));
+                    et_document_number.setTextColor(getResources().getColor(R.color.InputNormal_border_hit));
                 } else {
-                    et_document_number.setHintTextColor(Color.BLACK);
-                    et_document_number.setTextColor(Color.BLACK);
+                    et_document_number.setHintTextColor(getResources().getColor(R.color.InputFocus_text));
+                    et_document_number.setTextColor(getResources().getColor(R.color.InputFocus_text));
                 }
 
             }
@@ -620,11 +621,11 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             @Override
             public void afterTextChanged(Editable editable) {
                 if (editable.length() < 2) {
-                    et_names.setTextColor(Color.RED);
-                    et_names.setHintTextColor(Color.RED);
+                    et_names.setTextColor(getResources().getColor(R.color.InputNormal_border_hit));
+                    et_names.setHintTextColor(getResources().getColor(R.color.InputNormal_border_hit));
                 } else {
-                    et_names.setTextColor(Color.BLACK);
-                    et_names.setHintTextColor(Color.BLACK);
+                    et_names.setTextColor(getResources().getColor(R.color.InputFocus_text));
+                    et_names.setHintTextColor(getResources().getColor(R.color.InputFocus_text));
                 }
             }
         });
@@ -645,11 +646,11 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             public void afterTextChanged(Editable editable) {
 
                 if (editable.length() < 2) {
-                    et_surname.setTextColor(Color.RED);
-                    et_surname.setHintTextColor(Color.RED);
+                    et_surname.setTextColor(getResources().getColor(R.color.InputNormal_border_hit));
+                    et_surname.setHintTextColor(getResources().getColor(R.color.InputNormal_border_hit));
                 } else {
-                    et_surname.setTextColor(Color.BLACK);
-                    et_surname.setHintTextColor(Color.BLACK);
+                    et_surname.setTextColor(getResources().getColor(R.color.InputFocus_text));
+                    et_surname.setHintTextColor(getResources().getColor(R.color.InputFocus_text));
                 }
                 //btn_sendreg.setEnabled(checkFields());
             }
@@ -670,11 +671,11 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             @Override
             public void afterTextChanged(Editable editable) {
                 if (editable.length() < 7) {
-                    et_mobile.setTextColor(Color.RED);
-                    et_mobile.setHintTextColor(Color.RED);
+                    et_mobile.setTextColor(getResources().getColor(R.color.InputNormal_border_hit));
+                    et_mobile.setHintTextColor(getResources().getColor(R.color.InputNormal_border_hit));
                 } else {
-                    et_mobile.setTextColor(Color.BLACK);
-                    et_mobile.setHintTextColor(Color.BLACK);
+                    et_mobile.setTextColor(getResources().getColor(R.color.InputFocus_text));
+                    et_mobile.setHintTextColor(getResources().getColor(R.color.InputFocus_text));
                 }
             }
         });
@@ -694,11 +695,11 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             @Override
             public void afterTextChanged(Editable editable) {
                 if (editable.length() < 6) {
-                    et_password.setTextColor(Color.RED);
-                    et_password.setHintTextColor(Color.RED);
+                    et_password.setTextColor(getResources().getColor(R.color.InputNormal_border_hit));
+                    et_password.setHintTextColor(getResources().getColor(R.color.InputNormal_border_hit));
                 } else {
-                    et_password.setTextColor(Color.BLACK);
-                    et_password.setHintTextColor(Color.BLACK);
+                    et_password.setTextColor(getResources().getColor(R.color.InputFocus_text));
+                    et_password.setHintTextColor(getResources().getColor(R.color.InputFocus_text));
                 }
                 //btn_sendreg.setEnabled(checkFields());
             }
@@ -915,7 +916,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             if (pf.getName().equals(M_SELECTION_DIVIDER)) {
                 pf.setAccessible(true);
                 try {
-                    ColorDrawable colorDrawable = new ColorDrawable(getResources().getColor(R.color.dark_gray));
+                    ColorDrawable colorDrawable = new ColorDrawable(getResources().getColor(R.color.PersonSelectorItemDescriptionNumber));
                     pf.set(picker, colorDrawable);
                 } catch (IllegalArgumentException e) {
                     e.printStackTrace();
@@ -980,7 +981,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             CustomizedTextView txtTitle = new CustomizedTextView(context);
             txtTitle.setText(R.string.title_register);
             addView(txtTitle);
-            txtTitle.setTextColor(getResources().getColor(R.color.magenta));
+            txtTitle.setTextColor(getResources().getColor(R.color.GeneralAppHeaderTitle_backgroud));
             txtTitle.setGravity(Gravity.CENTER_HORIZONTAL);
             txtTitle.setTextSize(18);
             LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) txtTitle.getLayoutParams();
@@ -1009,7 +1010,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
 
             //TEXT CONGRATULATIONS
             CustomizedTextView txtCongrat = new CustomizedTextView(context);
-            txtCongrat.setTextColor(getResources().getColor(R.color.white));
+            txtCongrat.setTextColor(getResources().getColor(R.color.ConfirmationTitle_background));
             txtCongrat.setText(R.string.congratulations);
             Typeface font = Typeface.createFromAsset(getAssets(), getResources().getString(R.string.font_muli_extraLight));
             txtCongrat.setTypeface(font);
@@ -1037,7 +1038,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             CustomizedTextView txtUserName = new CustomizedTextView(context);
             Typeface font2 = Typeface.createFromAsset(getAssets(), getResources().getString(R.string.font_muli));
             txtUserName.setTypeface(font2);
-            txtUserName.setTextColor(getResources().getColor(R.color.white));
+            txtUserName.setTextColor(getResources().getColor(R.color.ConfirmationName_background));
             AllemUser user = Constants.getUser(getApplicationContext());
             String value = user.nombre;
             txtUserName.setText(value);
@@ -1054,7 +1055,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             CustomizedTextView txtEnjoy = new CustomizedTextView(context);
             Typeface font3 = Typeface.createFromAsset(getAssets(), getResources().getString(R.string.font_muli));
             txtEnjoy.setTypeface(font3);
-            txtEnjoy.setTextColor(getResources().getColor(R.color.white));
+            txtEnjoy.setTextColor(getResources().getColor(R.color.ConfirmationDescription_background));
             txtEnjoy.setText(R.string.you_can_enjoy_benefits);
             txtEnjoy.setGravity(Gravity.CENTER_HORIZONTAL);
             txtEnjoy.setTextSize(20);

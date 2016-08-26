@@ -15,7 +15,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
-        android:background="@color/white"
+        android:background="@color/GeneralAppHeaderTitle_backgroud"
         android:id="@+id/relativeLayout2"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true">

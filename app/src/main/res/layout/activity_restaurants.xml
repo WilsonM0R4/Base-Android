@@ -15,7 +15,7 @@
         android:layout_height="?android:attr/actionBarSize"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:background="@color/white"
+        android:background="@color/GeneralAppHeaderTitle_backgroud"
         android:id="@+id/relativeLayout5" >
 
         <ImageButton
@@ -23,7 +23,7 @@
             android:layout_height="36dp"
             android:layout_marginRight="10dp"
             android:src="@drawable/icon_menu"
-            android:background="@android:color/transparent"
+            android:background="@color/GeneralAppHeaderTitle_backgroud"
             android:id="@+id/menu_image"
             android:onClick="onMenu"
             android:contentDescription="menu"
@@ -39,13 +39,13 @@
             android:text="@string/title_restaurants"
             android:id="@+id/textView43"
             android:layout_centerHorizontal="true"
-            android:textColor="@color/magenta" />
+            android:textColor="@color/GeneralAppHeaderTitle_text" />
 
         <RelativeLayout
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="@color/white"
+            android:background="@color/GeneralAppHeaderTitle_backgroud"
             android:id="@+id/navigation_panel"
             android:layout_alignParentRight="false"
             android:layout_alignWithParentIfMissing="false"
@@ -78,7 +78,7 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="4dp"
         android:id="@+id/imageView28"
         android:src="@drawable/separator_medium_mag"
         android:contentDescription="Divider"

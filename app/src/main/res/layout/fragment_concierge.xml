@@ -21,7 +21,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="?android:attr/actionBarSize"
                 android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true">                <!-- android:background="@color/white"-->
+                android:layout_centerHorizontal="true"
+                android:background="@color/GeneralAppHeaderTitle_backgroud">
+                <!-- android:background="@color/white"-->
 
                 <com.allegra.handyuvisa.utils.CustomizedTextView
                     android:id="@+id/tv_title_secc_con"
@@ -30,7 +32,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="20dp"
                     android:text="@string/title_concierge"
-                    android:textColor="@color/magenta"
+                    android:textColor="@color/GeneralAppHeaderTitle_text"
                     android:textSize="18sp"
                     app:font="@string/font_varela" />
 
@@ -52,7 +54,7 @@
             <ImageView
                 android:id="@+id/iv_header"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="4dp"
                 android:layout_below="@+id/ll_header"
                 android:layout_marginLeft="-4dp"
                 android:layout_marginRight="-4dp"

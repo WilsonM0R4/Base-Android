@@ -68,16 +68,16 @@
                 android:layout_above="@+id/tv_current_time"
                 android:id="@+id/tv_username"
                 android:text="@string/txt_user_greeting"
-                android:textColor="@color/white"
+                android:textColor="@color/HomeTitle_text"
                 android:gravity="left"
-                android:background="@android:color/transparent"
+                android:background="@color/HomeTitle_backgroung"
                 android:textSize="30sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_current_time"
-                android:textColor="@color/white"
+                android:textColor="@color/HomeDescriptionTitle_text"
                 android:gravity="left"
                 android:background="@android:color/transparent"
                 android:textAppearance="?android:textAppearanceMedium" />
@@ -120,8 +120,8 @@
                 android:layout_gravity="center"
                 android:text="@string/skip_intro"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#ffffffff"
-                android:background="@android:color/transparent"
+                android:textColor="@color/HomeDescription_text"
+                android:background="@color/HomeDescription_backgroung"
                 android:onClick="onSkipIntro"
                 android:paddingTop="10dp"
                 android:paddingBottom="0dp"
@@ -134,9 +134,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="IATAI"
-                android:textColor="@color/white"
+                android:textColor="@color/HomeFooter_text"
                 android:gravity="center_horizontal"
-                android:background="@android:color/transparent"
+                android:background="@color/HomeFooter_backgroung"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:singleLine="false"
                 android:id="@+id/tvIatai" />

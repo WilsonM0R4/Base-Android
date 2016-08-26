@@ -24,7 +24,7 @@
             android:layout_height="?android:attr/actionBarSize"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:background="@color/white">
+            android:background="@color/GeneralAppHeaderTitle_backgroud">
 
 
             <ImageButton
@@ -47,7 +47,7 @@
                 android:layout_marginTop="20dp"
                 android:text="@string/coverage"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/magenta"
+                android:textColor="@color/GeneralAppHeaderTitle_text"
                 app:font="@string/font_varela"/>
 
             <ImageButton
@@ -67,7 +67,7 @@
         <ImageView
             android:id="@+id/iv_header_3"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="4dp"
             android:layout_below="@+id/ll_header"
             android:paddingEnd="-2dp"
             android:paddingStart="-2dp"

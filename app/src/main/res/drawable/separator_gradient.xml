@@ -4,6 +4,9 @@ android:shape="rectangle"
 xmlns:android="http://schemas.android.com/apk/res/android">
 <!--<stroke android:width="10dp" android:color="#5e7974" />-->
 
-<gradient android:angle="0" android:startColor="@color/allem_white_transparent_separator" android:endColor="@color/allem_white_transparent_separator" android:centerColor="@android:color/white"  />
+<gradient android:angle="0"
+    android:startColor="@color/HomeMenusLine2_background"
+    android:endColor="@color/HomeMenusLine2_background"
+    android:centerColor="@color/HomeMenusLine_background"  />
 
 </shape>

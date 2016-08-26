@@ -393,7 +393,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
             if (pf.getName().equals("mSelectionDivider")) {
                 pf.setAccessible(true);
                 try {
-                    ColorDrawable colorDrawable = new ColorDrawable(getResources().getColor(R.color.black));
+                    ColorDrawable colorDrawable = new ColorDrawable(getResources().getColor(R.color.PersonSelectorItemDescriptionNumber));
                     pf.set(picker, colorDrawable);
                 } catch (IllegalArgumentException e) {
                     e.printStackTrace();
@@ -446,7 +446,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
                     dateBegin.setText(Util.Day_Formatter.format(dates.get(0)).toUpperCase());
                     yearBegin.setText(Util.M_Y_Formatter.format(dates.get(0)).toUpperCase());
                     dateEnd.setText(Util.Day_Formatter.format(dates.get(size - 1)).toUpperCase());
-                    dateEnd.setTextColor(getResources().getColor(R.color.magenta));
+                    dateEnd.setTextColor(getResources().getColor(R.color.DoubleSelectorButtonSelected_backgroung));
                     dateEnd.setTextSize(TEXT_RETURN_DATE_SIZE);
                     yearEnd.setText(Util.M_Y_Formatter.format(dates.get(size - 1)).toUpperCase());
                     yearReturnDate.setText("");
@@ -454,7 +454,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
                     dateBegin.setText(Util.Day_Formatter.format(dates.get(0)).toUpperCase());
                     yearBegin.setText(Util.M_Y_Formatter.format(dates.get(0)).toUpperCase());
                     dateEnd.setText(R.string.one_way_type);
-                    dateEnd.setTextColor(getResources().getColor(R.color.gray));
+                    dateEnd.setTextColor(getResources().getColor(R.color.DoubleSelectorButtonNormal_text));
                     dateEnd.setTextSize(TEXT_ONE_WAY_SIZE);
                     yearEnd.setText("");
                     yearReturnDate.setText("");
@@ -791,7 +791,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
         if (dateEnd != null) {//Round Trip
             paramArriveDate = Util.Bookings_Formatter.format(dateEnd);
 
-            textViewReturnDay.setTextColor(getResources().getColor(R.color.magenta));
+            textViewReturnDay.setTextColor(getResources().getColor(R.color.CalendarSelectorRange_backgroung));
             textViewReturnDay.setTextSize(TEXT_RETURN_DATE_SIZE);
             textViewReturnDay.setText(Util.Day_Formatter.format(dateEnd).toUpperCase());
             textViewReturnMonth.setText(Util.M_Formatter.format(dateEnd).toUpperCase());
@@ -812,7 +812,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
             paramArriveDate = "";
 
             textViewReturnDay.setText(R.string.one_way_type);
-            textViewReturnDay.setTextColor(getResources().getColor(R.color.gray));
+            textViewReturnDay.setTextColor(getResources().getColor(R.color.DoubleSelectorButtonNormal_text));
             textViewReturnDay.setTypeface(null, Typeface.NORMAL);
             textViewReturnDay.setTextSize(TEXT_ONE_WAY_SIZE);
             monthReturn.setText(paramArriveDate);
@@ -883,9 +883,9 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
         first.setTypeface(Typeface.createFromAsset(getAssets(),getString(R.string.font_muli)));
 
         paramCabin = 0;
-        setButtonAttributes(economy, R.drawable.round_corner_white_border_magenta, R.color.magenta);
-        setButtonAttributes(business, R.drawable.round_corner_transparent_fix, R.color.dark_gray);
-        setButtonAttributes(first, R.drawable.round_corner_transparent_fix, R.color.dark_gray);
+        setButtonAttributes(economy, R.drawable.round_corner_white_border_magenta, R.color.ThirdSelectorButtonTitle_text);
+        setButtonAttributes(business, R.drawable.round_corner_transparent_fix, R.color.ThirdSelectorButtonNormal_text);
+        setButtonAttributes(first, R.drawable.round_corner_transparent_fix, R.color.ThirdSelectorButtonNormal_text);
     }
 
     public void onCabinBusiness(View view) {
@@ -895,9 +895,9 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
         first.setTypeface(Typeface.createFromAsset(getAssets(),getString(R.string.font_muli)));
 
         paramCabin = 1;
-        setButtonAttributes(economy, R.drawable.round_corner_transparent_fix, R.color.dark_gray);
-        setButtonAttributes(business, R.drawable.round_corner_white_border_magenta, R.color.magenta);
-        setButtonAttributes(first, R.drawable.round_corner_transparent_fix, R.color.dark_gray);
+        setButtonAttributes(economy, R.drawable.round_corner_transparent_fix, R.color.ThirdSelectorButtonNormal_text);
+        setButtonAttributes(business, R.drawable.round_corner_white_border_magenta, R.color.ThirdSelectorButtonTitle_text);
+        setButtonAttributes(first, R.drawable.round_corner_transparent_fix, R.color.ThirdSelectorButtonNormal_text);
     }
 
     public void onCabinFirst(View view) {
@@ -907,9 +907,9 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
         first.setTypeface(Typeface.createFromAsset(getAssets(),getString(R.string.font_muli_light)));
 
         paramCabin = 2;
-        setButtonAttributes(economy, R.drawable.round_corner_transparent_fix, R.color.dark_gray);
-        setButtonAttributes(business, R.drawable.round_corner_transparent_fix, R.color.dark_gray);
-        setButtonAttributes(first, R.drawable.round_corner_white_border_magenta, R.color.magenta);
+        setButtonAttributes(economy, R.drawable.round_corner_transparent_fix, R.color.ThirdSelectorButtonNormal_text);
+        setButtonAttributes(business, R.drawable.round_corner_transparent_fix, R.color.ThirdSelectorButtonNormal_text);
+        setButtonAttributes(first, R.drawable.round_corner_white_border_magenta, R.color.ThirdSelectorButtonTitle_text);
     }
 
     public void onRoundTrip(View view) {
@@ -918,8 +918,8 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
         oneWay = (Button) findViewById(R.id.btn_oneway);
 
         paramTrip = 0;
-        setButtonAttributes(round, R.drawable.round_corner_magenta, R.color.white);
-        setButtonAttributes(oneWay, R.drawable.round_corner_transparent_for_type_of_trip_fix, R.color.white);
+        setButtonAttributes(round, R.drawable.round_corner_magenta, R.color.DoubleSelectorButtonSelected_text);
+        setButtonAttributes(oneWay, R.drawable.round_corner_transparent_for_type_of_trip_fix, R.color.DoubleSelectorButtonNormal_text);
         //Change Arrive Date
         TextView textReturnDay = (TextView) findViewById(R.id.textReturnDay);
         textReturnDay.setText(R.string.txt_select_date);
@@ -942,8 +942,8 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
         Button oneWay = (Button) findViewById(R.id.btn_oneway);
 
         paramTrip = 1;
-        setButtonAttributes(round, R.drawable.round_corner_transparent_for_type_of_trip_fix, R.color.white);
-        setButtonAttributes(oneWay, R.drawable.round_corner_magenta, R.color.white);
+        setButtonAttributes(round, R.drawable.round_corner_transparent_for_type_of_trip_fix, R.color.DoubleSelectorButtonNormal_text);
+        setButtonAttributes(oneWay, R.drawable.round_corner_magenta, R.color.DoubleSelectorButtonSelected_text);
 
         //Change Arrive Date
         TextView textView;

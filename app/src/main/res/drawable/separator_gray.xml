@@ -6,7 +6,9 @@
     <!--<size android:height="5dp" android:width="100dp"/>-->
 <!--</shape>-->
 
-<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="line">
-    <stroke android:width="2dp" android:color="@color/gray"/>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="line">
+    <stroke android:width="2dp"
+        android:color="@color/LIGHT_GRAY_COLOR"/>
     <size android:height="10dp" />
 </shape>

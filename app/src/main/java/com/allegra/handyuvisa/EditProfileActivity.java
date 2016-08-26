@@ -47,6 +47,14 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
     private NumberPicker countryPicker, typeOfIdPicker;
     private Context ctx;
     TextView txtTypeOfIdSelected, txtSelectCountry;
+    //******** Array Colors *********
+    int[] allColors = new int[5];
+
+
+
+    //String[] ColorsInput;
+
+
 
 
     //*********OVERRIDE METHODS****************
@@ -57,6 +65,8 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
         ctx = this;
         MyBus.getInstance().register(this);
     }
+
+
 
     @Override
     public void initViews(View root) {
@@ -73,7 +83,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
     //*********PROPER METHODS****************
 
     private void setTextWatchers() {
-
+        allColors = getApplicationContext().getResources().getIntArray(R.array.Input);
         //********************DOCUMENT NUMBER*******************
         etNumberOfId.addTextChangedListener(new TextWatcher() {
             @Override
@@ -90,11 +100,12 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             public void afterTextChanged(Editable editable) {
                 if (etNumberOfId.getText().toString().length() < 4) {
                     //Toast.makeText(getApplicationContext(),"PIlas con el tipo" ,Toast.LENGTH_LONG).show();
-                    etNumberOfId.setHintTextColor(Color.RED);
-                    etNumberOfId.setTextColor(Color.RED);
+
+                    etNumberOfId.setHintTextColor(allColors[0]); //Gray
+                    etNumberOfId.setTextColor(allColors[0]);//Gray
                 } else{
-                    etNumberOfId.setHintTextColor(Color.BLACK);
-                    etNumberOfId.setTextColor(Color.BLACK);
+                    etNumberOfId.setHintTextColor(allColors[1]);//BLack
+                    etNumberOfId.setTextColor(allColors[1]);//Black
                 }
 
             }
@@ -115,11 +126,11 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             @Override
             public void afterTextChanged(Editable editable) {
                 if (editable.length() < 2) {
-                    txtName.setTextColor(Color.RED);
-                    txtName.setHintTextColor(Color.RED);
+                    txtName.setTextColor(allColors[0]);//Gray
+                    txtName.setHintTextColor(allColors[0]);//Gray
                 } else {
-                    txtName.setTextColor(Color.BLACK);
-                    txtName.setHintTextColor(Color.BLACK);
+                    txtName.setTextColor(allColors[1]);//Black
+                    txtName.setHintTextColor(allColors[1]);//Black
                 }
             }
         });
@@ -140,11 +151,11 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             public void afterTextChanged(Editable editable) {
 
                 if (editable.length() < 2) {
-                    txtLastName.setTextColor(Color.RED);
-                    txtLastName.setHintTextColor(Color.RED);
+                    txtLastName.setTextColor(allColors[0]);//Gray
+                    txtLastName.setHintTextColor(allColors[0]);//Gray
                 } else {
-                    txtLastName.setTextColor(Color.BLACK);
-                    txtLastName.setHintTextColor(Color.BLACK);
+                    txtLastName.setTextColor(allColors[1]);//Black
+                    txtLastName.setHintTextColor(allColors[1]);//Black
                 }
                 //btn_sendreg.setEnabled(checkFields());
             }
@@ -165,11 +176,11 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             @Override
             public void afterTextChanged(Editable editable) {
                 if (editable.length() < 3) {
-                    txtMobile.setTextColor(Color.RED);
-                    txtMobile.setHintTextColor(Color.RED);
+                    txtMobile.setTextColor(allColors[0]);//Gray
+                    txtMobile.setHintTextColor(allColors[0]);//Gray
                 } else {
-                    txtMobile.setTextColor(Color.BLACK);
-                    txtMobile.setHintTextColor(Color.BLACK);
+                    txtMobile.setTextColor(allColors[1]);//Black
+                    txtMobile.setHintTextColor(allColors[1]);//Black
                 }
             }
         });
@@ -189,11 +200,11 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             @Override
             public void afterTextChanged(Editable editable) {
                 if (editable.length() < 6) {
-                    txtNewPass.setTextColor(Color.RED);
-                    txtNewPass.setHintTextColor(Color.RED);
+                    txtNewPass.setTextColor(allColors[0]);//Gray
+                    txtNewPass.setHintTextColor(allColors[0]);//Gray
                 } else {
-                    txtNewPass.setTextColor(Color.BLACK);
-                    txtNewPass.setHintTextColor(Color.BLACK);
+                    txtNewPass.setTextColor(allColors[1]);//Black
+                    txtNewPass.setHintTextColor(allColors[1]);//Black
                 }
                 //btn_sendreg.setEnabled(checkFields());
             }
@@ -214,11 +225,11 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             @Override
             public void afterTextChanged(Editable editable) {
                 if (editable.length() < 6) {
-                    txtNewPassConfirm.setTextColor(Color.RED);
-                    txtNewPassConfirm.setHintTextColor(Color.RED);
+                    txtNewPassConfirm.setTextColor(allColors[0]);//Gray
+                    txtNewPassConfirm.setHintTextColor(allColors[0]);//Gray
                 } else {
-                    txtNewPassConfirm.setTextColor(Color.BLACK);
-                    txtNewPassConfirm.setHintTextColor(Color.BLACK);
+                    txtNewPassConfirm.setTextColor(allColors[1]);//Black
+                    txtNewPassConfirm.setHintTextColor(allColors[1]);//Black
                 }
                 //btn_sendreg.setEnabled(checkFields());
             }
@@ -276,7 +287,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
 
             case "1":
                 return getResources().getString(R.string.txt_citizenship_card);
-                //break;
+            //break;
             case "2":
                 return getResources().getString(R.string.txt_Foreigner_ID);
             case "3":
@@ -291,7 +302,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
                 return getResources().getString(R.string.txt_nuip);
             case "9":
                 return getResources().getString(R.string.txt_otro);
-                //break;
+            //break;
 
         }
 
@@ -658,7 +669,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
                 user.apellido = currentUser.apellido;*/
                 //Save in SharedPReferences TypeOfID and Number OfID
 
-               Constants.saveUser(EditProfileActivity.this,user,currentUser.channel);
+                Constants.saveUser(EditProfileActivity.this,user,currentUser.channel);
 
                 new AlertDialog.Builder(ctx).setTitle(getString(R.string.txt_lbl_notification)).setMessage(getString(R.string.edit_successful)).setPositiveButton("ok", null).show();
             }else{
@@ -670,3 +681,4 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
     }
 
 }
+

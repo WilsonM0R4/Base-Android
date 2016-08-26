@@ -33,7 +33,7 @@
             android:layout_marginTop="25dp"
             android:gravity="center"
             android:text="@string/txt_lbl_destination"
-            android:textColor="@color/white"
+            android:textColor="@color/HeaderDestination_text"
             app:font="@string/font_muli" />
 
         <include
@@ -57,7 +57,7 @@
             android:layout_marginTop="5dp"
             android:gravity="center"
             android:text="@string/txt_lbl_select_dest"
-            android:textColor="@color/white"
+            android:textColor="@color/BodyDestinationCityNormal_text"
             app:font="@string/font_muli" />
     </LinearLayout>
 </RelativeLayout>

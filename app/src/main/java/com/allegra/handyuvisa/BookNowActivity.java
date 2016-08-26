@@ -15,16 +15,13 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
-import com.allegra.handysdk.bean.BeanConstants;
-import com.allegra.handysdk.responsebean.BookingInteface;
 import com.allegra.handyuvisa.utils.MyEditText;
 import com.allegra.handyuvisa.utils.MyTextView;
 
 /**
  * Created by jsandoval on 20/06/16.
  */
-public class BookNowActivity extends Activity implements View.OnClickListener , BookingInteface {
+public class BookNowActivity extends Activity implements View.OnClickListener{
 
     MyTextView tvConfirmBooking,ed_name,ed_service,ed_estimatetime,ed_address;
     ImageView iv_navi_heder,iv_logo_heder,iv_search_heder,iv_back_heder;
@@ -39,10 +36,9 @@ public class BookNowActivity extends Activity implements View.OnClickListener , 
 
         init();
 
-        ed_name.setText(BeanConstants.loginData.getUser_First_Name() + " "+BeanConstants.loginData.getUser_Last_Name());
-        ed_service.setText(BeanConstants.BookingData.getUser_Selected_Service());
+
         ed_estimatetime.setText(getIntent().getStringExtra("Estimate_Time"));
-        ed_address.setText(BeanConstants.BookingData.getBooking_Address());
+
     }
 
     private void init() {
@@ -119,9 +115,7 @@ public class BookNowActivity extends Activity implements View.OnClickListener , 
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
-                BeanConstants.BookingData.setBooking_Remarks(ed_extra_notes.getText().toString().trim());
-                BeanConstants.BookingData.setRequired_Estimation(ed_estimatetime.getText().toString().trim());
-                BeanConstants.service.Booking(BookNowActivity.this);
+
             }
         });
 
@@ -129,16 +123,7 @@ public class BookNowActivity extends Activity implements View.OnClickListener , 
         dialog.show();
     }
 
-    @Override
-    public void BookingResponse(String data) {
-        if (data.equalsIgnoreCase("true")){
-            Intent intent=new Intent(BookNowActivity.this,MyBookingActivity.class);
-            ComponentName cn = intent.getComponent();
-            Intent mainIntent = IntentCompat.makeRestartActivityTask(cn);
-            mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(mainIntent);
-            finish();
-        }
-    }
+
+
 }
 

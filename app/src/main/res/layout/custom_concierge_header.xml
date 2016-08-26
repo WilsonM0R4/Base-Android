@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:text="@string/txt_lbl_destination"
             android:gravity="center"
-            android:textColor="@color/white"
+            android:textColor="@color/HeaderDestination_text"
             android:textStyle="bold"
             android:layout_marginTop="25dp"
             app:font="@string/font_muli" />
@@ -56,7 +56,7 @@
             android:gravity="center"
             android:id="@+id/txt_select_your_destination_concierge"
             android:text="@string/title_cities_countries_attractions_concierge"
-            android:textColor="@color/white"
+            android:textColor="@color/BodyDestinationCityNormal_text"
             android:textSize="15sp"
             android:layout_marginTop="5dp"
             app:font="@string/font_muli"

@@ -9,7 +9,7 @@
     <com.allegra.handyuvisa.utils.CustomizedTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/orange"
+        android:textColor="@color/GeneralTitle1_text"
         android:textSize="30sp"
         android:text="@string/title_concierge_whatever_you_want"
         android:textAlignment="center"
@@ -20,7 +20,7 @@
     <com.allegra.handyuvisa.utils.CustomizedTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/gray_concierge_text"
+        android:textColor="@color/HomeDescriptionTitle_text"
         android:textSize="18sp"
         android:text="@string/title_concierge_city_by_city"
         android:textAlignment="center"
@@ -34,7 +34,7 @@
         android:layout_height="50dp"
         android:id="@+id/btn_search"
         android:text="@string/search_concierge"
-        android:textColor="@color/white"
+        android:textColor="@color/BigButton_text"
         android:textSize="18sp"
         android:background="@drawable/round_corner_orange"
         android:layout_marginTop="60dp"

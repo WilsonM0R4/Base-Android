@@ -17,7 +17,7 @@
         android:layout_height="?android:attr/actionBarSize"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:background="@color/white">
+        android:background="@color/GeneralAppHeaderTitle_backgroud">
 
 
         <ImageButton
@@ -40,7 +40,7 @@
             android:layout_marginTop="20dp"
             android:text="@string/coverage"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/magenta" />
+            android:textColor="@color/GeneralAppHeaderTitle_text" />
 
         <ImageButton
             android:layout_width="36dp"
@@ -60,7 +60,7 @@
     <ImageView
         android:id="@+id/iv_header_3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="4dp"
         android:layout_below="@+id/ll_header"
         android:paddingEnd="-2dp"
         android:paddingStart="-2dp"
@@ -85,7 +85,7 @@
             android:text="@string/enjoy_all_benefits"
             app:font="@string/font_muli"
             android:gravity="center_horizontal"
-            android:textColor="@color/dark_gray"
+            android:textColor="@color/GeneralDescription"
             android:layout_below="@+id/imvLogoHandyMcard"/>
 
     <LinearLayout
@@ -104,7 +104,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             app:font="@string/font_muli"
-            android:textColor="@color/orange"
+            android:textColor="@color/BigButtonWithBorder_text"
             android:text="@string/get_your_certificate"
             android:background="@drawable/round_corner_transparent_orange"
             android:id="@+id/txtGetYourCertificate2" />

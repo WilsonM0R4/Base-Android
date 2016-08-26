@@ -20,7 +20,7 @@
             android:text="@string/rooms_title"
             android:textSize="18sp"
             android:layout_centerInParent="true"
-            android:textColor="@color/white"
+            android:textColor="@color/GuestPerRoomTitle_text"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@id/rooms_icon"
             android:id="@+id/textTitle" />

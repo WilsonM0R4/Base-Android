@@ -36,7 +36,7 @@
                     android:text="@string/Repatriating_remains"
                     android:id="@+id/title_coverage"
                     android:textAlignment="center"
-                    android:textColor="@color/com_visa_checkout_gray"
+                    android:textColor="@color/ProofOfCoverageDescriptionTitle_text"
                     android:textStyle="bold"
                     android:layout_marginTop="5dp"
                     android:textSize="15dp"
@@ -72,6 +72,7 @@
                         android:layout_weight="1"
                         android:textAlignment="center"
                         android:textSize="13dp"
+                        android:textColor="@color/ProofOfCoverageValor_text"
                         app:font="@string/font_muli_light"/>
 
                 </LinearLayout>
@@ -108,7 +109,7 @@
                     android:text="@string/medical_expenses"
                     android:id="@+id/textView48"
                     android:textAlignment="center"
-                    android:textColor="@color/com_visa_checkout_gray"
+                    android:textColor="@color/ProofOfCoverageDescriptionTitle_text"
                     android:textStyle="bold"
                     android:layout_marginTop="5dp"
                     android:textSize="15dp"
@@ -144,6 +145,7 @@
                         android:layout_weight="1"
                         android:textAlignment="center"
                         android:textSize="13dp"
+                        android:textColor="@color/ProofOfCoverageValor_text"
                         app:font="@string/font_muli_light"/>
                 </LinearLayout>
             </LinearLayout>
@@ -177,7 +179,7 @@
                     android:text="@string/emergency_transfer"
                     android:id="@+id/textView51"
                     android:textAlignment="center"
-                    android:textColor="@color/com_visa_checkout_gray"
+                    android:textColor="@color/ProofOfCoverageDescriptionTitle_text"
                     android:textStyle="bold"
                     android:layout_marginTop="5dp"
                     android:textSize="15dp"
@@ -213,6 +215,7 @@
                         android:layout_weight="1"
                         android:textAlignment="center"
                         android:textSize="13dp"
+                        android:textColor="@color/ProofOfCoverageValor_text"
                         app:font="@string/font_muli_light"/>
                 </LinearLayout>
             </LinearLayout>

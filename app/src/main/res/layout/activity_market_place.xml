@@ -12,7 +12,7 @@
         android:layout_height="?android:attr/actionBarSize"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:background="@color/white"
+        android:background="@color/GeneralAppHeaderTitle_backgroud"
         android:id="@+id/ll_header">
 
         <ImageButton
@@ -36,7 +36,7 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/title_market_place"
             android:id="@+id/tv_title_secc"
-            android:textColor="@color/magenta"
+            android:textColor="@color/GeneralAppHeaderTitle_text"
             android:layout_centerInParent="true" />
 
         <ImageButton
@@ -56,7 +56,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="@color/white"
+            android:background="@color/GeneralAppHeaderTitle_backgroud"
             android:id="@+id/navigation_panel"
             android:layout_alignParentRight="false"
             android:layout_alignWithParentIfMissing="false"
@@ -88,7 +88,7 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="4dp"
         android:layout_below="@+id/ll_header"
         android:id="@+id/iv_header"
         android:paddingEnd="-2dp"

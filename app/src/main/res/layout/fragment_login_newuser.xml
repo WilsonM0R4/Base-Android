@@ -12,7 +12,7 @@
         android:id="@+id/ll_header"
         android:layout_width="match_parent"
         android:layout_height="42dp"
-        android:background="@color/white"
+        android:background="@color/GeneralAppHeaderTitle_backgroud"
         android:onClick="onCloseMenu">
 
         <ImageButton
@@ -35,14 +35,14 @@
             android:text="@string/title_register"
             app:font="@string/font_varela"
             android:textSize="18sp"
-            android:textColor="@color/magenta" />
+            android:textColor="@color/GeneralAppHeaderTitle_text" />
 
     </RelativeLayout>
 
     <ImageView
         android:id="@+id/iv_separator"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="4dp"
         android:layout_marginLeft="-2dp"
         android:layout_marginRight="-2dp"
         android:src="@drawable/separator"
@@ -70,7 +70,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/join_new_experience"
-                android:textColor="@color/orange"
+                android:textColor="@color/GeneralTitle1_text"
                 android:textSize="23sp"
                 android:gravity="center_horizontal"
                 app:font="@string/font_muli_extraLight"
@@ -82,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/txt_lbl_user_information"
                 android:textAlignment="center"
-                android:textColor="@color/dark_gray"
+                android:textColor="@color/GeneralDescription"
                 android:textSize="16sp"
                 android:gravity="center_horizontal"
                 android:layout_marginTop="5dp"
@@ -97,7 +97,7 @@
                 android:text="@string/user_information"
                 android:textAlignment="center"
                 app:font="@string/font_muli"
-                android:textColor="@color/magenta"
+                android:textColor="@color/GeneralTitle2_text"
                 android:textSize="16sp" />
 
             <com.allegra.handyuvisa.utils.CustomizedEditText
@@ -107,7 +107,7 @@
                 android:layout_margin="12dp"
                 android:drawableLeft="@drawable/field_name"
                 android:drawableRight="@drawable/icon_clear"
-                android:textColorHint="@color/register_input_inactive"
+                android:textColorHint="@color/InputNormal_border_hit"
                 android:hint="@string/txt_hint_cc_name"
                 android:inputType="textPersonName"
                 android:singleLine="true"
@@ -127,7 +127,7 @@
                 android:singleLine="true"
                 android:textSize="15sp"
                 app:fontEdit="@string/font_muli"
-                android:textColorHint="@color/register_input_inactive"
+                android:textColorHint="@color/InputNormal_border_hit"
                 android:background="@drawable/apptheme_edit_text_holo_light"
                 />
 
@@ -172,7 +172,7 @@
                 android:singleLine="true"
                 android:textSize="15sp"
                 app:fontEdit="@string/font_muli"
-                android:textColorHint="@color/register_input_inactive"
+                android:textColorHint="@color/InputNormal_border_hit"
                 android:background="@drawable/apptheme_edit_text_holo_light"
                 />
 
@@ -190,7 +190,7 @@
                 android:singleLine="true"
                 android:textSize="15sp"
                 app:fontEdit="@string/font_muli"
-                android:textColorHint="@color/register_input_inactive"
+                android:textColorHint="@color/InputNormal_border_hit"
                 android:background="@drawable/apptheme_edit_text_holo_light"
                 />
 
@@ -209,7 +209,7 @@
                 android:textSize="15sp"
                 android:background="@drawable/apptheme_edit_text_holo_light"
                 app:fontEdit="@string/font_muli"
-                android:textColorHint="@color/register_input_inactive"
+                android:textColorHint="@color/InputNormal_border_hit"
                 />
 
                 <com.allegra.handyuvisa.utils.CustomizedTextView
@@ -227,7 +227,7 @@
                     android:maxLength="100"
                     android:singleLine="true"
                     app:font="@string/font_muli"
-                    android:textColorHint="@color/dark_gray"
+                    android:textColorHint="@color/InputNormal_border_hit"
                     style="@style/MyEditTextStyle"
                     android:gravity="left|center_vertical"
                     />
@@ -256,7 +256,7 @@
                 android:singleLine="true"
                 android:textSize="15sp"
                 app:fontEdit="@string/font_muli"
-                android:textColorHint="@color/register_input_inactive"
+                android:textColorHint="@color/InputNormal_border_hit"
                 android:background="@drawable/apptheme_edit_text_holo_light" />
 
             <LinearLayout
@@ -277,7 +277,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/round_corner_transparent_orange"
                     android:text="@string/login"
-                    android:textColor="@color/orange"
+                    android:textColor="@color/SmallButtonWithBorder_text"
                     app:font="@string/font_muli"
                     android:gravity="center"
                     android:textSize="16sp"/>
@@ -291,7 +291,7 @@
                     android:background="@drawable/round_corner_magenta"
                     android:text="@string/create_account"
                     android:gravity="center"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/SmallButton_text"
                     app:font="@string/font_muli"
                     android:textSize="16sp"
                     android:layout_gravity=""/>

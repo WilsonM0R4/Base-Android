@@ -36,7 +36,7 @@
                 android:layout_marginLeft="10dp"
                 android:textStyle="bold"
                 android:id="@+id/room_title"
-                android:textColor="@color/magenta"
+                android:textColor="@color/SelectedRoomButtonAddRoom_text"
                 android:textSize="16sp"
 
                 />

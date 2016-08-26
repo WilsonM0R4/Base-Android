@@ -387,7 +387,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
         params.setMargins(0,0,0,0);
         dateEnd.setLayoutParams(params);
         dateEnd.setText(Util.Day_Formatter.format(tomorrow).toUpperCase());
-        dateEnd.setTextColor(getResources().getColor(R.color.magenta));
+        dateEnd.setTextColor(getResources().getColor(R.color.CalendarSelectorRange_backgroung));
         dateEnd.setTextSize(32);
         yearEnd.setText(Util.M_Y_Formatter.format(tomorrow).toUpperCase());
     }
@@ -401,7 +401,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
         gc.add(Calendar.DATE, 1);
 
         dateEnd.setText(Util.Day_Formatter.format(dateEndSelected).toUpperCase());
-        dateEnd.setTextColor(getResources().getColor(R.color.magenta));
+        dateEnd.setTextColor(getResources().getColor(R.color.CalendarSelectorRange_backgroung));
         dateEnd.setTextSize(32);
         yearEnd.setText(Util.M_Y_Formatter.format(dateEndSelected).toUpperCase());
     }
@@ -573,7 +573,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
             if (pf.getName().equals("mSelectionDivider")) {
                 pf.setAccessible(true);
                 try {
-                    ColorDrawable colorDrawable = new ColorDrawable(getResources().getColor(R.color.black));
+                    ColorDrawable colorDrawable = new ColorDrawable(getResources().getColor(R.color.PersonSelectorItemDescriptionNumber));
                      pf.set(picker, colorDrawable);
                 } catch (IllegalArgumentException e) {
                     e.printStackTrace();

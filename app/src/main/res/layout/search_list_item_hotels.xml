@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/list_item_text_view_hotels"
         android:text="(BUD) BudapestPest - Hungary, Budapest Listz Ferenc International Airport"
-        android:textColor="@color/text_color_hotels_selector"
+        android:textColor="@color/SearchItemNormalTitle"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_marginLeft="16dp"/>
 
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/textCityAndCountryHotels"
         android:text="NameOfCity, NameOfCountry"
-        android:textColor="@color/text_color_hotels_city_selector"
+        android:textColor="@color/SearchItemNormalSubTitle_text"
         android:textSize="14sp"
         android:layout_below="@+id/list_item_text_view_hotels"
         android:textAppearance="?android:attr/textAppearanceMedium"

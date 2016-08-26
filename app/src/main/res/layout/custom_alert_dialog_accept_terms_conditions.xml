@@ -15,7 +15,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="37dp"
         android:id="@+id/titletextCancelDialog2"
-        android:textColor="@color/magenta" />
+        android:textColor="@color/HeaderAlert_text" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -26,7 +26,7 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/txtprivilegeinfo"
         android:layout_marginTop="26dp"
-        android:textColor="@color/dark_gray"
+        android:textColor="@color/BodyAlert_text"
         android:layout_below="@+id/titletextCancelDialog2"
         />
 
@@ -46,7 +46,7 @@
         android:text="@string/the_article"
         android:textSize="19sp"
         android:id="@+id/txtprivilege"
-        android:textColor="@color/dark_gray"
+        android:textColor="@color/BodyAlert_text"
         />
 
         <com.allegra.handyuvisa.utils.CustomizedTextView
@@ -56,7 +56,7 @@
         android:layout_marginLeft="6dp"
         android:textSize="19sp"
         android:id="@+id/txtTermsAndConditions"
-        android:textColor="@color/magenta"
+        android:textColor="@color/HeaderAlert_text"
         app:font="@string/font_muli"
         />
     </LinearLayout>
@@ -76,7 +76,7 @@
             android:text="@string/and_article"
             android:textSize="19sp"
             android:id="@+id/andArticle"
-            android:textColor="@color/dark_gray"
+            android:textColor="@color/BodyAlert_text"
             />
 
         <com.allegra.handyuvisa.utils.CustomizedTextView
@@ -86,7 +86,7 @@
             android:layout_marginLeft="6dp"
             android:textSize="19sp"
             android:id="@+id/txtPrivacyPolicy"
-            android:textColor="@color/magenta"
+            android:textColor="@color/HeaderAlert_text"
             app:font="@string/font_muli"
             />
     </LinearLayout>
@@ -108,7 +108,7 @@
             android:layout_weight="1"
             android:background="@drawable/round_corner_transparent_orange"
             android:text="@string/decline_register"
-            android:textColor="@color/orange"
+            android:textColor="@color/SmallButtonWithBorder_border"
             app:font="@string/font_muli"
             android:gravity="center"
             android:textSize="16sp"/>           <!--  android:layout_marginBottom="20dp"-->
@@ -122,7 +122,7 @@
             android:background="@drawable/round_corner_magenta"
             android:text="@string/accept_register"
             android:gravity="center"
-            android:textColor="@android:color/white"
+            android:textColor="@color/SmallButton_text"
             app:font="@string/font_muli"
             android:textSize="16sp"
             android:layout_gravity=""/>

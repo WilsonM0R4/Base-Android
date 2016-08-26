@@ -23,7 +23,7 @@
                 android:layout_height="?android:attr/actionBarSize"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:background="@color/white">
+                android:background="@color/WHITE_COLOR">
 
                 <TextView
                     android:id="@+id/tv_title_secc"
@@ -33,7 +33,7 @@
                     android:layout_marginTop="20dp"
                     android:text="@string/txt_title_book_hotels"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@color/magenta"
+                    android:textColor="@color/GeneralAppHeaderTitle_text"
                     android:textStyle="bold"/>
 
                 <ImageButton
@@ -54,7 +54,7 @@
             <ImageView
                 android:id="@+id/iv_header_hotels"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="4dp"
                 android:layout_below="@+id/ll_header_hotels"
                 android:layout_marginBottom="-4dp"
                 android:layout_marginLeft="-4dp"
@@ -128,7 +128,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="@string/room"
-                    android:textColor="@color/magenta"
+                    android:textColor="@color/SelectedRoomButtonAddRoom_text"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -157,7 +157,7 @@
                 android:background="@drawable/round_corner_orange"
                 android:onClick="onSearchHotels"
                 android:text="@string/search_hotels"
-                android:textColor="@color/white"
+                android:textColor="@color/BigButton2_text"
                 android:textSize="18sp"/>
 
         </RelativeLayout>

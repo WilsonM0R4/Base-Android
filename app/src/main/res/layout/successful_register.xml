@@ -14,7 +14,7 @@
         android:layout_height="42dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:background="@color/white"
+        android:background="@color/GeneralAppHeaderTitle_backgroud"
         android:onClick="onCloseMenu">
 
         <com.allegra.handyuvisa.utils.CustomizedTextView
@@ -26,14 +26,14 @@
             android:text="@string/title_register"
             app:font="@string/font_varela"
             android:textSize="18sp"
-            android:textColor="@color/magenta" />
+            android:textColor="@color/GeneralAppHeaderTitle_text" />
 
         </RelativeLayout>
 
     <ImageView
         android:id="@+id/iv_separator"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="4dp"
         android:layout_below="@+id/ll_header"
         android:contentDescription="separator"
         android:layout_marginLeft="-2dp"
@@ -46,7 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:textColor="@color/white"
+        android:textColor="@color/ConfirmationTitle_background"
         android:textSize="32sp"
         android:layout_gravity="center_horizontal"
         android:text="@string/congratulations"/>
@@ -64,7 +64,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:textColor="@color/white"
+        android:textColor="@color/ConfirmationName_background"
         android:textSize="30sp"
         android:layout_gravity="center_horizontal"
         android:text="Santiago"/>
@@ -73,7 +73,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:textColor="@color/white"
+        android:textColor="@color/ConfirmationDescription_background"
         android:textSize="24sp"
         android:gravity="center"
         android:layout_gravity="center_horizontal"
@@ -85,7 +85,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/txtBtnContinue"
         android:layout_marginTop="30dp"
-        android:textColor="@color/white"
+        android:textColor="@color/HomeButtonSmalllWithBorder_text"
         android:textSize="20sp"
         android:background="@drawable/round_corner_transparent"
         android:gravity="center"

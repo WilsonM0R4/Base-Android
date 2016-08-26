@@ -11,10 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:background="@color/magenta"
+        android:background="@color/GuestPerRoomTitle_backgroung"
         android:text="@string/txt_lbl_passengers"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="@color/GuestPerRoomTitle_text"
         android:textSize="18sp"
         app:font="@string/font_muli" />
 
@@ -35,7 +35,7 @@
         android:orientation="horizontal"
         android:text="@string/txt_lbl_select_cabin"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/magenta"
+        android:textColor="@color/GeneralTitle2_text"
         android:textSize="20sp"
         app:font="@string/font_muli" />
 
@@ -56,7 +56,7 @@
             android:background="@drawable/round_corner_white_border_magenta"
             android:onClick="onCabinEconomy"
             android:text="@string/txt_lbl_economy"
-            android:textColor="@color/magenta"
+            android:textColor="@color/ThirdSelectorButtonSelected_text"
             android:textSize="13sp"
             />
 
@@ -68,7 +68,7 @@
             android:background="@drawable/round_corner_transparent_fix"
             android:onClick="onCabinBusiness"
             android:text="@string/txt_lbl_business"
-            android:textColor="@color/dark_gray"
+            android:textColor="@color/ThirdSelectorButtonNormal_text"
             android:textSize="13sp"
             />
 
@@ -80,7 +80,7 @@
             android:background="@drawable/round_corner_transparent_fix"
             android:onClick="onCabinFirst"
             android:text="@string/txt_lbl_first"
-            android:textColor="@color/dark_gray"
+            android:textColor="@color/ThirdSelectorButtonNormal_text"
             android:textSize="13sp"
              />
 
@@ -97,7 +97,7 @@
         android:background="@drawable/round_corner_orange"
         android:onClick="onSearchFlights"
         android:text="@string/search_flights"
-        android:textColor="@color/white"
+        android:textColor="@color/BigButton_text"
         android:textSize="18sp" />
 
 </LinearLayout>
