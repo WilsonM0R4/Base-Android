@@ -72,13 +72,12 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="4dp"
         android:layout_below="@+id/ll_header"
         android:paddingEnd="-2dp"
         android:paddingStart="-2dp"
         android:id="@+id/imageView23"
-        android:src="@drawable/separator_medium_mag"
-        android:contentDescription="Divider"
+        android:background="@color/loading_salmon"
         android:layout_marginLeft="-2dp"
         android:layout_marginRight="-2dp"
         android:layout_marginTop="0dp" />
