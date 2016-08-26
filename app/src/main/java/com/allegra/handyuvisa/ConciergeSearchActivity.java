@@ -3,9 +3,11 @@ package com.allegra.handyuvisa;
  * Created by jsandoval on 3/06/16.
  */
 import android.app.ActionBar;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +15,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,7 +27,7 @@ import com.allem.onepocket.utils.OPKConstants;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
-public class ConciergeSearchActivity extends LoadAnimate implements LoadAnimate.InflateReadyListener {
+public class ConciergeSearchActivity extends Activity{//LoadAnimate implements LoadAnimate.InflateReadyListener
 
     private static final String TAG = "ConciergeSearchActivity";
     private String url,urlWebView;
@@ -35,19 +38,44 @@ public class ConciergeSearchActivity extends LoadAnimate implements LoadAnimate.
     private String returnURL;
     public String onePocketmessage;
     public String mcard;
-    ProgressBar progressBar;
+    //ProgressBar progressBar;
+    ImageView imgLogoAllegraLoader, progressBar;
     TextView title;
+    private TextView txtLoading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);//_concierge
-        super.setView(R.layout.fragment_search_in_progress, R.drawable.concierge4, R.string.txt_lbl_searchConciergeWait, this);
+        //super.setView(R.layout.fragment_search_in_progress, R.drawable.concierge4, R.string.txt_lbl_searchConciergeWait, this);
+        setContentView(R.layout.fragment_search_in_progress);
         id_destino_ser = getIntent().getStringExtra("&idCity");
         nombre_destino_ser = getIntent().getStringExtra("&labelCity");
         Log.d("ID DESTINO SER ",String.valueOf(id_destino_ser));
         Log.d("NOMBRE DESTINO SER",String.valueOf(nombre_destino_ser));
 
+        webView = (WebView)findViewById(R.id.webView);//Concierge
+        progressBar= (ImageView)findViewById(R.id.pb_search_loader);//pb_concierge
+        txtLoading = (TextView)findViewById(R.id.txtLoading);
+
+        progressBar.post(new Runnable() {
+            @Override
+            public void run() {
+                ((AnimationDrawable) progressBar.getBackground()).start();
+            }
+        });
+        imgLogoAllegraLoader =(ImageView)findViewById(R.id.imgProgress);
+        title = (TextView)findViewById(R.id.tv_title_secc);//_con
+        arrowBack= (ImageButton)findViewById(R.id.arrow_back);//_concierge
+
+        setActionBar(true);
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setLoadsImagesAutomatically(true);
+        webSettings.setDomStorageEnabled(true);
+        webView.setWebViewClient(new MyWebViewClient());
+
+        title.setText(String.valueOf(getString(R.string.title_concierge)));
         SharedPreferences prefs =
                 getSharedPreferences("MisPreferencias", MODE_PRIVATE);
         mcard = prefs.getString("idMcard", "0");
@@ -59,11 +87,12 @@ public class ConciergeSearchActivity extends LoadAnimate implements LoadAnimate.
         }
     }
 
-    @Override
+   /* @Override
     public void initViews(View root) {
 
         webView = (WebView)root.findViewById(R.id.webView);//Concierge
-        progressBar= (ProgressBar) root.findViewById(R.id.pb_hotel);//pb_concierge
+        progressBar= (ImageView) root.findViewById(R.id.pb_search_loader);//pb_concierge
+        imgLogoAllegraLoader =(ImageView) root.findViewById(R.id.imgProgress);
         title = (TextView) root.findViewById(R.id.tv_title_secc);//_con
         arrowBack= (ImageButton)root.findViewById(R.id.arrow_back);//_concierge
 
@@ -74,8 +103,8 @@ public class ConciergeSearchActivity extends LoadAnimate implements LoadAnimate.
         webSettings.setDomStorageEnabled(true);
         webView.setWebViewClient(new MyWebViewClient());
 
-        title.setText(String.valueOf(getString(R.string.title_concierge)));//
-    }
+        title.setText(String.valueOf(getString(R.string.title_concierge)));
+    }*/
 
     @Override
     protected void onResume() {
@@ -96,11 +125,11 @@ public class ConciergeSearchActivity extends LoadAnimate implements LoadAnimate.
         }
     }
 
-    @Override
+   /* @Override
     public void onCancelLoading() {
 
         finish();
-    }
+    }*/
 
     private void loadWebView() {
         //OLD: http://viatorallegra.vuelos.ninja/Actividad/ResultadosGet?id_destino_ser=
@@ -153,16 +182,20 @@ public class ConciergeSearchActivity extends LoadAnimate implements LoadAnimate.
 
         @Override
         public void onPageFinished(WebView view, String url) {
+            progressBar.setVisibility(View.GONE);
+            imgLogoAllegraLoader.setVisibility(View.GONE);
+            txtLoading.setVisibility(View.GONE);
             if (url.equals("about:blank")) {
                 webView.loadUrl(returnURL);
             }
             loadArrows();
-            animate();
+            //animate();
         }
 
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon){
-            showProgress(true);
+            progressBar.setVisibility(View.VISIBLE);
+            //showProgress(true);
         }
     }
 
@@ -199,6 +232,7 @@ public class ConciergeSearchActivity extends LoadAnimate implements LoadAnimate.
         startActivityForResult(intent, Constants.REQUEST_ONEPOCKET_RETURN);
     }
 
+
     private void loadArrows(){
 
         if(webView.canGoBack()){
@@ -225,6 +259,10 @@ public class ConciergeSearchActivity extends LoadAnimate implements LoadAnimate.
     public void onBackPressed() {
         super.onBackPressed();
         urlWebView=this.url;
+    }
+
+    public void onBackButton(View view){
+        finish();
     }
 
 }

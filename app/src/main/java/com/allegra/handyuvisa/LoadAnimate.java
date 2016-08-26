@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -25,12 +26,7 @@ import android.widget.TextView;
 //setContentView(R.layout.activity_loadanimate);
 public class LoadAnimate extends Activity implements BackFragment.MenuSelectListener {
 
-    public interface InflateReadyListener {
-
-        public void initViews(View root);
-        public void onCancelLoading();
-    }
-
+    //*************GLOBAL ATTRIBUTES*******************
     private static final String TAG = "LoadAnimate";
     private static final String FRAGMENT_BACK = "FRAGMENT_BACK";
     private static final String FRAGMENT_LOADING = "LOADING";
@@ -46,11 +42,18 @@ public class LoadAnimate extends Activity implements BackFragment.MenuSelectList
     private static ImageView fabButton;
     private static TextView status;
 
+    //***************INTERFACES*****************
+    public interface InflateReadyListener {
 
+         void initViews(View root);
+         void onCancelLoading();
+    }
 
+    //***************OVERRIDE METHODS**************
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_loadanimate);
 
         loadingFragment = new LoadingFragment();
@@ -63,6 +66,44 @@ public class LoadAnimate extends Activity implements BackFragment.MenuSelectList
         getFragmentManager().beginTransaction().hide(inProgressFragment).commit();
         backFragment = (BackFragment) getFragmentManager().findFragmentByTag(FRAGMENT_BACK);
         backFragment.menulistener = this;
+    }
+
+    @Override
+    public void getStartActivity(Intent intent) {
+        startActivity(intent);
+        overridePendingTransition(R.animator.front_slide_in, R.animator.back_slide_out);
+        finish();
+    }
+
+    //***************PROPER METHODS**************
+
+     public  void animateBetter(){
+
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+        int width = dm.widthPixels;
+        int resId = R.animator.front_open;
+        if (width > 800) {
+            resId = R.animator.front_open_xlarge;
+        }
+
+        if (state == 1) {
+            getFragmentManager().beginTransaction().hide(loadingFragment).hide(backFragment).commit();
+            //state = 1;
+            Log.d("Sergio", "Entra al state == 1");
+            state = 0;
+            showStatusBar(true);
+            getFragmentManager().beginTransaction()
+                    .setCustomAnimations(R.animator.front_close, 0)
+                    .show(loadingFragment)
+                    .setCustomAnimations(R.animator.back_hidden, 0)
+                    .show(backFragment)
+                    .commit();
+        }
+    }
+
+    public void onCloseMenu(View view) {
+        animateBetter();
     }
 
     protected void setView(int inProgressRes, int iconRes, int status, InflateReadyListener inflateReadyListener) {
@@ -132,7 +173,58 @@ public class LoadAnimate extends Activity implements BackFragment.MenuSelectList
 
     }
 
+    protected int getInProgressLayoutRes() {
+        return inProgressLayoutId;
+    }
 
+    protected int getStatusStringRes(){
+        return R.string.txt_lbl_callwait;
+    }
+
+    protected int getStatusIconRes() {
+        return statusIconRes;
+    }
+
+    protected void stopProgress() {
+        //fabButton.showProgress(false);
+    }
+
+    protected void showProgress(boolean show) {
+        //fabButton.showProgress(show);
+        //fabButton.setEnabled(show);
+    }
+
+    protected void setStatus(int resId) {
+        status.setText(resId);
+    }
+
+    public void onMenu(View view) {
+        //onBackPressed();
+        //overridePendingTransition(R.animator.back_slide_in, R.animator.front_slide_out);
+        animateFrontBack();
+    }
+
+    public void onHome(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        overridePendingTransition(R.animator.front_slide_in, R.animator.back_slide_out);
+        finish(); // call this to finish the current activity
+    }
+
+    public void onBackButton(View view){
+        finish();
+    }
+
+  /*  public void onCloseMenu(View view) {
+        animateFrontBack();
+    }*/
+
+    public void onUp(View view) {
+        super.onBackPressed();
+    }
+
+    //******************INNER CLASSES***************************
     public static class LoadingFragment extends Fragment {
 
         public LoadingFragment() {
@@ -143,14 +235,23 @@ public class LoadAnimate extends Activity implements BackFragment.MenuSelectList
             View root = inflater.inflate(R.layout.fragment_loading, container, false);
 
             fabButton = (ImageView) root.findViewById(R.id.load_circle);
-            ImageView icon_wait = (ImageView)root.findViewById(R.id.frame_gif);
+            //ImageView icon_wait = (ImageView)root.findViewById(R.id.frame_gif);
             Button endCall = (Button) root.findViewById(R.id.cancel_one_touch);
             int iconRes = statusIconRes;
-            icon_wait.setImageDrawable(getResources().getDrawable(iconRes));
+            //icon_wait.setImageDrawable(getResources().getDrawable(iconRes));
             status = (TextView) root.findViewById(R.id.tv_status_otc);
             status.setText(statusRes);
-            Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.custom_louder);
-            fabButton.startAnimation(animation);
+
+            /*Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.custom_louder);
+            fabButton.startAnimation(animation);*/
+            //Animation
+            fabButton.setVisibility(View.VISIBLE);
+            fabButton.post(new Runnable() {
+                @Override
+                public void run() {
+                    ((AnimationDrawable) fabButton.getBackground()).start();
+                }
+            });
             endCall.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -173,63 +274,5 @@ public class LoadAnimate extends Activity implements BackFragment.MenuSelectList
             listener.initViews(root);
             return root;
         }
-    }
-
-    protected int getInProgressLayoutRes() {
-        return inProgressLayoutId;
-    }
-
-    protected int getStatusStringRes(){
-        return R.string.txt_lbl_callwait;
-    }
-
-    protected int getStatusIconRes() {
-        return statusIconRes;
-    }
-
-    protected void stopProgress() {
-        //fabButton.showProgress(false);
-    }
-
-    protected void showProgress(boolean show) {
-        //fabButton.showProgress(show);
-        fabButton.setEnabled(show);
-    }
-
-    protected void setStatus(int resId) {
-        status.setText(resId);
-    }
-
-    public void onMenu(View view) {
-        //onBackPressed();
-        //overridePendingTransition(R.animator.back_slide_in, R.animator.front_slide_out);
-        animateFrontBack();
-    }
-
-    public void onHome(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
-        overridePendingTransition(R.animator.front_slide_in, R.animator.back_slide_out);
-        finish(); // call this to finish the current activity
-    }
-
-    @Override
-    public void getStartActivity(Intent intent) {
-        startActivity(intent);
-        overridePendingTransition(R.animator.front_slide_in, R.animator.back_slide_out);
-        finish();
-    }
-
-    public void onBackButton(View view){
-        finish();
-    }
-
-    /*public void onCloseMenu(View view) {
-        animateFrontBack();
-    }*/
-
-    public void onUp(View view) {
-        super.onBackPressed();
     }
 }

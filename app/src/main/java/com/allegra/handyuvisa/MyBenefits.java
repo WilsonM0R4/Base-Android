@@ -15,7 +15,7 @@ public class MyBenefits extends FrontBackAnimate implements FrontBackAnimate.Inf
     private WebView webBenefits;
     private String url = "http://allegra.global/app/beneficios/";
     private String returnURL;
-    private ImageButton arrowBack, arrowF;
+    private ImageButton arrowBack, arrowF, back;
     private ProgressBar progressBar;
 
     @Override
@@ -34,6 +34,7 @@ public class MyBenefits extends FrontBackAnimate implements FrontBackAnimate.Inf
         webBenefits.setWebViewClient(new MyBrowser());
         arrowBack = (ImageButton) root.findViewById(R.id.arrow_back_benefits);
         arrowF = (ImageButton) root.findViewById(R.id.arrow_foward_benefits);
+        back = (ImageButton) root.findViewById(R.id.back_image);
         progressBar = (ProgressBar) root.findViewById(R.id.progressBar_benefits);
 
         arrowBack.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +48,13 @@ public class MyBenefits extends FrontBackAnimate implements FrontBackAnimate.Inf
             @Override
             public void onClick(View v) {
                 onGoForward(v);
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onUp(v);
             }
         });
 
@@ -74,9 +82,7 @@ public class MyBenefits extends FrontBackAnimate implements FrontBackAnimate.Inf
     }
 
     public void onUp(View view) {
-        if (webBenefits.canGoBack()) {
-            webBenefits.goBack();
-        }
+        super.onBackPressed();
     }
 
 
@@ -107,5 +113,7 @@ public class MyBenefits extends FrontBackAnimate implements FrontBackAnimate.Inf
             webBenefits.goForward();
         }
     }
+
+
 
 }

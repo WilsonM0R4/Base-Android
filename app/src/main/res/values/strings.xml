@@ -98,7 +98,7 @@
     <string name="txt_btnrecover">Restore password</string>
     <string name="txt_lbl_recover">If you have registered a card, please enter the last 4 digits of this.</string>
     <string name="txt_lbl_callwait">Please hold while we connect you to an adviser.</string>
-    <string name="txt_lbl_setupChat">We are connecting you to an adviser.</string>
+    <string name="txt_lbl_setupChat">We are connecting you to an adviser</string>
     <string name="txt_lbl_callready">OneTouch Call is ready</string>
     <string name="txt_lbl_callcalling">One Touch Call is calling</string>
     <string name="txt_lbl_callInProgress">Speaking to adviser</string>
@@ -646,4 +646,7 @@
     <string name="privacy_policy_underscore"><u>privacy policy</u></string>
     <string name="ups_try_again">Oops! try again</string>
     <string name="your_search_no_results">Your search show no results</string>
+    <string name="txt_loading_loader">Loading</string>
+    <string name="title_onetouch_call">Onetouch call</string>
+    <string name="title_onetouch_chat">Onetouch chat</string>
 </resources>

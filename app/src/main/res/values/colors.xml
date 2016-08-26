@@ -392,5 +392,6 @@
     <color name="namecolor">#33B19B</color>
     <color name="dark_blue"> #2664A8</color>
     <color name="violate">#9755d3</color>
+    <color name="loading_salmon">#EF411F</color>
 
 </resources>

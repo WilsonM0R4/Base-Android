@@ -142,7 +142,10 @@ public class BasicPhone implements DeviceListener,
 
             twilioSdkInitInProgress = true;
             Twilio.setLogLevel(Log.VERBOSE);
-            
+
+            //TODO: Verifiy this line for this error: E/ActivityThread: Activity com.allegra.handyuvisa.CallActivity
+            // has leaked ServiceConnection com.twilio.client.impl.TwilioImpl$1@18a988dd that was originally bound here
+            //android.app.ServiceConnectionLeaked: Activity com.allegra.handyuvisa.CallActivity has leaked ServiceConnection com.twilio.client.impl.TwilioImpl$1@18a988dd that was originally bound here
             Twilio.initialize(context, new Twilio.InitListener() {
                 @Override
                 public void onInitialized() {

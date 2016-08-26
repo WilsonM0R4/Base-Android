@@ -1,16 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
-    useLibrary 'org.apache.http.legacy'
+    compileSdkVersion 24
+    buildToolsVersion "23.0.3"
 
     defaultConfig {
         applicationId "com.allegra.handyuvisa"
-        minSdkVersion 21
-        targetSdkVersion 23
-        versionCode 338
-        versionName "1.0.3-338"
+        minSdkVersion 19
+        targetSdkVersion 24
+        versionCode 340
+        versionName "1.0.3-340"
 
 
         ndk {
@@ -51,27 +50,26 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile(name: 'VisaCheckout-Android-SDK-4.0', ext: 'aar')
     compile(name: 'card.io-5.3.0', ext: 'aar')
-    compile project(':onepocket-sdk-1.0.3-341')
-    compile files('libs/httpmime-4.1-beta1.jar')
-    compile 'com.android.support:support-v13:23.1.1'
-    compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'com.android.support:cardview-v7:23.1.1'
-    compile 'com.android.support:support-v4:23.1.1'
-    compile 'com.android.support:design:23.1.1'
+    compile project(':onepocket-sdk-1.0.3-342')
+    compile 'com.android.support:support-v13:24.2.0'
+    compile 'com.android.support:appcompat-v7:24.2.0'
+    compile 'com.android.support:cardview-v7:24.2.0'
+    compile 'com.android.support:support-v4:24.2.0'
+    compile 'com.android.support:design:24.2.0'
     compile 'com.squareup:otto:1.3.6'
     compile 'net.danlew:android.joda:2.9.2'
-    compile 'mbanje.kurt:fabbutton:1.+'
+    compile 'mbanje.kurt:fabbutton:1.2.2@aar'
     compile 'com.google.guava:guava:19.0'
-    compile 'com.mcxiaoke.volley:library:1.0.+@aar'
+    compile 'com.mcxiaoke.volley:library:1.0.0'
     compile 'com.squareup:android-times-square:1.6.4@aar'
     compile 'com.journeyapps:zxing-android-embedded:3.1.0@aar'
     compile 'com.google.zxing:core:3.2.0'
-    compile 'com.google.android.gms:play-services:9.0.2'
+    compile 'com.google.android.gms:play-services:9.4.0'
     compile 'com.android.support:multidex:1.0.1'
-    compile 'com.google.android.gms:play-services-ads:9.0.2'
-    compile 'com.google.android.gms:play-services-identity:9.0.2'
-    compile 'com.google.android.gms:play-services-gcm:9.0.2'
-    compile 'com.urbanairship.android:urbanairship-sdk:7.2.+'
+    compile 'com.google.android.gms:play-services-ads:9.4.0'
+    compile 'com.google.android.gms:play-services-identity:9.4.0'
+    compile 'com.google.android.gms:play-services-gcm:9.4.0'
+    compile 'com.urbanairship.android:urbanairship-sdk:7.2.4'
     compile 'com.splunk.mint:mint:5.0.0'
     compile 'com.twilio:client-android:1.2.17'
     compile 'com.firebase:firebase-client-android:2.3.1'
