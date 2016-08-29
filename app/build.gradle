@@ -9,8 +9,8 @@ android {
         applicationId "com.allegra.handyuvisa"
         minSdkVersion 19
         targetSdkVersion 24
-        versionCode 341
-        versionName "1.0.3-341"
+        versionCode 342
+        versionName "1.0.3-342"
 
 
         ndk {
@@ -57,13 +57,13 @@ dependencies {
     compile 'com.android.support:cardview-v7:24.2.0'
     compile 'com.android.support:support-v4:24.2.0'
     compile 'com.android.support:design:24.2.0'
-    compile 'com.squareup:otto:1.3.6'
-    compile 'net.danlew:android.joda:2.9.2'
+    compile 'com.squareup:otto:1.3.8'
+    compile 'net.danlew:android.joda:2.9.4.1'
     compile 'mbanje.kurt:fabbutton:1.2.2@aar'
     compile 'com.google.guava:guava:19.0'
     compile 'com.mcxiaoke.volley:library:1.0.0'
     compile 'com.squareup:android-times-square:1.6.4@aar'
-    compile 'com.journeyapps:zxing-android-embedded:3.1.0@aar'
+    compile 'com.journeyapps:zxing-android-embedded:3.3.0'//3.1.0@aar
     compile 'com.google.zxing:core:3.2.1'
     compile 'com.google.android.gms:play-services:9.4.0'
     compile 'com.android.support:multidex:1.0.1'
