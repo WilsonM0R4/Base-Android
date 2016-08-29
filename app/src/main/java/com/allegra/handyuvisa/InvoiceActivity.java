@@ -53,8 +53,7 @@ public class InvoiceActivity extends Activity implements View.OnClickListener {
 
         }else if (v==iv_back_heder){
             Keybiardupdate();
-           // Intent intent=new Intent(InvoiceActivity.this,MyBookingActivity.class);
-           // startActivity(intent);
+
         }else if (v==iv_navi_heder){
             Keybiardupdate();
             slideHolder.toggle();
@@ -94,8 +93,8 @@ public class InvoiceActivity extends Activity implements View.OnClickListener {
 
 
     public void ResponseOfInvoiceDetailfeedback() {
-      // Intent intent=new Intent(InvoiceActivity.this,MyBookingActivity.class);
-       // startActivity(intent);
+
+
     }
 
     public static String formatDate (String date, String initDateFormat, String endDateFormat) throws ParseException {

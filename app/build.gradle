@@ -1,8 +1,9 @@
 apply plugin: 'com.android.application'
+//apply plugin: 'com.splunk.mint.gradle.android.plugin'
 
 android {
     compileSdkVersion 24
-    buildToolsVersion "23.0.3"
+    buildToolsVersion "24.0.2"
 
     defaultConfig {
         applicationId "com.allegra.handyuvisa"
@@ -39,7 +40,7 @@ android {
 
     repositories {
         maven {
-            url "https://mint.splunk.com/gradle/"
+            url uri('mint-plugin-repo-5.1.0')
         }
     }
 
@@ -63,14 +64,14 @@ dependencies {
     compile 'com.mcxiaoke.volley:library:1.0.0'
     compile 'com.squareup:android-times-square:1.6.4@aar'
     compile 'com.journeyapps:zxing-android-embedded:3.1.0@aar'
-    compile 'com.google.zxing:core:3.2.0'
+    compile 'com.google.zxing:core:3.2.1'
     compile 'com.google.android.gms:play-services:9.4.0'
     compile 'com.android.support:multidex:1.0.1'
     compile 'com.google.android.gms:play-services-ads:9.4.0'
     compile 'com.google.android.gms:play-services-identity:9.4.0'
     compile 'com.google.android.gms:play-services-gcm:9.4.0'
-    compile 'com.urbanairship.android:urbanairship-sdk:7.2.4'
-    compile 'com.splunk.mint:mint:5.0.0'
+    compile 'com.urbanairship.android:urbanairship-sdk:7.2.5'
+    compile 'com.splunk:mint-android-sdk:5.1.0'
     compile 'com.twilio:client-android:1.2.17'
-    compile 'com.firebase:firebase-client-android:2.3.1'
+    compile 'com.firebase:firebase-client-android:2.5.2'
 }
