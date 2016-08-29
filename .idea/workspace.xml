@@ -10,73 +10,55 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cfc89f4-528f-4af4-bb6d-76af492c7cbf" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/android_joda_2_9_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_23_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/cardview_v7_23_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/core_3_2_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/design_23_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/fabbutton_1_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/firebase_analytics_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/firebase_analytics_impl_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/firebase_auth_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/firebase_auth_common_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/firebase_auth_module_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/firebase_client_android_2_3_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/firebase_client_jvm_2_3_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/firebase_common_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/firebase_config_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/firebase_crash_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/firebase_database_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/firebase_database_connection_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/firebase_iid_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/firebase_messaging_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/firebase_storage_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/firebase_storage_common_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/httpmime_4_1_beta1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/joda_time_2_9_2_no_tzdb.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/library_1_0_19.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/mint_5_0_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/org_apache_http_legacy.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/org_apache_http_legacy_android_23.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/otto_1_3_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_ads_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_ads_lite_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_analytics_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_analytics_impl_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_appindexing_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_appinvite_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_auth_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_auth_base_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_base_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_basement_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_cast_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_drive_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_fitness_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_games_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_gcm_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_identity_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_iid_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_location_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_maps_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_nearby_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_panorama_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_plus_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_safetynet_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_tagmanager_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_tagmanager_api_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_tasks_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_vision_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_wallet_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_wearable_9_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_23_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_23_4_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_v13_23_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_23_4_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/tubesock_0_0_11.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/urbanairship_sdk_7_2_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/zxing_android_embedded_3_1_0.xml" afterPath="" />
+    <list default="true" id="3cfc89f4-528f-4af4-bb6d-76af492c7cbf" name="Default" comment="Update all  libraries that have any updated version and change number version to 1.0.3-342">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-instrumentation-common/5.1.0/mint-android-instrumentation-common-5.1.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-instrumentation-okhttp/5.1.0/mint-android-instrumentation-okhttp-5.1.0.aar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-instrumentation/5.1.0/mint-android-instrumentation-5.1.0.aar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-sdk/5.1.0/mint-android-sdk-5.1.0-javadoc.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-sdk/5.1.0/mint-android-sdk-5.1.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-gradle-android-plugin/5.1.0/mint-gradle-android-plugin-5.1.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-instrumentation-common/5.1.0/mint-android-instrumentation-common-5.1.0.jar.md5" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-instrumentation-common/5.1.0/mint-android-instrumentation-common-5.1.0.jar.sha1" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-instrumentation-common/5.1.0/mint-android-instrumentation-common-5.1.0.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-instrumentation-common/5.1.0/mint-android-instrumentation-common-5.1.0.pom.md5" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-instrumentation-common/5.1.0/mint-android-instrumentation-common-5.1.0.pom.sha1" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-instrumentation-common/maven-metadata.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-instrumentation-common/maven-metadata.xml.md5" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-instrumentation-common/maven-metadata.xml.sha1" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-instrumentation-okhttp/5.1.0/mint-android-instrumentation-okhttp-5.1.0.aar.md5" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-instrumentation-okhttp/5.1.0/mint-android-instrumentation-okhttp-5.1.0.aar.sha1" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-instrumentation-okhttp/5.1.0/mint-android-instrumentation-okhttp-5.1.0.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-instrumentation-okhttp/5.1.0/mint-android-instrumentation-okhttp-5.1.0.pom.md5" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-instrumentation-okhttp/5.1.0/mint-android-instrumentation-okhttp-5.1.0.pom.sha1" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-instrumentation-okhttp/maven-metadata.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-instrumentation-okhttp/maven-metadata.xml.md5" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-instrumentation-okhttp/maven-metadata.xml.sha1" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-instrumentation/5.1.0/mint-android-instrumentation-5.1.0.aar.md5" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-instrumentation/5.1.0/mint-android-instrumentation-5.1.0.aar.sha1" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-instrumentation/5.1.0/mint-android-instrumentation-5.1.0.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-instrumentation/5.1.0/mint-android-instrumentation-5.1.0.pom.md5" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-instrumentation/5.1.0/mint-android-instrumentation-5.1.0.pom.sha1" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-instrumentation/maven-metadata.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-instrumentation/maven-metadata.xml.md5" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-instrumentation/maven-metadata.xml.sha1" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-sdk/5.1.0/mint-android-sdk-5.1.0-javadoc.jar.md5" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-sdk/5.1.0/mint-android-sdk-5.1.0-javadoc.jar.sha1" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-sdk/5.1.0/mint-android-sdk-5.1.0.jar.md5" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-sdk/5.1.0/mint-android-sdk-5.1.0.jar.sha1" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-sdk/5.1.0/mint-android-sdk-5.1.0.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-sdk/5.1.0/mint-android-sdk-5.1.0.pom.md5" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-sdk/5.1.0/mint-android-sdk-5.1.0.pom.sha1" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-sdk/maven-metadata.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-sdk/maven-metadata.xml.md5" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-android-sdk/maven-metadata.xml.sha1" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-gradle-android-plugin/5.1.0/mint-gradle-android-plugin-5.1.0.jar.md5" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-gradle-android-plugin/5.1.0/mint-gradle-android-plugin-5.1.0.jar.sha1" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-gradle-android-plugin/5.1.0/mint-gradle-android-plugin-5.1.0.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-gradle-android-plugin/5.1.0/mint-gradle-android-plugin-5.1.0.pom.md5" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-gradle-android-plugin/5.1.0/mint-gradle-android-plugin-5.1.0.pom.sha1" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-gradle-android-plugin/maven-metadata.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-gradle-android-plugin/maven-metadata.xml.md5" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mint-plugin-repo-5.1.0/com/splunk/mint-gradle-android-plugin/maven-metadata.xml.sha1" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" />
@@ -85,19 +67,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/VisaCheckout_Android_SDK_4_0_.xml" afterPath="$PROJECT_DIR$/.idea/libraries/VisaCheckout_Android_SDK_4_0_.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/client_android_1_2_17.xml" afterPath="$PROJECT_DIR$/.idea/libraries/client_android_1_2_17.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/mediarouter_v7_23_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/mediarouter_v7_23_0_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/onepocket_sdk_1_0_3_342_unspecified.xml" afterPath="$PROJECT_DIR$/.idea/libraries/onepocket_sdk_1_0_3_342_unspecified.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
     </list>
     <ignored path="Allegra-Android.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -128,8 +100,8 @@
       <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.42755345">
-              <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.21377672">
+              <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding>
                 <marker date="1472488690000" expanded="true" signature="105:130" placeholder="{...}" />
               </folding>
@@ -3958,7 +3930,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="AndroidView" proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -4650,12 +4622,18 @@
       <option name="project" value="LOCAL" />
       <updated>1472485571398</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Update all  libraries that have any updated version available and change number version to 1.0.3-342">
+      <created>1472488879605</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1472488879605</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14307459" sideWeight="0.49284694" order="7" side_tool="false" content_ui="tabs" />
@@ -4710,7 +4688,9 @@
     <MESSAGE value="- Latest onepocket SDK 1.0.2-338 (add shipping address crash)" />
     <MESSAGE value="- Merge" />
     <MESSAGE value="Update some libraries and SDK Build tools to 24.0.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update some libraries and SDK Build tools to 24.0.2" />
+    <MESSAGE value="Update all  libraries that have any updated version and change number version to 1.0.3-342" />
+    <MESSAGE value="Update all  libraries that have any updated version available and change number version to 1.0.3-342" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update all  libraries that have any updated version available and change number version to 1.0.3-342" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -5361,8 +5341,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42755345">
-          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.21377672">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding>
             <marker date="1472488690000" expanded="true" signature="105:130" placeholder="{...}" />
           </folding>
