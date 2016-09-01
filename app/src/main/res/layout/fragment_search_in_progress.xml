@@ -71,6 +71,7 @@
                 android:src="@drawable/navigation__fwdurl"
                 android:background="@null"
                 android:padding="10dp"
+                android:onClick="onGoForward"
                 android:id="@+id/arrow_forward" />
         </RelativeLayout>
 

@@ -34,7 +34,7 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
     private WebView webView;
     private ActionBar actionBar;
     private String id_destino_ser = "", nombre_destino_ser = "";
-    private ImageButton arrowBack;
+    private ImageButton arrowBack, arrowF;
     private String returnURL;
     public String onePocketmessage;
     public String mcard;
@@ -66,7 +66,8 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
         });
         imgLogoAllegraLoader =(ImageView)findViewById(R.id.imgProgress);
         title = (TextView)findViewById(R.id.tv_title_secc);//_con
-        arrowBack= (ImageButton)findViewById(R.id.arrow_back);//_concierge
+        arrowBack = (ImageButton)findViewById(R.id.arrow_back);//_concierge
+        arrowF = (ImageButton)findViewById(R.id.arrow_forward);
 
         setActionBar(true);
         WebSettings webSettings = webView.getSettings();
@@ -240,6 +241,14 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
         }else{
             arrowBack.setImageDrawable(getResources().getDrawable(R.drawable.navigation__backurl_2));
         }
+
+        if(webView.canGoForward()){
+            arrowF.setImageDrawable(getResources().getDrawable(R.drawable.navigation__fwdurl_2));
+        }else{
+            arrowF.setImageDrawable(getResources().getDrawable(R.drawable.navigation__fwdurl));
+        }
+
+
 
     }
 

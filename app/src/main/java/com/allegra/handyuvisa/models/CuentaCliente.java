@@ -160,7 +160,7 @@ public class CuentaCliente implements KvmSerializable {
         }
     }
 
-    @Override
+   /* @Override
     public String getInnerText() {
         return null;
     }
@@ -168,7 +168,7 @@ public class CuentaCliente implements KvmSerializable {
     @Override
     public void setInnerText(String s) {
 
-    }
+    }*/
 
 
     public String getSegmento() {

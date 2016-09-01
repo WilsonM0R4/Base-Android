@@ -1183,12 +1183,16 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
 
                 }
                 else {
-                    listView.setEmptyView(findViewById(R.id.emptyElement));
+
+                    if (adapter != null && listView != null) {
+                        adapter.notifyDataSetChanged();
+                        listView.setEmptyView(findViewById(R.id.emptyElement));
+                    }
                 }
                 adapter.notifyDataSetChanged();
             }
 
-            adapter.notifyDataSetChanged();
+            //adapter.notifyDataSetChanged();
         }
         setListViewHeightBasedOnChildren(listView);
     }

@@ -5,6 +5,7 @@ android {
     compileSdkVersion 24
     buildToolsVersion "24.0.2"
 
+
     defaultConfig {
         applicationId "com.allegra.handyuvisa"
         minSdkVersion 19
@@ -21,6 +22,9 @@ android {
             exclude "lib/arm64-v8a/libcardioDecider.so"
             exclude "lib/mips64/libcardioDecider.so"
             exclude "lib/x86_64/libcardioDecider.so"
+            exclude 'META-INF/maven/com.squareup.okio/okio/pom.xml'
+            exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
+
         }
 
         // Enabling multidex support.
@@ -31,6 +35,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
         }
     }
 
@@ -47,7 +52,7 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    //compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile(name: 'VisaCheckout-Android-SDK-4.0', ext: 'aar')
     compile(name: 'card.io-5.3.0', ext: 'aar')
@@ -59,11 +64,11 @@ dependencies {
     compile 'com.android.support:design:24.2.0'
     compile 'com.squareup:otto:1.3.8'
     compile 'net.danlew:android.joda:2.9.4.1'
-    compile 'mbanje.kurt:fabbutton:1.2.2@aar'
     compile 'com.google.guava:guava:19.0'
     compile 'com.mcxiaoke.volley:library:1.0.0'
     compile 'com.squareup:android-times-square:1.6.4@aar'
-    compile 'com.journeyapps:zxing-android-embedded:3.3.0'//3.1.0@aar
+    compile 'com.journeyapps:zxing-android-embedded:3.3.0'
+    //3.1.0@aar
     compile 'com.google.zxing:core:3.2.1'
     compile 'com.google.android.gms:play-services:9.4.0'
     compile 'com.android.support:multidex:1.0.1'
@@ -74,4 +79,7 @@ dependencies {
     compile 'com.splunk:mint-android-sdk:5.1.0'
     compile 'com.twilio:client-android:1.2.17'
     compile 'com.firebase:firebase-client-android:2.5.2'
+    //compile 'com.google.code.ksoap2-android:ksoap2-android:3.6.1'
+    compile files('libs/ksoap2-android-assembly-3.6.1-jar-with-dependencies.jar')
+
 }

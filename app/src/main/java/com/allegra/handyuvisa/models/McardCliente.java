@@ -84,7 +84,7 @@ public class McardCliente implements KvmSerializable {
         }
     }
 
-    @Override
+    /*@Override
     public String getInnerText() {
         return null;
     }
@@ -92,5 +92,5 @@ public class McardCliente implements KvmSerializable {
     @Override
     public void setInnerText(String s) {
 
-    }
+    }*/
 }

@@ -280,7 +280,7 @@ public class ConciergeActivity extends FrontBackAnimate implements FrontBackAnim
 
                 Log.d("Sergio este es", key + " " + value);
             }
-            concierges.clear();
+            if (concierges != null) concierges.clear();
             if (event.getApiName().equals(ConciergeCodes.APINAME)) {
                 int msgCount = Integer.parseInt(data.get(ConciergeCodes.MSG_COUNT));
                 if (msgCount > 0) {

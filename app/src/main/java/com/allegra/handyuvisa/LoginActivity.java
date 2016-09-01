@@ -92,6 +92,8 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         Mint.enableLogging(true);
         // Log last 100 messages
         Mint.setLogging(200);
+
+
         findValueOfMcard();
 
     }
@@ -288,7 +290,6 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 finish();
             }
         }*/
-
 
     }
 

@@ -48,7 +48,7 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
     private String paramArriveAt;
     private String paramArriveAtName;
     private String url,urlWebView;
-    private ImageButton arrowBack;//, arrowF
+    private ImageButton arrowBack, arrowF;
     public String onePocketmessage;
     public String mcard;
     private String returnURL;
@@ -86,10 +86,8 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
         });
 
         arrowBack= (ImageButton)findViewById(R.id.arrow_back);
-        //arrowF= (ImageButton)root.findViewById(R.id.arrow_forward);
+        arrowF= (ImageButton)findViewById(R.id.arrow_forward);
         webView.addJavascriptInterface(new AppJavaScriptProxyHotels(this), "androidProxy");
-
-        ///********
 
         paramChildren = getIntent().getIntExtra("&childHotel1", 0);
         paramAdults = getIntent().getIntExtra("&adultHotel1", 1);
@@ -326,9 +324,6 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
         }
     }
 
-    public void onBackButton(View view){
-        finish();
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -372,11 +367,11 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
             arrowBack.setImageDrawable(getResources().getDrawable(R.drawable.navigation__backurl_2));
         }
 
-      /*  if(webView.canGoForward()){
+        if(webView.canGoForward()){
             arrowF.setImageDrawable(getResources().getDrawable(R.drawable.navigation__fwdurl_2));
         }else{
             arrowF.setImageDrawable(getResources().getDrawable(R.drawable.navigation__fwdurl));
-        }*/
+        }
     }
 
     public void onGoBack(View view){
@@ -398,4 +393,8 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
         urlWebView=this.url;
     }
 
+
+    public void onBackButton(View view){
+        finish();
+    }
 }

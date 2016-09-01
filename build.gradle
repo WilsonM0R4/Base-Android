@@ -3,8 +3,7 @@
 buildscript {
     repositories {
         jcenter()
-        maven { url 'https://oss.sonatype.org/content/repositories/ksoap2-android-releases'
-                 }
+       // maven { url 'https://oss.sonatype.org/content/repositories/ksoap2-android-releases' }
         //maven { url uri('mint-plugin-repo-5.1.0') }
     }
     dependencies {
@@ -20,8 +19,9 @@ allprojects {
     repositories {
         jcenter()
         flatDir{ dirs 'libs' }
-        maven { url 'https://oss.sonatype.org/content/repositories/ksoap2-android-releases' }
+        //maven { url 'https://oss.sonatype.org/content/repositories/ksoap2-android-releases' }
     }
+
 }
 
 task clean(type: Delete) {
