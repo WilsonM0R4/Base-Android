@@ -62,7 +62,9 @@
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:replace="android:allowBackup" >
+        tools:replace="android:allowBackup">
+
+
         <activity
             android:name=".SendLogActivity"
             android:textAppearance="@android:style/TextAppearance.Large"
