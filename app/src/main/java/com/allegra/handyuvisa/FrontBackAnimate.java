@@ -100,6 +100,7 @@ public class FrontBackAnimate extends FragmentActivity implements BackFragment.M
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View root = inflater.inflate(frontLayoutResId, container, false);
             if (inflateListener != null) {
+
                 inflateListener.initViews(root);
             }
             return root;
