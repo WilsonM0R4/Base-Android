@@ -9,8 +9,8 @@ android {
         applicationId "com.allegra.handyuvisa"
         minSdkVersion 19
         targetSdkVersion 24
-        versionCode 342
-        versionName "1.0.3-342"
+        versionCode 343
+        versionName "1.0.3-343"
 
         ndk {
             abiFilters "armeabi-v7a", "x86", "mips"
@@ -71,8 +71,8 @@ dependencies {
     compile 'com.squareup:otto:1.3.8'
     compile 'net.danlew:android.joda:2.9.4.1'
     compile 'com.google.guava:guava:19.0'
-    compile 'com.mcxiaoke.volley:library:1.0.0'
-    compile 'com.squareup:android-times-square:1.6.4@aar'
+    compile 'com.mcxiaoke.volley:library:1.0.19'
+    compile 'com.squareup:android-times-square:1.6.5@aar'
     compile 'com.journeyapps:zxing-android-embedded:3.3.0'
     compile 'com.google.zxing:core:3.2.1'
     compile 'com.google.android.gms:play-services:9.4.0'

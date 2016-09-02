@@ -7,18 +7,20 @@
     android:layout_alignParentStart="false"
     android:layout_below="@+id/ll_header"
     android:clickable="true"
+    android:layout_marginTop="10dp"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:id="@+id/relLayConciergeHeader">
+    android:id="@+id/relLayConciergeHeader"
+    android:background="@drawable/header_concierge">
 
-    <ImageView
+    <!--<ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/header_concierge"
         android:background="@drawable/header_hotels"
         android:layout_alignParentBottom="true"
         android:layout_alignParentTop="true"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop" />-->
 
     <LinearLayout
         android:layout_width="match_parent"

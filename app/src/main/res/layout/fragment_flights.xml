@@ -30,7 +30,6 @@
                     android:layout_marginTop="20dp"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="@string/title_flights"
-                    android:textStyle="bold"
                     android:id="@+id/tv_title_secc"
                     android:layout_centerHorizontal="true"
                     android:textColor="@color/GeneralAppHeaderTitle_text" />
@@ -86,6 +85,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="260dp"
                 android:layout_marginTop="-12dp"
+
+
                 android:id="@+id/custom_passengers_cabin_search"
                 android:layout_below="@+id/custom_date_of_trip"/>
 

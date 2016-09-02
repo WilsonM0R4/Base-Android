@@ -258,7 +258,6 @@ public class ConciergeActivity extends FrontBackAnimate implements FrontBackAnim
         progressBar.setVisibility(View.VISIBLE);
         ConciergeCodes apiInfo;
         apiInfo = new ConciergeCodes(query, urlConcierge);
-        //AsyncRestHelper helper = new AsyncRestHelper(apiInfo);
         AsyncRestHelper helper = new AsyncRestHelper(apiInfo);
         helper.execute();
     }
@@ -334,15 +333,6 @@ public class ConciergeActivity extends FrontBackAnimate implements FrontBackAnim
         }
     }
 
-    //Get up animation for flights components
-    public void onGetUpAnimationFlights() {
-        hideSearchConciergeAndShowViews();
-        //if keyboard is open, close it.
-        EditText edtSearch = (EditText) findViewById(R.id.et_search);
-        InputMethodManager imm = (InputMethodManager) this.getSystemService(INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(edtSearch.getWindowToken(), 0);
-
-    }
     public void onalertDialogDepartureOrArriveNotSelected() {
 
         final Dialog dialog = new Dialog(this);
