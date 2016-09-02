@@ -29,7 +29,7 @@
     <string name="mCard_Exclusive">Disfruta tus viajes sin preocupaciones todo el año. Tendrás 500.000 USD en gastos médicos y una indemnización si pierdes tu equipaje.</string>
     <string name="mCard_Privilege">Disfruta tus viajes sin preocupaciones durante todo el año porque tendrás 50.000 USD en gastos médicos que te dan tranquilidad y confianza.</string>
     <string name="register">REGÍSTRATE</string>
-    <string name="coverage_string1">La cobertura incluye viajes ilimitados en la vigencia y el periodo de la misma de 100 días máximos desde el momento del ingreso a cualquier páis diferente al de la residencia del titular.</string>
+    <string name="coverage_string1">La cobertura incluye viajes ilimitados en la vigencia y el periodo de la misma de 120 días máximos desde el momento del ingreso a cualquier páis diferente al de la residencia del titular.</string>
     <string name="coverage_string2">Los beneficios y los límites indicados quedan sujetos, en todo caso, a los requisitos, términos y condiciones de las pólizas contratadas por IATAI.</string>
     <string name="currency">USD</string>
     <string name="Repatriating_remains">Repatriación de restos mortales</string>
