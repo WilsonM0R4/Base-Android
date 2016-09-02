@@ -6,7 +6,6 @@
         android:angle="0"
         android:startColor="@color/FirstColorLineHeader_backgroung"
         android:endColor="@color/SecondColorLineHeader_backgroung"
-
         />
 
 </shape>
