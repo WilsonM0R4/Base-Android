@@ -993,7 +993,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
         search.setText("");
     }
 
-    public void setListViewHeightBasedOnChildren(ListView listView) {
+    private void setListViewHeightBasedOnChildren(ListView listView) {
 
         int desiredWidth = View.MeasureSpec.makeMeasureSpec(listView.getWidth(), View.MeasureSpec.UNSPECIFIED);
         int totalHeight = 0;

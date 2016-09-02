@@ -293,13 +293,15 @@ public class ConciergeActivity extends FrontBackAnimate implements FrontBackAnim
                     adapter.notifyDataSetChanged();
                     listView.setEmptyView(findViewById(R.id.emptyElement));
                 }
-
             }
         }
-        setListViewHeightBasedOnChildren(listView);
+        if (listView != null) {
+            setListViewHeightBasedOnChildren(listView);
+        }
+
     }
 
-    public void setListViewHeightBasedOnChildren(ListView listView) {
+    private void setListViewHeightBasedOnChildren(ListView listView) {
 
         int desiredWidth = View.MeasureSpec.makeMeasureSpec(listView.getWidth(), View.MeasureSpec.UNSPECIFIED);
         int totalHeight = 0;
