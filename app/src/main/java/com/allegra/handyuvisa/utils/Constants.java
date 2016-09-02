@@ -8,6 +8,7 @@ import android.util.Log;
 import com.allegra.handyuvisa.VisaCheckoutApp;
 import com.allegra.handyuvisa.models.AllemCommerceUser;
 import com.allegra.handyuvisa.models.AllemUser;
+import com.allegra.handyuvisa.models.SolicitudCobro;
 import com.allem.onepocket.model.OneTransaction;
 import com.allem.onepocket.utils.OPKConstants;
 
@@ -438,6 +439,18 @@ public class Constants {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static Bundle createQRPurchaseBundle(AllemUser user, SolicitudCobro solicitud, String onePocketmessage, String purchaseType, VisaCheckoutApp app) {
+        Bundle bundle = new Bundle();
+        OneTransaction transaction = initOneTransaction(user, app);
+        transaction.add("jsonPayment", onePocketmessage);
+        transaction.add("type", purchaseType);
+        transaction.add("merchantName", solicitud.usuarioCuenta);
+        transaction.add("merchantPassword", solicitud.contrasenaCuenta);
+
+        bundle.putParcelable(OPKConstants.EXTRA_PAYMENT, transaction);
+        return bundle;
     }
 
     public static Bundle createPurchaseBundle(AllemUser user, String onePocketmessage, String purchaseType, VisaCheckoutApp app) {

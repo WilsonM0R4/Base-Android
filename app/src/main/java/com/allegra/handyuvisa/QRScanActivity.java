@@ -138,7 +138,7 @@ public class QRScanActivity extends FrontBackAnimate{// implements FrontBackAnim
                             "\",\"codeISO\":\"" + currency +
                             "\",\"reference\":\"" + reference +
                             "\"}";
-                    Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(QRScanActivity.this), data, OPKConstants.TYPE_QRCODE, (VisaCheckoutApp)QRScanActivity.this.getApplication());
+                    Bundle bundle = Constants.createQRPurchaseBundle(Constants.getUser(QRScanActivity.this), solicitud, data, OPKConstants.TYPE_QRCODE, (VisaCheckoutApp) QRScanActivity.this.getApplication());
                     intent2.putExtras(bundle);
                     startActivity(intent2);
 
