@@ -15,9 +15,9 @@ import com.allegra.handyuvisa.async.MyBus;
 import com.allegra.handyuvisa.models.AllemUser;
 import com.allegra.handyuvisa.models.McardCliente;
 import com.allegra.handyuvisa.parsers.SoapObjectParsers;
+import com.allegra.handyuvisa.utils.Connectivity;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
-import com.allegra.handyuvisa.utils.Util;
 import com.squareup.otto.Subscribe;
 
 import org.apache.http.NameValuePair;
@@ -25,11 +25,11 @@ import org.apache.http.message.BasicNameValuePair;
 
 import java.util.ArrayList;
 
-public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontBackAnimate.InflateReadyListener {
+public class ProofOfCoverageActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
 
     //*************GLOBAL ATTRIBUTES***********
     LinearLayout header, centerListView, bottomTexts;
-    TextView  txtCoverage1, txtCoverage2,txtCoverage3;
+    TextView txtCoverage1, txtCoverage2, txtCoverage3;
     CustomizedTextView textNameLastName, txtGetYourCertificate, txtTypeOfId, txtNumberOfId, txtNumberOfMcard;
     String valueOfMcard, nombre, apellido, typeOfId, numberOfId, numberOfMcard;
     int idMcard = 0, idCuenta = 0;
@@ -50,22 +50,35 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
         apellido = prefs.getString("apellido", "Castro");
         typeOfId = prefs.getString("typeOfId", "CC");
         numberOfId = prefs.getString("numberOfId", "7887787");
-        numberOfMcard = prefs.getString("numberOfMcard","123456789");
+        numberOfMcard = prefs.getString("numberOfMcard", "123456789");
         String strIdCuenta = prefs.getString("idCuenta", "0");
-        Log.e("typeOfId",typeOfId);
-        Log.e("numberOfId",numberOfId);
-        Log.e("numberOfMcard",numberOfMcard);
+        Log.e("typeOfId", typeOfId);
+        Log.e("numberOfId", numberOfId);
+        Log.e("numberOfMcard", numberOfMcard);
         idCuenta = Integer.valueOf(strIdCuenta);
         //Si hay internet: consumir el servicio para mCards
-        if (Util.hasInternetConnectivity(getApplicationContext())) {
+        /*if (Util.hasInternetConnectivity(getApplicationContext())) {
             //Launch SOAP request for mCard
             postValues.add(new BasicNameValuePair("idCuenta", String.valueOf(idCuenta)));
             AsyncSoapObjectTest.getInstance2(Constants.SOAP_URL_MCARD_PROD, Constants.MCARD_NAMESPACE,
                     Constants.MCARD_METHOD, postValues, Constants.MCARD_CODE).execute();
         } else {
-        valueOfMcard = prefs.getString("idMcard", "0");
-        Log.e("valueOfMcard",valueOfMcard);
-        idMcard = Integer.valueOf(valueOfMcard);
+            valueOfMcard = prefs.getString("idMcard", "0");
+            Log.e("valueOfMcard", valueOfMcard);
+            idMcard = Integer.valueOf(valueOfMcard);
+            findValueOfMcard();
+            setValues();
+        }*/
+        //Si hay internet: consumir el servicio para mCards
+        if (Connectivity.isConnected(getApplicationContext()) || Connectivity.isConnectedWifi(getApplicationContext()) || Connectivity.isConnectedMobile(getApplicationContext())) {
+            //Launch SOAP request for mCard
+            postValues.add(new BasicNameValuePair("idCuenta", String.valueOf(idCuenta)));
+            AsyncSoapObjectTest.getInstance2(Constants.SOAP_URL_MCARD_PROD, Constants.MCARD_NAMESPACE,
+                    Constants.MCARD_METHOD, postValues, Constants.MCARD_CODE).execute();
+        } else {
+            valueOfMcard = prefs.getString("idMcard", "0");
+            Log.e("valueOfMcard", valueOfMcard);
+            idMcard = Integer.valueOf(valueOfMcard);
             findValueOfMcard();
             setValues();
         }
@@ -89,13 +102,13 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
         txtCoverage1 = (TextView) root.findViewById(R.id.id_value_coverage1);
         txtCoverage2 = (TextView) root.findViewById(R.id.id_value_coverage2);
         txtCoverage3 = (TextView) root.findViewById(R.id.id_value_coverage3);
-        textNameLastName = (CustomizedTextView)root.findViewById(R.id.textNameLastNAme);
-        txtTypeOfId = (CustomizedTextView)root.findViewById(R.id.txtTypeOfId);
-        txtNumberOfId = (CustomizedTextView)root.findViewById(R.id.txtNumberOfId);
-        txtNumberOfMcard = (CustomizedTextView)root.findViewById(R.id.txtNumberOfMcard);
-        header = (LinearLayout)root.findViewById(R.id.customCoverageHeader);
-        centerListView = (LinearLayout)root.findViewById(R.id.customListView);
-        bottomTexts = (LinearLayout)root.findViewById(R.id.customTextCoverage);
+        textNameLastName = (CustomizedTextView) root.findViewById(R.id.textNameLastNAme);
+        txtTypeOfId = (CustomizedTextView) root.findViewById(R.id.txtTypeOfId);
+        txtNumberOfId = (CustomizedTextView) root.findViewById(R.id.txtNumberOfId);
+        txtNumberOfMcard = (CustomizedTextView) root.findViewById(R.id.txtNumberOfMcard);
+        header = (LinearLayout) root.findViewById(R.id.customCoverageHeader);
+        centerListView = (LinearLayout) root.findViewById(R.id.customListView);
+        bottomTexts = (LinearLayout) root.findViewById(R.id.customTextCoverage);
         /*findValueOfMcard();
         setValues();*/
     }
@@ -105,7 +118,7 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
 
     @Subscribe
     public void onAsyncTaskResult(AsyncTaskSoapObjectResultEventMcard event) {
-        if (event.getCodeRequest() == Constants.MCARD_CODE){
+        if (event.getCodeRequest() == Constants.MCARD_CODE) {
             if (event.getResult() != null) {
                 //Get data
                 McardCliente mcardCliente = SoapObjectParsers.toMcardCliente(event.getResult());
@@ -115,12 +128,12 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
                 SharedPreferences prefs =
                         getSharedPreferences("MisPreferencias", MODE_PRIVATE);
                 SharedPreferences.Editor editor = prefs.edit();
-                if (strIdMcard.equals("")){
+                if (strIdMcard.equals("")) {
                     strIdMcard = "0";
                 }
                 editor.putString("idMcard", strIdMcard);
                 editor.apply();
-                Log.d("strIdMcard","Es "+strIdMcard);
+                Log.d("strIdMcard", "Es " + strIdMcard);
 
                 idMcard = Integer.valueOf(strIdMcard);
                 valueOfMcard = strIdMcard;
@@ -133,10 +146,10 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
                 apellido = allemUser.apellido;
                 typeOfId = getTypeOfIdForDisplay(allemUser.idType);
                 numberOfId = allemUser.idNumber;
-                Log.d("nombre",nombre);
-                Log.d("apellido",apellido);
-                Log.d("typeOfId",typeOfId);
-                Log.d("numberOfId",numberOfId);
+                Log.d("nombre", nombre);
+                Log.d("apellido", apellido);
+                Log.d("typeOfId", typeOfId);
+                Log.d("numberOfId", numberOfId);
                 //******************
                 findValueOfMcard();
                 setValues();
@@ -155,10 +168,10 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
 
     //********************PROPER METHODS*******************
 
-    private String getTypeOfIdForDisplay(String idType){
+    private String getTypeOfIdForDisplay(String idType) {
 
         String strType = "";
-        switch(idType) {
+        switch (idType) {
 
             case "1":
                 return "CC";
@@ -186,12 +199,12 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
 
     }
 
-    void findValueOfMcard(){
+    void findValueOfMcard() {
         //********************* PRIVILEGE       PREMIUM         EXCLUSIVE            UNLIMITED
-        String[] arrayMcards = {"USD $100,000",  "USD $250,000",  "USD $1'000,000", "USD $2'000,000"};
+        String[] arrayMcards = {"USD $100,000", "USD $250,000", "USD $1'000,000", "USD $2'000,000"};
         //********************      212             208             209             210
 
-        switch(idMcard){
+        switch (idMcard) {
             case 212:
                 valueOfMcard = arrayMcards[0];
                 break;
@@ -213,18 +226,18 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
     }
 
 
-    void setValues(){
+    void setValues() {
 
         txtCoverage1.setText(valueOfMcard);
         txtCoverage2.setText(valueOfMcard);
         txtCoverage3.setText(valueOfMcard);
-        textNameLastName.setText(nombre + " "+ apellido);
+        textNameLastName.setText(nombre + " " + apellido);
         txtTypeOfId.setText(typeOfId);
         txtNumberOfId.setText(numberOfId);
         txtNumberOfMcard.setText(numberOfMcard);
     }
 
-    void setGetYourCertificateLayout(){
+    void setGetYourCertificateLayout() {
         //Change layout
         header.setVisibility(View.GONE);
         centerListView.setVisibility(View.GONE);
@@ -240,7 +253,7 @@ public class ProofOfCoverageActivity extends FrontBackAnimate  implements FrontB
 
     }
 
-    void launchMcardActivity(){
+    void launchMcardActivity() {
 
         //Launch mCard Activity
         Intent i = new Intent(getApplicationContext(), Mcardhtml.class);
