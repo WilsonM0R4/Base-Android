@@ -21,10 +21,12 @@ import com.allegra.handyuvisa.utils.Constants;
 //Example:   setContentView(R.layout.activity_front_back);
 public class FrontBackAnimate extends FragmentActivity implements BackFragment.MenuSelectListener {
 
+    //*************INTERFACES**************
     public interface InflateReadyListener {
         void initViews(View root);
     }
 
+    //*************GLOBAL ATTRIBUTES**************
     private static final String TAG = "FrontBackAnimate";
     private static final String FRAGMENT_FRONT = "FRAGMENT_FRONT";
     private FrontFragment frontFragment;
@@ -38,13 +40,11 @@ public class FrontBackAnimate extends FragmentActivity implements BackFragment.M
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_front_back);
-
         frontFragment = new FrontFragment();
         getFragmentManager().beginTransaction()
                             .add(R.id.container_front_back, frontFragment, FRAGMENT_FRONT)
                             .commit();
         Log.d(TAG,FRAGMENT_FRONT);
-
         backFragment = (BackFragment) getFragmentManager().findFragmentById( R.id.fragment_bottom );
         backFragment.menulistener = this;
         //Log.d(TAG,FRAGMENT_FRONT);
@@ -89,7 +89,6 @@ public class FrontBackAnimate extends FragmentActivity implements BackFragment.M
         //finish();
     }*/
 
-
     //**********************INNER CLASSES***************************
     public static class FrontFragment extends Fragment {
 
@@ -100,13 +99,11 @@ public class FrontBackAnimate extends FragmentActivity implements BackFragment.M
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View root = inflater.inflate(frontLayoutResId, container, false);
             if (inflateListener != null) {
-
                 inflateListener.initViews(root);
             }
             return root;
         }
     }
-
 
     //********************PROPER METHODS**********************
     protected void setView(int resId, FrontBackAnimate.InflateReadyListener listener) {
@@ -162,7 +159,6 @@ public class FrontBackAnimate extends FragmentActivity implements BackFragment.M
         if (width > 800) {
             resId = R.animator.front_open_xlarge;
         }
-        //
 
         if (state == 1) {
             getFragmentManager().beginTransaction().hide(frontFragment).hide(backFragment).commit();

@@ -23,7 +23,6 @@ public class MainActivity extends Activity implements BackFragment.MenuSelectLis
     private boolean isLogin;
     private Button login;
     private Button register;
-
     private int state = 0;   // 0 - front open + back exposed;
     // 1 - front close + back hidden;
 

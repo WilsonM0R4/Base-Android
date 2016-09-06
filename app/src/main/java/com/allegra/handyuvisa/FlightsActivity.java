@@ -74,7 +74,8 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
     private String paramDepartFromName = "";//LARGE NAME DEPARTURE
     private NumberPicker adultsPicker, childrenPicker, infantsPicker;
     //private static String url_flights ="http://quickbooking.azurewebsites.net/Api/QuickSearch/Destination/bog?id=";
-    private static String url_flights = "https://autocompletar.vuelos.ninja/api/values/getinfo3?type=json&query=";//bog
+    private static String url_flights = "http://autocompletar.allegra.travel/api/values/getinfo3?type=json&query=";
+    //private static String url_flights = "https://autocompletar.vuelos.ninja/api/values/getinfo3?type=json&query=";
     private ListView listView;
     private SearchAdapter adapter;
     private ArrayList<AirportData> airportData;
@@ -220,7 +221,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
 
     //****************PROPER METHODS*************
 
-    public Location getLocation() {
+    /*public Location getLocation() {
         try {
 
             locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
@@ -269,7 +270,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
             e.printStackTrace();
         }
         return location;
-    }
+    }*/
 
     private void buildAlertMessageNoGps() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -304,14 +305,14 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
     }
 
     //Called in getLocation
-    private void performSearchLocation(String query) {
+    /*private void performSearchLocation(String query) {
         Log.d(TAG, "performSearchLocation");
         Log.d("Query code Location", query);
         AirportCodes apiInfo;
         apiInfo = new AirportCodes(query, url_flights);
         AsyncRestHelper helper = new AsyncRestHelper(apiInfo);
         helper.execute();
-    }
+    }*/
 
     //Validate each numberPicker
     private void validateGuestQuantity(){

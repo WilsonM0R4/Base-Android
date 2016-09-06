@@ -29,6 +29,7 @@ import java.net.URLEncoder;
 
 public class ConciergeSearchActivity extends Activity{//LoadAnimate implements LoadAnimate.InflateReadyListener
 
+    //***********************GLOBAL ATTRIBUTES********************
     private static final String TAG = "ConciergeSearchActivity";
     private String url,urlWebView;
     private WebView webView;
@@ -38,10 +39,11 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
     private String returnURL;
     public String onePocketmessage;
     public String mcard;
-    //ProgressBar progressBar;
     ImageView imgLogoAllegraLoader, progressBar;
     TextView title;
     private TextView txtLoading;
+
+    //***********************OVERRIDE METHODS********************
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +90,11 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        urlWebView=this.url;
+    }
    /* @Override
     public void initViews(View root) {
 
@@ -113,6 +120,39 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
         loadWebView();
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == Constants.ACTIVITY_LOGIN) {
+            if(resultCode == RESULT_OK){
+                Log.d(TAG, "usuario logueado");
+                ConciergeSearchActivity.this.invalidateOptionsMenu();
+                webView.loadUrl("about:blank");
+                loadWebView();
+            }
+            if (resultCode == RESULT_CANCELED) {
+
+            }
+
+        }else if (requestCode == Constants.ONE_POCKET_NEEDS_LOGIN){
+            openOnePocket();
+        } else if (requestCode == Constants.REQUEST_ONEPOCKET_RETURN) {
+            if (data != null) {
+                returnURL = data.getStringExtra("RESULT");
+                webView.clearHistory();
+                webView.loadUrl("about:blank");
+            }
+        }
+
+    }
+   /* @Override
+    public void onCancelLoading() {
+
+        finish();
+    }*/
+
+    //***********************PROPER METHODS********************
+
     private void setActionBar(boolean b) {
 
         actionBar = getActionBar();
@@ -126,23 +166,18 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
         }
     }
 
-   /* @Override
-    public void onCancelLoading() {
-
-        finish();
-    }*/
-
     private void loadWebView() {
         //OLD: http://viatorallegra.vuelos.ninja/Actividad/ResultadosGet?id_destino_ser=
         //URL_CONCIERGE_PROD :”http://actividades.allegra.travel/Actividad/ResultadosGet?id_destino_ser="
-        url = "http://actividades.allegra.travel/Actividad/ResultadosGet?id_destino_ser=" +
+        url = "http://actividades.allegra.travel/Actividad/ResultadosGet?id_d" +
+                "estino_ser=" +
                 id_destino_ser + "&nombre_destino_ser1=" + nombre_destino_ser +
                 "&Payment=3"+"&Group="+mcard;
 
         webView.addJavascriptInterface(new AppJavaScriptProxyConcierge(this), "androidProxy");
-
-        String encodedUrl = null;
-
+        Log.d("url con data",url);
+        webView.loadUrl(url);
+       /* String encodedUrl = null;
         try {
             encodedUrl = URLEncoder.encode(nombre_destino_ser, "UTF-8");
         } catch (UnsupportedEncodingException ignored) {
@@ -150,25 +185,61 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
         }
         url = "http://actividades.allegra.travel/Actividad/ResultadosGet?id_destino_ser=" +
                 id_destino_ser + "&nombre_destino_ser1=" + encodedUrl +
-                "&Payment=3"+"&Group="+mcard;
-        Log.d("url con data",url);
+                "&Payment=3"+"&Group="+mcard;*/
         //webView.postUrl(url, EncodingUtils.getBytes(postData, "BASE64"));
-        webView.loadUrl(url);
-
     }
 
+    public void openOnePocket(){
+        Intent intent = new Intent(this, OnepocketPurchaseActivity.class);
+        Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(this), onePocketmessage, OPKConstants.TYPE_HOTEL, (VisaCheckoutApp) getApplication());
+        intent.putExtras(bundle);
+        startActivityForResult(intent, Constants.REQUEST_ONEPOCKET_RETURN);
+    }
+
+
+    private void loadArrows(){
+
+        if(webView.canGoBack()){
+            arrowBack.setImageDrawable(getResources().getDrawable(R.drawable.navigation__backurl));
+        }else{
+            arrowBack.setImageDrawable(getResources().getDrawable(R.drawable.navigation__backurl_2));
+        }
+
+        if(webView.canGoForward()){
+            arrowF.setImageDrawable(getResources().getDrawable(R.drawable.navigation__fwdurl_2));
+        }else{
+            arrowF.setImageDrawable(getResources().getDrawable(R.drawable.navigation__fwdurl));
+        }
+    }
+
+    public void onGoBack(View view){
+        if(webView.canGoBack()) {
+            webView.goBack();
+        }
+    }
+
+    public void onGoForward(View view){
+        if(webView.canGoForward()) {
+            webView.goForward();
+        }
+    }
+
+    public void onBackButton(View view){
+        finish();
+    }
+
+    //***********************INNER CLASSES********************
     private class MyWebViewClient extends WebViewClient {
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
 
             Log.d(TAG, "url: " + url);
-
             if (Util.hasInternetConnectivity(ConciergeSearchActivity.this)){
                 if (url.contains("http://")||url.contains("https://")){
                     view.loadUrl(url);
                     urlWebView=url;
                 }else if(url.contains("detalleventaht:")&& Util.hasInternetConnectivity(ConciergeSearchActivity.this)){
-//                    urlWebView=HotelsActivity.this.url;
+                    //urlWebView=HotelsActivity.this.url;
                     // TODO replace with Onepocket pay activity
                 }else{
                     view.loadUrl(url);
@@ -198,80 +269,6 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
             progressBar.setVisibility(View.VISIBLE);
             //showProgress(true);
         }
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        if (requestCode == Constants.ACTIVITY_LOGIN) {
-            if(resultCode == RESULT_OK){
-                Log.d(TAG, "usuario logueado");
-                ConciergeSearchActivity.this.invalidateOptionsMenu();
-                webView.loadUrl("about:blank");
-                loadWebView();
-            }
-            if (resultCode == RESULT_CANCELED) {
-
-            }
-
-        }else if (requestCode == Constants.ONE_POCKET_NEEDS_LOGIN){
-            openOnePocket();
-        } else if (requestCode == Constants.REQUEST_ONEPOCKET_RETURN) {
-            if (data != null) {
-                returnURL = data.getStringExtra("RESULT");
-                webView.clearHistory();
-                webView.loadUrl("about:blank");
-            }
-        }
-
-    }
-
-    public void openOnePocket(){
-        Intent intent = new Intent(this, OnepocketPurchaseActivity.class);
-        Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(this), onePocketmessage, OPKConstants.TYPE_HOTEL, (VisaCheckoutApp) getApplication());
-        intent.putExtras(bundle);
-        startActivityForResult(intent, Constants.REQUEST_ONEPOCKET_RETURN);
-    }
-
-
-    private void loadArrows(){
-
-        if(webView.canGoBack()){
-            arrowBack.setImageDrawable(getResources().getDrawable(R.drawable.navigation__backurl));
-        }else{
-            arrowBack.setImageDrawable(getResources().getDrawable(R.drawable.navigation__backurl_2));
-        }
-
-        if(webView.canGoForward()){
-            arrowF.setImageDrawable(getResources().getDrawable(R.drawable.navigation__fwdurl_2));
-        }else{
-            arrowF.setImageDrawable(getResources().getDrawable(R.drawable.navigation__fwdurl));
-        }
-
-
-
-    }
-
-    public void onGoBack(View view){
-        if(webView.canGoBack()) {
-            webView.goBack();
-        }
-
-    }
-
-    public void onGoForward(View view){
-        if(webView.canGoForward()) {
-            webView.goForward();
-        }
-    }
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        urlWebView=this.url;
-    }
-
-    public void onBackButton(View view){
-        finish();
     }
 
 }

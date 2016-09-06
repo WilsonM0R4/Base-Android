@@ -2,10 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SplashScreenActivity"
-    android:background="@drawable/bg_gradient">
+    tools:context=".SplashScreenActivity">
 
-    <!-- The primary full-screen view. This can be replaced with whatever view
+    <!-- android:background="@drawable/bg_gradient"  The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
          TextureView, etc. -->
     <VideoView

@@ -66,7 +66,8 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
     LinearLayout addRoomsBtn,linLayDateBegin;
     private LinearLayout addRoomOptionPanel, roomsContainer;
     private NumberPicker adultsPicker, childrenPicker, infantsPicker;
-    private static String url_hotels = "http://quickbooking.azurewebsites.net/Api/QuickSearch/Destination/bog?id=";
+    private static String url_hotels = "http://hoteles.allegra.travel/Api/QuickSearch/Destination/?id=";
+    //private static String url_hotels = "http://quickbooking.azurewebsites.net/Api/QuickSearch/Destination/bog?id=";
     //private static String url_hotels = "http://alegra.dracobots.com/Hotel/Flow/Availability?cityHotel=Miami&cityHotelHidden=MIA&arrivalHotel=05%2F14%2F2016&departureHotel=05%2F22%2F2016&roomHotel=1&adultHotel1=1&childHotel1=0&language=es-CO&PaymentMethod=OnePocket";
     private ListView listView;
     private SearchAdapterHotels adapter;

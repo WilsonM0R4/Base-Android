@@ -3,10 +3,9 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:id="@+id/fl_login"
-    android:background="@drawable/bg_gradient"
     tools:context=".MainActivity">
 
-    <!-- The primary full-screen view. This can be replaced with whatever view
+    <!--  android:background="@drawable/bg_gradient"  The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
          TextureView, etc. -->
     <TextureView xmlns:android="http://schemas.android.com/apk/res/android"

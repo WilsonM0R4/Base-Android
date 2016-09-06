@@ -36,7 +36,7 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
     private String paramCheckIn;
     private String paramCheckOut;
     private int hotel = 1;
-    private int paramRooms;
+    private int paramRooms, onlyOnceProgressBar = 0;
     private WebView webView;
     private int paramAdults = 0, paramAdults2 = 0, paramAdults3 = 0, paramAdults4 = 0;
     private int paramChildren = 0, paramChildren2 = 0, paramChildren3 = 0, paramChildren4 = 0;
@@ -183,7 +183,8 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
      */
     private void loadWebView() {
 
-        url="http://alegra.dracobots.com/Hotel/Flow/Availability?";
+        url = "http://hoteles.allegra.travel/Hotel/Flow/Availability?";
+        //url="http://alegra.dracobots.com/Hotel/Flow/Availability?";
         webView.addJavascriptInterface(new AppJavaScriptProxyHotels(this), "androidProxy");
         String postData = "";
 
@@ -255,9 +256,9 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
         webView.loadUrl(url);
     }
 
-    public void onMenu(View view) {
+    /*public void onMenu(View view) {
         //animate();
-    }
+    }*/
 
     /*@Override
     public void initViews(View root) {
@@ -319,7 +320,11 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
         }
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon){
-            progressBar.setVisibility(View.VISIBLE);
+            //Only once
+            if (onlyOnceProgressBar==0) {
+                progressBar.setVisibility(View.VISIBLE);
+                onlyOnceProgressBar++;
+            }
             //showProgress(true);
         }
     }

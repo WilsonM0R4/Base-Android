@@ -41,7 +41,8 @@ public class ConciergeActivity extends FrontBackAnimate implements FrontBackAnim
     ProgressBar progressBar;
     SearchAdapterAutoCompleteConcierge adapter;
     String TAG = "ConciergeActivity", labelCity = "", idCity;
-    String urlConcierge = "http://viator.vuelos.ninja/Actividad/json_destinos2?query=";
+    String urlConcierge = //"http://viator.vuelos.ninja/Actividad/json_destinos2?query=";
+    "http://actividades.allegra.travel/Actividad/json_destinos2/?query=";
     ArrayList<Concierge> concierges;
     boolean alreadyEnterToThisMethod, isSearchActive = false;
 

@@ -10,7 +10,6 @@ import android.widget.VideoView;
 public class SplashScreenActivity extends Activity {
 
     private static final String VIDEO_INTRO = "android.resource://com.allegra.handyuvisa/raw/intro";
-
     private VideoView videoView;
 
     @Override

@@ -33,7 +33,7 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
     private ActionBar actionBar;
     private WebView webView;
     private String url,urlWebView;
-    private ImageButton arrowBack;//, arrowF
+    private ImageButton arrowBack, arrowF;
     private int paramTrip = 0; // 0 - round trip; 1 - one way
     private int paramCabin = 0; // 0 - economy; 1 - business; 2 - first
     private int paramAdult = 0;
@@ -56,7 +56,6 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //super.setView(R.layout.fragment_search_in_progress, R.drawable.load__flight, R.string.txt_lbl_searchFlightsWait, this);
-
         setContentView(R.layout.fragment_search_in_progress);
         setActionbar(true);
         webView = (WebView)findViewById(R.id.webView);
@@ -68,6 +67,7 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
         TextView title = (TextView) findViewById(R.id.tv_title_secc);
         title.setText(R.string.title_flight_results);
         arrowBack = (ImageButton)findViewById(R.id.arrow_back);
+        arrowF = (ImageButton)findViewById(R.id.arrow_forward);
         imgProgress = (ImageView) findViewById(R.id.imgProgress);
         progressBar = (ImageView) findViewById(R.id.pb_search_loader);
         webView.setVisibility(View.GONE);
@@ -147,7 +147,7 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
         } else if (requestCode == Constants.REQUEST_ONEPOCKET_RETURN) {
             if (data != null) {
                 returnURL = data.getStringExtra("RESULT");
-                webView.clearHistory();
+                //webView.clearHistory();
                 webView.loadUrl("about:blank");
                 progressBar.setVisibility(View.VISIBLE);
 
@@ -181,7 +181,6 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
                 actionBar.setHomeButtonEnabled(true);
             }
         }
-
     }
 
     private void loadWebView() {
@@ -243,18 +242,17 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
             arrowBack.setImageDrawable(getResources().getDrawable(R.drawable.navigation__backurl_2));
         }
 
-       /* if(webView.canGoForward()){
+        if(webView.canGoForward()){
             arrowF.setImageDrawable(getResources().getDrawable(R.drawable.navigation__fwdurl_2));
         }else{
             arrowF.setImageDrawable(getResources().getDrawable(R.drawable.navigation__fwdurl));
-        }*/
+        }
     }
 
     public void onGoBack(View view){
         if(webView.canGoBack()) {
             webView.goBack();
         }
-
     }
 
     public void onGoForward(View view){
@@ -268,6 +266,7 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
 
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
+
             Log.d(TAG, "url: " + url);
             if (Util.hasInternetConnectivity(FlightsSearchActivity.this)){
                 if (url.contains("http://")||url.contains("https://")){

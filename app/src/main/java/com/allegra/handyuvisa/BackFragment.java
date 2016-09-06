@@ -263,10 +263,16 @@ public class BackFragment extends Fragment  {
     }
 
     public void sendToPocket(){
-        Intent intent = new Intent(getActivity(), OnepocketContainerActivity.class);
-        Bundle bundle = Constants.createDataBundle(Constants.getUser(getActivity()), (VisaCheckoutApp) getActivity().getApplication());
-        intent.putExtras(bundle);
-        getActivity().startActivity(intent);
+        if (Util.isAuthenticated(getActivity())) {
+            Intent intent = new Intent(getActivity(), OnepocketContainerActivity.class);
+            Bundle bundle = Constants.createDataBundle(Constants.getUser(getActivity()), (VisaCheckoutApp) getActivity().getApplication());
+            intent.putExtras(bundle);
+            getActivity().startActivity(intent);
+
+        }else {
+            Intent intent = new Intent(getActivity(),LoginActivity.class);
+            getActivity().startActivity(intent);
+        }
     }
 
     public void sendToMcard(){

@@ -27,6 +27,7 @@ public class OnepocketPurchaseActivity extends FrontBackAnimate implements Front
     private PurchaseSummaryFragment summary;
     private Stack<Fragment> stack = new Stack<>();
 
+    //**************OVERRIDE METHODS****************
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +58,7 @@ public class OnepocketPurchaseActivity extends FrontBackAnimate implements Front
 
             @Override
             public void returnResult(Bundle bundle) {
+
                 int size = stack.size();
                 Fragment currentTop = stack.get(size - 1);
                 Fragment confirm = stack.get(size - 2);
@@ -65,7 +67,6 @@ public class OnepocketPurchaseActivity extends FrontBackAnimate implements Front
                 transaction.remove(currentTop);
                 transaction.detach(confirm).attach(confirm).show(confirm);
                 transaction.commit();
-
                 stack.remove(size - 1);
             }
 
@@ -81,13 +82,11 @@ public class OnepocketPurchaseActivity extends FrontBackAnimate implements Front
                         Log.e(TAG, "Invalid perform id: 0");
                         break;
 
-
                     case 1:
                         Intent intent = new Intent(OnepocketPurchaseActivity.this, OnepocketContainerActivity.class);
                         Bundle bundle = Constants.createDataBundle(Constants.getUser(OnepocketPurchaseActivity.this), ((VisaCheckoutApp) OnepocketPurchaseActivity.this.getApplication()));
                         intent.putExtras(bundle);
                         startActivity(intent);
-
                         break;
                 }
             }
@@ -122,17 +121,15 @@ public class OnepocketPurchaseActivity extends FrontBackAnimate implements Front
 
     @Override
     public void initViews(View root) {
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
         OneTransaction oneTransaction = getIntent().getParcelableExtra(OPKConstants.EXTRA_PAYMENT);
         summary = new PurchaseSummaryFragment();
         Bundle bundle = new Bundle();
         bundle.putParcelable(OPKConstants.EXTRA_PAYMENT, oneTransaction);
         summary.setArguments(bundle);
         transaction.add(R.id.opk_top, summary);
-
         transaction.commit();
-
     }
 
     @Override
@@ -140,6 +137,7 @@ public class OnepocketPurchaseActivity extends FrontBackAnimate implements Front
 
     }
 
+    //*******************PROPER METHODS*********************
     public void swap(Fragment fragment) {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
