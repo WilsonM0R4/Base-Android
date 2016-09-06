@@ -261,9 +261,12 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".ConciergeSearchActivity" />
-        <activity android:name=".TaxiActivity" />
-        <activity android:name=".ServiceActivity" />
+        <activity android:name=".ConciergeSearchActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".TaxiActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ServiceActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".HotelSearchActivity"
             android:screenOrientation="portrait" />
