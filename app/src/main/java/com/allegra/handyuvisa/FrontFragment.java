@@ -116,7 +116,6 @@ public class FrontFragment extends Fragment implements
         } catch (Exception ex) {
             Log.e(TAG, "Fail to unregister broadcast receiver: " + ex.getMessage());
         }
-
     }
 
     private void setVideoView(){
