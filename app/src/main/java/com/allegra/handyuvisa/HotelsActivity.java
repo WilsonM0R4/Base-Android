@@ -1156,19 +1156,21 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
     @Subscribe
     public void onAsyncTaskResult(AsyncTaskMPosResultEvent event){
 
-        progressBar.setVisibility(View.GONE);
+        if (progressBar != null) progressBar.setVisibility(View.GONE);
+
         HashMap<String, String> data;
 
         if (event.getResult() != null) {
-            data = event.getResult();
-            airportData.clear();
 
-            for (String name: data.keySet()){
+            data = event.getResult();
+
+           /* for (String name: data.keySet()){
 
                 String key = name.toString();
                 String value = data.get(name).toString();
                 Log.d("Sergio Hotels", key + " " + value);
-            }
+            }*/
+            airportData.clear();
 
             if (event.getApiName().equals(AirportCodes.APINAME)) {
                 int msgCount = Integer.parseInt(data.get(AirportCodes.MSG_COUNT));
@@ -1181,19 +1183,23 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
                                 data.get("NameCity" + i),hotelsType));
                         Log.d("Sergio tal HOTEL",data.toString());
                     }
-
-                }
-                else {
-
                     if (adapter != null && listView != null) {
                         adapter.notifyDataSetChanged();
-                        listView.setEmptyView(findViewById(R.id.emptyElement));
-                    }
+                        listView.setSelection(0); }
+
                 }
-                adapter.notifyDataSetChanged();
+                /*else {
+
+                }*/
+
+                if (adapter != null && listView != null) {
+                    adapter.notifyDataSetChanged();
+                    listView.setEmptyView(findViewById(R.id.emptyElement));
+                }
+                //if (adapter != null) adapter.notifyDataSetChanged();
             }
 
-            //adapter.notifyDataSetChanged();
+            if (adapter != null) adapter.notifyDataSetChanged();
         }
         setListViewHeightBasedOnChildren(listView);
     }

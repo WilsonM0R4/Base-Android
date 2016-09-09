@@ -683,10 +683,10 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
         HashMap<String, String> data;
 
         if (event.getResult() != null) {
-            Log.d("Entro", "Aca");
+
             data = event.getResult();
 
-            for (String name : data.keySet()) {
+            /*for (String name : data.keySet()) {
 
                 String key = name.toString();
                 String value = data.get(name).toString();
@@ -697,7 +697,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
                     Log.d("country", remainder);
                 }
                 Log.d("Sergio key", key + " " + value);
-            }
+            }*/
 
             airportData.clear();
             if (event.getApiName().equals(AirportCodes.APINAME)) {
@@ -705,7 +705,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
                 Log.d("Cuenta",String.valueOf(msgCount));
                 if (msgCount > 0) {
                     if (enterToGetLocation){//Get and Print IATA code and City name
-                        airportData.add(new AirportData(data.get("id" + 0),
+                        /*airportData.add(new AirportData(data.get("id" + 0),
                                 data.get("aeropuerto" + 0), data.get("ciudad" + 0), data.get("pais" + 0), flightsType));
                         AirportData data2 = airportData.get(0);
                         paramDepartFromName = data2.getCity();
@@ -725,7 +725,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
                             city.setLayoutParams(lp);
                             city.setText(paramDepartFromName);
                             airportCode.setText(paramDepartFrom);
-                        }
+                        }*/
                         //airportCode.setText(paramDepartFrom);
                         //city.setText(paramDepartFromName);
                         enterToGetLocation = false;

@@ -65,8 +65,7 @@ public class SearchAdapterHotels extends BaseAdapter{
         }
 
         //get the string item from the position "position" from array list to put it on the TextView
-       HotelsActivity.AirportData airport = results.get(i);
-
+        HotelsActivity.AirportData airport = results.get(i);
         holder.itemResult.setText(airport.getListInformation());
         holder.itemCityAndCountry.setText(airport.getName()+", "+airport.getCity());
 
