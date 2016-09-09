@@ -14,6 +14,7 @@ import com.parse.ParsePush;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;*/
 import com.allem.onepocket.utils.OPKLibraryConfig;
+import com.allem.onepocket.utils.ThemeType;
 import com.splunk.mint.Mint;
 import com.urbanairship.UAirship;
 
@@ -140,6 +141,6 @@ public class VisaCheckoutApp extends MultiDexApplication {
 
     private void initOnepocket() {
         Log.d(TAG, "setting theme to VisaBusiness");
-        OPKLibraryConfig.setTheme(OPKLibraryConfig.ThemeType.VISA_BUSINESS);
+        OPKLibraryConfig.setTheme(ThemeType.VISA_BUSINESS);
     }
 }
