@@ -57,19 +57,6 @@ public class ProofOfCoverageActivity extends FrontBackAnimate implements FrontBa
         Log.e("numberOfMcard", numberOfMcard);
         idCuenta = Integer.valueOf(strIdCuenta);
         //Si hay internet: consumir el servicio para mCards
-        /*if (Util.hasInternetConnectivity(getApplicationContext())) {
-            //Launch SOAP request for mCard
-            postValues.add(new BasicNameValuePair("idCuenta", String.valueOf(idCuenta)));
-            AsyncSoapObjectTest.getInstance2(Constants.SOAP_URL_MCARD_PROD, Constants.MCARD_NAMESPACE,
-                    Constants.MCARD_METHOD, postValues, Constants.MCARD_CODE).execute();
-        } else {
-            valueOfMcard = prefs.getString("idMcard", "0");
-            Log.e("valueOfMcard", valueOfMcard);
-            idMcard = Integer.valueOf(valueOfMcard);
-            findValueOfMcard();
-            setValues();
-        }*/
-        //Si hay internet: consumir el servicio para mCards
         if (Connectivity.isConnected(getApplicationContext()) || Connectivity.isConnectedWifi(getApplicationContext()) || Connectivity.isConnectedMobile(getApplicationContext())) {
             //Launch SOAP request for mCard
             postValues.add(new BasicNameValuePair("idCuenta", String.valueOf(idCuenta)));
@@ -82,7 +69,7 @@ public class ProofOfCoverageActivity extends FrontBackAnimate implements FrontBa
             findValueOfMcard();
             setValues();
         }
-
+        Log.e("TENGO INTERNET"," TRUE");//Test 2: Succeded
     }
 
     @Override
@@ -155,14 +142,6 @@ public class ProofOfCoverageActivity extends FrontBackAnimate implements FrontBa
                 setValues();
 
             }
-           /* else{
-                //Save in SharedPreferences
-                SharedPreferences prefs =
-                        getSharedPreferences("MisPreferencias", MODE_PRIVATE);
-                SharedPreferences.Editor editor = prefs.edit();
-                editor.putString("idMcard","0");
-                editor.apply();
-            }*/
         }
     }
 

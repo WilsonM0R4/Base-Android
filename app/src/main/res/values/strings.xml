@@ -259,7 +259,7 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
-
+    <string name="facebook_app_id" translatable="false">949325301863169</string>
     <string name="txt_version">Version</string>
     <string name="mcard_trip">Multiple travel up to 120 days maximum per trip</string>
     <string name="mcard_doctorhelp">Modelo exclusivo de IATAI de servicio médico online con atención diferencial, conecta a médicos con viajeros internacionales que buscan asistencia médica inmediata, las 24 horas del día, los 7 días de la semana a nivel mundial. Sin necesidad de trámites administrativos previos.</string>

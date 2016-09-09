@@ -3,6 +3,7 @@ package com.allegra.handyuvisa;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -31,6 +32,7 @@ public class ProofOfCoverageActivityOff extends FrontBackAnimate  implements Fro
         value1 = intent.getExtras().getString("value1");
         value2 = intent.getExtras().getString("value2");
         value3 = intent.getExtras().getString("value3");
+        Log.e("NO TENGO INTERNET"," TRUE"); //Test 3: Succeded
     }
 
     @Override
