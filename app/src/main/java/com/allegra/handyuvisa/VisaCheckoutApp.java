@@ -13,6 +13,8 @@ import com.parse.ParseInstallation;
 import com.parse.ParsePush;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;*/
+import com.allem.onepocket.utils.OPKLibraryConfig;
+import com.allem.onepocket.utils.ThemeType;
 import com.splunk.mint.Mint;
 import com.urbanairship.UAirship;
 
@@ -137,4 +139,8 @@ public class VisaCheckoutApp extends MultiDexApplication {
         System.exit(1); // kill off the crashed app
     }
 
+    private void initOnepocket() {
+        Log.d(TAG, "setting theme to VisaBusiness");
+        OPKLibraryConfig.setTheme(ThemeType.VISA_BUSINESS);
+    }
 }
