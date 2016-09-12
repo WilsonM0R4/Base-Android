@@ -69,8 +69,9 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/bundles" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/classes" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/dependency-cache" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.3-347/unspecified/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.3-348/unspecified/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/VisaCheckout-Android-SDK-4.0/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/card.io-5.3.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/cardview-v7/24.2.0/jars" />
@@ -143,7 +144,6 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.squareup/android-times-square/1.6.5/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.twilio/client-android/1.2.17/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.urbanairship.android/urbanairship-sdk/7.2.5/jars" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/io.card/android-sdk/5.4.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/net.danlew/android.joda/2.9.4.1/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental-safeguard" />
@@ -222,6 +222,7 @@
     <orderEntry type="library" exported="" name="firebase-database-9.4.0" level="project" />
     <orderEntry type="library" exported="" name="urbanairship-sdk-7.2.5" level="project" />
     <orderEntry type="library" exported="" name="design-24.2.0" level="project" />
+    <orderEntry type="library" exported="" name="card.io-5.3.0-" level="project" />
     <orderEntry type="library" exported="" name="ksoap2-base-3.6.1" level="project" />
     <orderEntry type="library" exported="" name="xmlpull-1.1.3.3" level="project" />
     <orderEntry type="library" exported="" name="firebase-common-9.4.0" level="project" />
@@ -234,7 +235,6 @@
     <orderEntry type="library" exported="" name="mint-android-sdk-5.1.0" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-24.2.0" level="project" />
     <orderEntry type="library" exported="" name="firebase-config-9.4.0" level="project" />
-    <orderEntry type="library" exported="" name="android-sdk-5.4.0" level="project" />
     <orderEntry type="library" exported="" name="VisaCheckout-Android-SDK-4.0-" level="project" />
     <orderEntry type="library" exported="" name="play-services-cast-framework-9.4.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-location-9.4.0" level="project" />
@@ -261,7 +261,7 @@
     <orderEntry type="library" exported="" name="android.joda-2.9.4.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-places-9.4.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-tagmanager-9.4.0" level="project" />
-    <orderEntry type="module" module-name="onepocket-sdk-1.0.3-347" exported="" />
-    <orderEntry type="library" exported="" name="onepocket-sdk-1.0.3-347-unspecified" level="project" />
+    <orderEntry type="module" module-name="onepocket-sdk-1.0.3-348" exported="" />
+    <orderEntry type="library" exported="" name="onepocket-sdk-1.0.3-348-unspecified" level="project" />
   </component>
 </module>
