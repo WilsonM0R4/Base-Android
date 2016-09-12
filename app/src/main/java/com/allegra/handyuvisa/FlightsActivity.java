@@ -149,7 +149,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setView(R.layout.fragment_flights, this);
-        System.gc();
+        //System.gc();
         MyBus.getInstance().register(this);
         airportData = new ArrayList<>();
         //getLocation();
@@ -677,7 +677,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
     public void onAsyncTaskResult(AsyncTaskMPosResultEvent event) {
 
         if (progressBar != null){
-            progressBar.setVisibility(View.GONE);
+            progressBar.setVisibility(View.INVISIBLE);
         }
         HashMap<String, String> data;
 

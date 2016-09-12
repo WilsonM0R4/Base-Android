@@ -80,9 +80,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         MyBus.getInstance().register(this);
         super.setView(R.layout.fragment_login, this);
         postValues = new ArrayList<>();
-
         db = new UsuarioSQLiteHelper(this);
-
 
         //TODO: Uncomment this before push
         //Splunk
@@ -93,9 +91,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         // Log last 100 messages
         Mint.setLogging(200);
 
-
         findValueOfMcard();
-
     }
 
     @Override
@@ -343,7 +339,13 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 String name = user.email.substring(0, user.email.indexOf('@'));
                 String domain = user.email.substring(user.email.indexOf('@') + 1, user.email.length()).replace(".", "");
                 String channel = name + domain + user.idCuenta;
-                UAirship.shared().getNamedUser().setId(channel);
+                //Notifications UrbanAirship
+                UAirship.shared().getPushManager().editTags()
+                        .addTag(channel)
+                        //.removeTag("some_other_tag")
+                        .apply();
+
+                //UAirship.shared().getNamedUser().setId(channel);
                 String password = user.hashpassword;
                 String cel_code = user.celular_codigo;
                 String typeOfId = user.idType;

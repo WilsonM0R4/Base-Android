@@ -117,7 +117,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        System.gc();
+        //System.gc();
         setView(R.layout.fragment_hotels, this);
     }
 
@@ -161,8 +161,10 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
     }
 
     // Initialize views
+
     private void initializePanels(final View view){
 
+        progressBar = (ProgressBar) view.findViewById(R.id.pb_search);
         searchLayout = view.findViewById(R.id.search_layout_hotels);
         datesLayout = view.findViewById(R.id.panel_dates);
         llheader = view.findViewById(R.id.ll_header_hotels);
@@ -477,7 +479,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
         adapter = new SearchAdapterHotels(this, airportData);
         listView.setAdapter(adapter);
 
-        progressBar = (ProgressBar)findViewById(R.id.pb_search);
+
 
         final EditText note = (EditText)findViewById(R.id.et_search);
         note.addTextChangedListener(new TextWatcher() {
@@ -829,7 +831,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
         Log.d("cityHotelHidden", String.valueOf(paramDestination));
 
         startActivity(intent);
-            System.gc();
+            //System.gc();
     }
 
     }

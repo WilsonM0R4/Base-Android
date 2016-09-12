@@ -39,8 +39,10 @@ public class VisaCheckoutApp extends MultiDexApplication {
     public void onCreate() {
         //super.onCreate();
         //SystemClock.sleep(0);   // For running splash screen
+        super.onCreate();
 
-               super.onCreate();
+
+        //UrbanAirship
         UAirship.takeOff(this, new UAirship.OnReadyCallback() {
             @Override
             public void onAirshipReady(UAirship airship) {
@@ -50,8 +52,6 @@ public class VisaCheckoutApp extends MultiDexApplication {
                 UAirship.shared().getNamedUser().setId(null);
             }
         });
-
-
         /*Parse.enableLocalDatastore(getApplicationContext());
         Parse.initialize(this, "YLafvQVsiUgpHPhTBZFuEIEfdnCtzHNV6fwiOWnY", "PpAKINbIw42zMgFuzstKl6IOrrQqRFAxupHqkGdn");
         ParseInstallation.getCurrentInstallation().saveEventually(new SaveCallback() {
