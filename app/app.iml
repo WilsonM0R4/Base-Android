@@ -69,7 +69,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/bundles" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/classes" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/dependency-cache" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.3-348/unspecified/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/Allegra-Android/onepocket-sdk-1.0.3-346/unspecified/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/VisaCheckout-Android-SDK-4.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/card.io-5.3.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.0/jars" />
@@ -196,9 +196,9 @@
     <orderEntry type="library" exported="" name="firebase-analytics-impl-9.4.0" level="project" />
     <orderEntry type="library" exported="" name="firebase-auth-module-9.4.0" level="project" />
     <orderEntry type="library" exported="" name="animated-vector-drawable-24.2.0" level="project" />
-    <orderEntry type="library" exported="" name="okhttp-urlconnection-3.2.0" level="project" />
-    <orderEntry type="library" exported="" name="core-3.2.1" level="project" />
     <orderEntry type="library" exported="" name="bolts-tasks-1.4.0" level="project" />
+    <orderEntry type="library" exported="" name="core-3.2.1" level="project" />
+    <orderEntry type="library" exported="" name="okhttp-urlconnection-3.2.0" level="project" />
     <orderEntry type="library" exported="" name="firebase-storage-common-9.4.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-identity-9.4.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-appindexing-9.4.0" level="project" />
@@ -261,7 +261,7 @@
     <orderEntry type="library" exported="" name="android.joda-2.9.4.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-places-9.4.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-tagmanager-9.4.0" level="project" />
-    <orderEntry type="module" module-name="onepocket-sdk-1.0.3-348" exported="" />
-    <orderEntry type="library" exported="" name="onepocket-sdk-1.0.3-348-unspecified" level="project" />
+    <orderEntry type="module" module-name="onepocket-sdk-1.0.3-346" exported="" />
+    <orderEntry type="library" exported="" name="onepocket-sdk-1.0.3-346-unspecified" level="project" />
   </component>
 </module>

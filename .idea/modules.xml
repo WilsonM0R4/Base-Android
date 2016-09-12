@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Allegra-Android.iml" filepath="$PROJECT_DIR$/Allegra-Android.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/onepocket-sdk-1.0.3-348/onepocket-sdk-1.0.3-348.iml" filepath="$PROJECT_DIR$/onepocket-sdk-1.0.3-348/onepocket-sdk-1.0.3-348.iml" />
+      <module fileurl="file://$PROJECT_DIR$/onepocket-sdk-1.0.3-346/onepocket-sdk-1.0.3-346.iml" filepath="$PROJECT_DIR$/onepocket-sdk-1.0.3-346/onepocket-sdk-1.0.3-346.iml" />
     </modules>
   </component>
 </project>
