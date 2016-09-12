@@ -47,7 +47,7 @@
                     android:contentDescription="menu"
                     android:layout_alignBottom="@+id/tv_title_secc"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="10dp" />
+                    android:layout_marginTop="10dp"/>
 
             </RelativeLayout>
 
@@ -62,8 +62,7 @@
                 android:contentDescription="Divider"
                 android:paddingEnd="-2dp"
                 android:paddingStart="-2dp"
-                android:src="@drawable/separator_medium_mag"
-/>
+                android:src="@drawable/separator_medium_mag"/>
 
             <include
                 android:id="@+id/ll_destination"
@@ -79,7 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ll_destination"
-                android:visibility="gone" />
+                android:visibility="gone"/>
 
             <include
                 android:id="@+id/panel_dates"
@@ -87,7 +86,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_below="@+id/search_layout_hotels"
-                android:layout_marginTop="10dp" />
+                android:layout_marginTop="10dp"/>
 
             <include
                 android:id="@+id/rooms_panel"
@@ -95,7 +94,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/panel_dates"
-                android:layout_marginTop="10dp" />
+                android:layout_marginTop="10dp"/>
 
             <include
                 android:id="@+id/header_for_select"
@@ -104,7 +103,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rooms_panel"
                 android:layout_marginTop="10dp"
-                android:visibility="gone" />
+                android:visibility="gone"/>
 
             <LinearLayout
                 android:id="@+id/add_room_option"
@@ -121,7 +120,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
-                    android:src="@drawable/hotels__add" />
+                    android:src="@drawable/hotels__add"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -129,7 +128,7 @@
                     android:layout_marginLeft="10dp"
                     android:text="@string/room"
                     android:textColor="@color/SelectedRoomButtonAddRoom_text"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"/>
 
             </LinearLayout>
 

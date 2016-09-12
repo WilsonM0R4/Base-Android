@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Handy U Visa</string>
     <string name="app_name_legal">Handy U Visa</string>
-    <string name="facebook_app_id" translatable="false">949325301863169</string>
+    <string name="facebook_app_id">949325301863169</string>  <!--  translatable="false"-->
     <string name="txtInfoCertifications"># CERTIFICADO</string>
     <string name="TODAY">HOY</string>
     <string name="room">HAB</string>

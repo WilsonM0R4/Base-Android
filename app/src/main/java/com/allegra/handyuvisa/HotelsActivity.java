@@ -456,14 +456,12 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
 
     public void onGetDestinationHotels() {
 
-        searchLayout.setVisibility(View.VISIBLE);
         //Bring EditText for search  hotel
         searchLayout.setVisibility(View.VISIBLE);
         datesLayout.setVisibility(View.GONE);
         roomsHeader.setVisibility(View.GONE);
         roomsLayout.setVisibility(View.GONE);
         searchButton.setVisibility(View.GONE);
-
 
         LinearLayout linLayGetUp = (LinearLayout)findViewById(R.id.linLayGetUpAnimationFlights);
         linLayGetUp.setOnClickListener(new View.OnClickListener() {
@@ -821,7 +819,6 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
                     break;
             }
 
-
         Log.d("adult", String.valueOf(paramAdultsTotal));
         Log.d("children", String.valueOf(paramChildren));
         Log.d("infant", String.valueOf(paramInfants));
@@ -1026,7 +1023,6 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
         textAdults.setText(String.valueOf(adultsPicker.getValue()));
         textChildren.setText(String.valueOf(childrenPicker.getValue()));
         textInfants.setText(String.valueOf(infantsPicker.getValue()));
-
     }
 
     public void setNumberPickersTest2(int adults, int children, int infants){
@@ -1042,8 +1038,6 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
         roomsContainer.setVisibility(View.VISIBLE);
         roomsContainer.addView(root);
         globalSizeOfRooms = roomsContainer.getChildCount();
-
-
     }
 
     //Validate each numberPicker
@@ -1156,21 +1150,16 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
     @Subscribe
     public void onAsyncTaskResult(AsyncTaskMPosResultEvent event){
 
-        if (progressBar != null) progressBar.setVisibility(View.GONE);
-
+        if (progressBar != null) {
+            progressBar.setVisibility(View.GONE);
+        }
         HashMap<String, String> data;
 
         if (event.getResult() != null) {
 
             data = event.getResult();
-
-           /* for (String name: data.keySet()){
-
-                String key = name.toString();
-                String value = data.get(name).toString();
-                Log.d("Sergio Hotels", key + " " + value);
-            }*/
             airportData.clear();
+            adapter = new SearchAdapterHotels(this, airportData);
 
             if (event.getApiName().equals(AirportCodes.APINAME)) {
                 int msgCount = Integer.parseInt(data.get(AirportCodes.MSG_COUNT));
@@ -1181,27 +1170,23 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
                                 data.get("IataCountry" + i),
                                 data.get("Name" + i),
                                 data.get("NameCity" + i),hotelsType));
-                        Log.d("Sergio tal HOTEL",data.toString());
+                        //Log.d("Sergio tal HOTEL",data.toString());
                     }
                     if (adapter != null && listView != null) {
                         adapter.notifyDataSetChanged();
-                        listView.setSelection(0); }
-
+                        listView.setSelection(0);
+                    }
                 }
-                /*else {
-
-                }*/
-
                 if (adapter != null && listView != null) {
                     adapter.notifyDataSetChanged();
                     listView.setEmptyView(findViewById(R.id.emptyElement));
                 }
-                //if (adapter != null) adapter.notifyDataSetChanged();
             }
-
-            if (adapter != null) adapter.notifyDataSetChanged();
+           // if (adapter != null) adapter.notifyDataSetChanged();
         }
-        setListViewHeightBasedOnChildren(listView);
+        if (listView != null) {
+            setListViewHeightBasedOnChildren(listView);
+        }
     }
 
     //Clear the EditText for Search after (x) button is clicked

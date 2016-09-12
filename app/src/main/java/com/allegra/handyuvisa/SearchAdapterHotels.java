@@ -31,7 +31,7 @@ public class SearchAdapterHotels extends BaseAdapter{
 
     @Override
     public int getCount() {
-        Log.d("Sergio size in adapter",String.valueOf(results.size()));
+        //Log.d("Sergio size in adapter",String.valueOf(results.size()));
         return results.size();
     }
 

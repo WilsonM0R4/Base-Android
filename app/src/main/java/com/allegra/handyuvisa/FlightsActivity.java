@@ -679,58 +679,17 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
         if (progressBar != null){
             progressBar.setVisibility(View.GONE);
         }
-
         HashMap<String, String> data;
 
         if (event.getResult() != null) {
-
             data = event.getResult();
-
-            /*for (String name : data.keySet()) {
-
-                String key = name.toString();
-                String value = data.get(name).toString();
-                if (value.contains(",")) {
-                    String kept = value.substring(0, value.indexOf(","));
-                    String remainder = value.substring(value.indexOf(",") + 1, value.length());
-                    Log.d("city", kept);
-                    Log.d("country", remainder);
-                }
-                Log.d("Sergio key", key + " " + value);
-            }*/
-
             airportData.clear();
             if (event.getApiName().equals(AirportCodes.APINAME)) {
                 int msgCount = Integer.parseInt(data.get(AirportCodes.MSG_COUNT));
                 Log.d("Cuenta",String.valueOf(msgCount));
                 if (msgCount > 0) {
-                    if (enterToGetLocation){//Get and Print IATA code and City name
-                        /*airportData.add(new AirportData(data.get("id" + 0),
-                                data.get("aeropuerto" + 0), data.get("ciudad" + 0), data.get("pais" + 0), flightsType));
-                        AirportData data2 = airportData.get(0);
-                        paramDepartFromName = data2.getCity();
-                        paramDepartFrom = data2.getCodeIATA();
-                        Log.d("New IATA", paramDepartFrom);
-                        Log.d("New City", paramDepartFromName);
-                        //Test
-                        if(!paramDepartFromName.equals("")||!paramDepartFrom.equals("")) {
-                            imageView.setVisibility(View.GONE);
-                            airportCode.setVisibility(View.VISIBLE);
-                            RelativeLayout.LayoutParams p = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
-                                    ViewGroup.LayoutParams.WRAP_CONTENT);
-                            p.addRule(RelativeLayout.BELOW, R.id.tv_depart_airport);
-                            city.setLayoutParams(p);
-                            RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) city.getLayoutParams();
-                            lp.addRule(RelativeLayout.CENTER_HORIZONTAL);
-                            city.setLayoutParams(lp);
-                            city.setText(paramDepartFromName);
-                            airportCode.setText(paramDepartFrom);
-                        }*/
-                        //airportCode.setText(paramDepartFrom);
-                        //city.setText(paramDepartFromName);
-                        enterToGetLocation = false;
-                    }else {//Normal populate of listView
-                         for (int i = 0; i < msgCount; i++) {
+
+                    for (int i = 0; i < msgCount; i++) {
                         airportData.add(new AirportData(data.get("id" + i),
                                 data.get("aeropuerto" + i), data.get("ciudad" + i), data.get("pais" + i), flightsType));
                             }
@@ -744,8 +703,8 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
                     }
                 }
             }
-        }
-        if (!enterToGetLocation && listView != null) {
+        //}
+        if (listView != null) {//!enterToGetLocation &&
             setListViewHeightBasedOnChildren(listView);
         }
     }
