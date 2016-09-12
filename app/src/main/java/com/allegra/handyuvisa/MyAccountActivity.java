@@ -145,13 +145,20 @@ public class MyAccountActivity extends FrontBackAnimate implements FrontBackAnim
 
     @Subscribe
     public void onAsyncTaskResult(AsyncTaskSoapPrimitiveResultEvent event) {
+
         if(event.getCodeRequest()==Constants.ACTIVITY_PROFILE_INFORMATION){
             pb_cerrarsesion.setVisibility(View.GONE);
             if (event.getResult()!=null){
                 if(Boolean.valueOf(event.getResult().toString())){
                     Constants.deleteUser(ctx);
                     ((VisaCheckoutApp)this.getApplication()).deleteSesion();
-                    UAirship.shared().getNamedUser().setId(null);
+                    //Remove Notifications
+                    UAirship.shared().getPushManager().editTags()
+                            //.addTag("some_tag")
+                            .removeTag("some_other_tag")
+                            .apply();
+
+                    //UAirship.shared().getNamedUser().setId(null);
                     //((VisaCheckoutApp)this.getApplication()).unSetParseChannels();
                 }else{
                     Log.d(TAG, "No se pudo desloguear o ya se encuentra deslogueado");
