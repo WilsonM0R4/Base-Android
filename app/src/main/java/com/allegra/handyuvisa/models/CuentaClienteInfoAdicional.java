@@ -148,7 +148,7 @@ public class CuentaClienteInfoAdicional implements KvmSerializable {
         }
     }
 
-   /* @Override
+    @Override
     public String getInnerText() {
         return null;
     }
@@ -156,7 +156,7 @@ public class CuentaClienteInfoAdicional implements KvmSerializable {
     @Override
     public void setInnerText(String s) {
 
-    }*/
+    }
 
 
     public String getEmpresa() {

@@ -172,7 +172,7 @@ public class CuentaClienteInfo implements KvmSerializable {
         }
     }
 
-    /*@Override
+    @Override
     public String getInnerText() {
         return null;
     }
@@ -180,7 +180,7 @@ public class CuentaClienteInfo implements KvmSerializable {
     @Override
     public void setInnerText(String s) {
 
-    }*/
+    }
 
     public String getSegmento() {
         return segmento;

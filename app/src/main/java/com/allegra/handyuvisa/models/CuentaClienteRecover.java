@@ -49,7 +49,7 @@ public class CuentaClienteRecover implements KvmSerializable {
         }
     }
 
-   /* @Override
+    @Override
     public String getInnerText() {
         return null;
     }
@@ -57,7 +57,7 @@ public class CuentaClienteRecover implements KvmSerializable {
     @Override
     public void setInnerText(String s) {
 
-    }*/
+    }
 
     public String getEmail() {
         return email;

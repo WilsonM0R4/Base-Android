@@ -198,9 +198,11 @@
         <activity
             android:name=".ConciergeActivity"
             android:screenOrientation="portrait" />
-       <!-- <activity
+        <!--
+            <activity
             android:name=".McardhtmlServices"
-            android:screenOrientation="portrait" />-->
+            android:screenOrientation="portrait" />
+        -->
         <activity
             android:name=".VisaCheckoutActivity"
             android:screenOrientation="portrait" />
