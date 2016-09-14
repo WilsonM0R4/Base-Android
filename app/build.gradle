@@ -76,6 +76,4 @@ dependencies {
     compile 'com.splunk.mint:mint:5.0.0'
     compile 'com.twilio:client-android:1.2.17'
     compile 'com.firebase:firebase-client-android:2.3.1'
-    compile 'com.appsflyer:af-android-sdk:4.6.0'
-    compile 'com.facebook.android:facebook-android-sdk:[4,5)'
 }
