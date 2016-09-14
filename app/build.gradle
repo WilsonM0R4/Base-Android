@@ -10,13 +10,13 @@ android {
         applicationId "com.allegra.handyuvisa"
         minSdkVersion 19
         targetSdkVersion 23
-        versionCode 345
-        versionName "1.0.3-345"
+        versionCode 346
+        versionName "1.0.3-346"
 
 
-        ndk {
+      /*  ndk {
             abiFilters "armeabi-v7a", "x86", "mips"
-        }
+        }*/
 
         packagingOptions {
             exclude "lib/arm64-v8a/libcardioDecider.so"
