@@ -13,6 +13,9 @@ import android.widget.Button;
 
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.Util;
+import com.appsflyer.AppsFlyerLib;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
 
 
 public class MainActivity extends Activity implements BackFragment.MenuSelectListener {
@@ -32,6 +35,14 @@ public class MainActivity extends Activity implements BackFragment.MenuSelectLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getWindow().setBackgroundDrawable(null);
+
+        /* APPSFLYER */
+        AppsFlyerLib.getInstance().startTracking(this.getApplication(),"55GLA2WaeHkqjapkFYTmZY");//AppFlyer Dev Key jsandoval@iatai.com
+        AppsFlyerLib.getInstance().setCollectIMEI(true);//Get de Imei of the Phone
+        AppsFlyerLib.getInstance().setCollectAndroidID(true);//Get the Android ID of the OS Phone.
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this);
+        /* APPSFLYER */
 
         //int  what  = Build.VERSION.SDK_INT;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
