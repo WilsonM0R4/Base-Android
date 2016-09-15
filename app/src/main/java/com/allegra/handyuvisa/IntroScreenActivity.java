@@ -18,8 +18,8 @@ import android.widget.VideoView;
 public class IntroScreenActivity extends Activity {
 
     private static final String TAG = "IntroActivity";
-    private static final String VIDEO_INTRO = "android.resource://com.allem.alleminmotion.visacheckout/raw/intro";
-    private static final String VIDEO_BACKGROUND = "android.resource://com.allem.alleminmotion.visacheckout/raw/background";
+    private static final String VIDEO_INTRO = "";//android.resource://com.allem.alleminmotion.visacheckout/raw/intro
+    private static final String VIDEO_BACKGROUND = "";//android.resource://com.allem.alleminmotion.visacheckout/raw/background_visa
 
     private VideoView videoView;
     private Button login;
