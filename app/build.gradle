@@ -2,26 +2,22 @@ apply plugin: 'com.android.application'
 //apply plugin: 'com.splunk.mint.gradle.android.plugin'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
-    useLibrary 'org.apache.http.legacy'
+    compileSdkVersion 24
+    buildToolsVersion "24.0.2"
 
     defaultConfig {
         applicationId "com.allegra.handyuvisa"
         minSdkVersion 19
-        targetSdkVersion 23
+        targetSdkVersion 24
         versionCode 346
         versionName "1.0.3-346"
-
-
-      /*  ndk {
-            abiFilters "armeabi-v7a", "x86", "mips"
-        }*/
 
         packagingOptions {
             exclude "lib/arm64-v8a/libcardioDecider.so"
             exclude "lib/mips64/libcardioDecider.so"
             exclude "lib/x86_64/libcardioDecider.so"
+            exclude 'META-INF/maven/com.squareup.okio/okio/pom.xml'
+            exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
         }
 
         // Enabling multidex support.
@@ -41,41 +37,49 @@ android {
 
     repositories {
         maven {
-            url "https://mint.splunk.com/gradle/"
+            url uri('mint-plugin-repo-5.1.0')
         }
+    }
+
+    repositories {
+        mavenCentral()
     }
 
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    //compile 'com.android.support:support-compat:24.2.0'
+    //compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile(name: 'VisaCheckout-Android-SDK-4.0', ext: 'aar')
     compile(name: 'card.io-5.3.0', ext: 'aar')
-    compile project(':onepocket-sdk-1.0.3-349')
-    compile files('libs/httpmime-4.1-beta1.jar')
-    compile 'com.android.support:support-v13:23.1.1'
-    compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'com.android.support:cardview-v7:23.1.1'
-    compile 'com.android.support:support-v4:23.1.1'
-    compile 'com.android.support:design:23.1.1'
-    compile 'com.squareup:otto:1.3.6'
-    compile 'net.danlew:android.joda:2.9.2'
-    compile 'mbanje.kurt:fabbutton:1.+'
-    compile 'com.google.guava:guava:19.0'
-    compile 'com.mcxiaoke.volley:library:1.0.+@aar'
-    compile 'com.squareup:android-times-square:1.6.4@aar'
-    compile 'com.journeyapps:zxing-android-embedded:3.1.0@aar'
-    compile 'com.google.zxing:core:3.2.0'
-    compile 'com.google.android.gms:play-services:9.0.2'
+    compile project(':onepocket-sdk-1.0.3-350')
+    //3rd party libraries
+    //3.1.0@aar
+    compile('com.google.code.ksoap2-android:ksoap2-android:3.6.1') {
+        exclude group: 'com.squareup.okio', module: 'okio'
+    }
     compile 'com.android.support:multidex:1.0.1'
-    compile 'com.google.android.gms:play-services-ads:9.0.2'
-    compile 'com.google.android.gms:play-services-identity:9.0.2'
-    compile 'com.google.android.gms:play-services-gcm:9.0.2'
-    compile 'com.urbanairship.android:urbanairship-sdk:7.2.+'
-    compile 'com.splunk.mint:mint:5.0.0'
-    compile 'com.twilio:client-android:1.2.17'
-    compile 'com.firebase:firebase-client-android:2.3.1'
-    compile 'com.appsflyer:af-android-sdk:4.6.0'
     compile 'com.facebook.android:facebook-android-sdk:[4,5)'
+    compile 'com.android.support:support-v13:24.2.0'
+    compile 'com.android.support:appcompat-v7:24.2.0'
+    compile 'com.android.support:cardview-v7:24.2.0'
+    compile 'com.android.support:support-v4:24.2.0'
+    compile 'com.android.support:design:24.2.0'
+    compile 'com.squareup:otto:1.3.8'
+    compile 'net.danlew:android.joda:2.9.4.1'
+    compile 'com.google.guava:guava:19.0'
+    compile 'com.mcxiaoke.volley:library:1.0.19'
+    compile 'com.squareup:android-times-square:1.6.5@aar'
+    compile 'com.journeyapps:zxing-android-embedded:3.3.0'
+    compile 'com.google.zxing:core:3.2.1'
+    compile 'com.google.android.gms:play-services:9.4.0'
+    compile 'com.google.android.gms:play-services-ads:9.4.0'
+    compile 'com.google.android.gms:play-services-identity:9.4.0'
+    compile 'com.google.android.gms:play-services-gcm:9.4.0'
+    compile 'com.urbanairship.android:urbanairship-sdk:7.3.0'
+    compile 'com.splunk:mint-android-sdk:5.1.0'
+    compile 'com.twilio:client-android:1.2.17'
+    compile 'com.firebase:firebase-client-android:2.5.2'
+    compile 'com.appsflyer:af-android-sdk:4.6.0'
 }
