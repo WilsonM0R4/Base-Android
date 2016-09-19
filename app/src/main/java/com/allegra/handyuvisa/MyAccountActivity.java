@@ -112,6 +112,12 @@ public class MyAccountActivity extends FrontBackAnimate implements FrontBackAnim
                     }
                     AsyncSoapPrimitive.getInstance(wsdl, Constants.NAMESPACE_ALLEM,
                             Constants.METHOD_CERRAR_SESION, postValues, Constants.ACTIVITY_PROFILE_INFORMATION).execute();
+                //Remove UrbanAirship Notifications
+                    UAirship.shared().getPushManager().editTags()
+                            .addTag("")
+                            //.removeTag("some_other_tag")
+                            .apply();
+
                 }else{
                     Toast.makeText(ctx, R.string.err_no_internet, Toast.LENGTH_SHORT).show();
                 }

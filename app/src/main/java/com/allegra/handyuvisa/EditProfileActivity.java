@@ -49,13 +49,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
     TextView txtTypeOfIdSelected, txtSelectCountry;
     //******** Array Colors *********
     int[] allColors = new int[5];
-
-
-
     //String[] ColorsInput;
-
-
-
 
     //*********OVERRIDE METHODS****************
     @Override
@@ -306,9 +300,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
 
         }
 
-
         return strType;
-
     }
 
 
@@ -339,7 +331,6 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             case 6:
                 txtTypeOfIdSelected.setText(getString(R.string.txt_otro));
                 break;
-
         }
 
     }

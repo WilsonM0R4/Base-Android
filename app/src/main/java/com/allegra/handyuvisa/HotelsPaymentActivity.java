@@ -30,6 +30,7 @@ public class HotelsPaymentActivity extends FrontBackAnimate implements FrontBack
 
     @Override
     public void initViews(View root) {
+
         TextView hotelName= (TextView) root.findViewById(R.id.payment_hotel_name);
         TextView hotelAddressT= (TextView) root.findViewById(R.id.payment_hotel_address);
         TextView roomsN= (TextView) root.findViewById(R.id.payment_hotel_room_number);
@@ -45,7 +46,6 @@ public class HotelsPaymentActivity extends FrontBackAnimate implements FrontBack
         TextView choMonth = (TextView) root.findViewById(R.id.payment_hotel_checkout_month);
         TextView choYear = (TextView) root.findViewById(R.id.payment_hotel_checkout_year);
         TextView descriptionT = (TextView) root.findViewById(R.id.payment_hotel_description);
-
 
         String name= getIntent().getStringExtra("hotelName");
         String hotelAddress= getIntent().getStringExtra("hotelAddress");

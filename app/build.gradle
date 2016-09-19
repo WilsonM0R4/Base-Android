@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-//apply plugin: 'com.splunk.mint.gradle.android.plugin'
 
 android {
     compileSdkVersion 24
@@ -48,24 +47,25 @@ android {
 }
 
 dependencies {
-    //compile 'com.android.support:support-compat:24.2.0'
-    //compile fileTree(include: ['*.jar'], dir: 'libs')
+
     testCompile 'junit:junit:4.12'
-    compile(name: 'VisaCheckout-Android-SDK-4.0', ext: 'aar')
-    compile(name: 'card.io-5.3.0', ext: 'aar')
     compile project(':onepocket-sdk-1.0.3-350')
+
     //3rd party libraries
-    //3.1.0@aar
     compile('com.google.code.ksoap2-android:ksoap2-android:3.6.1') {
         exclude group: 'com.squareup.okio', module: 'okio'
     }
+
+    compile(name: 'VisaCheckout-Android-SDK-4.0', ext: 'aar')
+    compile(name: 'card.io-5.3.0', ext: 'aar')
+
     compile 'com.android.support:multidex:1.0.1'
     compile 'com.facebook.android:facebook-android-sdk:[4,5)'
-    compile 'com.android.support:support-v13:24.2.0'
-    compile 'com.android.support:appcompat-v7:24.2.0'
-    compile 'com.android.support:cardview-v7:24.2.0'
-    compile 'com.android.support:support-v4:24.2.0'
-    compile 'com.android.support:design:24.2.0'
+    compile 'com.android.support:support-v13:24.2.1'
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.android.support:cardview-v7:24.2.1'
+    compile 'com.android.support:support-v4:24.2.1'
+    compile 'com.android.support:design:24.2.1'
     compile 'com.squareup:otto:1.3.8'
     compile 'net.danlew:android.joda:2.9.4.1'
     compile 'com.google.guava:guava:19.0'
@@ -80,6 +80,5 @@ dependencies {
     compile 'com.urbanairship.android:urbanairship-sdk:7.3.0'
     compile 'com.splunk:mint-android-sdk:5.1.0'
     compile 'com.twilio:client-android:1.2.17'
-    compile 'com.firebase:firebase-client-android:2.5.2'
     compile 'com.appsflyer:af-android-sdk:4.6.0'
 }

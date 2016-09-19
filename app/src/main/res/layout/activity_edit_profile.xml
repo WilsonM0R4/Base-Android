@@ -377,7 +377,6 @@
                 android:textColor="@color/SmallButtonWithBorder_text"
                 android:background="@drawable/round_corner_transparent_orange"
                 android:layout_margin="5dp"
-
                 />
 
             <Button
@@ -388,7 +387,7 @@
                 android:text="@string/btn_save"
                 android:textColor="@android:color/white"
                 android:background="@drawable/round_corner_magenta"
-                android:layout_margin="5dp" />
+                android:layout_margin="5dp"/>
 
             </LinearLayout>
 
@@ -401,6 +400,5 @@
         android:id="@+id/pb_create"
         android:layout_centerInParent="true"
         android:visibility="gone" />
-
 
 </RelativeLayout>

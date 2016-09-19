@@ -48,6 +48,7 @@ import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.squareup.otto.Subscribe;
+import com.urbanairship.UAirship;
 
 import org.ksoap2.serialization.PropertyInfo;
 
@@ -201,6 +202,13 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 //((VisaCheckoutApp) this.getApplication()).parseUser(user.email, channel);
                 /*if(KeySaver.isExist(ctx,Constants.USER_PUSH)) ((AsobancariaApplication) this.getApplication()).unSetParseChannels();
                 ((AsobancariaApplication)this.getApplication()).setParseChannel(channel);*/
+
+                /**Add Notifications UrbanAirship**/
+
+                UAirship.shared().getPushManager().editTags()
+                        .addTag(channel)
+                        //.removeTag("some_other_tag")
+                        .apply();
 
                 //Remove all views from layout
                 LinearLayout formLayout = (LinearLayout) findViewById(R.id.rl_body);
