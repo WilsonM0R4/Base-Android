@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,6 +28,9 @@ import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Set;
 
 public class MyAccountActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
 
@@ -112,11 +116,9 @@ public class MyAccountActivity extends FrontBackAnimate implements FrontBackAnim
                     }
                     AsyncSoapPrimitive.getInstance(wsdl, Constants.NAMESPACE_ALLEM,
                             Constants.METHOD_CERRAR_SESION, postValues, Constants.ACTIVITY_PROFILE_INFORMATION).execute();
-                //Remove UrbanAirship Notifications
-                    UAirship.shared().getPushManager().editTags()
-                            .addTag("")
-                            //.removeTag("some_other_tag")
-                            .apply();
+                    //Remove UrbanAirship Notifications
+                    UAirship.shared().getPushManager()
+                            .setUserNotificationsEnabled(false);
 
                 }else{
                     Toast.makeText(ctx, R.string.err_no_internet, Toast.LENGTH_SHORT).show();
