@@ -74,7 +74,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
     private String paramDepartFromName = "";//LARGE NAME DEPARTURE
     private NumberPicker adultsPicker, childrenPicker, infantsPicker;
     //private static String url_flights ="http://quickbooking.azurewebsites.net/Api/QuickSearch/Destination/bog?id=";
-    private static String url_flights = "http://autocompletar.allegra.travel/api/values/getinfo3?type=json&query=";
+    private static String url_flights = Constants.getAutocompleteFlightsUrl();//"http://autocompletar.allegra.travel/api/values/getinfo3?type=json&query="
     //private static String url_flights = "https://autocompletar.vuelos.ninja/api/values/getinfo3?type=json&query=";
     private ListView listView;
     private SearchAdapter adapter;

@@ -185,7 +185,8 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
 
     private void loadWebView() {
 
-        url = "http://vuelos.allegra.travel/Vuelos/ResultadosGet?";
+        url = Constants.getSearchFlightsUrl();
+                //"http://vuelos.allegra.travel/Vuelos/ResultadosGet?";
         String flightClass ="";
         switch (paramCabin){
             case 0:

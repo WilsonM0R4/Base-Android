@@ -19,12 +19,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 
-
 /**
  * Created by victor on 26/02/15.
  * com.allem.allemevent.utils
  */
 public class Constants {
+
     public final static int REQUEST_CODE_TRANSACTION_HISTORY = 8891;
     public final static int REQUEST_CODE_PROOF_OF_COVERAGE = 8890;
     public final static int REQUEST_CODE_MY_PROFILE = 8889;
@@ -48,17 +48,9 @@ public class Constants {
     public final static String TAG = "AllemConstants";
     public final static String USERNAME = "userkey";
     public final static String PASSWORD = "passkey";
-
-    public final static boolean TESTING = false;
-    public final static boolean TESTING_AIR = false;
-/*lo
-*Cualquier SOAP_ACTION = URL_ALLEM_BASE+"/"+METHOD;
-*
-* URL Webviews
-* http://demo.allemmarket.com/allemmarketapp/index/login/
-* id/{id_cuenta que retorna el metodo de iniciarSesion del WS}/email/{email que retorna el metodo de iniciarSesion del WS}/categoria/748
-*/
-
+    //** Parameter indicates mode: TESTING = false implies PRODUCTION mode **
+    public final static boolean TESTING = true;
+    //public final static boolean TESTING_AIR = false;
 
     public final static String DEMOURL="http://demo.allemmarket.com/allemmarketapp/index/login/";
     public final static String DEMOHOST="allemmarket.com";
@@ -79,9 +71,7 @@ public class Constants {
     public static final String METHOD_TRANSACCION_AEREO = "transaccionAereo";
     public static final String METHOD_TRANSACCION_AEREO_SUSC="transaccionarAereoSuscripcion";
     public static final String  URL_LOGIN_PROD = "https://secureacceptance.allegraplatform.com:443/AllemInMotion/AllemInMotion";
-
-
-    public static String getAirWSDL(){
+    /*public static String getAirWSDL(){
 
         if (TESTING_AIR) {
             Log.d(TAG, "testing");
@@ -89,35 +79,19 @@ public class Constants {
         }else{
             return URL_ALLEM_WSDL_AIR_PROD;
         }
-    }
-
+    }*/
     public final static String NAMESPACE_ALLEM= "http://ws.alleminmotion.iatai.com/";
     public final static String URL_ALLEM_BASE_TEST = "https://pruebas.allegraplatform.com/AllemInMotion/AllemInMotion";
     public final static String URL_ALLEM_BASE_PROD = "https://secureacceptance.allegraplatform.com/AllemInMotion/AllemInMotion";///AllemInMotion
     public final static String URL_ALLEM_WSDL_TEST = URL_ALLEM_BASE_TEST+"?wsdl";
     public final static String URL_ALLEM_WSDL_PROD = URL_ALLEM_BASE_PROD+"?wsdl";
-
-
-    public static String getWSDL(){
-        if (TESTING) {
-            Log.d(TAG, "testing");
-            return URL_ALLEM_WSDL_TEST;
-        }else{
-            return URL_ALLEM_WSDL_PROD;
-        }
-    }
-
-
     public final static String TEMPFILE_PDF="allemtemp.pdf";
-
     public final static String METHOD_EXCEPTION = "Exception";
-
     public final static String METHOD_INICIAR_SESION_COMERCIO = "IniciarSesionComercio";
     public final static String METHOD_CERRAR_SESION_COMERCIO = "CerrarSesionComercio";
     public final static String METHOD_VALIDAR_SESION_COMERCIO = "ValidarSesionComercio";
     public final static String METHOD_OBTENER_SOLICITUD_DE_PAGO = "ObtenerSolicitudDePago";
     public final static String METHOD_OBTENER_NOTIFICACIONES_COMERCIO = "ObtenerNotificacionesComercio";
-
     public final static String METHOD_VALIDAR_TRANSACCION = "ValidarTransaccion";
     public final static String METHOD_HACER_TRANSACCION = "HacerTransaccion";
     public final static String METHOD_OBTENER_COMPRAS = "ObtenerCompras";
@@ -307,27 +281,90 @@ public class Constants {
     public final static int RESULT_LOGUED_IN = 20002;
     public final static int RESULT_UPDATE = 20003;
     public final static int RESULT_TO_MAIN = 20004;
-
-
     public static AllemCommerceUser user;
-
     public static String DEVICE_TOKEN="";
     public static int menu_selection=1;
     static File cacheDir;
     public static String DEVICE_ID="";
     public static String SENDER_ID="936885725113";
 
-    public static boolean IsInternetConnectionFound(final Context context) {
-        ConnectivityManager conMgr = (ConnectivityManager) context
-                .getSystemService(Context.CONNECTIVITY_SERVICE);
+    //**********************NEW TEST URLS*************************
 
-        if (conMgr.getActiveNetworkInfo() != null
-                && conMgr.getActiveNetworkInfo().isAvailable()
-                && conMgr.getActiveNetworkInfo().isConnected())
-            return true;
-        else
-            return false;
+    public static final String URL_AUTOCOMPLETE_FLIGHTS_TEST = "http://autocompletar.allegra.travel/api/values/getinfo3?type=json&query=";
+    public static final String URL_AUTOCOMPLETE_HOTELS_TEST = "";
+    public static final String URL_AUTOCOMPLETE_CONCIERGE_TEST = "";
+    public static final String URL_SEARCH_FLIGHTS_TEST = "http://qavuelos.allegra.travel/Vuelos/ResultadosGet?";
+    public static final String URL_SEARCH_HOTELS_TEST = "";
+    public static final String URL_SEARCH_CONCIERGE_TEST = "";
+
+    //**********************NEW PRODUCTION URLS*************************
+
+    public static final String URL_AUTOCOMPLETE_FLIGHTS_PROD = "http://autocompletar.allegra.travel/api/values/getinfo3?type=json&query=";
+    public static final String URL_AUTOCOMPLETE_HOTELS_PROD = "";
+    public static final String URL_AUTOCOMPLETE_CONCIERGE_PROD = "";
+    public static final String URL_SEARCH_FLIGHTS_PROD = "http://vuelos.allegra.travel/Vuelos/ResultadosGet?";
+    public static final String URL_SEARCH_HOTELS_PROD = "";
+    public static final String URL_SEARCH_CONCIERGE_PROD = "";
+
+
+    //**********************PROPER METHODS*************************
+
+    public static String getWSDL(){
+        if (TESTING) {
+            Log.d(TAG, "testing");
+            return URL_ALLEM_WSDL_TEST;
+        }else{
+            return URL_ALLEM_WSDL_PROD;
+        }
     }
+
+    public static String getAutocompleteFlightsUrl(){
+        if (TESTING) {
+            return URL_AUTOCOMPLETE_FLIGHTS_TEST;
+        }else{
+            return URL_AUTOCOMPLETE_FLIGHTS_PROD;
+        }
+    }
+
+    public static String getAutocompleteHotelsUrl(){
+        if (TESTING) {
+            return URL_AUTOCOMPLETE_HOTELS_TEST;
+        }else{
+            return URL_AUTOCOMPLETE_HOTELS_PROD;
+        }
+    }
+    public static String getAutocompleteConciergeUrl(){
+        if (TESTING) {
+            return URL_AUTOCOMPLETE_CONCIERGE_TEST;
+        }else{
+            return URL_AUTOCOMPLETE_CONCIERGE_PROD;
+        }
+    }
+
+    public static String getSearchFlightsUrl(){
+        if (TESTING) {
+            return URL_SEARCH_FLIGHTS_TEST;
+        }else{
+            return URL_SEARCH_FLIGHTS_PROD;
+        }
+    }
+
+    public static String getSearchHotelsUrl(){
+        if (TESTING) {
+            return URL_SEARCH_HOTELS_TEST;
+        }else{
+            return URL_SEARCH_HOTELS_PROD;
+        }
+    }
+    public static String getSearchConciergeUrl(){
+        if (TESTING) {
+            return URL_SEARCH_CONCIERGE_TEST;
+        }else{
+            return URL_SEARCH_CONCIERGE_PROD;
+        }
+    }
+
+
 
     /**
      * Guarda los datos del usuario en SharedPreferences
@@ -410,35 +447,6 @@ public class Constants {
     static {
         currencyScaleFactor.put("COP", 0);
         currencyScaleFactor.put("USD", 2);
-    }
-
-    public static void executeLogcat(Context context){
-        Log.d("System out", "Create Log file..");
-
-        if (android.os.Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED))
-            cacheDir=new File(android.os.Environment.getExternalStorageDirectory(),"Handy");
-        else
-            cacheDir=context.getCacheDir();
-
-        if(!cacheDir.exists())
-            cacheDir.mkdirs();
-
-        File logFile = new File(cacheDir, "logoutput.log"); // log file name
-        int sizePerFile = 60; // size in kilobytes
-        int rotationCount = 10; // file rotation count
-        String filter = "D"; // Debug priority
-
-        String[] args = new String[] { "logcat",
-                "-v", "time",
-                "-f",logFile.getAbsolutePath(),
-                "-r", Integer.toString(sizePerFile),
-                "-n", Integer.toString(rotationCount),
-                "*:" + filter };
-        try {
-            Runtime.getRuntime().exec(args);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     public static Bundle createQRPurchaseBundle(AllemUser user, SolicitudCobro solicitud, String onePocketmessage, String purchaseType, VisaCheckoutApp app) {
