@@ -73,9 +73,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
     private String paramArriveAtName = "";//LARGE NAME ARRIVAL
     private String paramDepartFromName = "";//LARGE NAME DEPARTURE
     private NumberPicker adultsPicker, childrenPicker, infantsPicker;
-    //private static String url_flights ="http://quickbooking.azurewebsites.net/Api/QuickSearch/Destination/bog?id=";
-    private static String url_flights = Constants.getAutocompleteFlightsUrl();//"http://autocompletar.allegra.travel/api/values/getinfo3?type=json&query="
-    //private static String url_flights = "https://autocompletar.vuelos.ninja/api/values/getinfo3?type=json&query=";
+    private static String url_flights = Constants.getAutocompleteFlightsUrl();
     private ListView listView;
     private SearchAdapter adapter;
     private ArrayList<AirportData> airportData;
@@ -149,7 +147,6 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setView(R.layout.fragment_flights, this);
-        //System.gc();
         MyBus.getInstance().register(this);
         airportData = new ArrayList<>();
         //getLocation();

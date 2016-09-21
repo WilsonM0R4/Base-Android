@@ -49,7 +49,7 @@ public class Constants {
     public final static String USERNAME = "userkey";
     public final static String PASSWORD = "passkey";
     //** Parameter indicates mode: TESTING = false implies PRODUCTION mode **
-    public final static boolean TESTING = true;
+    public final static boolean TESTING = false;
     //public final static boolean TESTING_AIR = false;
 
     public final static String DEMOURL="http://demo.allemmarket.com/allemmarketapp/index/login/";
@@ -140,8 +140,6 @@ public class Constants {
     public final static String KEY_ID_TYPE = "idType";
     public final static String KEY_ID_COUNTRY = "pais";
     public final static String KEY_ID_MOBILE_CODE = "celular_codigo";
-
-
 
     //Compras
     public final static String KEY_COMPRAS="compra";
