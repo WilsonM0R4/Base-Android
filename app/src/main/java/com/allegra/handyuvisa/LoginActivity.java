@@ -342,10 +342,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 //Notifications UrbanAirship
                 UAirship.shared().getPushManager().editTags()
                         .addTag(channel)
-                        //.removeTag("some_other_tag")
                         .apply();
-
-                //UAirship.shared().getNamedUser().setId(channel);
                 String password = user.hashpassword;
                 String cel_code = user.celular_codigo;
                 String typeOfId = user.idType;

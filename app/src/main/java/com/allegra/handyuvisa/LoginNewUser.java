@@ -207,7 +207,6 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
 
                 UAirship.shared().getPushManager().editTags()
                         .addTag(channel)
-                        //.removeTag("some_other_tag")
                         .apply();
 
                 //Remove all views from layout
