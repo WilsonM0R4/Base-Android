@@ -43,14 +43,13 @@ public class Constants {
     public final static String MCARD_METHOD = "consultaMembresiaClienteRequest";
     public final static String MCARD_NAMESPACE = "http://www.ws.iatai.com/MembersiaClienteServicio/";
     public final static int MCARD_CODE = 9780970;
-
-    //*******************************************
     public final static String TAG = "AllemConstants";
     public final static String USERNAME = "userkey";
     public final static String PASSWORD = "passkey";
+    //***************** EASY CHANGE BETWEEN TESTING AND PRODUCTION SYSTEM URLS *********************
+
     //** Parameter indicates mode: TESTING = false implies PRODUCTION mode **
     public final static boolean TESTING = false;
-    //public final static boolean TESTING_AIR = false;
 
     public final static String DEMOURL="http://demo.allemmarket.com/allemmarketapp/index/login/";
     public final static String DEMOHOST="allemmarket.com";
@@ -70,19 +69,9 @@ public class Constants {
     public static final String NAMESPACE_AMADEUS = "http://ws.iatai.com/";
     public static final String METHOD_TRANSACCION_AEREO = "transaccionAereo";
     public static final String METHOD_TRANSACCION_AEREO_SUSC="transaccionarAereoSuscripcion";
-    public static final String  URL_LOGIN_PROD = "https://secureacceptance.allegraplatform.com:443/AllemInMotion/AllemInMotion";
-    /*public static String getAirWSDL(){
-
-        if (TESTING_AIR) {
-            Log.d(TAG, "testing");
-            return URL_ALLEM_WSDL_AIR_TEST;
-        }else{
-            return URL_ALLEM_WSDL_AIR_PROD;
-        }
-    }*/
     public final static String NAMESPACE_ALLEM= "http://ws.alleminmotion.iatai.com/";
-    public final static String URL_ALLEM_BASE_TEST = "https://pruebas.allegraplatform.com/AllemInMotion/AllemInMotion";
-    public final static String URL_ALLEM_BASE_PROD = "https://secureacceptance.allegraplatform.com/AllemInMotion/AllemInMotion";///AllemInMotion
+    public final static String URL_ALLEM_BASE_TEST = "https://pruebas.allegraplatform.com/AllemInMotion/";
+    public final static String URL_ALLEM_BASE_PROD = "https://secureacceptance.allegraplatform.com/AllemInMotion";
     public final static String URL_ALLEM_WSDL_TEST = URL_ALLEM_BASE_TEST+"?wsdl";
     public final static String URL_ALLEM_WSDL_PROD = URL_ALLEM_BASE_PROD+"?wsdl";
     public final static String TEMPFILE_PDF="allemtemp.pdf";
@@ -242,7 +231,6 @@ public class Constants {
     public final static String ROUND_ARRIVAL = "roundarrival";
 
 
-    //Activities
     public final static String ACTIVITY_KEY="activity";
     public final static int ACTIVITY_HOME = 10000;
     public final static int ACTIVITY_LOGIN = 10001;
@@ -289,22 +277,30 @@ public class Constants {
     //**********************NEW TEST URLS*************************
 
     public static final String URL_AUTOCOMPLETE_FLIGHTS_TEST = "http://autocompletar.allegra.travel/api/values/getinfo3?type=json&query=";
-    public static final String URL_AUTOCOMPLETE_HOTELS_TEST = "";
-    public static final String URL_AUTOCOMPLETE_CONCIERGE_TEST = "";
+    public static final String URL_AUTOCOMPLETE_HOTELS_TEST = "http://qahoteles.allegra.travel/Api/QuickSearch/Destination/?id=";
+    public static final String URL_AUTOCOMPLETE_CONCIERGE_TEST = "http://qaactividades.allegra.travel/Actividad/json_destinos2/?query=";
     public static final String URL_SEARCH_FLIGHTS_TEST = "http://qavuelos.allegra.travel/Vuelos/ResultadosGet?";
-    public static final String URL_SEARCH_HOTELS_TEST = "";
-    public static final String URL_SEARCH_CONCIERGE_TEST = "";
+    public static final String URL_SEARCH_HOTELS_TEST =  "http://qahoteles.allegra.travel/Hotel/Flow/Availability?";
+    public static final String URL_SEARCH_CONCIERGE_TEST = "http://qaactividades.allegra.travel/Actividad/ResultadosGet/?id_destino_ser=";
+    public static final String URL_STORE_TEST =  "http://52.203.29.124/allemstore_demo/";
+    public static final String URL_RESTAURANT_TEST =  "http://52.203.29.124/allemrestaurant_demo/#!/brand/restaurantes/map";
+    public static final String URL_MARKETPLACE_TEST =  "http://dev.allegra.market/?logo=1&onepocket=1";
+    public static final String  URL_LOGIN_TEST = "https://pruebas.allegraplatform.com/AllemInMotion/AllemInMotion";
+    public static final String  URL_SERVICE_TEST = "http://allegra.global/app/servicios_v2_demo/search/?name=";
 
     //**********************NEW PRODUCTION URLS*************************
 
     public static final String URL_AUTOCOMPLETE_FLIGHTS_PROD = "http://autocompletar.allegra.travel/api/values/getinfo3?type=json&query=";
-    public static final String URL_AUTOCOMPLETE_HOTELS_PROD = "";
-    public static final String URL_AUTOCOMPLETE_CONCIERGE_PROD = "";
+    public static final String URL_AUTOCOMPLETE_HOTELS_PROD = "http://hoteles.allegra.travel/Api/QuickSearch/Destination/?id=";
+    public static final String URL_AUTOCOMPLETE_CONCIERGE_PROD = "http://actividades.allegra.travel/Actividad/json_destinos2/?query=";
     public static final String URL_SEARCH_FLIGHTS_PROD = "http://vuelos.allegra.travel/Vuelos/ResultadosGet?";
-    public static final String URL_SEARCH_HOTELS_PROD = "";
-    public static final String URL_SEARCH_CONCIERGE_PROD = "";
-
-
+    public static final String URL_SEARCH_HOTELS_PROD = "http://hoteles.allegra.travel/Hotel/Flow/Availability?";
+    public static final String URL_SEARCH_CONCIERGE_PROD = "http://actividades.allegra.travel/Actividad/ResultadosGet?id_destino_ser=";
+    public static final String URL_STORE_PROD = "http://52.203.29.124/allemstore_v2/";
+    public static final String URL_RESTAURANT_PROD =  "http://52.203.29.124/allemrestaurant_v2/#!/brand/restaurantes/map";
+    public static final String URL_MARKETPLACE_PROD =  "https://www.allegra.market/?logo=1&onepocket=1";
+    public static final String  URL_LOGIN_PROD = "https://secureacceptance.allegraplatform.com/AllemInMotion/AllemInMotion";
+    public static final String  URL_SERVICE_PROD = "http://allegra.global/app/servicios_v2/search/?name=";
     //**********************PROPER METHODS*************************
 
     public static String getWSDL(){
@@ -316,6 +312,15 @@ public class Constants {
         }
     }
 
+    public static String getALLEM_BASE(){
+        if (TESTING) {
+            return URL_LOGIN_TEST;
+        }else{
+            return URL_LOGIN_PROD;
+        }
+    }
+
+
     public static String getAutocompleteFlightsUrl(){
         if (TESTING) {
             return URL_AUTOCOMPLETE_FLIGHTS_TEST;
@@ -323,7 +328,6 @@ public class Constants {
             return URL_AUTOCOMPLETE_FLIGHTS_PROD;
         }
     }
-
     public static String getAutocompleteHotelsUrl(){
         if (TESTING) {
             return URL_AUTOCOMPLETE_HOTELS_TEST;
@@ -346,7 +350,6 @@ public class Constants {
             return URL_SEARCH_FLIGHTS_PROD;
         }
     }
-
     public static String getSearchHotelsUrl(){
         if (TESTING) {
             return URL_SEARCH_HOTELS_TEST;
@@ -362,6 +365,44 @@ public class Constants {
         }
     }
 
+    public static String getStoreUrl(){
+        if (TESTING) {
+            return URL_STORE_TEST;
+        }else{
+            return URL_STORE_PROD;
+        }
+    }
+
+    public static String getRestaurantUrl(){
+        if (TESTING) {
+            return URL_RESTAURANT_TEST;
+        }else{
+            return URL_RESTAURANT_PROD;
+        }
+    }
+    public static String getMarketPlaceUrl(){
+        if (TESTING) {
+            return URL_MARKETPLACE_TEST;
+        }else{
+            return URL_MARKETPLACE_PROD;
+        }
+    }
+
+    public static String getMcardUrl(){
+        if (TESTING) {
+            return SOAP_URL_MCARD;
+        }else{
+            return SOAP_URL_MCARD_PROD;
+        }
+    }
+
+    public static String getServiceUrl(){
+        if (TESTING) {
+            return URL_SERVICE_TEST;
+        }else{
+            return URL_SERVICE_PROD;
+        }
+    }
 
 
     /**

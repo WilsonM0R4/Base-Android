@@ -28,6 +28,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 import android.os.Handler;
 
+import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.GPSTracker;
 import com.urbanairship.location.LocationService;
 
@@ -40,7 +41,7 @@ import java.util.Locale;
  */
 public class StoreActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
 
-    private String url = "http://52.203.29.124/allemstore_v2/";
+    private String url = Constants.getStoreUrl();//http://52.203.29.124/allemstore_v2/
     private String returnURL;
     private ImageButton arrowBack, arrowF;
     private ProgressBar progressBar;

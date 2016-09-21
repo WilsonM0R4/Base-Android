@@ -183,7 +183,7 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
      */
     private void loadWebView() {
 
-        url = "http://hoteles.allegra.travel/Hotel/Flow/Availability?";
+        url = Constants.getSearchHotelsUrl();//"http://hoteles.allegra.travel/Hotel/Flow/Availability?"
         //url="http://alegra.dracobots.com/Hotel/Flow/Availability?";
         webView.addJavascriptInterface(new AppJavaScriptProxyHotels(this), "androidProxy");
         String postData = "";

@@ -25,7 +25,7 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
     private ImageButton menu;
     private String returnURL, userEmail;
     public String onePocketmessage;
-    private String url = "http://52.71.117.239:8080/McardMembresiaAllus/app/app/app/index_320.xhtml?email=";
+    //private String url = "http://52.71.117.239:8080/McardMembresiaAllus/app/app/app/index_320.xhtml?email=";
     private String url_prod = "http://52.7.111.227:8080/McardMembresiaAllus/app/app/index_320.xhtml?email=";
     //private String url = "http://allegra.global/membresias/planes/";
 

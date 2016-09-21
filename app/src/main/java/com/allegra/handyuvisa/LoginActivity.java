@@ -219,7 +219,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                     if (postValues.size() > 0) postValues.clear();
                     postValues.add(new BasicNameValuePair("email", username.getText().toString()));
                     postValues.add(new BasicNameValuePair("password", password.getText().toString()));
-                    AsyncSoapObject.getInstance(Constants.URL_LOGIN_PROD, Constants.NAMESPACE_ALLEM,//Constants.getWSDL()
+                    AsyncSoapObject.getInstance(Constants.getALLEM_BASE(), Constants.NAMESPACE_ALLEM,
                             Constants.METHOD_INICIAR_SESION, postValues, Constants.ACTIVITY_LOGIN).execute();
 
                 } else {
@@ -372,7 +372,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 if (postValues.size() > 0) postValues.clear();
                 postValues.add(new BasicNameValuePair("idCuenta", String.valueOf(idCuenta)));
                 AsyncSoapObjectTest asyncSoapObjectTest = new AsyncSoapObjectTest(getApplicationContext());
-                asyncSoapObjectTest.getInstance2(Constants.SOAP_URL_MCARD_PROD, Constants.MCARD_NAMESPACE,
+                asyncSoapObjectTest.getInstance2(Constants.getMcardUrl(), Constants.MCARD_NAMESPACE,
                         Constants.MCARD_METHOD, postValues, Constants.MCARD_CODE).execute();
                 Constants.saveUser(ctx, user, channel);
                 valueOfMcard = prefs.getString("idMcard", "0");

@@ -29,6 +29,7 @@ import com.allegra.handyuvisa.async.AsyncRestHelper;
 import com.allegra.handyuvisa.async.MyBus;
 import com.allegra.handyuvisa.async.AsyncTaskMPosResultEvent;
 import com.allegra.handyuvisa.async.ConciergeCodes;
+import com.allegra.handyuvisa.utils.Constants;
 import com.squareup.otto.Subscribe;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,7 +42,7 @@ public class ConciergeActivity extends FrontBackAnimate implements FrontBackAnim
     ProgressBar progressBar;
     SearchAdapterAutoCompleteConcierge adapter;
     String TAG = "ConciergeActivity", labelCity = "", idCity;
-    String urlConcierge = "http://actividades.allegra.travel/Actividad/json_destinos2/?query=";
+    String urlConcierge = Constants.getAutocompleteConciergeUrl();//"http://actividades.allegra.travel/Actividad/json_destinos2/?query="
     //"http://viator.vuelos.ninja/Actividad/json_destinos2?query=";
     ArrayList<Concierge> concierges;
     boolean alreadyEnterToThisMethod, isSearchActive = false;

@@ -234,7 +234,6 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
     //************ PROPER METHODS**************
 
 
-
     private void setListeners() {
 
         ib_close.setOnClickListener(new View.OnClickListener() {
@@ -712,7 +711,6 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 //btn_sendreg.setEnabled(checkFields());
             }
         });
-
 
     }
 

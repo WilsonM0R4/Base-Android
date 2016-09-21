@@ -27,6 +27,7 @@ import android.webkit.WebViewClient;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.GPSTracker;
 import com.urbanairship.location.LocationService;
 
@@ -37,7 +38,7 @@ import java.util.Locale;
 public class RestaurantsActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
 
     private WebView webView;
-    private String url = "http://52.203.29.124/allemrestaurant/#!/brand/restaurantes/map";
+    private String url = Constants.getRestaurantUrl(); //"http://52.203.29.124/allemrestaurant/#!/brand/restaurantes/map";
     private ImageButton arrowBack, arrowF;
     private LocationManager locationManager;
     private String returnURL;

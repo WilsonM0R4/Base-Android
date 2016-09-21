@@ -169,7 +169,7 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
     private void loadWebView() {
         //OLD: http://viatorallegra.vuelos.ninja/Actividad/ResultadosGet?id_destino_ser=
         //URL_CONCIERGE_PROD :”http://actividades.allegra.travel/Actividad/ResultadosGet?id_destino_ser="
-        url = "http://actividades.allegra.travel/Actividad/ResultadosGet?id_destino_ser=" +
+        url = Constants.getSearchConciergeUrl() +
                 id_destino_ser + "&nombre_destino_ser1=" + nombre_destino_ser +
                 "&Payment=3"+"&Group="+mcard;
 

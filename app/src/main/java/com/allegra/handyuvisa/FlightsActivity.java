@@ -452,7 +452,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
                     dateBegin.setText(Util.Day_Formatter.format(dates.get(0)).toUpperCase());
                     yearBegin.setText(Util.M_Y_Formatter.format(dates.get(0)).toUpperCase());
                     dateEnd.setText(R.string.one_way_type);
-                    dateEnd.setTextColor(getResources().getColor(R.color.DoubleSelectorButtonNormal_text));
+                    dateEnd.setTextColor(getResources().getColor(R.color.GRAY_COLOR));
                     dateEnd.setTextSize(TEXT_ONE_WAY_SIZE);
                     yearEnd.setText("");
                     yearReturnDate.setText("");
@@ -769,7 +769,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
             paramArriveDate = "";
 
             textViewReturnDay.setText(R.string.one_way_type);
-            textViewReturnDay.setTextColor(getResources().getColor(R.color.DoubleSelectorButtonNormal_text));
+            textViewReturnDay.setTextColor(getResources().getColor(R.color.gray));
             textViewReturnDay.setTypeface(null, Typeface.NORMAL);
             textViewReturnDay.setTextSize(TEXT_ONE_WAY_SIZE);
             monthReturn.setText(paramArriveDate);
