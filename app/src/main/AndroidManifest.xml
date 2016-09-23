@@ -135,6 +135,7 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -418,9 +419,11 @@
             </intent-filter>
         </receiver>
 
-        <!-- The UrbanAirshipSDK can be automatically bootstrapped to the application using
+        <!--
+        The UrbanAirshipSDK can be automatically bootstrapped to the application using
         <meta-data android:name="com.urbanairship.autopilot"
-            android:value="com.urbanairship.Autopilot"/>-->
+            android:value="com.urbanairship.Autopilot"/>
+        -->
 
     </application>
 
