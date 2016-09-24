@@ -8,8 +8,8 @@ android {
         applicationId "com.allegra.handyuvisa"
         minSdkVersion 19
         targetSdkVersion 24
-        versionCode 346
-        versionName "1.0.3-346"
+        versionCode 347
+        versionName "1.0.3-347"
 
         packagingOptions {
             exclude "lib/arm64-v8a/libcardioDecider.so"
