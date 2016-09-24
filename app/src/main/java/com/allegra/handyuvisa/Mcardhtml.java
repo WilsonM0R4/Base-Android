@@ -75,6 +75,19 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
         loadWebView();
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == Constants.REQUEST_ONEPOCKET_RETURN) {
+            if (data != null) {
+                returnURL = OPKConstants.oneTransaction.getReturnURL(); //data.getStringExtra("RESULT");
+                webmcard.clearHistory();
+                webmcard.loadUrl("about:blank");
+                progressBar.setVisibility(View.VISIBLE);
+            }
+        }
+    }
+
     //************PROPER METHODS**************
 
 
