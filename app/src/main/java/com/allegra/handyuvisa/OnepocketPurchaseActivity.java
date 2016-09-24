@@ -61,11 +61,10 @@ public class OnepocketPurchaseActivity extends FrontBackAnimate implements Front
 
                 int size = stack.size();
                 Fragment currentTop = stack.get(size - 1);
-                Fragment confirm = stack.get(size - 2);
-                confirm.getArguments().putParcelable(OPKConstants.EXTRA_RESULT, bundle);
+                Fragment currentNext = stack.get(size - 2);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.remove(currentTop);
-                transaction.detach(confirm).attach(confirm).show(confirm);
+                transaction.detach(currentNext).attach(currentNext).show(currentNext);
                 transaction.commit();
                 stack.remove(size - 1);
             }
