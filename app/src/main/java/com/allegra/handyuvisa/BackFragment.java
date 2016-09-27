@@ -250,11 +250,13 @@ public class BackFragment extends Fragment  {
     public void sendToMarket(){
         Intent intent = new Intent(getActivity(),MarketPlaceActivity.class);
         getActivity().startActivity(intent);
+        getActivity().finish();
     }
 
     public void sendToChat(){
         Intent intent = new Intent(getActivity(),ChatActivity.class);
         getActivity().startActivity(intent);
+        getActivity().finish();
     }
 
     public void sendToCall(){
@@ -268,10 +270,12 @@ public class BackFragment extends Fragment  {
             Bundle bundle = Constants.createDataBundle(Constants.getUser(getActivity()), (VisaCheckoutApp) getActivity().getApplication());
             intent.putExtras(bundle);
             getActivity().startActivity(intent);
+            //getActivity().finish();
 
         }else {
             Intent intent = new Intent(getActivity(),LoginActivity.class);
             getActivity().startActivity(intent);
+            //getActivity().finish();
         }
     }
 
@@ -303,6 +307,7 @@ public class BackFragment extends Fragment  {
     public void sendToFlights(){
         Intent intent = new Intent(getActivity(),FlightsActivity.class);
         getActivity().startActivity(intent);
+        getActivity().finish();
     }
 
     public void sendToHotels(){
@@ -338,17 +343,20 @@ public class BackFragment extends Fragment  {
         }else {
             Intent intent = new Intent(getActivity(),LoginActivity.class);
             getActivity().startActivityForResult(intent, code);
+            //getActivity().finish();
         }
     }
 
     public void sendToRestaurants(){
         Intent intent = new Intent(getActivity(),RestaurantsActivity.class);
         getActivity().startActivity(intent);
+        getActivity().finish();
     }
 
     public void sendToStore(){
         Intent intent = new Intent(getActivity(),StoreActivity.class);
         getActivity().startActivity(intent);
+        getActivity().finish();
     }
 
     //**************INNER CLASSES******************
