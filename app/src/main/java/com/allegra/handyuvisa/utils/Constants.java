@@ -49,7 +49,8 @@ public class Constants {
     //***************** EASY CHANGE BETWEEN TESTING AND PRODUCTION SYSTEM URLS *********************
 
     //** Parameter indicates mode: TESTING = false implies PRODUCTION mode **
-    public final static boolean TESTING = false;
+    public final static boolean TESTING = true;
+    public final static boolean TESTING_AIR = false;
 
     public final static String DEMOURL="http://demo.allemmarket.com/allemmarketapp/index/login/";
     public final static String DEMOHOST="allemmarket.com";
@@ -69,6 +70,17 @@ public class Constants {
     public static final String NAMESPACE_AMADEUS = "http://ws.iatai.com/";
     public static final String METHOD_TRANSACCION_AEREO = "transaccionAereo";
     public static final String METHOD_TRANSACCION_AEREO_SUSC="transaccionarAereoSuscripcion";
+
+    public static String getAirWSDL(){
+
+        if (TESTING_AIR) {
+            Log.d(TAG, "testing");
+            return URL_ALLEM_WSDL_AIR_TEST;
+        }else{
+            return URL_ALLEM_WSDL_AIR_PROD;
+        }
+    }
+
     public final static String NAMESPACE_ALLEM= "http://ws.alleminmotion.iatai.com/";
     public final static String URL_ALLEM_BASE_TEST = "https://pruebas.allegraplatform.com/AllemInMotion/";
     public final static String URL_ALLEM_BASE_PROD = "https://secureacceptance.allegraplatform.com/AllemInMotion";
