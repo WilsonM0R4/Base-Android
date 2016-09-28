@@ -45,7 +45,7 @@
     <string name="call_us">CALL US</string>
     <string name="call_us_now">CALL US NOW</string>
     <string name="conf_email1">We just send an email to</string>
-    <string name="conf_email2">with a secure link to reset your password</string>
+    <string name="conf_email2">with a secure link to reset your password.</string>
     <string name="conf_email3">Have you not yet received the email?</string>
     <string name="check_email">Check your email!</string>
     <string name="title_qr_scan">Scan QR</string>
@@ -104,7 +104,7 @@
     <string name="txt_lbl_callInProgress">Speaking to adviser</string>
     <string name="err_no_internet">There is no internet connection.</string>
     <string name="err_novalid_mail">The email is not valid.</string>
-    <string name="resend_mail">We have re-send you the email.</string>
+    <string name="resend_mail">We have resent the email.</string>
     <string name="txt_lbl_endcall">END CALL</string>
     <string name="txt_lbl_speaker">Speaker</string>
     <string name="txt_lbl_mute">Mute</string>

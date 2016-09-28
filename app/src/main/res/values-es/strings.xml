@@ -68,7 +68,7 @@
     <string name="send">Enviar</string>
     <string name="check_email">Revisa tu correo!</string>
     <string name="conf_email1">Hemos enviado un correo a </string>
-    <string name="conf_email2">con un enlace seguro para reestablecer tu contraseña</string>
+    <string name="conf_email2">con un enlace seguro para reestablecer tu contraseña.</string>
     <string name="conf_email3">¿Aún no has recibido el correo electrónico?</string>
     <string name="send_again">Enviar de nuevo</string>
     <string name="go_to_email">Ir al correo</string>
@@ -100,7 +100,7 @@
     <string name="qr_description">DESCRIPCIÓN</string>
     <string name="edit_personal_info">Información personal</string>
     <string name="edit_change_password">Cambiar contraseña</string>
-    <string name="resend_mail">Hemos reenviado el link a tu correo registrado.</string>
+    <string name="resend_mail">Hemos reenviado el correo.</string>
     <string name="qr_vendor">VENDEDOR</string>
     <string name="qr_itemn">ITEMS</string>
     <string name="qr_tax_fees">IMPUESTOS Y HONORARIOS</string>
