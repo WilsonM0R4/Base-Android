@@ -49,7 +49,7 @@ public class Constants {
     //***************** EASY CHANGE BETWEEN TESTING AND PRODUCTION SYSTEM URLS *********************
 
     //** Parameter indicates mode: TESTING = false implies PRODUCTION mode **
-    public final static boolean TESTING = true;
+    public final static boolean TESTING = false;
     public final static boolean TESTING_AIR = false;
 
     public final static String DEMOURL="http://demo.allemmarket.com/allemmarketapp/index/login/";
