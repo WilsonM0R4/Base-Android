@@ -270,12 +270,10 @@ public class BackFragment extends Fragment  {
             Bundle bundle = Constants.createDataBundle(Constants.getUser(getActivity()), (VisaCheckoutApp) getActivity().getApplication());
             intent.putExtras(bundle);
             getActivity().startActivity(intent);
-            //getActivity().finish();
-
+            getActivity().finish();
         }else {
             Intent intent = new Intent(getActivity(),LoginActivity.class);
             getActivity().startActivity(intent);
-            //getActivity().finish();
         }
     }
 

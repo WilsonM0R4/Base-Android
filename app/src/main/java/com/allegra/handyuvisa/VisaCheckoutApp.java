@@ -52,6 +52,7 @@ public class VisaCheckoutApp extends MultiDexApplication {
                 UAirship.shared().getNamedUser().setId(null);
             }
         });
+        initOnepocket();
         /*Parse.enableLocalDatastore(getApplicationContext());
         Parse.initialize(this, "YLafvQVsiUgpHPhTBZFuEIEfdnCtzHNV6fwiOWnY", "PpAKINbIw42zMgFuzstKl6IOrrQqRFAxupHqkGdn");
         ParseInstallation.getCurrentInstallation().saveEventually(new SaveCallback() {
@@ -140,7 +141,6 @@ public class VisaCheckoutApp extends MultiDexApplication {
     }
 
     private void initOnepocket() {
-        Log.d(TAG, "setting theme to VisaBusiness");
-        OPKLibraryConfig.setTheme(ThemeType.VISA_BUSINESS);
+        OPKLibraryConfig.setTestMode(Constants.TESTING);
     }
 }

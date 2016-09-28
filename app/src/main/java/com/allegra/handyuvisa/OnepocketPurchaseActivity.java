@@ -74,7 +74,7 @@ public class OnepocketPurchaseActivity extends FrontBackAnimate implements Front
                 Intent result = new Intent();
                 result.putExtra(OPKConstants.EXTRA_RESULT, data);
                 OnepocketPurchaseActivity.this.setResult(Activity.RESULT_OK, result);
-                OnepocketPurchaseActivity.this.finish();
+                //OnepocketPurchaseActivity.this.finish();
 
                 switch (i) {
                     case 0:
@@ -120,6 +120,9 @@ public class OnepocketPurchaseActivity extends FrontBackAnimate implements Front
 
     @Override
     public void initViews(View root) {
+        if (isDestroyed()) {
+            return;
+        }
 
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         OneTransaction oneTransaction = getIntent().getParcelableExtra(OPKConstants.EXTRA_PAYMENT);
