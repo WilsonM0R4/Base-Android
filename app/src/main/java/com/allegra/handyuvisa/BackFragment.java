@@ -339,7 +339,7 @@ public class BackFragment extends Fragment  {
         if(Util.isAuthenticated(getActivity())) {
             Intent intent = new Intent(getActivity(), activity);
             getActivity().startActivity(intent);
-            getActivity().finish();
+            //getActivity().finish();
         }else {
             Intent intent = new Intent(getActivity(),LoginActivity.class);
             getActivity().startActivityForResult(intent, code);
