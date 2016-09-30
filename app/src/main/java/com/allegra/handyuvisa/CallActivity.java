@@ -264,6 +264,7 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
     }
 
     //*******************PROPER METHODS**************
+
     private void setActionbar() {
         actionBar = getActionBar();
         if(actionBar!=null){

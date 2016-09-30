@@ -19,7 +19,7 @@ import java.util.Calendar;
 /**
  * Created by lisachui on 12/1/15.
  */
-public class ChatMsgAdapter extends BaseAdapter {
+public class    ChatMsgAdapter extends BaseAdapter {
 
     // TODO Should consider using Relative layout and play with the LayoutParams
     private static TableRow.LayoutParams params1 = new TableRow.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f);
