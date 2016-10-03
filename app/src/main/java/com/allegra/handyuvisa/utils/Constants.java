@@ -1,7 +1,6 @@
 package com.allegra.handyuvisa.utils;
 
 import android.content.Context;
-import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -13,7 +12,6 @@ import com.allem.onepocket.model.OneTransaction;
 import com.allem.onepocket.utils.OPKConstants;
 
 import java.io.File;
-import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -296,7 +294,7 @@ public class Constants {
     public static final String URL_SEARCH_CONCIERGE_TEST = "http://qaactividades.allegra.travel/Actividad/ResultadosGet/?id_destino_ser=";
     public static final String URL_STORE_TEST =  "http://52.203.29.124/allemstore_demo/";
     public static final String URL_RESTAURANT_TEST =  "http://52.203.29.124/allemrestaurant_demo/#!/brand/restaurantes/map";
-    public static final String URL_MARKETPLACE_TEST =  "http://dev.allegra.market/?logo=1&onepocket=1";
+    public static final String URL_MARKETPLACE_TEST =  "http://dev.allegra.market/?logo=1&onepocket=1utm_source=HandyuVisa&utm_medium=botonhandy&utm_campaign=App";
     public static final String  URL_LOGIN_TEST = "https://pruebas.allegraplatform.com/AllemInMotion/AllemInMotion";
     public static final String  URL_SERVICE_TEST = "http://allegra.global/app/servicios_v2_demo/search/?name=";
 
@@ -310,7 +308,7 @@ public class Constants {
     public static final String URL_SEARCH_CONCIERGE_PROD = "http://actividades.allegra.travel/Actividad/ResultadosGet?id_destino_ser=";
     public static final String URL_STORE_PROD = "http://52.203.29.124/allemstore_v2/";
     public static final String URL_RESTAURANT_PROD =  "http://52.203.29.124/allemrestaurant_v2/#!/brand/restaurantes/map";
-    public static final String URL_MARKETPLACE_PROD =  "https://www.allegra.market/?logo=1&onepocket=1";
+    public static final String URL_MARKETPLACE_PROD =  "https://www.allegra.market/?logo=1&onepocket=1utm_source=HandyuVisa&utm_medium=botonhandy&utm_campaign=App";
     public static final String  URL_LOGIN_PROD = "https://secureacceptance.allegraplatform.com/AllemInMotion/AllemInMotion";
     public static final String  URL_SERVICE_PROD = "http://allegra.global/app/servicios_v2/search/?name=";
     //**********************PROPER METHODS*************************
