@@ -6,6 +6,7 @@
     <!--   ****************** Permissions   **********************-->
     <!-- Permissions needed by LivePerson -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_PERMISSION"/>
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -92,6 +93,14 @@
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
             </intent-filter>
         </receiver>
+
+        <!--<receiver
+            android:name= "com.liveperson.mobile.android.networking.NetworkChangeReceiver"
+            android:label="NetworkStateReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>-->
 
         <!-- ******************Activities*********************** -->
         <activity
@@ -364,6 +373,7 @@
         <service
             android:name="com.twilio.client.TwilioClientService"
             android:exported="false" />
+        <service android:enabled="true" android:name="com.liveperson.mobile.android.service.visit.VisitService" />
 
     </application>
 

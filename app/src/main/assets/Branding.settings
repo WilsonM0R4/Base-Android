@@ -1,0 +1,325 @@
+{
+  "engagement": {
+    "font": {
+      "family": ""
+    },
+    "logo": {
+      "image": {
+        "url": ""
+      }
+    },
+    "loading_screen": {
+      "title": {
+        "font": {
+          "color": "#ffffff",
+          "size": "18"
+        }
+      },
+      "subtitle": {
+        "font": {
+          "color": "#ffffff",
+          "size": "16"
+        }
+      },
+      "background": {
+        "color": "#661A1A1A"
+      },
+      "image": {
+        "spin": "1",
+        "url": ""
+      }
+    },
+    "chat_background": {
+      "background": {
+        "color": "#661A1A1A",
+        "alpha": "-1",
+        "gradient": {
+          "edge": "#661A1A1A",
+          "middle": "#1A1A1A1A"
+        }
+      }
+    },
+    "branding_bar": {
+      "background": {
+        "color": "#661A1A1A",
+        "alpha": "-1",
+        "gradient": {
+          "edge": "#661A1A1A",
+          "middle": "#1A1A1A1A"
+        }
+      },
+      "notifications": {
+        "font": {
+          "color": "#ffffff",
+          "size": "14"
+        }
+      }
+    },
+    "end_button": {
+      "background": {
+        "color": "red"
+      },
+      "font": {
+        "color": "#ffffff",
+        "size": "14"
+      }
+    },
+    "photo_sharing": {
+      "validation_alert": {
+        "background": {
+          "color": "red"
+        },
+        "font": {
+          "color": "white",
+          "size": "14.0"
+        }
+      }
+    },
+    "chat_bubbles": {
+      "corner_radius": "16",
+      "agent": {
+        "background": {
+          "color": "#CC000000",
+          "alpha": "-1"
+        },
+        "border": {
+          "width": "2",
+          "color": "gray"
+        },
+        "size": {
+          "width": "1.0"
+        },
+        "font": {
+          "color": "white",
+          "size": "16"
+        },
+        "links": {
+          "background": {
+            "color": "#ffffff"
+          },
+          "border": {
+            "width": "2",
+            "color": "#019fde"
+          },
+          "font": {
+            "color": "#555555",
+            "size": "15.0"
+          }
+        }
+      },
+      "visitor": {
+        "background": {
+          "color": "#CC000000",
+          "alpha": "-1"
+        },
+        "border": {
+          "width": "2",
+          "color": "gray"
+        },
+        "size": {
+          "width": "1.0"
+        },
+        "font": {
+          "color": "white",
+          "size": "16"
+        },
+        "links": {
+          "background": {
+            "color": "#ffffff"
+          },
+          "border": {
+            "width": "2",
+            "color": "#019fde"
+          },
+          "font": {
+            "color": "#555555",
+            "size": "15.0"
+          }
+        }
+      }
+    },
+    "system_message": {
+      "background": {
+        "color": "#CC000000",
+        "alpha": "-1"
+      },
+      "border": {
+        "width": "2",
+        "color": "gray"
+      },
+      "size": {
+        "width": "1"
+      },
+      "font": {
+        "color": "white",
+        "size": "16"
+      },
+      "bubble_alignment": "left"
+    },
+    "send_bar": {
+      "background": {
+        "color": "black"
+      },
+      "text_field": {
+        "font": {
+          "color": "white",
+          "size": "18"
+        },
+        "placeholder": {
+          "font": {
+            "color": "#ff808080"
+          }
+        }
+      },
+      "send_button": {
+        "background": {
+          "color": "gray"
+        },
+        "font": {
+          "color": "white",
+          "size": "18"
+        }
+      },
+      "plus_button": {
+        "color": "white"
+      }
+    },
+    "hide_bar": {
+      "background": {
+        "color": "#77000000"
+      },
+      "label": {
+        "font": {
+          "color": "gray",
+          "size": "14"
+        }
+      }
+    },
+    "surveys": {
+      "page_control": {
+        "color": "#FF33B5E5"
+      },
+      "survey_card": {
+        "background": {
+          "color": "#CC000000"
+        },
+        "border": {
+          "width": "2",
+          "color": "gray"
+        },
+        "title": {
+          "font": {
+            "color": "white",
+            "size": "18.0"
+          }
+        },
+        "subtitle": {
+          "font": {
+            "color": "white",
+            "size": "14.0"
+          }
+        },
+        "next_button": {
+          "background": {
+            "color": "gray"
+          },
+          "font": {
+            "color": "white",
+            "size": "16.0"
+          }
+        },
+        "cancel_button": {
+          "background": {
+            "color": "gray"
+          },
+          "font": {
+            "color": "white",
+            "size": "16.0"
+          }
+        }
+      },
+      "text_field": {
+        "background": {
+          "color": "white"
+        },
+        "font": {
+          "color": "black",
+          "size": "16.0"
+        },
+        "border": {
+          "width": "2",
+          "color": "gray"
+        }
+      },
+      "list": {
+        "background": {
+          "color": "white"
+        },
+        "font": {
+          "color": "black",
+          "size": "16.0"
+        },
+        "border": {
+          "width": "2",
+          "color": "gray"
+        }
+      },
+      "stars": {
+        "border": {
+          "width": "2",
+          "color": "gray"
+        },
+        "font": {
+          "color": "red",
+          "size": "14.0"
+        },
+        "unselected": {
+          "background": {
+            "color": "gray"
+          }
+        },
+        "selected": {
+          "background": {
+            "color": "green"
+          }
+        }
+      },
+      "validation_alert": {
+        "background": {
+          "color": "red"
+        },
+        "font": {
+          "color": "white",
+          "size": "14.0"
+        }
+      }
+    },
+    "webview": {
+      "header_bar": {
+        "background": {
+          "color": "red"
+        },
+        "font": {
+          "color": "black",
+          "size": "14.0"
+        }
+      }
+    },
+    "visit": {
+      "control_button": {
+        "font": {
+          "size": "20"
+        }
+      },
+      "badge": {
+        "background": {
+          "color": "#ff0000"
+        },
+        "font": {
+          "color": "#ffffff",
+          "size": "12.0"
+        }
+      }
+    }
+  }
+}
