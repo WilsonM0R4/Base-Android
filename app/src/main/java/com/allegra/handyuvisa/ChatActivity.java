@@ -91,32 +91,34 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
         super.onCreate(savedInstanceState);
         super.setView(R.layout.fragment_chat_in_progress, R.drawable.load__chat, R.string.txt_lbl_setupChat, this);
 
+        initLivePersonService();
+        MyBus.getInstance().register(this);
 
-            delegateAPI = new LivePersonAPI(getApplicationContext()){
+        /*if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {// && !Settings.canDrawOverlays(ChatActivity.this)
+
+            Log.d("Sergio", "MAyor o igual a 23 y no canDrawOver");
+            if (!permissionChecked.getAndSet(true)) {
+                Log.d("Sergio", "No permission checked");
+                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                        Uri.parse("package:" + getPackageName()));
+                startActivityForResult(intent, OVERLAY_PERMISSION_REQ_CODE);
+            }
+
+        }else{
+            Log.d("Sergio", "No es MAyor o igual a 23 ni canDrawOver");
+            canDraw = true;
+        }*/
+
+            /*delegateAPI = new LivePersonAPI(getApplicationContext()){
 
             @Override
 
             public boolean canDrawTabOverlay() {
 
-                if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(ChatActivity.this)) {
-
-                    Log.d("Sergio", "MAyor o igual a 23 y no canDrawOver");
-                    if (!permissionChecked.getAndSet(true)) {
-                        Log.d("Sergio", "No permission checked");
-                        Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
-                                Uri.parse("package:" + getPackageName()));
-                        startActivityForResult(intent, OVERLAY_PERMISSION_REQ_CODE);
-                    }
-
-                }else{
-                    Log.d("Sergio", "No es MAyor o igual a 23 ni canDrawOver");
-                    canDraw = true;
-                }
                 return canDraw;
             }
-        };
-        initLivePersonService();
-        MyBus.getInstance().register(this);
+        };*/
+
     }
 
     @Override
@@ -163,7 +165,7 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
         finish();
     }
 
-    @Override
+    /*@Override
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
@@ -171,11 +173,12 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
 
             if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && Settings.canDrawOverlays(this)) {
 
+                Log.d("Sergio","Entral al if de onActivityResult");
                 LivePerson.notifyCanDrawTabOverlay();
                 canDraw = true;
             }
         }
-    }
+    }*/
 
     //*****************PROPER METHODS*****************
 
@@ -263,7 +266,6 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
         chatListView.setSelection(chatMessages.size() - 1);
     }
 
-
     public void onHome(View view) {
 
         if (chatState != null && chatState.equals("chatting")) {
@@ -323,10 +325,17 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
 
         if (event.getResult() != null) {
             data = event.getResult();
+            System.out.println("data");
+            for(Object objname:data.keySet()) {
+                System.out.println("data");
+                System.out.println(objname);
+                System.out.println(data.get(objname));
+            }
             if (event.getApiName().equals(GetBaseResource.APINAME)) {
                 if (data.containsKey(GetBaseResource.CHAT_REQUEST)) {
                     requestChatUri = data.get(GetBaseResource.CHAT_REQUEST);
                     sendChatRequest(requestChatUri);
+                    Log.d("Sergio", "Es "+requestChatUri);
                     errorExists = false;
                 } else {
                     Log.e(TAG, "GetBaseResource fail");

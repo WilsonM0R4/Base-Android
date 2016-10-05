@@ -17,8 +17,8 @@ public class ChatInfo extends APIInfo {
     public static final String AGENT_NAME = "agentName";
     public static final String START_TIME = "startTime";
     public static final String CHAT_STATE = "state";
-
     private static final String TAG = APINAME;
+
 
     public ChatInfo(String infoUri) {
         apiName = APINAME;
@@ -65,9 +65,7 @@ public class ChatInfo extends APIInfo {
                 Log.e(TAG, "Can't close incoming onePocketmessage", e);
             }
         }
-
         return result;
-
     }
 
 

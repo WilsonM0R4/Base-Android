@@ -22,8 +22,8 @@ public class ChatResourceEventsInfo extends APIInfo {
     public static final String CHAT_STATE = "state";
     public static final String MSG_START_ID = "@id";
     public static final String MSG_COUNT = "msgCount";
-
     private static final String TAG = APINAME;
+
 
     public ChatResourceEventsInfo(String chatSessionUri) {
         apiName = APINAME;
@@ -70,12 +70,11 @@ public class ChatResourceEventsInfo extends APIInfo {
         }
 
         return result;
-
-
     }
 
     private void parseLinkObject(JsonReader reader, HashMap<String, String> result)
             throws IOException {
+
         String name, data1, data2;
         reader.beginArray();
         while (reader.hasNext()) {
@@ -96,6 +95,7 @@ public class ChatResourceEventsInfo extends APIInfo {
 
     private void parseEventsObject(JsonReader reader, HashMap<String, String> result)
             throws IOException {
+
         String name, data1, data2;
         boolean markStartId = false;
         int msgCount = 0;
@@ -148,8 +148,8 @@ public class ChatResourceEventsInfo extends APIInfo {
 
     private void parseInfoObject(JsonReader reader, HashMap<String, String> result)
             throws IOException {
-        String name;
 
+        String name;
         reader.beginObject();
         while (reader.hasNext()) {
             name = reader.nextName();

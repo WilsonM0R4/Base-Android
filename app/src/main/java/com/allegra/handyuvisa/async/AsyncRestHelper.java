@@ -2,8 +2,6 @@ package com.allegra.handyuvisa.async;
 
 import android.os.AsyncTask;
 import android.util.Log;
-
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -19,14 +17,17 @@ import java.util.Set;
 
 public class AsyncRestHelper extends AsyncTask<Void, Void, HashMap<String, String>> {
 
+    //******************GLOBAL ATTRIBUTES*********************
     private static final String TAG = "AsyncRestHelper";
     private static final int APP_SERVER_CONNECTION_TIMEOUT = 30000;
     private APIInfo apiInfo;
 
+    //***************CONSTRUCTOR*********************
     public AsyncRestHelper(APIInfo apiInfo) {
         this.apiInfo = apiInfo;
     }
 
+    //*******************OVERRIDE METHODS************************
     @Override
     protected void onPostExecute(HashMap<String, String> data) {
         MyBus.getInstance().post(new AsyncTaskMPosResultEvent(data, apiInfo.getApiName()));
@@ -35,7 +36,7 @@ public class AsyncRestHelper extends AsyncTask<Void, Void, HashMap<String, Strin
 
     @Override
     protected HashMap<String, String> doInBackground(Void... params) {
-        HashMap<String, String> result = null;
+        HashMap<String, String> result;
 
         try {
             result = communicate(apiInfo);
@@ -46,8 +47,10 @@ public class AsyncRestHelper extends AsyncTask<Void, Void, HashMap<String, Strin
         return result ;
     }
 
+    //*******************PROPER METHODS************************
 
     public static HashMap<String, String> communicate(APIInfo apiInfo) throws IOException {
+
         InputStream in = null;
         OutputStream out = null;
         HttpURLConnection urlConnection = null;
@@ -79,9 +82,10 @@ public class AsyncRestHelper extends AsyncTask<Void, Void, HashMap<String, Strin
 
 
             if (apiInfo.getMethod().equals("DELETE") || apiInfo.getPayload() == null) {
+                Log.d("Sergio","Llega al if");
                 urlConnection.connect();
             } else {
-                Log.d(TAG, "Payload: " + new String(apiInfo.getPayload()));
+                Log.d("Sergio", "Payload: " + new String(apiInfo.getPayload()));
                 urlConnection.setDoOutput(true);
                 out = urlConnection.getOutputStream();
                 out.write(apiInfo.getPayload());
@@ -89,8 +93,14 @@ public class AsyncRestHelper extends AsyncTask<Void, Void, HashMap<String, Strin
 
             int code = urlConnection.getResponseCode();
             Log.d(TAG, "Response code: " + code);
-            if (code == 200 || code == 201) {
-                dataReturn = apiInfo.parseData(urlConnection.getInputStream());
+            if (code == 200 || code == 201 ||  code == 400){
+                if (code == 400){
+                    dataReturn = apiInfo.parseData(urlConnection.getErrorStream());
+                    Log.d("Sergio","Entra al == 400");
+                } else {
+                    dataReturn = apiInfo.parseData(urlConnection.getInputStream());
+                }
+
                 HashSet set = apiInfo.getParseRespHeaders();
                 if (set != null && set.contains("resp_code")) {
                     dataReturn.put("resp_code", Integer.toString(code));

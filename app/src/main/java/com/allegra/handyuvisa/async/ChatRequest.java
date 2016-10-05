@@ -14,14 +14,12 @@ public class ChatRequest extends APIInfo {
 
     public static final String APINAME = "ChatRequest";
     public static final String LOCATION = "Location";
-
     private static final String TAG = APINAME;
 
     public ChatRequest(String uri) {
         apiName = APINAME;
         endPoint = uri + "?v=1";
         method = "POST";
-
         //specifySkill();
     }
 

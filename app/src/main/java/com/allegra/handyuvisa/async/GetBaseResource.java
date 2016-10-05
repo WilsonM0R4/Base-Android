@@ -15,33 +15,35 @@ public class GetBaseResource extends APIInfo {
 
     public static final String APINAME = "GetBaseResource";
     public static final String CHAT_REQUEST = "chat-request";
-
     private static final String TAG = APINAME;
 
+
     public GetBaseResource() {
+
         apiName = APINAME;
         endPoint = LivePersonConstants.APP_SERVER_URL + "/api/account/" + LivePersonConstants.SITE_ID + "?v=1";
         method = "GET";
-
         headers.put("Authorization", "LivePerson appKey=" + LivePersonConstants.APP_KEY);
-
         results = new HashMap<>();
         results.put(CHAT_REQUEST, null);
-
     }
 
     public HashMap<String, String> parseData(InputStream inputStream) {
+
         HashMap<String, String> result = new HashMap<>();
         JsonReader reader = new JsonReader(new InputStreamReader(inputStream));
         try {
             reader.beginObject();
             while (reader.hasNext()) {
+                Log.d("Sergio","Entra al 1er while ");
                 String name = reader.nextName();
                 if (name.equals("account")) {
                     reader.beginObject();
                     while (reader.hasNext()) {
+                        Log.d("Sergio","Entra al 2do while ");
                         name = reader.nextName();
                         if (name.equals("link")) {
+                            Log.d("Sergio","Entra al equals link ");
                             reader.beginArray();
                             while (reader.hasNext()) {
                                 reader.beginObject();
@@ -51,6 +53,9 @@ public class GetBaseResource extends APIInfo {
                                 String data2 = reader.nextString();
                                 if (data2.equals(CHAT_REQUEST)){
                                     result.put(CHAT_REQUEST, data1);
+                                } else {
+                                    Log.d("Sergio","ES "+data2);
+                                    Log.d("Sergio","data1 "+data1);
                                 }
                                 reader.endObject();
                             }
@@ -58,10 +63,11 @@ public class GetBaseResource extends APIInfo {
                         } else {
                             reader.skipValue();
                         }
-                      //  Log.d(TAG, "Receive HTTP response name: " + name + " value: " + data);
+                        Log.d(TAG, "Receive HTTP response name: " + name + " value: ");
                     }
                     reader.endObject();
                 } else {
+                    Log.d("Sergio","Entra al else de account ");
                     reader.skipValue();
                 }
             }
@@ -76,7 +82,6 @@ public class GetBaseResource extends APIInfo {
                 Log.e(TAG, "Can't close incoming onePocketmessage", e);
             }
         }
-
         return result;
     }
 
