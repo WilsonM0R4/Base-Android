@@ -82,10 +82,10 @@ public class AsyncRestHelper extends AsyncTask<Void, Void, HashMap<String, Strin
 
 
             if (apiInfo.getMethod().equals("DELETE") || apiInfo.getPayload() == null) {
-                Log.d("Sergio","Llega al if");
+                Log.d(TAG,"Llega al if");
                 urlConnection.connect();
             } else {
-                Log.d("Sergio", "Payload: " + new String(apiInfo.getPayload()));
+                Log.d(TAG, "Payload: " + new String(apiInfo.getPayload()));
                 urlConnection.setDoOutput(true);
                 out = urlConnection.getOutputStream();
                 out.write(apiInfo.getPayload());
@@ -96,7 +96,7 @@ public class AsyncRestHelper extends AsyncTask<Void, Void, HashMap<String, Strin
             if (code == 200 || code == 201 ||  code == 400){
                 if (code == 400){
                     dataReturn = apiInfo.parseData(urlConnection.getErrorStream());
-                    Log.d("Sergio","Entra al == 400");
+                    Log.d(TAG,"Entra al == 400");
                 } else {
                     dataReturn = apiInfo.parseData(urlConnection.getInputStream());
                 }

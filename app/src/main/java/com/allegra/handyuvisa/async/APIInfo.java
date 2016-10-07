@@ -82,7 +82,7 @@ public class APIInfo {
         reader.beginObject();
         while (reader.hasNext()) {
             String name = reader.nextName();
-            Log.d("Serfar", name);
+            Log.d(TAG, name);
             if (results.containsKey(name)) {
                 String data = reader.nextString();
                 results.put(name, data);

@@ -335,7 +335,7 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
                 if (data.containsKey(GetBaseResource.CHAT_REQUEST)) {
                     requestChatUri = data.get(GetBaseResource.CHAT_REQUEST);
                     sendChatRequest(requestChatUri);
-                    Log.d("Sergio", "Es "+requestChatUri);
+                    Log.d(TAG, "Es "+requestChatUri);
                     errorExists = false;
                 } else {
                     Log.e(TAG, "GetBaseResource fail");

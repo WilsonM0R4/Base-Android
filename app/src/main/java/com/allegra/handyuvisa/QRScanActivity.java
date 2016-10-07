@@ -73,7 +73,6 @@ public class QRScanActivity extends FrontBackAnimate{// implements FrontBackAnim
             }
         }
 
-
     }
 
     @Override

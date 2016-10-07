@@ -1,15 +1,19 @@
 package com.allegra.handyuvisa;
 
+import android.*;
 import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,7 +30,7 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
 
     //*************GLOBAL ATTRIBUTES**************
     protected String OTC_NUMBER = "+13055605384";
-    private static final int CALLING = 1;
+    private static final int CALLING = 1, MY_PERMISSIONS_REQUEST_AUDIO = 4563;
     private static final int CALLIP = 2;
     private static final int HANGIP = 3;
     private static final int STANDBY = 4;
@@ -43,6 +47,8 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
     private boolean speakerOff = true;
     private boolean muteOff = true;
     private TextView txtTitle;
+    String[] PERMISSIONS = { android.Manifest.permission.RECORD_AUDIO, android.Manifest.permission.MODIFY_AUDIO_SETTINGS,
+            android.Manifest.permission.READ_PHONE_STATE};
 
     //*************OVERRIDE METHODS**************
     @Override
@@ -52,12 +58,38 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
         addStatusMessage("One Touch Call");
         ctx = this;
         phone = BasicPhone.getInstance(ctx);
-        mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+
+        /*mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
         if (mSensor!=null) mSensorRange=mSensor.getMaximumRange();
         phone.login("OneTouchCall", true, true);
         //setButton(-1);
-        setListeners();
+        setListeners();*/
+        //******Check for Audio permission
+        if(android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !hasPermissions(this, PERMISSIONS)){
+            ActivityCompat.requestPermissions(this, PERMISSIONS, MY_PERMISSIONS_REQUEST_AUDIO);
+        } else {
+            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) setCallSettings();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        // super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_AUDIO: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // Permission was granted, yay! Do the camera-related task you need to do.
+                    setCallSettings();
+                } else {
+                    // Permission denied, boo! Disable the functionality that depends on this permission.
+                    finish();
+                }
+                return;
+            }
+        }
     }
 
     @Override
@@ -265,6 +297,16 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
 
     //*******************PROPER METHODS**************
 
+    private void setCallSettings(){
+
+        mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+        if (mSensor!=null) mSensorRange=mSensor.getMaximumRange();
+        phone.login("OneTouchCall", true, true);
+        //setButton(-1);
+        setListeners();
+    }
+
     private void setActionbar() {
         actionBar = getActionBar();
         if(actionBar!=null){
@@ -351,5 +393,16 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
 
     public void onHome(View view) {
         onEndCall(null);
+    }
+
+    public static boolean hasPermissions(Context context, String... permissions) {
+        if ( context != null && permissions != null) {
+            for (String permission : permissions) {
+                if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
