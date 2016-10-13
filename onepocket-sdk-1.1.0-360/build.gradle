@@ -1,2 +1,0 @@
-configurations.create("default")
-artifacts.add("default", file('onepocket-sdk-1.1.0-360.aar'))
