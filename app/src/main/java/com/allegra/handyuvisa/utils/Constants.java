@@ -33,6 +33,9 @@ public class Constants {
     public final static int REQUEST_CODE_CONCIERGE = 8885;
     public final static int REQUEST_CODE_SERVICES = 8884;
 
+    //Prueba de commit nuevo repo ALLEGRA BASE (//)
+
+
     //*******ADDED BY SERGIO FARFÁN FOR GET MCARD**********
     public final static String SOAP_AUTH_EMAIL_MCARD = "allegrapp@iatai.com";
     public final static String SOAP_AUTH_PASSWORD_MCARD = "7642e3e3722a158d392d1f4ed5c12ae3";
