@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.allegra.handyuvisa.utils.CustomizedTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/IATAI_CERTIFICA"
+        android:textColor="@color/ProofOfCoverageTitle_text"
+        android:textSize="18sp"
+        app:font="@string/font_muli"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="25dp" />
+
+
+    <com.allegra.handyuvisa.utils.CustomizedTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Santiago Castro"
+        android:id="@+id/textNameLastNAme"
+        android:textColor="@color/ProofOfCoverageName_text"
+        android:textSize="18sp"
+        app:font="@string/font_muli"
+        android:layout_gravity="center_horizontal"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal">
+
+    <com.allegra.handyuvisa.utils.CustomizedTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CC"
+        android:id="@+id/txtTypeOfId"
+        android:textColor="@color/ProofOfCoverageCC_text"
+        android:textSize="18sp"
+        app:font="@string/font_muli"
+        />
+
+        <com.allegra.handyuvisa.utils.CustomizedTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtNumberOfId"
+            android:layout_marginLeft="10dp"
+            android:text="90.877.878"
+            android:textColor="@color/ProofOfCoverageCC_text"
+            android:textSize="18sp"
+            app:font="@string/font_muli"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="4dp">
+
+        <com.allegra.handyuvisa.utils.CustomizedTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtInfoNumberMcard"
+            android:textColor="@color/ProofOfCoverageDescriptionTitle_text"
+            android:textSize="18sp"
+            app:font="@string/font_muli"
+            android:text="@string/txtInfoCertifications" />
+
+        <com.allegra.handyuvisa.utils.CustomizedTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtNumberOfMcard"
+            android:layout_marginLeft="10dp"
+            android:text="90.877.878"
+            android:textColor="@color/ProofOfCoverageDescriptionTitle_text"
+            android:textSize="18sp"
+            app:font="@string/font_muli"
+            />
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/logo_doctor_help"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp" />
+
+    <com.allegra.handyuvisa.utils.CustomizedTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/coverage_limite"
+        app:font="@string/font_muli"
+        android:textColor="@color/ProofOfCoverageName_text"
+        android:textSize="15sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="25dp" />
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/iv_header"
+        android:layout_below="@+id/ll_header"
+        android:src="@drawable/separator_thin"
+        android:contentDescription="Divider" />
+
+</LinearLayout>

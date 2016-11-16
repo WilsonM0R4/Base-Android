@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="80dp">
+
+
+    <TextView
+        android:id="@+id/child_item"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="Hola Mundo"
+        android:textColor="@color/gray4"
+        android:textSize="13dp"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/gray_container_border"
+        android:layout_marginBottom="15dp">
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:text="@string/coverage_limite"
+            android:id="@+id/child_item2"
+            android:textColor="@color/magenta"
+            android:textSize="13dp"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="10dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp" /> <!--android:textAlignment="textStart"-->
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:id="@+id/imageView12"
+            android:background="@drawable/vertical_line_separator" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="US$50.000"
+            android:textColor="@color/gray4"
+            android:textSize="13dp"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/child_item3"
+            android:textStyle="bold"
+            android:layout_marginRight="10dp" /> <!--android:textAlignment="textEnd"-->
+    </LinearLayout>
+
+</LinearLayout>

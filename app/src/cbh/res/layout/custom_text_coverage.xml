@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <com.allegra.handyuvisa.utils.CustomizedTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/coverage_string1"
+            android:id="@+id/textView50"
+            android:textAlignment="center"
+            android:textSize="15dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/ProofOfCoverageFooter_text"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            app:font="@string/font_muli_light"/>
+
+        <com.allegra.handyuvisa.utils.CustomizedTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/textView53"
+            android:layout_marginTop="10dp"
+            android:textAlignment="center"
+            android:textSize="15dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/ProofOfCoverageFooter_text"
+            android:text="@string/coverage_string2"
+            android:layout_marginRight="3dp"
+            android:layout_marginLeft="3dp"
+            app:font="@string/font_muli_light"
+            />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/logo_layout"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/iatai_logo"
+                android:src="@drawable/logo_iatai"
+                android:layout_weight="0.5" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/allegra_logo"
+                android:src="@drawable/logo_allegra"
+                android:layout_weight="0.5" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/benefits"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TableLayout
+        android:id="@+id/table_benefits"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="1"
+        android:shrinkColumns="1"
+        android:divider="@drawable/separator_gray"
+        android:showDividers="middle|beginning|end">
+
+        <TableRow
+            android:id="@+id/row1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@drawable/separator_gray">
+
+            <ImageView
+                android:id="@+id/check11"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_margin="20dp"
+                android:src="@drawable/check05" />
+
+            <TextView
+                android:id="@+id/text12"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:text="@string/market_discount"
+                android:textColor="@color/gray4"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_marginRight="20dp" />
+
+            <TextView
+                android:id="@+id/text13"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="20dp"
+                android:text="Up to 50%"
+                android:textAlignment="textEnd"
+                android:textColor="@color/orange"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginRight="10dp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/row2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/separator_gray">
+
+            <ImageView
+                android:id="@+id/check21"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_margin="20dp"
+                android:src="@drawable/check05" />
+
+            <TextView
+                android:id="@+id/text22"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="20dp"
+                android:text="@string/hotel_discount"
+                android:textAlignment="textStart"
+                android:textColor="@color/gray4"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_marginRight="20dp" />
+
+            <TextView
+                android:id="@+id/text23"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="20dp"
+                android:text="5%"
+                android:textAlignment="textEnd"
+                android:textColor="@color/orange"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginRight="10dp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/row3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/separator_gray">
+
+            <ImageView
+                android:id="@+id/check31"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_margin="20dp"
+                android:src="@drawable/check05" />
+
+            <TextView
+                android:id="@+id/text32"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="20dp"
+                android:text="@string/concierge_discount"
+                android:textAlignment="textStart"
+                android:textColor="@color/gray4"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:layout_marginRight="20dp" />
+
+            <TextView
+                android:id="@+id/text33"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="20dp"
+                android:text="5%"
+                android:textAlignment="textEnd"
+                android:textColor="@color/orange"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_marginRight="10dp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/row4"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/separator_gray">
+
+            <ImageView
+                android:id="@+id/check41"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_margin="20dp"
+                android:src="@drawable/check05" />
+
+            <TextView
+                android:id="@+id/text42"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="20dp"
+                android:text="@string/carental_discount"
+                android:textAlignment="textStart"
+                android:textColor="@color/gray4"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:layout_marginRight="20dp" />
+
+            <TextView
+                android:id="@+id/text43"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="20dp"
+                android:text="5%"
+                android:textAlignment="textEnd"
+                android:textColor="@color/orange"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_marginRight="10dp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/row5"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/separator_gray">
+
+            <ImageView
+                android:id="@+id/check51"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_margin="20dp"
+                android:src="@drawable/check05" />
+
+            <TextView
+                android:id="@+id/text52"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="20dp"
+                android:text="@string/prehospital_discount"
+                android:textAlignment="textStart"
+                android:textColor="@color/gray4"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:layout_marginRight="20dp" />
+
+            <TextView
+                android:id="@+id/text53"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="20dp"
+                android:text="20%"
+                android:textAlignment="textEnd"
+                android:textColor="@color/orange"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_marginRight="10dp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/row6"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/separator_gray">
+
+            <ImageView
+                android:id="@+id/check61"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_margin="20dp"
+                android:src="@drawable/check05" />
+
+            <TextView
+                android:id="@+id/text62"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="20dp"
+                android:text="@string/carwash_discount"
+                android:textAlignment="textStart"
+                android:textColor="@color/gray4"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:layout_marginRight="20dp" />
+
+            <TextView
+                android:id="@+id/text63"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="20dp"
+                android:text="8%"
+                android:textAlignment="textEnd"
+                android:textColor="@color/orange"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_marginRight="10dp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/row7"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/separator_gray">
+
+            <ImageView
+                android:id="@+id/check71"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_margin="20dp"
+                android:src="@drawable/check05" />
+
+            <TextView
+                android:id="@+id/text72"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="20dp"
+                android:text="@string/chofer_discount"
+                android:textAlignment="textStart"
+                android:textColor="@color/gray4"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:layout_marginRight="20dp" />
+
+            <TextView
+                android:id="@+id/text73"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="20dp"
+                android:text="10%"
+                android:textAlignment="textEnd"
+                android:textColor="@color/orange"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_marginRight="10dp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/row8"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/separator_gray">
+
+            <ImageView
+                android:id="@+id/check81"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_margin="20dp"
+                android:src="@drawable/check05" />
+
+            <TextView
+                android:id="@+id/text82"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="20dp"
+                android:text="@string/national_discount"
+                android:textAlignment="textStart"
+                android:textColor="@color/gray4"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:layout_marginRight="20dp" />
+
+            <TextView
+                android:id="@+id/text83"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="20dp"
+                android:text="8%"
+                android:textAlignment="textEnd"
+                android:textColor="@color/orange"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_marginRight="10dp" />
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

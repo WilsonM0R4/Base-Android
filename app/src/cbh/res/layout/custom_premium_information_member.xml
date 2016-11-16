@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".FlightsActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/purchaseLayout"
+        android:weightSum="1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@android:drawable/dialog_holo_light_frame"
+        android:layout_marginBottom="0dp">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_weight="0.27">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="250dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mcard_premium"
+                    android:textSize="26sp"
+                    android:textColor="@color/orange"
+                    android:id="@+id/privilegeTitle"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mcard_no_age_limit"
+                    android:textSize="16sp"
+                    android:textColor="@color/soft_dark"
+                    android:id="@+id/ageLimitTxt"
+                    android:layout_marginTop="2.5dp"
+                    android:layout_marginLeft="8dp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="$29"
+                android:textSize="26sp"
+                android:id="@+id/pricePrivilegeTxt"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView7"
+            android:layout_below="@+id/ll_header"
+            android:src="@drawable/separator"
+            android:layout_marginBottom="-4dp"
+            android:layout_marginLeft="-4dp"
+            android:layout_marginRight="-4dp"
+            android:contentDescription="Divider"
+            android:layout_marginTop="0dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_weight="0.27"
+            android:background="@color/gray2"
+            android:layout_marginTop="-3dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView8"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/visa_logo5"
+                android:layout_marginLeft="5dp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="170dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="12dp" >
+
+                <TextView
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pay_with_visa_privilege"
+                    android:textSize="14sp"
+                    android:textColor="@color/soft_dark"
+                    android:id="@+id/textView12"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="0dp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="$19"
+                android:textSize="26sp"
+                android:id="@+id/textView13"
+                android:textColor="@color/magenta"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="25dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mcard_trip"
+            android:id="@+id/textView22"
+            android:layout_marginTop="10dp"
+            android:textAlignment="viewStart"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="5dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mCard_Privilege"
+            android:id="@+id/infoPrivilege"
+            android:layout_marginTop="10dp"
+            android:textAlignment="viewStart"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="5dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="@string/more_info"
+                android:textStyle="bold"
+                android:id="@+id/btnMoreInfoPremium"
+                android:background="@drawable/round_corner_magenta"
+                android:textColor="@color/white"
+                android:paddingTop="0dp"
+                android:paddingBottom="0dp"
+                android:layout_weight="1"
+                android:layout_marginRight="10dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="@string/call_us"
+                android:textStyle="normal"
+                android:id="@+id/btnCallUsPremium"
+                android:layout_weight="1"
+                android:background="@drawable/round_corner_white_border_magenta"
+                android:textColor="@color/magenta"
+                android:layout_marginLeft="10dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>
