@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout3"
+        android:weightSum="1"
+        android:layout_marginBottom="0dp">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_weight="0.27"
+            android:weightSum="1" >
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Privilege"
+                    android:textSize="26sp"
+                    android:textColor="@color/orange"
+                    android:id="@+id/textView35"
+                    android:textStyle="bold"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="@color/gray4"
+                    android:id="@+id/textView36"
+                    android:layout_marginTop="2.5dp"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:text="@string/copy_related_privilege" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$9"
+            android:textSize="26sp"
+            android:id="@+id/textView37"
+            android:textStyle="bold"
+            android:textColor="@color/gray3"
+            android:layout_marginLeft="50dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/gray3"
+            android:id="@+id/textView39"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:text="OR"
+            android:layout_marginLeft="80dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$5"
+            android:textSize="26sp"
+            android:id="@+id/textView38"
+            android:textColor="@color/magenta"
+            android:textStyle="bold"
+            android:layout_marginLeft="70dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:id="@+id/textView40"
+            android:textColor="@color/gray3"
+            android:layout_marginLeft="30dp"
+            android:textStyle="normal"
+            android:text="@string/regular_price" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:id="@+id/textView42"
+            android:textColor="@color/gray3"
+            android:layout_marginLeft="110dp"
+            android:textStyle="normal"
+            android:text="@string/visa_price" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="@string/call_us"
+            android:textStyle="bold"
+            android:id="@+id/calltobuy"
+            android:background="@drawable/round_corner_orange_bg"
+            android:textColor="@color/white"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp" />
+
+    </LinearLayout>
+</LinearLayout>

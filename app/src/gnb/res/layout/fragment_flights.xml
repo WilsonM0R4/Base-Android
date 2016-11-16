@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:background="@color/white"
+    >
+    <!---->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/rl_body"
+            android:onClick="onCloseMenu">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:background="@color/GeneralAppHeaderTitle_backgroud"
+                android:id="@+id/ll_header">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/title_flights"
+                    android:id="@+id/tv_title_secc"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/GeneralAppHeaderTitle_text" />
+
+                <ImageButton
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/icon_menu"
+                    android:background="@android:color/transparent"
+                    android:id="@+id/menu_image"
+                    android:onClick="onMenu"
+                    android:contentDescription="menu"
+                    android:layout_alignBottom="@+id/tv_title_secc"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="10dp" />
+
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:id="@+id/iv_header"
+                android:layout_below="@+id/ll_header"
+                android:paddingEnd="-2dp"
+                android:paddingStart="-2dp"
+                android:src="@drawable/separator_medium_mag"
+                android:contentDescription="Divider" />
+
+            <include layout="@layout/custom_flights_header"
+                android:id="@+id/custom_flights_header"
+                android:layout_height="200dp"
+                android:layout_width="match_parent"
+                android:layout_below="@+id/iv_header"
+                android:layout_marginTop="-2dp" />
+
+           <include layout="@layout/activity_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/search_airport"
+                android:layout_below="@+id/custom_flights_header"
+                android:visibility="gone"
+                />
+
+            <include layout="@layout/custom_date_of_trip_selector"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/custom_date_of_trip"
+                android:layout_below="@+id/custom_flights_header"
+                android:layout_toEndOf="@+id/search_airport" />
+
+            <include layout="@layout/custom_passengers_cabin_search_flights"
+                android:layout_width="match_parent"
+                android:layout_height="260dp"
+                android:layout_marginTop="-12dp"
+
+
+                android:id="@+id/custom_passengers_cabin_search"
+                android:layout_below="@+id/custom_date_of_trip"/>
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/pb_login"
+                android:layout_centerInParent="true"
+                android:visibility="gone"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</LinearLayout>

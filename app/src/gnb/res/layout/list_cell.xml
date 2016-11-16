@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<CheckedTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/text1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:ellipsize="marquee"
+    android:gravity="center_vertical"
+    android:paddingRight="7dip"
+    android:textColor="#000000"
+    android:paddingLeft="12dip"
+    android:paddingTop="7dp"
+    android:paddingBottom="7dp"
+    android:textSize="18sp"
+    android:text="as"
+    android:checkMark="@null"
+    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <!--@drawable/radiobc-->

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="false"
+    android:layout_below="@+id/ll_header"
+    android:clickable="true"
+    android:layout_marginTop="10dp"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:id="@+id/relLayConciergeHeader"
+    android:background="@drawable/header_concierge">
+
+    <!--<ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/header_concierge"
+        android:background="@drawable/header_hotels"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:scaleType="centerCrop" />-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:onClick="onConciergeLocation">
+
+        <com.allegra.handyuvisa.utils.CustomizedTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_lbl_destination"
+            android:gravity="center"
+            android:textColor="@color/HeaderDestination_text"
+            android:textStyle="bold"
+            android:layout_marginTop="25dp"
+            app:font="@string/font_muli" />
+
+        <include layout="@layout/custom_concierge_destination"
+            android:id="@+id/ll_destination_concierge"
+            android:visibility="gone" />
+
+        <ImageView
+            android:layout_width="81dp"
+            android:layout_height="76dp"
+            android:src="@drawable/icon_concierge"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
+            android:id="@+id/selec_destination_concierge"
+            />
+
+        <com.allegra.handyuvisa.utils.CustomizedTextView
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/txt_select_your_destination_concierge"
+            android:text="@string/title_cities_countries_attractions_concierge"
+            android:textColor="@color/BodyDestinationCityNormal_text"
+            android:textSize="15sp"
+            android:layout_marginTop="5dp"
+            app:font="@string/font_muli"
+            />
+    </LinearLayout>
+</RelativeLayout>
