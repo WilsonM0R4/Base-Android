@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/invoice_top_bg"
+                        android:orientation="vertical">
+
+                        <com.allegra.handyuvisa.utils.MyTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:text="Provider Name" />
+
+                        <com.allegra.handyuvisa.utils.MyTextView
+                            android:id="@+id/Tv_providername"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Mr Wills"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:layout_marginTop="3dp"
+                            android:textSize="18dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="2dp"
+                            android:orientation="horizontal">
+
+
+                            <com.allegra.handyuvisa.utils.MyTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="0.5"
+                                android:gravity="right"
+                                android:textColor="@color/black"
+                                android:text="Start Time"
+                                android:textSize="9dp" />
+
+                            <com.allegra.handyuvisa.utils.MyTextView
+                                android:id="@+id/Tv_serviceStarttime"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:text="18/12/2015 10.00PM"
+                                android:textSize="9dp" />
+
+                            <com.allegra.handyuvisa.utils.MyTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="0.5"
+                                android:gravity="right"
+                                android:textColor="@color/black"
+                                android:text="End Time"
+                                android:textSize="9dp" />
+
+                            <com.allegra.handyuvisa.utils.MyTextView
+                                android:id="@+id/Tv_serviceendtime"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:text="19/12/2015 11.00PM"
+                                android:textSize="9dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/invoice_bg"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="15dp">
+
+                            <com.allegra.handyuvisa.utils.MyTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:paddingTop="5dp"
+                                android:textColor="@color/white"
+                                android:text="Types Work"
+                                android:textSize="18dp" />
+
+                            <com.allegra.handyuvisa.utils.MyTextView
+                                android:id="@+id/tv_sevice_name"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="5dp"
+                                android:layout_weight="1"
+                                android:paddingTop="5dp"
+                                android:text="Deep cleaning"
+                                android:textColor="@color/white"
+                                android:textSize="18dp" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/map_headr_line" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="15dp"
+                            android:visibility="gone">
+
+                            <com.allegra.handyuvisa.utils.MyTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:padding="5dp"
+                                android:textColor="@color/white"
+                                android:text="Rate"
+                                android:textSize="18dp" />
+
+                            <com.allegra.handyuvisa.utils.MyTextView
+                                android:id="@+id/tv_service_price"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="5dp"
+                                android:layout_weight="1"
+                                android:padding="5dp"
+                                android:text="$ 75/M"
+                                android:textColor="@color/white"
+                                android:textSize="18dp" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/map_headr_line" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="15dp">
+
+                            <com.allegra.handyuvisa.utils.MyTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:padding="5dp"
+                                android:text="Quantity"
+                                android:textColor="@color/white"
+                                android:textSize="18dp" />
+
+                            <com.allegra.handyuvisa.utils.MyTextView
+                                android:id="@+id/tv_quantity"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="5dp"
+                                android:layout_weight="1"
+                                android:padding="5dp"
+                                android:text="100 Squre meter"
+                                android:textColor="@color/white"
+                                android:singleLine="true"
+                                android:textSize="18dp" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/jobdetail_total_bg"
+                        android:orientation="horizontal">
+
+                        <com.allegra.handyuvisa.utils.MyTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:text="Total Price"
+                            android:padding="5dp"
+                            android:textSize="18dp" />
+
+                        <com.allegra.handyuvisa.utils.MyTextView
+                            android:id="@+id/tv_total_serviceprice"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginRight="5dp"
+                            android:layout_weight="1"
+                            android:text="$705.00"
+                            android:textColor="@color/black"
+                            android:textSize="18dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/feedback_box"
+                        android:orientation="horizontal">
+
+                        <com.allegra.handyuvisa.utils.MyEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/ed_feedback_invoice"
+                            android:background="@null"
+                            android:gravity="top"
+                            android:textSize="14dp"
+                            android:maxLength="10"
+                            android:textColor="@color/white"
+                            android:hint="Write your Feedback here (max 10 characters)"
+                            android:layout_marginLeft="10dp"
+                            android:paddingTop="5dp"
+                            android:textColorHint="@color/white"
+                            />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <com.allegra.handyuvisa.utils.MyTextView
+                android:id="@+id/tv_accept_subbooking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_confirm_booking"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Submit Feedback"
+                android:textColor="@color/orange"
+                android:textSize="17sp" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

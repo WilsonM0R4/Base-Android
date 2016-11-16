@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:background="@drawable/background">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/rl_body"
+            android:onClick="onCloseMenu">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:background="@color/white"
+                android:id="@+id/member_header" >
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="1">
+
+                    <ImageButton
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="16dp"
+                        android:src="@drawable/navigation__back"
+                        android:background="@android:color/transparent"
+                        android:id="@+id/imageButton5"
+                        android:contentDescription="menu"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="true"
+                        android:onClick="onUp"
+                        android:layout_marginTop="5dp" />
+
+                    <TextView
+                        android:layout_width="198dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Privilege"
+                        android:textStyle="bold"
+                        android:id="@+id/textView11"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/magenta"
+                        android:textAlignment="center"
+                        android:layout_weight="1.17" />
+
+                    <TextView
+                        android:layout_width="91dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/call_us"
+                        android:textStyle="bold"
+                        android:id="@+id/callUsTxt"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/magenta"
+                        android:layout_weight="0.66" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView6"
+                android:layout_marginRight="-4dp"
+                android:layout_marginLeft="-4dp"
+                android:src="@drawable/separator_medium_mag"
+                android:contentDescription="Divider"
+                android:layout_below="@+id/member_header"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="1dp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout"
+                android:weightSum="1"
+                android:layout_marginBottom="0dp"
+                android:layout_marginTop="70dp">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_weight="0.27"
+                    android:weightSum="1" >
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="260dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Premium"
+                            android:textSize="26sp"
+                            android:textColor="@color/orange"
+                            android:id="@+id/textView14"
+                            android:textStyle="bold"
+                            android:layout_marginLeft="8dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="No age limit"
+                            android:textSize="16sp"
+                            android:textColor="@color/soft_dark"
+                            android:id="@+id/textView15"
+                            android:layout_marginTop="2.5dp"
+                            android:layout_marginLeft="8dp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="$29"
+                        android:textSize="26sp"
+                        android:id="@+id/textView16"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="45dp"
+                        android:textStyle="bold"
+                        android:layout_weight="1.64" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_weight="0.27"
+                    android:background="@color/gray2"
+                    android:layout_marginTop="-3dp" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView10"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/visa_logo5"
+                        android:layout_marginLeft="5dp" />
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="194dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="12dp" >
+
+                        <TextView
+                            android:layout_width="214dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/pay_with_visa_privilege"
+                            android:textSize="14sp"
+                            android:textColor="@color/soft_dark"
+                            android:id="@+id/textView17"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="0dp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="$19"
+                        android:textSize="26sp"
+                        android:id="@+id/textView18"
+                        android:textColor="@color/magenta"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="45dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mcard_trip"
+                    android:id="@+id/textView19"
+                    android:layout_marginTop="10dp"
+                    android:textAlignment="viewStart"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="5dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mCard_Premium"
+                    android:id="@+id/textView20"
+                    android:layout_marginTop="10dp"
+                    android:textAlignment="viewStart"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="5dp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Protección en viaje"
+                android:textSize="22sp"
+                android:textColor="@color/orange"
+                android:id="@+id/textView25"
+                android:layout_marginTop="320dp"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView9"
+                android:layout_marginRight="-4dp"
+                android:layout_marginLeft="-4dp"
+                android:src="@drawable/separator_thin"
+                android:contentDescription="Divider"
+                android:layout_below="@+id/member_header"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="300dp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="380dp"
+                android:id="@+id/LinearDrHelp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="DOCTOR HELP"
+                    android:textStyle="bold"
+                    android:id="@+id/textView26"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/magenta"
+                    android:textAlignment="inherit"
+                    android:layout_weight="1.17"
+                    android:layout_marginLeft="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mcard_doctorhelp"
+                    android:id="@+id/textView27"
+                    android:layout_marginTop="10dp"
+                    android:textAlignment="viewStart"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="5dp" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="650dp"
+                android:layout_marginTop="540dp"
+                android:id="@+id/drhelp_list">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageView11"
+                    android:layout_below="@+id/ll_header_hotels"
+                    android:src="@drawable/separator_gray"
+                    android:layout_marginBottom="-4dp"
+                    android:layout_marginLeft="-4dp"
+                    android:layout_marginRight="-4dp"
+                    android:contentDescription="Divider" />
+
+                <include
+                    layout="@layout/list_mainactivity"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/include" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="1180dp"
+                android:id="@+id/LinealAditional"
+                android:layout_marginBottom="50dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/aditional_protection"
+                    android:textStyle="bold"
+                    android:id="@+id/textView28"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/magenta"
+                    android:textAlignment="inherit"
+                    android:layout_weight="1.17"
+                    android:layout_marginLeft="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/aditional_protection_string"
+                    android:id="@+id/textView29"
+                    android:layout_marginTop="10dp"
+                    android:textAlignment="viewStart"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="5dp" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="630dp"
+                android:layout_marginTop="1280dp"
+                android:id="@+id/additional_list">
+
+                <RelativeLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView14"
+                        android:layout_below="@+id/ll_header_hotels"
+                        android:src="@drawable/separator_gray"
+                        android:layout_marginBottom="-4dp"
+                        android:layout_marginLeft="-4dp"
+                        android:layout_marginRight="-4dp"
+                        android:contentDescription="Divider" />
+
+                    <include
+                        layout="@layout/list_mainactivity_aditional"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/include3" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="300dp"
+                    android:id="@+id/titlecotidiana_layout"
+
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Protección Cotidiana"
+                        android:textSize="22sp"
+                        android:textColor="@color/orange"
+                        android:id="@+id/textCotidiana"
+                        android:textAlignment="center"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="1620dp"
+                android:id="@+id/proteccion_cotidiana">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/aditional_separator">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/imageView13"
+                        android:layout_marginRight="-4dp"
+                        android:layout_marginLeft="-4dp"
+                        android:src="@drawable/separator_thin"
+                        android:contentDescription="Divider"
+                        android:layout_below="@+id/member_header"
+                        android:layout_alignParentStart="true" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/proteccion_cotidiana"
+                        android:id="@+id/textView30"
+                        android:layout_marginTop="10dp"
+                        android:textAlignment="viewStart"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="5dp" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="650dp"
+                android:layout_marginTop="1720dp"
+                android:id="@+id/daily_list" >
+
+                <RelativeLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/daily_list_lay">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView15"
+                        android:layout_below="@+id/ll_header_hotels"
+                        android:src="@drawable/separator_gray"
+                        android:layout_marginBottom="-4dp"
+                        android:layout_marginLeft="-4dp"
+                        android:layout_marginRight="-4dp"
+                        android:contentDescription="Divider" />
+
+                    <include
+                        layout="@layout/list_mainactivity_cotidiana"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/include3" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="400dp"
+                    android:id="@+id/title_financiera" >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Protección Financiera"
+                        android:textSize="22sp"
+                        android:textColor="@color/orange"
+                        android:id="@+id/textView31"
+                        android:textAlignment="center"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="2155dp"
+                android:id="@+id/separator_financiera">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/imageView17"
+                    android:layout_marginRight="-4dp"
+                    android:layout_marginLeft="-4dp"
+                    android:src="@drawable/separator_thin"
+                    android:contentDescription="Divider"
+                    android:layout_below="@+id/member_header"
+                    android:layout_alignParentStart="true" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/financiera_proteccion"
+                    android:id="@+id/textView32"
+                    android:layout_marginTop="10dp"
+                    android:textAlignment="viewStart"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="5dp" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="450dp"
+                android:layout_marginTop="2250dp"
+                android:id="@+id/financial_list" >
+
+                <RelativeLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/financial_list_lay" >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView16"
+                        android:layout_below="@+id/ll_header_hotels"
+                        android:src="@drawable/separator_gray"
+                        android:layout_marginBottom="-4dp"
+                        android:layout_marginLeft="-4dp"
+                        android:layout_marginRight="-4dp"
+                        android:contentDescription="Divider" />
+
+                    <include
+                        layout="@layout/list_mainactivity_financial"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/include2" />
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="2450dp"
+                android:id="@+id/benefits" >
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/linearLayout2" >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="BENEFICIOS"
+                        android:textStyle="bold"
+                        android:id="@+id/textView33"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/magenta"
+                        android:textAlignment="inherit"
+                        android:layout_weight="1.17"
+                        android:layout_marginLeft="8dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/benefits_description"
+                        android:id="@+id/textView34"
+                        android:layout_marginTop="10dp"
+                        android:textAlignment="viewStart"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="5dp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="1050dp"
+                android:layout_marginTop="2550dp"
+                android:id="@+id/benefits_list" >
+
+                <RelativeLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/benefits_layout" >
+
+                    <include
+                        layout="@layout/list_mainactivity_benefits"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/include4" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/call_to_buy"
+                android:layout_marginTop="3500dp"
+                android:layout_marginBottom="50dp">
+
+                <include
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    layout="@layout/custom_calltobuy_premium" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>

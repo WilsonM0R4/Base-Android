@@ -1,0 +1,16 @@
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <objectAnimator
+        android:propertyName="x"
+        android:valueFrom="0f"
+        android:valueTo="350f"
+        android:duration="250"
+        />
+
+    <objectAnimator
+        android:valueFrom="0"
+        android:valueTo="-40"
+        android:propertyName="rotationY"
+        android:interpolator="@android:interpolator/accelerate_decelerate"
+        android:startOffset="100"
+        android:duration="@integer/card_flip_time_half" />
+</set>
