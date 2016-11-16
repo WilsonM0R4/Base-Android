@@ -5,6 +5,7 @@ import android.util.Log;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+//import java.net.HttpURLConnection;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
@@ -12,6 +13,8 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+
+import javax.net.ssl.HttpsURLConnection;
 
 //TODO remove logging of username and password!
 
@@ -96,13 +99,15 @@ public class AsyncRestHelper extends AsyncTask<Void, Void, HashMap<String, Strin
             if (code == 200 || code == 201 ||  code == 400){
                 if (code == 400){
                     dataReturn = apiInfo.parseData(urlConnection.getErrorStream());
-                    Log.d(TAG,"Entra al == 400");
+                    Log.e(TAG, "HTTPx Response: " + code + " - " + urlConnection.getResponseMessage());
+                    Log.d(TAG,"Entra al code == 400");
                 } else {
                     dataReturn = apiInfo.parseData(urlConnection.getInputStream());
                 }
 
                 HashSet set = apiInfo.getParseRespHeaders();
                 if (set != null && set.contains("resp_code")) {
+                    Log.d(TAG,"Entra al if set.contains(resp_code)");
                     dataReturn.put("resp_code", Integer.toString(code));
                 }
                 // Log the HTTP response headers from the server

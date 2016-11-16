@@ -1,2 +1,0 @@
-configurations.maybeCreate("default")
-artifacts.add("default", file('onepocket-sdk-1.1.0-361.aar'))
