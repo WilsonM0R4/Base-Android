@@ -3,14 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.allegra.handyuvisa" >
 
-    <!--   ****************** Permissions   **********************-->
+    <!-- ****************** Permissions   ********************** -->
     <!-- Permissions needed by LivePerson -->
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_PERMISSION"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_PERMISSION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_GPS" />
+    <uses-permission android:name="android.permission.ACCESS_ASSISTED_GPS" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <!-- Permissions required by Twilio -->
@@ -20,19 +23,23 @@
     <!-- Permission required by Parse Push notifications -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-    <!--IMPORTANT: Change "com.parse.starter.permission.C2D_MESSAGE" in the lines below
-      to match your app's package name + ".permission.C2D_MESSAGE".-->
+    <!--
+      IMPORTANT: Change "com.parse.starter.permission.C2D_MESSAGE" in the lines below
+      to match your app's package name + ".permission.C2D_MESSAGE".
+    -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <!-- Permissions needed by Visa XO SDK -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <!-- card.io: Permission to use camera - required -->
     <uses-permission android:name="android.permission.CAMERA" />
     <!-- card.io: Permission to vibrate - recommended, allows vibration feedback on scan -->
-    <uses-permission android:name="android.permission.VIBRATE"/>
-    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+
     <permission
         android:name="com.allegra.handyuvisa.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
+
     <uses-permission android:name="com.allegra.handyuvisa.permission.C2D_MESSAGE" />
 
     <!-- ******************Sensors*********************** -->
@@ -48,7 +55,6 @@
         android:required="false" />
 
     <!-- ******************Application*********************** -->
-
     <application
         android:name=".VisaCheckoutApp"
         android:allowBackup="true"
@@ -69,13 +75,16 @@
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyC2gG6V9Q6qnJ22nRtzMzGawS1kgWM-tDM" />
-        <!--ATTENTION: This was auto-generated to add Google Play services to your project for
-        App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.-->
+        <!--
+        ATTENTION: This was auto-generated to add Google Play services to your project for
+        App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
         <!-- ******************Receivers*********************** -->
+
 
         <!-- This is the App Flyers Receiver -->
         <receiver
@@ -93,12 +102,11 @@
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
             </intent-filter>
         </receiver>
-
         <receiver
-            android:name= "com.liveperson.mobile.android.networking.NetworkChangeReceiver"
-            android:label="NetworkStateReceiver">
+            android:name="com.liveperson.mobile.android.networking.NetworkChangeReceiver"
+            android:label="NetworkStateReceiver" >
             <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
 
@@ -109,10 +117,10 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".SendLogActivity"
             android:textAppearance="@android:style/TextAppearance.Large"
@@ -120,17 +128,16 @@
             android:windowSoftInputMode="stateHidden" >
             <intent-filter>
                 <action android:name="com.allem.alleminmotion.visacheckout.SEND_LOG" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/MainTheme" >
         </activity>
-
         <activity
             android:name=".StoreActivity"
             android:screenOrientation="portrait" />
@@ -143,7 +150,6 @@
         <activity
             android:name=".ProofOfCoverageActivityOff"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".LoginForgotActivity"
             android:screenOrientation="portrait" />
@@ -153,7 +159,6 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
-
         <activity
             android:name=".MyAccountActivity"
             android:screenOrientation="portrait" >
@@ -161,7 +166,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-
         <activity
             android:name=".McardActivity"
             android:screenOrientation="portrait" />
@@ -174,6 +178,8 @@
         <activity
             android:name=".Mcardpremium"
             android:screenOrientation="portrait" />
+        <activity android:name=".MyTips"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Mcardexclusive"
             android:screenOrientation="portrait" />
@@ -225,7 +231,7 @@
         <activity
             android:name=".LoginForgotConfirmation"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ChatActivity"
             android:screenOrientation="portrait"
@@ -273,9 +279,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".ConciergeSearchActivity" />
-        <activity android:name=".TaxiActivity" />
-        <activity android:name=".ServiceActivity" />
+        <activity
+            android:name=".ConciergeSearchActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".TaxiActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ServiceActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".HotelSearchActivity"
             android:screenOrientation="portrait" />
@@ -301,14 +313,15 @@
             android:name=".CustomQrActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".HotelsPaymentActivity"
             android:label="@string/title_activity_hotels_payment"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".FlightsPaymentActivity"
             android:label="@string/title_activity_flights_payment"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".AllInOneBenefitsActivity"
@@ -370,12 +383,12 @@
 
         <!-- ******************Services*********************** -->
 
-        <service android:name="com.twilio.client.TwilioClientService"
+        <service
+            android:name="com.twilio.client.TwilioClientService"
             android:exported="false" />
-
-        <service android:enabled="true"
-            android:name="com.liveperson.mobile.android.service.visit.VisitService"/>
-
+        <service
+            android:name="com.liveperson.mobile.android.service.visit.VisitService"
+            android:enabled="true" />
     </application>
 
 </manifest>

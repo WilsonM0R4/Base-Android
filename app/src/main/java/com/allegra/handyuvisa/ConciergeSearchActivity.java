@@ -54,7 +54,7 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
         id_destino_ser = getIntent().getStringExtra("&idCity");
         nombre_destino_ser = getIntent().getStringExtra("&labelCity");
         Log.d("ID DESTINO SER ",String.valueOf(id_destino_ser));
-        Log.d("NOMBRE DESTINO SER",String.valueOf(nombre_destino_ser));
+        Log.d("NOMBRE   DESTINO SER",String.valueOf(nombre_destino_ser));
 
         webView = (WebView)findViewById(R.id.webView);//Concierge
         progressBar= (ImageView)findViewById(R.id.pb_search_loader);//pb_concierge

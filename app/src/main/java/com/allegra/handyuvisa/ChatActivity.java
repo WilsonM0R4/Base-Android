@@ -1,10 +1,7 @@
 package com.allegra.handyuvisa;
 
 import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
@@ -18,7 +15,6 @@ import com.allegra.handyuvisa.async.AddChatLines;
 import com.allegra.handyuvisa.async.AsyncRestHelper;
 import com.allegra.handyuvisa.async.ChatRequest;
 import com.allegra.handyuvisa.async.ChatResourceEventsInfo;
-import com.allegra.handyuvisa.async.LivePersonAPI;
 import com.allegra.handyuvisa.async.MyBus;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.Util;
@@ -27,7 +23,6 @@ import com.allegra.handyuvisa.async.ChatEventsNext;
 import com.allegra.handyuvisa.async.ChatInfo;
 import com.allegra.handyuvisa.async.EndChat;
 import com.allegra.handyuvisa.async.GetBaseResource;
-import com.liveperson.mobile.android.ui.LPMobileDelegateAPIImp;
 import com.squareup.otto.Subscribe;
 
 import java.io.InputStream;
@@ -39,8 +34,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.atomic.AtomicBoolean;
-import com.liveperson.mobile.android.LivePerson;
 
 public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateReadyListener,
                                         BackFragment.MenuSelectListener {
@@ -60,14 +53,11 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
     private ArrayList<Message> chatMessages;
     private ChatMsgAdapter chatMsgAdapter;
     private EditText sentText;
-    private static final int OVERLAY_PERMISSION_REQ_CODE = 1234;
-    LivePersonAPI delegateAPI;
-    AtomicBoolean permissionChecked = new AtomicBoolean(false);
-    boolean canDraw = false;
 
     //*****************INNER CLASSES*****************
 
     public class Message {
+
         private String text;
         private boolean fromUser;
         private long timeStamp;
@@ -81,7 +71,6 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
         public String getText() { return text; }
         public boolean isFromUser() { return fromUser; }
         public long getTimeStamp() { return timeStamp; }
-
     }
 
     //*****************OVERRIDE METHODS*****************
@@ -93,32 +82,6 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
 
         initLivePersonService();
         MyBus.getInstance().register(this);
-
-        /*if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {// && !Settings.canDrawOverlays(ChatActivity.this)
-
-            Log.d("Sergio", "MAyor o igual a 23 y no canDrawOver");
-            if (!permissionChecked.getAndSet(true)) {
-                Log.d("Sergio", "No permission checked");
-                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
-                        Uri.parse("package:" + getPackageName()));
-                startActivityForResult(intent, OVERLAY_PERMISSION_REQ_CODE);
-            }
-
-        }else{
-            Log.d("Sergio", "No es MAyor o igual a 23 ni canDrawOver");
-            canDraw = true;
-        }*/
-
-            /*delegateAPI = new LivePersonAPI(getApplicationContext()){
-
-            @Override
-
-            public boolean canDrawTabOverlay() {
-
-                return canDraw;
-            }
-        };*/
-
     }
 
     @Override
@@ -130,7 +93,7 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
     @Override
     public void initViews(View root) {
 
-        chatMessages = new ArrayList<Message>();
+        chatMessages = new ArrayList<>();
         chatMsgAdapter = new ChatMsgAdapter(this, chatMessages);
         chatListView = (ListView) root.findViewById(R.id.lv_chat_msg);
         chatListView.setAdapter(chatMsgAdapter);
@@ -165,20 +128,6 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
         finish();
     }
 
-    /*@Override
-
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        if (requestCode == OVERLAY_PERMISSION_REQ_CODE) {
-
-            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && Settings.canDrawOverlays(this)) {
-
-                Log.d("Sergio","Entral al if de onActivityResult");
-                LivePerson.notifyCanDrawTabOverlay();
-                canDraw = true;
-            }
-        }
-    }*/
 
     //*****************PROPER METHODS*****************
 
@@ -321,7 +270,7 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
     public void onAsyncTaskResult(AsyncTaskMPosResultEvent event) {
 
         boolean errorExists = true;
-        HashMap<String, String> data = null;
+        HashMap<String, String> data;
 
         if (event.getResult() != null) {
             data = event.getResult();

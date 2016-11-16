@@ -1,10 +1,12 @@
 package com.allegra.handyuvisa;
 
+import android.*;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -20,15 +22,21 @@ import android.util.Log;
 import android.view.View;
 import android.webkit.GeolocationPermissions;
 import android.webkit.JavascriptInterface;
+import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.allegra.handyuvisa.models.AllemUser;
 import com.allegra.handyuvisa.utils.Constants;
+import com.allegra.handyuvisa.utils.CustomizedTextView;
 import com.allegra.handyuvisa.utils.GPSTracker;
+import com.allem.onepocket.utils.OPKConstants;
 import com.urbanairship.location.LocationService;
 
 import java.net.URLEncoder;
@@ -38,49 +46,54 @@ import java.util.Locale;
 public class RestaurantsActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
 
     private WebView webView;
-    private String url = Constants.getRestaurantUrl(); //"http://52.203.29.124/allemrestaurant/#!/brand/restaurantes/map";
+    private ProgressBar progressBar;
+    private String url = Constants.getRestaurantUrl();
     private ImageButton arrowBack, arrowF;
+    public static final String TAG = "RestaurantsActivity";
     private LocationManager locationManager;
-    private String returnURL;
-    public String stringLatitude, stringLongitude;
+    public String returnURL, onePocketmessage;
     private boolean isGPSEnabled, isNetworkEnabled, enterToGetLocation;
     private Location location;
     GPSTracker gp;
     Double latitude, longitude;
     String mLat, mLong;
     Dialog dialog;
+    public static final int REQUEST_LOCATION_CODE = 1234, MY_PERMISSIONS_REQUEST_LOCATION = 4563;
+    String[] PERMISSIONS = { android.Manifest.permission.ACCESS_COARSE_LOCATION, android.Manifest.permission.ACCESS_FINE_LOCATION};
 
-    //TODO: Get location and send : ?lon=111&lat=222  at finish of the url
+    //*************************OVERRIDE METHODS******************
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setView(R.layout.activity_restaurants,this);
+        setView(R.layout.activity_restaurants, this);
     }
 
     @Override
     public void initViews(View root) {
 
-        webView = (WebView)root.findViewById(R.id.webView2);
+        webView = (WebView) root.findViewById(R.id.webView2);
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
         webView.getSettings().setBuiltInZoomControls(true);
         webView.getSettings().setGeolocationEnabled(true);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             webView.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
         }
-        webView.setWebChromeClient(new GeoWebChromeClient());
-        webView.setWebViewClient(new MyBrowser());
+        webView.setWebChromeClient(new RestaurantsActivity.GeoWebChromeClient());
         webView.loadUrl(url);
+        webView.setWebViewClient(new RestaurantsActivity.MyBrowser(this));
         arrowBack = (ImageButton) root.findViewById(R.id.arrow_back_restaurants);
         arrowF = (ImageButton) root.findViewById(R.id.arrow_foward_restaurants);
+        progressBar = (ProgressBar) root.findViewById(R.id.progressBar_Restaurants);
+
         arrowBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onGoBack(v);
             }
         });
+
         arrowF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,127 +101,50 @@ public class RestaurantsActivity extends FrontBackAnimate implements FrontBackAn
             }
         });
         getLocation();
+
+        Log.d(TAG, url);
     }
 
-    private class MyBrowser extends WebViewClient {
-
-        public boolean shouldOverrideUrlLoading(WebView webView, String url){
-            webView.loadUrl(url);
-            return true;
-        }
-
-        public void onPageFinished(WebView view, String url) {
-            if (url.equals("about:blank")) {
-                webView.loadUrl(returnURL);
-            }
-            view.loadUrl("javascript:myCurrentLocation();void(0);");
-            JsInterface jsInterface = new JsInterface(getApplicationContext());
-            loadArrows();
-        }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadWebView();
     }
 
-    private class JsInterface {
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
-        private Context mContext;
-        JsInterface(Context context) {
-            mContext = context;
-        }
-
-        @JavascriptInterface
-        public void myGeoLocation(String mlat, String mLon) {
-
-            mlat = latitude.toString();
-            mLon = longitude.toString();
-            new Handler(Looper.getMainLooper()).post(new Runnable() {
-                @Override
-                public void run() {
-                    Toast.makeText(mContext, mLat,Toast.LENGTH_LONG);
-                }
-            });
-
-        }
-
-    }
-
-    public class GeoWebChromeClient extends WebChromeClient {
-        @Override
-        public void onGeolocationPermissionsShowPrompt(String origin,
-                                                       GeolocationPermissions.Callback callback) {
-            // Always grant permission since the app itself requires location
-            // permission and the user has therefore already granted it
-            callback.invoke(origin, true, false);
+        //Validate permissions
+        if(android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !hasPermissions(this, PERMISSIONS)){
+            ActivityCompat.requestPermissions(this, PERMISSIONS, MY_PERMISSIONS_REQUEST_LOCATION);
+        } else {
+            getCurrentLocation();
         }
     }
 
-    public Location getLocation() {
-        try {
-
-            locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-            isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
-            isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
-
-            if (!isGPSEnabled) {
-                Log.d("JUANCHO ", "ESTOY ACA");
-                buildAlertMessageNoGps();
-            } else {
-                Log.d("JUANCHO ","ESTOY ACA 2");
-                gp = new GPSTracker(this);
-                latitude = gp.getLatitude();
-                longitude = gp.getLongitude();
-                if (latitude != 0.0) {
-                    enterToGetLocation = true;
-                    Geocoder geocoder = new Geocoder(this, Locale.ENGLISH);
-                    List<Address> addresses = geocoder.getFromLocation(latitude, longitude, 1);
-                    String cityName = addresses.get(0).getAddressLine(0);
-                    String stateName = addresses.get(0).getAddressLine(1);
-                    String countryName = addresses.get(0).getAddressLine(2);
-                    String city = "";
-                    //Split special characters
-                    if (stateName.contains(", ")){
-                        String[] parts = stateName.split(", ");
-                        city = parts[0];
-                        Log.d("City split",city);
-                    }else {
-                        if (stateName.contains(" ")) {
-                            String[] parts = stateName.split(" ");
-                            city = parts[0];
-                            Log.d("City split space", city);
-                        }
-                    }
-                    String query = URLEncoder.encode(city, "utf-8");
-                    Log.d("cityName",cityName);
-                    Log.d("stateName",stateName);
-                    Log.d("countryName",countryName);
-                    Log.d("LATITUDE", latitude.toString());
-                    Log.d("LONGITUDE", longitude.toString());
-
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_LOCATION: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // Permission was granted, yay! Do the camera-related task you need to do.
+                    Log.e(TAG, "El permiso fue dado");
+                    getCurrentLocation();
                 } else {
-                    Toast.makeText(RestaurantsActivity.this, R.string.location_failed,
-                            Toast.LENGTH_SHORT).show();
+                    // Permission denied, boo! Disable the functionality that depends on this permission.
+                    Log.e(TAG, "Sin el permiso no podemos seguir");
                 }
+                return;
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+            // other 'case' lines to check for other
+            // permissions this app might request
         }
-        return location;
     }
 
-    public void showCurrentLocation(){
-
-        Log.e("JUAN ", "ENTRE ACA");
-        if ( ContextCompat.checkSelfPermission( this, android.Manifest.permission.ACCESS_COARSE_LOCATION ) != PackageManager.PERMISSION_GRANTED ) {
-
-            ActivityCompat.requestPermissions( this, new String[] {  android.Manifest.permission.ACCESS_COARSE_LOCATION },
-                    Integer.parseInt(LocationService.LOCATION_SERVICE));
-        }
-
-        location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        latitude = location.getLatitude();
-        longitude = location.getLongitude();
-
-
-    }
+    //************************PROPER METHODS**************************
 
     private void buildAlertMessageNoGps() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -218,22 +154,112 @@ public class RestaurantsActivity extends FrontBackAnimate implements FrontBackAn
                 .setPositiveButton(R.string.location_yes,
                         new DialogInterface.OnClickListener() {
                             public void onClick(final DialogInterface dialog, final int id) {
-                                startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                                startActivityForResult(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS),REQUEST_LOCATION_CODE);
                             }
                         })
                 .setNegativeButton(R.string.location_no, new DialogInterface.OnClickListener() {
                     public void onClick(final DialogInterface dialog, final int id) {
                         dialog.cancel();
-                        //buildAlertMessageNoGps();
                     }
                 });
         final AlertDialog alert = builder.create();
         alert.show();
     }
 
+    public static boolean hasPermissions(Context context, String... permissions) {
+        if ( context != null && permissions != null) {
+            for (String permission : permissions) {
+                if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public Location getLocation() {
+
+        locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+        isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+
+        if (!isGPSEnabled) {
+            Log.d(TAG, "ESTOY ACA");
+            buildAlertMessageNoGps();
+        } else {
+            //Validate permissions
+            if(android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !hasPermissions(this, PERMISSIONS)){
+                ActivityCompat.requestPermissions(this, PERMISSIONS, MY_PERMISSIONS_REQUEST_LOCATION);
+            } else {
+                getCurrentLocation();
+            }
+        }
+        return location;
+    }
+
+    private void getCurrentLocation () {
+
+        gp = new GPSTracker(this);
+        latitude = gp.getLatitude();
+        longitude = gp.getLongitude();
+
+        if (latitude != 0.0) {
+
+            try {
+                enterToGetLocation = true;
+                Geocoder geocoder = new Geocoder(this, Locale.ENGLISH);
+                List<Address> addresses = geocoder.getFromLocation(latitude, longitude, 1);
+                String cityName = addresses.get(0).getAddressLine(0);
+                String stateName = addresses.get(0).getAddressLine(1);
+                String countryName = addresses.get(0).getAddressLine(2);
+                String city = "";
+                //Split special characters
+                if (stateName.contains(", ")) {
+                    String[] parts = stateName.split(", ");
+                    city = parts[0];
+                    Log.d("City split", city);
+                } else {
+                    if (stateName.contains(" ")) {
+                        String[] parts = stateName.split(" ");
+                        city = parts[0];
+                        Log.d("City split space", city);
+                    }
+                }
+                String query = URLEncoder.encode(city, "utf-8");
+                Log.d("cityName", cityName);
+                Log.d("stateName", stateName);
+                Log.d("countryName", countryName);
+                Log.d("LATITUDE", latitude.toString());
+                Log.d("LONGITUDE", longitude.toString());
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void loadWebView() {
+
+        webView.addJavascriptInterface(new RestaurantsActivity.JsInterface(this), "androidProxy");
+        webView.loadUrl(url);
+    }
+
+    public void openOnePocket(){
+
+        Intent intent = new Intent(RestaurantsActivity.this, OnepocketPurchaseActivity.class);
+        Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(this), onePocketmessage, OPKConstants.TYPE_MCARD, (VisaCheckoutApp) getApplication());
+        intent.putExtras(bundle);
+        startActivityForResult(intent, Constants.REQUEST_ONEPOCKET_RETURN);
+    }
 
     public void onMenu(View view) {
         animate();
+    }
+
+    public void onUp(View view) {
+        if (webView.canGoBack()) {
+            webView.goBack();
+        }
     }
 
     private void loadArrows() {
@@ -263,4 +289,124 @@ public class RestaurantsActivity extends FrontBackAnimate implements FrontBackAn
             webView.goForward();
         }
     }
+    //*******************************INNER CLASSES****************************
+
+    private class MyBrowser extends WebViewClient {
+
+        private Context context;
+        public MyBrowser(Context context) {
+            this.context = context;
+        }
+
+        public boolean shouldOverrideUrlLoading(WebView webView, String url) {
+            if (url.equals("allegra:touchcallService")) {
+                Intent i = new Intent(context, CallActivityServices.class);
+                context.startActivity(i);
+                return true;
+            }
+            return super.shouldOverrideUrlLoading(webView, url);
+        }
+        public void onPageFinished(WebView view, String url) {
+            progressBar.setVisibility(View.GONE);
+            if (url.equals("about:blank")) {
+                webView.loadUrl(returnURL);
+            }
+            loadArrows();
+        }
+    }
+
+    private class JsInterface {
+
+        private Context mContext;
+        JsInterface(Context context) {
+            mContext = context;
+        }
+
+        @JavascriptInterface
+        public void myGeoLocation(String mlat, String mLon) {
+
+            mlat = latitude.toString();
+            mLon = longitude.toString();
+            Log.d(TAG, "Lat: "+mlat+" Long:"+ mLon);
+        }
+
+        @JavascriptInterface
+        public void postMessage(final String message) {
+            Log.e("Message", message);
+            Log.e("Repeat message", message);
+
+            //Obtengo latitud y longitud y Se los envío a la función JavaScript MyGeoLocation
+            new Handler(Looper.getMainLooper()).post(new Runnable() {
+                @Override
+                public void run() {
+
+                    if (message.contains("myCurrentLocation")) {
+
+                        if (latitude!=null && longitude!= null) {
+                            Log.d(TAG,"Entra al if != null en postMessage");
+                            Log.d(TAG,"Lat: "+latitude.toString()+ " Long: "+longitude.toString());
+                            webView.evaluateJavascript("javascript:myGeoLocation(" + latitude.toString() + "," + longitude.toString() + ");", new ValueCallback<String>() {
+                                @Override
+                                public void onReceiveValue(String value) {
+                                    Log.d(TAG, "El value en postMessage "+value);
+                                }
+                            });
+
+                        } else {//Hardcode Other location in Bogotá
+                            webView.evaluateJavascript("javascript:myGeoLocation(4.665417, -74.077237);",null);
+                            Log.d(TAG,"lat lng son null en postMessage");
+                        }
+
+                    }
+                }
+            });
+
+            //******
+            if (message.contains("showLoader")){
+                //Show native loader
+                new Handler(Looper.getMainLooper()).post(new Runnable() {
+                    @Override
+                    public void run() {
+                        ImageView pb_search_loader = (ImageView)findViewById(R.id.pb_search_loader);
+                        ImageView imgProgress = (ImageView)findViewById(R.id.imgProgress);
+                        CustomizedTextView textView = (CustomizedTextView)findViewById(R.id.txtLoading);
+                        pb_search_loader.setVisibility(View.VISIBLE);
+                        imgProgress.setVisibility(View.VISIBLE);
+                        webView.setVisibility(View.GONE);
+                        textView.setVisibility(View.VISIBLE);
+                    }
+                });
+
+            }
+            if (message.contains("hideLoader")){
+                //Hide native loader
+                new Handler(Looper.getMainLooper()).post(new Runnable() {
+                    @Override
+                    public void run() {
+                        ImageView pb_search_loader = (ImageView)findViewById(R.id.pb_search_loader);
+                        ImageView imgProgress = (ImageView)findViewById(R.id.imgProgress);
+                        CustomizedTextView textView = (CustomizedTextView)findViewById(R.id.txtLoading);
+
+                        pb_search_loader.setVisibility(View.GONE);
+                        imgProgress.setVisibility(View.GONE);
+                        webView.setVisibility(View.VISIBLE);
+                        textView.setVisibility(View.GONE);
+                    }
+                });
+
+            }
+        }
+
+    }
+
+    public class GeoWebChromeClient extends WebChromeClient {
+        @Override
+        public void onGeolocationPermissionsShowPrompt(String origin,
+                                                       GeolocationPermissions.Callback callback) {
+            // Always grant permission since the app itself requires location
+            // permission and the user has therefore already granted it
+            callback.invoke(origin, true, false);
+        }
+    }
+
 }

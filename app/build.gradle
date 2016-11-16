@@ -1,6 +1,58 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias RELEASE_KEY_ALIAS
+            keyPassword RELEASE_KEY_PASSWORD
+            storeFile file(RELEASE_STORE_FILE)
+            storePassword RELEASE_STORE_PASSWORD
+        }
+
+        gnbConfig {
+            keyAlias GNB_RELEASE_KEY_ALIAS
+            keyPassword GNB_RELEASE_KEY_PASSWORD
+            storeFile file(GNB_RELEASE_STORE_FILE)
+            storePassword GNB_RELEASE_STORE_PASSWORD
+        }
+
+        bogConfig {
+            keyAlias BOG_RELEASE_KEY_ALIAS
+            keyPassword BOG_RELEASE_KEY_PASSWORD
+            storeFile file(BOG_RELEASE_STORE_FILE)
+            storePassword BOG_RELEASE_STORE_PASSWORD
+        }
+
+        popConfig {
+            keyAlias POP_RELEASE_KEY_ALIAS
+            keyPassword POP_RELEASE_KEY_PASSWORD
+            storeFile file(POP_RELEASE_STORE_FILE)
+            storePassword POP_RELEASE_STORE_PASSWORD
+        }
+
+        pinConfig {
+            keyAlias PIN_RELEASE_KEY_ALIAS
+            keyPassword PIN_RELEASE_KEY_PASSWORD
+            storeFile file(PIN_RELEASE_STORE_FILE)
+            storePassword PIN_RELEASE_STORE_PASSWORD
+        }
+
+        finConfig {
+            keyAlias FIN_RELEASE_KEY_ALIAS
+            keyPassword FIN_RELEASE_KEY_PASSWORD
+            storeFile file(FIN_RELEASE_STORE_FILE)
+            storePassword FIN_RELEASE_STORE_PASSWORD
+        }
+
+        cbhConfig {
+            keyAlias CBH_RELEASE_KEY_ALIAS
+            keyPassword CBH_RELEASE_KEY_PASSWORD
+            storeFile file(CBH_RELEASE_STORE_FILE)
+            storePassword CBH_RELEASE_STORE_PASSWORD
+        }
+
+    }
+
     compileSdkVersion 24
     buildToolsVersion "24.0.2"
 
@@ -8,8 +60,8 @@ android {
         applicationId "com.allegra.handyuvisa"
         minSdkVersion 19
         targetSdkVersion 24
-        versionCode 347
-        versionName "1.1.0-238"
+        versionCode 243
+        versionName "1.2.2-243"
 
         packagingOptions {
             exclude "lib/arm64-v8a/libcardioDecider.so"
@@ -45,11 +97,161 @@ android {
         mavenCentral()
     }
 
+    productFlavors {
+
+        allegra{
+            applicationId "com.allegra.handyuvisa"
+            versionCode 243
+            versionName "1.2.2-243"
+            signingConfig signingConfigs.config
+            minSdkVersion 19
+            targetSdkVersion 24
+
+            packagingOptions {
+                exclude "lib/arm64-v8a/libcardioDecider.so"
+                exclude "lib/mips64/libcardioDecider.so"
+                exclude "lib/x86_64/libcardioDecider.so"
+                exclude 'META-INF/maven/com.squareup.okio/okio/pom.xml'
+                exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
+                exclude 'META-INF/LICENSE'
+            }
+
+            // Enabling multidex support.
+            multiDexEnabled true
+
+        }
+        gnb {
+            applicationId "com.allegra.handyusudameris"
+            versionCode 1
+            versionName "1.2.0-3"
+            signingConfig signingConfigs.gnbConfig
+            minSdkVersion 19
+            targetSdkVersion 24
+
+            packagingOptions {
+                exclude "lib/arm64-v8a/libcardioDecider.so"
+                exclude "lib/mips64/libcardioDecider.so"
+                exclude "lib/x86_64/libcardioDecider.so"
+                exclude 'META-INF/maven/com.squareup.okio/okio/pom.xml'
+                exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
+                exclude 'META-INF/LICENSE'
+            }
+
+            // Enabling multidex support.
+            multiDexEnabled true
+        }
+
+        bog {
+            applicationId "com.allegra.handyubancobogota"
+            versionCode 1
+            versionName "1.2.0-3"
+            signingConfig signingConfigs.bogConfig
+            minSdkVersion 19
+            targetSdkVersion 24
+
+            packagingOptions {
+                exclude "lib/arm64-v8a/libcardioDecider.so"
+                exclude "lib/mips64/libcardioDecider.so"
+                exclude "lib/x86_64/libcardioDecider.so"
+                exclude 'META-INF/maven/com.squareup.okio/okio/pom.xml'
+                exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
+                exclude 'META-INF/LICENSE'
+            }
+
+            // Enabling multidex support.
+            multiDexEnabled true
+        }
+
+        pop {
+            applicationId "com.allegra.handyubancopopular"
+            versionCode 1
+            versionName "1.2.0-3"
+            signingConfig signingConfigs.popConfig
+            minSdkVersion 19
+            targetSdkVersion 24
+
+            packagingOptions {
+                exclude "lib/arm64-v8a/libcardioDecider.so"
+                exclude "lib/mips64/libcardioDecider.so"
+                exclude "lib/x86_64/libcardioDecider.so"
+                exclude 'META-INF/maven/com.squareup.okio/okio/pom.xml'
+                exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
+                exclude 'META-INF/LICENSE'
+            }
+
+            // Enabling multidex support.
+            multiDexEnabled true
+        }
+
+        pin {
+            applicationId "com.allegra.handyupichincha"
+            versionCode 1
+            versionName "1.2.0-3"
+            signingConfig signingConfigs.pinConfig
+            minSdkVersion 19
+            targetSdkVersion 24
+
+            packagingOptions {
+                exclude "lib/arm64-v8a/libcardioDecider.so"
+                exclude "lib/mips64/libcardioDecider.so"
+                exclude "lib/x86_64/libcardioDecider.so"
+                exclude 'META-INF/maven/com.squareup.okio/okio/pom.xml'
+                exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
+                exclude 'META-INF/LICENSE'
+            }
+
+            // Enabling multidex support.
+            multiDexEnabled true
+        }
+
+        fin {
+            applicationId "com.allegra.handyufinandina"
+            versionCode 1
+            versionName "1.2.0-3"
+            signingConfig signingConfigs.finConfig
+            minSdkVersion 19
+            targetSdkVersion 24
+
+            packagingOptions {
+                exclude "lib/arm64-v8a/libcardioDecider.so"
+                exclude "lib/mips64/libcardioDecider.so"
+                exclude "lib/x86_64/libcardioDecider.so"
+                exclude 'META-INF/maven/com.squareup.okio/okio/pom.xml'
+                exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
+                exclude 'META-INF/LICENSE'
+            }
+
+            // Enabling multidex support.
+            multiDexEnabled true
+        }
+
+        cbh {
+            applicationId "com.allegra.handyucorpbanca"
+            versionCode 1
+            versionName "1.2.0-3"
+            signingConfig signingConfigs.cbhConfig
+            minSdkVersion 19
+            targetSdkVersion 24
+
+            packagingOptions {
+                exclude "lib/arm64-v8a/libcardioDecider.so"
+                exclude "lib/mips64/libcardioDecider.so"
+                exclude "lib/x86_64/libcardioDecider.so"
+                exclude 'META-INF/maven/com.squareup.okio/okio/pom.xml'
+                exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
+                exclude 'META-INF/LICENSE'
+            }
+
+            // Enabling multidex support.
+            multiDexEnabled true
+        }
+
+    }
 }
 
 dependencies {
     testCompile 'junit:junit:4.12'
-    compile project(':onepocket-sdk-1.1.0-361')
+    compile project(':onepocket-sdk-1.2.0-362')
     //3rd party libraries
     compile('com.google.code.ksoap2-android:ksoap2-android:3.6.1') {
         exclude group: 'com.squareup.okio', module: 'okio'

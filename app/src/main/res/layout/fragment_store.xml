@@ -3,6 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:onClick="onCloseMenu">
 
     <RelativeLayout
@@ -72,7 +73,6 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_below="@+id/ll_header"
         android:paddingEnd="-2dp"
         android:paddingStart="-2dp"
         android:id="@+id/imageView24"
@@ -80,18 +80,45 @@
         android:background="@color/loading_salmon"
         android:contentDescription="Divider" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="132dp"
+        android:id="@+id/imgProgress"
+        android:visibility="gone"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/logo_allegra_loader" />
+
+    <ImageView
+        android:layout_width="111dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="73dp"
+        android:visibility="gone"
+        android:id="@+id/pb_search_loader"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/run_animation" />
+
+    <com.allegra.handyuvisa.utils.CustomizedTextView
+        android:id="@+id/txtLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="77dp"
+        android:visibility="gone"
+        android:textColor="@color/loading_salmon"
+        android:textSize="22sp"
+        app:font="@string/font_varela"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/txt_loading_loader"/>
+
+
     <WebView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/webStore"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/webStore" />
 
     <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/progressBar_store"
-        android:layout_centerInParent="true"
         android:visibility="gone" />
 </LinearLayout>

@@ -74,11 +74,14 @@ public class OnepocketPurchaseActivity extends FrontBackAnimate implements Front
                 Intent result = new Intent();
                 result.putExtra(OPKConstants.EXTRA_RESULT, data);
                 OnepocketPurchaseActivity.this.setResult(Activity.RESULT_OK, result);
-                //OnepocketPurchaseActivity.this.finish();
+
 
                 switch (i) {
                     case 0:
-                        Log.e(TAG, "Invalid perform id: 0");
+                        //Log.e(TAG, "Invalid perform id: 0");
+                        if (OPKConstants.oneTransaction.getType().equals("MCARD") && data.equals("onepocket_return")) {
+                            OnepocketPurchaseActivity.this.finish();
+                        }
                         break;
 
                     case 1:

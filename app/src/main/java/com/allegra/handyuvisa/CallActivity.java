@@ -101,7 +101,7 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
             //showIncomingAlert();
             addStatusMessage("Received incoming connection");
             //syncMainButton();
-        }
+    }
     }
 
     @Override
@@ -225,7 +225,6 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
         addStatusMessage("Device is listening for incoming connections");
         showProgress(false);
         statusCall=STANDBY;
-
         setButton(statusCall);
     }
 
@@ -244,13 +243,11 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
     @Override
     public void onLoginStarted() {
         addStatusMessage("Waiting for token");
-
     }
 
     @Override
     public void onLoginFinished() {
         addStatusMessage("Token Obtained");
-
         if (!phone.isConnected()) {
             Map<String, String> params = new HashMap<String, String>();
             params.put("To", OTC_NUMBER);
@@ -260,7 +257,6 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
         } else {
             phone.disconnect();
         }
-
     }
 
     @Override

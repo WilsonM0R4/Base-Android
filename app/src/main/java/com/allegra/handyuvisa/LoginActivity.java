@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -37,6 +38,7 @@ import com.allegra.handyuvisa.utils.Util;
 import com.splunk.mint.Mint;
 import com.squareup.otto.Subscribe;
 import com.urbanairship.UAirship;
+import com.urbanairship.push.notifications.DefaultNotificationFactory;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -56,7 +58,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
     //private ImageButton ib_visibilitypass;
     private boolean passIsVisible = false;
     private EditText username, password;
-    private CustomizedTextView  btn_login, btn_newaccount;
+    private CustomizedTextView btn_login, btn_newaccount;
     private ArrayList<NameValuePair> postValues;
     private ArrayList<String> arrayListMemberships;
     private ProgressBar pb_login;
@@ -67,7 +69,8 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
     private String valueOfMcard;
     UsuarioSQLiteHelper db;
     SQLiteDatabase dbbase;
-
+    private static final String SOUND_NOTIFICATIONS = "android.resource://com.allegra.handyuvisa/raw/allegra_sound";
+    public UAirship uAirship;
 
 
     //*************************OVERRIDE METHODS*********************
@@ -92,6 +95,8 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         Mint.setLogging(200);
 
         findValueOfMcard();
+
+
     }
 
     @Override
@@ -118,7 +123,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         } catch (PackageManager.NameNotFoundException e) {
             Log.d(TAG, "No Version number found");
         }
-        forgotpass = (TextView)root.findViewById(R.id.forgotPassword);
+        forgotpass = (TextView) root.findViewById(R.id.forgotPassword);
         forgotpass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -250,7 +255,6 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
     }
 
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -289,11 +293,12 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
 
     }
 
+
     //Response from SOAP Service, get Mcards purchased by an user
     @Subscribe
     public void onAsyncTaskResult(AsyncTaskSoapObjectResultEventMcard event) {
         Log.d("SergioMcardEntra", event.getFaultString());
-        if (event.getCodeRequest() == Constants.MCARD_CODE){
+        if (event.getCodeRequest() == Constants.MCARD_CODE) {
             Log.d("SergioMcard", event.getFaultString());
             //At least one mCard
             if (event.getResult() != null) {
@@ -306,24 +311,34 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 SharedPreferences prefs =
                         getSharedPreferences("MisPreferencias", MODE_PRIVATE);
                 SharedPreferences.Editor editor = prefs.edit();
-                if (idMcard.equals("")){
+                if (idMcard.equals("")) {
                     editor.putString("idMcard", "0");
-                    editor.putString("numMcard","XXXYXYY");
-                } else{
+                    editor.putString("numMcard", "XXXYXYY");
+                } else {
                     editor.putString("idMcard", idMcard);
-                    editor.putString("numMcard",numMcard);
+                    editor.putString("numMcard", numMcard);
                 }
 
                 editor.apply();
-                Log.d("idMcard", "Es"+ idMcard);
-                Log.d("numMcard", "Es"+numMcard);
+                Log.d("idMcard", "Es" + idMcard);
+                Log.d("numMcard", "Es" + numMcard);
             }
         }
     }
 
+    public class CustomDefaultNotificationFactory extends DefaultNotificationFactory {
+
+        public CustomDefaultNotificationFactory(Context context) {
+            super(context);
+        }
+
+    }
+
+
     //Response from SOAP Service, get user login info
     @Subscribe
     public void onAsyncTaskResult(AsyncTaskSoapObjectResultEvent event) {
+
         Log.d("SergioEntra", event.getFaultString());
         if (event.getCodeRequest() == Constants.ACTIVITY_LOGIN) {
             setWaitinUI(false);
@@ -340,9 +355,14 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 String domain = user.email.substring(user.email.indexOf('@') + 1, user.email.length()).replace(".", "");
                 String channel = name + domain + user.idCuenta;
                 //Notifications UrbanAirship
+                CustomDefaultNotificationFactory notificationFactory = new CustomDefaultNotificationFactory(UAirship.getApplicationContext());
+                Uri sound = Uri.parse(SOUND_NOTIFICATIONS);
                 UAirship.shared().getPushManager().editTags()
                         .addTag(channel)
                         .apply();
+                UAirship.shared().getPushManager().setNotificationFactory(notificationFactory);
+                //UAirship.shared().getPushManager().setNotificationFactory(notificationFactory);
+                Log.d("CHANNEL: ", channel);
                 String password = user.hashpassword;
                 String cel_code = user.celular_codigo;
                 String typeOfId = user.idType;
@@ -359,11 +379,11 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
 
                 editor.putString("apellido", apellido);
                 editor.putString("nombre", nombre);
-                editor.putString("typeOfId",getTypeOfDocumentFromIdCode(typeOfId));
-                editor.putString("numberOfId",numberOfId);
+                editor.putString("typeOfId", getTypeOfDocumentFromIdCode(typeOfId));
+                editor.putString("numberOfId", numberOfId);
                 //editor.putString("celular_codigo",cel_code);
                 idCuenta = user.idCuenta;
-                editor.putString("idCuenta",String.valueOf(idCuenta));
+                editor.putString("idCuenta", String.valueOf(idCuenta));
                 editor.apply();
                 //Launch SOAP request for mCard
                 if (postValues.size() > 0) postValues.clear();
@@ -374,12 +394,12 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 Constants.saveUser(ctx, user, channel);
                 valueOfMcard = prefs.getString("idMcard", "0");
                 idMcard1 = Integer.valueOf(valueOfMcard);
-                db.addUser(new UserDataBase(nombre,apellido,getTypeOfDocumentFromIdCode(typeOfId),numberOfId,prefs.getString("numMcard",numMcard),findValueOfMcard(), findValueOfMcard(),findValueOfMcard()));
+                db.addUser(new UserDataBase(nombre, apellido, getTypeOfDocumentFromIdCode(typeOfId), numberOfId, prefs.getString("numMcard", numMcard), findValueOfMcard(), findValueOfMcard(), findValueOfMcard()));
                 /*CHECK IF DATA BASE EXIST*/
                 Intent returnIntent = new Intent();
-                    Log.e("Sergio", "Acá sí");
-                    setResult(RESULT_OK, returnIntent);
-                    finish();
+                Log.e("Sergio", "Acá sí");
+                setResult(RESULT_OK, returnIntent);
+                finish();
 
             } else {
                 Toast.makeText(ctx, event.getFaultString(), Toast.LENGTH_LONG).show();
@@ -388,13 +408,13 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         }
     }
 
-    public String findValueOfMcard(){
+    public String findValueOfMcard() {
 
         //********************* PRIVILEGE       PREMIUM         EXCLUSIVE            UNLIMITED
-        String[] arrayMcards = {"USD $100,000",  "USD $250,000",  "USD $1'000,000", "USD $2'000,000"};
+        String[] arrayMcards = {"USD $100,000", "USD $250,000", "USD $1'000,000", "USD $2'000,000"};
         //********************      212             208             209             210
 
-        switch(idMcard1){
+        switch (idMcard1) {
             case 212:
                 valueOfMcard = arrayMcards[0];
                 break;
@@ -414,10 +434,10 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
 
     }
 
-    public String getTypeOfDocumentFromIdCode(String typeOfId){
+    public String getTypeOfDocumentFromIdCode(String typeOfId) {
         String defaultType = "";
 
-        switch (typeOfId){
+        switch (typeOfId) {
             case "1":
                 return "CC";
             case "2":
@@ -450,5 +470,6 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
     public void onMenu(View view) {
         animate();
     }
+
 
 }

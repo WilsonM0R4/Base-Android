@@ -121,7 +121,6 @@ public class TransactionHistoryActivity extends FrontBackAnimate implements Fron
     private void loadBuyouts() {
         if(((VisaCheckoutApp)this.getApplication()).getIdSession()!=null)
         if (Util.hasInternetConnectivity(ctx)){
-
             setWaitinUI(true);
             Log.d(Constants.KEY_ID_SESSION+" app",((VisaCheckoutApp)this.getApplication()).getIdSession());
             postValues.add(new BasicNameValuePair(Constants.KEY_ID_SESSION, ((VisaCheckoutApp)this.getApplication()).getIdSession()));

@@ -7,6 +7,9 @@ import android.webkit.JavascriptInterface;
 
 import com.allegra.handyuvisa.utils.Constants;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * Created by jsandoval on 26/07/16.
  */
@@ -22,7 +25,17 @@ public class AppJavaScriptProxyServices {
     public void postMessage(String message) {
         Log.e("Message",message);
         Log.e("Repeat message", message);
-        /*try {
+
+        if (message.contains("myCurrentLocation")) {
+            //Obtengo latitud y longitud
+
+
+            //Se los envío a la función JavaScript MyGeoLocation
+
+
+
+        }
+      /*  try {
 
             JSONObject paymentData= new JSONObject(message);
             Intent intent = new Intent(activity,HotelsPaymentActivity.class);
@@ -42,9 +55,8 @@ public class AppJavaScriptProxyServices {
         }*/
 
         ((ServiceActivity)activity).onePocketmessage = message;
-        if(checkLogin()) ((ServiceActivity) activity).openOnePocket();
+        //if(checkLogin()) ((ServiceActivity) activity).openOnePocket();
         // temporal change
-
     }
 
     private boolean checkLogin() {

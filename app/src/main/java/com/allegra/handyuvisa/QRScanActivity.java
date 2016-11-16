@@ -120,10 +120,18 @@ public class QRScanActivity extends FrontBackAnimate{// implements FrontBackAnim
                     BigDecimal adjTotal = tmpTotal.setScale(0, BigDecimal.ROUND_HALF_UP);
                     //total.setText("$ " + adjTotal);
 
+                    //Change in order to fix problem with tax
+
                     BigDecimal tax = solicitud.iva.multiply(solicitud.baseDevolucion).divide(new BigDecimal("100"));
                     BigDecimal tmpIVA = tax.setScale(2, BigDecimal.ROUND_HALF_UP);
                     BigDecimal adjIVA = tmpIVA.setScale(0, BigDecimal.ROUND_HALF_UP);
+
+                    Log.d(TAG, "El valor es: "+solicitud.valor.toString());
+                    Log.d(TAG, "El iva es: "+ solicitud.iva.toString());
+                    Log.d(TAG, "La baseDevolucion  es: "+solicitud.baseDevolucion.toString());
+
                     //taxes.setText("$  " + adjIVA);
+                    //Log.d(TAG, "El adjIVA es: "+adjIVA.toString());
 
                     currency = solicitud.moneda;
                     reference = solicitud.referencia;
@@ -131,9 +139,9 @@ public class QRScanActivity extends FrontBackAnimate{// implements FrontBackAnim
                     //Testing
                     Intent intent2 = new Intent(QRScanActivity.this, OnepocketPurchaseActivity.class);
                     String data = "{\"businessName\":\"" + solicitud.razonSocial +//vendor.getText()
-                            "\",\"purchaseValue\":\"" + ("$ " + adjTotal).toString().replace("$", "").trim() +//total.getText()
-                            "\",\"taxValue\":\"" + ("$  " + adjIVA).toString().replace("$", "").trim() +
-                            "\",\"devolutionBasisTax\":\"" + ("$ " + adjbeforeTax).toString().replace("$", "").trim() +
+                            "\",\"purchaseValue\":\"" + ("$ " + solicitud.valor).toString().replace("$", "").trim() +//total.getText() adjTotal
+                            "\",\"taxValue\":\"" + ("$  " + solicitud.iva).toString().replace("$", "").trim() +//adjIVA
+                            "\",\"devolutionBasisTax\":\"" + ("$ " + solicitud.baseDevolucion).toString().replace("$", "").trim() +//adjbeforeTax
                             "\",\"codeISO\":\"" + currency +
                             "\",\"reference\":\"" + reference +
                             "\"}";
@@ -144,7 +152,7 @@ public class QRScanActivity extends FrontBackAnimate{// implements FrontBackAnim
                     finish();
                 } else {
 
-                    Log.e(TAG, event.getFaultString());
+                    //Log.e(TAG, event.getFaultString());
                     Toast.makeText(QRScanActivity.this, event.getFaultString(), Toast.LENGTH_LONG).show();
                     finish();
                 }
@@ -170,7 +178,7 @@ public class QRScanActivity extends FrontBackAnimate{// implements FrontBackAnim
             bitmap = qrCodeEncoder.encodeAsBitmap();
 
         } catch (WriterException e) {
-            Log.d(TAG, "Error in drawing QRCode: ", e);
+            //Log.d(TAG, "Error in drawing QRCode: ", e);
         }
         return bitmap;
     }
@@ -178,7 +186,7 @@ public class QRScanActivity extends FrontBackAnimate{// implements FrontBackAnim
     private void obtenerTicket(String idSolicitud) {
         if (Util.hasInternetConnectivity(this)){
             //setWaitinUI(true);
-            Log.d(TAG,Constants.KEY_ID_SOLICITUD+":"+idSolicitud);
+            //Log.d(TAG,Constants.KEY_ID_SOLICITUD+":"+idSolicitud);
             postValues.add(new BasicNameValuePair(Constants.KEY_ID_SOLICITUD,idSolicitud));
             AsyncSoapObject.getInstance(Constants.getWSDL(), Constants.NAMESPACE_ALLEM,
                     Constants.METHOD_OBTENER_SOLICITUD_DE_PAGO, postValues, Constants.ACTIVITY_PAY_DETALLE).execute();
@@ -195,7 +203,7 @@ public class QRScanActivity extends FrontBackAnimate{// implements FrontBackAnim
 
             String id = scanResult.getContents();
             if (resultCode == -1) {
-                Log.d("resultado QR", id);
+                //Log.d("resultado QR", id);
                 try {
                     //iv_qrcode.setImageBitmap(drawQRCode(id, GraphicsUtils.getWindowSize(this).x));
                     obtenerTicket(id);
@@ -217,7 +225,7 @@ public class QRScanActivity extends FrontBackAnimate{// implements FrontBackAnim
     }
 
     private void openScan(){
-        Log.d("Entra a","openScan");
+        //Log.d("Entra a","openScan");
         IntentIntegrator integrator = new IntentIntegrator(this);
         integrator.setCaptureActivity(CustomQrActivity.class);
         integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);

@@ -165,7 +165,7 @@ public class OnepocketContainerActivity extends FrontBackAnimate  implements Fro
                         break;
 
                     case 1:
-                        Log.e(TAG, "invalid perform id: " + 1);
+                        //Log.e(TAG, "invalid perform id: " + 1);
                         break;
 
                 }

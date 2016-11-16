@@ -81,22 +81,6 @@
         android:src="@drawable/load__call"
         />-->
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/loading_salmon"
-        android:text="@string/txt_lbl_callwait"
-        android:background="@android:color/transparent"
-        android:id="@+id/tv_status_otc"
-        android:layout_marginBottom="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_above="@+id/cancel_one_touch"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        />
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -111,6 +95,21 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="35dp"
         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/loading_salmon"
+        android:text="@string/txt_lbl_callwait"
+        android:background="@android:color/transparent"
+        android:id="@+id/tv_status_otc"
+        android:layout_marginBottom="27dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:gravity="center"
+        android:layout_above="@+id/cancel_one_touch"
+        android:layout_centerHorizontal="true" />
     <!--<com.allegra.handyuvisa.utils.CustomizedTextView
         android:id="@+id/btn_login"
         android:layout_width="wrap_content"
