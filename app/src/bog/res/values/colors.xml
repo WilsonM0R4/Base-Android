@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="bg_gradiente">#002C75</color>
+
+
+    <!-- Colors #00000000<-->
+    <color name="CLEAR_COLOR">#00000000</color>
+    <color name="WHITE_COLOR">#ffffff</color>
+    <color name="BLACK_COLOR">#000000</color>
+
+    <color name= "PURPLE_COLOR">#CF447A</color>
+    <color name= "ORANGE_COLOR">#EF411F</color>
+    <color name= "TEXT_COLOR">#444444</color>
+    <color name= "GRAY_COLOR">#9B9999</color>
+    <color name= "LIGHT_GRAY_COLOR">#F4F4F4</color>
+    <color name="BORDER_GRAY_COLOR">#E2E2E2</color>
+    <color name="DARK_GRAY_COLOR">#9C9C9C</color>
+    <color name="ALLEGRA_RED_COLOR">#ED4630</color>
+    <color name="ALLEGRA_PURPLE_COLOR">#CF447A</color>
+    <color name="CLEAR_COLOR_GRADIENT">#10FFFFFF</color>
+    <color name="btn_register">#BB4230</color>
+
+    <color name="HeaderTitle">@color/PURPLE_COLOR</color>
+    <!-- Texts -->
+    <color name="GeneralDescription">@color/DARK_GRAY_COLOR</color>
+    <!-- Button -->
+    <!-- BigButton -->
+    <color name="BigButton_backgroung">@color/ORANGE_COLOR</color>
+    <color name="BigButton_border">@color/CLEAR_COLOR</color>
+    <color name="BigButton_text">@color/WHITE_COLOR</color>
+    <!-- BigButtonWithBorder -->
+    <color name="BigButtonWithBorder_backgroung">@color/CLEAR_COLOR</color>
+    <color name="BigButtonWithBorder_border">@color/ORANGE_COLOR</color>
+    <color name="BigButtonWithBorder_text">@color/ORANGE_COLOR</color>
+    <!-- SmallButton -->
+    <color name="SmallButton_backgroung">@color/PURPLE_COLOR</color>
+    <color name="SmallButton_border">@color/CLEAR_COLOR</color>
+    <color name="SmallButton_text">@color/WHITE_COLOR</color>
+    <!-- SmallButtonWithBorder -->
+    <color name="SmallButtonWithBorder_backgroung">@color/CLEAR_COLOR</color>
+    <color name="SmallButtonWithBorder_border">@color/ORANGE_COLOR</color>
+    <color name="SmallButtonWithBorder_text">@color/ORANGE_COLOR</color>
+    <!-- HomeButtonSmall -->
+    <color name="HomeButtonSmall_backgroung">@color/WHITE_COLOR</color>
+    <color name="HomeButtonSmall_border">@color/CLEAR_COLOR</color>
+    <color name="HomeButtonSmall_text">@color/btn_register</color>
+    <!-- HomeButtonSmalllWithBorder -->
+    <color name="HomeButtonSmalllWithBorder_backgroung">@color/CLEAR_COLOR</color>
+    <color name="HomeButtonSmalllWithBorder_border">@color/WHITE_COLOR</color>
+    <color name="HomeButtonSmalllWithBorder_text">@color/WHITE_COLOR</color>
+    <!-- SkipMenuHome -->
+    <color name="SkipMenuHome_backgroung">@color/CLEAR_COLOR</color>
+    <color name="SkipMenuHome_border">@color/WHITE_COLOR</color>
+    <color name="SkipMenuHome_text">@color/WHITE_COLOR</color>
+    <!-- ForgotPassButton -->
+    <color name="ForgotPassButton_backgroung">@color/CLEAR_COLOR</color>
+    <color name="ForgotPassButton_border">@color/CLEAR_COLOR</color>
+    <color name="ForgotPassButton_text">@color/PURPLE_COLOR</color>
+    <!-- BigButton2 -->
+    <color name="BigButton2_backgroung">@color/PURPLE_COLOR</color>
+    <color name="BigButton2_border">@color/CLEAR_COLOR</color>
+    <color name="BigButton2_text">@color/WHITE_COLOR</color>
+    <!-- BigButtonWithBorder2 -->
+    <color name="BigButtonWithBorder2_backgroung">@color/CLEAR_COLOR</color>
+    <color name="BigButtonWithBorder2_border">@color/GRAY_COLOR</color>
+    <color name="BigButtonWithBorder2_text">@color/GRAY_COLOR</color>
+    <!-- buttonAddRoom -->
+    <color name="buttonAddRoom_backgroung">@color/CLEAR_COLOR</color>
+    <color name="buttonAddRoom_border">@color/CLEAR_COLOR</color>
+    <color name="buttonAddRoom_text">@color/PURPLE_COLOR</color>
+    <!-- chatSendButton -->
+    <color name="chatSendButton_backgroung">@color/CLEAR_COLOR</color>
+    <color name="chatSendButton_border">@color/CLEAR_COLOR</color>
+    <color name="chatSendButton_text">@color/ORANGE_COLOR</color>
+    <!-- BigButtonWithBorder3 -->
+    <color name="BigButtonWithBorder3_backgroung">@color/CLEAR_COLOR</color>
+    <color name="BigButtonWithBorder3_border">@color/WHITE_COLOR</color>
+    <color name="BigButtonWithBorder3_text">@color/WHITE_COLOR</color>
+    <!-- Inputs -->
+    <!-- InputFocus -->
+    <array name="Input">
+        <item>@color/InputNormal_border_hit</item>
+        <item>@color/InputNormal_text</item>
+    </array>
+
+    <color name="InputFocus_border">@color/ORANGE_COLOR</color>
+    <color name="InputFocus_text">@color/TEXT_COLOR</color>
+    <!-- InputNormal -->
+    <color name="InputNormal_border_hit">@color/GRAY_COLOR</color>
+    <color name="InputNormal_text">@color/TEXT_COLOR</color>
+    <!-- Component -->
+    <!--- Selectors -->
+    <!-- DoubleSelectorButtonNormal -->
+    <color name="DoubleSelectorButtonNormal_backgroung">@color/CLEAR_COLOR</color>
+    <color name="DoubleSelectorButtonNormal_border">@color/CLEAR_COLOR</color>
+    <color name="DoubleSelectorButtonNormal_text">@color/WHITE_COLOR</color>
+    <!-- DoubleSelectorButtonSelected -->
+    <color name="DoubleSelectorButtonSelected_backgroung">@color/PURPLE_COLOR</color>
+    <color name="DoubleSelectorButtonSelected_border">@color/CLEAR_COLOR</color>
+    <color name="DoubleSelectorButtonSelected_text">@color/WHITE_COLOR</color>
+    <color name="DoubleSelectorButtonSelected_shadow">@color/BLACK_COLOR</color>
+    <!-- ThirdSelectorButtonTitle -->
+    <array name="ThirdSelector">
+        <item>@color/ThirdSelectorButtonNormal_text</item>
+        <item>@color/ThirdSelectorButtonSelected_text</item>
+    </array>
+    <color name="ThirdSelectorButtonTitle_text">@color/PURPLE_COLOR</color>
+    <!-- ThirdSelectorButtonNormal -->
+    <color name="ThirdSelectorButtonNormal_backgroung">@color/CLEAR_COLOR</color>
+    <color name="ThirdSelectorButtonNormal_border">@color/CLEAR_COLOR</color>
+    <color name="ThirdSelectorButtonNormal_text">@color/GRAY_COLOR</color>
+    <!-- ThirdSelectorButtonSelected -->
+    <color name="ThirdSelectorButtonSelected_backgroung">@color/CLEAR_COLOR</color>
+    <color name="ThirdSelectorButtonSelected_border">@color/PURPLE_COLOR</color>
+    <color name="ThirdSelectorButtonSelected_text">@color/PURPLE_COLOR</color>
+    <color name="ThirdSelectorButtonSelected_shadow">@color/CLEAR_COLOR</color>
+
+    <!--- Calendar Selector Date -->
+    <!-- CalendarHeaderDate -->
+    <color name="CalendarHeaderDate_text">@color/GRAY_COLOR</color>
+    <!-- CalendarBodyDate -->
+    <color name="CalendarBodyDate_text">@color/PURPLE_COLOR</color>
+    <!-- CalendarFooterDateDay -->
+    <color name="CalendarFooterDateDay_text">@color/GRAY_COLOR</color>
+    <!-- CalendarHeaderTitle -->
+    <color name="CalendarHeaderTitle_text">@color/GRAY_COLOR</color>
+    <!-- CalendarBodySubtitle -->
+    <color name="CalendarBodySubtitle_text">@color/GRAY_COLOR</color>
+    <!-- CalendarFooterDateMonth -->
+    <color name="CalendarFooterDateMonth_text">@color/GRAY_COLOR</color>
+    <!-- CalendarSelectorRange -->
+    <color name="CalendarSelectorRange_backgroung">@color/PURPLE_COLOR</color>
+    <color name="CalendarSelectorRange_border">@color/CLEAR_COLOR</color>
+    <color name="CalendarSelectorRange_text">@color/WHITE_COLOR </color>
+    <!--- Person Selector -->
+    <!-- PersonSelectorTitle -->
+    <color name="PersonSelectorTitle_backgroung">@color/CLEAR_COLOR</color>
+    <color name="PersonSelectorTitle_border">@color/CLEAR_COLOR</color>
+    <color name="PersonSelectorTitle_text">@color/GRAY_COLOR</color>
+    <!-- PersonSelectorContentBox -->
+    <color name="PersonSelectorContentBox_backgroung">@color/LIGHT_GRAY_COLOR</color>
+    <color name="PersonSelectorContentBox_border">@color/CLEAR_COLOR</color>
+    <color name="PersonSelectorContentBox_text">@color/GRAY_COLOR</color>
+    <!-- PersonSelectorItemDescriptionTitle -->
+    <color name="PersonSelectorItemDescriptionTitle_text">@color/PURPLE_COLOR</color>
+    <!-- PersonSelectorItemDescriptionSubTitle -->
+    <color name="PersonSelectorItemDescriptionSubTitle">@color/GRAY_COLOR</color>
+    <!-- PersonSelectorItemDescriptionNumber -->
+    <color name="PersonSelectorItemDescriptionNumber">@color/BLACK_COLOR</color>
+    <!-- PersonSelectorBox -->
+    <color name="PersonSelectorBox_backgroung">@color/CLEAR_COLOR</color>
+    <color name="PersonSelectorBox_border">@color/PURPLE_COLOR</color>
+    <color name="PersonSelectorBox_text">@color/PURPLE_COLOR</color>
+    <!-- PersonSelectorBoxTitle -->
+    <color name="PersonSelectorBoxTitle_text">@color/PURPLE_COLOR</color>
+    <!-- PersonButtonSelectorFooter -->
+    <color name="PersonButtonSelectorFooter_text">@color/BLACK_COLOR</color>
+    <!--- Selecter City -->
+    <!-- SelecterCityTitle -->
+    <color name="SelecterCityTitle_text">@color/WHITE_COLOR</color>
+    <!-- SelecterCitySubTitle -->
+    <color name="SelecterCitySubTitle_text">@color/WHITE_COLOR</color>
+    <!--- Search -->
+    <!-- SearchAlert -->
+    <color name="SearchAlert_text">@color/ORANGE_COLOR</color>
+    <!-- SearchItemSelectedTitle -->
+    <color name="SearchItemSelectedTitle_backgroung">@color/PURPLE_COLOR</color>
+    <color name="SearchItemSelectedTitle_text">@color/WHITE_COLOR</color>
+    <!-- SearchItemSelectedSubTitle -->
+    <color name="SearchItemSelectedSubTitle_backgroung">@color/PURPLE_COLOR</color>
+    <color name="SearchItemSelectedSubTitle_text">@color/GRAY_COLOR</color>
+    <!-- SearchItemSelectedTextRight -->
+    <color name="SearchItemSelectedTextRight_backgroung">@color/PURPLE_COLOR</color>
+    <color name="SearchItemSelectedTextRight_text">@color/WHITE_COLOR</color>
+    <!-- SearchItemNormalTitle -->
+    <color name="SearchItemNormalTitle_backgroung">@color/CLEAR_COLOR</color>
+    <color name="SearchItemNormalTitle">@color/TEXT_COLOR</color>
+    <!-- SearchItemNormalSubTitle -->
+    <color name="SearchItemNormalSubTitle_backgroung">@color/CLEAR_COLOR</color>
+    <color name="SearchItemNormalSubTitle_text">@color/GRAY_COLOR</color>
+    <!-- SearchItemNormalTextRight -->
+    <color name="SearchItemNormalTextRight_backgroung">@color/CLEAR_COLOR</color>
+    <color name="SearchItemNormalTextRight_text">@color/ORANGE_COLOR</color>
+    <!-- SearchCell -->
+    <color name="SearchCell_backgroung">@color/WHITE_COLOR</color>
+    <!-- SearchCellSelected -->
+    <color name="SearchCellSelected_backgroung">@color/PURPLE_COLOR</color>
+    <!--- Guest Per Room -->
+    <!--GuestPerRoomTitle -->
+    <color name="GuestPerRoomTitle_backgroung">@color/PURPLE_COLOR</color>
+    <color name="GuestPerRoomTitle_text">@color/WHITE_COLOR</color>
+    <!-- GuestPerRoomDescription -->
+    <color name="GuestPerRoomDescription_backgroung">@color/LIGHT_GRAY_COLOR</color>
+    <color name="GuestPerRoomDescription_text">@color/TEXT_COLOR</color>
+    <!--- Selected Room -->
+    <!-- SelectedRoomDescription -->
+    <color name="SelectedRoomDescription_backgroung">@color/CLEAR_COLOR</color>
+    <color name="SelectedRoomDescription_text">@color/GRAY_COLOR</color>
+    <!-- SelectedRoomButtonAddRoom -->
+    <color name="SelectedRoomButtonAddRoom_backgroung">@color/LIGHT_GRAY_COLOR</color>
+    <color name="SelectedRoomButtonAddRoom_text">@color/PURPLE_COLOR</color>
+
+    <!--- Menu -->
+    <!-- InternalMenus -->
+    <color name="InternalMenus_backgroung">@color/CLEAR_COLOR</color>
+    <color name="InternalMenus_border">@color/ORANGE_COLOR</color>
+    <color name="InternalMenus_text">@color/TEXT_COLOR</color>
+    <!-- HomeMenus -->
+    <color name="HomeMenus_backgroung">@color/CLEAR_COLOR</color>
+    <color name="HomeMenus_text">@color/WHITE_COLOR</color>
+    <color name="HomeMenusLine_background">@color/WHITE_COLOR</color>
+    <color name="HomeMenusLine2_background">@color/CLEAR_COLOR_GRADIENT</color>
+    <!-- GeneralAppHeaderTitle -->
+    <color name="GeneralAppHeaderTitle_backgroud">@color/CLEAR_COLOR</color>
+    <color name="GeneralAppHeaderTitle_text">@color/PURPLE_COLOR</color>
+    <!--- Alert -->
+    <!-- HeaderAlert -->
+    <color name="HeaderAlert_backgroung">@color/CLEAR_COLOR</color>
+    <color name="HeaderAlert_text">@color/PURPLE_COLOR</color>
+    <!-- BodyAlert -->
+    <color name="BodyAlert_backgroung">@color/CLEAR_COLOR</color>
+    <color name="BodyAlert_text">@color/GRAY_COLOR</color>
+    <!--- Hotels/Concierge Destination -->
+    <!-- HeaderDestination -->
+    <color name="HeaderDestination_backgroung">@color/CLEAR_COLOR</color>
+    <color name="HeaderDestination_text">@color/WHITE_COLOR</color>
+    <!-- BodyDestinationCityNormal -->
+    <color name="BodyDestinationCityNormal_backgroung">@color/CLEAR_COLOR</color>
+    <color name="BodyDestinationCityNormal_text">@color/WHITE_COLOR</color>
+    <!-- BodyDestinationCitySelected -->
+    <color name="BodyDestinationCitySelected_backgroung">@color/CLEAR_COLOR</color>
+    <color name="BodyDestinationCitySelected_text">@color/WHITE_COLOR</color>
+    <!-- BodyDestination2CitySelected -->
+    <color name="BodyDestination2CitySelected_backgroung">@color/CLEAR_COLOR</color>
+    <color name="BodyDestination2CitySelected_text">@color/WHITE_COLOR</color>
+    <!--- Home -->
+    <!-- HomeTitle -->
+    <color name="HomeTitle_backgroung">@color/CLEAR_COLOR</color>
+    <color name="HomeTitle_text">@color/WHITE_COLOR</color>
+    <!-- HomeDescription -->
+    <color name="HomeDescription_backgroung">@color/CLEAR_COLOR</color>
+    <color name="HomeDescription_text">@color/WHITE_COLOR</color>
+    <!-- HomeFooter -->
+    <color name="HomeFooter_backgroung">@color/CLEAR_COLOR</color>
+    <color name="HomeFooter_text">@color/WHITE_COLOR</color>
+    <!--- title -->
+    <!-- GeneralTitle1 -->
+    <color name="GeneralTitle1_text">@color/ORANGE_COLOR</color>
+    <!-- GeneralTitle2 -->
+    <color name="GeneralTitle2_text">@color/PURPLE_COLOR</color>
+    <!-- HomeDescriptionTitle -->
+    <color name="HomeDescriptionTitle_text">@color/GRAY_COLOR</color>
+    <!-- ProfileTitle -->
+    <color name="ProfileTitle_text">@color/PURPLE_COLOR</color>
+    <!-- NavbarTitle -->
+    <color name="NavbarTitle_text">@color/PURPLE_COLOR</color>
+    <!-- DataRecoveryPassword -->
+    <color name="DataRecoveryPassword_text">@color/BLACK_COLOR</color>
+    <!--- Login -->
+    <!-- RadioButon -->
+    <color name="RadioButon_backgroud">@color/PURPLE_COLOR</color>
+    <!--- Login -->
+    <!-- TransactionTitle -->
+    <color name="TransactionTitle_backgroung">@color/LIGHT_GRAY_COLOR</color>
+    <color name="TransactionTitle_border">@color/CLEAR_COLOR</color>
+    <color name="TransactionTitle_text">@color/BLACK_COLOR</color>
+    <!--- Legal -->
+    <!-- Version -->
+    <color name="Version_text">@color/GRAY_COLOR</color>
+    <!-- labelInfoRoom -->
+    <color name="labelInfoRoom_backgroung">@color/CLEAR_COLOR</color>
+    <color name="labelInfoRoom_border">@color/BORDER_GRAY_COLOR</color>
+    <color name="labelInfoRoom_text">@color/GRAY_COLOR</color>
+    <!-- TalkingToLabel -->
+    <color name="TalkingToLabel_backgroung">@color/CLEAR_COLOR</color>
+    <color name="TalkingToLabel_border">@color/CLEAR_COLOR</color>
+    <color name="TalkingToLabel_text">@color/PURPLE_COLOR</color>
+    <!-- ChatDateLabel -->
+    <color name="ChatDateLabel_backgroung">@color/CLEAR_COLOR</color>
+    <color name="ChatDateLabel_border">@color/CLEAR_COLOR</color>
+    <color name="ChatDateLabel_text">@color/WHITE_COLOR</color>
+    <!-- ChatAgenMessageLabel -->
+    <color name="ChatAgenMessageLabel_backgroung">@color/PURPLE_COLOR</color>
+    <color name="ChatAgenMessageLabel_border">@color/CLEAR_COLOR</color>
+    <color name="ChatAgenMessageLabel_text">@color/WHITE_COLOR</color>
+    <!-- ChatUserMessageLabel -->
+    <color name="ChatUserMessageLabel_backgroung">@color/ORANGE_COLOR</color>
+    <color name="ChatUserMessageLabel_border">@color/CLEAR_COLOR</color>
+    <color name="ChatUserMessageLabel_text">@color/WHITE_COLOR</color>
+    <!-- CabinSelectorTitleLabel -->
+    <color name="CabinSelectorTitleLabel_backgroung">@color/CLEAR_COLOR</color>
+    <color name="CabinSelectorTitleLabel_border">@color/CLEAR_COLOR</color>
+    <color name="CabinSelectorTitleLabel_text">@color/PURPLE_COLOR</color>
+    <!--- header -->
+    <!-- FirstColorHeader -->
+    <color name="FirstColorHeader_backgroung">@color/CLEAR_COLOR</color>
+    <!-- SecondColorHeader -->
+    <color name="SecondColorHeader_backgroung">@color/CLEAR_COLOR</color>
+    <!-- FirstColorLineHeader -->
+    <color name="FirstColorLineHeader_backgroung">@color/ORANGE_COLOR</color>
+    <!-- SecondColorLineHeader -->
+    <color name="SecondColorLineHeader_backgroung">@color/PURPLE_COLOR</color>
+    <!-- Proof of coverage -->
+    <color name="ProofOfCoverageTitle_text">@color/GRAY_COLOR</color>
+    <color name="ProofOfCoverageName_text">@color/PURPLE_COLOR</color>
+    <color name="ProofOfCoverageCC_text">@color/TEXT_COLOR</color>
+    <color name="ProofOfCoverageDescriptionTitle_text">@color/TEXT_COLOR</color>
+    <color name="ProofOfCoverageValor_text">@color/TEXT_COLOR</color>
+    <color name="ProofOfCoverageFooter_text">@color/GRAY_COLOR</color>
+    <!-- Call -->
+    <!-- CallTitleComponent -->
+    <color name="CallTitleComponent_text">@color/GRAY_COLOR</color>
+    <!-- Chat -->
+    <!-- CallTitle -->
+    <color name="CallButtonSend_background">@color/CLEAR_COLOR</color>
+    <color name="CallButtonSend_text">@color/ORANGE_COLOR</color>
+    <!-- Register -->
+    <!-- Confirmation register -->
+    <color name="ConfirmationTitle_background">@color/WHITE_COLOR</color>
+    <color name="ConfirmationName_background">@color/WHITE_COLOR</color>
+    <color name="ConfirmationDescription_background">@color/WHITE_COLOR</color>
+    <!-- Line -->
+    <!-- LineSeparatror -->
+    <color name="LineSeparatror_background">@color/PURPLE_COLOR</color>
+
+    <color name="background_red">#f9ff4080</color>
+    <color name="black">#000000</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="pink_parent_selector">#FFECF5</color>
+    <color name="soft_dark">#262626</color>
+    <color name="soft_dark2">#4A4A4A</color>
+    <color name="white">@android:color/white</color>
+    <color name="gray2">#f1f1f4</color>
+    <color name="gray3">#9b9b9b</color>
+    <color name="gray4">#4a4a4a</color>
+    <color name="gray">#d0d0d7</color>
+    <color name="yellow">#FDD500</color>
+    <color name="salmon">#FF686C</color>
+    <color name="orange">#ef411f</color>
+    <color name="magenta">#d02a7b</color>
+    <color name="blue">#459FF8</color>
+    <color name="purple">#9855D4</color>
+    <color name="transaction_text">#707070</color>
+    <color name="transaction_background">#f4f4f4</color>
+    <color name="transaction_child_text">#009bff</color>
+    <color name="dark_gray">#8b8b98</color>
+    <color name="allem_white_transparent_separator">#10FFFFFF</color>
+    <color name="allem_transparent">#00ffffff</color>
+    <color name="allem_white_transparent">#80FFFFFF</color>
+    <color name="allem_white_transparent_scroll">#4DFFFFFF</color>
+    <color name="allem_gray_extra_light">#f6f6f6</color>
+    <color name="custom_header_text">#707070</color>
+    <color name="custom_selected">#d02a7b</color>
+    <color name="custom_background">#10FFFFFF</color>
+    <color name="custom_background_today">#8B8B98</color>
+    <color name="custom_background_disabled">#10FFFFFF</color>
+    <color name="custom_text_selected">#ffffff</color>
+    <color name="custom_text_inactive">#7f778088</color>
+    <color name="transparent">#00000000</color>
+    <color name="gray_concierge_text">#9c9c9c</color>
+
+    <!-- Color specification for the TimeSquare Library -->
+    <!-- Reference: https://github.com/square/android-times-square/blob/master/library/src/main/res/drawable/calendar_bg_selector.xml -->
+    <color name="calendar_text_selected">#ffffff</color>
+    <color name="calendar_selected_day_bg">#d02a7b</color>
+    <color name="calendar_selected_range_bg">#d02a7b</color>
+    <!-- Color for register editTexts input inactive and active -->
+    <color name="register_input_inactive">#d4d4d4</color>
+    <color name="register_input_active">#444444</color>
+    <color name="red">#DF1414</color>
+    <color name="bg">#E6E6E6</color>
+    <color name="hintcolor">#C7C7CD</color>
+    <color name="linecolor">#D9D9D9</color>
+    <color name="bdaypop">#B80013</color>
+    <color name="footer_select">#D9EBFF</color>
+    <color name="view_all">#B80013</color>
+    <color name="footer_divider">#E6E6E6</color>
+    <color name="gary1">#9F9F9F</color>
+    <color name="first_bg">#F3F3F3</color>
+    <color name="mycolor">#38A4DB</color>
+    <color name="mycolor1">#607D8B</color>
+    <color name="mycolor2">#94BBD2</color>
+    <color name="resetcolor">#162F3C</color>
+    <color name="signuptextcolor">#A4D0F0</color>
+    <color name="dashboardcolor1">#CA1E60</color>
+    <color name="dashboardcolor2">#139DBE</color>
+    <color name="reportcolor">#0090B4</color>
+    <color name="advancemenucolor">#C7DBEB</color>
+    <color name="pink">#A71F56</color>
+    <color name="adjust_photo">#AAC9DB</color>
+    <color name="namecolor">#33B19B</color>
+    <color name="dark_blue"> #2664A8</color>
+    <color name="violate">#9755d3</color>
+    <color name="loading_salmon">#EF411F</color>
+
+</resources>

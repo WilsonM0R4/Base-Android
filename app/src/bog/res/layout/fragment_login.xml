@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rl_body"
+    android:background="@drawable/background"
+    android:clickable="true"
+    android:onClick="onCloseMenu">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/white"
+        android:onClick="onCloseMenu"
+        android:id="@+id/ll_header">
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/cancel_button"
+            android:background="@color/GeneralAppHeaderTitle_backgroud"
+            android:id="@+id/imageButton3"
+            android:contentDescription="menu"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:onClick="onUp" /> <!--android:layout_marginLeft="16dp"-->
+
+        <com.allegra.handyuvisa.utils.CustomizedTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="16sp"
+            android:text="@string/sign_in"
+            android:id="@+id/tv_title_secc"
+            app:font="@string/font_varela"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/GeneralAppHeaderTitle_text" />             <!-- android:textAppearance="?android:attr/textAppearanceMedium"-->
+
+       <!-- <ImageButton
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/icon_menu"
+            android:background="@android:color/transparent"
+            android:id="@+id/ib_menu"
+            android:onClick="onMenu"
+            android:contentDescription="menu"
+            android:layout_alignBottom="@+id/tv_title_secc"
+            android:layout_alignParentEnd="true" />-->
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:id="@+id/iv_header"
+        android:layout_below="@+id/ll_header"
+        android:layout_marginTop="-10dp"
+        android:layout_marginLeft="-2dp"
+        android:layout_marginRight="-2dp"
+        android:src="@drawable/separator_medium_mag"
+        android:contentDescription="Divider" />
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="false"
+        android:layout_below="@+id/iv_header"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_alignParentEnd="false"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_alignParentBottom="true">
+
+        <com.allegra.handyuvisa.utils.CustomizedTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_welcome"
+            android:text="@string/welcome"
+            android:textColor="@color/GeneralTitle1_text"
+            android:textSize="22dp"
+            android:gravity="center"
+            app:font="@string/font_muli_extraLight"
+            />
+
+        <com.allegra.handyuvisa.utils.CustomizedTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_greet"
+            android:text="@string/greet"
+            android:layout_below="@id/tv_welcome"
+            android:textColor="@color/GeneralDescription"
+            android:textSize="18dp"
+            android:gravity="center"
+            app:font="@string/font_muli"
+            />
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ll_email"
+            android:layout_below="@id/tv_welcome"
+            android:layout_marginTop="45dp">
+
+         <!--   <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/field_mail"
+                android:layout_alignParentTop="false"
+                android:layout_alignParentLeft="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                />-->
+
+            <com.allegra.handyuvisa.utils.CustomizedEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_email"
+                android:textColor="@color/InputNormal_text"
+                android:drawableLeft="@drawable/field_mail"
+                android:drawableRight="@drawable/icon_clear"
+                android:textColorHint="@color/InputNormal_border_hit"
+                android:inputType="text|textNoSuggestions|textEmailAddress"
+                android:layout_weight="1"
+                android:background="@drawable/apptheme_edit_text_holo_light"
+                android:layout_marginTop="10dp"
+                app:fontEdit="@string/font_muli"
+                android:hint="@string/txt_hint_email"/> <!--android:layout_alignParentTop="false" android:layout_alignParentLeft="false" android:layout_centerHorizontal="true"-->
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ll_password"
+            android:layout_below="@id/ll_email"
+            android:layout_marginTop="25dp">
+
+       <!--     <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/field_password"
+                android:layout_alignParentTop="false"
+                android:layout_alignParentLeft="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                />-->
+
+
+            <com.allegra.handyuvisa.utils.CustomizedEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:drawableLeft="@drawable/field_password"
+                android:drawableRight="@drawable/icon_clear"
+                android:textColorHint="@color/InputNormal_border_hit"
+                android:ems="10"
+                android:background="@drawable/apptheme_edit_text_holo_light"
+                app:fontEdit="@string/font_muli"
+                android:textColor="@color/InputNormal_text"
+                android:id="@+id/et_password"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:hint="@string/txt_hint_pass"/>
+
+            <!--android:layout_below="@+id/ll_email"
+            android:layout_alignParentEnd="true"-->
+
+            <!--<ImageButton
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:id="@+id/ib_visibilitypass"
+                android:src="@drawable/ic_visibility_off_black_18dp"
+                android:background="#ffffffff"
+                android:scaleType="fitXY"
+                android:layout_gravity="center_vertical|bottom"
+                />-->
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_login_register_new_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="400dp"
+            android:weightSum="2">
+
+            <com.allegra.handyuvisa.utils.CustomizedTextView
+                android:id="@+id/btn_login"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/round_corner_transparent_orange"
+                android:text="@string/login"
+                android:textColor="@color/BigButtonWithBorder_text"
+                app:font="@string/font_muli"
+                android:gravity="center"
+                android:textSize="16sp"/>
+
+            <com.allegra.handyuvisa.utils.CustomizedTextView
+                android:id="@+id/btn_register"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/round_corner_magenta"
+                android:text="@string/register"
+                android:gravity="center"
+                android:textColor="@color/BigButton_text"
+                app:font="@string/font_muli"
+                android:textSize="16sp"
+                android:layout_gravity=""/>
+
+        </LinearLayout>
+
+       <!-- <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ll_login_register"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="360dp">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login"
+                android:textColor="@color/orange"
+                android:id="@+id/btn_login"
+                android:background="@drawable/round_corner_transparent_orange"
+                android:layout_weight="1"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="20dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_register"
+                android:text="@string/register"
+                android:textColor="@android:color/white"
+                android:background="@drawable/round_corner_magenta"
+                android:layout_weight="1"
+                android:layout_marginRight="20dp"
+                android:layout_gravity="center_horizontal" />
+        </LinearLayout>-->
+
+        <LinearLayout
+    android:id="@+id/register_panel"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+            android:layout_below="@+id/ll_login_register_new_user"
+        >   <!--android:layout_marginTop="400dp"-->
+    <com.allegra.handyuvisa.utils.CustomizedTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/recover_password"
+        android:textColor="@color/GeneralTitle2_text"
+        android:background="@android:color/transparent"
+        android:id="@+id/forgotPassword"
+        app:font="@string/font_muli_light"
+        />
+
+    <com.allegra.handyuvisa.utils.CustomizedTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/Version_text"
+        android:background="@android:color/transparent"
+        android:id="@+id/version"
+        android:textAlignment="center"
+        app:font="@string/font_muli_light"
+ />        <!--
+ android:text="@string/txt_version"
+ android:layout_alignParentBottom="false"
+            android:layout_below="@+id/register_panel"
+            android:layout_alignWithParentIfMissing="false"-->
+
+
+</LinearLayout>
+
+    </RelativeLayout>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pb_login"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+</RelativeLayout>
