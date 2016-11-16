@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rl_body"
+    android:background="@drawable/background"
+    android:clickable="true"
+    android:onClick="onCloseMenu"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/GeneralAppHeaderTitle_backgroud"
+        android:onClick="onCloseMenu"
+        android:id="@+id/ll_header">
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/navigation__close"
+            android:background="@android:color/transparent"
+            android:id="@+id/close_btn"
+            android:contentDescription="menu"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true" />
+
+        <com.allegra.handyuvisa.utils.CustomizedTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/forgot_password"
+            android:id="@+id/tv_title_secc"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/GeneralAppHeaderTitle_text"
+            app:font="@string/font_varela"/>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:id="@+id/iv_header"
+        android:layout_below="@+id/ll_header"
+        android:paddingEnd="-2dp"
+        android:paddingStart="-2dp"
+        android:src="@drawable/separator_medium_mag"
+        android:contentDescription="Divider" />
+
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="false"
+        android:layout_below="@+id/iv_header"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true">
+
+
+        <LinearLayout
+            android:id="@+id/info_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:visibility="visible"
+            android:layout_alignParentBottom="false"
+            android:layout_marginTop="50dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView20"
+                android:src="@drawable/email_icon_xxhdpi"
+                android:layout_alignParentTop="false" />
+
+            <com.allegra.handyuvisa.utils.CustomizedTextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/check_email"
+                android:textAlignment="center"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/GeneralTitle2_text"
+                android:textSize="18sp"
+                app:font="@string/font_muli"/>
+
+            <com.allegra.handyuvisa.utils.CustomizedTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/GeneralDescription"
+                android:textSize="15sp"
+                android:text="@string/conf_email1"
+                android:textAlignment="center"
+                android:id="@+id/txtConfEmail1"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                app:font="@string/font_muli_light"/>
+
+            <com.allegra.handyuvisa.utils.CustomizedTextView
+                android:id="@+id/email_recovery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="2dp"
+                android:textAlignment="center"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/DataRecoveryPassword_text"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                app:font="@string/font_muli_bold"/>
+
+            <com.allegra.handyuvisa.utils.CustomizedTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/GeneralDescription"
+                android:textSize="15dp"
+                android:text="@string/conf_email2"
+                android:textAlignment="center"
+                android:id="@+id/txtConfEmail2"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="1dp"
+                app:font="@string/font_muli_light"/>
+
+            <com.allegra.handyuvisa.utils.CustomizedTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/GeneralDescription"
+                android:textSize="15dp"
+                android:text="@string/conf_email3"
+                android:textAlignment="center"
+                android:id="@+id/txtConfEmail3"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                app:font="@string/font_muli_light"/>
+
+            <Button
+                android:id="@+id/send_again"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/round_corner_transparent_orange"
+                android:text="@string/send_again"
+                android:textColor="@color/SmallButtonWithBorder_text"
+                android:layout_marginTop="15dp" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout4"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="40dp">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/to_login"
+                    android:text="@string/go_to_login"
+                    android:textColor="@color/BigButton_text"
+                    android:background="@drawable/round_corner_magenta"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_horizontal" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pb_login"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+</RelativeLayout>

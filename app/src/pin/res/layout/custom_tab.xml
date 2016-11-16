@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/custome_tab_ll"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/custome_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_launcher"/>
+        <com.allegra.utils.MyTextView
+            android:id="@+id/tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textSize="15dp"
+            android:layout_marginTop="15dp"
+            android:ellipsize="end"
+            android:background="@drawable/icon_menu_personal"
+            android:maxLines="1"
+            android:paddingTop="10dp"
+            android:fontFamily="font_fontFamily_medium"/>
+    </LinearLayout>
+
+    </LinearLayout>-->
+
+<com.allegra.handyuvisa.utils.MyTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/tab"
+    android:textColor="@color/white"
+    android:gravity="center"
+    android:textSize="15dp"
+    android:layout_marginTop="15dp"
+    android:ellipsize="end"
+    android:maxLines="2"
+    android:paddingTop="10dp"
+    android:fontFamily="font_fontFamily_medium"/>

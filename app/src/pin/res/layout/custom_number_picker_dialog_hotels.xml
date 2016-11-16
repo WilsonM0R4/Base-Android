@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FlightsActivity">
+
+
+    <include layout="@layout/custom_header_for_room_hotels_dialog"
+        android:layout_height="55dp"
+        android:id="@+id/linLayRoomHeaderDialogNumber"
+        android:layout_width="match_parent"/>
+
+
+    <include layout="@layout/custom_texts_adults_children_infants"
+        android:layout_height="60dp"
+        android:id="@+id/customTextAdultsChildInfants"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/linLayRoomHeaderDialogNumber"
+        />
+
+    <include layout="@layout/custom_number_pickers"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/customNumberPickers"
+        android:layout_below="@+id/customTextAdultsChildInfants"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/customNumberPickers"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_cancel"
+            android:textSize="19sp"
+            android:id="@+id/textCancelDialog"
+            android:textColor="@color/PersonButtonSelectorFooter_text"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OK"
+            android:textSize="19sp"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="30dp"
+            android:id="@+id/textOkDialog"
+            android:textColor="@color/PersonButtonSelectorFooter_text"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>
