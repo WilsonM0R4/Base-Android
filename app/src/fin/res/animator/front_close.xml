@@ -1,0 +1,15 @@
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <objectAnimator
+        android:valueTo="0"
+        android:propertyName="rotationY"
+        android:interpolator="@android:interpolator/accelerate_decelerate"
+        android:duration="@integer/card_flip_time_half" />
+
+    <objectAnimator
+        android:propertyName="x"
+        android:valueTo="0f"
+        android:startOffset="100"
+        />
+
+</set>
