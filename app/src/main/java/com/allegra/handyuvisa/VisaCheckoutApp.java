@@ -1,24 +1,18 @@
 package com.allegra.handyuvisa;
 
 import android.content.Intent;
-import android.os.Build;
 import android.support.multidex.MultiDexApplication;
-import android.util.Log;
 
 import com.allegra.handyuvisa.utils.Constants;
-import com.allegra.handyuvisa.utils.KeySaver;
+import com.allem.onepocket.utils.OPKLibraryConfig;
+import com.urbanairship.UAirship;
+
 /*import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseInstallation;
 import com.parse.ParsePush;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;*/
-import com.allem.onepocket.utils.OPKLibraryConfig;
-import com.allem.onepocket.utils.ThemeType;
-import com.splunk.mint.Mint;
-import com.urbanairship.UAirship;
-
-import java.util.List;
 
 /**
  * Created by lisachui on 12/1/15.
