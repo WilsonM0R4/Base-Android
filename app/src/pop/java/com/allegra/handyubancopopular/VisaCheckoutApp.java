@@ -65,7 +65,7 @@ public class VisaCheckoutApp extends MultiDexApplication {
                                 currentUser.put("platform", "Android");
                                 currentUser.put("systemVer", Build.VERSION.RELEASE);
                                 currentUser.saveInBackground();
-                                ParseInstallation currentInstall = ParseInstallation.getCurrentInstallation();
+                                ParseInstallation currentInsta ll = ParseInstallation.getCurrentInstallation();
                                 currentInstall.put("user", currentUser);
                                 currentInstall.saveInBackground();
                             }

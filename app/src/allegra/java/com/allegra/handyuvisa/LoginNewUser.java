@@ -215,7 +215,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 //******Add all new views*****
                 SuccessfulRegister successfulRegister = new SuccessfulRegister(getApplicationContext());
                 formLayout.addView(successfulRegister);
-                Log.d("Serfar Prueba", channel);
+                Log.d(TAG, channel);
 
                 //Temporary
                 /*Intent intent = new Intent(getApplicationContext(),MainActivity.class);
@@ -986,7 +986,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             CustomizedTextView txtTitle = new CustomizedTextView(context);
             txtTitle.setText(R.string.title_register);
             addView(txtTitle);
-            txtTitle.setTextColor(getResources().getColor(R.color.GeneralAppHeaderTitle_backgroud));
+            txtTitle.setTextColor(getResources().getColor(R.color.PURPLE_COLOR));
             txtTitle.setGravity(Gravity.CENTER_HORIZONTAL);
             txtTitle.setTextSize(18);
             LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) txtTitle.getLayoutParams();
@@ -995,19 +995,11 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             txtTitle.setLayoutParams(layoutParams3);
 
             //IMAGE VIEW SEPARATOR
-            /*ImageView imvSeparator = new ImageView(context);
-            imvSeparator.setBackground(getResources().getDrawable(R.drawable.separator_medium_mag_test));
-            imvSeparator.setImageResource(R.drawable.separator);
-            addView(imvSeparator);
-            LinearLayout.LayoutParams params6 = (LinearLayout.LayoutParams) imvSeparator.getLayoutParams();
-            //int left, int top, int right, int bottom
-            params6.setMargins(getMargin(-6), 0, getMargin(-6), getMargin(-4));
-            imvSeparator.setLayoutParams(params6);*/
             View view = new View(context);
             view.setBackgroundColor(getResources().getColor(R.color.loading_salmon));
             addView(view);
             LinearLayout.LayoutParams params6 = (LinearLayout.LayoutParams) view.getLayoutParams();
-            params6.height = 6;
+            params6.height = 14;
             view.setLayoutParams(params6);
 
             //****************CONTENT SUB-LAYOUT****************************
