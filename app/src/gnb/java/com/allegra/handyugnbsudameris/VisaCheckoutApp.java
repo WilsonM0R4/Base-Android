@@ -25,16 +25,12 @@ public class VisaCheckoutApp extends MultiDexApplication {
     private String rawPassword;
     private int idCuenta;
     private String urlHotel;
-    //final String SPLUNK_API_KEY = "d87dc4ae6083e6b16e3b473";
-    //Mint.initAndStartSession(MyActivity.this, "e74061f2");
-    //final String SPLUNK_API_KEY = "e74061f2";
+
 
     @Override
     public void onCreate() {
-        //super.onCreate();
-        //SystemClock.sleep(0);   // For running splash screen
-        super.onCreate();
 
+        super.onCreate();
 
         //UrbanAirship
         UAirship.takeOff(this, new UAirship.OnReadyCallback() {

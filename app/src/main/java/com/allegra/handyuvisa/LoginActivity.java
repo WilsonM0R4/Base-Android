@@ -63,7 +63,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
     private ArrayList<String> arrayListMemberships;
     private ProgressBar pb_login;
     private TextView version, forgotpass;
-    final String SPLUNK_API_KEY = "e74061f2";
+
     private String idMcard, numMcard;
     int idMcard1 = 0;
     private String valueOfMcard;
@@ -88,7 +88,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         //TODO: Uncomment this before push
         //Splunk
         Mint.setApplicationEnvironment(Mint.appEnvironmentTesting);
-        Mint.initAndStartSession(getApplicationContext(), SPLUNK_API_KEY);
+        Mint.initAndStartSession(getApplicationContext(), Constants.SPLUNK_API_KEY);
         // Enable logging
         Mint.enableLogging(true);
         // Log last 100 messages
@@ -96,6 +96,9 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
 
         findValueOfMcard();
 
+        //Error for test Splunk
+        /*String str =  null;
+        Log.d(TAG, str);*/
 
     }
 
