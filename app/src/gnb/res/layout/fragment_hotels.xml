@@ -127,7 +127,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="@string/room"
-                    android:textColor="@color/SelectedRoomButtonAddRoom_text"
+                    android:textColor="@color/TEXT_COLOR_GNB"
                     android:textStyle="bold"/>
 
             </LinearLayout>

@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:text="@string/txt_lbl_adults"
             android:textSize="12sp"
-            android:textColor="@color/PersonSelectorItemDescriptionTitle_text"
+            android:textColor="@color/TEXT_COLOR_GNB"
             app:font="@string/font_muli"/>
 
         <com.allegra.handyuvisa.utils.CustomizedTextView
@@ -66,7 +66,7 @@
             android:layout_height="wrap_content"
             android:text="@string/txt_lbl_child"
             android:textSize="12sp"
-            android:textColor="@color/PersonSelectorItemDescriptionTitle_text"
+            android:textColor="@color/TEXT_COLOR_GNB"
             app:font="@string/font_muli"/>
         <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="wrap_content"
@@ -105,7 +105,7 @@
         <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/PersonSelectorItemDescriptionTitle_text"
+            android:textColor="@color/TEXT_COLOR_GNB"
             android:text="@string/txt_lbl_infants"
             android:textSize="12sp"
             app:font="@string/font_muli"/>

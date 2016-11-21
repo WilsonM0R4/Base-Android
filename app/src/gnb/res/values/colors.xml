@@ -13,6 +13,9 @@
 
     <color name= "PURPLE_COLOR">#CF447A</color>
     <color name= "ORANGE_COLOR">#EF411F</color>
+    <color name= "PURPLE_COLOR_GNB">#82BC00</color>
+    <color name= "ORANGE_COLOR_GNB">#82BC00</color>
+    <color name="TEXT_COLOR_GNB">#00609C</color>
     <color name= "TEXT_COLOR">#444444</color>
     <color name= "GRAY_COLOR">#9B9999</color>
     <color name= "LIGHT_GRAY_COLOR">#F4F4F4</color>
@@ -34,7 +37,7 @@
     <!-- BigButtonWithBorder -->
     <color name="BigButtonWithBorder_backgroung">@color/CLEAR_COLOR</color>
     <color name="BigButtonWithBorder_border">@color/ORANGE_COLOR</color>
-    <color name="BigButtonWithBorder_text">@color/ORANGE_COLOR</color>
+    <color name="BigButtonWithBorder_text">@color/TEXT_COLOR_GNB</color>
     <!-- SmallButton -->
     <color name="SmallButton_backgroung">@color/PURPLE_COLOR</color>
     <color name="SmallButton_border">@color/CLEAR_COLOR</color>
@@ -42,7 +45,7 @@
     <!-- SmallButtonWithBorder -->
     <color name="SmallButtonWithBorder_backgroung">@color/CLEAR_COLOR</color>
     <color name="SmallButtonWithBorder_border">@color/ORANGE_COLOR</color>
-    <color name="SmallButtonWithBorder_text">@color/ORANGE_COLOR</color>
+    <color name="SmallButtonWithBorder_text">@color/TEXT_COLOR_GNB</color>
     <!-- HomeButtonSmall -->
     <color name="HomeButtonSmall_backgroung">@color/WHITE_COLOR</color>
     <color name="HomeButtonSmall_border">@color/CLEAR_COLOR</color>
@@ -107,7 +110,7 @@
         <item>@color/ThirdSelectorButtonNormal_text</item>
         <item>@color/ThirdSelectorButtonSelected_text</item>
     </array>
-    <color name="ThirdSelectorButtonTitle_text">@color/PURPLE_COLOR</color>
+    <color name="ThirdSelectorButtonTitle_text">@color/TEXT_COLOR_GNB</color>
     <!-- ThirdSelectorButtonNormal -->
     <color name="ThirdSelectorButtonNormal_backgroung">@color/CLEAR_COLOR</color>
     <color name="ThirdSelectorButtonNormal_border">@color/CLEAR_COLOR</color>
@@ -132,7 +135,7 @@
     <!-- CalendarFooterDateMonth -->
     <color name="CalendarFooterDateMonth_text">@color/GRAY_COLOR</color>
     <!-- CalendarSelectorRange -->
-    <color name="CalendarSelectorRange_backgroung">@color/PURPLE_COLOR</color>
+    <color name="CalendarSelectorRange_backgroung">@color/TEXT_COLOR_GNB</color>
     <color name="CalendarSelectorRange_border">@color/CLEAR_COLOR</color>
     <color name="CalendarSelectorRange_text">@color/WHITE_COLOR </color>
     <!--- Person Selector -->
@@ -215,7 +218,7 @@
     <color name="HomeMenusLine2_background">@color/CLEAR_COLOR_GRADIENT</color>
     <!-- GeneralAppHeaderTitle -->
     <color name="GeneralAppHeaderTitle_backgroud">@color/CLEAR_COLOR</color>
-    <color name="GeneralAppHeaderTitle_text">@color/PURPLE_COLOR</color>
+    <color name="GeneralAppHeaderTitle_text">@color/TEXT_COLOR_GNB</color>
     <!--- Alert -->
     <!-- HeaderAlert -->
     <color name="HeaderAlert_backgroung">@color/CLEAR_COLOR</color>
@@ -248,13 +251,13 @@
     <color name="HomeFooter_text">@color/WHITE_COLOR</color>
     <!--- title -->
     <!-- GeneralTitle1 -->
-    <color name="GeneralTitle1_text">@color/ORANGE_COLOR</color>
+    <color name="GeneralTitle1_text">@color/TEXT_COLOR_GNB</color>
     <!-- GeneralTitle2 -->
-    <color name="GeneralTitle2_text">@color/PURPLE_COLOR</color>
+    <color name="GeneralTitle2_text">@color/TEXT_COLOR_GNB</color>
     <!-- HomeDescriptionTitle -->
     <color name="HomeDescriptionTitle_text">@color/GRAY_COLOR</color>
     <!-- ProfileTitle -->
-    <color name="ProfileTitle_text">@color/PURPLE_COLOR</color>
+    <color name="ProfileTitle_text">@color/TEXT_COLOR_GNB</color>
     <!-- NavbarTitle -->
     <color name="NavbarTitle_text">@color/PURPLE_COLOR</color>
     <!-- DataRecoveryPassword -->
@@ -300,9 +303,9 @@
     <!-- SecondColorHeader -->
     <color name="SecondColorHeader_backgroung">@color/CLEAR_COLOR</color>
     <!-- FirstColorLineHeader -->
-    <color name="FirstColorLineHeader_backgroung">@color/ORANGE_COLOR</color>
+    <color name="FirstColorLineHeader_backgroung">@color/ORANGE_COLOR_GNB</color>
     <!-- SecondColorLineHeader -->
-    <color name="SecondColorLineHeader_backgroung">@color/PURPLE_COLOR</color>
+    <color name="SecondColorLineHeader_backgroung">@color/PURPLE_COLOR_GNB</color>
     <!-- Proof of coverage -->
     <color name="ProofOfCoverageTitle_text">@color/GRAY_COLOR</color>
     <color name="ProofOfCoverageName_text">@color/PURPLE_COLOR</color>
@@ -340,7 +343,7 @@
     <color name="yellow">#FDD500</color>
     <color name="salmon">#FF686C</color>
     <color name="orange">#ef411f</color>
-    <color name="magenta">#d02a7b</color>
+    <color name="magenta">#00609C</color>
     <color name="blue">#459FF8</color>
     <color name="purple">#9855D4</color>
     <color name="transaction_text">#707070</color>

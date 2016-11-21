@@ -60,8 +60,8 @@ android {
         applicationId "com.allegra.handyuvisa"
         minSdkVersion 19
         targetSdkVersion 25
-        versionCode 243
-        versionName "1.2.2-243"
+        versionCode 244
+        versionName "1.2.2-244"
 
         packagingOptions {
             exclude "lib/arm64-v8a/libcardioDecider.so"
@@ -101,8 +101,8 @@ android {
 
         allegra{
             applicationId "com.allegra.handyuvisa"
-            versionCode 243
-            versionName "1.2.2-243"
+            versionCode 244
+            versionName "1.2.2-244"
             signingConfig signingConfigs.config
             minSdkVersion 19
             targetSdkVersion 25

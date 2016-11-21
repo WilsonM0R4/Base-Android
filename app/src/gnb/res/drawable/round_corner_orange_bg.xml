@@ -6,7 +6,7 @@
             <size android:height="40dp" android:width="75dp"/>
             <!--<stroke android:width="10dp" android:color="#5e7974" />-->
             <!--<gradient android:angle="-90" android:startColor="#345953" android:endColor="#689a92"  />-->
-            <solid android:color="@color/orange"/>
+            <solid android:color="@color/PURPLE_COLOR_GNB"/>
         </shape>
     </item>
     <item android:state_focused="true">
@@ -14,7 +14,7 @@
             <corners android:radius="30dip" />
             <size android:height="40dp" android:width="75dp"/>
             <!--<stroke android:width="10dp" android:color="#5e7974" />-->
-            <solid android:color="@color/orange"/>
+            <solid android:color="@color/PURPLE_COLOR_GNB"/>
         </shape>
     </item>
     <item >
@@ -23,7 +23,7 @@
             <size android:height="40dp" android:width="75dp"/>
             <!--<stroke android:width="10dp" android:color="#5e7974" />-->
             <!--<gradient android:angle="-90" android:startColor="#8dbab3" android:endColor="#58857e" />-->
-            <solid android:color="@color/orange" />
+            <solid android:color="@color/PURPLE_COLOR_GNB" />
         </shape>
     </item>
 </selector>

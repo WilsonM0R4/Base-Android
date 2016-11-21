@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/hotels_guests_per_room"
-        android:background="@color/GuestPerRoomTitle_backgroung"
+        android:background="@color/TEXT_COLOR_GNB"
         android:padding="10dp"
         android:textColor="@color/GuestPerRoomTitle_text"
         android:textSize="18sp"
