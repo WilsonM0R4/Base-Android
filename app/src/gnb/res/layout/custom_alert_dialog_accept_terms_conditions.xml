@@ -15,7 +15,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="37dp"
         android:id="@+id/titletextCancelDialog2"
-        android:textColor="@color/HeaderAlert_text" />
+        android:textColor="@color/TEXT_COLOR_GNB" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -56,7 +56,7 @@
         android:layout_marginLeft="6dp"
         android:textSize="19sp"
         android:id="@+id/txtTermsAndConditions"
-        android:textColor="@color/HeaderAlert_text"
+        android:textColor="@color/TEXT_COLOR_GNB"
         app:font="@string/font_muli"
         />
     </LinearLayout>
@@ -86,7 +86,7 @@
             android:layout_marginLeft="6dp"
             android:textSize="19sp"
             android:id="@+id/txtPrivacyPolicy"
-            android:textColor="@color/HeaderAlert_text"
+            android:textColor="@color/TEXT_COLOR_GNB"
             app:font="@string/font_muli"
             />
     </LinearLayout>

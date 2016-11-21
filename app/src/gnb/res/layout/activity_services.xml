@@ -75,7 +75,7 @@
         android:paddingEnd="-2dp"
         android:paddingStart="-2dp"
         android:id="@+id/imageView23"
-        android:background="@color/loading_salmon"
+        android:background="@color/PURPLE_COLOR_GNB"
         android:layout_marginLeft="-2dp"
         android:layout_marginRight="-2dp"
         android:layout_marginTop="0dp" />

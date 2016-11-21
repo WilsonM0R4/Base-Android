@@ -44,7 +44,7 @@
     <color name="SmallButton_text">@color/WHITE_COLOR</color>
     <!-- SmallButtonWithBorder -->
     <color name="SmallButtonWithBorder_backgroung">@color/CLEAR_COLOR</color>
-    <color name="SmallButtonWithBorder_border">@color/ORANGE_COLOR</color>
+    <color name="SmallButtonWithBorder_border">@color/TEXT_COLOR_GNB</color>
     <color name="SmallButtonWithBorder_text">@color/TEXT_COLOR_GNB</color>
     <!-- HomeButtonSmall -->
     <color name="HomeButtonSmall_backgroung">@color/WHITE_COLOR</color>
@@ -77,7 +77,7 @@
     <!-- chatSendButton -->
     <color name="chatSendButton_backgroung">@color/CLEAR_COLOR</color>
     <color name="chatSendButton_border">@color/CLEAR_COLOR</color>
-    <color name="chatSendButton_text">@color/ORANGE_COLOR</color>
+    <color name="chatSendButton_text">@color/TEXT_COLOR_GNB</color>
     <!-- BigButtonWithBorder3 -->
     <color name="BigButtonWithBorder3_backgroung">@color/CLEAR_COLOR</color>
     <color name="BigButtonWithBorder3_border">@color/WHITE_COLOR</color>
@@ -101,7 +101,7 @@
     <color name="DoubleSelectorButtonNormal_border">@color/CLEAR_COLOR</color>
     <color name="DoubleSelectorButtonNormal_text">@color/WHITE_COLOR</color>
     <!-- DoubleSelectorButtonSelected -->
-    <color name="DoubleSelectorButtonSelected_backgroung">@color/PURPLE_COLOR</color>
+    <color name="DoubleSelectorButtonSelected_backgroung">@color/TEXT_COLOR_GNB</color>
     <color name="DoubleSelectorButtonSelected_border">@color/CLEAR_COLOR</color>
     <color name="DoubleSelectorButtonSelected_text">@color/WHITE_COLOR</color>
     <color name="DoubleSelectorButtonSelected_shadow">@color/BLACK_COLOR</color>
@@ -168,7 +168,7 @@
     <color name="SelecterCitySubTitle_text">@color/WHITE_COLOR</color>
     <!--- Search -->
     <!-- SearchAlert -->
-    <color name="SearchAlert_text">@color/ORANGE_COLOR</color>
+    <color name="SearchAlert_text">@color/TEXT_COLOR_GNB</color>
     <!-- SearchItemSelectedTitle -->
     <color name="SearchItemSelectedTitle_backgroung">@color/PURPLE_COLOR</color>
     <color name="SearchItemSelectedTitle_text">@color/WHITE_COLOR</color>
@@ -397,6 +397,6 @@
     <color name="namecolor">#33B19B</color>
     <color name="dark_blue"> #2664A8</color>
     <color name="violate">#9755d3</color>
-    <color name="loading_salmon">#EF411F</color>
+    <color name="loading_salmon">#82BC00</color>
 
 </resources>

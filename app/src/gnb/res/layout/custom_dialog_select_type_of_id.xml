@@ -9,7 +9,7 @@
         android:text="@string/txt_select_type_id"
         android:textSize="17sp"
         android:textColor="@color/white"
-        android:background="@color/PURPLE_COLOR"
+        android:background="@color/TEXT_COLOR_GNB"
         android:id="@+id/textTitle"
         android:gravity="center"
         android:layout_gravity="center_horizontal"/>
