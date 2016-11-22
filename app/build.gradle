@@ -251,12 +251,12 @@ android {
 
 dependencies {
     testCompile 'junit:junit:4.12'
-    compile project(':onepocket-sdk-1.2.0-364')
+    compile project(':onepocket-sdk-1.2.2-365')
     //3rd party libraries
     compile('com.google.code.ksoap2-android:ksoap2-android:3.6.1') {
         exclude group: 'com.squareup.okio', module: 'okio'
     }
-    compile(name: 'VisaCheckout-Android-SDK-4.0', ext: 'aar')
+    compile(name: 'VisaCheckout-Android-SDK-4.3', ext: 'aar')
     compile(name: 'card.io-5.3.0', ext: 'aar')
     compile 'com.android.support:multidex:1.0.1'
     compile 'com.facebook.android:facebook-android-sdk:[4,5)'
