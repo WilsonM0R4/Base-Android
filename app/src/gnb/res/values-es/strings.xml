@@ -8,6 +8,7 @@
     <string name="SAME_WEEK">ÚLTIMA SEMANA</string>
     <string name="SAME_MONTH">ÚLTIMO MES</string>
     <string name="BEFORE">ANTERIORES</string>
+    <string name="travel_quiet">¡Viaja con tranquilidad!</string>
     <string name="forgot_password">Recuperación de Contraseña</string>
     <string name="location_permision">Tu GPS parece estar deshabilitado. ¿Quieres habilitarlo?</string>
     <string name="location_failed">Falló al buscar a tu ubicación actual. Por favor, comprueba el estado de tu GPS y vuelve a intentarlo</string>

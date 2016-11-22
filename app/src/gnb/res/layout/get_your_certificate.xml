@@ -68,13 +68,17 @@
         android:src="@drawable/separator_medium_mag" />
 
 
-        <ImageView
+        <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
-            android:background="@drawable/logo_handy_mcard"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/iv_header_3"
+            android:text="@string/travel_quiet"
+            android:textSize="20dp"
+            app:font="@string/font_muli"
+            android:gravity="center_horizontal"
+            android:textColor="@color/TEXT_COLOR_GNB"
             android:id="@+id/imvLogoHandyMcard"/>
 
         <com.allegra.handyuvisa.utils.CustomizedTextView
