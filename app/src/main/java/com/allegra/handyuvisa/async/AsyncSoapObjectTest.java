@@ -41,9 +41,9 @@ public class AsyncSoapObjectTest extends AsyncTask<String,Void,Vector<SoapObject
 
     private AsyncSoapObjectTest(Server server, String method, ArrayList<NameValuePair> postValues, int codeRequest){
         this.url = server.wsdl;
-        this.namespace=server.namespace;
+        this.namespace = server.namespace;
         this.method = method;
-        this.soapaction =namespace+method;
+        this.soapaction = namespace+method;
         this.codeRequest = codeRequest;
         this.postValues = postValues;
         this.userserver = server.user;
