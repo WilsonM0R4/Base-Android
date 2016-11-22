@@ -7,7 +7,6 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.database.sqlite.SQLiteDatabase;
-import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -38,7 +37,6 @@ import com.allegra.handyuvisa.utils.Util;
 import com.splunk.mint.Mint;
 import com.squareup.otto.Subscribe;
 import com.urbanairship.UAirship;
-import com.urbanairship.push.notifications.DefaultNotificationFactory;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -329,13 +327,6 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         }
     }
 
-    public class CustomDefaultNotificationFactory extends DefaultNotificationFactory {
-
-        public CustomDefaultNotificationFactory(Context context) {
-            super(context);
-        }
-
-    }
 
 
     //Response from SOAP Service, get user login info
@@ -358,13 +349,9 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 String domain = user.email.substring(user.email.indexOf('@') + 1, user.email.length()).replace(".", "");
                 String channel = name + domain + user.idCuenta;
                 //Notifications UrbanAirship
-                CustomDefaultNotificationFactory notificationFactory = new CustomDefaultNotificationFactory(UAirship.getApplicationContext());
-                Uri sound = Uri.parse(SOUND_NOTIFICATIONS);
                 UAirship.shared().getPushManager().editTags()
                         .addTag(channel)
                         .apply();
-                UAirship.shared().getPushManager().setNotificationFactory(notificationFactory);
-                //UAirship.shared().getPushManager().setNotificationFactory(notificationFactory);
                 Log.d("CHANNEL: ", channel);
                 String password = user.hashpassword;
                 String cel_code = user.celular_codigo;
