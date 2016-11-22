@@ -5,4 +5,5 @@ package com.allegra.handyuvisa;
  */
 
 public class ProofOfCoverageDinamico {
+
 }

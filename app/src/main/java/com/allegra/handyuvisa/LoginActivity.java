@@ -371,7 +371,6 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 String typeOfId = user.idType;
                 //String numMcard = mcardCliente.getNumeroMembresia();
                 String numberOfId = user.idNumber;
-                //Log.d("Sergio", "Es: "+cel_code);
 
                 String nombre = user.nombre;
                 String apellido = user.apellido;
@@ -384,7 +383,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 editor.putString("nombre", nombre);
                 editor.putString("typeOfId", getTypeOfDocumentFromIdCode(typeOfId));
                 editor.putString("numberOfId", numberOfId);
-                //editor.putString("celular_codigo",cel_code);
+
                 idCuenta = user.idCuenta;
                 editor.putString("idCuenta", String.valueOf(idCuenta));
                 editor.apply();
@@ -400,7 +399,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 db.addUser(new UserDataBase(nombre, apellido, getTypeOfDocumentFromIdCode(typeOfId), numberOfId, prefs.getString("numMcard", numMcard), findValueOfMcard(), findValueOfMcard(), findValueOfMcard()));
                 /*CHECK IF DATA BASE EXIST*/
                 Intent returnIntent = new Intent();
-                Log.e("Sergio", "Acá sí");
+                Log.e(TAG, "Acá sí");
                 setResult(RESULT_OK, returnIntent);
                 finish();
 
