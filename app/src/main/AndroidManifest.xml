@@ -205,6 +205,9 @@
             android:name=".VisaCheckoutActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".ProofOfCoverageDinamico"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".MarketPlaceActivity"
             android:screenOrientation="portrait" >
             <meta-data
