@@ -217,11 +217,6 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 formLayout.addView(successfulRegister);
                 Log.d(TAG, channel);
 
-                //Temporary
-                /*Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(intent);
-                finish();*/
-
             } else {
                 Toast.makeText(ctx, event.getFaultString(), Toast.LENGTH_LONG).show();
                 setResult(RESULT_CANCELED, returnIntent);

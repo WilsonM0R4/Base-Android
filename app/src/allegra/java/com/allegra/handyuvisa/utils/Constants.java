@@ -61,7 +61,7 @@ public class Constants {
     public final static int PICKER_SIZE_CHILDREN_AND_INFANTS = 6;
 
     public final static String URL_ALLEM_AIR_PROD = "https://secure.allegraplatform.com/GatewayIatai/IPPG";
-    public final static String URL_ALLEM_AIR_TEST =  "https://pruebas.allegraplatform.com/GatewayIatai/IPPG";
+    public final static String URL_ALLEM_AIR_TEST = "https://pruebas.allegraplatform.com/GatewayIatai/IPPG";
     public final static String URL_ALLEM_WSDL_AIR_TEST = URL_ALLEM_AIR_TEST+"?WSDL";
     public final static String URL_ALLEM_WSDL_AIR_PROD = URL_ALLEM_AIR_PROD+"?WSDL";
     public static final String AUTH_KEY_AMADEUS = "wqwer23WERWER234fcbfdfgnr67sd235" ;
@@ -95,7 +95,6 @@ public class Constants {
     public final static String METHOD_HACER_TRANSACCION = "HacerTransaccion";
     public final static String METHOD_OBTENER_COMPRAS = "ObtenerCompras";
     public final static String METHOD_HACER_TRANSACCION_ALLEM_MARKET = "HacerTransaccionAllemMarket";
-
 
     public final static String METHOD_INICIAR_SESION = "IniciarSesion";
     public final static String METHOD_CERRAR_SESION = "CerrarSesion";
@@ -316,9 +315,17 @@ public class Constants {
 
     //**********************PROPER METHODS*************************
 
+    public static String getUrlDynamicProof(){
+        if (TESTING) {
+            return URL_DYNAMIC_PROOF_TEST;
+        }else{
+            return URL_DYNAMIC_PROOF_PROD;
+        }
+    }
+
+
     public static String getWSDL(){
         if (TESTING) {
-            //Log.d(TAG, "testing");
             return URL_ALLEM_WSDL_TEST;
         }else{
             return URL_ALLEM_WSDL_PROD;
