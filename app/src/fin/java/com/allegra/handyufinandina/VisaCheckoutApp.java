@@ -1,24 +1,22 @@
 package com.allegra.handyuvisa;
 
+import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
+import android.net.Uri;
 import android.support.multidex.MultiDexApplication;
 import android.util.Log;
 
 import com.allegra.handyuvisa.utils.Constants;
-import com.allegra.handyuvisa.utils.KeySaver;
+import com.allem.onepocket.utils.OPKLibraryConfig;
+import com.urbanairship.UAirship;
+import com.urbanairship.push.notifications.DefaultNotificationFactory;
+
 /*import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseInstallation;
 import com.parse.ParsePush;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;*/
-import com.allem.onepocket.utils.OPKLibraryConfig;
-import com.allem.onepocket.utils.ThemeType;
-import com.splunk.mint.Mint;
-import com.urbanairship.UAirship;
-
-import java.util.List;
 
 /**
  * Created by lisachui on 12/1/15.
@@ -26,18 +24,28 @@ import java.util.List;
 public class VisaCheckoutApp extends MultiDexApplication {
 
     private static final String TAG = "VisaCheckoutApp";
+    public Context context = this;
     private String idSession=null,channel,urlResto;
     private String rawPassword;
     private int idCuenta;
     private String urlHotel;
+    private String path = "android.resource://com.allegra.handyufinandina/raw/allegra_sound";
+
+
+    //final String SPLUNK_API_KEY = "d87dc4ae6083e6b16e3b473";
+    //Mint.initAndStartSession(MyActivity.this, "e74061f2");
+    //final String SPLUNK_API_KEY = "e74061f2";
+
 
     @Override
     public void onCreate() {
-
+        //super.onCreate();
+        //SystemClock.sleep(0);   // For running splash screen
         super.onCreate();
 
+
         //UrbanAirship
-        UAirship.takeOff(this, new UAirship.OnReadyCallback() {
+/*        UAirship.takeOff(this, new UAirship.OnReadyCallback() {
             @Override
             public void onAirshipReady(UAirship airship) {
 
@@ -45,7 +53,22 @@ public class VisaCheckoutApp extends MultiDexApplication {
                 airship.getPushManager().setUserNotificationsEnabled(true);
                 UAirship.shared().getNamedUser().setId(null);
             }
+        });*/
+
+        UAirship.takeOff(this, new UAirship.OnReadyCallback() {
+
+            @Override
+            public void onAirshipReady(UAirship airship) {
+
+                Log.d("ESTOY LISTO", "RECIBIDO");
+                DefaultNotificationFactory factory = (DefaultNotificationFactory)
+                        UAirship.shared().getPushManager().getNotificationFactory();
+                factory.setSound(Uri.parse(path));
+                airship.getPushManager().setUserNotificationsEnabled(true);
+                UAirship.shared().getNamedUser().setId(null);
+            }
         });
+
         initOnepocket();
         /*Parse.enableLocalDatastore(getApplicationContext());
         Parse.initialize(this, "YLafvQVsiUgpHPhTBZFuEIEfdnCtzHNV6fwiOWnY", "PpAKINbIw42zMgFuzstKl6IOrrQqRFAxupHqkGdn");
@@ -137,4 +160,5 @@ public class VisaCheckoutApp extends MultiDexApplication {
     private void initOnepocket() {
         OPKLibraryConfig.setTestMode(Constants.TESTING);
     }
+
 }
