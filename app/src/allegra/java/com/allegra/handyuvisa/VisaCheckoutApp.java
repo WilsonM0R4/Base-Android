@@ -3,15 +3,12 @@ package com.allegra.handyuvisa;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.annotation.NonNull;
 import android.support.multidex.MultiDexApplication;
-import android.support.v7.app.NotificationCompat;
 import android.util.Log;
 
 import com.allegra.handyuvisa.utils.Constants;
 import com.allem.onepocket.utils.OPKLibraryConfig;
 import com.urbanairship.UAirship;
-import com.urbanairship.push.PushMessage;
 import com.urbanairship.push.notifications.DefaultNotificationFactory;
 
 /*import com.parse.Parse;
@@ -32,24 +29,13 @@ public class VisaCheckoutApp extends MultiDexApplication {
     private String rawPassword;
     private int idCuenta;
     private String urlHotel;
+    private String path = "android.resource://com.allegra.handyuvisa/raw/allegra_sound";
 
 
     //final String SPLUNK_API_KEY = "d87dc4ae6083e6b16e3b473";
     //Mint.initAndStartSession(MyActivity.this, "e74061f2");
     //final String SPLUNK_API_KEY = "e74061f2";
 
-    public class CustomDefaultNotificationFactory extends DefaultNotificationFactory{
-
-        Uri sound = Uri.parse("android.resource://" + context.getPackageName() + "/raw/allegra_sound");
-        public CustomDefaultNotificationFactory(Context context) {
-            super(context);
-        }
-
-        public NotificationCompat.Builder extendBuilder(@NonNull NotificationCompat.Builder builder, @NonNull PushMessage message, int notificationId) {
-            builder.setSound(sound);
-            return builder;
-        }
-    }
 
     @Override
     public void onCreate() {
@@ -74,10 +60,10 @@ public class VisaCheckoutApp extends MultiDexApplication {
             @Override
             public void onAirshipReady(UAirship airship) {
 
-                CustomDefaultNotificationFactory notificationFactory;
-                notificationFactory = new CustomDefaultNotificationFactory(UAirship.getApplicationContext());
                 Log.d("ESTOY LISTO", "RECIBIDO");
-                airship.getPushManager().setNotificationFactory(notificationFactory);
+                DefaultNotificationFactory factory = (DefaultNotificationFactory)
+                        UAirship.shared().getPushManager().getNotificationFactory();
+                factory.setSound(Uri.parse(path));
                 airship.getPushManager().setUserNotificationsEnabled(true);
                 UAirship.shared().getNamedUser().setId(null);
             }
