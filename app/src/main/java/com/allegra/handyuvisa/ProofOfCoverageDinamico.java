@@ -1,6 +1,5 @@
 package com.allegra.handyuvisa;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -8,18 +7,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.allegra.handyuvisa.ProofDinamico.asyncProofDynamic.AsyncSoapObjectProofDynamic;
 import com.allegra.handyuvisa.async.MyBus;
-import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
-import com.allegra.handyuvisa.utils.Util;
-
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
-
-import java.util.ArrayList;
 
 /**
  * Created by jsandoval on 22/11/16.
@@ -27,6 +17,8 @@ import java.util.ArrayList;
 
 public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
 
+    ArrayList<DataModelTest> dataModelstest;
+    private static CustomAdapterDinamico adapter;
 
     public ListView listCoberturas;
     LinearLayout header,centerListView, bottomTexts;
@@ -37,7 +29,6 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
     private ArrayList<NameValuePair> postValues;
     boolean mostrarAppCobertura = true, mostrarAppBeneficios = true, mostrarSoloPolizaPrincipal = true;
 
-    //*********************OVERRIDE METHODS********************
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,13 +42,11 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
         typeOfId = prefs.getString("typeOfId", "CC");
         numberOfId = prefs.getString("numberOfId", "7887787");
         numberOfMcard = prefs.getString("numberOfMcard", "123456789");
-
         String strIdCuenta = prefs.getString("idCuenta", "0");
         Log.e("typeOfId", typeOfId);
         Log.e("numberOfId", numberOfId);
         Log.e("numberOfMcard", numberOfMcard);
         idCuenta = Integer.valueOf(strIdCuenta);
-        getValuesDynamicProofOfCoverage();
     }
 
     @Override
@@ -138,7 +127,7 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
         //Change layout
         header.setVisibility(View.GONE);
         centerListView.setVisibility(View.GONE);
-        bottomTexts.setVisibility(View.GONE);
+        //bottomTexts.setVisibility(View.GONE);
         setContentView(R.layout.get_your_certificate);
         txtGetYourCertificate = (CustomizedTextView) findViewById(R.id.txtGetYourCertificate2);
         txtGetYourCertificate.setOnClickListener(new View.OnClickListener() {
