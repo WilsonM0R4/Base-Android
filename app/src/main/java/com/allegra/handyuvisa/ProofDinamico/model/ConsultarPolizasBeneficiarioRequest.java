@@ -9,6 +9,8 @@ public class ConsultarPolizasBeneficiarioRequest {
     String idCuenta, idPortal;
     boolean mostrarAppCobertura, mostrarAppBeneficios, mostrarSoloPolizaPrincipal;
 
+
+
     public String getIdCuenta() {
         return idCuenta;
     }

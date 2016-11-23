@@ -1,5 +1,6 @@
 package com.allegra.handyuvisa;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -7,9 +8,18 @@ import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.allegra.handyuvisa.ProofDinamico.asyncProofDynamic.AsyncSoapObjectProofDynamic;
 import com.allegra.handyuvisa.async.MyBus;
+import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
+import com.allegra.handyuvisa.utils.Util;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+
+import java.util.ArrayList;
 
 /**
  * Created by jsandoval on 22/11/16.
@@ -23,7 +33,11 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
     String valueOfMcard, nombre, apellido, typeOfId, numberOfId, numberOfMcard;
     CustomizedTextView textNameLastName, txtGetYourCertificate, txtTypeOfId, txtNumberOfId, txtNumberOfMcard;
     int idCuenta = 0;
+    final String TAG = "ProofOfCoverageDinamico";
+    private ArrayList<NameValuePair> postValues;
+    boolean mostrarAppCobertura = true, mostrarAppBeneficios = true, mostrarSoloPolizaPrincipal = true;
 
+    //*********************OVERRIDE METHODS********************
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,11 +51,13 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
         typeOfId = prefs.getString("typeOfId", "CC");
         numberOfId = prefs.getString("numberOfId", "7887787");
         numberOfMcard = prefs.getString("numberOfMcard", "123456789");
+
         String strIdCuenta = prefs.getString("idCuenta", "0");
         Log.e("typeOfId", typeOfId);
         Log.e("numberOfId", numberOfId);
         Log.e("numberOfMcard", numberOfMcard);
         idCuenta = Integer.valueOf(strIdCuenta);
+        getValuesDynamicProofOfCoverage();
     }
 
     @Override
@@ -60,6 +76,45 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
     protected void onDestroy() {
         MyBus.getInstance().unregister(this);
         super.onDestroy();
+    }
+
+
+
+
+    //*********************PROPER METHODS********************
+
+    void getValuesDynamicProofOfCoverage(){
+
+        SharedPreferences preferences = this.getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+        String idCuentaAIM = preferences.getString("idCuenta", "3");
+        String idPortal = Constants.ID_PORTAL;
+        Log.d(TAG, "El id es: "+idCuentaAIM);
+
+        //ARM REQUEST
+        postValues = new ArrayList<>();
+        if (postValues.size() > 0) postValues.clear();
+        postValues.add(new BasicNameValuePair("idCuentaAIM", "10489"));
+        postValues.add(new BasicNameValuePair("idPortal", idPortal));
+        postValues.add(new BasicNameValuePair("mostrarAppCobertura", Boolean.toString(mostrarAppCobertura)));
+        postValues.add(new BasicNameValuePair("mostrarAppBeneficios", Boolean.toString(mostrarAppBeneficios)));
+        postValues.add(new BasicNameValuePair("mostrarSoloPolizaPrincipal", Boolean.toString(mostrarSoloPolizaPrincipal)));
+
+        //Boolean Flags
+
+        Log.d(TAG, "Booleans "+mostrarAppCobertura);
+
+        //If there is internet connection, send request
+        if (Util.hasInternetConnectivity(getApplicationContext())) {
+            Log.d(TAG, "Entra al internet");
+            AsyncSoapObjectProofDynamic.getInstance(Constants.getUrlDynamicProof(), Constants.NAMESPACE_PROOF,
+                 Constants.METHOD_PROOF,  postValues, Constants.REQUEST_CODE_PROOF).execute();
+
+        }else {
+            Toast.makeText(getApplicationContext(), R.string.err_no_internet, Toast.LENGTH_SHORT).show();
+        }
+
+
+
     }
 
     public void onUpProofDinamico(View view) {

@@ -22,6 +22,22 @@ import java.util.HashMap;
  */
 public class Constants {
 
+    //********FOR DYNAMIC PROOF OF COVERAGE**********
+    public final static String ID_PORTAL = "1";
+    public final static String NAMESPACE_PROOF = "http://www.ws.iatai.com/poliza_servicio/";
+    public final static String METHOD_PROOF = "consultarPolizasBeneficiarioRequest";
+    public final static int REQUEST_CODE_PROOF = 9638;
+    public static final String URL_DYNAMIC_PROOF_TEST = "http://52.71.117.239:8080/PolizaIataiServicio/poliza_servicio_binding?wsdl";
+    public static final String URL_DYNAMIC_PROOF_PROD = "http://52.7.111.227:8080/PolizaIataiServicio/poliza_servicio_binding?wsdl";
+
+    public static String getUrlDynamicProof(){
+        if (TESTING) {
+            return URL_DYNAMIC_PROOF_TEST;
+        }else{
+            return URL_DYNAMIC_PROOF_PROD;
+        }
+    }
+
     public final static String SPLUNK_API_KEY = "e74061f2";
     public final static int REQUEST_CODE_TRANSACTION_HISTORY = 8891;
     public final static int REQUEST_CODE_PROOF_OF_COVERAGE = 8890;
@@ -296,7 +312,7 @@ public class Constants {
     public static final String URL_MARKETPLACE_TEST =  "http://dev.allegra.market/?logo=1&onepocket=1utm_source=HandyuVisa&utm_medium=botonhandy&utm_campaign=App";
     public static final String URL_LOGIN_TEST = "https://pruebas.allegraplatform.com/AllemInMotion/AllemInMotion";
     public static final String URL_SERVICE_TEST = "http://allegra.global/app/servicios_v2_demo/search/?name=";
-    public static final String URL_DYNAMIC_PROOF_TEST = "http://52.71.117.239:8080/PolizaIataiServicio/poliza_servicio_binding";
+
 
     //**********************NEW PRODUCTION URLS*************************
 
@@ -311,17 +327,11 @@ public class Constants {
     public static final String URL_MARKETPLACE_PROD =  "https://www.allegra.market/?logo=1&onepocket=1utm_source=HandyuVisa&utm_medium=botonhandy&utm_campaign=App";
     public static final String URL_LOGIN_PROD = "https://secureacceptance.allegraplatform.com/AllemInMotion/AllemInMotion";
     public static final String URL_SERVICE_PROD = "http://allegra.global/app/servicios_v2/search/?name=";
-    public static final String URL_DYNAMIC_PROOF_PROD = "http://52.7.111.227:8080/PolizaIataiServicio/poliza_servicio_binding?wsdl";
+
 
     //**********************PROPER METHODS*************************
 
-    public static String getUrlDynamicProof(){
-        if (TESTING) {
-            return URL_DYNAMIC_PROOF_TEST;
-        }else{
-            return URL_DYNAMIC_PROOF_PROD;
-        }
-    }
+
 
 
     public static String getWSDL(){

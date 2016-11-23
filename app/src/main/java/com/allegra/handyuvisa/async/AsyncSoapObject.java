@@ -24,7 +24,7 @@ import java.util.Vector;
  */
 public class AsyncSoapObject extends AsyncTask<String,Void,SoapObject> {
 
-    private static final String TAG = "AsyncSoap";
+    private static final String TAG = "AsyncSoapObject";
     private String url,namespace,method,soapaction,faultstring;
     private ArrayList<NameValuePair> postValues;
     private int codeRequest, faultcode;
@@ -43,9 +43,6 @@ public class AsyncSoapObject extends AsyncTask<String,Void,SoapObject> {
         this.userserver = server.user;
         this.passserver = server.pass;
 
-        /*Log.e("this.method",this.method);
-        Log.e("this.userserver",this.userserver);
-        Log.e("this.property",this.property.toString());*/
     }
 
     //***************Proper methods*******************
@@ -100,9 +97,6 @@ public class AsyncSoapObject extends AsyncTask<String,Void,SoapObject> {
     @Override
     protected SoapObject doInBackground(String... strings) {
 
-       /* Log.d(TAG, "url: " + url);
-        Log.d(TAG, "namespace: " + namespace);
-        Log.d(TAG, "soapaction:" + soapaction);*/
         HttpTransportSE transporte = new HttpTransportSE(url);
 
         SoapObject request = new SoapObject(namespace, method),result = null;
