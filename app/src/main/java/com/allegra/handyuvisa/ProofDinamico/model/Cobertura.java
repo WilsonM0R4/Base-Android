@@ -14,6 +14,11 @@ public class Cobertura implements KvmSerializable {
     private String nombre, valorTexto;
     public static final String NOMBRE = "nombre", VALOR_TEXTO = "valorTexto";
 
+    public Cobertura (String nombre, String valorTexto){
+        this.nombre = nombre;
+        this.valorTexto = valorTexto;
+    }
+
     @Override
     public Object getProperty(int index) {
         return null;

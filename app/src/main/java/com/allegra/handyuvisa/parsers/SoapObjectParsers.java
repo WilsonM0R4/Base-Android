@@ -1,7 +1,10 @@
 package com.allegra.handyuvisa.parsers;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 
+import com.allegra.handyuvisa.ProofDinamico.model.Cobertura;
 import com.allegra.handyuvisa.ProofDinamico.model.Poliza;
 import com.allegra.handyuvisa.models.McardCliente;
 import com.allegra.handyuvisa.utils.Constants;
@@ -14,6 +17,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Vector;
+
+import static android.content.Context.MODE_PRIVATE;
 
 
 /**
@@ -44,10 +49,10 @@ public class SoapObjectParsers {
 
     public static Poliza toPoliza(Vector<SoapObject> vector){
 
-        Poliza poliza = new Poliza();
+        Poliza poliza;
         Iterator<SoapObject> itr = vector.iterator();
-        //SoapObject respuesta = vector.get(0);
-        SoapObject soapObject, poliza1, coberturas;//, cobertura
+        ArrayList<Cobertura>  arrListCoberturas =  new ArrayList<>();
+        SoapObject soapObject, poliza1, coberturas;
         String numeroPoliza = "", nombreCobertura = "", valorTexto = "";
 
 
@@ -75,14 +80,16 @@ public class SoapObjectParsers {
                         valorTexto = coberture.getPrimitivePropertySafelyAsString("valorTexto");
                         Log.e(TAG, "nom: "+nombreCobertura);
                         Log.e(TAG, "Valor: "+valorTexto);
+                        //Creo un objeto cobertura
+                        Cobertura cobertura1 = new Cobertura(nombreCobertura, valorTexto);
+                        //Lo adiciono al arrayList
+                        arrListCoberturas.add(cobertura1);
                     }
                 }
-
             }
             Log.e(TAG, "numeroPoliza "+numeroPoliza);
-
         }
-
+        poliza = new Poliza(numeroPoliza, arrListCoberturas);
         return poliza;
     }
 

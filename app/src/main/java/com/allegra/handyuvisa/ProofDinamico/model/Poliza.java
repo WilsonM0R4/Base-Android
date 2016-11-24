@@ -12,9 +12,27 @@ import java.util.Hashtable;
 
 public class Poliza implements KvmSerializable {
 
+    public String getNumeroPoliza() {
+        return numeroPoliza;
+    }
+
+    public void setNumeroPoliza(String numeroPoliza) {
+        this.numeroPoliza = numeroPoliza;
+    }
+
     private String numeroPoliza;
     private ArrayList<Cobertura> coberturas;
     public final static String NUMERO_POLIZA = "numeroPoliza", COBERTURAS = "coberturas";
+
+    //Constructor
+    public Poliza(String numeroPoliza, ArrayList<Cobertura> coberturas){
+        this.numeroPoliza = numeroPoliza;
+        this.coberturas = coberturas;
+    }
+
+
+
+
 
     @Override
     public Object getProperty(int index) {

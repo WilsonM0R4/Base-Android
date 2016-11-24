@@ -322,6 +322,13 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
             //******************
             Log.d(TAG, "Llega al Poliza call");
             Poliza poliza = SoapObjectParsers.toPoliza(event.getResult());
+            //Ya se tiene el objeto Póliza, ahora guardarlo en SharedPreferences
+            String numeroPoliza = poliza.getNumeroPoliza();
+            //Save in SharedPreferences
+            SharedPreferences prefs = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString("numMcard", numeroPoliza);
+            editor.apply();
 
         }
     }
