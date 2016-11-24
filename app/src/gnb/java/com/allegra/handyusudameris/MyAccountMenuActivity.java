@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.allegra.handyuvisa.MyTips;
 import com.allegra.handyuvisa.utils.Connectivity;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
 import com.allegra.handyuvisa.utils.UsuarioSQLiteHelper;
@@ -53,13 +54,14 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
         final String[] names = {
                 getString(R.string.title_my_profile),
                 getString(R.string.benefits),
+                getString(R.string.mytips),
                 getString(R.string.coverage),
                 getString(R.string.transactions_history),
                 getString(R.string.legal_title),
         };
-        final Integer[] images = {R.drawable.menu__profile, R.drawable.my_benefits, R.drawable.coverage, R.drawable.menu__history,
+        final Integer[] images = {R.drawable.menu__profile, R.drawable.my_benefits,R.drawable.my_benefits, R.drawable.coverage, R.drawable.menu__history,
                 R.drawable.legal5};
-        final Class[] activities = {MyAccountActivity.class, MyBenefits.class,
+        final Class[] activities = {MyAccountActivity.class, com.allegra.handyuvisa.MyBenefits.class, MyTips.class,
                 ProofOfCoverageActivity.class, OneTransactionsActivity.class, LegalActivity.class};
         lv.setAdapter(new ArrayAdapter<String>(MyAccountMenuActivity.this, R.layout.profile_layout, names) {
 
@@ -70,10 +72,10 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
                 rowView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if (position == 2) {
+                        if (position == 3) {
                             if (Connectivity.isConnected(ctx) || Connectivity.isConnectedWifi(ctx) || Connectivity.isConnectedMobile(ctx)) {
                                 Log.e("CON CONEXION: "," ESTOY AQUI");//Test 2: Succeded
-                                if (((VisaCheckoutApp) ctx.getApplicationContext()).getIdSession() == null) {
+                                if (((com.allegra.handyuvisa.VisaCheckoutApp) ctx.getApplicationContext()).getIdSession() == null) {
                                     Log.e("CON CONEXION: "," NO ME HE LOGEADO");
                                     setGetYourCertificateLayout();
                                 } else {
@@ -83,7 +85,7 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
                                 }
                             } else {
                                 Log.e("SIN CONEXION: "," ESTOY AQUI");//Test 1: Succeded //Test 3: Succeded
-                                if (((VisaCheckoutApp) ctx.getApplicationContext()).getIdSession() == null) {
+                                if (((com.allegra.handyuvisa.VisaCheckoutApp) ctx.getApplicationContext()).getIdSession() == null) {
                                     Log.e("SIN CONEXION: "," NO ESTOY LOGEADO");//Test 1: Succeded
                                     setGetYourCertificateLayout();
                                 } else {
