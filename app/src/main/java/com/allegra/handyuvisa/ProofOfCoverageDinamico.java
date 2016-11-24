@@ -12,13 +12,13 @@ import android.widget.Toast;
 
 import com.allegra.handyuvisa.ProofDinamico.asyncProofDynamic.AsyncSoapObjectProofDynamic;
 import com.allegra.handyuvisa.ProofDinamico.asyncProofDynamic.AsyncTaskSoapObjectResultEventProofDynamic;
-import com.allegra.handyuvisa.async.AsyncTaskSoapObjectResultEvent;
 import com.allegra.handyuvisa.async.MyBus;
+import com.allegra.handyuvisa.models.AllemUser;
+import com.allegra.handyuvisa.utils.Connectivity;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.CustomAdapterDinamico;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
 import com.allegra.handyuvisa.utils.DataModelTest;
-import com.allegra.handyuvisa.utils.Util;
 import com.squareup.otto.Subscribe;
 
 import org.apache.http.NameValuePair;
@@ -110,6 +110,18 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
             if (event.getResult() != null) {
                 String str = event.getResult().toString();
                 Log.d(TAG, "Resultado: "+str);
+                AllemUser allemUser = Constants.getUser(getApplicationContext());
+                //AllemUser allemUser = SoapObjectParsers.toAllemUser(event.getResult());
+                //((VisaCheckoutApp) this.getApplication()).setIdSession(allemUser.idSesion);
+                nombre = allemUser.nombre;
+                apellido = allemUser.apellido;
+                typeOfId = getTypeOfIdForDisplay(allemUser.idType);
+                numberOfId = allemUser.idNumber;
+                Log.d("nombre", nombre);
+                Log.d("apellido", apellido);
+                Log.d("typeOfId", typeOfId);
+                Log.d("numberOfId", numberOfId);
+                setValues();
 
             }
     }
@@ -137,7 +149,7 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
         Log.d(TAG, "Booleans "+mostrarAppCobertura);
 
         //If there is internet connection, send request
-        if (Util.hasInternetConnectivity(getApplicationContext())) {
+        if (Connectivity.isConnected(getApplicationContext()) || Connectivity.isConnectedWifi(getApplicationContext()) || Connectivity.isConnectedMobile(getApplicationContext())) {
             Log.d(TAG, "Entra al internet");
             AsyncSoapObjectProofDynamic.getInstance(Constants.getUrlDynamicProof(), Constants.NAMESPACE_PROOF,
                  Constants.METHOD_PROOF,  postValues, Constants.REQUEST_CODE_PROOF).execute();
@@ -162,7 +174,7 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
         textNameLastName.setText(nombre + " " + apellido);
         txtTypeOfId.setText(typeOfId);
         txtNumberOfId.setText(numberOfId);
-        txtNumberOfMcard.setText(numberOfMcard);
+        //txtNumberOfMcard.setText(numberOfMcard);
     }
 
     void setGetYourCertificateLayout() {
@@ -187,6 +199,35 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
         Intent i = new Intent(getApplicationContext(), Mcardhtml.class);
         startActivity(i);
         finish();
+    }
+
+    private String getTypeOfIdForDisplay(String idType) {
+
+        String strType = "";
+        switch (idType) {
+
+            case "1":
+                return "CC";
+            //break;
+            case "2":
+                return "CE";
+            case "3":
+                return "NIT";
+            //break;
+            case "4":
+                return "TI";
+            case "5":
+                return "PS";
+            //break;
+            case "10":
+                return "NUIP";
+            case "9":
+                return "OTRO";
+            //break;
+
+        }
+
+        return strType;
     }
 
 }
