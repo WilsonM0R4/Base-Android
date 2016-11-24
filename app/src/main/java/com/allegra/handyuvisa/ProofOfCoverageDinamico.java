@@ -126,7 +126,7 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
         //ARM REQUEST
         postValues = new ArrayList<>();
         if (postValues.size() > 0) postValues.clear();
-        postValues.add(new BasicNameValuePair("idCuentaAIM", "39"));
+        postValues.add(new BasicNameValuePair("idCuentaAIM", idCuentaAIM));//"10489"
         postValues.add(new BasicNameValuePair("idPortal", idPortal));
         postValues.add(new BasicNameValuePair("mostrarAppCobertura", Boolean.toString(mostrarAppCobertura)));
         postValues.add(new BasicNameValuePair("mostrarAppBeneficios", Boolean.toString(mostrarAppBeneficios)));
