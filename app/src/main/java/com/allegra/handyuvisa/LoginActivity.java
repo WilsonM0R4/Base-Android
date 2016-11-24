@@ -20,6 +20,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.allegra.handyuvisa.ProofDinamico.asyncProofDynamic.AsyncSoapObjectProofDynamic;
+import com.allegra.handyuvisa.ProofDinamico.asyncProofDynamic.AsyncTaskSoapObjectResultEventProofDynamic;
 import com.allegra.handyuvisa.async.AsyncSoapObject;
 import com.allegra.handyuvisa.async.AsyncSoapObjectTest;
 import com.allegra.handyuvisa.async.AsyncTaskSoapObjectResultEvent;
@@ -29,6 +31,7 @@ import com.allegra.handyuvisa.models.AllemUser;
 import com.allegra.handyuvisa.models.McardCliente;
 import com.allegra.handyuvisa.models.UserDataBase;
 import com.allegra.handyuvisa.parsers.SoapObjectParsers;
+import com.allegra.handyuvisa.utils.Connectivity;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
 import com.allegra.handyuvisa.utils.KeySaver;
@@ -52,16 +55,15 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
     private final String TAG = "LoginActivity";
     private ActionBar actionBar;
     private Context ctx;
-    private int idCuenta;
+    String nombre, apellido, typeOfId, numberOfId, numberOfMcard;
     //private ImageButton ib_visibilitypass;
     private boolean passIsVisible = false;
     private EditText username, password;
     private CustomizedTextView btn_login, btn_newaccount;
-    private ArrayList<NameValuePair> postValues;
     private ArrayList<String> arrayListMemberships;
     private ProgressBar pb_login;
     private TextView version, forgotpass;
-
+    int idCuenta = 0;
     private String idMcard, numMcard;
     int idMcard1 = 0;
     private String valueOfMcard;
@@ -69,6 +71,8 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
     SQLiteDatabase dbbase;
     private static final String SOUND_NOTIFICATIONS = "android.resource://com.allegra.handyuvisa/raw/allegra_sound";
     public UAirship uAirship;
+    private ArrayList<NameValuePair> postValues;
+    boolean mostrarAppCobertura = true, mostrarAppBeneficios = true, mostrarSoloPolizaPrincipal = true;
 
 
     //*************************OVERRIDE METHODS*********************
@@ -294,6 +298,26 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
 
     }
 
+    @Subscribe
+    public void onAsyncTaskResult(AsyncTaskSoapObjectResultEventProofDynamic event) {
+        Log.d(TAG, event.getFaultString());
+
+        if (event.getResult() != null) {
+            String str = event.getResult().toString();
+            Log.d(TAG, "Resultado: "+str);
+            AllemUser allemUser = Constants.getUser(getApplicationContext());
+            //AllemUser allemUser = SoapObjectParsers.toAllemUser(event.getResult());
+            //((VisaCheckoutApp) this.getApplication()).setIdSession(allemUser.idSesion);
+            nombre = allemUser.nombre;
+            apellido = allemUser.apellido;
+            typeOfId = getTypeOfIdForDisplay(allemUser.idType);
+            numberOfId = allemUser.idNumber;
+            Log.d("nombre", nombre);
+            Log.d("apellido", apellido);
+            Log.d("typeOfId", typeOfId);
+            Log.d("numberOfId", numberOfId);
+        }
+    }
 
     //Response from SOAP Service, get Mcards purchased by an user
     @Subscribe
@@ -326,8 +350,6 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
             }
         }
     }
-
-
 
     //Response from SOAP Service, get user login info
     @Subscribe
@@ -396,6 +418,69 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
 
         }
     }
+
+
+    private String getTypeOfIdForDisplay(String idType) {
+
+        String strType = "";
+        switch (idType) {
+
+            case "1":
+                return "CC";
+            //break;
+            case "2":
+                return "CE";
+            case "3":
+                return "NIT";
+            //break;
+            case "4":
+                return "TI";
+            case "5":
+                return "PS";
+            //break;
+            case "10":
+                return "NUIP";
+            case "9":
+                return "OTRO";
+            //break;
+
+        }
+
+        return strType;
+    }
+
+    void getValuesDynamicProofOfCoverage(){
+
+        SharedPreferences preferences = this.getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+        String idCuentaAIM = preferences.getString("idCuenta", "3");
+        String idPortal = Constants.ID_PORTAL;
+        Log.d(TAG, "El id es: "+idCuentaAIM);
+
+        //ARM REQUEST
+        postValues = new ArrayList<>();
+        if (postValues.size() > 0) postValues.clear();
+        postValues.add(new BasicNameValuePair("idCuentaAIM", idCuentaAIM));//"10489"
+        postValues.add(new BasicNameValuePair("idPortal", idPortal));
+        postValues.add(new BasicNameValuePair("mostrarAppCobertura", Boolean.toString(mostrarAppCobertura)));
+        postValues.add(new BasicNameValuePair("mostrarAppBeneficios", Boolean.toString(mostrarAppBeneficios)));
+        postValues.add(new BasicNameValuePair("mostrarSoloPolizaPrincipal", Boolean.toString(mostrarSoloPolizaPrincipal)));
+
+        //Boolean Flags
+
+        Log.d(TAG, "Booleans "+mostrarAppCobertura);
+
+        //If there is internet connection, send request
+        if (Connectivity.isConnected(getApplicationContext()) || Connectivity.isConnectedWifi(getApplicationContext()) || Connectivity.isConnectedMobile(getApplicationContext())) {
+            Log.d(TAG, "Entra al internet");
+            AsyncSoapObjectProofDynamic.getInstance(Constants.getUrlDynamicProof(), Constants.NAMESPACE_PROOF,
+                    Constants.METHOD_PROOF,  postValues, Constants.REQUEST_CODE_PROOF).execute();
+
+        }else {
+            Toast.makeText(getApplicationContext(), R.string.err_no_internet, Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
 
     public String findValueOfMcard() {
 
