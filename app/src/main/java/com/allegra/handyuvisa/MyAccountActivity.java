@@ -3,6 +3,7 @@ package com.allegra.handyuvisa;
 import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -119,6 +120,11 @@ public class MyAccountActivity extends FrontBackAnimate implements FrontBackAnim
                     //Remove UrbanAirship Notifications
                     UAirship.shared().getPushManager()
                             .setUserNotificationsEnabled(false);
+
+                    //*******Clear SharedPReferences
+                    SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.clear();
 
                 }else{
                     Toast.makeText(ctx, R.string.err_no_internet, Toast.LENGTH_SHORT).show();
