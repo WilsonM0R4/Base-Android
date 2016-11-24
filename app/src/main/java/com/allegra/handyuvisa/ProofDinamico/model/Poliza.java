@@ -3,6 +3,7 @@ package com.allegra.handyuvisa.ProofDinamico.model;
 import org.ksoap2.serialization.KvmSerializable;
 import org.ksoap2.serialization.PropertyInfo;
 
+import java.util.ArrayList;
 import java.util.Hashtable;
 
 /**
@@ -10,6 +11,11 @@ import java.util.Hashtable;
  */
 
 public class Poliza implements KvmSerializable {
+
+    private String numeroPoliza;
+    private ArrayList<Cobertura> coberturas;
+    public final static String NUMERO_POLIZA = "numeroPoliza", COBERTURAS = "coberturas";
+
     @Override
     public Object getProperty(int index) {
         return null;
