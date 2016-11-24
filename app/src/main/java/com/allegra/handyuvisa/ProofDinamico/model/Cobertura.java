@@ -10,6 +10,10 @@ import java.util.Hashtable;
  */
 
 public class Cobertura implements KvmSerializable {
+
+    private String nombre, valorTexto;
+    public static final String NOMBRE = "nombre", VALOR_TEXTO = "valorTexto";
+
     @Override
     public Object getProperty(int index) {
         return null;

@@ -2,6 +2,7 @@ package com.allegra.handyuvisa.parsers;
 
 import android.util.Log;
 
+import com.allegra.handyuvisa.ProofDinamico.model.Poliza;
 import com.allegra.handyuvisa.models.McardCliente;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.models.AllemUser;
@@ -37,6 +38,52 @@ public class SoapObjectParsers {
         }
         mcardCliente = new McardCliente(soapObject.getPropertyAsString("idProducto"),(soapObject.getPropertyAsString("numeroMembresia")));
         return  mcardCliente;
+    }
+
+    //*************New method for parse DynamicProofOfCoverage************
+
+    public static Poliza toPoliza(Vector<SoapObject> vector){
+
+        Poliza poliza = new Poliza();
+        Iterator<SoapObject> itr = vector.iterator();
+        //SoapObject respuesta = vector.get(0);
+        SoapObject soapObject, poliza1, coberturas;//, cobertura
+        String numeroPoliza = "", nombreCobertura = "", valorTexto = "";
+
+
+        while(itr.hasNext()){
+
+            soapObject = itr.next();
+
+            if (soapObject.hasProperty("poliza")){
+                Log.e(TAG, "Count "+soapObject.getPropertyCount());
+                //Dentro del objeto polizas obtengo la poliza
+                poliza1 = (SoapObject)soapObject.getProperty("poliza");
+                Log.e(TAG, "Count inferior "+poliza1.getPropertyCount());
+                //DEntro de la poliza itero por todos sus campos y extraigo el primer valor
+                numeroPoliza = poliza1.getPropertyAsString("numeroPoliza");
+                //Iterar a lo largo del array de coberturas
+                coberturas = (SoapObject)poliza1.getProperty("coberturas");
+                Log.e(TAG, "Count coberturas "+coberturas.getPropertyCount());
+
+                for (int i = 0; i < coberturas.getPropertyCount(); i++){
+                    Object  cobertura = coberturas.getProperty(i);
+                    if (cobertura instanceof SoapObject)
+                    {
+                        SoapObject coberture = (SoapObject) cobertura;
+                        nombreCobertura = coberture.getPrimitivePropertySafelyAsString("nombre");
+                        valorTexto = coberture.getPrimitivePropertySafelyAsString("valorTexto");
+                        Log.e(TAG, "nom: "+nombreCobertura);
+                        Log.e(TAG, "Valor: "+valorTexto);
+                    }
+                }
+
+            }
+            Log.e(TAG, "numeroPoliza "+numeroPoliza);
+
+        }
+
+        return poliza;
     }
 
     public static McardCliente toMcardCliente(Vector<SoapObject> vector){

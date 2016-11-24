@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.allegra.handyuvisa.ProofDinamico.asyncProofDynamic.AsyncSoapObjectProofDynamic;
 import com.allegra.handyuvisa.ProofDinamico.asyncProofDynamic.AsyncTaskSoapObjectResultEventProofDynamic;
+import com.allegra.handyuvisa.ProofDinamico.model.Poliza;
 import com.allegra.handyuvisa.async.AsyncSoapObject;
 import com.allegra.handyuvisa.async.AsyncSoapObjectTest;
 import com.allegra.handyuvisa.async.AsyncTaskSoapObjectResultEvent;
@@ -89,19 +90,19 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
 
         //TODO: Uncomment this before push
         //Splunk
-        Mint.setApplicationEnvironment(Mint.appEnvironmentTesting);
+       /* Mint.setApplicationEnvironment(Mint.appEnvironmentTesting);
         Mint.initAndStartSession(getApplicationContext(), Constants.SPLUNK_API_KEY);
         // Enable logging
         Mint.enableLogging(true);
         // Log last 100 messages
-        Mint.setLogging(200);
+        Mint.setLogging(200);*/
 
         findValueOfMcard();
 
         //Error for test Splunk
         /*String str =  null;
         Log.d(TAG, str);*/
-        getValuesDynamicProofOfCoverage();
+
     }
 
     @Override
@@ -298,6 +299,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
 
     }
 
+    //SOAP Response from new Request Dynamic Proof of coverage
     @Subscribe
     public void onAsyncTaskResult(AsyncTaskSoapObjectResultEventProofDynamic event) {
         Log.d(TAG, event.getFaultString());
@@ -308,7 +310,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
             AllemUser allemUser = Constants.getUser(getApplicationContext());
             //AllemUser allemUser = SoapObjectParsers.toAllemUser(event.getResult());
             //((VisaCheckoutApp) this.getApplication()).setIdSession(allemUser.idSesion);
-            nombre = allemUser.nombre;
+            /*nombre = allemUser.nombre;
             apellido = allemUser.apellido;
             typeOfId = getTypeOfIdForDisplay(allemUser.idType);
             numberOfId = allemUser.idNumber;
@@ -316,11 +318,16 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
             Log.d("apellido", apellido);
             Log.d("typeOfId", typeOfId);
             Log.d("numberOfId", numberOfId);
+            */
+            //******************
+            Log.d(TAG, "Llega al Poliza call");
+            Poliza poliza = SoapObjectParsers.toPoliza(event.getResult());
+
         }
     }
 
     //Response from SOAP Service, get Mcards purchased by an user
-    @Subscribe
+    /*@Subscribe
     public void onAsyncTaskResult(AsyncTaskSoapObjectResultEventMcard event) {
         Log.d("SergioMcardEntra", event.getFaultString());
         if (event.getCodeRequest() == Constants.MCARD_CODE) {
@@ -349,7 +356,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 Log.d("numMcard", "Es" + numMcard);
             }
         }
-    }
+    }*/
 
     //Response from SOAP Service, get user login info
     @Subscribe
@@ -357,7 +364,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
 
         Log.d("SergioEntra", event.getFaultString());
         if (event.getCodeRequest() == Constants.ACTIVITY_LOGIN) {
-            setWaitinUI(false);
+
             if (event.getResult() != null) {
 
                 //Create an AllemUser object and set values
@@ -366,6 +373,8 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 ((VisaCheckoutApp) this.getApplication()).setIdSession(user.idSesion);
                 ((VisaCheckoutApp) this.getApplication()).setIdCuenta(user.idCuenta);
                 ((VisaCheckoutApp) this.getApplication()).setRawPassword(password.getText().toString());
+                //************
+                getValuesDynamicProofOfCoverage();
                 //Get values for work with these
                 String name = user.email.substring(0, user.email.indexOf('@'));
                 String domain = user.email.substring(user.email.indexOf('@') + 1, user.email.length()).replace(".", "");
@@ -399,14 +408,16 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 //Launch SOAP request for mCard
                 if (postValues.size() > 0) postValues.clear();
                 postValues.add(new BasicNameValuePair("idCuenta", String.valueOf(idCuenta)));
-                AsyncSoapObjectTest asyncSoapObjectTest = new AsyncSoapObjectTest(getApplicationContext());
+               /* AsyncSoapObjectTest asyncSoapObjectTest = new AsyncSoapObjectTest(getApplicationContext());
                 asyncSoapObjectTest.getInstance2(Constants.getMcardUrl(), Constants.MCARD_NAMESPACE,
-                        Constants.MCARD_METHOD, postValues, Constants.MCARD_CODE).execute();
+                        Constants.MCARD_METHOD, postValues, Constants.MCARD_CODE).execute();*/
+
                 Constants.saveUser(ctx, user, channel);
                 valueOfMcard = prefs.getString("idMcard", "0");
                 idMcard1 = Integer.valueOf(valueOfMcard);
                 db.addUser(new UserDataBase(nombre, apellido, getTypeOfDocumentFromIdCode(typeOfId), numberOfId, prefs.getString("numMcard", numMcard), findValueOfMcard(), findValueOfMcard(), findValueOfMcard()));
-                /*CHECK IF DATA BASE EXIST*/
+                setWaitinUI(false);
+                //*CHECK IF DATA BASE EXIST*/
                 Intent returnIntent = new Intent();
                 Log.e(TAG, "Acá sí");
                 setResult(RESULT_OK, returnIntent);
