@@ -17,12 +17,13 @@ import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 
 import java.util.ArrayList;
+import java.util.Vector;
 
 /**
  * Created by sergiofarfan on 11/22/16.
  */
 
-public class AsyncSoapObjectProofDynamic extends AsyncTask<String,Void,SoapObject> {
+public class AsyncSoapObjectProofDynamic extends AsyncTask<String,Void,Vector<SoapObject>> {
 
     private static final String TAG = "AsyncSoapObjProofDynami";
     private String url,namespace,method,soapaction,faultstring;
@@ -46,11 +47,12 @@ public class AsyncSoapObjectProofDynamic extends AsyncTask<String,Void,SoapObjec
 
     //***************OVERRIDE METHODS*********************
     @Override
-    protected SoapObject doInBackground(String... strings) {
+    protected Vector<SoapObject> doInBackground(String... strings) {
         Log.d(TAG, "URL "+url);
         HttpTransportSE transporte = new HttpTransportSE(url);
 
-        SoapObject request = new SoapObject(namespace, method),result = null;
+        SoapObject request = new SoapObject(namespace, method);
+        Vector<SoapObject> result = null;
 
         try {
             if (postValues!=null){
@@ -73,20 +75,16 @@ public class AsyncSoapObjectProofDynamic extends AsyncTask<String,Void,SoapObjec
             transporte.call(soapaction, envelope);
             Log.d(TAG,"soapAction "+soapaction);
             Log.d(TAG, transporte.requestDump);
-            result = (SoapObject) envelope.getResponse();
+            //(SoapObject) envelope.getResponse();
+            result = (Vector<SoapObject>) envelope.getResponse();
             Log.d(TAG, transporte.responseDump);
             if (result!=null) Log.d(TAG, "Response "+result.toString());
             else Log.d(TAG, "Es nulo");
-            //******
-            SoapPrimitive resultado_xml =(SoapPrimitive)envelope.getResponse();
-            String res = resultado_xml.toString();
-            Log.d(TAG, "Res "+res);
             faultcode =-1;
             faultstring="OK";
         } catch (Exception e) {
             Log.d(TAG, "Llega a la excepcion");
             e.printStackTrace();
-            //faultcode=Integer.valueOf(error);
             faultcode=-1000;
             faultstring=e.getMessage();
         }
@@ -95,7 +93,8 @@ public class AsyncSoapObjectProofDynamic extends AsyncTask<String,Void,SoapObjec
 
 
     @Override
-    protected void onPostExecute(SoapObject result) {
+    protected void onPostExecute(Vector<SoapObject> result) {
+        Log.d(TAG, "result "+result.toString());
         MyBus.getInstance().post(new AsyncTaskSoapObjectResultEventProofDynamic(result,codeRequest,faultcode,faultstring));
     }
 

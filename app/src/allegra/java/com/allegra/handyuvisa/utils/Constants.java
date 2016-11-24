@@ -26,6 +26,7 @@ public class Constants {
     public final static String ID_PORTAL = "1";
     public final static String NAMESPACE_PROOF = "http://www.ws.iatai.com/poliza_servicio/";
     public final static String METHOD_PROOF = "consultarPolizasBeneficiarioRequest";
+    public final static int ACTIVITY_PROOF = 10405;
     public final static int REQUEST_CODE_PROOF = 9638;
     public static final String URL_DYNAMIC_PROOF_TEST = "http://52.71.117.239:8080/PolizaIataiServicio/poliza_servicio_binding?wsdl";
     public static final String URL_DYNAMIC_PROOF_PROD = "http://52.7.111.227:8080/PolizaIataiServicio/poliza_servicio_binding?wsdl";
@@ -63,8 +64,8 @@ public class Constants {
     //***************** EASY CHANGE BETWEEN TESTING AND PRODUCTION SYSTEM URLS *********************
 
     //** Parameter indicates mode: TESTING = false implies PRODUCTION mode **
-    public final static boolean TESTING = false;
-    public final static boolean TESTING_AIR = false;
+    public final static boolean TESTING = true;
+    public final static boolean TESTING_AIR = true;
 
     public final static String DEMOURL="http://demo.allemmarket.com/allemmarketapp/index/login/";
     public final static String DEMOHOST="allemmarket.com";

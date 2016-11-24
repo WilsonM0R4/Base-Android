@@ -1,5 +1,6 @@
 package com.allegra.handyuvisa;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -7,9 +8,23 @@ import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.allegra.handyuvisa.ProofDinamico.asyncProofDynamic.AsyncSoapObjectProofDynamic;
+import com.allegra.handyuvisa.ProofDinamico.asyncProofDynamic.AsyncTaskSoapObjectResultEventProofDynamic;
+import com.allegra.handyuvisa.async.AsyncTaskSoapObjectResultEvent;
 import com.allegra.handyuvisa.async.MyBus;
+import com.allegra.handyuvisa.utils.Constants;
+import com.allegra.handyuvisa.utils.CustomAdapterDinamico;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
+import com.allegra.handyuvisa.utils.DataModelTest;
+import com.allegra.handyuvisa.utils.Util;
+import com.squareup.otto.Subscribe;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+
+import java.util.ArrayList;
 
 /**
  * Created by jsandoval on 22/11/16.
@@ -47,6 +62,7 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
         Log.e("numberOfId", numberOfId);
         Log.e("numberOfMcard", numberOfMcard);
         idCuenta = Integer.valueOf(strIdCuenta);
+        getValuesDynamicProofOfCoverage();
     }
 
     @Override
@@ -58,7 +74,27 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
         header = (LinearLayout) root.findViewById(R.id.customCoverageHeaderDinamico);
         centerListView = (LinearLayout) root.findViewById(R.id.customCoverageListDinamico);
         listCoberturas = (ListView) root.findViewById(R.id.mainListView);
-        bottomTexts = (LinearLayout) root.findViewById(R.id.customTextCoverage);
+        //bottomTexts = (LinearLayout) root.findViewById(R.id.customTextCoverage);
+
+        dataModelstest= new ArrayList<>();
+
+        dataModelstest.add(new DataModelTest("Apple Pie", "Android 1.0"));
+        dataModelstest.add(new DataModelTest("Banana Bread", "Android 1.1"));
+        dataModelstest.add(new DataModelTest("Cupcake", "Android 1.5"));
+        dataModelstest.add(new DataModelTest("Donut","Android 1.6"));
+        dataModelstest.add(new DataModelTest("Eclair", "Android 2.0"));
+        dataModelstest.add(new DataModelTest("Froyo", "Android 2.2"));
+        dataModelstest.add(new DataModelTest("Gingerbread", "Android 2.3"));
+        dataModelstest.add(new DataModelTest("Honeycomb","Android 3.0"));
+        dataModelstest.add(new DataModelTest("Ice Cream Sandwich", "Android 4.0"));
+        dataModelstest.add(new DataModelTest("Jelly Bean", "Android 4.2"));
+        dataModelstest.add(new DataModelTest("Kitkat", "Android 4.4"));
+        dataModelstest.add(new DataModelTest("Lollipop","Android 5.0"));
+        dataModelstest.add(new DataModelTest("Marshmallow", "Android 6.0"));
+
+        adapter= new CustomAdapterDinamico(dataModelstest,getApplicationContext());
+
+        listCoberturas.setAdapter(adapter);
     }
 
     @Override
@@ -67,8 +103,16 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
         super.onDestroy();
     }
 
+    @Subscribe
+    public void onAsyncTaskResult(AsyncTaskSoapObjectResultEventProofDynamic event) {
+        Log.d(TAG, event.getFaultString());
 
+            if (event.getResult() != null) {
+                String str = event.getResult().toString();
+                Log.d(TAG, "Resultado: "+str);
 
+            }
+    }
 
     //*********************PROPER METHODS********************
 
@@ -82,7 +126,7 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
         //ARM REQUEST
         postValues = new ArrayList<>();
         if (postValues.size() > 0) postValues.clear();
-        postValues.add(new BasicNameValuePair("idCuentaAIM", "10489"));
+        postValues.add(new BasicNameValuePair("idCuentaAIM", "39"));
         postValues.add(new BasicNameValuePair("idPortal", idPortal));
         postValues.add(new BasicNameValuePair("mostrarAppCobertura", Boolean.toString(mostrarAppCobertura)));
         postValues.add(new BasicNameValuePair("mostrarAppBeneficios", Boolean.toString(mostrarAppBeneficios)));
@@ -101,8 +145,6 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
         }else {
             Toast.makeText(getApplicationContext(), R.string.err_no_internet, Toast.LENGTH_SHORT).show();
         }
-
-
 
     }
 
