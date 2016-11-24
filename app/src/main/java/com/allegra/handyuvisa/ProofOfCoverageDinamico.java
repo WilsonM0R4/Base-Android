@@ -13,8 +13,10 @@ import android.widget.Toast;
 
 import com.allegra.handyuvisa.ProofDinamico.asyncProofDynamic.AsyncSoapObjectProofDynamic;
 import com.allegra.handyuvisa.ProofDinamico.asyncProofDynamic.AsyncTaskSoapObjectResultEventProofDynamic;
+import com.allegra.handyuvisa.ProofDinamico.model.Poliza;
 import com.allegra.handyuvisa.async.MyBus;
 import com.allegra.handyuvisa.models.AllemUser;
+import com.allegra.handyuvisa.parsers.SoapObjectParsers;
 import com.allegra.handyuvisa.utils.Connectivity;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.CustomAdapterDinamico;
@@ -57,7 +59,7 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
         apellido = prefs.getString("apellido", "Castro");
         typeOfId = prefs.getString("typeOfId", "CC");
         numberOfId = prefs.getString("numberOfId", "7887787");
-        numberOfMcard = prefs.getString("numberOfMcard", "123456789");
+        numberOfMcard = prefs.getString("numMcard", "123456789");
         String strIdCuenta = prefs.getString("idCuenta", "0");
         Log.e("typeOfId", typeOfId);
         Log.e("numberOfId", numberOfId);
@@ -137,16 +139,20 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
                 String str = event.getResult().toString();
                 Log.d(TAG, "Resultado: "+str);
                 AllemUser allemUser = Constants.getUser(getApplicationContext());
+                Poliza poliza = SoapObjectParsers.toPoliza(event.getResult());
+                String numMcard = poliza.getNumeroPoliza();
                 //AllemUser allemUser = SoapObjectParsers.toAllemUser(event.getResult());
                 //((VisaCheckoutApp) this.getApplication()).setIdSession(allemUser.idSesion);
                 nombre = allemUser.nombre;
                 apellido = allemUser.apellido;
                 typeOfId = getTypeOfIdForDisplay(allemUser.idType);
                 numberOfId = allemUser.idNumber;
+                numberOfMcard = numMcard;
                 Log.d("nombre", nombre);
                 Log.d("apellido", apellido);
                 Log.d("typeOfId", typeOfId);
                 Log.d("numberOfId", numberOfId);
+                Log.d("numeroMcard", numberOfMcard);
                 setValues();
 
             }
@@ -200,7 +206,7 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
         textNameLastName.setText(nombre + " " + apellido);
         txtTypeOfId.setText(typeOfId);
         txtNumberOfId.setText(numberOfId);
-        //txtNumberOfMcard.setText(numberOfMcard);
+        txtNumberOfMcard.setText(numberOfMcard);
     }
 
     void setGetYourCertificateLayout() {
