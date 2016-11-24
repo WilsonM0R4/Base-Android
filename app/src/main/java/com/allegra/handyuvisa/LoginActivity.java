@@ -101,7 +101,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         //Error for test Splunk
         /*String str =  null;
         Log.d(TAG, str);*/
-
+        getValuesDynamicProofOfCoverage();
     }
 
     @Override
