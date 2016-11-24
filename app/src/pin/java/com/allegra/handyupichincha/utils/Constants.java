@@ -2,7 +2,6 @@ package com.allegra.handyuvisa.utils;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.allegra.handyuvisa.VisaCheckoutApp;
 import com.allegra.handyuvisa.models.AllemCommerceUser;
