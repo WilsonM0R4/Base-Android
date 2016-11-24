@@ -86,6 +86,8 @@ public class SoapObjectParsers {
                         arrListCoberturas.add(cobertura1);
                     }
                 }
+            } else{//Sino usamnos un valor por defecto que indica que no tiene póliza
+                numeroPoliza = "NO_TIENE";
             }
             Log.e(TAG, "numeroPoliza "+numeroPoliza);
         }

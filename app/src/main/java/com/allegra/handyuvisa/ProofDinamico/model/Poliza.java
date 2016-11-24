@@ -21,6 +21,15 @@ public class Poliza implements KvmSerializable {
     }
 
     private String numeroPoliza;
+
+    public ArrayList<Cobertura> getCoberturas() {
+        return coberturas;
+    }
+
+    public void setCoberturas(ArrayList<Cobertura> coberturas) {
+        this.coberturas = coberturas;
+    }
+
     private ArrayList<Cobertura> coberturas;
     public final static String NUMERO_POLIZA = "numeroPoliza", COBERTURAS = "coberturas";
 

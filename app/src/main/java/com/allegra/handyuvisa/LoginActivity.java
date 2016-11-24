@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.allegra.handyuvisa.ProofDinamico.asyncProofDynamic.AsyncSoapObjectProofDynamic;
 import com.allegra.handyuvisa.ProofDinamico.asyncProofDynamic.AsyncTaskSoapObjectResultEventProofDynamic;
+import com.allegra.handyuvisa.ProofDinamico.model.Cobertura;
 import com.allegra.handyuvisa.ProofDinamico.model.Poliza;
 import com.allegra.handyuvisa.async.AsyncSoapObject;
 import com.allegra.handyuvisa.async.AsyncSoapObjectTest;
@@ -322,13 +323,18 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
             //******************
             Log.d(TAG, "Llega al Poliza call");
             Poliza poliza = SoapObjectParsers.toPoliza(event.getResult());
-            //Ya se tiene el objeto Póliza, ahora guardarlo en SharedPreferences
+            //Ya se tiene el objeto Póliza, ahora guardarel número en SharedPreferences
             String numeroPoliza = poliza.getNumeroPoliza();
+            Log.d(TAG, "numero: "+numeroPoliza);
             //Save in SharedPreferences
             SharedPreferences prefs = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
             SharedPreferences.Editor editor = prefs.edit();
             editor.putString("numMcard", numeroPoliza);
             editor.apply();
+            //Obtener el listado de coberturas
+            ArrayList<Cobertura> coberturas = poliza.getCoberturas();
+
+
 
         }
     }
@@ -380,8 +386,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 ((VisaCheckoutApp) this.getApplication()).setIdSession(user.idSesion);
                 ((VisaCheckoutApp) this.getApplication()).setIdCuenta(user.idCuenta);
                 ((VisaCheckoutApp) this.getApplication()).setRawPassword(password.getText().toString());
-                //************
-                getValuesDynamicProofOfCoverage();
+
                 //Get values for work with these
                 String name = user.email.substring(0, user.email.indexOf('@'));
                 String domain = user.email.substring(user.email.indexOf('@') + 1, user.email.length()).replace(".", "");
@@ -418,7 +423,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                /* AsyncSoapObjectTest asyncSoapObjectTest = new AsyncSoapObjectTest(getApplicationContext());
                 asyncSoapObjectTest.getInstance2(Constants.getMcardUrl(), Constants.MCARD_NAMESPACE,
                         Constants.MCARD_METHOD, postValues, Constants.MCARD_CODE).execute();*/
-
+                getValuesDynamicProofOfCoverage();
                 Constants.saveUser(ctx, user, channel);
                 valueOfMcard = prefs.getString("idMcard", "0");
                 idMcard1 = Integer.valueOf(valueOfMcard);
