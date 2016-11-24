@@ -10,9 +10,10 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
-
+import java.lang.reflect.Type;
 import com.allegra.handyuvisa.ProofDinamico.asyncProofDynamic.AsyncSoapObjectProofDynamic;
 import com.allegra.handyuvisa.ProofDinamico.asyncProofDynamic.AsyncTaskSoapObjectResultEventProofDynamic;
+import com.allegra.handyuvisa.ProofDinamico.model.Cobertura;
 import com.allegra.handyuvisa.ProofDinamico.model.Poliza;
 import com.allegra.handyuvisa.async.MyBus;
 import com.allegra.handyuvisa.models.AllemUser;
@@ -22,12 +23,15 @@ import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.CustomAdapterDinamico;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
 import com.allegra.handyuvisa.utils.DataModelTest;
+import com.google.common.reflect.TypeToken;
+import com.google.gson.Gson;
 import com.squareup.otto.Subscribe;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by jsandoval on 22/11/16.
@@ -35,7 +39,8 @@ import java.util.ArrayList;
 
 public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
 
-    ArrayList<DataModelTest> dataModelstest;
+    //ArrayList<DataModelTest> dataModelstest;
+    ArrayList<Cobertura> dataModelstest;
     private static CustomAdapterDinamico adapter;
 
     public ListView listCoberturas;
@@ -84,7 +89,7 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
 
         dataModelstest= new ArrayList<>();
 
-        dataModelstest.add(new DataModelTest("Apple Pie", "Android 1.0"));
+        /*dataModelstest.add(new DataModelTest("Apple Pie", "Android 1.0"));
         dataModelstest.add(new DataModelTest("Banana Bread", "Android 1.1"));
         dataModelstest.add(new DataModelTest("Cupcake", "Android 1.5"));
         dataModelstest.add(new DataModelTest("Donut","Android 1.6"));
@@ -98,8 +103,16 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
         dataModelstest.add(new DataModelTest("Lollipop","Android 5.0"));
         dataModelstest.add(new DataModelTest("Marshmallow", "Android 6.0"));
 
-        adapter= new CustomAdapterDinamico(dataModelstest,getApplicationContext());
+        adapter= new CustomAdapterDinamico(dataModelstest,getApplicationContext());*/
 
+        //Read from SharedPreferences
+        SharedPreferences preferences = this.getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+        String lista = preferences.getString("coberturas", "3");
+        Log.d(TAG, "Lista "+lista);
+        Type type = new TypeToken<ArrayList<Cobertura>>(){}.getType();
+        Gson gson = new Gson();
+        ArrayList<Cobertura> carsList = gson.fromJson(lista, type);
+        adapter= new CustomAdapterDinamico(carsList,getApplicationContext());
         listCoberturas.setAdapter(adapter);
 
 

@@ -39,6 +39,7 @@ import com.allegra.handyuvisa.utils.CustomizedTextView;
 import com.allegra.handyuvisa.utils.KeySaver;
 import com.allegra.handyuvisa.utils.UsuarioSQLiteHelper;
 import com.allegra.handyuvisa.utils.Util;
+import com.google.gson.Gson;
 import com.splunk.mint.Mint;
 import com.squareup.otto.Subscribe;
 import com.urbanairship.UAirship;
@@ -323,18 +324,21 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
             //******************
             Log.d(TAG, "Llega al Poliza call");
             Poliza poliza = SoapObjectParsers.toPoliza(event.getResult());
-            //Ya se tiene el objeto Póliza, ahora guardarel número en SharedPreferences
+            //Ya se tiene el objeto Póliza, ahora guardar el número en SharedPreferences
             String numeroPoliza = poliza.getNumeroPoliza();
             Log.d(TAG, "numero: "+numeroPoliza);
             //Save in SharedPreferences
             SharedPreferences prefs = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
             SharedPreferences.Editor editor = prefs.edit();
             editor.putString("numMcard", numeroPoliza);
-            editor.apply();
-            //Obtener el listado de coberturas
+
+            //Obtener el listado de coberturas y guardarlo
             ArrayList<Cobertura> coberturas = poliza.getCoberturas();
-
-
+            Gson gson = new Gson();
+            String strCoberturas = gson.toJson(coberturas);
+            Log.d("TAG","Coberturas = " + strCoberturas);
+            editor.putString("coberturas",strCoberturas);
+            editor.apply();
 
         }
     }

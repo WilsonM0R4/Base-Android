@@ -11,6 +11,14 @@ import java.util.Hashtable;
 
 public class Cobertura implements KvmSerializable {
 
+    public String getValorTexto() {
+        return valorTexto;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
     private String nombre, valorTexto;
     public static final String NOMBRE = "nombre", VALOR_TEXTO = "valorTexto";
 
@@ -18,6 +26,8 @@ public class Cobertura implements KvmSerializable {
         this.nombre = nombre;
         this.valorTexto = valorTexto;
     }
+
+
 
     @Override
     public Object getProperty(int index) {

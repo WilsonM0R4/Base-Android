@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.allegra.handyuvisa.ProofDinamico.model.Cobertura;
 import com.allegra.handyuvisa.R;
 
 import java.util.ArrayList;
@@ -15,9 +16,9 @@ import java.util.ArrayList;
  * Created by jsandoval on 23/11/16.
  */
 
-public class CustomAdapterDinamico extends ArrayAdapter<DataModelTest> implements View.OnClickListener{
+public class CustomAdapterDinamico extends ArrayAdapter<Cobertura> implements View.OnClickListener{
 
-    private ArrayList<DataModelTest> dataSet;
+    private ArrayList<Cobertura> dataSet;
     Context mContext;
 
     private static class ViewHolder {
@@ -25,7 +26,7 @@ public class CustomAdapterDinamico extends ArrayAdapter<DataModelTest> implement
         TextView txtdescripcioncobertura;
     }
 
-    public CustomAdapterDinamico(ArrayList<DataModelTest> data, Context context) {
+    public CustomAdapterDinamico(ArrayList<Cobertura> data, Context context) {
         super(context, R.layout.title_cobertura_valor, data);
         this.dataSet = data;
         this.mContext=context;
@@ -42,7 +43,7 @@ public class CustomAdapterDinamico extends ArrayAdapter<DataModelTest> implement
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        DataModelTest dataModeltest = getItem(position);
+        Cobertura dataModeltest = getItem(position);
         ViewHolder viewHolder;
         final View result;
 
@@ -61,8 +62,8 @@ public class CustomAdapterDinamico extends ArrayAdapter<DataModelTest> implement
             result=convertView;
         }
 
-        viewHolder.txttitlecobertura.setText(dataModeltest.getName());
-        viewHolder.txtdescripcioncobertura.setText(dataModeltest.getType());
+        viewHolder.txttitlecobertura.setText(dataModeltest.getValorTexto());
+        viewHolder.txtdescripcioncobertura.setText(dataModeltest.getNombre());
 
         return convertView;
     }
