@@ -64,8 +64,8 @@ public class Constants {
     //***************** EASY CHANGE BETWEEN TESTING AND PRODUCTION SYSTEM URLS *********************
 
     //** Parameter indicates mode: TESTING = false implies PRODUCTION mode **
-    public final static boolean TESTING = true;
-    public final static boolean TESTING_AIR = true;
+    public final static boolean TESTING = false;
+    public final static boolean TESTING_AIR = false;
 
     public final static String DEMOURL="http://demo.allemmarket.com/allemmarketapp/index/login/";
     public final static String DEMOHOST="allemmarket.com";
@@ -78,7 +78,7 @@ public class Constants {
     public final static int PICKER_SIZE_CHILDREN_AND_INFANTS = 6;
 
     public final static String URL_ALLEM_AIR_PROD = "https://secure.allegraplatform.com/GatewayIatai/IPPG";
-    public final static String URL_ALLEM_AIR_TEST = "https://pruebas.allegraplatform.com/GatewayIatai/IPPG";
+    public final static String URL_ALLEM_AIR_TEST =  "https://pruebas.allegraplatform.com/GatewayIatai/IPPG";
     public final static String URL_ALLEM_WSDL_AIR_TEST = URL_ALLEM_AIR_TEST+"?WSDL";
     public final static String URL_ALLEM_WSDL_AIR_PROD = URL_ALLEM_AIR_PROD+"?WSDL";
     public static final String AUTH_KEY_AMADEUS = "wqwer23WERWER234fcbfdfgnr67sd235" ;
@@ -112,6 +112,7 @@ public class Constants {
     public final static String METHOD_HACER_TRANSACCION = "HacerTransaccion";
     public final static String METHOD_OBTENER_COMPRAS = "ObtenerCompras";
     public final static String METHOD_HACER_TRANSACCION_ALLEM_MARKET = "HacerTransaccionAllemMarket";
+
 
     public final static String METHOD_INICIAR_SESION = "IniciarSesion";
     public final static String METHOD_CERRAR_SESION = "CerrarSesion";
@@ -311,9 +312,9 @@ public class Constants {
     public static final String URL_STORE_TEST =  "http://52.203.29.124/allemstore_demo/";
     public static final String URL_RESTAURANT_TEST =  "http://52.203.29.124/allemrestaurant_demo/#!/brand/restaurantes/map";
     public static final String URL_MARKETPLACE_TEST =  "http://dev.allegra.market/?logo=1&onepocket=1utm_source=HandyuVisa&utm_medium=botonhandy&utm_campaign=App";
-    public static final String URL_LOGIN_TEST = "https://pruebas.allegraplatform.com/AllemInMotion/AllemInMotion";
-    public static final String URL_SERVICE_TEST = "http://allegra.global/app/servicios_v2_demo/search/?name=";
-
+    public static final String  URL_LOGIN_TEST = "https://pruebas.allegraplatform.com/AllemInMotion/AllemInMotion";
+    public static final String  URL_SERVICE_TEST = "http://allegra.global/app/servicios_v2_demo/search/?name=";
+    public static final String URL_MCARD_HTML_TEST = "http://52.71.117.239:8080/MembresiaProteccionIatai/app/index.xhtml?portal=1&email=";
 
     //**********************NEW PRODUCTION URLS*************************
 
@@ -326,17 +327,14 @@ public class Constants {
     public static final String URL_STORE_PROD = "http://52.203.29.124/allemstore_v2/";
     public static final String URL_RESTAURANT_PROD =  "http://52.203.29.124/allemrestaurant_v2/#!/brand/restaurantes/map";
     public static final String URL_MARKETPLACE_PROD =  "https://www.allegra.market/?logo=1&onepocket=1utm_source=HandyuVisa&utm_medium=botonhandy&utm_campaign=App";
-    public static final String URL_LOGIN_PROD = "https://secureacceptance.allegraplatform.com/AllemInMotion/AllemInMotion";
-    public static final String URL_SERVICE_PROD = "http://allegra.global/app/servicios_v2/search/?name=";
-
-
+    public static final String  URL_LOGIN_PROD = "https://secureacceptance.allegraplatform.com/AllemInMotion/AllemInMotion";
+    public static final String  URL_SERVICE_PROD = "http://allegra.global/app/servicios_v2/search/?name=";
+    public static final String URL_MCARD_HTML_PROD = "http://52.7.111.227:8080//MembresiaProteccionIatai/app/index.xhtml?portal=1&email=";
     //**********************PROPER METHODS*************************
-
-
-
 
     public static String getWSDL(){
         if (TESTING) {
+            //Log.d(TAG, "testing");
             return URL_ALLEM_WSDL_TEST;
         }else{
             return URL_ALLEM_WSDL_PROD;
@@ -432,6 +430,14 @@ public class Constants {
             return URL_SERVICE_TEST;
         }else{
             return URL_SERVICE_PROD;
+        }
+    }
+
+    public static String getMcardhtml (){
+        if (TESTING){
+            return URL_MCARD_HTML_TEST;
+        }else {
+            return URL_MCARD_HTML_PROD;
         }
     }
 

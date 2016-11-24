@@ -26,7 +26,7 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
     private String returnURL, userEmail;
     public String onePocketmessage;
     //private String url = "http://52.71.117.239:8080/McardMembresiaAllus/app/app/app/index_320.xhtml?email=";
-    private String url_prod = "http://52.7.111.227:8080/McardMembresiaAllus/app/app/index_320.xhtml?email=";
+    private String url_prod = Constants.getMcardhtml();
     //private String url = "http://allegra.global/membresias/planes/";
 
     @Override
@@ -100,7 +100,7 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
     public void openOnePocket(){
 
         Intent intent = new Intent(Mcardhtml.this, OnepocketPurchaseActivity.class);
-        Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(this), onePocketmessage, OPKConstants.TYPE_MCARD, (VisaCheckoutApp) getApplication());
+        Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(this), onePocketmessage, OPKConstants.TYPE_MCARD, (com.allegra.handyuvisa.VisaCheckoutApp) getApplication());
         intent.putExtras(bundle);
         startActivityForResult(intent, Constants.REQUEST_ONEPOCKET_RETURN);
     }

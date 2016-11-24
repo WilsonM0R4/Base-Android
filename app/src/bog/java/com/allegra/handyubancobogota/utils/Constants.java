@@ -2,7 +2,6 @@ package com.allegra.handyuvisa.utils;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.allegra.handyuvisa.VisaCheckoutApp;
 import com.allegra.handyuvisa.models.AllemCommerceUser;
@@ -298,6 +297,7 @@ public class Constants {
     public static final String URL_MARKETPLACE_TEST =  "http://dev.allegra.market/?logo=1&onepocket=1utm_source=HandyuVisa&utm_medium=botonhandy&utm_campaign=App";
     public static final String  URL_LOGIN_TEST = "https://pruebas.allegraplatform.com/AllemInMotion/AllemInMotion";
     public static final String  URL_SERVICE_TEST = "http://allegra.global/app/servicios_v2_demo/search/?name=";
+    public static final String URL_MCARD_HTML_TEST = "http://52.71.117.239:8080/MembresiaProteccionIatai/app/index.xhtml?portal=1&email=";
 
     //**********************NEW PRODUCTION URLS*************************
 
@@ -312,6 +312,7 @@ public class Constants {
     public static final String URL_MARKETPLACE_PROD =  "https://www.allegra.market/?logo=1&onepocket=1utm_source=HandyuVisa&utm_medium=botonhandy&utm_campaign=App";
     public static final String  URL_LOGIN_PROD = "https://secureacceptance.allegraplatform.com/AllemInMotion/AllemInMotion";
     public static final String  URL_SERVICE_PROD = "http://allegra.global/app/servicios_v2/search/?name=";
+    public static final String URL_MCARD_HTML_PROD = "http://52.7.111.227:8080//MembresiaProteccionIatai/app/index.xhtml?portal=1&email=";
     //**********************PROPER METHODS*************************
 
     public static String getWSDL(){
@@ -412,6 +413,14 @@ public class Constants {
             return URL_SERVICE_TEST;
         }else{
             return URL_SERVICE_PROD;
+        }
+    }
+
+    public static String getMcardHtml(){
+        if(TESTING){
+            return URL_MCARD_HTML_TEST;
+        }else {
+            return URL_MCARD_HTML_PROD;
         }
     }
 
