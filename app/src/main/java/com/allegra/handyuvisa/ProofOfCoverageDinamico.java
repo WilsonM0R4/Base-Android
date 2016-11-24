@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -36,7 +37,7 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
     private static CustomAdapterDinamico adapter;
 
     public ListView listCoberturas;
-    LinearLayout header,centerListView, bottomTexts;
+    LinearLayout header,centerListView, bottomLayout;
     String valueOfMcard, nombre, apellido, typeOfId, numberOfId, numberOfMcard;
     CustomizedTextView textNameLastName, txtGetYourCertificate, txtTypeOfId, txtNumberOfId, txtNumberOfMcard;
     int idCuenta = 0;
@@ -67,6 +68,8 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
 
     @Override
     public void initViews(View root) {
+
+
         textNameLastName = (CustomizedTextView) root.findViewById(R.id.textNameLastNAme);
         txtTypeOfId = (CustomizedTextView) root.findViewById(R.id.txtTypeOfId);
         txtNumberOfId = (CustomizedTextView) root.findViewById(R.id.txtNumberOfId);
@@ -74,6 +77,7 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
         header = (LinearLayout) root.findViewById(R.id.customCoverageHeaderDinamico);
         centerListView = (LinearLayout) root.findViewById(R.id.customCoverageListDinamico);
         listCoberturas = (ListView) root.findViewById(R.id.mainListView);
+        bottomLayout = (LinearLayout)root.findViewById(R.id.customCoverageBottomDinamico);
         //bottomTexts = (LinearLayout) root.findViewById(R.id.customTextCoverage);
 
         dataModelstest= new ArrayList<>();
@@ -95,6 +99,28 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
         adapter= new CustomAdapterDinamico(dataModelstest,getApplicationContext());
 
         listCoberturas.setAdapter(adapter);
+
+
+        listCoberturas.setOnTouchListener(new ListView.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                int action = event.getAction();
+                switch (action) {
+                    case MotionEvent.ACTION_DOWN:
+                        // Disallow ScrollView to intercept touch events.
+                        v.getParent().requestDisallowInterceptTouchEvent(true);
+                        break;
+
+                    case MotionEvent.ACTION_UP:
+                        // Allow ScrollView to intercept touch events.
+                        v.getParent().requestDisallowInterceptTouchEvent(false);
+                        break;
+                }
+                // Handle ListView touch events.
+                v.onTouchEvent(event);
+                return true;
+            }
+        });
     }
 
     @Override
@@ -181,6 +207,7 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
         //Change layout
         header.setVisibility(View.GONE);
         centerListView.setVisibility(View.GONE);
+        bottomLayout.setVisibility(View.GONE);
         //bottomTexts.setVisibility(View.GONE);
         setContentView(R.layout.get_your_certificate);
         txtGetYourCertificate = (CustomizedTextView) findViewById(R.id.txtGetYourCertificate2);

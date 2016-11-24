@@ -10,7 +10,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -87,13 +88,14 @@
                 android:layout_height="200dp"
                 android:layout_below="@+id/customCoverageHeaderDinamico" />
 
- <!--           <include
+            <include
                 android:id="@+id/customCoverageBottomDinamico"
                 layout="@layout/custom_text_coverage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="510dp" />" />-->
+                android:layout_marginTop="510dp" />" />
 
         </RelativeLayout>
+
     </ScrollView>
 </LinearLayout>
