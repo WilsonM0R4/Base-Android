@@ -94,7 +94,7 @@ public class AsyncSoapObjectProofDynamic extends AsyncTask<String,Void,Vector<So
 
     @Override
     protected void onPostExecute(Vector<SoapObject> result) {
-        Log.d(TAG, "result "+result.toString());
+//        Log.d(TAG, "result "+result.toString());
         MyBus.getInstance().post(new AsyncTaskSoapObjectResultEventProofDynamic(result,codeRequest,faultcode,faultstring));
     }
 

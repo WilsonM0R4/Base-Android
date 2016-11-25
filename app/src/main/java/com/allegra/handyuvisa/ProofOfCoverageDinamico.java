@@ -72,8 +72,6 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
         Log.e("numberOfMcard", numberOfMcard);
         idCuenta = Integer.valueOf(strIdCuenta);
         getValuesDynamicProofOfCoverage();
-
-
     }
 
     @Override
@@ -91,32 +89,6 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
         //bottomTexts = (LinearLayout) root.findViewById(R.id.customTextCoverage);
 
         dataModelstest= new ArrayList<>();
-
-        /*dataModelstest.add(new DataModelTest("Apple Pie", "Android 1.0"));
-        dataModelstest.add(new DataModelTest("Banana Bread", "Android 1.1"));
-        dataModelstest.add(new DataModelTest("Cupcake", "Android 1.5"));
-        dataModelstest.add(new DataModelTest("Donut","Android 1.6"));
-        dataModelstest.add(new DataModelTest("Eclair", "Android 2.0"));
-        dataModelstest.add(new DataModelTest("Froyo", "Android 2.2"));
-        dataModelstest.add(new DataModelTest("Gingerbread", "Android 2.3"));
-        dataModelstest.add(new DataModelTest("Honeycomb","Android 3.0"));
-        dataModelstest.add(new DataModelTest("Ice Cream Sandwich", "Android 4.0"));
-        dataModelstest.add(new DataModelTest("Jelly Bean", "Android 4.2"));
-        dataModelstest.add(new DataModelTest("Kitkat", "Android 4.4"));
-        dataModelstest.add(new DataModelTest("Lollipop","Android 5.0"));
-        dataModelstest.add(new DataModelTest("Marshmallow", "Android 6.0"));
-
-        adapter= new CustomAdapterDinamico(dataModelstest,getApplicationContext());*/
-
-        //Read from SharedPreferences
-        SharedPreferences preferences = this.getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
-        String lista = preferences.getString("coberturas", "3");
-        Log.d(TAG, "Lista "+lista);
-        Type type = new TypeToken<ArrayList<Cobertura>>(){}.getType();
-        Gson gson = new Gson();
-        ArrayList<Cobertura> carsList = gson.fromJson(lista, type);
-        adapter= new CustomAdapterDinamico(carsList,getApplicationContext());
-        listCoberturas.setAdapter(adapter);
 
 
         listCoberturas.setOnTouchListener(new ListView.OnTouchListener() {
@@ -168,6 +140,15 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
                     Log.d("NO TENGO MCARD", "NO TENGO ");
                     setGetYourCertificateLayout();
                 }else {
+                    //Read from SharedPreferences
+                    SharedPreferences preferences = this.getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+                    String lista = preferences.getString("coberturas", "3");
+                    Log.d(TAG, "Lista "+lista);
+                    Type type = new TypeToken<ArrayList<Cobertura>>(){}.getType();
+                    Gson gson = new Gson();
+                    ArrayList<Cobertura> carsList = gson.fromJson(lista, type);
+                    adapter= new CustomAdapterDinamico(carsList,getApplicationContext());
+                    listCoberturas.setAdapter(adapter);
                     Log.d("SI TENGO MCARD", "SI TENGO ");
                     nombre = allemUser.nombre;
                     apellido = allemUser.apellido;

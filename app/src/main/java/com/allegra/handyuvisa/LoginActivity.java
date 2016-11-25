@@ -98,9 +98,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         Mint.enableLogging(true);
         // Log last 100 messages
         Mint.setLogging(200);*/
-
         findValueOfMcard();
-
         //Error for test Splunk
         /*String str =  null;
         Log.d(TAG, str);*/
@@ -304,9 +302,10 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
     //SOAP Response from new Request Dynamic Proof of coverage
     @Subscribe
     public void onAsyncTaskResult(AsyncTaskSoapObjectResultEventProofDynamic event) {
-        Log.d(TAG, event.getFaultString());
+        //Log.d(TAG, event.getFaultString());
 
         if (event.getResult() != null) {
+            Poliza poliza = SoapObjectParsers.toPoliza(event.getResult());
             String str = event.getResult().toString();
             Log.d(TAG, "Resultado: "+str);
             AllemUser allemUser = Constants.getUser(getApplicationContext());
@@ -323,7 +322,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
             */
             //******************
             Log.d(TAG, "Llega al Poliza call");
-            Poliza poliza = SoapObjectParsers.toPoliza(event.getResult());
+
             //Ya se tiene el objeto Póliza, ahora guardar el número en SharedPreferences
             String numeroPoliza = poliza.getNumeroPoliza();
             Log.d(TAG, "numero: "+numeroPoliza);
