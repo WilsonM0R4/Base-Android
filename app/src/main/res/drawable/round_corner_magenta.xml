@@ -10,20 +10,20 @@
         </shape>
     </item>
     <item android:state_focused="true">
-        <shape android:shape="rectangle"  >
-            <corners android:radius="30dip" />
+        <shape android:shape="rectangle">
+            <corners android:radius="30dip"/>
             <size android:height="40dp" android:width="75dp"/>
             <!--<stroke android:width="10dp" android:color="#5e7974" />-->
             <solid android:color="@color/BigButton_backgroung"/>
         </shape>
     </item>
     <item >
-        <shape android:shape="rectangle" >
-            <corners android:radius="30dip" />
+        <shape android:shape="rectangle">
+            <corners android:radius="30dip"/>
             <size android:height="40dp" android:width="75dp"/>
             <!--<stroke android:width="10dp" android:color="#5e7974" />-->
             <!--<gradient android:angle="-90" android:startColor="#8dbab3" android:endColor="#58857e" />-->
-            <solid android:color="@color/BigButton2_backgroung" />
+            <solid android:color="@color/BigButton2_backgroung"/>
         </shape>
     </item>
 </selector>

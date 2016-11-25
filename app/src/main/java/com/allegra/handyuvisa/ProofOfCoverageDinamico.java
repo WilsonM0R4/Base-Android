@@ -62,7 +62,6 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
         super.setView(R.layout.fragment_proof_dinamico, this);
 
 
-
         MyBus.getInstance().register(this);
         SharedPreferences prefs =
                 getSharedPreferences("MisPreferencias", MODE_PRIVATE);

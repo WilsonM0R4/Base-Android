@@ -88,18 +88,42 @@
 
             <LinearLayout
                 android:id="@+id/fullscreen_login_register"
-                style="?metaButtonBarStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center_horizontal"
                 android:background="@android:color/transparent"
                 android:orientation="horizontal"
                 android:weightSum="2"
-                tools:ignore="UselessParent"
                 android:layout_marginBottom="20dp">
 
+                <com.allegra.handyuvisa.utils.CustomizedTextView
+                    android:id="@+id/login"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="11dp"
+                    android:layout_marginLeft="22dp"
+                    android:background="@drawable/round_corner_transparent"
+                    android:text="@string/login"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:textColor="@color/SmallButton_text"
+                    app:font="@string/font_muli"
+                    android:textSize="16sp"/>
 
-                <Button android:id="@+id/login"
+                <com.allegra.handyuvisa.utils.CustomizedTextView
+                    android:id="@+id/register"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="22dp"
+                    android:layout_marginLeft="11dp"
+                    android:background="@drawable/round_corner_white"
+                    android:text="@string/register"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:textColor="@color/HomeButtonSmall_text"
+                    app:font="@string/font_muli"
+                    android:textSize="16sp" />
+
+                <!--<Button android:id="@+id/login"
                     style="?metaButtonBarButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -120,7 +144,7 @@
                     android:textColor="@color/HomeButtonSmall_text"
                     android:layout_marginRight="30dp"
                     android:layout_marginLeft="5dp"
-                    android:background="@drawable/round_corner_white"/>
+                    android:background="@drawable/round_corner_white"/>-->
 
             </LinearLayout>
 

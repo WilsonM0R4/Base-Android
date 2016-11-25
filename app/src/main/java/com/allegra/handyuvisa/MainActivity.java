@@ -12,6 +12,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 
 import com.allegra.handyuvisa.utils.Constants;
+import com.allegra.handyuvisa.utils.CustomizedTextView;
 import com.allegra.handyuvisa.utils.Util;
 import com.appsflyer.AppsFlyerLib;
 import com.facebook.FacebookSdk;
@@ -24,8 +25,7 @@ public class MainActivity extends Activity implements BackFragment.MenuSelectLis
     private FrontFragment frontFragment;
     private BackFragment backFragment;
     private boolean isLogin;
-    private Button login;
-    private Button register;
+    private CustomizedTextView login, register;
     private int state = 0;   // 0 - front open + back exposed;
     // 1 - front close + back hidden;
 
@@ -59,7 +59,7 @@ public class MainActivity extends Activity implements BackFragment.MenuSelectLis
         state = 0;
 
         if (!isAuthenticated()) {
-            login = (Button) findViewById(R.id.login);
+            login = (CustomizedTextView) findViewById(R.id.login);
             login.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -68,7 +68,7 @@ public class MainActivity extends Activity implements BackFragment.MenuSelectLis
                 }
             });
 
-            register = (Button) findViewById(R.id.register);
+            register = (CustomizedTextView) findViewById(R.id.register);
             register.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -77,7 +77,6 @@ public class MainActivity extends Activity implements BackFragment.MenuSelectLis
                 }
             });
         }
-
     }
 
     @Override

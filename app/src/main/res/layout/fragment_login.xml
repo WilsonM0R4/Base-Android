@@ -26,7 +26,7 @@
             android:contentDescription="menu"
             android:layout_centerVertical="true"
             android:layout_alignParentStart="true"
-            android:onClick="onUp" /> <!--android:layout_marginLeft="16dp"-->
+            android:onClick="onUp" />
 
         <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="wrap_content"
@@ -37,19 +37,8 @@
             android:id="@+id/tv_title_secc"
             app:font="@string/font_varela"
             android:layout_centerHorizontal="true"
-            android:textColor="@color/GeneralAppHeaderTitle_text" />             <!-- android:textAppearance="?android:attr/textAppearanceMedium"-->
+            android:textColor="@color/GeneralAppHeaderTitle_text" />
 
-       <!-- <ImageButton
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginRight="16dp"
-            android:src="@drawable/icon_menu"
-            android:background="@android:color/transparent"
-            android:id="@+id/ib_menu"
-            android:onClick="onMenu"
-            android:contentDescription="menu"
-            android:layout_alignBottom="@+id/tv_title_secc"
-            android:layout_alignParentEnd="true" />-->
 
     </RelativeLayout>
 
@@ -63,7 +52,6 @@
         android:layout_marginRight="-2dp"
         android:src="@drawable/separator_medium_mag"
         android:contentDescription="Divider" />
-
 
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -86,8 +74,7 @@
             android:textColor="@color/GeneralTitle1_text"
             android:textSize="22dp"
             android:gravity="center"
-            app:font="@string/font_muli_extraLight"
-            />
+            app:font="@string/font_muli_extraLight" />
 
         <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="match_parent"
@@ -98,8 +85,7 @@
             android:textColor="@color/GeneralDescription"
             android:textSize="18dp"
             android:gravity="center"
-            app:font="@string/font_muli"
-            />
+            app:font="@string/font_muli" />
 
 
         <LinearLayout
@@ -107,19 +93,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/ll_email"
+            android:layout_gravity="center_horizontal"
             android:layout_below="@id/tv_welcome"
             android:layout_marginTop="45dp">
-
-         <!--   <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/field_mail"
-                android:layout_alignParentTop="false"
-                android:layout_alignParentLeft="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="5dp"
-                />-->
 
             <com.allegra.handyuvisa.utils.CustomizedEditText
                 android:layout_width="match_parent"
@@ -134,7 +110,7 @@
                 android:background="@drawable/apptheme_edit_text_holo_light"
                 android:layout_marginTop="10dp"
                 app:fontEdit="@string/font_muli"
-                android:hint="@string/txt_hint_email"/> <!--android:layout_alignParentTop="false" android:layout_alignParentLeft="false" android:layout_centerHorizontal="true"-->
+                android:hint="@string/txt_hint_email"/>
 
         </LinearLayout>
 
@@ -145,18 +121,6 @@
             android:id="@+id/ll_password"
             android:layout_below="@id/ll_email"
             android:layout_marginTop="25dp">
-
-       <!--     <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/field_password"
-                android:layout_alignParentTop="false"
-                android:layout_alignParentLeft="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="5dp"
-                />-->
-
 
             <com.allegra.handyuvisa.utils.CustomizedEditText
                 android:layout_width="match_parent"
@@ -174,19 +138,6 @@
                 android:layout_weight="1"
                 android:hint="@string/txt_hint_pass"/>
 
-            <!--android:layout_below="@+id/ll_email"
-            android:layout_alignParentEnd="true"-->
-
-            <!--<ImageButton
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:id="@+id/ib_visibilitypass"
-                android:src="@drawable/ic_visibility_off_black_18dp"
-                android:background="#ffffffff"
-                android:scaleType="fitXY"
-                android:layout_gravity="center_vertical|bottom"
-                />-->
-
         </LinearLayout>
 
         <LinearLayout
@@ -194,7 +145,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="400dp"
+            android:layout_above="@+id/register_panel"
             android:weightSum="2">
 
             <com.allegra.handyuvisa.utils.CustomizedTextView
@@ -202,8 +153,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:layout_marginLeft="0dp"
-                android:layout_marginRight="5dp"
+                android:layout_marginRight="11dp"
+                android:layout_marginLeft="2dp"
                 android:layout_weight="1"
                 android:background="@drawable/round_corner_transparent_orange"
                 android:text="@string/login"
@@ -216,7 +167,8 @@
                 android:id="@+id/btn_register"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="0dp"
+                android:layout_marginRight="3dp"
+                android:layout_marginLeft="11dp"
                 android:layout_weight="1"
                 android:background="@drawable/round_corner_magenta"
                 android:text="@string/register"
@@ -228,46 +180,14 @@
 
         </LinearLayout>
 
-       <!-- <LinearLayout
-            android:orientation="horizontal"
+        <LinearLayout
+            android:id="@+id/register_panel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/ll_login_register"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="360dp">
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_alignParentBottom="true">
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/login"
-                android:textColor="@color/orange"
-                android:id="@+id/btn_login"
-                android:background="@drawable/round_corner_transparent_orange"
-                android:layout_weight="1"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="20dp" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/btn_register"
-                android:text="@string/register"
-                android:textColor="@android:color/white"
-                android:background="@drawable/round_corner_magenta"
-                android:layout_weight="1"
-                android:layout_marginRight="20dp"
-                android:layout_gravity="center_horizontal" />
-        </LinearLayout>-->
-
-        <LinearLayout
-    android:id="@+id/register_panel"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:gravity="center"
-            android:layout_below="@+id/ll_login_register_new_user"
-        >   <!--android:layout_marginTop="400dp"-->
     <com.allegra.handyuvisa.utils.CustomizedTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -275,8 +195,7 @@
         android:textColor="@color/GeneralTitle2_text"
         android:background="@android:color/transparent"
         android:id="@+id/forgotPassword"
-        app:font="@string/font_muli_light"
-        />
+        app:font="@string/font_muli_light"/>
 
     <com.allegra.handyuvisa.utils.CustomizedTextView
         android:layout_width="wrap_content"
@@ -285,13 +204,7 @@
         android:background="@android:color/transparent"
         android:id="@+id/version"
         android:textAlignment="center"
-        app:font="@string/font_muli_light"
- />        <!--
- android:text="@string/txt_version"
- android:layout_alignParentBottom="false"
-            android:layout_below="@+id/register_panel"
-            android:layout_alignWithParentIfMissing="false"-->
-
+        app:font="@string/font_muli_light"/>
 
 </LinearLayout>
 
