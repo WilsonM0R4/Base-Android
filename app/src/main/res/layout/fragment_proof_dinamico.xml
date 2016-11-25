@@ -29,7 +29,7 @@
 
 
                 <ImageButton
-                    android:id="@+id/imageButton2"
+                    android:id="@+id/iv_back_dinamico"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_alignParentStart="true"
@@ -37,7 +37,6 @@
                     android:layout_marginLeft="16dp"
                     android:background="@android:color/transparent"
                     android:contentDescription="menu"
-                    android:onClick="onUpProofDinamico"
                     android:src="@drawable/navigation__back" />
 
                 <com.allegra.handyuvisa.utils.CustomizedTextView

@@ -7,10 +7,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
-import java.lang.reflect.Type;
+
 import com.allegra.handyuvisa.ProofDinamico.asyncProofDynamic.AsyncSoapObjectProofDynamic;
 import com.allegra.handyuvisa.ProofDinamico.asyncProofDynamic.AsyncTaskSoapObjectResultEventProofDynamic;
 import com.allegra.handyuvisa.ProofDinamico.model.Cobertura;
@@ -22,7 +23,6 @@ import com.allegra.handyuvisa.utils.Connectivity;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.CustomAdapterDinamico;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
-import com.allegra.handyuvisa.utils.DataModelTest;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.squareup.otto.Subscribe;
@@ -30,8 +30,8 @@ import com.squareup.otto.Subscribe;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by jsandoval on 22/11/16.
@@ -44,6 +44,7 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
     private static CustomAdapterDinamico adapter;
 
     public ListView listCoberturas;
+    ImageButton back;
     LinearLayout header,centerListView, bottomLayout;
     String valueOfMcard, nombre, apellido, typeOfId, numberOfId, numberOfMcard;
     CustomizedTextView textNameLastName, txtGetYourCertificate, txtTypeOfId, txtNumberOfId, txtNumberOfMcard;
@@ -71,12 +72,14 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
         Log.e("numberOfMcard", numberOfMcard);
         idCuenta = Integer.valueOf(strIdCuenta);
         getValuesDynamicProofOfCoverage();
+
+
     }
 
     @Override
     public void initViews(View root) {
 
-
+        back = (ImageButton)root.findViewById(R.id.iv_back_dinamico);
         textNameLastName = (CustomizedTextView) root.findViewById(R.id.textNameLastNAme);
         txtTypeOfId = (CustomizedTextView) root.findViewById(R.id.txtTypeOfId);
         txtNumberOfId = (CustomizedTextView) root.findViewById(R.id.txtNumberOfId);
@@ -136,6 +139,12 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
                 return true;
             }
         });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onUpProofDinamico(view);
+            }
+        });
     }
 
     @Override
@@ -149,25 +158,29 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
         Log.d(TAG, event.getFaultString());
 
             if (event.getResult() != null) {
+
                 String str = event.getResult().toString();
                 Log.d(TAG, "Resultado: "+str);
                 AllemUser allemUser = Constants.getUser(getApplicationContext());
                 Poliza poliza = SoapObjectParsers.toPoliza(event.getResult());
                 String numMcard = poliza.getNumeroPoliza();
-                //AllemUser allemUser = SoapObjectParsers.toAllemUser(event.getResult());
-                //((VisaCheckoutApp) this.getApplication()).setIdSession(allemUser.idSesion);
-                nombre = allemUser.nombre;
-                apellido = allemUser.apellido;
-                typeOfId = getTypeOfIdForDisplay(allemUser.idType);
-                numberOfId = allemUser.idNumber;
-                numberOfMcard = numMcard;
-                Log.d("nombre", nombre);
-                Log.d("apellido", apellido);
-                Log.d("typeOfId", typeOfId);
-                Log.d("numberOfId", numberOfId);
-                Log.d("numeroMcard", numberOfMcard);
-                setValues();
-
+                if (numMcard.equals("NO_TIENE")){
+                    Log.d("NO TENGO MCARD", "NO TENGO ");
+                    setGetYourCertificateLayout();
+                }else {
+                    Log.d("SI TENGO MCARD", "SI TENGO ");
+                    nombre = allemUser.nombre;
+                    apellido = allemUser.apellido;
+                    typeOfId = getTypeOfIdForDisplay(allemUser.idType);
+                    numberOfId = allemUser.idNumber;
+                    numberOfMcard = numMcard;
+                    Log.d("nombre", nombre);
+                    Log.d("apellido", apellido);
+                    Log.d("typeOfId", typeOfId);
+                    Log.d("numberOfId", numberOfId);
+                    Log.d("numeroMcard", numberOfMcard);
+                    setValues();
+                }
             }
     }
 
@@ -228,8 +241,8 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
         centerListView.setVisibility(View.GONE);
         bottomLayout.setVisibility(View.GONE);
         //bottomTexts.setVisibility(View.GONE);
-        setContentView(R.layout.get_your_certificate);
-        txtGetYourCertificate = (CustomizedTextView) findViewById(R.id.txtGetYourCertificate2);
+        setContentView(R.layout.get_your_certificate_dynamic);
+        txtGetYourCertificate = (CustomizedTextView) findViewById(R.id.txtGetYourCertificatedynamic);
         txtGetYourCertificate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

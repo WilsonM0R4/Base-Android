@@ -202,8 +202,8 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
 
     void setGetYourCertificateLayout() {
         //Change layout
-        setContentView(R.layout.get_your_certificate);
-        txtGetYourCertificate = (CustomizedTextView) findViewById(R.id.txtGetYourCertificate2);
+        setContentView(R.layout.get_your_certificate_dynamic);
+        txtGetYourCertificate = (CustomizedTextView) findViewById(R.id.txtGetYourCertificatedynamic);
         txtGetYourCertificate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -215,6 +215,10 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
     }
 
     public void onUpProof(View view) {
+        onBackPressed();
+    }
+
+    public void onUpProofDinamico(View view) {
         onBackPressed();
     }
 

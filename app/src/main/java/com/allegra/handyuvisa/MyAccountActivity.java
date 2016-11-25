@@ -3,10 +3,8 @@ package com.allegra.handyuvisa;
 import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,12 +14,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.allegra.handyuvisa.async.AsyncSoapPrimitive;
 import com.allegra.handyuvisa.async.AsyncTaskSoapPrimitiveResultEvent;
 import com.allegra.handyuvisa.async.MyBus;
 import com.allegra.handyuvisa.utils.Constants;
-import com.allegra.handyuvisa.utils.Util;
-import com.allegra.handyuvisa.async.AsyncSoapPrimitive;
 import com.allegra.handyuvisa.utils.KeySaver;
+import com.allegra.handyuvisa.utils.Util;
 import com.squareup.otto.Subscribe;
 import com.urbanairship.UAirship;
 
@@ -29,9 +27,6 @@ import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Set;
 
 public class MyAccountActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
 
@@ -122,9 +117,11 @@ public class MyAccountActivity extends FrontBackAnimate implements FrontBackAnim
                             .setUserNotificationsEnabled(false);
 
                     //*******Clear SharedPReferences
+/*
                     SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = prefs.edit();
                     editor.clear();
+*/
 
                 }else{
                     Toast.makeText(ctx, R.string.err_no_internet, Toast.LENGTH_SHORT).show();
