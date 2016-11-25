@@ -8,6 +8,7 @@
     android:orientation="vertical"
     tools:context=".ProofOfCoverageActivity">
 
+    <!-- 2 imageViews in order to set loader -->
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
