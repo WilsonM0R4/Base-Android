@@ -61,15 +61,15 @@ public class SoapObjectParsers {
             soapObject = itr.next();
 
             if (soapObject.hasProperty("poliza")){
-                Log.e(TAG, "Count "+soapObject.getPropertyCount());
+                //Log.e(TAG, "Count "+soapObject.getPropertyCount());
                 //Dentro del objeto polizas obtengo la poliza
                 poliza1 = (SoapObject)soapObject.getProperty("poliza");
-                Log.e(TAG, "Count inferior "+poliza1.getPropertyCount());
+                //Log.e(TAG, "Count inferior "+poliza1.getPropertyCount());
                 //DEntro de la poliza itero por todos sus campos y extraigo el primer valor
                 numeroPoliza = poliza1.getPropertyAsString("numeroPoliza");
                 //Iterar a lo largo del array de coberturas
                 coberturas = (SoapObject)poliza1.getProperty("coberturas");
-                Log.e(TAG, "Count coberturas "+coberturas.getPropertyCount());
+                //Log.e(TAG, "Count coberturas "+coberturas.getPropertyCount());
 
                 for (int i = 0; i < coberturas.getPropertyCount(); i++){
                     Object  cobertura = coberturas.getProperty(i);
@@ -78,8 +78,8 @@ public class SoapObjectParsers {
                         SoapObject coberture = (SoapObject) cobertura;
                         nombreCobertura = coberture.getPrimitivePropertySafelyAsString("nombre");
                         valorTexto = coberture.getPrimitivePropertySafelyAsString("valorTexto");
-                        Log.e(TAG, "nom: "+nombreCobertura);
-                        Log.e(TAG, "Valor: "+valorTexto);
+                        //Log.e(TAG, "nom: "+nombreCobertura);
+                        //Log.e(TAG, "Valor: "+valorTexto);
                         //Creo un objeto cobertura
                         Cobertura cobertura1 = new Cobertura(nombreCobertura, valorTexto);
                         //Lo adiciono al arrayList
@@ -89,7 +89,7 @@ public class SoapObjectParsers {
             } else{//Sino usamnos un valor por defecto que indica que no tiene póliza
                 numeroPoliza = "NO_TIENE";
             }
-            Log.e(TAG, "numeroPoliza "+numeroPoliza);
+            //Log.e(TAG, "numeroPoliza "+numeroPoliza);
         }
         poliza = new Poliza(numeroPoliza, arrListCoberturas);
         return poliza;
@@ -114,8 +114,8 @@ public class SoapObjectParsers {
                 idProducto = soapObject.getPropertyAsString("numeroMembresia");
                 arrayProducto.add(numMembresia);
             }*/
-            Log.e("idProducto",idProducto);
-            Log.e("numeroMembresia",numMembresia);
+            //Log.e("idProducto",idProducto);
+            //Log.e("numeroMembresia",numMembresia);
         }
 
         //******Validate idProducto*********
@@ -125,8 +125,8 @@ public class SoapObjectParsers {
             else if (arrayProducto.contains("208")) idMayorProducto = "208";//PREMIUM
             else if (arrayProducto.contains("212")) idMayorProducto = "212";//PRIVILEGE
 
-        Log.e("idMayorProducto",idMayorProducto);
-        Log.e("numMcard",numMembresia);
+        //Log.e("idMayorProducto",idMayorProducto);
+        //Log.e("numMcard",numMembresia);
         mcardCliente = new McardCliente(idMayorProducto,numMembresia);//soapObject.getPropertyAsString("idProducto")
         return  mcardCliente;
     }

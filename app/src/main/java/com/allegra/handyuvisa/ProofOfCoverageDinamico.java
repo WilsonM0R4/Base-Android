@@ -3,13 +3,16 @@ package com.allegra.handyuvisa;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.allegra.handyuvisa.ProofDinamico.asyncProofDynamic.AsyncSoapObjectProofDynamic;
@@ -39,10 +42,10 @@ import java.util.ArrayList;
 
 public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
 
-    //ArrayList<DataModelTest> dataModelstest;
+    ImageView iv_allegra_proof, load_circle_proof;
     ArrayList<Cobertura> dataModelstest;
     private static CustomAdapterDinamico adapter;
-
+    RelativeLayout rl_body_proof;
     public ListView listCoberturas;
     ImageButton back;
     LinearLayout header,centerListView, bottomLayout;
@@ -57,6 +60,9 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setView(R.layout.fragment_proof_dinamico, this);
+
+
+
         MyBus.getInstance().register(this);
         SharedPreferences prefs =
                 getSharedPreferences("MisPreferencias", MODE_PRIVATE);
@@ -86,10 +92,20 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
         centerListView = (LinearLayout) root.findViewById(R.id.customCoverageListDinamico);
         listCoberturas = (ListView) root.findViewById(R.id.mainListView);
         bottomLayout = (LinearLayout)root.findViewById(R.id.customCoverageBottomDinamico);
+        load_circle_proof = (ImageView)root.findViewById(R.id.load_circle_proof);
+        rl_body_proof = (RelativeLayout) root.findViewById(R.id.rl_body_proof);
+        iv_allegra_proof = (ImageView)root.findViewById(R.id.iv_allegra_proof);
+
         //bottomTexts = (LinearLayout) root.findViewById(R.id.customTextCoverage);
 
         dataModelstest= new ArrayList<>();
 
+        load_circle_proof.post(new Runnable() {
+            @Override
+            public void run() {
+                ((AnimationDrawable) load_circle_proof.getBackground()).start();
+            }
+        });
 
         listCoberturas.setOnTouchListener(new ListView.OnTouchListener() {
             @Override
@@ -161,6 +177,10 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
                     Log.d("numberOfId", numberOfId);
                     Log.d("numeroMcard", numberOfMcard);
                     setValues();
+                    //Hide Loader
+                    rl_body_proof.setVisibility(View.VISIBLE);
+                    iv_allegra_proof.setVisibility(View.GONE);
+                    load_circle_proof.setVisibility(View.GONE);
                 }
             }
     }
@@ -177,7 +197,7 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
         //ARM REQUEST
         postValues = new ArrayList<>();
         if (postValues.size() > 0) postValues.clear();
-        postValues.add(new BasicNameValuePair("idCuentaAIM", idCuentaAIM));//"10489"
+        postValues.add(new BasicNameValuePair("idCuentaAIM", idCuentaAIM));
         postValues.add(new BasicNameValuePair("idPortal", idPortal));
         postValues.add(new BasicNameValuePair("mostrarAppCobertura", Boolean.toString(mostrarAppCobertura)));
         postValues.add(new BasicNameValuePair("mostrarAppBeneficios", Boolean.toString(mostrarAppBeneficios)));

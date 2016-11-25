@@ -307,7 +307,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         if (event.getResult() != null) {
             Poliza poliza = SoapObjectParsers.toPoliza(event.getResult());
             String str = event.getResult().toString();
-            Log.d(TAG, "Resultado: "+str);
+            //Log.d(TAG, "Resultado: "+str);
             AllemUser allemUser = Constants.getUser(getApplicationContext());
             //AllemUser allemUser = SoapObjectParsers.toAllemUser(event.getResult());
             //((VisaCheckoutApp) this.getApplication()).setIdSession(allemUser.idSesion);
@@ -320,12 +320,10 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
             Log.d("typeOfId", typeOfId);
             Log.d("numberOfId", numberOfId);
             */
-            //******************
-            Log.d(TAG, "Llega al Poliza call");
 
             //Ya se tiene el objeto Póliza, ahora guardar el número en SharedPreferences
             String numeroPoliza = poliza.getNumeroPoliza();
-            Log.d(TAG, "numero: "+numeroPoliza);
+            //Log.d(TAG, "numero: "+numeroPoliza);
             //Save in SharedPreferences
             SharedPreferences prefs = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
             SharedPreferences.Editor editor = prefs.edit();
@@ -335,7 +333,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
             ArrayList<Cobertura> coberturas = poliza.getCoberturas();
             Gson gson = new Gson();
             String strCoberturas = gson.toJson(coberturas);
-            Log.d("TAG","Coberturas = " + strCoberturas);
+            //Log.d("TAG","Coberturas = " + strCoberturas);
             editor.putString("coberturas",strCoberturas);
             editor.apply();
 
@@ -378,7 +376,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
     @Subscribe
     public void onAsyncTaskResult(AsyncTaskSoapObjectResultEvent event) {
 
-        Log.d("SergioEntra", event.getFaultString());
+        //Log.d("SergioEntra", event.getFaultString());
         if (event.getCodeRequest() == Constants.ACTIVITY_LOGIN) {
 
             if (event.getResult() != null) {
@@ -480,7 +478,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         SharedPreferences preferences = this.getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
         String idCuentaAIM = preferences.getString("idCuenta", "3");
         String idPortal = Constants.ID_PORTAL;
-        Log.d(TAG, "El id es: "+idCuentaAIM);
+        //Log.d(TAG, "El id es: "+idCuentaAIM);
 
         //ARM REQUEST
         postValues = new ArrayList<>();
@@ -493,7 +491,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
 
         //Boolean Flags
 
-        Log.d(TAG, "Booleans "+mostrarAppCobertura);
+        //Log.d(TAG, "Booleans "+mostrarAppCobertura);
 
         //If there is internet connection, send request
         if (Connectivity.isConnected(getApplicationContext()) || Connectivity.isConnectedWifi(getApplicationContext()) || Connectivity.isConnectedMobile(getApplicationContext())) {

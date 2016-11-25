@@ -1,6 +1,7 @@
 package com.allegra.handyuvisa.utils;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ public class CustomAdapterDinamico extends ArrayAdapter<Cobertura> implements Vi
 
     private ArrayList<Cobertura> dataSet;
     Context mContext;
+    String TAG = "CustomAdapterDinamico";
 
     private static class ViewHolder {
         TextView txttitlecobertura;
@@ -30,6 +32,11 @@ public class CustomAdapterDinamico extends ArrayAdapter<Cobertura> implements Vi
         super(context, R.layout.title_cobertura_valor, data);
         this.dataSet = data;
         this.mContext=context;
+
+        //Check
+       /* for (int i = 0; i < data.size(); i++){
+
+        }*/
 
     }
 
@@ -63,8 +70,9 @@ public class CustomAdapterDinamico extends ArrayAdapter<Cobertura> implements Vi
         }
 
         viewHolder.txttitlecobertura.setText(dataModeltest.getValorTexto());
+        Log.d (TAG, "Nomb "+dataModeltest.getValorTexto());
         viewHolder.txtdescripcioncobertura.setText(dataModeltest.getNombre());
-
+        Log.d (TAG, "Valor "+dataModeltest.getNombre());
         return convertView;
     }
 }

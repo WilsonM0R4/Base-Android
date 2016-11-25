@@ -232,6 +232,8 @@ public class LoadAnimate extends Activity implements BackFragment.MenuSelectList
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+            //*LLamar al layout del loader
             View root = inflater.inflate(R.layout.fragment_loading, container, false);
 
             fabButton = (ImageView) root.findViewById(R.id.load_circle);
