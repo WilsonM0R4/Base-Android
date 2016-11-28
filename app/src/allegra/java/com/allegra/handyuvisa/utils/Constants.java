@@ -97,7 +97,8 @@ public class Constants {
     }
 
     public final static String NAMESPACE_ALLEM= "http://ws.alleminmotion.iatai.com/";
-    public final static String URL_ALLEM_BASE_TEST = "https://pruebas.allegraplatform.com/AllemInMotion/AllemInMotion";
+    public final static String URL_ALLEM_BASE_TEST = "http://52.87.70.203:8080//AllemInMotion/AllemInMotion";
+    //http://52.87.70.203:8080/AllemInMotion/AllemInMotion?wsdl
     public final static String URL_ALLEM_BASE_PROD = "https://secureacceptance.allegraplatform.com/AllemInMotion/AllemInMotion";
     public final static String URL_ALLEM_WSDL_TEST = URL_ALLEM_BASE_TEST+"?wsdl";
     public final static String URL_ALLEM_WSDL_PROD = URL_ALLEM_BASE_PROD+"?wsdl";
