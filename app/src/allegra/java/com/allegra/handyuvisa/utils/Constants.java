@@ -28,7 +28,7 @@ public class Constants {
     public final static String METHOD_PROOF = "consultarPolizasBeneficiarioRequest";
     public final static int ACTIVITY_PROOF = 10405;
     public final static int REQUEST_CODE_PROOF = 9638;
-    public static final String URL_DYNAMIC_PROOF_TEST = "http://52.207.72.167:8080/PolizaIataiServicio/poliza_servicio_binding?wsdl";
+    public static final String URL_DYNAMIC_PROOF_TEST = "http://52.207.72.167:8080/PolizaIataiServicio/poliza_servicio_binding?wsdl";//"http://52.71.117.239:8080/PolizaIataiServicio/poliza_servicio_binding?wsdl";
     public static final String URL_DYNAMIC_PROOF_PROD = "http://52.7.111.227:8080/PolizaIataiServicio/poliza_servicio_binding?wsdl";
 
     public static String getUrlDynamicProof(){
@@ -97,8 +97,7 @@ public class Constants {
     }
 
     public final static String NAMESPACE_ALLEM= "http://ws.alleminmotion.iatai.com/";
-    public final static String URL_ALLEM_BASE_TEST = "http://52.87.70.203:8080//AllemInMotion/AllemInMotion";
-    //http://52.87.70.203:8080/AllemInMotion/AllemInMotion?wsdl
+    public final static String URL_ALLEM_BASE_TEST = "http://52.87.70.203:8080/AllemInMotion/AllemInMotion?wsdl";//"https://pruebas.allegraplatform.com/AllemInMotion/AllemInMotion";
     public final static String URL_ALLEM_BASE_PROD = "https://secureacceptance.allegraplatform.com/AllemInMotion/AllemInMotion";
     public final static String URL_ALLEM_WSDL_TEST = URL_ALLEM_BASE_TEST+"?wsdl";
     public final static String URL_ALLEM_WSDL_PROD = URL_ALLEM_BASE_PROD+"?wsdl";
@@ -315,8 +314,7 @@ public class Constants {
     public static final String URL_MARKETPLACE_TEST =  "http://dev.allegra.market/?logo=1&onepocket=1utm_source=HandyuVisa&utm_medium=botonhandy&utm_campaign=App";
     public static final String  URL_LOGIN_TEST = "https://pruebas.allegraplatform.com/AllemInMotion/AllemInMotion";
     public static final String  URL_SERVICE_TEST = "http://allegra.global/app/servicios_v2_demo/search/?name=";
-    public static final String URL_MCARD_HTML_TEST = "http://52.207.72.167:8080/MembresiaProteccionIatai/app/index.xhtml?portal=1&email=";
-    //http://52.207.72.167:8080/MembresiaProteccionIatai/app/index.xhtml?portal=[ID_PORTAL]&email=[EMAIL_CLIENTE]
+    public static final String URL_MCARD_HTML_TEST = "http://52.207.72.167:8080/MembresiaProteccionIatai/app/index.xhtml?portal=1&email=";//"http://52.71.117.239:8080/MembresiaProteccionIatai/app/index.xhtml?portal=1&email=";
 
     //**********************NEW PRODUCTION URLS*************************
 
