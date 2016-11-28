@@ -123,29 +123,6 @@
                     app:font="@string/font_muli"
                     android:textSize="16sp" />
 
-                <!--<Button android:id="@+id/login"
-                    style="?metaButtonBarButtonStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/login"
-                    android:textColor="@color/SmallButton_text"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="5dp"
-                    android:background="@drawable/round_corner_transparent"/>
-
-
-                <Button android:id="@+id/register"
-                    style="?metaButtonBarButtonStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/register"
-                    android:textColor="@color/HomeButtonSmall_text"
-                    android:layout_marginRight="30dp"
-                    android:layout_marginLeft="5dp"
-                    android:background="@drawable/round_corner_white"/>-->
-
             </LinearLayout>
 
             <com.allegra.handyuvisa.utils.CustomizedTextView
@@ -159,7 +136,7 @@
                 android:background="@color/HomeTitle_backgroung"
                 android:onClick="onSkipIntro"
                 android:textSize="18sp"
-                app:font="@string/font_muli_light"/> <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+                app:font="@string/font_muli_light"/>
 
             <com.allegra.handyuvisa.utils.CustomizedTextView
                 android:layout_width="wrap_content"

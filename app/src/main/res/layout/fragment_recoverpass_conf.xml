@@ -14,15 +14,15 @@
         android:layout_height="?android:attr/actionBarSize"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:background="@color/GeneralAppHeaderTitle_backgroud"
+        android:background="@color/WHITE_COLOR"
         android:onClick="onCloseMenu"
         android:id="@+id/ll_header">
 
         <ImageButton
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="16dp"
-            android:src="@drawable/navigation__close"
+            android:layout_marginLeft="6dp"
+            android:src="@drawable/cancel_button"
             android:background="@android:color/transparent"
             android:id="@+id/close_btn"
             android:contentDescription="menu"
@@ -59,9 +59,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="false"
         android:layout_below="@+id/iv_header"
-        android:layout_alignWithParentIfMissing="false"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true">
+        android:layout_alignWithParentIfMissing="false">
 
 
         <LinearLayout
@@ -93,8 +91,8 @@
                 android:textAlignment="center"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/GeneralTitle2_text"
-                android:textSize="18sp"
-                app:font="@string/font_muli"/>
+                android:textSize="24sp"
+                app:font="@string/font_muli_extraLight"/>
 
             <com.allegra.handyuvisa.utils.CustomizedTextView
                 android:layout_width="match_parent"
@@ -146,11 +144,13 @@
                 android:layout_marginTop="30dp"
                 app:font="@string/font_muli_light"/>
 
-            <Button
+            <com.allegra.handyuvisa.utils.CustomizedTextView
                 android:id="@+id/send_again"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center"
+                app:font="@string/font_muli"
                 android:background="@drawable/round_corner_transparent_orange"
                 android:text="@string/send_again"
                 android:textColor="@color/SmallButtonWithBorder_text"
@@ -161,14 +161,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/linearLayout4"
-                android:layout_alignParentStart="true"
-                android:layout_marginTop="40dp">
+                android:layout_marginTop="20dp">
 
-                <Button
+                <com.allegra.handyuvisa.utils.CustomizedTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/to_login"
                     android:text="@string/go_to_login"
+                    android:gravity="center"
+                    app:font="@string/font_muli"
                     android:textColor="@color/BigButton_text"
                     android:background="@drawable/round_corner_magenta"
                     android:layout_weight="1"
