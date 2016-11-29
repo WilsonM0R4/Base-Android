@@ -54,8 +54,8 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
         final String[] names = {
                 getString(R.string.title_my_profile),
                 getString(R.string.benefits),
-                getString(R.string.coverage),
                 getString(R.string.mytips),
+                getString(R.string.coverage),
                 getString(R.string.transactions_history),
                 getString(R.string.legal_title),
         };
@@ -80,7 +80,7 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
                                     setGetYourCertificateLayout();
                                 } else {
                                     Log.e("CON CONEXION: "," ESTOY LOGEADO");//Test 2: Succeded
-                                    Intent i = new Intent(ctx, ProofOfCoverageActivity.class);
+                                    Intent i = new Intent(ctx, ProofOfCoverageDinamico.class);
                                     startActivity(i);
                                 }
                             } else {
