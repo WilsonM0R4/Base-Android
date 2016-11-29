@@ -85,7 +85,7 @@
                 android:textSize="22sp"
                 app:font="@string/font_muli_light"/>
 
-            <LinearLayout
+            <!--<LinearLayout
                 android:id="@+id/fullscreen_login_register"
                 style="?metaButtonBarStyle"
                 android:layout_width="match_parent"
@@ -119,8 +119,43 @@
                     android:textColor="@color/HomeButtonSmall_text"
                     android:layout_marginRight="30dp"
                     android:layout_marginLeft="5dp"
-                    android:background="@drawable/round_corner_white"/>
+                    android:background="@drawable/round_corner_white"/>-->
+            <LinearLayout
+                android:id="@+id/fullscreen_login_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_marginBottom="20dp">
 
+                <com.allegra.handyuvisa.utils.CustomizedTextView
+                    android:id="@+id/login"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="11dp"
+                    android:layout_marginLeft="22dp"
+                    android:background="@drawable/round_corner_transparent"
+                    android:text="@string/login"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:textColor="@color/SmallButton_text"
+                    app:font="@string/font_muli"
+                    android:textSize="16sp"/>
+
+                <com.allegra.handyuvisa.utils.CustomizedTextView
+                    android:id="@+id/register"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="22dp"
+                    android:layout_marginLeft="11dp"
+                    android:background="@drawable/round_corner_white"
+                    android:text="@string/register"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:textColor="@color/HomeButtonSmall_text"
+                    app:font="@string/font_muli"
+                    android:textSize="16sp" />
             </LinearLayout>
 
             <com.allegra.handyuvisa.utils.CustomizedTextView

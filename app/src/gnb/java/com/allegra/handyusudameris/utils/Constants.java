@@ -22,6 +22,23 @@ import java.util.HashMap;
  */
 public class Constants {
 
+    //********FOR DYNAMIC PROOF OF COVERAGE**********
+    public final static String ID_PORTAL = "1";
+    public final static String NAMESPACE_PROOF = "http://www.ws.iatai.com/poliza_servicio/";
+    public final static String METHOD_PROOF = "consultarPolizasBeneficiarioRequest";
+    public final static int ACTIVITY_PROOF = 10405;
+    public final static int REQUEST_CODE_PROOF = 9638;
+    public static final String URL_DYNAMIC_PROOF_TEST = "http://52.207.72.167:8080/PolizaIataiServicio/poliza_servicio_binding?wsdl";//"http://52.71.117.239:8080/PolizaIataiServicio/poliza_servicio_binding?wsdl";
+    public static final String URL_DYNAMIC_PROOF_PROD = "http://52.7.111.227:8080/PolizaIataiServicio/poliza_servicio_binding?wsdl";
+
+    public static String getUrlDynamicProof(){
+        if (TESTING) {
+            return URL_DYNAMIC_PROOF_TEST;
+        }else{
+            return URL_DYNAMIC_PROOF_PROD;
+        }
+    }
+
     public final static String SPLUNK_API_KEY = "97d5c2e0";
     public final static int REQUEST_CODE_TRANSACTION_HISTORY = 8891;
     public final static int REQUEST_CODE_PROOF_OF_COVERAGE = 8890;
@@ -415,14 +432,20 @@ public class Constants {
         }
     }
 
-    public static String getMcardHtml(){
+    /*public static String getMcardHtml(){
+        if (TESTING){
+            return URL_MCARD_HTML_TEST;
+        }else {
+            return URL_MCARD_HTML_PROD;
+        }
+    }*/
+    public static String getMcardhtml (){
         if (TESTING){
             return URL_MCARD_HTML_TEST;
         }else {
             return URL_MCARD_HTML_PROD;
         }
     }
-
 
     /**
      * Guarda los datos del usuario en SharedPreferences
