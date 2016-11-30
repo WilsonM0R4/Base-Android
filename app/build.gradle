@@ -106,6 +106,7 @@ android {
             signingConfig signingConfigs.config
             minSdkVersion 19
             targetSdkVersion 25
+            buildConfigField "String", "idPortal", "\"1\"";
 
             packagingOptions {
                 exclude "lib/arm64-v8a/libcardioDecider.so"
@@ -127,6 +128,7 @@ android {
             signingConfig signingConfigs.gnbConfig
             minSdkVersion 19
             targetSdkVersion 25
+            buildConfigField "String", "idPortal", "\"2\"";
 
             packagingOptions {
                 exclude "lib/arm64-v8a/libcardioDecider.so"
@@ -148,6 +150,7 @@ android {
             signingConfig signingConfigs.bogConfig
             minSdkVersion 19
             targetSdkVersion 25
+            buildConfigField "String", "idPortal", "\"3\"";
 
             packagingOptions {
                 exclude "lib/arm64-v8a/libcardioDecider.so"
@@ -169,6 +172,7 @@ android {
             signingConfig signingConfigs.popConfig
             minSdkVersion 19
             targetSdkVersion 25
+            buildConfigField "String", "idPortal", "\"4\"";
 
             packagingOptions {
                 exclude "lib/arm64-v8a/libcardioDecider.so"
@@ -190,6 +194,7 @@ android {
             signingConfig signingConfigs.pinConfig
             minSdkVersion 19
             targetSdkVersion 25
+            buildConfigField "String", "idPortal", "\"5\"";
 
             packagingOptions {
                 exclude "lib/arm64-v8a/libcardioDecider.so"
@@ -211,6 +216,7 @@ android {
             signingConfig signingConfigs.finConfig
             minSdkVersion 19
             targetSdkVersion 25
+            buildConfigField "String", "idPortal", "\"6\"";
 
             packagingOptions {
                 exclude "lib/arm64-v8a/libcardioDecider.so"
@@ -232,6 +238,7 @@ android {
             signingConfig signingConfigs.cbhConfig
             minSdkVersion 19
             targetSdkVersion 25
+            buildConfigField "String", "idPortal", "6";
 
             packagingOptions {
                 exclude "lib/arm64-v8a/libcardioDecider.so"
@@ -251,7 +258,7 @@ android {
 
 dependencies {
     testCompile 'junit:junit:4.12'
-    compile project(':onepocket-sdk-1.2.2-365')
+    compile project(':onepocket-sdk-1.2.2-366')
     //3rd party libraries
     compile('com.google.code.ksoap2-android:ksoap2-android:3.6.1') {
         exclude group: 'com.squareup.okio', module: 'okio'
