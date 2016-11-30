@@ -530,13 +530,13 @@
     <string name="greet">Qué bueno verte de nuevo</string>
     <string name="IATAI_CERTIFICA">IATAI CERTIFICA</string>
     <string name="UnlimitedMcard">ILIMITADO</string>
-    <string name="enjoy_all_benefits">Disfruta todos los beneficios que te trae\n tu membresía a través de handy mCard</string>
-    <string name="get_your_certificate">OBTÉN TU CERTIFICADO</string>
+    <string name="enjoy_all_benefits">Accede a cientos de beneficios, servicios y\n coberturas que te ofrece tu handy mCard.</string>
+    <string name="get_your_certificate">¡CONSÍGUELA AHORA!</string>
     <string name="privacy_policy_underscore"><u>política de privacidad</u></string>
     <string name="ups_try_again">¡Ups! Inténtalo de nuevo</string>
     <string name="your_search_no_results">Tu búsqueda no muestra resultados</string>
     <string name="txt_loading_loader">Loading</string>
     <string name="title_onetouch_call">Onetouch call</string>
     <string name="title_onetouch_chat">Onetouch chat</string>
-
+    <string name="title_live_tranquility">¡Vive con tranquilidad!</string>
 </resources>

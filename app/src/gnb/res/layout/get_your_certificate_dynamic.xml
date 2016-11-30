@@ -85,7 +85,7 @@
             android:text="@string/title_live_tranquility"
             app:font="@string/font_muli_extraLight"
             android:gravity="center_horizontal"
-            android:textColor="@color/orange"
+            android:textColor="@color/BigButtonWithBorder_text"
             android:textSize="24sp"
             android:layout_below="@+id/imvLogoHandyMcard"/>
 

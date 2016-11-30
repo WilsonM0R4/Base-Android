@@ -2,27 +2,24 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:onClick="onCloseMenu">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:background="@color/GeneralAppHeaderTitle_backgroud"
+        android:background="@color/WHITE_COLOR"
         android:id="@+id/relativeLayout8" >
 
         <ImageButton
             android:layout_width="36dp"
             android:layout_height="36dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"
             android:src="@drawable/icon_menu"
             android:background="@android:color/transparent"
             android:id="@+id/imageButton13"
             android:onClick="onMenu"
-            android:contentDescription="menu"
+            android:contentDescription="@string/accept"
             android:layout_alignBottom="@+id/textView47"
             android:layout_alignParentEnd="true" />
 
@@ -42,17 +39,16 @@
             android:layout_alignParentBottom="true"
             android:background="@color/GeneralAppHeaderTitle_backgroud"
             android:id="@+id/navigation_panel"
-            android:layout_alignParentRight="false"
+            android:layout_alignParentEnd="false"
             android:layout_alignWithParentIfMissing="false"
             android:layout_alignParentTop="false"
-            android:layout_toEndOf="@+id/ib_up"
             android:layout_alignParentStart="true"
-            android:layout_marginLeft="5dp" >
+            android:layout_marginStart="5dp" >
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:src="@drawable/navigation__backurl_2"
                 android:background="@null"
                 android:padding="10dp"
@@ -62,7 +58,7 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
                 android:src="@drawable/navigation__fwdurl"
                 android:background="@null"
                 android:padding="10dp"

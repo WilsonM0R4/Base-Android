@@ -107,7 +107,7 @@
             android:textColor="@color/BigButtonWithBorder_text"
             android:text="@string/get_your_certificate"
             android:background="@drawable/round_corner_transparent_orange"
-            android:id="@+id/txtGetYourCertificate2" />
+            android:id="@+id/txtGetYourCertificate" />
 
     </LinearLayout>
 

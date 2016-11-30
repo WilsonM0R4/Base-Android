@@ -87,9 +87,9 @@
             android:id="@+id/txtEnjoyAllBenefits"
             android:layout_marginTop="36dp"
             android:text="@string/enjoy_all_benefits"
-            app:font="@string/font_muli"
+            app:font="@string/font_muli_extraLight"
             android:gravity="center_horizontal"
-            android:textColor="@color/GeneralDescription"
+            android:textColor="@color/dark_gray"
             android:layout_below="@+id/imvLogoHandyMcard"/>
 
     <LinearLayout
@@ -111,7 +111,7 @@
             android:textColor="@color/BigButtonWithBorder_text"
             android:text="@string/get_your_certificate"
             android:background="@drawable/round_corner_transparent_orange"
-            android:id="@+id/txtGetYourCertificate2" />
+            android:id="@+id/txtGetYourCertificate" />
 
     </LinearLayout>
 

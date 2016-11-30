@@ -79,8 +79,8 @@ public class ServiceActivity extends  FrontBackAnimate implements FrontBackAnima
         userMail = user.email;
         SharedPreferences prefs =
                 getSharedPreferences("MisPreferencias", MODE_PRIVATE);
-        mcard = prefs.getString("idMcard", "0");
-        if(mcard.equals("0")){
+        mcard = prefs.getString("numMcard", "NO_TIENE");
+        if(mcard.equals("NO_TIENE")){
             mcard = "no";
         }
         else {
