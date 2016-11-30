@@ -23,7 +23,6 @@
             android:layout_height="50dp"
             android:layout_marginLeft="6dp"
             android:src="@drawable/cancel_button"
-            android:background="@android:color/transparent"
             android:id="@+id/close_btn"
             android:contentDescription="menu"
             android:layout_centerVertical="true"
@@ -54,8 +53,8 @@
 
 
     <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="false"
         android:layout_below="@+id/iv_header"

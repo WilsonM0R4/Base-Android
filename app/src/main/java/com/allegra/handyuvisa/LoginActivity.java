@@ -124,7 +124,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
             String versionName = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
             TextView version = (TextView) root.findViewById(R.id.version);
             if (version != null) {
-                version.setText("Version: " + versionName);
+                version.setText("Version " + versionName);
             }
         } catch (PackageManager.NameNotFoundException e) {
             Log.d(TAG, "No Version number found");

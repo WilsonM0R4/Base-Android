@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/fl_login"
     tools:context=".MainActivity"
     android:background="@color/bg_gradiente">
@@ -35,22 +36,24 @@
             android:paddingRight="20dp"
             android:layout_marginBottom="30dp">
 
-            <TextView
+            <com.allegra.handyuvisa.utils.CustomizedTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/tv_current_time"
                 android:id="@+id/tv_username"
                 android:text="@string/txt_user_greeting"
                 android:textColor="@color/HomeTitle_text"
-                android:gravity="left"
+                android:gravity="start"
                 android:background="@color/HomeTitle_backgroung"
-                android:textSize="30sp" />
+                android:textSize="36sp"
+                app:font="@string/font_muli"/>
 
-            <TextView
+            <com.allegra.handyuvisa.utils.CustomizedTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_current_time"
-                android:textColor="@color/HomeDescriptionTitle_text"
+                android:textColor="@color/WHITE_COLOR"
+                android:textSize="20sp"
+                app:font="@string/font_muli_light"
                 android:gravity="left"
                 android:background="@android:color/transparent"
                 android:textAppearance="?android:textAppearanceMedium" />
@@ -66,53 +69,49 @@
                 android:textAppearance="?android:textAppearanceMedium"
                 android:visibility="gone" />
 
-          <!--  <ImageButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/separator_white"
-                android:background="@android:color/transparent"
-                />-->
-
-            <TextView
+            <com.allegra.handyuvisa.utils.CustomizedTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/txt_lbl_notifications"
                 android:textColor="@color/white"
                 android:gravity="left"
+                app:font="@string/font_muli"
                 android:background="@android:color/transparent"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:singleLine="false"
                 android:id="@+id/tv_notifications"
                 android:visibility="gone" />
 
-            <Button
+            <com.allegra.handyuvisa.utils.CustomizedTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_gravity="center"
                 android:text="@string/skip_intro"
-                android:textAppearance="?android:attr/textAppearanceMedium"
+                app:font="@string/font_muli"
+                android:textSize="14sp"
                 android:textColor="@color/HomeDescription_text"
                 android:background="@color/HomeDescription_backgroung"
                 android:onClick="onSkipIntro"
+                android:layout_marginTop="60dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="0dp"
                 android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                />
+                android:paddingRight="20dp"/>
 
-            <TextView
+            <com.allegra.handyuvisa.utils.CustomizedTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="16dp"
                 android:text="IATAI"
+                app:font="@string/font_muli"
+                android:textSize="10sp"
                 android:textColor="@color/HomeFooter_text"
                 android:gravity="center_horizontal"
                 android:background="@color/HomeFooter_backgroung"
-                android:textAppearance="?android:textAppearanceMedium"
-                android:singleLine="false"
-                android:id="@+id/tvIatai" />
+                android:id="@+id/tvIatai"/>
         </LinearLayout>
 
         <LinearLayout
@@ -126,20 +125,18 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/iv_visa"
-                android:src="@drawable/vco" />
+                android:src="@drawable/vco"/>
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:src="@drawable/handy"
                 android:id="@+id/iv_allegra"
-                android:layout_gravity="left"
-                android:layout_alignParentStart="true"
+                android:layout_gravity="start"
                 android:textAlignment="center"
-                android:layout_weight="0.5"
-                android:layout_marginTop="10dp" />
+                android:layout_marginTop="28dp" />
 
         </LinearLayout>
     </RelativeLayout>

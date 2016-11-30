@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.allegra.handyuvisa.utils.CustomizedTextView;
 import com.allegra.handyuvisa.utils.Util;
 import com.allegra.handyuvisa.models.AllemUser;
 import com.allegra.handyuvisa.models.Notifications;
@@ -79,17 +80,17 @@ public class FrontFragment extends Fragment implements
 
         if (Util.isAuthenticated(getActivity())) {
             AllemUser user = Constants.getUser(getActivity());
-            TextView greeting = (TextView) getActivity().findViewById(R.id.tv_username);
+            CustomizedTextView greeting = (CustomizedTextView) getActivity().findViewById(R.id.tv_username);
             String format = getActivity().getResources().getString(R.string.txt_user_greeting);
             String value = String.format(format, user.nombre);
             greeting.setText(value);
 
-            TextView current = (TextView) getActivity().findViewById(R.id.tv_current_time);
+            CustomizedTextView current = (CustomizedTextView) getActivity().findViewById(R.id.tv_current_time);
             current.setText(Util.getFormattedTime());
 
             loadNotifications(true);
             if (notifications != null) {
-                TextView notifMessages = (TextView) getActivity().findViewById(R.id.tv_notifications);
+                CustomizedTextView notifMessages = (CustomizedTextView) getActivity().findViewById(R.id.tv_notifications);
                 StringBuilder buf = new StringBuilder();
                 for (int i = 0; i < notifications.size(); i++) {
                     buf.append(notifications.get(i).message).append("\n");

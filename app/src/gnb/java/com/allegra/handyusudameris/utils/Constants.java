@@ -97,7 +97,8 @@ public class Constants {
     }
 
     public final static String NAMESPACE_ALLEM= "http://ws.alleminmotion.iatai.com/";
-    public final static String URL_ALLEM_BASE_TEST = "https://pruebas.allegraplatform.com/AllemInMotion/AllemInMotion";
+    //public final static String URL_ALLEM_BASE_TEST = "https://pruebas.allegraplatform.com/AllemInMotion/AllemInMotion";
+    public final static String URL_ALLEM_BASE_TEST = "http://52.87.70.203:8080/AllemInMotion/AllemInMotion";
     public final static String URL_ALLEM_BASE_PROD = "https://secureacceptance.allegraplatform.com/AllemInMotion/AllemInMotion";
     public final static String URL_ALLEM_WSDL_TEST = URL_ALLEM_BASE_TEST+"?wsdl";
     public final static String URL_ALLEM_WSDL_PROD = URL_ALLEM_BASE_PROD+"?wsdl";
@@ -312,8 +313,9 @@ public class Constants {
     public static final String URL_STORE_TEST =  "http://52.203.29.124/allemstore_demo/";
     public static final String URL_RESTAURANT_TEST =  "http://52.203.29.124/allemrestaurant_demo/#!/brand/restaurantes/map";
     public static final String URL_MARKETPLACE_TEST =  "http://dev.allegra.market/?logo=1&onepocket=1utm_source=HandyuVisa&utm_medium=botonhandy&utm_campaign=App";
-    public static final String  URL_LOGIN_TEST = "https://pruebas.allegraplatform.com/AllemInMotion/AllemInMotion";
-    public static final String  URL_SERVICE_TEST = "http://allegra.global/app/servicios_v2_demo/search/?name=";
+    //public static final String URL_LOGIN_TEST = "https://pruebas.allegraplatform.com/AllemInMotion/AllemInMotion";
+    public static final String URL_LOGIN_TEST = "http://52.87.70.203:8080/AllemInMotion/AllemInMotion";
+    public static final String URL_SERVICE_TEST = "http://allegra.global/app/servicios_v2_demo/search/?name=";
     //http://52.203.29.124/app/servicios_v2_demo/search/?name=Sergio&havemcard=yes&email=sfarfan@iatai.com&v=1
     public static final String URL_MCARD_HTML_TEST = "http://52.71.117.239:8080/MembresiaProteccionIatai/app/index.xhtml?portal=1&email=";
     //**********************NEW PRODUCTION URLS*************************
