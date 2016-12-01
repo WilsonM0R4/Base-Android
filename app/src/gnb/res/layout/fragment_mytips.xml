@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/benefits"
+            android:text="@string/mytips"
             android:id="@+id/textView47"
             android:layout_centerHorizontal="true"
             android:textColor="@color/GeneralAppHeaderTitle_text" />
@@ -61,14 +61,16 @@
                 android:background="@null"
                 android:padding="10dp"
                 android:id="@+id/menu_close" />
+
         </RelativeLayout>
+
+
 
     </RelativeLayout>
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/ll_header"
+        android:layout_height="6dp"
         android:paddingEnd="-2dp"
         android:paddingStart="-2dp"
         android:id="@+id/imageView24"
