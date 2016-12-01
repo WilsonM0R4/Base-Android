@@ -98,6 +98,7 @@ public class Constants {
 
     public final static String NAMESPACE_ALLEM= "http://ws.alleminmotion.iatai.com/";
     //public final static String URL_ALLEM_BASE_TEST = "https://pruebas.allegraplatform.com/AllemInMotion/AllemInMotion";
+    //http://52.87.70.203:8080/AllemInMotion/AllemInMotion?wsdl
     public final static String URL_ALLEM_BASE_TEST = "http://52.87.70.203:8080/AllemInMotion/AllemInMotion";
     public final static String URL_ALLEM_BASE_PROD = "https://secureacceptance.allegraplatform.com/AllemInMotion/AllemInMotion";
     public final static String URL_ALLEM_WSDL_TEST = URL_ALLEM_BASE_TEST+"?wsdl";
@@ -317,7 +318,10 @@ public class Constants {
     public static final String URL_LOGIN_TEST = "http://52.87.70.203:8080/AllemInMotion/AllemInMotion";
     public static final String URL_SERVICE_TEST = "http://allegra.global/app/servicios_v2_demo/search/?name=";
     //http://52.203.29.124/app/servicios_v2_demo/search/?name=Sergio&havemcard=yes&email=sfarfan@iatai.com&v=1
-    public static final String URL_MCARD_HTML_TEST = "http://52.71.117.239:8080/MembresiaProteccionIatai/app/index.xhtml?portal=1&email=";
+    public static final String URL_MCARD_HTML_TEST = "http://52.207.72.167:8080/MembresiaProteccionIatai/app/index.xhtml?portal=1&email=";//CAMBIAR PORTAL ID 1 POR 7
+    //http://52.71.117.239:8080/MembresiaProteccionIatai/app/index.xhtml?portal=1&email=
+    //http://52.207.72.167:8080/MembresiaProteccionIatai/app/index.xhtml?portal=7&email=
+
     //**********************NEW PRODUCTION URLS*************************
 
     public static final String URL_AUTOCOMPLETE_FLIGHTS_PROD = "http://autocompletar.allegra.travel/api/values/getinfo3?type=json&query=";
