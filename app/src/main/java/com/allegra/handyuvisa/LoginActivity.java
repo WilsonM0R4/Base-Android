@@ -320,7 +320,6 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
             Log.d("typeOfId", typeOfId);
             Log.d("numberOfId", numberOfId);
             */
-
             //Ya se tiene el objeto Póliza, ahora guardar el número en SharedPreferences
             String numeroPoliza = poliza.getNumeroPoliza();
             //Log.d(TAG, "numero: "+numeroPoliza);
@@ -328,7 +327,6 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
             SharedPreferences prefs = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
             SharedPreferences.Editor editor = prefs.edit();
             editor.putString("numMcard", numeroPoliza);
-
             //Obtener el listado de coberturas y guardarlo
             ArrayList<Cobertura> coberturas = poliza.getCoberturas();
             Gson gson = new Gson();
@@ -473,6 +471,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         return strType;
     }
 
+    //Send SOAP request for bring ProofOfCoverage's info
     void getValuesDynamicProofOfCoverage(){
 
         SharedPreferences preferences = this.getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);

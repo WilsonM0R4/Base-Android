@@ -56,11 +56,11 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
     private ArrayList<NameValuePair> postValues;
     boolean mostrarAppCobertura = true, mostrarAppBeneficios = true, mostrarSoloPolizaPrincipal = true;
 
+    //*********************************OVERRIDE METHODS********************************
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setView(R.layout.fragment_proof_dinamico, this);
-
 
         MyBus.getInstance().register(this);
         SharedPreferences prefs =
@@ -94,7 +94,6 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
         load_circle_proof = (ImageView)root.findViewById(R.id.load_circle_proof);
         rl_body_proof = (RelativeLayout) root.findViewById(R.id.rl_body_proof);
         iv_allegra_proof = (ImageView)root.findViewById(R.id.iv_allegra_proof);
-
         //bottomTexts = (LinearLayout) root.findViewById(R.id.customTextCoverage);
 
         dataModelstest= new ArrayList<>();
@@ -140,52 +139,63 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
         super.onDestroy();
     }
 
+    //Receive  SOAP response from SERVER for Dynamic Proof of coverage's info
     @Subscribe
     public void onAsyncTaskResult(AsyncTaskSoapObjectResultEventProofDynamic event) {
-        Log.d(TAG, event.getFaultString());
 
-            if (event.getResult() != null) {
-
-                String str = event.getResult().toString();
-                Log.d(TAG, "Resultado: "+str);
+        if (event.getResult() != null) {
+            Poliza poliza = SoapObjectParsers.toPoliza(event.getResult());
+            //Already we have Poliza object, now save this number in SharedPreferences
+            String numeroPoliza = poliza.getNumeroPoliza();
+            //Save in SharedPreferences
+            SharedPreferences prefs = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString("numMcard", numeroPoliza);
+            //Get coberturas' list  y save it
+            ArrayList<Cobertura> coberturas = poliza.getCoberturas();
+            Gson gson = new Gson();
+            String strCoberturas = gson.toJson(coberturas);
+            editor.putString("coberturas",strCoberturas);
+            editor.apply();
+            //Validate if user have poliza
+            if (numeroPoliza.equals("NO_TIENE")){
+                Log.d("NO TENGO MCARD", "NO TENGO ");
+                setGetYourCertificateLayout();
+            } else{
+                //Read from SharedPreferences
+                SharedPreferences preferences = this.getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+                String lista = preferences.getString("coberturas", "3");
+                Log.d(TAG, "Lista "+lista);
+                Type type = new TypeToken<ArrayList<Cobertura>>(){}.getType();
+                ArrayList<Cobertura> carsList = gson.fromJson(lista, type);
+                //Fill adapter and show listView with coberturas
+                adapter= new CustomAdapterDinamico(carsList,getApplicationContext());
+                listCoberturas.setAdapter(adapter);
+                Log.d("SI TENGO MCARD", "SI TENGO ");
                 AllemUser allemUser = Constants.getUser(getApplicationContext());
-                Poliza poliza = SoapObjectParsers.toPoliza(event.getResult());
-                String numMcard = poliza.getNumeroPoliza();
-                if (numMcard.equals("NO_TIENE")){
-                    Log.d("NO TENGO MCARD", "NO TENGO ");
-                    setGetYourCertificateLayout();
-                }else {
-                    //Read from SharedPreferences
-                    SharedPreferences preferences = this.getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
-                    String lista = preferences.getString("coberturas", "3");
-                    Log.d(TAG, "Lista "+lista);
-                    Type type = new TypeToken<ArrayList<Cobertura>>(){}.getType();
-                    Gson gson = new Gson();
-                    ArrayList<Cobertura> carsList = gson.fromJson(lista, type);
-                    adapter= new CustomAdapterDinamico(carsList,getApplicationContext());
-                    listCoberturas.setAdapter(adapter);
-                    Log.d("SI TENGO MCARD", "SI TENGO ");
-                    nombre = allemUser.nombre;
-                    apellido = allemUser.apellido;
-                    typeOfId = getTypeOfIdForDisplay(allemUser.idType);
-                    numberOfId = allemUser.idNumber;
-                    numberOfMcard = numMcard;
-                    Log.d("nombre", nombre);
-                    Log.d("apellido", apellido);
-                    Log.d("typeOfId", typeOfId);
-                    Log.d("numberOfId", numberOfId);
-                    Log.d("numeroMcard", numberOfMcard);
-                    setValues();
-                    //Hide Loader
-                    rl_body_proof.setVisibility(View.VISIBLE);
-                    iv_allegra_proof.setVisibility(View.GONE);
-                    load_circle_proof.setVisibility(View.GONE);
-                }
+                nombre = allemUser.nombre;
+                apellido = allemUser.apellido;
+                typeOfId = getTypeOfIdForDisplay(allemUser.idType);
+                numberOfId = allemUser.idNumber;
+                numberOfMcard = numeroPoliza;
+                Log.d("nombre", nombre);
+                Log.d("apellido", apellido);
+                Log.d("typeOfId", typeOfId);
+                Log.d("numberOfId", numberOfId);
+                Log.d("numeroMcard", numberOfMcard);
+                setValues();
+                //Hide Loader
+                rl_body_proof.setVisibility(View.VISIBLE);
+                iv_allegra_proof.setVisibility(View.GONE);
+                load_circle_proof.setVisibility(View.GONE);
             }
+
+        }
     }
 
     //*********************PROPER METHODS********************
 
+    //Performs SOAP  request to SERVER
     void getValuesDynamicProofOfCoverage(){
 
         SharedPreferences preferences = this.getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
