@@ -21,7 +21,7 @@ public class AppJavaScriptProxyProof {
         Log.e("Message", message);
         Log.e("Repeat message", message);
 
-        if (message.contains("label:proofOfCoverage")) {
+        if (message.contains("proofOfCoverage")) {
 
             ((Mcardhtml)activity).goToProof();
 
