@@ -25,6 +25,7 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
     private ImageButton menu;
     private String returnURL, userEmail;
     public String onePocketmessage;
+    public String goToProof;
     //private String url = "http://52.71.117.239:8080/McardMembresiaAllus/app/app/app/index_320.xhtml?email=";
     private String url_prod = Constants.getMcardhtml();
     //private String url = "http://allegra.global/membresias/planes/";
@@ -94,6 +95,7 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
     private void loadWebView() {
         //url="http://alegra.dracobots.com/Hotel/Flow/Availability?";
         webmcard.addJavascriptInterface(new AppJavaScriptProxyMcard(this), "androidProxy");
+        webmcard.addJavascriptInterface(new AppJavaScriptProxyProof(this), "androidProxy");
         webmcard.loadUrl(url_prod+userEmail);
     }
 
@@ -103,6 +105,13 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
         Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(this), onePocketmessage, OPKConstants.TYPE_MCARD, (com.allegra.handyuvisa.VisaCheckoutApp) getApplication());
         intent.putExtras(bundle);
         startActivityForResult(intent, Constants.REQUEST_ONEPOCKET_RETURN);
+    }
+
+    public void goToProof(){
+        Context context=this;
+        Intent intent = new Intent(context, ProofOfCoverageDinamico.class);
+        context.startActivity(intent);
+
     }
 
     public void onMenu(View view) {
