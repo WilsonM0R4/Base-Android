@@ -106,6 +106,13 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
         startActivityForResult(intent, Constants.REQUEST_ONEPOCKET_RETURN);
     }
 
+    public void goToProof(){
+        Context context=this;
+        Intent intent = new Intent(context, ProofOfCoverageDinamico.class);
+        context.startActivity(intent);
+
+    }
+
     public void onMenu(View view) {
         animate();
     }
