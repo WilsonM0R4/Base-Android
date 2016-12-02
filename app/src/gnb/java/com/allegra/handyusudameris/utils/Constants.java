@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class Constants {
 
     //********FOR DYNAMIC PROOF OF COVERAGE**********
-    public final static String ID_PORTAL = "1";
+    public final static String ID_PORTAL = "2";
     public final static String NAMESPACE_PROOF = "http://www.ws.iatai.com/poliza_servicio/";
     public final static String METHOD_PROOF = "consultarPolizasBeneficiarioRequest";
     public final static int ACTIVITY_PROOF = 10405;
