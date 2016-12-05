@@ -25,12 +25,9 @@ import com.allegra.handyuvisa.ProofDinamico.asyncProofDynamic.AsyncTaskSoapObjec
 import com.allegra.handyuvisa.ProofDinamico.model.Cobertura;
 import com.allegra.handyuvisa.ProofDinamico.model.Poliza;
 import com.allegra.handyuvisa.async.AsyncSoapObject;
-import com.allegra.handyuvisa.async.AsyncSoapObjectTest;
 import com.allegra.handyuvisa.async.AsyncTaskSoapObjectResultEvent;
-import com.allegra.handyuvisa.async.AsyncTaskSoapObjectResultEventMcard;
 import com.allegra.handyuvisa.async.MyBus;
 import com.allegra.handyuvisa.models.AllemUser;
-import com.allegra.handyuvisa.models.McardCliente;
 import com.allegra.handyuvisa.models.UserDataBase;
 import com.allegra.handyuvisa.parsers.SoapObjectParsers;
 import com.allegra.handyuvisa.utils.Connectivity;
@@ -40,7 +37,6 @@ import com.allegra.handyuvisa.utils.KeySaver;
 import com.allegra.handyuvisa.utils.UsuarioSQLiteHelper;
 import com.allegra.handyuvisa.utils.Util;
 import com.google.gson.Gson;
-import com.splunk.mint.Mint;
 import com.squareup.otto.Subscribe;
 import com.urbanairship.UAirship;
 
@@ -436,6 +432,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
 
             } else {
                 Toast.makeText(ctx, event.getFaultString(), Toast.LENGTH_LONG).show();
+                setWaitinUI(false);
             }
 
         }
