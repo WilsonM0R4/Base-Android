@@ -13,7 +13,7 @@ import android.widget.ProgressBar;
 public class MyBenefits extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
 
     private WebView webBenefits;
-    private String url = "http://allegra.global/visa/app/es/beneficios/index.html";
+    private String url = "http://clientegnbprotegido.com/app/coberturas/index.html";
     private String returnURL;
     private ImageButton arrowBack, arrowF, back;
     private ProgressBar progressBar;
