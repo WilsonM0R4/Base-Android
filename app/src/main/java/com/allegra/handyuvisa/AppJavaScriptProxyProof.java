@@ -25,15 +25,15 @@ public class AppJavaScriptProxyProof {
         Log.e("Repeat message", message);
 
         if (message.contains("proofOfCoverage")) {
-            ((Mcardhtml)activity).goToProof();
+            ((com.allegra.handyuvisa.Mcardhtml)activity).goToProof();
         }else{
-            ((Mcardhtml) activity).onePocketmessage = message;
-            if (checkLogin()) ((Mcardhtml) activity).openOnePocket();
+            ((com.allegra.handyuvisa.Mcardhtml) activity).onePocketmessage = message;
+            if (checkLogin()) ((com.allegra.handyuvisa.Mcardhtml) activity).openOnePocket();
         }
     }
 
     private boolean checkLogin() {
-        if(((VisaCheckoutApp)activity.getApplication()).getIdSession()==null){
+        if(((com.allegra.handyuvisa.VisaCheckoutApp)activity.getApplication()).getIdSession()==null){
             Intent i =new Intent(activity,LoginActivity.class);
             activity.startActivityForResult(i, Constants.ONE_POCKET_NEEDS_LOGIN);
             return false;
