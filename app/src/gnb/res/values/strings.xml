@@ -1,4 +1,5 @@
 <resources>
+    <string name="travel_quiet">¡Travel with ease!</string>
     <string name="app_name">Handy U GNB Sudameris</string>
     <string name="app_name_legal">Handy U Visa</string>
     <string name="title_activity_branding_screen">BrandingScreenActivity</string>

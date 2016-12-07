@@ -122,8 +122,8 @@ android {
         }
         gnb {
             applicationId "com.allegra.handyusudameris"
-            versionCode 1
-            versionName "1.2.0-3"
+            versionCode 6
+            versionName "1.2.3-6"
             signingConfig signingConfigs.gnbConfig
             minSdkVersion 19
             targetSdkVersion 25
