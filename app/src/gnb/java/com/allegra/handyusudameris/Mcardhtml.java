@@ -93,7 +93,6 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
 
     private void loadWebView() {
         //url="http://alegra.dracobots.com/Hotel/Flow/Availability?";
-        webmcard.addJavascriptInterface(new AppJavaScriptProxyMcard(this), "androidProxy");
         webmcard.addJavascriptInterface(new AppJavaScriptProxyProof(this), "androidProxy");
         webmcard.loadUrl(url_prod+userEmail);
     }
