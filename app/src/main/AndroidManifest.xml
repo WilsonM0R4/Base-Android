@@ -184,6 +184,9 @@
             android:name=".Mcardexclusive"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".EndlessActivity"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".Mcardunlimited"
             android:screenOrientation="portrait" />
         <activity

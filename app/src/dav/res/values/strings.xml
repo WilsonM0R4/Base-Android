@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Handy U Davivienda</string>
-    <string name="app_name_legal">Handy U Davivienda</string>
+    <string name="app_name">Handy B Davivienda</string>
+    <string name="app_name_legal">Handy B Davivienda</string>
     <string name="title_activity_branding_screen">BrandingScreenActivity</string>
     <string name="txtInfoCertifications"># CERTIFICATE</string>
     <string name="payment_hotel_your">YOUR HOTEL</string>
@@ -9,6 +9,7 @@
     <string name="myvisaenterprise">My Visa Enterprise</string>
     <string name="checkmytrip">Check My Trip</string>
     <string name="empresa_numero_hint">Company ID (10 Digits)</string>
+    <string name="title_endless">Handy S</string>
     <string name="empresa_register_hint">Company Name</string>
     <string name="forgot_password">Recovery password</string>
     <string name="location_permision">Your GPS seems to be disabled, do you want to enable it?</string>
@@ -34,7 +35,7 @@
     <string name="qr_tax_fees">TAXES AND FEES</string>
     <string name="qr_total_price">TOTAL PRICE</string>
     <string name="qr_total_pay">PAY NOW</string>
-    <string name="handi_u">Handy U</string>
+    <string name="handi_u">Handy Business</string>
     <string name="onepocket">Onepocket</string>
     <string name="payment_hotel_guest">Guest</string>
     <string name="mCard">mCard</string>
@@ -338,8 +339,8 @@
     <string name="text_single_adult">ADULT</string>
     <string name="text_single_child">CHILD</string>
     <string name="text_single_infant">INFANT</string>
-    <string name="GPSAlertDialogTitle">Handy U Davivienda Location</string>
-    <string name="GPSAlertDialogMessage">Handy U Davivienda wants to use your location</string>
+    <string name="GPSAlertDialogTitle">Handy B Davivienda Location</string>
+    <string name="GPSAlertDialogMessage">Handy B Davivienda wants to use your location</string>
     <string name="cancel">Cancel</string>
     <string name="aditional_protection">ADITIONAL PROTECTION</string>
     <string name="aditional_protection_string">Feel protected on your travels with unique and exclusive experiences designed for you.</string>
@@ -570,7 +571,7 @@
 
     <!--HANDY U STRINGS-->
 
-    <string name="app_name_handy">Handy U</string>
+    <string name="app_name_handy">Handy B</string>
 
     <!--server base url for api call and images  -->
     <!-- <string name="base_url">http://ec2-52-26-68-235.us-west-2.compute.amazonaws.com:8080/HomZservice</string>
@@ -623,7 +624,7 @@
     <string name="decline_register">DECLINE</string>
     <string name="accept_register">AGREE</string>
     <string name="congratulations">¡Congratulations!</string>
-    <string name="you_can_enjoy_benefits">You can now enjoy all\n benefits it brings you\n Handy U Davivienda</string>
+    <string name="you_can_enjoy_benefits">You can now enjoy all\n benefits it brings you\n Handy B Davivienda</string>
     <string name="txt_continue">CONTINUE</string>
     <string name="test_terms"><u>terms and conditions</u></string>
     <string name="by_clicking">By clicking agree you accept</string>
