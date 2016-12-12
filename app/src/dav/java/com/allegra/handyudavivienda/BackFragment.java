@@ -255,7 +255,6 @@ public class BackFragment extends Fragment  {
         //If not, normal url
         Intent i = getActivity().getPackageManager().getLaunchIntentForPackage(PACKAGE_NAME);
         if (i != null) {
-
             getActivity().startActivity(i);
         } /*else {
 
