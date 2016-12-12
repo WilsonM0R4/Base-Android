@@ -51,6 +51,13 @@ android {
             storePassword CBH_RELEASE_STORE_PASSWORD
         }
 
+        davConfig{
+            keyAlias DAV_RELEASE_KEY_ALIAS
+            keyPassword DAV_RELEASE_KEY_PASSWORD
+            storeFile file(DAV_RELEASE_STORE_FILE)
+            storePassword DAV_RELEASE_STORE_PASSWORD
+        }
+
     }
 
     compileSdkVersion 25
@@ -246,6 +253,27 @@ android {
             multiDexEnabled true
         }
 
+        dav {
+            applicationId "com.allegra.handyudavivienda"
+            versionCode 1
+            versionName "1.2.0-3"
+            signingConfig signingConfigs.davConfig
+            minSdkVersion 19
+            targetSdkVersion 25
+
+            packagingOptions {
+                exclude "lib/arm64-v8a/libcardioDecider.so"
+                exclude "lib/mips64/libcardioDecider.so"
+                exclude "lib/x86_64/libcardioDecider.so"
+                exclude 'META-INF/maven/com.squareup.okio/okio/pom.xml'
+                exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
+                exclude 'META-INF/LICENSE'
+            }
+
+            // Enabling multidex support.
+            multiDexEnabled true
+        }
+
     }
 }
 
@@ -272,10 +300,10 @@ dependencies {
     compile 'com.squareup:android-times-square:1.6.5@aar'
     compile 'com.journeyapps:zxing-android-embedded:3.3.0'
     compile 'com.google.zxing:core:3.2.1'
-    compile 'com.google.android.gms:play-services:9.8.0'
-    compile 'com.google.android.gms:play-services-ads:9.8.0'
-    compile 'com.google.android.gms:play-services-identity:9.8.0'
-    compile 'com.google.android.gms:play-services-gcm:9.8.0'
+    compile 'com.google.android.gms:play-services:10.0.1'
+    compile 'com.google.android.gms:play-services-ads:10.0.1'
+    compile 'com.google.android.gms:play-services-identity:10.0.1'
+    compile 'com.google.android.gms:play-services-gcm:10.0.1'
     compile 'com.urbanairship.android:urbanairship-sdk:7.3.0'
     compile 'com.splunk:mint-android-sdk:5.1.0'
     compile 'com.twilio:client-android:1.2.17'

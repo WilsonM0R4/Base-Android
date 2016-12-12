@@ -199,6 +199,15 @@
             android:name=".CallActivityMcard"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".Intellilink"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Myvisaenterprise"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".CheckMyTrip"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".ConciergeActivity"
             android:screenOrientation="portrait" />
         <activity

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <!--<ImageButton
+          android:id="@+id/checkpin"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:background="@drawable/icon_mappin" />
+  -->
+    <!--<ImageView
+        android:id="@+id/user_chg_pro_image_update"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_margin="2.4dp"
+         />-->
+
+    <LinearLayout
+        android:background="@drawable/icon_map_pin"
+        android:id="@+id/checkpin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <com.allegra.handyuvisa.utils.CircularImageView
+            android:id="@+id/user_chg_pro_image_update"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/plasholder_75"
+            android:layout_margin="5dp"/>
+        <!--  <ImageView
+              android:id="@+id/user_chg_pro_image_update"
+              android:layout_width="28dp"
+              android:layout_height="28dp"
+              android:layout_margin="2.4dp"
+              />-->
+    </LinearLayout>
+
+    <!--  <ImageView
+
+          android:id="@+id/user_chg_pro_image_update"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:adjustViewBounds="true"
+          />-->
+
+
+</RelativeLayout>

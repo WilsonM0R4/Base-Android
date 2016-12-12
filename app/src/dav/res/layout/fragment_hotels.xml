@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".HotelsActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:id="@+id/rl_hotel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="onCloseMenu">
+
+            <RelativeLayout
+                android:id="@+id/ll_header_hotels"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:background="@color/WHITE_COLOR">
+
+                <TextView
+                    android:id="@+id/tv_title_secc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/txt_title_book_hotels"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/GeneralAppHeaderTitle_text"
+                    android:textStyle="bold"/>
+
+                <ImageButton
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/icon_menu"
+                    android:background="@android:color/transparent"
+                    android:id="@+id/menu_image"
+                    android:onClick="onMenu"
+                    android:contentDescription="menu"
+                    android:layout_alignBottom="@+id/tv_title_secc"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="10dp"/>
+
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/iv_header_hotels"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:layout_below="@+id/ll_header_hotels"
+                android:layout_marginBottom="-4dp"
+                android:layout_marginLeft="-4dp"
+                android:layout_marginRight="-4dp"
+                android:contentDescription="Divider"
+                android:paddingEnd="-2dp"
+                android:paddingStart="-2dp"
+                android:src="@drawable/separator_medium_mag"/>
+
+            <include
+                android:id="@+id/ll_destination"
+                layout="@layout/custom_hotels_header"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_below="@+id/iv_header_hotels"
+                android:layout_marginTop="3dp"/>
+
+            <include
+                android:id="@+id/search_layout_hotels"
+                layout="@layout/activity_search_hotels"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ll_destination"
+                android:visibility="gone"/>
+
+            <include
+                android:id="@+id/panel_dates"
+                layout="@layout/custom_date_of_trip_selector"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_below="@+id/search_layout_hotels"
+                android:layout_marginTop="10dp"/>
+
+            <include
+                android:id="@+id/rooms_panel"
+                layout="@layout/custom_hotels_rooms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/panel_dates"
+                android:layout_marginTop="10dp"/>
+
+            <include
+                android:id="@+id/header_for_select"
+                layout="@layout/custom_hotels_header_for_select_rooms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rooms_panel"
+                android:layout_marginTop="10dp"
+                android:visibility="gone"/>
+
+            <LinearLayout
+                android:id="@+id/add_room_option"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/header_for_select"
+                android:layout_marginLeft="5dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/button_add_room"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:src="@drawable/hotels__add"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/room"
+                    android:textColor="@color/SelectedRoomButtonAddRoom_text"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/rooms_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/add_room_option"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rooms_panel"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/round_corner_orange"
+                android:onClick="onSearchHotels"
+                android:text="@string/search_hotels"
+                android:textColor="@color/BigButton2_text"
+                android:textSize="18sp"/>
+
+        </RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>
+
+
