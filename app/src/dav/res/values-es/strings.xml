@@ -43,6 +43,8 @@
     <string name="emergency_transfer">Traslado de emergencia</string>
     <string name="mcard_doctorhelp">Modelo exclusivo de IATAI de servicio médico online con atención diferencial, conecta a médicos con viajeros internacionales que buscan asistencia médica inmediata, las 24 horas del día, los 7 días de la semana a nivel mundial. Sin necesidad de trámites administrativos previos.</string>
     <string name="handi_u">Handy U</string>
+    <string name="empresa_numero_hint">Company ID (10 Digitos)</string>
+    <string name="empresa_register_hint">Nombre de la Empresa</string>
     <string name="mcard_trip">Múltiples viajes hasta 120 días máximo por viaje</string>
     <string name="payment_hotel_nights">noches</string>
     <string name="payment_hotel_your">TU HOTEL</string>

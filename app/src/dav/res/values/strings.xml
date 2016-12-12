@@ -8,6 +8,8 @@
     <string name="intellilink">Intellilink</string>
     <string name="myvisaenterprise">My Visa Enterprise</string>
     <string name="checkmytrip">Check My Trip</string>
+    <string name="empresa_numero_hint">Company ID (10 Digits)</string>
+    <string name="empresa_register_hint">Company Name</string>
     <string name="forgot_password">Recovery password</string>
     <string name="location_permision">Your GPS seems to be disabled, do you want to enable it?</string>
     <string name="location_failed">Fail to fetch your current location. Please check your GPS status and try again</string>

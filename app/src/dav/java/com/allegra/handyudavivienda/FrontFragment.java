@@ -18,11 +18,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.allegra.handyuvisa.utils.Util;
 import com.allegra.handyuvisa.models.AllemUser;
 import com.allegra.handyuvisa.models.Notifications;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.KeySaver;
+import com.allegra.handyuvisa.utils.Util;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -39,7 +39,7 @@ public class FrontFragment extends Fragment implements
                                     MediaPlayer.OnErrorListener {
 
     private static final String TAG = "FrontFragment";
-    private static final String VIDEO_BACKGROUND = "android.resource://com.allegra.handyuvisa/raw/background_dark";
+    private static final String VIDEO_BACKGROUND = "android.resource://com.allegra.handyudavivienda/raw/background_dark";
     Surface surf;
     private MediaPlayer mMediaPlayer;
     private TextureView videoView; // TextView for display (similar to VideoView?)
@@ -63,7 +63,7 @@ public class FrontFragment extends Fragment implements
                              Bundle savedInstanceState) {
 
         View rootView;
-        if (((VisaCheckoutApp)getActivity().getApplication()).getIdSession()==null) {
+        if (((com.allegra.handyuvisa.VisaCheckoutApp)getActivity().getApplication()).getIdSession()==null) {
             rootView = inflater.inflate(R.layout.activity_intro_screen, container, false);
         } else {
             rootView = inflater.inflate(R.layout.fragment_front, container, false);
@@ -192,7 +192,7 @@ public class FrontFragment extends Fragment implements
                     notifications.add(getNotification(notif.getJSONArray("notif").getJSONObject(i)));
                 }
             }
-            if ((((VisaCheckoutApp) getActivity().getApplication()).getIdSession() != null)){
+            if ((((com.allegra.handyuvisa.VisaCheckoutApp) getActivity().getApplication()).getIdSession() != null)){
                 if(KeySaver.isExist(getActivity(), channel)){
                     notif_shared = KeySaver.getStringSavedShare(getActivity(), channel);
                     if (notif_shared!=null){

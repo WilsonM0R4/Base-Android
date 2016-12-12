@@ -262,6 +262,41 @@
                 android:textColorHint="@color/InputFocus_border"
                 android:background="@drawable/apptheme_edit_text_holo_light" />
 
+            <com.allegra.handyuvisa.utils.CustomizedEditText
+                android:id="@+id/etempresa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:drawableLeft="@drawable/field_visa"
+                android:drawableRight="@drawable/icon_clear"
+                android:hint="@string/empresa_register_hint"
+                android:singleLine="true"
+                android:textSize="15sp"
+                app:fontEdit="@string/font_muli"
+                android:textColorHint="@color/register_input_inactive"
+                android:background="@drawable/apptheme_edit_text_holo_light"
+                android:layout_marginTop="5dp"
+                android:inputType="textPersonName" />
+
+
+            <com.allegra.handyuvisa.utils.CustomizedEditText
+                android:id="@+id/etempresaid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:inputType="number"
+                android:drawableLeft="@drawable/field_nit"
+                android:drawableRight="@drawable/icon_clear"
+                android:hint="@string/empresa_numero_hint"
+                android:singleLine="true"
+                android:textSize="15sp"
+                app:fontEdit="@string/font_muli"
+                android:textColorHint="@color/register_input_inactive"
+                android:background="@drawable/apptheme_edit_text_holo_light"
+                android:layout_marginTop="5dp" />
+
             <com.allegra.handyuvisa.utils.CustomizedTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
