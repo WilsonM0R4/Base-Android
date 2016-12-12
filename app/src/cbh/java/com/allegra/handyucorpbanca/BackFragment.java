@@ -16,8 +16,6 @@ import com.allegra.handyuvisa.models.AllemUser;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
 import com.allegra.handyuvisa.utils.Util;
-import com.allem.onepocket.model.OneTransaction;
-import com.allem.onepocket.utils.OPKConstants;
 
 /**
  * Created by lisachui on 12/1/15.

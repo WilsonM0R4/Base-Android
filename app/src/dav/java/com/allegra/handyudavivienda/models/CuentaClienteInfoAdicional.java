@@ -12,17 +12,16 @@ import java.util.Hashtable;
 public class CuentaClienteInfoAdicional implements KvmSerializable {
 
     public final static String PROPERTY = "cuentaClienteInformacionAdicional";
-    private final static String EMPRESA = "empresa", CARGO = "cargo", CELULAR = "celular",
+    private final static String EMPRESA = "empresa", NUM_EMPRESA = "cargo", CELULAR = "celular",
             CIUDAD = "ciudad", CLASE = "clase", CODIGO_PAIS = "pais", CELULAR_CODIGO="celular_codigo";
     private String empresa;
-    private String cargo;
+    private String numempresa;
     private String celular;
     private String ciudad;
     private String clase;
     private String pais;
     private String celular_codigo;
-    /*private String tipoDocumento;
-    private String numeroDocumento;*/
+    private String numero_empresa;
 
 
   /*  public String getTipoDocumento() {
@@ -48,7 +47,7 @@ public class CuentaClienteInfoAdicional implements KvmSerializable {
             case 0:
                 return empresa;
             case 1:
-                return cargo;
+                return numempresa;
             case 2:
                 return celular;
             case 3:
@@ -79,7 +78,7 @@ public class CuentaClienteInfoAdicional implements KvmSerializable {
                 empresa = (String) o;
                 break;
             case 1:
-                cargo = (String) o;
+                numempresa = (String) o;
                 break;
             case 2:
                 celular = (String) o;
@@ -115,7 +114,7 @@ public class CuentaClienteInfoAdicional implements KvmSerializable {
                 break;
             case 1:
                 propertyInfo.type = PropertyInfo.STRING_CLASS;
-                propertyInfo.name = CARGO;
+                propertyInfo.name = NUM_EMPRESA;
                 break;
             case 2:
                 propertyInfo.type = PropertyInfo.STRING_CLASS;
@@ -148,6 +147,17 @@ public class CuentaClienteInfoAdicional implements KvmSerializable {
         }
     }
 
+   /* @Override
+    public String getInnerText() {
+        return null;
+    }
+
+    @Override
+    public void setInnerText(String s) {
+
+    }*/
+
+
     public String getEmpresa() {
         return empresa;
     }
@@ -156,12 +166,12 @@ public class CuentaClienteInfoAdicional implements KvmSerializable {
         this.empresa = empresa;
     }
 
-    public String getCargo() {
-        return cargo;
+    public String getNumEmpresa() {
+        return numempresa;
     }
 
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
+    public void setNumEmpresa(String cargo) {
+        this.numempresa = cargo;
     }
 
     public String getCelular() {
