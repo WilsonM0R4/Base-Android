@@ -277,7 +277,6 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
                 //urlWebView=HotelsActivity.this.url;
                     // TODO replace with Onepocket pay activity
                 }else if(url.equals("allegra:callbackFlights")){
-                    Log.d("Sergio","Llega rodallega");
                     onalertDialogDepartureOrArriveNotSelected();
                 }
                 else{
