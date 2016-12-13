@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/rl_search_in_progress"
-    android:background="@color/white"
     android:clickable="true">
 
     <RelativeLayout
@@ -28,18 +26,18 @@
             android:layout_alignParentStart="true"
             android:layout_alignBottom="@+id/tv_title_secc"
             android:layout_centerVertical="true"
-            android:onClick="onBackButton"
-            />
+            android:onClick="onBackButton" />
 
-        <TextView
+        <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/title_flight_results"
+            app:font="@string/font_varela"
             android:id="@+id/tv_title_secc"
             android:textColor="@color/GeneralAppHeaderTitle_text"
-            android:layout_centerInParent="true" />
+            android:layout_centerInParent="true"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -62,7 +60,7 @@
                 android:background="@null"
                 android:padding="10dp"
                 android:onClick="onGoBack"
-                android:id="@+id/arrow_back" />
+                android:id="@+id/arrow_back"/>
 
             <ImageButton
                 android:layout_width="wrap_content"
@@ -72,8 +70,18 @@
                 android:background="@null"
                 android:padding="10dp"
                 android:onClick="onGoForward"
-                android:id="@+id/arrow_forward" />
+                android:id="@+id/arrow_forward"/>
         </RelativeLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:id="@+id/iv_header"
+            android:paddingEnd="-2dp"
+            android:paddingStart="-2dp"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/separator_medium_mag"
+            android:contentDescription="Divider"/>
 
     </RelativeLayout>
 
@@ -84,8 +92,7 @@
         android:id="@+id/pb_search_loader"
         android:layout_centerInParent="true"
         android:background="@drawable/run_animation"
-        android:layout_below="@+id/imgProgress"
-        />
+        android:layout_below="@+id/imgProgress"/>
 
     <com.allegra.handyuvisa.utils.CustomizedTextView
         android:id="@+id/txtLoading"
@@ -97,7 +104,7 @@
         android:textSize="22sp"
         android:layout_below="@+id/pb_search_loader"
         app:font="@string/font_varela"
-        android:text="@string/txt_loading_loader"/>
+        android:text="@string/txt_loading_loader" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -106,15 +113,13 @@
         android:id="@+id/imgProgress"
         android:background="@drawable/logo_allegra_loader"
         android:layout_below="@+id/ll_header"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"/>
 
     <WebView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/webView"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
-
-    <!-- android:visibility="gone"-->
+        android:layout_below="@+id/ll_header" />
 
 </RelativeLayout>

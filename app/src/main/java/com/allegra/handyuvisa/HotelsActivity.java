@@ -115,8 +115,8 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //System.gc();
         setView(R.layout.fragment_hotels, this);
+        MyBus.getInstance().register(this);
     }
 
     @Override
@@ -131,7 +131,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
 
     @Override
     protected void onDestroy() {
-       // MyBus.getInstance().unregister(this);
+        MyBus.getInstance().unregister(this);
         super.onDestroy();
     }
 
@@ -509,8 +509,8 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
                 return false; // pass on to other listeners.
             }
         });
-        if (!alreadyEnterToThisMethod) MyBus.getInstance().register(this);
-        alreadyEnterToThisMethod = true;
+        /*if (!alreadyEnterToThisMethod) MyBus.getInstance().register(this);
+        alreadyEnterToThisMethod = true;*/
         setOnItemclickListenerListView(listView);
 
     }

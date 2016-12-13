@@ -6,6 +6,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
@@ -39,7 +40,7 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
     private String returnURL;
     public String onePocketmessage;
     public String mcard;
-    ImageView imgLogoAllegraLoader, progressBar;
+    ImageView imgLogoAllegraLoader, progressBar, separator;
     TextView title;
     private TextView txtLoading;
 
@@ -48,30 +49,35 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        super.onCreate(savedInstanceState);//_concierge
-        //super.setView(R.layout.fragment_search_in_progress, R.drawable.concierge4, R.string.txt_lbl_searchConciergeWait, this);
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_search_in_progress);
+        setActionBar(true);
+        //Get intent params
         id_destino_ser = getIntent().getStringExtra("&idCity");
         nombre_destino_ser = getIntent().getStringExtra("&labelCity");
         Log.d("ID DESTINO SER ",String.valueOf(id_destino_ser));
         Log.d("NOMBRE   DESTINO SER",String.valueOf(nombre_destino_ser));
-
+        //Find views by Id
         webView = (WebView)findViewById(R.id.webView);//Concierge
         progressBar= (ImageView)findViewById(R.id.pb_search_loader);//pb_concierge
         txtLoading = (TextView)findViewById(R.id.txtLoading);
+        imgLogoAllegraLoader =(ImageView)findViewById(R.id.imgProgress);
+        separator =(ImageView)findViewById(R.id.iv_header);
+        title = (TextView)findViewById(R.id.tv_title_secc);//_con
+        arrowBack = (ImageButton)findViewById(R.id.arrow_back);//_concierge
+        arrowF = (ImageButton)findViewById(R.id.arrow_forward);
 
+        webView.setVisibility(View.GONE);
+        //Set animation
         progressBar.post(new Runnable() {
             @Override
             public void run() {
                 ((AnimationDrawable) progressBar.getBackground()).start();
             }
         });
-        imgLogoAllegraLoader =(ImageView)findViewById(R.id.imgProgress);
-        title = (TextView)findViewById(R.id.tv_title_secc);//_con
-        arrowBack = (ImageButton)findViewById(R.id.arrow_back);//_concierge
-        arrowF = (ImageButton)findViewById(R.id.arrow_forward);
-
-        setActionBar(true);
+        //Hide separator for better UI
+        separator.setVisibility(View.GONE);
+        //Webview settings
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setLoadsImagesAutomatically(true);
@@ -79,6 +85,7 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
         webView.setWebViewClient(new MyWebViewClient());
 
         title.setText(String.valueOf(getString(R.string.title_concierge)));
+        //Validate mCard in order to send it
         SharedPreferences prefs =
                 getSharedPreferences("MisPreferencias", MODE_PRIVATE);
         mcard = prefs.getString("idMcard", "0");
@@ -91,33 +98,26 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        webView.stopLoading();
+    }
+
+    @Override
     public void onBackPressed() {
         super.onBackPressed();
         urlWebView=this.url;
     }
-   /* @Override
-    public void initViews(View root) {
-
-        webView = (WebView)root.findViewById(R.id.webView);//Concierge
-        progressBar= (ImageView) root.findViewById(R.id.pb_search_loader);//pb_concierge
-        imgLogoAllegraLoader =(ImageView) root.findViewById(R.id.imgProgress);
-        title = (TextView) root.findViewById(R.id.tv_title_secc);//_con
-        arrowBack= (ImageButton)root.findViewById(R.id.arrow_back);//_concierge
-
-        setActionBar(true);
-        WebSettings webSettings = webView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
-        webSettings.setLoadsImagesAutomatically(true);
-        webSettings.setDomStorageEnabled(true);
-        webView.setWebViewClient(new MyWebViewClient());
-
-        title.setText(String.valueOf(getString(R.string.title_concierge)));
-    }*/
 
     @Override
     protected void onResume() {
         super.onResume();
         loadWebView();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig){
+        super.onConfigurationChanged(newConfig);
     }
 
     @Override
@@ -139,17 +139,12 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
         } else if (requestCode == Constants.REQUEST_ONEPOCKET_RETURN) {
             if (data != null) {
                 returnURL = data.getStringExtra("RESULT");
-                webView.clearHistory();
                 webView.loadUrl("about:blank");
+                progressBar.setVisibility(View.VISIBLE);
             }
         }
 
     }
-   /* @Override
-    public void onCancelLoading() {
-
-        finish();
-    }*/
 
     //***********************PROPER METHODS********************
 
@@ -167,30 +162,19 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
     }
 
     private void loadWebView() {
-        //OLD: http://viatorallegra.vuelos.ninja/Actividad/ResultadosGet?id_destino_ser=
-        //URL_CONCIERGE_PROD :”http://actividades.allegra.travel/Actividad/ResultadosGet?id_destino_ser="
+
+        webView.addJavascriptInterface(new AppJavaScriptProxyConcierge(this), "androidProxy");
         url = Constants.getSearchConciergeUrl() +
                 id_destino_ser + "&nombre_destino_ser1=" + nombre_destino_ser +
                 "&Payment=3"+"&Group="+mcard;
-
-        webView.addJavascriptInterface(new AppJavaScriptProxyConcierge(this), "androidProxy");
         Log.d("url con data",url);
         webView.loadUrl(url);
-       /* String encodedUrl = null;
-        try {
-            encodedUrl = URLEncoder.encode(nombre_destino_ser, "UTF-8");
-        } catch (UnsupportedEncodingException ignored) {
-            // Can be safely ignored because UTF-8 is always supported
-        }
-        url = "http://actividades.allegra.travel/Actividad/ResultadosGet?id_destino_ser=" +
-                id_destino_ser + "&nombre_destino_ser1=" + encodedUrl +
-                "&Payment=3"+"&Group="+mcard;*/
-        //webView.postUrl(url, EncodingUtils.getBytes(postData, "BASE64"));
     }
 
     public void openOnePocket(){
         Intent intent = new Intent(this, OnepocketPurchaseActivity.class);
-        Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(this), onePocketmessage, OPKConstants.TYPE_HOTEL, (VisaCheckoutApp) getApplication());
+        Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(this), onePocketmessage,
+                OPKConstants.TYPE_HOTEL, (VisaCheckoutApp) getApplication());
         intent.putExtras(bundle);
         startActivityForResult(intent, Constants.REQUEST_ONEPOCKET_RETURN);
     }
@@ -237,7 +221,8 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
                 if (url.contains("http://")||url.contains("https://")){
                     view.loadUrl(url);
                     urlWebView=url;
-                }else if(url.contains("detalleventaht:")&& Util.hasInternetConnectivity(ConciergeSearchActivity.this)){
+                }else if(url.contains("detalleventaht:")&& Util.hasInternetConnectivity
+                        (ConciergeSearchActivity.this)){
                     //urlWebView=HotelsActivity.this.url;
                     // TODO replace with Onepocket pay activity
                 }else{
@@ -245,7 +230,8 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
                     urlWebView=url;
                 }
             }else{
-                Toast.makeText(ConciergeSearchActivity.this, R.string.err_no_internet, Toast.LENGTH_SHORT).show();
+                Toast.makeText(ConciergeSearchActivity.this, R.string.err_no_internet,
+                        Toast.LENGTH_SHORT).show();
             }
             return true;
         }
@@ -256,17 +242,16 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
             progressBar.setVisibility(View.GONE);
             imgLogoAllegraLoader.setVisibility(View.GONE);
             txtLoading.setVisibility(View.GONE);
+            webView.setVisibility(View.VISIBLE);
             if (url.equals("about:blank")) {
                 webView.loadUrl(returnURL);
             }
             loadArrows();
-            //animate();
         }
 
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon){
             progressBar.setVisibility(View.VISIBLE);
-            //showProgress(true);
         }
     }
 

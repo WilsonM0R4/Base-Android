@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".HotelsActivity">
 
     <ScrollView
@@ -25,13 +26,14 @@
                 android:layout_centerHorizontal="true"
                 android:background="@color/WHITE_COLOR">
 
-                <TextView
+                <com.allegra.handyuvisa.utils.CustomizedTextView
                     android:id="@+id/tv_title_secc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="20dp"
                     android:text="@string/txt_title_book_hotels"
+                    app:font="@string/font_varela"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/GeneralAppHeaderTitle_text"
                     android:textStyle="bold"/>
@@ -54,11 +56,8 @@
             <ImageView
                 android:id="@+id/iv_header_hotels"
                 android:layout_width="match_parent"
-                android:layout_height="4dp"
+                android:layout_height="5dp"
                 android:layout_below="@+id/ll_header_hotels"
-                android:layout_marginBottom="-4dp"
-                android:layout_marginLeft="-4dp"
-                android:layout_marginRight="-4dp"
                 android:contentDescription="Divider"
                 android:paddingEnd="-2dp"
                 android:paddingStart="-2dp"
@@ -70,7 +69,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_below="@+id/iv_header_hotels"
-                android:layout_marginTop="3dp"/>
+                />
 
             <include
                 android:id="@+id/search_layout_hotels"
@@ -122,11 +121,12 @@
                     android:padding="10dp"
                     android:src="@drawable/hotels__add"/>
 
-                <TextView
+                <com.allegra.handyuvisa.utils.CustomizedTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="@string/room"
+                    app:font="@string/font_muli"
                     android:textColor="@color/SelectedRoomButtonAddRoom_text"
                     android:textStyle="bold"/>
 

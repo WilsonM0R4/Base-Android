@@ -13,7 +13,7 @@ import com.allegra.handyuvisa.utils.Constants;
 public class AppJavaScriptProxyFlights {
 
     private Activity activity = null;
-
+    private final String  TAG  = "AppJavaScriptProxyFligh";
 
     public AppJavaScriptProxyFlights(Activity activity) {
         this.activity = activity;
@@ -21,7 +21,7 @@ public class AppJavaScriptProxyFlights {
 
     @JavascriptInterface
     public void postMessage(String message) {
-        Log.d("OPK", message);
+        Log.d(TAG, message);
         String data = message.replaceAll("\\\\n", "");
         String data2 = data.replaceAll("\\\\", "");
         String data3 = data2.replace("\"{", "{");

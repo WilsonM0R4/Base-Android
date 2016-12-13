@@ -13,14 +13,14 @@ import com.allegra.handyuvisa.utils.Constants;
 public class AppJavaScriptProxyHotels {
 
     private Activity activity = null;
-
+    private final String  TAG  = "AppJavaScriptProxyHotel";
     public AppJavaScriptProxyHotels(Activity activity) {
         this.activity = activity;
     }
 
     @JavascriptInterface
     public void postMessage(String message) {
-        Log.e("Message",message);
+        Log.e(TAG,message);
         Log.e("Repeat message", message);
         /*try {
 

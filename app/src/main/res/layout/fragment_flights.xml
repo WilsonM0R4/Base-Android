@@ -4,8 +4,8 @@
     android:layout_height="match_parent"
     android:clickable="true"
     android:background="@color/white"
-    >
-    <!---->
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -26,12 +26,13 @@
                 android:background="@color/GeneralAppHeaderTitle_backgroud"
                 android:id="@+id/ll_header">
 
-                <TextView
+                <com.allegra.handyuvisa.utils.CustomizedTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="@string/title_flights"
+                    app:font="@string/font_varela"
                     android:id="@+id/tv_title_secc"
                     android:layout_centerHorizontal="true"
                     android:textColor="@color/GeneralAppHeaderTitle_text" />
@@ -53,7 +54,7 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="4dp"
+                android:layout_height="5dp"
                 android:id="@+id/iv_header"
                 android:layout_below="@+id/ll_header"
                 android:paddingEnd="-2dp"
@@ -66,7 +67,7 @@
                 android:layout_height="200dp"
                 android:layout_width="match_parent"
                 android:layout_below="@+id/iv_header"
-                android:layout_marginTop="-2dp" />
+                />  <!--android:layout_marginTop="-2dp"-->
 
            <include layout="@layout/activity_search"
                 android:layout_width="match_parent"
@@ -87,8 +88,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="260dp"
                 android:layout_marginTop="-12dp"
-
-
                 android:id="@+id/custom_passengers_cabin_search"
                 android:layout_below="@+id/custom_date_of_trip"/>
 
