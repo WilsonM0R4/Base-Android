@@ -34,6 +34,7 @@
                 android:id="@+id/iv_visa"
                 android:layout_weight="0.5"
                 android:src="@drawable/vco"
+                android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp" />
 
         </LinearLayout>
