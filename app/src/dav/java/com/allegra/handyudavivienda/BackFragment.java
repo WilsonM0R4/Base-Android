@@ -36,6 +36,8 @@ public class BackFragment extends Fragment  {
     //public int SCAN_QR_CODE = 123456;
     public MenuSelectListener menulistener;
     public static MenuActivity[] activities;
+    private final String PACKAGE_NAME = "com.allegra.vbendless";
+
 
     //***************INTERFACES*****************
     public interface MenuSelectListener {
@@ -74,6 +76,7 @@ public class BackFragment extends Fragment  {
                 new MenuActivity(R.string.title_qr_scan, R.drawable.menu__qr__code, QRScanActivity.class),
                 new MenuActivity(R.string.title_chat, R.drawable.menu__onetouch__chat, ChatActivity.class),
                 new MenuActivity(R.string.title_call, R.drawable.menu__onetouch__call, CallActivity.class),
+                new MenuActivity(R.string.title_endless, R.drawable.menu_endless_xxhdpi,  EndlessActivity.class)
         };
 
 
@@ -89,7 +92,16 @@ public class BackFragment extends Fragment  {
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
+
         super.onActivityCreated(savedInstanceState);
+
+        LinearLayout endless_option = (LinearLayout) getView().findViewById(R.id.endless_option);
+        endless_option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendToEndless();
+            }
+        });
 
         LinearLayout account_option = (LinearLayout) getView().findViewById(R.id.account_option);
         account_option.setOnClickListener(new View.OnClickListener() {
@@ -236,6 +248,19 @@ public class BackFragment extends Fragment  {
             greeting.setText(value);
         }
 
+    }
+
+    public void sendToEndless(){
+        //If user has Endless installed, launch Endless Main Activity
+        //If not, normal url
+        Intent i = getActivity().getPackageManager().getLaunchIntentForPackage(PACKAGE_NAME);
+        if (i != null) {
+            getActivity().startActivity(i);
+        } /*else {
+
+            Intent intent = new Intent(getActivity(), EndlessActivity.class);
+            getActivity().startActivity(intent);
+        }*/
     }
 
     //***************PROPER METHODS**************

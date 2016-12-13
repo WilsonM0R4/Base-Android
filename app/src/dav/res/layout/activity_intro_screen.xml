@@ -34,6 +34,7 @@
                 android:id="@+id/iv_visa"
                 android:layout_weight="0.5"
                 android:src="@drawable/vco"
+                android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp" />
 
         </LinearLayout>
@@ -145,7 +146,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:src="@drawable/handy"
+            android:src="@drawable/logo_visa_xxhdpi"
             android:id="@+id/iv_allegra"
             android:layout_gravity="left"
             android:layout_weight="0.5"

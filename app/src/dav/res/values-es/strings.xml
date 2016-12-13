@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Handy U Davivienda</string>
-    <string name="app_name_legal">Handy U Davivienda</string>
+    <string name="app_name">Handy B Davivienda</string>
+    <string name="app_name_legal">Handy B Davivienda</string>
     <string name="facebook_app_id">949325301863169</string>
     <string name="txtInfoCertifications"># CERTIFICADO</string>
     <string name="TODAY">HOY</string>
@@ -9,6 +9,7 @@
     <string name="intellilink">Intellilink</string>
     <string name="myvisaenterprise">Mi Visa Empresarial</string>
     <string name="checkmytrip">Check My Trip</string>
+    <string name="title_endless">Handy S</string>
     <string name="SAME_MONTH">ÚLTIMO MES</string>
     <string name="BEFORE">ANTERIORES</string>
     <string name="demo_iatai">TEST IATAI</string>
@@ -26,8 +27,8 @@
     <string name="login">INGRESAR</string>
     <string name="onepocket">Onepocket</string>
     <string name="mCard">mCard</string>
-    <string name="GPSAlertDialogTitle">Handy U Davivienda Visa Localizacion</string>
-    <string name="GPSAlertDialogMessage">Handy U Davivienda Visa desea usar tu localizacion</string>
+    <string name="GPSAlertDialogTitle">Handy B Davivienda Visa Localizacion</string>
+    <string name="GPSAlertDialogMessage">Handy B Davivienda Visa desea usar tu localizacion</string>
     <string name="cancel">Cancelar</string>
     <string name="btn_cancel_one_touch">Cancelar</string>
     <string name="mCard_Premium">Disfruta tus viajes sin preocupaciones durante todo el año. Tendrás 100.000 USD en gastos médicos que te dan tranquilidad y confianza.</string>
@@ -42,7 +43,7 @@
     <string name="medical_expenses">Gastos médicos por enfermedad eventual o accidente</string>
     <string name="emergency_transfer">Traslado de emergencia</string>
     <string name="mcard_doctorhelp">Modelo exclusivo de IATAI de servicio médico online con atención diferencial, conecta a médicos con viajeros internacionales que buscan asistencia médica inmediata, las 24 horas del día, los 7 días de la semana a nivel mundial. Sin necesidad de trámites administrativos previos.</string>
-    <string name="handi_u">Handy U</string>
+    <string name="handi_u">Handy Business</string>
     <string name="empresa_numero_hint">Company ID (10 Digitos)</string>
     <string name="empresa_register_hint">Nombre de la Empresa</string>
     <string name="mcard_trip">Múltiples viajes hasta 120 días máximo por viaje</string>
@@ -464,7 +465,7 @@
 
     <!--HANDY U STRINGS-->
 
-    <string name="app_name_handy">Handy U</string>
+    <string name="app_name_handy">Handy B</string>
 
     <!--server base url for api call and images  -->
     <!-- <string name="base_url">http://ec2-52-26-68-235.us-west-2.compute.amazonaws.com:8080/HomZservice</string>
