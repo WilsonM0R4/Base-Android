@@ -50,7 +50,7 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_search_in_progress);
+        setContentView(R.layout.fragment_search_hotel_in_progress);
         setActionBar(true);
         //Get intent params
         id_destino_ser = getIntent().getStringExtra("&idCity");
@@ -59,29 +59,32 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
         Log.d("NOMBRE   DESTINO SER",String.valueOf(nombre_destino_ser));
         //Find views by Id
         webView = (WebView)findViewById(R.id.webView);//Concierge
-        progressBar= (ImageView)findViewById(R.id.pb_search_loader);//pb_concierge
+       /* progressBar= (ImageView)findViewById(R.id.pb_search_loader);//pb_concierge
         txtLoading = (TextView)findViewById(R.id.txtLoading);
-        imgLogoAllegraLoader =(ImageView)findViewById(R.id.imgProgress);
-        separator =(ImageView)findViewById(R.id.iv_header);
+        imgLogoAllegraLoader =(ImageView)findViewById(R.id.imgProgress);*/
+        //separator =(ImageView)findViewById(R.id.iv_header);
         title = (TextView)findViewById(R.id.tv_title_secc);//_con
         arrowBack = (ImageButton)findViewById(R.id.arrow_back);//_concierge
         arrowF = (ImageButton)findViewById(R.id.arrow_forward);
         //Webview settings
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
+        webSettings.setLoadsImagesAutomatically(true);
+        webSettings.setDomStorageEnabled(true);
         webView.setWebViewClient(new MyWebViewClient());
-        webView.setVisibility(View.GONE);
-        //Hide separator for better UI
-        separator.setVisibility(View.GONE);
 
-        progressBar.setVisibility(View.VISIBLE);
+        //webView.setVisibility(View.GONE);
+        //Hide separator for better UI
+        //separator.setVisibility(View.GONE);
+
+        /*progressBar.setVisibility(View.VISIBLE);
         //Set animation
         progressBar.post(new Runnable() {
             @Override
             public void run() {
                 ((AnimationDrawable) progressBar.getBackground()).start();
             }
-        });
+        });*/
         title.setText(String.valueOf(getString(R.string.title_concierge)));
         //Validate mCard in order to send it
         SharedPreferences prefs =
@@ -138,7 +141,7 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
             if (data != null) {
                 returnURL = data.getStringExtra("RESULT");
                 webView.loadUrl("about:blank");
-                progressBar.setVisibility(View.VISIBLE);
+                //progressBar.setVisibility(View.VISIBLE);
             }
         }
 
@@ -237,10 +240,10 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
 
         @Override
         public void onPageFinished(WebView view, String url) {
-            progressBar.setVisibility(View.GONE);
+           /* progressBar.setVisibility(View.GONE);
             imgLogoAllegraLoader.setVisibility(View.GONE);
             txtLoading.setVisibility(View.GONE);
-            webView.setVisibility(View.VISIBLE);
+            webView.setVisibility(View.VISIBLE);*/
             if (url.equals("about:blank")) {
                 webView.loadUrl(returnURL);
             }
@@ -249,7 +252,7 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
 
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon){
-            progressBar.setVisibility(View.VISIBLE);
+            //progressBar.setVisibility(View.VISIBLE);
         }
     }
 
