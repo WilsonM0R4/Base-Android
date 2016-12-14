@@ -14,17 +14,22 @@ public class AsyncTaskMPosResultEvent {
         this.result = result;
         this.apiName = apiName;
         Log.d(TAG,"Result");
-        for(Object objname:result.keySet()) {
-            System.out.println(objname);
-            System.out.println(result.get(objname));
+        if (result != null) {
+
+            for (Object objname : result.keySet()) {
+                System.out.println(objname);
+                System.out.println(result.get(objname));
+            }
         }
     }
 
     public HashMap<String, String> getResult() {
 
-        for(Object objname:result.keySet()) {
-            System.out.println(objname);
-            System.out.println(result.get(objname));
+        if (result != null) {
+            for (Object objname : result.keySet()) {
+                System.out.println(objname);
+                System.out.println(result.get(objname));
+            }
         }
         return result;
     }

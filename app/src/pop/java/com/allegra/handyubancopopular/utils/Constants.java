@@ -45,6 +45,10 @@ public class Constants {
     public final static String TAG = "AllemConstants";
     public final static String USERNAME = "userkey";
     public final static String PASSWORD = "passkey";
+    public final static String URL_ALLEM_AIR_PROD_HOST = "secure.allegraplatform.com";
+    public final static String URL_HOSTNAME_SECUREACCEPTANCE = "secureacceptance.allegraplatform.com";
+    public final static String URL_HOSTNAME_ALLEGRA_PLATFORM = "www.allegraplatform.com";
+    public final static String URL_HOSTNAME_APPS_FLYER = "t.appsflyer.com";
     //***************** EASY CHANGE BETWEEN TESTING AND PRODUCTION SYSTEM URLS *********************
 
     //** Parameter indicates mode: TESTING = false implies PRODUCTION mode **

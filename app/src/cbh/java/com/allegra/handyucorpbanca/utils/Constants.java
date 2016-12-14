@@ -22,6 +22,7 @@ import java.util.HashMap;
  */
 public class Constants {
 
+    public final static String ID_PORTAL = "1";
     public final static String SPLUNK_API_KEY = "e74061f2";
     public final static int REQUEST_CODE_TRANSACTION_HISTORY = 8891;
     public final static int REQUEST_CODE_PROOF_OF_COVERAGE = 8890;
@@ -68,6 +69,11 @@ public class Constants {
     public static final String NAMESPACE_AMADEUS = "http://ws.iatai.com/";
     public static final String METHOD_TRANSACCION_AEREO = "transaccionAereo";
     public static final String METHOD_TRANSACCION_AEREO_SUSC="transaccionarAereoSuscripcion";
+
+    public final static String URL_ALLEM_AIR_PROD_HOST = "secure.allegraplatform.com";
+    public final static String URL_HOSTNAME_SECUREACCEPTANCE = "secureacceptance.allegraplatform.com";
+    public final static String URL_HOSTNAME_ALLEGRA_PLATFORM = "www.allegraplatform.com";
+    public final static String URL_HOSTNAME_APPS_FLYER = "t.appsflyer.com";
 
     public static String getAirWSDL(){
 

@@ -68,6 +68,10 @@ public class Constants {
     public static final String NAMESPACE_AMADEUS = "http://ws.iatai.com/";
     public static final String METHOD_TRANSACCION_AEREO = "transaccionAereo";
     public static final String METHOD_TRANSACCION_AEREO_SUSC="transaccionarAereoSuscripcion";
+    public final static String URL_ALLEM_AIR_PROD_HOST = "secure.allegraplatform.com";
+    public final static String URL_HOSTNAME_SECUREACCEPTANCE = "secureacceptance.allegraplatform.com";
+    public final static String URL_HOSTNAME_ALLEGRA_PLATFORM = "www.allegraplatform.com";
+    public final static String URL_HOSTNAME_APPS_FLYER = "t.appsflyer.com";
 
     public static String getAirWSDL(){
 
