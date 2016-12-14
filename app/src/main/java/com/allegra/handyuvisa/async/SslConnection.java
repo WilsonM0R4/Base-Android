@@ -46,7 +46,8 @@ public class SslConnection {
                 //In order to fix Google Play vulnerability
                 if (hostname.equals(Constants.URL_ALLEM_AIR_PROD_HOST)||
                         hostname.equals(Constants.URL_HOSTNAME_SECUREACCEPTANCE)||
-                        hostname.equals(Constants.URL_HOSTNAME_ALLEGRA_PLATFORM))return true;
+                        hostname.equals(Constants.URL_HOSTNAME_ALLEGRA_PLATFORM)||
+                        hostname.equals(Constants.URL_HOSTNAME_APPS_FLYER))return true;
                 else return false;
             }
         });

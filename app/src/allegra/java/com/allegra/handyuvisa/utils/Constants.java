@@ -115,6 +115,7 @@ public class Constants {
     public final static String URL_ALLEM_AIR_PROD_HOST = "secure.allegraplatform.com";
     public final static String URL_HOSTNAME_SECUREACCEPTANCE = "secureacceptance.allegraplatform.com";
     public final static String URL_HOSTNAME_ALLEGRA_PLATFORM = "www.allegraplatform.com";
+    public final static String URL_HOSTNAME_APPS_FLYER = "t.appsflyer.com";
 
     public final static String STORE_NAME="Allem Market";
     public final static String STORE_KEY_NUM_ORDEN = "numeroOrden";
