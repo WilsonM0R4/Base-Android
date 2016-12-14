@@ -69,7 +69,6 @@ public class BackFragment extends Fragment  {
                 new MenuActivity(R.string.onepocket,R.drawable.menu__onepocket,McardActivity.class),
                 new MenuActivity(R.string.title_hotels, R.drawable.menu__hotels, HotelsActivity.class),
                 new MenuActivity(R.string.title_concierge, R.drawable.concierge5,ConciergeActivity.class),
-                new MenuActivity(R.string.checkmytrip, R.drawable.menu_checkmytrip, CheckMyTrip.class),
                 new MenuActivity(R.string.title_services, R.drawable.menu__services, ServiceActivity.class),
                 new MenuActivity(R.string.title_restaurants, R.drawable.restaurants,RestaurantsActivity.class),
                 new MenuActivity(R.string.title_store,R.drawable.store, StoreActivity.class),
@@ -166,13 +165,13 @@ public class BackFragment extends Fragment  {
             }
         });
 
-        LinearLayout checkmytrip_option = (LinearLayout) getView().findViewById(R.id.checkmytrip_option);
+/*        LinearLayout checkmytrip_option = (LinearLayout) getView().findViewById(R.id.checkmytrip_option);
         checkmytrip_option.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 sendToCheck();
             }
-        });
+        });*/
 
         LinearLayout call_option = (LinearLayout) getView().findViewById(R.id.call_option);
         call_option.setOnClickListener(new View.OnClickListener() {
@@ -343,12 +342,12 @@ public class BackFragment extends Fragment  {
         getActivity().startActivity(intent);
         getActivity().finish();
     }
-
+/*
     public void sendToCheck(){
         Intent intent = new Intent(getActivity(), CheckMyTrip.class);
         getActivity().startActivity(intent);
         getActivity().finish();
-    }
+    }*/
 
     public void sendToHotels(){
       /*  if(Util.isAuthenticated(getActivity())) {

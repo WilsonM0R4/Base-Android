@@ -57,7 +57,6 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
                 getString(R.string.benefits),
                 getString(R.string.coverage),
                 getString(R.string.myvisaenterprise),
-                getString(R.string.intellilink),
                 getString(R.string.transactions_history),
                 getString(R.string.legal_title),
         };
@@ -66,7 +65,6 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
                 R.drawable.my_benefits,
                 R.drawable.coverage,
                 R.drawable.visa_business,
-                R.drawable.intellilink,
                 R.drawable.menu__history,
                 R.drawable.legal5};
         final Class[] activities = {
@@ -74,7 +72,6 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
                 com.allegra.handyuvisa.MyBenefits.class,
                 ProofOfCoverageDinamico.class,
                 Myvisaenterprise.class,
-                Intellilink.class,
                 OneTransactionsActivity.class,
                 LegalActivity.class};
         lv.setAdapter(new ArrayAdapter<String>(MyAccountMenuActivity.this, R.layout.profile_layout, names) {

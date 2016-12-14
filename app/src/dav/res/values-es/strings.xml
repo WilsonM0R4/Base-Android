@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Handy B Davivienda</string>
-    <string name="app_name_legal">Handy B Davivienda</string>
+    <string name="app_name">Visa B Davivienda</string>
+    <string name="app_name_legal">Visa B Davivienda</string>
     <string name="facebook_app_id">949325301863169</string>
     <string name="txtInfoCertifications"># CERTIFICADO</string>
     <string name="TODAY">HOY</string>
@@ -27,8 +27,8 @@
     <string name="login">INGRESAR</string>
     <string name="onepocket">Onepocket</string>
     <string name="mCard">mCard</string>
-    <string name="GPSAlertDialogTitle">Handy B Davivienda Visa Localizacion</string>
-    <string name="GPSAlertDialogMessage">Handy B Davivienda Visa desea usar tu localizacion</string>
+    <string name="GPSAlertDialogTitle">Visa B Davivienda Localizacion</string>
+    <string name="GPSAlertDialogMessage">Visa B Davivienda desea usar tu localizacion</string>
     <string name="cancel">Cancelar</string>
     <string name="btn_cancel_one_touch">Cancelar</string>
     <string name="mCard_Premium">Disfruta tus viajes sin preocupaciones durante todo el año. Tendrás 100.000 USD en gastos médicos que te dan tranquilidad y confianza.</string>
@@ -465,7 +465,7 @@
 
     <!--HANDY U STRINGS-->
 
-    <string name="app_name_handy">Handy B</string>
+    <string name="app_name_handy">Visa B Davivienda</string>
 
     <!--server base url for api call and images  -->
     <!-- <string name="base_url">http://ec2-52-26-68-235.us-west-2.compute.amazonaws.com:8080/HomZservice</string>
