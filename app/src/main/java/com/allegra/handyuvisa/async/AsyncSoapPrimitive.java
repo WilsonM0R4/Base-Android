@@ -86,6 +86,7 @@ public class AsyncSoapPrimitive extends AsyncTask<String,Void,SoapPrimitive> {
 
             HttpTransportSE transporte = new HttpTransportSE(url);
             transporte.debug=true;
+            SslConnection.allowSSLCertificate();
             transporte.call(soapaction, envelope);
             Log.d(TAG, transporte.requestDump);
             result = (SoapPrimitive) envelope.getResponse();

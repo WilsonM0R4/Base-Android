@@ -112,7 +112,9 @@ public class Constants {
     public final static String METHOD_OBTENER_VIDEOS = "ObtenerVideos";
     public final static String SOAP_AUTH_USER="tech@iatai.com";
     public final static String SOAP_AUTH_PASS="iatai2014";
-
+    public final static String URL_ALLEM_AIR_PROD_HOST = "secure.allegraplatform.com";
+    public final static String URL_HOSTNAME_SECUREACCEPTANCE = "secureacceptance.allegraplatform.com";
+    public final static String URL_HOSTNAME_ALLEGRA_PLATFORM = "www.allegraplatform.com";
 
     public final static String STORE_NAME="Allem Market";
     public final static String STORE_KEY_NUM_ORDEN = "numeroOrden";
