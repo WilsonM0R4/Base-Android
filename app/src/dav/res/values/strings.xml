@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Handy B Davivienda</string>
-    <string name="app_name_legal">Handy B Davivienda</string>
+    <string name="app_name">Visa B Davivienda</string>
+    <string name="app_name_legal">Visa B Davivienda</string>
     <string name="title_activity_branding_screen">BrandingScreenActivity</string>
     <string name="txtInfoCertifications"># CERTIFICATE</string>
     <string name="payment_hotel_your">YOUR HOTEL</string>
@@ -339,8 +339,8 @@
     <string name="text_single_adult">ADULT</string>
     <string name="text_single_child">CHILD</string>
     <string name="text_single_infant">INFANT</string>
-    <string name="GPSAlertDialogTitle">Handy B Davivienda Location</string>
-    <string name="GPSAlertDialogMessage">Handy B Davivienda wants to use your location</string>
+    <string name="GPSAlertDialogTitle">Visa B Davivienda Location</string>
+    <string name="GPSAlertDialogMessage">Visa B Davivienda wants to use your location</string>
     <string name="cancel">Cancel</string>
     <string name="aditional_protection">ADITIONAL PROTECTION</string>
     <string name="aditional_protection_string">Feel protected on your travels with unique and exclusive experiences designed for you.</string>
@@ -571,7 +571,7 @@
 
     <!--HANDY U STRINGS-->
 
-    <string name="app_name_handy">Handy B</string>
+    <string name="app_name_handy">Visa B Davivienda</string>
 
     <!--server base url for api call and images  -->
     <!-- <string name="base_url">http://ec2-52-26-68-235.us-west-2.compute.amazonaws.com:8080/HomZservice</string>
@@ -624,7 +624,7 @@
     <string name="decline_register">DECLINE</string>
     <string name="accept_register">AGREE</string>
     <string name="congratulations">¡Congratulations!</string>
-    <string name="you_can_enjoy_benefits">You can now enjoy all\n benefits it brings you\n Handy B Davivienda</string>
+    <string name="you_can_enjoy_benefits">You can now enjoy all\n benefits it brings you\n Visa B Davivienda</string>
     <string name="txt_continue">CONTINUE</string>
     <string name="test_terms"><u>terms and conditions</u></string>
     <string name="by_clicking">By clicking agree you accept</string>

@@ -453,7 +453,7 @@
                     </RelativeLayout>
                 </LinearLayout>
 
-                <View
+<!--                <View
                     android:layout_width="match_parent"
                     android:layout_height="1dip"
                     android:layout_weight="1"
@@ -496,7 +496,7 @@
                             android:layout_centerVertical="true"
                             android:src="@drawable/menu__gotob" />
                     </RelativeLayout>
-                </LinearLayout>
+                </LinearLayout>-->
 
                 <View
                     android:layout_width="match_parent"
