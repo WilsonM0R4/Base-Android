@@ -78,6 +78,7 @@ public class AsyncSoapObjectTest extends AsyncTask<String,Void,Vector<SoapObject
             envelope.headerOut = buildAuthHeader(envelope);
 
             transporte.debug=true;
+            SslConnection.allowSSLCertificate();
             transporte.call(soapaction, envelope);
             Log.d(TAG, transporte.requestDump);
             Object obj = envelope.getResponse();

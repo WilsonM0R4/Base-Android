@@ -60,33 +60,33 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_search_in_progress);
-        setActionbar(true);
+        setContentView(R.layout.fragment_search_hotel_in_progress);
+        //setActionbar(true);
         //Find views by Id
         webView = (WebView)findViewById(R.id.webView);
-        progressBar = (ImageView) findViewById(R.id.pb_search_loader);
+      /*  progressBar = (ImageView) findViewById(R.id.pb_search_loader);
         imgLogoAllegra = (ImageView)findViewById(R.id.imgProgress);
         txtLoading = (TextView)findViewById(R.id.txtLoading);
         TextView title = (TextView)findViewById(R.id.tv_title_secc);
         arrowBack= (ImageButton)findViewById(R.id.arrow_back);
-        arrowF= (ImageButton)findViewById(R.id.arrow_forward);
+        arrowF= (ImageButton)findViewById(R.id.arrow_forward);*/
         //Set webView settings
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        webSettings.setDomStorageEnabled(true);
-        webSettings.setLoadsImagesAutomatically(true);
+        /*webSettings.setDomStorageEnabled(true);
+        webSettings.setLoadsImagesAutomatically(true);*/
         webView.setWebViewClient(new MyWebViewClient());
 
-        title.setText(R.string.title_hotel_results);
-        webView.setVisibility(View.GONE);
+        /*title.setText(R.string.title_hotel_results);
+        webView.setVisibility(View.GONE);*/
         // Set Animation
-        progressBar.setVisibility(View.VISIBLE);
+        /*progressBar.setVisibility(View.VISIBLE);
         progressBar.post(new Runnable() {
             @Override
             public void run() {
                 ((AnimationDrawable) progressBar.getBackground()).start();
             }
-        });
+        });*/
         //Get intent params from HotelsActivity
         paramChildren = getIntent().getIntExtra("&childHotel1", 0);
         paramAdults = getIntent().getIntExtra("&adultHotel1", 1);
@@ -188,13 +188,13 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
             if (data != null) {
                 returnURL = data.getStringExtra("RESULT");
                 webView.loadUrl("about:blank");
-                progressBar.setVisibility(View.VISIBLE);
+                //progressBar.setVisibility(View.VISIBLE);
             }
         }
     }
 
     //******************PROPER METHODS********************
-    private void setActionbar(boolean hide) {
+    /*private void setActionbar(boolean hide) {
 
         actionBar = getActionBar();
         if(actionBar!=null){
@@ -205,7 +205,7 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
                 actionBar.setHomeButtonEnabled(true);
             }
         }
-    }
+    }*/
 
 
      // Now is requesting by GET method
@@ -289,7 +289,7 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
         startActivityForResult(intent, Constants.REQUEST_ONEPOCKET_RETURN);
     }
 
-    private void loadArrows(){
+    /*private void loadArrows(){
 
         if(webView.canGoBack()){
             arrowBack.setImageDrawable(getResources().getDrawable(R.drawable.navigation__backurl));
@@ -314,7 +314,7 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
         if(webView.canGoForward()) {
             webView.goForward();
         }
-    }
+    }*/
 
     public void onBackButton(View view){
         finish();
@@ -349,18 +349,18 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
 
         @Override
         public void onPageFinished(WebView view, String url) {
-            progressBar.setVisibility(View.GONE);
+            /*progressBar.setVisibility(View.GONE);
             imgLogoAllegra.setVisibility(View.GONE);
             txtLoading.setVisibility(View.GONE);
-            webView.setVisibility(View.VISIBLE);
+            webView.setVisibility(View.VISIBLE);*/
             if (url.equals("about:blank")) {
                 webView.loadUrl(returnURL);
             }
-            loadArrows();
+            //loadArrows();
         }
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon){
-            progressBar.setVisibility(View.VISIBLE);
+            //progressBar.setVisibility(View.VISIBLE);
         }
     }
 }

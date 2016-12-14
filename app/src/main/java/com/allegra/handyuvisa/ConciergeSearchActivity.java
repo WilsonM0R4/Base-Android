@@ -66,8 +66,15 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
         title = (TextView)findViewById(R.id.tv_title_secc);//_con
         arrowBack = (ImageButton)findViewById(R.id.arrow_back);//_concierge
         arrowF = (ImageButton)findViewById(R.id.arrow_forward);
-
+        //Webview settings
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webView.setWebViewClient(new MyWebViewClient());
         webView.setVisibility(View.GONE);
+        //Hide separator for better UI
+        separator.setVisibility(View.GONE);
+
+        progressBar.setVisibility(View.VISIBLE);
         //Set animation
         progressBar.post(new Runnable() {
             @Override
@@ -75,15 +82,6 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
                 ((AnimationDrawable) progressBar.getBackground()).start();
             }
         });
-        //Hide separator for better UI
-        separator.setVisibility(View.GONE);
-        //Webview settings
-        WebSettings webSettings = webView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
-        webSettings.setLoadsImagesAutomatically(true);
-        webSettings.setDomStorageEnabled(true);
-        webView.setWebViewClient(new MyWebViewClient());
-
         title.setText(String.valueOf(getString(R.string.title_concierge)));
         //Validate mCard in order to send it
         SharedPreferences prefs =

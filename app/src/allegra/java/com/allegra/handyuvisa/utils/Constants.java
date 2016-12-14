@@ -114,6 +114,11 @@ public class Constants {
     public final static String METHOD_OBTENER_COMPRAS = "ObtenerCompras";
     public final static String METHOD_HACER_TRANSACCION_ALLEM_MARKET = "HacerTransaccionAllemMarket";
 
+    public final static String URL_ALLEM_AIR_PROD_HOST = "secure.allegraplatform.com";
+    public final static String URL_HOSTNAME_SECUREACCEPTANCE = "secureacceptance.allegraplatform.com";
+    public final static String URL_HOSTNAME_ALLEGRA_PLATFORM = "www.allegraplatform.com";
+    public final static String URL_HOSTNAME_APPS_FLYER = "t.appsflyer.com";
+
 
     public final static String METHOD_INICIAR_SESION = "IniciarSesion";
     public final static String METHOD_CERRAR_SESION = "CerrarSesion";
