@@ -21,7 +21,9 @@ public class GetBaseResource extends APIInfo {
     public GetBaseResource() {
 
         apiName = APINAME;
-        endPoint = LivePersonConstants.APP_SERVER_URL + "/api/account/" + LivePersonConstants.SITE_ID + "?v=1";
+        endPoint = LivePersonConstants.APP_SERVER_URL + "/api/account/" + LivePersonConstants.SITE_ID
+                +"/chat" + "SessionId from SERVER"+"/info?"
+                + "?v=1";
         method = "GET";
         headers.put("Authorization", "LivePerson appKey=" + LivePersonConstants.APP_KEY);
         results = new HashMap<>();
