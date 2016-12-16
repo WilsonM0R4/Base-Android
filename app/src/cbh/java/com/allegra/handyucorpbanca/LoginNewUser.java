@@ -192,8 +192,8 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             Intent returnIntent = new Intent();
             if (event.getResult() != null) {
                 AllemUser user = SoapObjectParsers.toAllemUser(event.getResult());
-                ((VisaCheckoutApp) this.getApplication()).setIdSession(user.idSesion);
-                ((VisaCheckoutApp) this.getApplication()).setIdCuenta(user.idCuenta);
+                ((com.allegra.handyuvisa.VisaCheckoutApp) this.getApplication()).setIdSession(user.idSesion);
+                ((com.allegra.handyuvisa.VisaCheckoutApp) this.getApplication()).setIdCuenta(user.idCuenta);
                 String name = user.email.substring(0, user.email.indexOf('@'));
                 String domain = user.email.substring(user.email.indexOf('@') + 1, user.email.length()).replace(".", "");
                 String channel = name + domain + user.idCuenta;
@@ -215,12 +215,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 //******Add all new views*****
                 SuccessfulRegister successfulRegister = new SuccessfulRegister(getApplicationContext());
                 formLayout.addView(successfulRegister);
-                Log.d("Serfar Prueba", channel);
-
-                //Temporary
-                /*Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(intent);
-                finish();*/
+                Log.d(TAG, channel);
 
             } else {
                 Toast.makeText(ctx, event.getFaultString(), Toast.LENGTH_LONG).show();
@@ -1000,12 +995,6 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             addView(view);
             LinearLayout.LayoutParams params6 = (LinearLayout.LayoutParams) view.getLayoutParams();
             params6.height = 14;
-            view.setLayoutParams(params6);
-            View view = new View(context);
-            view.setBackgroundColor(getResources().getColor(R.color.loading_salmon));
-            addView(view);
-            LinearLayout.LayoutParams params6 = (LinearLayout.LayoutParams) view.getLayoutParams();
-            params6.height = 6;
             view.setLayoutParams(params6);
 
             //****************CONTENT SUB-LAYOUT****************************

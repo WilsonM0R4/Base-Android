@@ -211,6 +211,11 @@ public class Constants {
     public final static String KEY_TRANS_URL_REDIR = "urlRedireccion";
     public final static String KEY_TRANS_LIST = "listRespuestaTransaccion";
 
+    public final static String URL_ALLEM_AIR_PROD_HOST = "secure.allegraplatform.com";
+    public final static String URL_HOSTNAME_SECUREACCEPTANCE = "secureacceptance.allegraplatform.com";
+    public final static String URL_HOSTNAME_ALLEGRA_PLATFORM = "www.allegraplatform.com";
+    public final static String URL_HOSTNAME_APPS_FLYER = "t.appsflyer.com";
+
     //Cobro
     public final static String KEY_COBRO_NIT = "nit";
 

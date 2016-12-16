@@ -245,6 +245,11 @@ public class Constants {
     public final static String BEACON_STOP = "beaconstop";
     public final static String ROUND_ARRIVAL = "roundarrival";
 
+    public final static String URL_ALLEM_AIR_PROD_HOST = "secure.allegraplatform.com";
+    public final static String URL_HOSTNAME_SECUREACCEPTANCE = "secureacceptance.allegraplatform.com";
+    public final static String URL_HOSTNAME_ALLEGRA_PLATFORM = "www.allegraplatform.com";
+    public final static String URL_HOSTNAME_APPS_FLYER = "t.appsflyer.com";
+
 
     public final static String ACTIVITY_KEY="activity";
     public final static int ACTIVITY_HOME = 10000;

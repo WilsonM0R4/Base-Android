@@ -16,6 +16,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 
+import static android.R.attr.x;
+
 /**
  * Created by victor on 26/02/15.
  * com.allem.allemevent.utils
@@ -198,6 +200,11 @@ public class Constants {
     public final static String KEY_CCARD_LOGO_FRANQUICIA="logoFranquicia";
     public final static String KEY_CCARD_IMAGEN_TARJETA="imagenTarjeta";
     public final static String KEY_CCARD_ID_SUSCRIP="suscripcionId";
+
+    public final static String URL_ALLEM_AIR_PROD_HOST = "secure.allegraplatform.com";
+    public final static String URL_HOSTNAME_SECUREACCEPTANCE = "secureacceptance.allegraplatform.com";
+    public final static String URL_HOSTNAME_ALLEGRA_PLATFORM = "www.allegraplatform.com";
+    public final static String URL_HOSTNAME_APPS_FLYER = "t.appsflyer.com";
 
     //Transaccion
     public final static String KEY_TRANS_ID = "idTransaccion";
