@@ -47,7 +47,9 @@ public class SslConnection {
                 if (hostname.equals(Constants.URL_ALLEM_AIR_PROD_HOST)||
                         hostname.equals(Constants.URL_HOSTNAME_SECUREACCEPTANCE)||
                         hostname.equals(Constants.URL_HOSTNAME_ALLEGRA_PLATFORM)||
-                        hostname.equals(Constants.URL_HOSTNAME_APPS_FLYER))return true;
+                        hostname.equals(Constants.URL_HOSTNAME_APPS_FLYER)||
+                        hostname.equals(Constants.URL_HOSTNAME_LIVEPERSON)||
+                        hostname.equals(Constants.URL_HOSTNAME_TWILIO))return true;
                 else return false;
             }
         });

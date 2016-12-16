@@ -74,6 +74,7 @@ public class GetBaseResource extends APIInfo {
             reader.endObject();
 
         } catch (Exception ex) {
+            Log.d(TAG, ex.getLocalizedMessage());
             Log.d(TAG, "Something bad");
         } finally {
             try {
