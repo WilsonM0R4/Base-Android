@@ -35,7 +35,6 @@ public class BasicPhone implements DeviceListener,
         ConnectionListener
 {
     private static final String TAG = "BasicPhone";
-
     private final static String T_STRING = "http://onetouchcall3.herokuapp.com/token?client=OneTouchCall";
 
     public interface LoginListener

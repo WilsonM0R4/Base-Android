@@ -47,7 +47,8 @@ public class GetBaseResource extends APIInfo {
                             reader.beginArray();
                             while (reader.hasNext()) {
                                 reader.beginObject();
-                                //name = reader.nextName();
+                                /*name = reader.nextName();
+                                Log.d(TAG, "NAme "+name);*/
                                 String data1 = reader.nextString();
                                 name = reader.nextName();
                                 String data2 = reader.nextString();
@@ -74,6 +75,7 @@ public class GetBaseResource extends APIInfo {
             reader.endObject();
 
         } catch (Exception ex) {
+            System.out.println(ex.getStackTrace().toString());
             Log.d(TAG, ex.getLocalizedMessage());
             Log.d(TAG, "Something bad");
         } finally {
