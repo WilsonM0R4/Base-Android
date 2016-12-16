@@ -420,7 +420,7 @@ public class Constants {
         }
     }
 
-    public static String getMcardHtml(){
+    public static String getMcardhtml(){
         if (TESTING){
             return URL_MCARD_HTML_TEST;
         }else {
