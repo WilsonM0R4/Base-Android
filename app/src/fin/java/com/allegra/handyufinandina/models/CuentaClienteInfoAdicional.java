@@ -12,35 +12,16 @@ import java.util.Hashtable;
 public class CuentaClienteInfoAdicional implements KvmSerializable {
 
     public final static String PROPERTY = "cuentaClienteInformacionAdicional";
-    private final static String EMPRESA = "empresa", CARGO = "cargo", CELULAR = "celular",
+    private final static String EMPRESA = "empresa", NUM_EMPRESA = "empresa_nit", CARGO = "cargo", CELULAR = "celular",
             CIUDAD = "ciudad", CLASE = "clase", CODIGO_PAIS = "pais", CELULAR_CODIGO="celular_codigo";
     private String empresa;
+    private String numempresa;
     private String cargo;
+    private String pais;
+    private String celular_codigo;
     private String celular;
     private String ciudad;
     private String clase;
-    private String pais;
-    private String celular_codigo;
-    /*private String tipoDocumento;
-    private String numeroDocumento;*/
-
-
-  /*  public String getTipoDocumento() {
-        return tipoDocumento;
-    }
-
-    public void setTipoDocumento(String tipoDocumento) {
-        this.tipoDocumento = tipoDocumento;
-    }
-
-    public String getNumeroDocumento() {
-        return numeroDocumento;
-    }
-
-    public void setNumeroDocumento(String numeroDocumento) {
-        this.numeroDocumento = numeroDocumento;
-    }*/
-
 
     @Override
     public Object getProperty(int i) {
@@ -48,28 +29,26 @@ public class CuentaClienteInfoAdicional implements KvmSerializable {
             case 0:
                 return empresa;
             case 1:
-                return cargo;
+                return numempresa;
             case 2:
-                return celular;
+                return cargo;
             case 3:
-                return ciudad;
-            case 4:
-                return clase;
-            case 5:
                 return pais;
-            case 6:
+            case 4:
                 return celular_codigo;
-          /*  case 7:
-                return tipoDocumento;
-            case 8:
-                return numeroDocumento;*/
+            case 5:
+                return celular;
+            case 6:
+                return ciudad;
+            case 7:
+                return clase;
         }
         return null;
     }
 
     @Override
     public int getPropertyCount() {
-        return 7;
+        return 8;
     }
 
     @Override
@@ -79,29 +58,25 @@ public class CuentaClienteInfoAdicional implements KvmSerializable {
                 empresa = (String) o;
                 break;
             case 1:
-                cargo = (String) o;
+                numempresa = (String) o;
                 break;
             case 2:
-                celular = (String) o;
+                cargo = (String) o;
                 break;
             case 3:
-                ciudad = (String) o;
-                break;
-            case 4:
-                clase = (String) o;
-                break;
-            case 5:
                 pais = (String) o;
                 break;
-            case 6:
+            case 4:
                 celular_codigo = (String) o;
                 break;
-            /*case 7:
-                tipoDocumento = (String) o;
+            case 5:
+                celular = (String) o;
                 break;
-            case 8:
-                numeroDocumento = (String) o;
-                break;*/
+            case 6:
+                ciudad = (String) o;
+            case 7:
+                clase = (String) o;
+                break;
         }
     }
 
@@ -115,38 +90,45 @@ public class CuentaClienteInfoAdicional implements KvmSerializable {
                 break;
             case 1:
                 propertyInfo.type = PropertyInfo.STRING_CLASS;
-                propertyInfo.name = CARGO;
+                propertyInfo.name = NUM_EMPRESA;
                 break;
             case 2:
                 propertyInfo.type = PropertyInfo.STRING_CLASS;
-                propertyInfo.name = CELULAR;
+                propertyInfo.name = CARGO;
                 break;
             case 3:
                 propertyInfo.type = PropertyInfo.STRING_CLASS;
-                propertyInfo.name = CIUDAD;
+                propertyInfo.name = CODIGO_PAIS;
                 break;
             case 4:
                 propertyInfo.type = PropertyInfo.STRING_CLASS;
-                propertyInfo.name = CLASE;
+                propertyInfo.name = CELULAR_CODIGO;
                 break;
             case 5:
-                propertyInfo.type= PropertyInfo.STRING_CLASS;
-                propertyInfo.name=CODIGO_PAIS;
+                propertyInfo.type = PropertyInfo.STRING_CLASS;
+                propertyInfo.name = CELULAR;
                 break;
             case 6:
                 propertyInfo.type = PropertyInfo.STRING_CLASS;
-                propertyInfo.name=CELULAR_CODIGO;
+                propertyInfo.name = CIUDAD;
                 break;
-           /* case 7:
-                propertyInfo.type= PropertyInfo.STRING_CLASS;
-                propertyInfo.name=TIPO_DOCUMENTO;
-                break;
-            case 8:
+            case 7:
                 propertyInfo.type = PropertyInfo.STRING_CLASS;
-                propertyInfo.name=NUMERO_DOCUMENTO;
-                break;*/
+                propertyInfo.name = CLASE;
+                break;
         }
     }
+
+   /* @Override
+    public String getInnerText() {
+        return null;
+    }
+
+    @Override
+    public void setInnerText(String s) {
+
+    }*/
+
 
     public String getEmpresa() {
         return empresa;
@@ -156,12 +138,12 @@ public class CuentaClienteInfoAdicional implements KvmSerializable {
         this.empresa = empresa;
     }
 
-    public String getCargo() {
-        return cargo;
+    public String getNumEmpresa() {
+        return numempresa;
     }
 
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
+    public void setNumEmpresa(String numempresa) {
+        this.numempresa = numempresa;
     }
 
     public String getCelular() {
