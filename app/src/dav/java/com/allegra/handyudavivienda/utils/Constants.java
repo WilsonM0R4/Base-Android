@@ -162,6 +162,8 @@ public class Constants {
     public final static String KEY_ID_TYPE = "idType";
     public final static String KEY_ID_COUNTRY = "pais";
     public final static String KEY_ID_MOBILE_CODE = "celular_codigo";
+    public final static String KEY_COMPANY = "empresa";
+    public final static String KEY_ID_COMPANY = "empresa_nit";
 
     //Compras
     public final static String KEY_COMPRAS="compra";
@@ -464,6 +466,8 @@ public class Constants {
         KeySaver.saveShare(ctx,KEY_ID_NUMBER,user.idNumber);
         KeySaver.saveShare(ctx,KEY_ID_TYPE,user.idType);
         KeySaver.saveShare(ctx,KEY_ID_MOBILE_CODE, user.celular_codigo);
+        KeySaver.saveShare(ctx,KEY_COMPANY, user.empresa);
+        KeySaver.saveShare(ctx,KEY_ID_COMPANY, user.idEmpresa);
     }
 
     /**
@@ -496,7 +500,8 @@ public class Constants {
                     KeySaver.getStringSavedShare(ctx,KEY_SURNAME),
                     KeySaver.getStringSavedShare(ctx,KEY_EMAIL),"","",0,false,KeySaver.getStringSavedShare(ctx,KEY_MOBILE_NUMBER),
                     KeySaver.getStringSavedShare(ctx,KEY_ID_NUMBER),KeySaver.getStringSavedShare(ctx,KEY_ID_TYPE),
-                    KeySaver.getStringSavedShare(ctx,KEY_ID_COUNTRY) , KeySaver.getStringSavedShare(ctx,KEY_ID_MOBILE_CODE));
+                    KeySaver.getStringSavedShare(ctx,KEY_ID_COUNTRY) , KeySaver.getStringSavedShare(ctx,KEY_ID_MOBILE_CODE),
+                    KeySaver.getStringSavedShare(ctx,KEY_COMPANY), KeySaver.getStringSavedShare(ctx, KEY_ID_COMPANY));
                     String testCode =    KeySaver.getStringSavedShare(ctx,KEY_ID_MOBILE_CODE);
             //Log.d(TAG, testCode);
             user.channel=KeySaver.getStringSavedShare(ctx,KEY_PUSH_CHANNEL);

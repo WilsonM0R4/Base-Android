@@ -327,8 +327,8 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
         cel_code = prefs.getString("celular_codigo", "+57");*/
         txtSelectCountry.setText(user.celular_codigo);
         etNumberOfId.setText(user.idNumber);
-        etEmpresa.setText(ccia.getEmpresa());
-        etEmpresa.setText(ccia.getNumEmpresa());
+        etEmpresa.setText(user.empresa);
+        etEmpresaId.setText(user.idEmpresa);
         /*CuentaClienteInfoAdicional ccia = new CuentaClienteInfoAdicional();
         ccia = user.*/
 

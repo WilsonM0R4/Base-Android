@@ -18,6 +18,8 @@ public class AllemUser {
     public String idNumber;
     public String idType;
     public String pais, celular_codigo;
+    public String empresa;
+    public String idEmpresa;
 
     /**
      *
@@ -29,10 +31,12 @@ public class AllemUser {
      * @param idSesion
      * @param idCuenta
      * @param estado
+     * @param empresa
+     * @param idEmpresa
      */
 
     public AllemUser(String saludo, String nombre, String apellido, String email, String hashpassword, String idSesion, int idCuenta,
-                     boolean estado, String celular, String idNumber, String idType, String pais, String celular_codigo){
+                     boolean estado, String celular, String idNumber, String idType, String pais, String celular_codigo, String empresa, String idEmpresa){
         this.saludo = saludo;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -46,6 +50,8 @@ public class AllemUser {
         this.idType= idType;
         this.pais = pais;
         this.celular_codigo = celular_codigo;
+        this.empresa = empresa;
+        this.idEmpresa = idEmpresa;
     }
 
 }
