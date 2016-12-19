@@ -39,7 +39,8 @@ import java.util.TimerTask;
 import com.allegra.handyuvisa.BackFragment;
 
 public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateReadyListener,
-                                        BackFragment.MenuSelectListener {
+                                        BackFragment.MenuSelectListener,
+                                        FrontBackAnimate.InflateReadyListener{
 
     //*****************GLOBAL ATTRIBUTES*****************
 
@@ -229,7 +230,8 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
         super.onHome(view);
     }
 
-    public void onMenu(View view) {
+    public void onMenuChat(View view) {
+        Log.d(TAG,"Ental al onMenuChat");
         animate();
     }
 
