@@ -267,7 +267,7 @@
                 android:drawableRight="@drawable/icon_clear"
                 android:hint="@string/empresa_register_hint"
                 android:maxLength="100"
-                android:inputType="te"
+                android:inputType="textPersonName"
                 android:singleLine="true"
                 android:textSize="15sp"
                 app:fontEdit="@string/font_muli"
