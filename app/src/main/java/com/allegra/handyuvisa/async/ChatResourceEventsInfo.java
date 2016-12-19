@@ -12,7 +12,7 @@ import java.util.HashMap;
 /**
  * Created by lisachui on 10/9/15.
  */
-public class ChatResourceEventsInfo extends APIInfo {
+public class ChatResourceEventsInfo extends APIInfoChat {
 
     public static final String APINAME = "ChatResourceEventsInfo";
     public static final String EVENTS_LINK = "events";

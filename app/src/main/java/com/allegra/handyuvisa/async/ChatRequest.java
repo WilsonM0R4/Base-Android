@@ -10,7 +10,7 @@ import java.util.HashSet;
 /**
  * Created by lisachui on 10/9/15.
  */
-public class ChatRequest extends APIInfo {
+public class ChatRequest extends APIInfoChat {
 
     public static final String APINAME = "ChatRequest";
     public static final String LOCATION = "Location";

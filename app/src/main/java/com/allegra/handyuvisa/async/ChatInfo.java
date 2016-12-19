@@ -11,7 +11,7 @@ import java.util.HashMap;
 /**
  * Created by lisachui on 10/9/15.
  */
-public class ChatInfo extends APIInfo {
+public class ChatInfo extends APIInfoChat {
 
     public static final String APINAME = "ChatInfo";
     public static final String AGENT_NAME = "agentName";

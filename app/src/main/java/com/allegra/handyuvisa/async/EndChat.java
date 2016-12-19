@@ -7,7 +7,7 @@ import java.util.HashSet;
 /**
  * Created by lisachui on 10/9/15.
  */
-public class EndChat extends APIInfo {
+public class EndChat extends APIInfoChat {
 
     public static final String APINAME = "EndChat";
     public static final String RESP_CODE = "resp_code";

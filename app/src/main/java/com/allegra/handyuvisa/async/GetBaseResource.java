@@ -11,22 +11,16 @@ import java.util.HashMap;
 /**
  * Created by lisachui on 10/9/15.
  */
-public class GetBaseResource extends APIInfo {
+public class GetBaseResource extends APIInfoChat {
 
     public static final String APINAME = "GetBaseResource";
     public static final String CHAT_REQUEST = "chat-request";
     private static final String TAG = APINAME;
 
-
     public GetBaseResource() {
 
         apiName = APINAME;
-        endPoint = /*"https://server.iad.liveperson.net/api/account/5959522/chat/H212853002772008643"
-        +"5-81a43461e41c471781bf57b781f7a61bK10143954/info?appKey=d789d49f082b4eb89dad11426c06e21d&v=1";*/
-                LivePersonConstants.APP_SERVER_URL + "/api/account/" + LivePersonConstants.SITE_ID
-                //+"/chat/"
-                +"/info?"
-                + "appKey=d789d49f082b4eb89dad11426c06e21d&v=1";
+        endPoint = LivePersonConstants.APP_SERVER_URL + "/api/account/" + LivePersonConstants.SITE_ID + "?v=1";
         method = "GET";
         headers.put("Authorization", "LivePerson appKey=" + LivePersonConstants.APP_KEY);
         results = new HashMap<>();
@@ -52,7 +46,7 @@ public class GetBaseResource extends APIInfo {
                             reader.beginArray();
                             while (reader.hasNext()) {
                                 reader.beginObject();
-                                //name = reader.nextName();
+                                name = reader.nextName();
                                 String data1 = reader.nextString();
                                 name = reader.nextName();
                                 String data2 = reader.nextString();

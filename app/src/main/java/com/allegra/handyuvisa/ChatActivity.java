@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import com.allegra.handyuvisa.async.AddChatLines;
 import com.allegra.handyuvisa.async.AsyncRestHelper;
+import com.allegra.handyuvisa.async.AsyncRestHelperChat;
+import com.allegra.handyuvisa.async.AsyncTaskMPosResultEventChat;
 import com.allegra.handyuvisa.async.ChatRequest;
 import com.allegra.handyuvisa.async.ChatResourceEventsInfo;
 import com.allegra.handyuvisa.async.MyBus;
@@ -37,7 +39,7 @@ import java.util.TimerTask;
 import com.allegra.handyuvisa.BackFragment;
 
 public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateReadyListener,
-                                        com.allegra.handyuvisa.BackFragment.MenuSelectListener {
+                                        BackFragment.MenuSelectListener {
 
     //*****************GLOBAL ATTRIBUTES*****************
 
@@ -135,21 +137,21 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
 
     private void initLivePersonService() {
         GetBaseResource apiInfo = new GetBaseResource();
-        AsyncRestHelper helper = new AsyncRestHelper(apiInfo);
+        AsyncRestHelperChat helper = new AsyncRestHelperChat(apiInfo);
         helper.execute();
     }
 
     private void sendChatRequest(String uri) {
 
         ChatRequest apiInfo = new ChatRequest(uri);
-        AsyncRestHelper helper = new AsyncRestHelper(apiInfo);
+        AsyncRestHelperChat helper = new AsyncRestHelperChat(apiInfo);
         helper.execute();
     }
 
     private void getChatResourceEventsInfo() {
 
         ChatResourceEventsInfo apiInfo = new ChatResourceEventsInfo(chatSessionUri);
-        AsyncRestHelper helper = new AsyncRestHelper(apiInfo);
+        AsyncRestHelperChat helper = new AsyncRestHelperChat(apiInfo);
         helper.execute();
     }
 
@@ -159,7 +161,7 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
             @Override
             public void run() {
                 ChatEventsNext apiInfo = new ChatEventsNext(nextUri);
-                AsyncRestHelper helper = new AsyncRestHelper(apiInfo);
+                AsyncRestHelperChat helper = new AsyncRestHelperChat(apiInfo);
                 helper.execute();
             }
         }, 2000);
@@ -234,14 +236,14 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
     private void endChat() {
 
         EndChat apiInfo = new EndChat(eventsUri);
-        AsyncRestHelper helper = new AsyncRestHelper(apiInfo);
+        AsyncRestHelperChat helper = new AsyncRestHelperChat(apiInfo);
         helper.execute();
     }
 
     private void getChatInfo() {
 
         ChatInfo apiInfo = new ChatInfo(infoUri);
-        AsyncRestHelper helper = new AsyncRestHelper(apiInfo);
+        AsyncRestHelperChat helper = new AsyncRestHelperChat(apiInfo);
         helper.execute();
     }
 
@@ -263,20 +265,20 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
 
         chatListView.setSelection(chatMessages.size() - 1);
         AddChatLines apiInfo = new AddChatLines(eventsUri, text);
-        AsyncRestHelper helper = new AsyncRestHelper(apiInfo);
+        AsyncRestHelperChat helper = new AsyncRestHelperChat(apiInfo);
         helper.execute();
     }
 
     //*****************SUBSCRIBE METHODS*****************
     @Subscribe
-    public void onAsyncTaskResult(AsyncTaskMPosResultEvent event) {
+    public void onAsyncTaskResult(AsyncTaskMPosResultEventChat event) {
 
         boolean errorExists = true;
         HashMap<String, String> data;
 
         if (event.getResult() != null) {
             data = event.getResult();
-            System.out.println("data");
+            System.out.println("entra al AsyncTaskMPosResultEventChat");
             for(Object objname:data.keySet()) {
                 System.out.println("data");
                 System.out.println(objname);
@@ -363,7 +365,7 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
 
             } else if (event.getApiName().equalsIgnoreCase(EndChat.APINAME)) {
                 if (data.containsKey(EndChat.RESP_CODE)) {
-                    finish();
+                    //finish();
                     errorExists = false;
                 } else {
                     Log.e(TAG, "EndChat fails");

@@ -24,7 +24,8 @@ public class  ChatMsgAdapter extends BaseAdapter {
     // TODO Should consider using Relative layout and play with the LayoutParams
     private static TableRow.LayoutParams params1 = new TableRow.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f);
     private static TableRow.LayoutParams params2 = new TableRow.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 2f);
-    private static LinearLayout.LayoutParams timeParam = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
+    private static LinearLayout.LayoutParams timeParam = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
+            LinearLayout.LayoutParams.MATCH_PARENT);
 
     private LayoutInflater mLayoutInflater;
     private ArrayList<ChatActivity.Message> chatMessages;

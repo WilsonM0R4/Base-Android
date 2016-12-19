@@ -13,7 +13,7 @@ import java.util.HashMap;
 /**
  * Created by lisachui on 10/9/15.
  */
-public class ChatEventsNext extends APIInfo {
+public class ChatEventsNext extends APIInfoChat {
 
     public static final String APINAME = "ChatEventsNext";
     public static final String EVENTS_LINK = "events";

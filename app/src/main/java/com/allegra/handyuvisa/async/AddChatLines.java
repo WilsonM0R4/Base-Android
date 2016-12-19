@@ -9,7 +9,7 @@ import java.util.HashSet;
 /**
  * Created by lisachui on 10/9/15.
  */
-public class AddChatLines extends APIInfo {
+public class AddChatLines extends APIInfoChat {
 
     public static final String APINAME = "AddChatLines";
     public static final String RESP_CODE = "resp_code";
