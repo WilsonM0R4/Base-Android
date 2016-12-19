@@ -37,6 +37,7 @@ import com.allegra.handyuvisa.utils.KeySaver;
 import com.allegra.handyuvisa.utils.UsuarioSQLiteHelper;
 import com.allegra.handyuvisa.utils.Util;
 import com.google.gson.Gson;
+import com.splunk.mint.Mint;
 import com.squareup.otto.Subscribe;
 import com.urbanairship.UAirship;
 
@@ -88,16 +89,16 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
 
         //TODO: Uncomment this before push
         //Splunk
-       /* Mint.setApplicationEnvironment(Mint.appEnvironmentTesting);
+        Mint.setApplicationEnvironment(Mint.appEnvironmentTesting);
         Mint.initAndStartSession(getApplicationContext(), Constants.SPLUNK_API_KEY);
         // Enable logging
         Mint.enableLogging(true);
-        // Log last 100 messages
-        Mint.setLogging(200);*/
+        // Log last 200 messages
+        Mint.setLogging(200);
         findValueOfMcard();
         //Error for test Splunk
-        /*String str =  null;
-        Log.d(TAG, str);*/
+        String str =  null;
+        Log.d(TAG, str);
 
     }
 
