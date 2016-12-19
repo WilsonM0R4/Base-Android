@@ -29,7 +29,7 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
         BackFragment.MenuSelectListener {
 
     //*************GLOBAL ATTRIBUTES**************
-    protected String OTC_NUMBER = "+13055605384";
+    protected String OTC_NUMBER = "+13055605384";//3055605384
     private static final int CALLING = 1, MY_PERMISSIONS_REQUEST_AUDIO = 4563;
     private static final int CALLIP = 2;
     private static final int HANGIP = 3;

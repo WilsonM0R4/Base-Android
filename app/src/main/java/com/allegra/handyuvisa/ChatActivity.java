@@ -34,9 +34,10 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
+import com.allegra.handyuvisa.BackFragment;
 
 public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateReadyListener,
-                                        BackFragment.MenuSelectListener {
+                                        com.allegra.handyuvisa.BackFragment.MenuSelectListener {
 
     //*****************GLOBAL ATTRIBUTES*****************
 
@@ -78,7 +79,8 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.setView(R.layout.fragment_chat_in_progress, R.drawable.load__chat, R.string.txt_lbl_setupChat, this);
+        super.setView(R.layout.fragment_chat_in_progress, R.drawable.load__chat,
+                R.string.txt_lbl_setupChat, this);
 
         initLivePersonService();
         MyBus.getInstance().register(this);

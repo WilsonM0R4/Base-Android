@@ -722,6 +722,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
                 AllemUser currentUser= Constants.getUser(EditProfileActivity.this);
                 user.saludo= currentUser.saludo;
                 user.idSesion= currentUser.idSesion;
+                //Log.d("Sesion ID", currentUser.idSesion);
                 /*user.idType = currentUser.idType;
                 user.idNumber = currentUser.idNumber;
                 user.nombre = currentUser.nombre;
