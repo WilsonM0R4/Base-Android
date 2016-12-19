@@ -19,6 +19,7 @@ import javax.net.ssl.TrustManager;
 public class SslConnection {
     private static final String TAG = "SSLConection";
     private static TrustManager[] trustManagers;
+    private static final String URBAN_AIRSHIP = "device-api.urbanairship.com";
 
     private static class CustomX509TrustManager implements javax.net.ssl.X509TrustManager {
         private static final X509Certificate[] _AcceptedIssuers = new X509Certificate[]{};
@@ -48,7 +49,8 @@ public class SslConnection {
                 if (hostname.equals(Constants.URL_ALLEM_AIR_PROD_HOST)||
                         hostname.equals(Constants.URL_HOSTNAME_SECUREACCEPTANCE)||
                         hostname.equals(Constants.URL_HOSTNAME_ALLEGRA_PLATFORM)||
-                        hostname.equals(Constants.URL_HOSTNAME_APPS_FLYER))return true;
+                        hostname.equals(Constants.URL_HOSTNAME_APPS_FLYER)||
+                        hostname.equals(URBAN_AIRSHIP))return true;
                 else return false;
             }
         });

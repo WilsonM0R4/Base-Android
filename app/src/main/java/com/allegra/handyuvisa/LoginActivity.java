@@ -97,8 +97,8 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         Mint.setLogging(200);
         findValueOfMcard();
         //Error for test Splunk
-        String str =  null;
-        Log.d(TAG, str);
+        /*String str =  null;
+        Log.d(TAG, str);*/
 
     }
 
