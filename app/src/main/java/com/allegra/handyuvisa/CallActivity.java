@@ -26,7 +26,7 @@ import java.util.Map;
 public class CallActivity extends LoadAnimate implements BasicPhone.LoginListener,
         BasicPhone.BasicConnectionListener,BasicPhone.BasicDeviceListener,
         SensorEventListener, LoadAnimate.InflateReadyListener,
-        BackFragment.MenuSelectListener {
+        com.allegra.handyuvisa.BackFragment.MenuSelectListener {
 
     //*************GLOBAL ATTRIBUTES**************
     protected String OTC_NUMBER = "+13055605384";
@@ -57,7 +57,7 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
         super.setView(R.layout.fragment_call_in_progress, R.drawable.load__call, R.string.txt_lbl_callwait, this);
         addStatusMessage("One Touch Call");
         ctx = this;
-        phone = BasicPhone.getInstance(ctx);
+        phone = BasicPhone.getInstance(getApplicationContext());
 
         /*mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
@@ -69,7 +69,9 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
         if(android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !hasPermissions(this, PERMISSIONS)){
             ActivityCompat.requestPermissions(this, PERMISSIONS, MY_PERMISSIONS_REQUEST_AUDIO);
         } else {
-            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) setCallSettings();
+            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                setCallSettings();
+            }
         }
     }
 
@@ -114,13 +116,12 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
                 // bringing down the phone.
                 phone.setSpeakerEnabled();
             }
+
             if (phone.isConnected()) {
                 phone.disconnect();
             } else {
                 Log.d(TAG, "phone is not connected");
             }
-            phone.setListeners(null, null, null);
-            phone = null;
         } else {
             Log.d(TAG, "phone is not initialized");
         }
@@ -145,6 +146,7 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
 
     @Override
     public void onCancelLoading() {
+        Log.d(TAG, "CANCEL button pressed");
         finish();
     }
 
@@ -237,7 +239,6 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
         }
         setButton(-1);
         setStatus(R.string.txt_lbl_disconnect);
-        finish();
     }
 
     @Override
@@ -247,7 +248,7 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
 
     @Override
     public void onLoginFinished() {
-        addStatusMessage("Token Obtained");
+        addStatusMessage("Token Obtained ... call OTC# now: " + OTC_NUMBER);
         if (!phone.isConnected()) {
             Map<String, String> params = new HashMap<String, String>();
             params.put("To", OTC_NUMBER);
@@ -298,9 +299,9 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
         mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
         if (mSensor!=null) mSensorRange=mSensor.getMaximumRange();
+        setListeners();
         phone.login("OneTouchCall", true, true);
         //setButton(-1);
-        setListeners();
     }
 
     private void setActionbar() {

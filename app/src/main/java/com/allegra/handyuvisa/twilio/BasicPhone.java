@@ -65,8 +65,9 @@ public class BasicPhone implements DeviceListener,
     private static BasicPhone instance;
     public static final BasicPhone getInstance(Context context)
     {
-        if (instance == null)
+        if (instance == null) {
             instance = new BasicPhone(context);
+        }
         return instance;
     }
 
@@ -78,6 +79,7 @@ public class BasicPhone implements DeviceListener,
     private static boolean twilioSdkInited;
     private static boolean twilioSdkInitInProgress;
     private boolean queuedConnect;
+    private RequestQueue queue;
 
     private Device device;
     private Connection pendingIncomingConnection;
@@ -91,6 +93,8 @@ public class BasicPhone implements DeviceListener,
     private BasicPhone(Context context)
     {
         this.context = context;
+        queue = Volley.newRequestQueue(context);
+        queue.start();
     }
 
     public void setListeners(LoginListener loginListener,
@@ -143,9 +147,6 @@ public class BasicPhone implements DeviceListener,
             twilioSdkInitInProgress = true;
             Twilio.setLogLevel(Log.VERBOSE);
 
-            //TODO: Verifiy this line for this error: E/ActivityThread: Activity com.allegra.handyuvisa.CallActivity
-            // has leaked ServiceConnection com.twilio.client.impl.TwilioImpl$1@18a988dd that was originally bound here
-            //android.app.ServiceConnectionLeaked: Activity com.allegra.handyuvisa.CallActivity has leaked ServiceConnection com.twilio.client.impl.TwilioImpl$1@18a988dd that was originally bound here
             Twilio.initialize(context, new Twilio.InitListener() {
                 @Override
                 public void onInitialized() {
@@ -168,20 +169,25 @@ public class BasicPhone implements DeviceListener,
 
     private void reallyLogin(final String capabilityToken)
     {
+        Log.d(TAG, "proceed to reallyLogin");
         try {
             if (device == null) {
+                Log.d(TAG, "start a new device");
                 device = Twilio.createDevice(capabilityToken, this);
                 Intent intent = new Intent(context, CallActivity.class);
                 PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent,
                         PendingIntent.FLAG_UPDATE_CURRENT);
                 device.setIncomingIntent(pendingIntent);
-            } else
+            } else {
+                Log.d(TAG, "REUSE existing device");
                 device.updateCapabilityToken(capabilityToken);
+            }
 
             if (loginListener != null)
                 loginListener.onLoginFinished();
 
             if (queuedConnect) {
+                Log.d(TAG, "Someone call connect() before finished initialization");
                 // If someone called connect() before we finished initializing
                 // the SDK, let's take care of that here.
                 connect(null);
@@ -218,6 +224,7 @@ public class BasicPhone implements DeviceListener,
         if (device == null)
             return;
 
+        Log.d(TAG, "twilio sdk init done, capability token got, device ready.. ok call");
         if (canMakeOutgoing()) {
             disconnect();
 
@@ -229,12 +236,14 @@ public class BasicPhone implements DeviceListener,
 
     public void disconnect()
     {
-        Log.d(TAG, "in disconnect");
         if (connection != null) {
+            Log.d(TAG, "active call going on");
             connection.disconnect();  // will null out in onDisconnected()
             Log.d(TAG, "done disconnect");
             if (basicConnectionListener != null)
                 basicConnectionListener.onConnectionDisconnecting();
+        } else {
+            Log.d(TAG, "No active call right now");
         }
     }
 
@@ -351,16 +360,20 @@ public class BasicPhone implements DeviceListener,
     @Override  /* ConnectionListener */
     public void onConnecting(Connection inConnection)
     {
-        if (basicConnectionListener != null)
+        if (basicConnectionListener != null) {
+            Log.d(TAG, "basicConnectionListener onConnecting");
             basicConnectionListener.onConnectionConnecting();
+        }
     }
 
     @Override  /* ConnectionListener */
     public void onConnected(Connection inConnection)
     {
         updateAudioRoute();
-        if (basicConnectionListener != null)
+        if (basicConnectionListener != null) {
+            Log.d(TAG, "basicConnectionListener onConnectionConnected");
             basicConnectionListener.onConnectionConnected();
+        }
     }
 
     @Override  /* ConnectionListener */
@@ -368,12 +381,16 @@ public class BasicPhone implements DeviceListener,
     {
         if (inConnection == connection) {
             connection = null;
-            if (basicConnectionListener != null)
+            if (basicConnectionListener != null) {
+                Log.d(TAG, "basicConnectionListener A onDisconnected");
                 basicConnectionListener.onConnectionDisconnected();
+            }
         } else if (inConnection == pendingIncomingConnection) {
             pendingIncomingConnection = null;
-            if (basicConnectionListener != null)
+            if (basicConnectionListener != null) {
+                Log.d(TAG, "basicConnectionListener B onDisconnected ");
                 basicConnectionListener.onIncomingConnectionDisconnected();
+            }
         }
     }
 
@@ -382,15 +399,16 @@ public class BasicPhone implements DeviceListener,
     {
         if (inConnection == connection) {
             connection = null;
-            if (basicConnectionListener != null)
-                basicConnectionListener.onConnectionFailedConnecting(new Exception(inErrorMessage),inErrorCode);
+            if (basicConnectionListener != null) {
+                Log.d(TAG, "basicConnectionListener onDisconnect ERROR");
+                basicConnectionListener.onConnectionFailedConnecting(new Exception(inErrorMessage), inErrorCode);
+            }
         }
     }
 
 
     private void getToken() {
-        RequestQueue queue = Volley.newRequestQueue(context);
-
+        Log.d(TAG, "Trying to get token");
         StringRequest stringRequest = new StringRequest(Request.Method.GET, T_STRING,
                 new Response.Listener<String>() {
                     @Override
@@ -411,7 +429,6 @@ public class BasicPhone implements DeviceListener,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         queue.add(stringRequest);
-        queue.start();
     }
     
 }
