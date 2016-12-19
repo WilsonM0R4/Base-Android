@@ -280,7 +280,7 @@
                     android:background="@drawable/separator_gradient"
                     android:padding="2dip" />
 
-                <LinearLayout
+                <!--<LinearLayout
                     android:id="@+id/market_option"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -316,7 +316,7 @@
                             android:layout_centerVertical="true"
                             android:src="@drawable/menu__gotob" />
                     </RelativeLayout>
-                </LinearLayout>
+                </LinearLayout>/>-->
 
                 <View
                     android:layout_width="match_parent"
@@ -453,50 +453,6 @@
                     </RelativeLayout>
                 </LinearLayout>
 
-<!--                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dip"
-                    android:layout_weight="1"
-                    android:background="@drawable/separator_gradient"
-                    android:padding="2dip" />
-
-                <LinearLayout
-                    android:id="@+id/checkmytrip_option"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/main_menu_table_row"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="10dp">
-
-                    <ImageView
-                        android:layout_width="23dp"
-                        android:layout_height="23dp"
-                        android:layout_gravity="left"
-                        android:layout_marginLeft="35dp"
-                        android:src="@drawable/menu_checkmytrip" />
-
-                    <com.allegra.handyuvisa.utils.CustomizedTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:text="@string/checkmytrip"
-                        android:textColor="@color/HomeMenus_text"
-                        android:textSize="17sp"
-                        app:font="@string/font_varela" />
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:src="@drawable/menu__gotob" />
-                    </RelativeLayout>
-                </LinearLayout>-->
 
                 <View
                     android:layout_width="match_parent"
@@ -543,6 +499,53 @@
                             android:src="@drawable/menu__gotob" />
                     </RelativeLayout>
                 </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_weight="1"
+                    android:background="@drawable/separator_gradient"
+                    android:padding="2dip" />
+
+                <LinearLayout
+                    android:id="@+id/market_option"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/main_menu_table_row"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="35dp"
+                        android:src="@drawable/menu__market" />
+
+                    <com.allegra.handyuvisa.utils.CustomizedTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/title_market_place"
+                        android:textColor="@color/HomeMenus_text"
+                        android:textSize="17sp"
+                        app:font="@string/font_varela" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/menu__gotob" />
+                    </RelativeLayout>
+                </LinearLayout>/>
+
+
 
                 <View
                     android:layout_width="match_parent"
