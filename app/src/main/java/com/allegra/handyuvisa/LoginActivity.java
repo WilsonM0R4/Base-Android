@@ -399,6 +399,8 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
 
                 String nombre = user.nombre;
                 String apellido = user.apellido;
+                String empresa = user.empresa;
+                String empresa_nit = user.idEmpresa;
                 //Save in SharedPreferences
                 SharedPreferences prefs =
                         getSharedPreferences("MisPreferencias", MODE_PRIVATE);
@@ -408,6 +410,8 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 editor.putString("nombre", nombre);
                 editor.putString("typeOfId", getTypeOfDocumentFromIdCode(typeOfId));
                 editor.putString("numberOfId", numberOfId);
+                editor.putString("empresa", empresa);
+                editor.putString("empresa_nit", empresa_nit);
 
                 idCuenta = user.idCuenta;
                 editor.putString("idCuenta", String.valueOf(idCuenta));

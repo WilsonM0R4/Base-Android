@@ -285,7 +285,7 @@
                 android:drawableRight="@drawable/icon_clear"
                 android:hint="@string/empresa_numero_hint"
                 android:maxLength="100"
-                android:inputType="number"
+                android:inputType="phone"
                 android:singleLine="true"
                 android:textSize="15sp"
                 app:fontEdit="@string/font_muli"

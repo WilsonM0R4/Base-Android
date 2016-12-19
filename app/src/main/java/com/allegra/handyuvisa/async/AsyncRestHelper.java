@@ -96,8 +96,8 @@ public class AsyncRestHelper extends AsyncTask<Void, Void, HashMap<String, Strin
 
             int code = urlConnection.getResponseCode();
             Log.d(TAG, "Response code: " + code);
-            if (code == 200 || code == 201 ||  code == 400){
-                if (code == 400){
+            if (code == 200 || code == 201 ||  code == 400 ||  code == 404){
+                if (code == 400 ||  code == 404){
                     dataReturn = apiInfo.parseData(urlConnection.getErrorStream());
                     Log.e(TAG, "HTTPx Response: " + code + " - " + urlConnection.getResponseMessage());
                     Log.d(TAG,"Entra al code == 400");
