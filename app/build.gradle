@@ -255,8 +255,8 @@ android {
 
         dav {
             applicationId "com.allegra.visabdavivienda"
-            versionCode 3
-            versionName "1.1.0-3"
+            versionCode 6
+            versionName "1.0.0-20"
             signingConfig signingConfigs.davConfig
             minSdkVersion 19
             targetSdkVersion 25
