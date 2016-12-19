@@ -21,8 +21,8 @@ public class GetBaseResource extends APIInfo {
     public GetBaseResource() {
 
         apiName = APINAME;
-        endPoint = /*"https://server.iad.liveperson.net/api/account/5959522/chat/H6150980240464209745-7" +
-                "e851a2d3f3649fba4dd379842695dbcK10143440/info?";*/
+        endPoint = /*"https://server.iad.liveperson.net/api/account/5959522/chat/H212853002772008643"
+        +"5-81a43461e41c471781bf57b781f7a61bK10143954/info?appKey=d789d49f082b4eb89dad11426c06e21d&v=1";*/
                 LivePersonConstants.APP_SERVER_URL + "/api/account/" + LivePersonConstants.SITE_ID
                 //+"/chat/"
                 +"/info?"
