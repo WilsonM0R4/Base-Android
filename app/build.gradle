@@ -254,7 +254,7 @@ android {
         }
 
         dav {
-            applicationId "com.allegra.handyudavivienda"
+            applicationId "com.allegra.visabdavivienda"
             versionCode 3
             versionName "1.1.0-3"
             signingConfig signingConfigs.davConfig
