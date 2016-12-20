@@ -592,8 +592,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
         }
 
         //***************Company Name***************
-        if(!txtCompany.getText().toString().equals("") && (txtCompany.getText().toString().length() < 2
-                || txtCompany.getText().toString().length() > 250)){
+        if(txtCompany.getText().toString().equals("") || txtCompany.getText().toString().length() > 250){
             txtCompany.setHintTextColor(Color.RED);
             result = false;
         }
