@@ -111,7 +111,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 // Otherwise, set the URL to null.
                 Uri.parse("http://host/path"),
                 // TODO: Make sure this auto-generated app URL is correct.
-                Uri.parse("android-app://com.allegra.handyudavivienda/http/host/path")//com.allem.alleminmotion.visacheckout
+                Uri.parse("android-app://com.allegra.visabdavivienda/http/host/path")//com.allem.alleminmotion.visacheckout
         );
         AppIndex.AppIndexApi.start(client, viewAction);
     }
@@ -130,7 +130,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 // Otherwise, set the URL to null.
                 Uri.parse("http://host/path"),
                 // TODO: Make sure this auto-generated app URL is correct.
-                Uri.parse("android-app://com.allegra.handyudavivienda/http/host/path")//com.allem.alleminmotion.visacheckout
+                Uri.parse("android-app://com.allegra.visabdavivienda/http/host/path")//com.allem.alleminmotion.visacheckout
         );
         AppIndex.AppIndexApi.end(client, viewAction);
         client.disconnect();
