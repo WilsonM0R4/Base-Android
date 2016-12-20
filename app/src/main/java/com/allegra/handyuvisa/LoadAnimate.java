@@ -6,6 +6,7 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,10 +22,10 @@ import android.widget.TextView;
  * Created by lchui on 1/4/16.
  */
 
-//This class is one that consume a lot of memory, because the way is inflated the menu.
+//This class is one that consume a lot of memory, because of the way in that is menu inflated.
 //Example: super.onCreate(savedInstanceState);
 //setContentView(R.layout.activity_loadanimate);
-public class LoadAnimate extends Activity implements BackFragment.MenuSelectListener {
+public class LoadAnimate extends FragmentActivity implements BackFragment.MenuSelectListener {
 
     //*************GLOBAL ATTRIBUTES*******************
     private static final String TAG = "LoadAnimate";
@@ -128,6 +129,7 @@ public class LoadAnimate extends Activity implements BackFragment.MenuSelectList
         loadingFragment = (LoadingFragment) getFragmentManager().findFragmentByTag(FRAGMENT_LOADING);
         inProgressFragment = (InProgressFragment) getFragmentManager().findFragmentByTag(FRAGMENT_IN_PROGRESS);
         if (loadingFragment != null) {
+            Log.d(TAG,"Llega al loadingFragment != null");
             getFragmentManager().beginTransaction()
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE)
                     .hide(loadingFragment)
@@ -258,6 +260,7 @@ public class LoadAnimate extends Activity implements BackFragment.MenuSelectList
                 @Override
                 public void onClick(View v) {
                     listener.onCancelLoading();
+                    Log.d(TAG,"Llega al clickListener de endCall" );
                 }
             });
 

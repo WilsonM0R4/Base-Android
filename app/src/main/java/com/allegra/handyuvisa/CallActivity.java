@@ -26,10 +26,11 @@ import java.util.Map;
 public class CallActivity extends LoadAnimate implements BasicPhone.LoginListener,
         BasicPhone.BasicConnectionListener,BasicPhone.BasicDeviceListener,
         SensorEventListener, LoadAnimate.InflateReadyListener,
-        com.allegra.handyuvisa.BackFragment.MenuSelectListener {
+        com.allegra.handyuvisa.BackFragment.MenuSelectListener,
+        FrontBackAnimate.InflateReadyListener{
 
     //*************GLOBAL ATTRIBUTES**************
-    protected String OTC_NUMBER = "+13057227632";//Older: 13055605384
+    protected String OTC_NUMBER = "+13057227632";//Older: +13055605384
     private static final int CALLING = 1, MY_PERMISSIONS_REQUEST_AUDIO = 4563;
     private static final int CALLIP = 2;
     private static final int HANGIP = 3;
@@ -50,22 +51,16 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
     String[] PERMISSIONS = { android.Manifest.permission.RECORD_AUDIO, android.Manifest.permission.MODIFY_AUDIO_SETTINGS,
             android.Manifest.permission.READ_PHONE_STATE};
 
-    //*************OVERRIDE METHODS**************
+    //**************************OVERRIDE METHODS***************************
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.setView(R.layout.fragment_call_in_progress, R.drawable.load__call, R.string.txt_lbl_callwait, this);
+        super.setView(R.layout.fragment_call_in_progress, R.drawable.load__call,
+                R.string.txt_lbl_callwait, this);
         addStatusMessage("One Touch Call");
         ctx = this;
         phone = BasicPhone.getInstance(getApplicationContext());
-
-        /*mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-        mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
-        if (mSensor!=null) mSensorRange=mSensor.getMaximumRange();
-        phone.login("OneTouchCall", true, true);
-        //setButton(-1);
-        setListeners();*/
-        //******Check for Audio permission
+        //Check for Audio permission
         if(android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !hasPermissions(this, PERMISSIONS)){
             ActivityCompat.requestPermissions(this, PERMISSIONS, MY_PERMISSIONS_REQUEST_AUDIO);
         } else {
@@ -95,15 +90,12 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
     }
 
     @Override
-    public void onResume()
-    {
+    public void onResume() {
         super.onResume();
         if(mSensor!=null) mSensorManager.registerListener(this, mSensor,SensorManager.SENSOR_DELAY_NORMAL);
         if (phone.handleIncomingIntent(getIntent())) {
-            //showIncomingAlert();
             addStatusMessage("Received incoming connection");
-            //syncMainButton();
-    }
+        }
     }
 
     @Override
@@ -133,8 +125,7 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
     }
 
     @Override
-    public void onNewIntent(Intent intent)
-    {
+    public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
     }

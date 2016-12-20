@@ -1,15 +1,19 @@
 package com.allegra.handyuvisa;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.allegra.handyuvisa.async.AddChatLines;
 import com.allegra.handyuvisa.async.AsyncRestHelper;
@@ -37,10 +41,10 @@ import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
 import com.allegra.handyuvisa.BackFragment;
-
-public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateReadyListener,
-                                        BackFragment.MenuSelectListener,
-                                        FrontBackAnimate.InflateReadyListener{
+//LoadAnimate.InflateReadyListener,
+public class ChatActivity extends FrontBackAnimate implements
+        com.allegra.handyuvisa.BackFragment.MenuSelectListener,
+        FrontBackAnimate.InflateReadyListener{
 
     //*****************GLOBAL ATTRIBUTES*****************
 
@@ -82,9 +86,9 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.setView(R.layout.fragment_chat_in_progress, R.drawable.load__chat,
-                R.string.txt_lbl_setupChat, this);
-
+        /*super.setView(R.layout.fragment_chat_in_progress, R.drawable.load__chat,
+                R.string.txt_lbl_setupChat, this);*/
+        setView(R.layout.fragment_chat_in_progress, this);
         initLivePersonService();
         MyBus.getInstance().register(this);
     }
@@ -118,6 +122,17 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
     }
 
     @Override
+    public void onConfigurationChanged(Configuration newConfig){
+        super.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    public void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+    }
+
+    @Override
     public void getStartActivity(Intent intent) {
 
         if (chatState != null && chatState.equals("chatting")) {
@@ -128,13 +143,48 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
         super.getStartActivity(intent);
     }
 
-    @Override
+   /* @Override
     public void onCancelLoading() {
+        Log.d(TAG, "Llega al onCancelLoading");
         finish();
-    }
+    }*/
 
 
     //*****************PROPER METHODS*****************
+    protected void animate() {
+
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+        int width = dm.widthPixels;
+        int resId = R.animator.front_open;
+        if (width > 800) {
+            resId = R.animator.front_open_xlarge;
+        }
+
+        getFragmentManager().beginTransaction().hide(frontFragment).hide(backFragment).commit();
+        if (state == 0) {//Button menu pressed, BackFragment is hidden
+            state = 1;
+            showStatusBar(false);
+            getFragmentManager().beginTransaction()
+                    .setCustomAnimations(resId, 0)
+                    .show(frontFragment)
+                    .setCustomAnimations(R.animator.back_exposed, 0)
+                    .show(backFragment)
+                    .commit();
+            Log.d("Sergio", "0");
+        } else {
+            state = 0;
+            showStatusBar(true);
+            getFragmentManager().beginTransaction()
+                    .setCustomAnimations(R.animator.front_close, 0)
+                    .show(frontFragment)
+                    .setCustomAnimations(R.animator.back_hidden, 0)
+                    .show(backFragment)
+                    .commit();
+            Log.d("Sergio", "1");
+        }
+
+    }
 
     private void initLivePersonService() {
         GetBaseResource apiInfo = new GetBaseResource();
@@ -222,6 +272,8 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
 
     public void onHome(View view) {
 
+        Log.d(TAG, "Llega al onHome");
+        //overridePendingTransition(R.animator.back_slide_in, R.animator.front_slide_out);
         if (chatState != null && chatState.equals("chatting")) {
             endChat();
         } else {
@@ -230,16 +282,12 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
         super.onHome(view);
     }
 
-    public void onMenuChat(View view) {
-        Log.d(TAG,"Ental al onMenuChat");
-        animate();
-    }
-
     private void endChat() {
 
         EndChat apiInfo = new EndChat(eventsUri);
         AsyncRestHelperChat helper = new AsyncRestHelperChat(apiInfo);
         helper.execute();
+        Log.d(TAG, "Llega al endChat");
     }
 
     private void getChatInfo() {

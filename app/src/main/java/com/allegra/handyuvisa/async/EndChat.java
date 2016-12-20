@@ -11,7 +11,6 @@ public class EndChat extends APIInfoChat {
 
     public static final String APINAME = "EndChat";
     public static final String RESP_CODE = "resp_code";
-
     private static final String TAG = APINAME;
 
     public EndChat(String eventsUri) {
