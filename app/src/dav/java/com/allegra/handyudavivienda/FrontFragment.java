@@ -39,7 +39,7 @@ public class FrontFragment extends Fragment implements
                                     MediaPlayer.OnErrorListener {
 
     private static final String TAG = "FrontFragment";
-    private static final String VIDEO_BACKGROUND = "android.resource://com.allegra.handyudavivienda/raw/background_dark";
+    private static final String VIDEO_BACKGROUND = "android.resource://com.allegra.visabdavivienda/raw/background_dark";
     Surface surf;
     private MediaPlayer mMediaPlayer;
     private TextureView videoView; // TextView for display (similar to VideoView?)

@@ -22,7 +22,7 @@ public class VisaCheckoutApp extends MultiDexApplication {
     private String rawPassword;
     private int idCuenta;
     private String urlHotel;
-    private String path = "android.resource://com.allegra.handyudavivienda/raw/allegra_sound";
+    private String path = "android.resource://com.allegra.visabdavivienda/raw/allegra_sound";
 
 
     @Override
