@@ -41,7 +41,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
     //*********GLOBAL ATTRIBUTES****************
     private final String M_SELECTION_DIVIDER = "mSelectionDivider";
     private String cel_code;
-    CustomizedEditText txtName, txtLastName, txtMobile, txtEmail, txtPass, txtNewPass, txtNewPassConfirm, etNumberOfId, etEmpresa, etEmpresaId;
+    CustomizedEditText txtName, txtLastName, txtMobile, txtEmail, txtPass, txtNewPass, txtNewPassConfirm, etNumberOfId, txtCompany, txtCompanyId;
     Button cancel, save;
     AllemUser user;
     CuentaClienteInfoAdicional ccia;
@@ -164,7 +164,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
         });
 
         //********************COMPANY NAME*******************
-        etEmpresa.addTextChangedListener(new TextWatcher() {
+        txtCompany.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
 
@@ -177,12 +177,12 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if (editable.length() < 2) {
-                    etEmpresa.setTextColor(allColors[0]);//Gray
-                    etEmpresa.setHintTextColor(allColors[0]);//Gray
+                if (editable.length() < 2 || editable.length() > 250) {
+                    txtCompany.setTextColor(allColors[0]);//Gray
+                    txtCompany.setHintTextColor(allColors[0]);//Gray
                 } else {
-                    etEmpresa.setTextColor(allColors[1]);//Black
-                    etEmpresa.setHintTextColor(allColors[1]);//Black
+                    txtCompany.setTextColor(allColors[1]);//Black
+                    txtCompany.setHintTextColor(allColors[1]);//Black
                 }
             }
         });
@@ -201,7 +201,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if (editable.length() < 3) {
+                if (editable.length() < 7 || editable.length() > 15) {
                     txtMobile.setTextColor(allColors[0]);//Gray
                     txtMobile.setHintTextColor(allColors[0]);//Gray
                 } else {
@@ -212,7 +212,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
         });
 
         //********************COMPANY NUMBER*******************
-        etEmpresaId.addTextChangedListener(new TextWatcher() {
+        txtCompanyId.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -225,12 +225,12 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if (editable.length() < 3) {
-                    etEmpresaId.setTextColor(allColors[0]);//Gray
-                    etEmpresaId.setHintTextColor(allColors[0]);//Gray
+                if (editable.length() < 10 || editable.length() > 11) {
+                    txtCompanyId.setTextColor(allColors[0]);//Gray
+                    txtCompanyId.setHintTextColor(allColors[0]);//Gray
                 } else {
-                    etEmpresaId.setTextColor(allColors[1]);//Black
-                    etEmpresaId.setHintTextColor(allColors[1]);//Black
+                    txtCompanyId.setTextColor(allColors[1]);//Black
+                    txtCompanyId.setHintTextColor(allColors[1]);//Black
                 }
             }
         });
@@ -304,8 +304,8 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
         pb_create = (ProgressBar) root.findViewById(R.id.pb_create);
         txtNewPassConfirm=(CustomizedEditText) root.findViewById(R.id.et_reppassword);
         txtSelectCountry = (TextView)root.findViewById(R.id.et_country_mobile);
-        etEmpresa = (CustomizedEditText)root.findViewById(R.id.etempresa);
-        etEmpresaId = (CustomizedEditText)root.findViewById(R.id.etempresaid);
+        txtCompany = (CustomizedEditText)root.findViewById(R.id.etempresa);
+        txtCompanyId = (CustomizedEditText)root.findViewById(R.id.etempresaid);
         loadUserProfile();
         setTextWatchers();
     }
@@ -327,8 +327,8 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
         cel_code = prefs.getString("celular_codigo", "+57");*/
         txtSelectCountry.setText(user.celular_codigo);
         etNumberOfId.setText(user.idNumber);
-        etEmpresa.setText(user.empresa);
-        etEmpresaId.setText(user.idEmpresa);
+        txtCompany.setText(user.empresa);
+        txtCompanyId.setText(user.idEmpresa);
         /*CuentaClienteInfoAdicional ccia = new CuentaClienteInfoAdicional();
         ccia = user.*/
 
@@ -480,8 +480,6 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
         if(validateData()) {
             //Model class for basic Info
             CuentaClienteInfo client = new CuentaClienteInfo();
-            String empresa = etEmpresa.getText().toString();
-            String num_empresa = etEmpresaId.getText().toString();
             client.setSaludo("1");
             client.setIdSesion(((com.allegra.handyuvisa.VisaCheckoutApp) this.getApplication()).getIdSession());
             client.setNombre(txtName.getText().toString());
@@ -495,8 +493,8 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             //Model class for additional Info
             CuentaClienteInfoAdicional additionalInfo = new CuentaClienteInfoAdicional();
             additionalInfo.setCelular(txtMobile.getText().toString());
-            additionalInfo.setEmpresa(empresa);
-            additionalInfo.setNumEmpresa(num_empresa);
+            additionalInfo.setEmpresa(txtCompany.getText().toString());
+            additionalInfo.setNumEmpresa(txtCompanyId.getText().toString());
             additionalInfo.setCiudad("");
             additionalInfo.setClase("");
             additionalInfo.setCelularCodigo(txtSelectCountry.getText().toString());
@@ -563,14 +561,24 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             result = false;
         }
 
-
-        if(txtMobile.getText().toString().equals("")){
+        //*************** Number of Celular***************
+        if(txtMobile.getText().toString().equals("") || txtMobile.getText().toString().length() < 7
+                || txtMobile.getText().toString().length() > 15){
             txtMobile.setHintTextColor(Color.RED);
             result = false;
         }
 
-        if (txtMobile.getText().toString().length()<7){
-            txtMobile.setHintTextColor(Color.RED);
+        //***************Company Name***************
+        if(!txtCompany.getText().toString().equals("") && (txtCompany.getText().toString().length() < 2
+                || txtCompany.getText().toString().length() > 250)){
+            txtCompany.setHintTextColor(Color.RED);
+            result = false;
+        }
+
+        //***************Company Number***************
+        if(!txtCompanyId.getText().toString().equals("") && (txtCompanyId.getText().toString().length() < 10
+                || txtCompanyId.getText().toString().length() > 11)){
+            txtCompanyId.setHintTextColor(Color.RED);
             result = false;
         }
 
