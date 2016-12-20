@@ -36,7 +36,7 @@ public class BackFragment extends Fragment  {
     //public int SCAN_QR_CODE = 123456;
     public MenuSelectListener menulistener;
     public static MenuActivity[] activities;
-    private final String PACKAGE_NAME = "com.allegra.vbendless";
+    private final String PACKAGE_NAME = "com.allem.allemcomercios";
 
 
     //***************INTERFACES*****************
