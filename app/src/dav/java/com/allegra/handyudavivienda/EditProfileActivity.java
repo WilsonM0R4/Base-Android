@@ -35,6 +35,8 @@ import org.ksoap2.serialization.PropertyInfo;
 
 import java.lang.reflect.Field;
 
+import static android.R.attr.editable;
+
 
 public class EditProfileActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
 
@@ -183,6 +185,30 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
                 } else {
                     txtCompany.setTextColor(allColors[1]);//Black
                     txtCompany.setHintTextColor(allColors[1]);//Black
+                }
+            }
+        });
+
+        //*********************COMPANY ID NUMBER***************
+        txtCompanyId.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (editable.length()<1 || editable.length()>11){
+                    txtCompanyId.setTextColor(allColors[0]);
+                    txtCompanyId.setHintTextColor(allColors[0]);
+                }else {
+                    txtCompanyId.setTextColor(allColors[1]);
+                    txtCompanyId.setHintTextColor(allColors[1]);
                 }
             }
         });
@@ -477,6 +503,8 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
     //Validate and send new user information for ActualizarCuenta web service
     private void updateUser(){
 
+        CuentaClienteInfoAdicional additionalInfo = new CuentaClienteInfoAdicional();
+        additionalInfo.setCelular(txtMobile.getText().toString());
         if(validateData()) {
             //Model class for basic Info
             CuentaClienteInfo client = new CuentaClienteInfo();
@@ -487,20 +515,16 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             client.setTipoDocumento(getTypeOfIdToSend(txtTypeOfIdSelected.getText().toString()));
             client.setNumeroDocumento(etNumberOfId.getText().toString());
             client.setCurrentPassword(txtPass.getText().toString());
+            additionalInfo.setEmpresa(txtCompany.getText().toString());
+            additionalInfo.setNumEmpresa(txtCompanyId.getText().toString());
+            client.setCuentaClienteInformacionAdicional(additionalInfo);
             if(txtNewPass.getText().toString().length()>0) {
                 client.setPassword(txtNewPass.getText().toString());
             }
             //Model class for additional Info
-            CuentaClienteInfoAdicional additionalInfo = new CuentaClienteInfoAdicional();
-            additionalInfo.setCelular(txtMobile.getText().toString());
-            additionalInfo.setEmpresa(txtCompany.getText().toString());
-            additionalInfo.setNumEmpresa(txtCompanyId.getText().toString());
             additionalInfo.setCiudad("");
             additionalInfo.setClase("");
             additionalInfo.setCelularCodigo(txtSelectCountry.getText().toString());
-
-            client.setCuentaClienteInformacionAdicional(additionalInfo);
-
             PropertyInfo property = new PropertyInfo();
             property.setName(CuentaClienteInfo.PROPERTY);
             property.setValue(client);
@@ -513,7 +537,6 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             } else {
                 Toast.makeText(this, R.string.err_no_internet, Toast.LENGTH_SHORT).show();
             }
-
 
         }else{
             Toast.makeText(
@@ -569,15 +592,13 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
         }
 
         //***************Company Name***************
-        if(!txtCompany.getText().toString().equals("") && (txtCompany.getText().toString().length() < 2
-                || txtCompany.getText().toString().length() > 250)){
+        if(txtCompany.getText().toString().equals("") || txtCompany.getText().toString().length() > 250){
             txtCompany.setHintTextColor(Color.RED);
             result = false;
         }
 
         //***************Company Number***************
-        if(!txtCompanyId.getText().toString().equals("") && (txtCompanyId.getText().toString().length() < 10
-                || txtCompanyId.getText().toString().length() > 11)){
+        if(txtCompanyId.getText().toString().length()!=10){
             txtCompanyId.setHintTextColor(Color.RED);
             result = false;
         }

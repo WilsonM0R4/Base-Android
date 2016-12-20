@@ -36,7 +36,7 @@ public class MyTips extends FrontBackAnimate implements FrontBackAnimate.Inflate
         webMyTips.setWebViewClient(new MyBrowser());
         back = (ImageButton) root.findViewById(R.id.back_image);
         menu = (ImageButton) root.findViewById(R.id.menu_close);
-        progressBar = (ProgressBar) root.findViewById(R.id.progressBar_benefits);
+        progressBar = (ProgressBar) root.findViewById(R.id.progressBar_MyTips);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
