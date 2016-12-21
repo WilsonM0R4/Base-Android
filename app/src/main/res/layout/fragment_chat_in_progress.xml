@@ -6,15 +6,26 @@
     android:orientation="vertical"
     android:background="@drawable/background"
     android:clickable="true"
+    android:onClick="onCloseMenu"
     tools:context=".ChatActivity">
 
+    <!-- LOADER -->
+    <include layout="@layout/fragment_loading"
+        android:id="@+id/loader"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+    </include>
+
+
+    <!-- HEADER -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:visibility="gone"
         android:background="@color/white"
-        android:onClick="onCloseMenu"
         android:id="@+id/ll_header">
 
         <TextView
@@ -45,21 +56,23 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="5dp"
         android:id="@+id/iv_header"
         android:layout_below="@+id/ll_header"
         android:paddingEnd="-2dp"
+        android:visibility="gone"
         android:paddingStart="-2dp"
         android:src="@drawable/separator_medium_mag"
         android:contentDescription="Divider" />
 
-    <!--</LinearLayout>-->
+    <!--FIN DEL HEADER-->
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:id="@+id/tv_chat_agent"
+        android:visibility="gone"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/iv_header"
         android:text="@string/txt_lbl_agent"
@@ -71,6 +84,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tv_chat_start"
+        android:visibility="gone"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/tv_chat_agent"
         android:text="December 18, 2015"
@@ -83,6 +97,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
+        android:visibility="gone"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="120dp"
         android:divider="@android:color/transparent"
@@ -95,6 +110,7 @@
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:orientation="horizontal"
+        android:visibility="gone"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true">
 
@@ -116,7 +132,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:id="@+id/btn_send"
-            android:text="@string/send"
+            android:text="@string/send_chat"
             android:textColor="@color/chatSendButton_text"
             android:onClick="onAddLines"
             android:layout_alignBottom="@+id/et_chat_msg"
@@ -124,4 +140,6 @@
             android:layout_alignParentEnd="true"/>
 
     </LinearLayout>
+
+
 </RelativeLayout>

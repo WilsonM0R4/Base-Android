@@ -2,6 +2,7 @@ package com.allegra.handyuvisa;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.TextUtils;
@@ -10,8 +11,13 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,26 +47,24 @@ import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
 import com.allegra.handyuvisa.BackFragment;
-//
-public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateReadyListener,
-        com.allegra.handyuvisa.BackFragment.MenuSelectListener,
-        FrontBackAnimate.InflateReadyListener{
+
+public class ChatActivity extends FrontBackAnimate implements
+        FrontBackAnimate.InflateReadyListener{//com.allegra.handyuvisa.BackFragment.MenuSelectListener,
 
     //*****************GLOBAL ATTRIBUTES*****************
 
     private final String TAG = "ChatActivity";
     private static SimpleDateFormat CHAT_TIME_PARSER = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
-    private String requestChatUri;
-    private String chatSessionUri;
-    private String eventsUri;
-    private String nextUri;
-    private String infoUri;
-    private String agentName;
-    private String chatState;
+    private String agentName, infoUri, nextUri, chatState, eventsUri, chatSessionUri, requestChatUri;
     private ListView chatListView;
     private ArrayList<Message> chatMessages;
     private ChatMsgAdapter chatMsgAdapter;
     private EditText sentText;
+    private ImageView animation, iv_header;
+    private RelativeLayout relLoader, relHeader;
+    private Button btnCancel;
+    private TextView tv_chat_agent, tv_chat_start;
+    private LinearLayout form;
 
     //*****************INNER CLASSES*****************
 
@@ -86,9 +90,9 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.setView(R.layout.fragment_chat_in_progress, R.drawable.load__chat,
-                R.string.txt_lbl_setupChat, this);
-        //setView(R.layout.fragment_chat_in_progress, this);
+       /* super.setView(R.layout.fragment_chat_in_progress, R.drawable.load__chat,
+                R.string.txt_lbl_setupChat, this);*/
+        setView(R.layout.fragment_chat_in_progress, this);
 
         initLivePersonService();
         MyBus.getInstance().register(this);
@@ -108,18 +112,38 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
         chatListView = (ListView) root.findViewById(R.id.lv_chat_msg);
         chatListView.setAdapter(chatMsgAdapter);
         sentText = (EditText) root.findViewById(R.id.et_chat_msg);
+        relLoader = (RelativeLayout)root.findViewById(R.id.loader);
+        relHeader = (RelativeLayout)root.findViewById(R.id.ll_header);
+        animation = (ImageView)root.findViewById(R.id.load_circle);
+        iv_header = (ImageView)root.findViewById(R.id.iv_header);
+        animation.post(new Runnable() {
+            @Override
+            public void run() {
+                ((AnimationDrawable) animation.getBackground()).start();
+            }
+        });
+        btnCancel = (Button)root.findViewById(R.id.cancel_one_touch);
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+        tv_chat_agent = (TextView)root.findViewById(R.id.tv_chat_agent);
+        tv_chat_start = (TextView)root.findViewById(R.id.tv_chat_start);
+        form = (LinearLayout)root.findViewById(R.id.form);
     }
 
     @Override
     public void onBackPressed() {
 
-        super.onBackPressed();
+        //super.onBackPressed();
         Log.d(TAG, "Back button is pressed");
-        if (chatState != null && chatState.equals("chatting")) {
+        /*if (chatState != null && chatState.equals("chatting")) {
             endChat();
         } else {
             Log.d(TAG, "Closing before chat has started");
-        }
+        }*/
     }
 
     @Override
@@ -144,16 +168,31 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
         super.getStartActivity(intent);
     }
 
-    @Override
+
+ /*   @Override
     public void onCancelLoading() {
         Log.d(TAG, "Llega al onCancelLoading");
         finish();
-    }
+    }*/
 
 
     //*****************PROPER METHODS*****************
-    public void onCloseMenuChat(View v){
-        animateBetter();
+
+    public void onMenu(View v){
+        animate();
+    }
+
+    public void showLayout(){
+        relHeader.setVisibility(View.VISIBLE);
+        iv_header.setVisibility(View.VISIBLE);
+        tv_chat_agent.setVisibility(View.VISIBLE);
+        tv_chat_start.setVisibility(View.VISIBLE);
+        chatListView.setVisibility(View.VISIBLE);
+        form.setVisibility(View.VISIBLE);
+    }
+
+    public void onCloseMenu(View v){
+        animate();
     }
 
     private void initLivePersonService() {
@@ -330,7 +369,11 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
                         handleAgentChatMsg(data);
                         updateChatHeader(data.get(ChatResourceEventsInfo.AGENT_NAME));
                         errorExists = false;
-                        animate();
+                        //animate();
+                        //Hide loader
+                        relLoader.setVisibility(View.GONE);
+                        //Show layout
+                        showLayout();
                         getChatEventsNext();
                     } else {
                         getChatInfo();
@@ -348,7 +391,11 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
                         agentName = data.get(ChatInfo.AGENT_NAME);
                         Log.d(TAG, "Agent name: " + agentName);
                         updateChatHeader(data.get(ChatInfo.AGENT_NAME));
-                        animate();
+                        //animate();
+                        //Hide loader
+                        relLoader.setVisibility(View.GONE);
+                        //Show layout
+                        showLayout();
                         getChatEventsNext(); // now keep polling for details
                     } else if (chatState.equals("ended")) {
                         Log.d(TAG, "info: Chat state ended");
@@ -385,7 +432,7 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
 
             } else if (event.getApiName().equalsIgnoreCase(EndChat.APINAME)) {
                 if (data.containsKey(EndChat.RESP_CODE)) {
-                    //finish();
+                    finish();
                     errorExists = false;
                 } else {
                     Log.e(TAG, "EndChat fails");

@@ -136,7 +136,7 @@ public class FrontBackAnimate extends FragmentActivity implements BackFragment.M
                     .setCustomAnimations(R.animator.back_exposed, 0)
                     .show(backFragment)
                     .commit();
-            Log.d(TAG, "0");
+            Log.d(TAG, "Llega 0");
         } else {
             state = 0;
             showStatusBar(true);
@@ -146,7 +146,7 @@ public class FrontBackAnimate extends FragmentActivity implements BackFragment.M
                     .setCustomAnimations(R.animator.back_hidden, 0)
                     .show(backFragment)
                     .commit();
-            Log.d(TAG, "1");
+            Log.d(TAG, "Llega 1");
         }
 
     }
