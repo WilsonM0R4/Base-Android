@@ -115,6 +115,7 @@
     <string name="txt_lbl_mute">Mute</string>
     <string name="txt_lbl_disconnect">OneTouch Call disconnected</string>
     <string name="txt_lbl_connect_err">Onetouchcall is not available right now. Please try again later.</string>
+    <string name="txt_lbl_cancelling">We are cancelling your call.</string>
     <string name="txt_lbl_agent">You are talking: %s</string>
     <string name="txt_lbl_chat_ts">%d minutes ago</string>
     <string name="txt_lbl_departure">FROM</string>

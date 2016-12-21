@@ -47,6 +47,7 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
     private float mSensorRange;
     private boolean speakerOff = true;
     private boolean muteOff = true;
+    private boolean toCancel = false;
     private TextView txtTitle;
     String[] PERMISSIONS = { android.Manifest.permission.RECORD_AUDIO, android.Manifest.permission.MODIFY_AUDIO_SETTINGS,
             android.Manifest.permission.READ_PHONE_STATE};
@@ -138,7 +139,8 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
     @Override
     public void onCancelLoading() {
         Log.d(TAG, "CANCEL button pressed");
-        finish();
+        toCancel = true;
+        setStatus(R.string.txt_lbl_cancelling);
     }
 
     @Override
@@ -172,8 +174,12 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
     public void onConnectionConnected() {
         addStatusMessage("Connected: current status = " + statusCall);
         if(statusCall==STANDBY||statusCall==CALLIP){
-            statusCall=CALLING;
-            setButton(statusCall);
+            if (toCancel) {
+                finish();
+            } else {
+                statusCall = CALLING;
+                setButton(statusCall);
+            }
         }
     }
 
@@ -239,7 +245,7 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
 
     @Override
     public void onLoginFinished() {
-        addStatusMessage("Token Obtained ... call OTC# now: " + OTC_NUMBER);
+        addStatusMessage("Token Obtained ... call OTC# now");
         if (!phone.isConnected()) {
             Map<String, String> params = new HashMap<String, String>();
             params.put("To", OTC_NUMBER);

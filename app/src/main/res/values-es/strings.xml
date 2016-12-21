@@ -132,7 +132,7 @@
     <string name="txt_lbl_disconnect">OneTouch Call se desconectó</string>
     <string name="err_no_internet">No hay conexión a internet.</string>
     <string name="txt_lbl_connect_err">Onetouchcall no está disponible en este momento. Por favor, inténtelo de nuevo más tarde.</string>
-
+    <string name="txt_lbl_cancelling">Estamos cancelando su llamada.</string>
     <string name="txt_lbl_chat_ts">Hace %d minutos</string>
     <string name="txt_lbl_departure">SALIDA</string>
     <string name="txt_lbl_arrival">LLEGADA</string>
@@ -542,5 +542,4 @@
     <string name="title_onetouch_call">Onetouch call</string>
     <string name="title_onetouch_chat">Onetouch chat</string>
     <string name="title_live_tranquility">¡Vive con tranquilidad!</string>
-
 </resources>
