@@ -192,7 +192,7 @@ public class ChatActivity extends FrontBackAnimate implements
     }
 
     public void onCloseMenu(View v){
-        animate();
+        animateBetter();
     }
 
     private void initLivePersonService() {

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.graphics.drawable.AnimationDrawable;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -17,17 +18,21 @@ import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.allegra.handyuvisa.twilio.BasicPhone;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CallActivity extends LoadAnimate implements BasicPhone.LoginListener,
+public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginListener,
         BasicPhone.BasicConnectionListener,BasicPhone.BasicDeviceListener,
-        SensorEventListener, LoadAnimate.InflateReadyListener,
+        SensorEventListener,
         com.allegra.handyuvisa.BackFragment.MenuSelectListener,
-        FrontBackAnimate.InflateReadyListener{
+        FrontBackAnimate.InflateReadyListener{//LoadAnimate.InflateReadyListener,
 
     //*************GLOBAL ATTRIBUTES**************
     protected String OTC_NUMBER = "+13057227632";//Older: +13055605384
@@ -51,13 +56,20 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
     private TextView txtTitle;
     String[] PERMISSIONS = { android.Manifest.permission.RECORD_AUDIO, android.Manifest.permission.MODIFY_AUDIO_SETTINGS,
             android.Manifest.permission.READ_PHONE_STATE};
+    private ImageView animation, iv_header;
+    private RelativeLayout relLoader, relHeader;
+    private Button btnCancel;
+    private TextView tv_status_otc_connected, txtMute, txtSpeaker;
+    private ImageButton btn_callinprogress, toggle_mute, toggle_speaker;
 
     //**************************OVERRIDE METHODS***************************
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.setView(R.layout.fragment_call_in_progress, R.drawable.load__call,
-                R.string.txt_lbl_callwait, this);
+        /*super.setView(R.layout.fragment_call_in_progress, R.drawable.load__call,
+                R.string.txt_lbl_callwait, this);*/
+        setView(R.layout.fragment_call_in_progress, this);
+
         addStatusMessage("One Touch Call");
         ctx = this;
         phone = BasicPhone.getInstance(getApplicationContext());
@@ -134,14 +146,37 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
     @Override
     public void initViews(View root) {
         setActionbar();
+        relLoader = (RelativeLayout)root.findViewById(R.id.loader);
+        relHeader = (RelativeLayout)root.findViewById(R.id.ll_header);
+        animation = (ImageView)root.findViewById(R.id.load_circle);
+        iv_header = (ImageView)root.findViewById(R.id.iv_header);
+        animation.post(new Runnable() {
+            @Override
+            public void run() {
+                ((AnimationDrawable) animation.getBackground()).start();
+            }
+        });
+        btnCancel = (Button)root.findViewById(R.id.endCall);
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+        tv_status_otc_connected = (TextView)root.findViewById(R.id.tv_status_otc_connected);
+        txtMute = (TextView)root.findViewById(R.id.txtMute);
+        txtSpeaker = (TextView)root.findViewById(R.id.txtSpeaker);
+        btn_callinprogress = (ImageButton)root.findViewById(R.id.btn_callinprogress);
+        toggle_mute = (ImageButton)root.findViewById(R.id.toggle_mute);
+        toggle_speaker  = (ImageButton)root.findViewById(R.id.toggle_speaker);
     }
 
-    @Override
+  /*  @Override
     public void onCancelLoading() {
         Log.d(TAG, "CANCEL button pressed");
         toCancel = true;
         setStatus(R.string.txt_lbl_cancelling);
-    }
+    }*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -222,7 +257,7 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
     public void onDeviceStartedListening() {
 
         addStatusMessage("Device is listening for incoming connections");
-        showProgress(false);
+        //showProgress(false);
         statusCall=STANDBY;
         setButton(statusCall);
     }
@@ -235,7 +270,7 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
             addStatusMessage("Device is no longer listening for incoming connections");
         }
         setButton(-1);
-        setStatus(R.string.txt_lbl_disconnect);
+        //setStatus(R.string.txt_lbl_disconnect);
     }
 
     @Override
@@ -261,8 +296,8 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
     public void onLoginError(Exception error) {
         if(error!=null) addStatusMessage("Error Obtaining token " + error.getLocalizedMessage() + ":" + error.hashCode());
         else addStatusMessage("Login error");
-        showProgress(false);
-        setStatus(R.string.txt_lbl_disconnect);
+        /*showProgress(false);
+        setStatus(R.string.txt_lbl_disconnect);*/
     }
 
     @Override
@@ -291,6 +326,23 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
 
     //*******************PROPER METHODS**************
 
+    public void showLayout(){
+        relHeader.setVisibility(View.VISIBLE);
+        iv_header.setVisibility(View.VISIBLE);
+        tv_status_otc_connected.setVisibility(View.VISIBLE);
+        txtMute.setVisibility(View.VISIBLE);
+        txtSpeaker.setVisibility(View.VISIBLE);
+        btn_callinprogress.setVisibility(View.VISIBLE);
+        toggle_mute.setVisibility(View.VISIBLE);
+        toggle_speaker.setVisibility(View.VISIBLE);
+        btnCancel.setVisibility(View.VISIBLE);
+
+    }
+
+    public void onCloseMenu(View v){
+        animateBetter();
+    }
+
     private void setCallSettings(){
 
         mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
@@ -309,6 +361,9 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
         }
 
     }
+    public void onMenu(View v){
+        animate();
+    }
 
     private void setListeners() {
         phone.setListeners(this, this, this);
@@ -320,17 +375,21 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
             public void run() {
                 switch (callstatus) {
                     case STANDBY:
-                        showProgress(true);
+                        //showProgress(true);
                         break;
                     case CALLIP:
-                        showProgress(true);
+                        //showProgress(true);
                         break;
                     case CALLING:
-                        showProgress(true);
-                        animate();
+                        //showProgress(true);
+                        //Hide loader
+                        relLoader.setVisibility(View.GONE);
+                        //Show layout
+                        showLayout();
+                        //animate();
                         break;
                     default:
-                        showProgress(false);
+                        //showProgress(false);
                 }
             }
         });
