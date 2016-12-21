@@ -106,7 +106,8 @@ public class FrontBackAnimate extends FragmentActivity implements BackFragment.M
     }
 
     //********************PROPER METHODS**********************
-    protected void setView(int resId, FrontBackAnimate.InflateReadyListener listener) {
+    public void  setView(int resId, FrontBackAnimate.InflateReadyListener listener) {
+        Log.d(TAG, "Llega setView");
         frontLayoutResId = resId;
         inflateListener = listener;
     }
@@ -115,7 +116,7 @@ public class FrontBackAnimate extends FragmentActivity implements BackFragment.M
         return R.layout.fragment_front;
     }
 
-    protected void animate() {
+    public void animate() {
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -135,7 +136,7 @@ public class FrontBackAnimate extends FragmentActivity implements BackFragment.M
                     .setCustomAnimations(R.animator.back_exposed, 0)
                     .show(backFragment)
                     .commit();
-            Log.d("Sergio", "0");
+            Log.d(TAG, "0");
         } else {
             state = 0;
             showStatusBar(true);
@@ -145,7 +146,7 @@ public class FrontBackAnimate extends FragmentActivity implements BackFragment.M
                     .setCustomAnimations(R.animator.back_hidden, 0)
                     .show(backFragment)
                     .commit();
-            Log.d("Sergio", "1");
+            Log.d(TAG, "1");
         }
 
     }
@@ -200,6 +201,8 @@ public class FrontBackAnimate extends FragmentActivity implements BackFragment.M
         //animate();
         animateBetter();
     }
+
+
 
     public void showStatusBar(boolean toShow) {
         View decorView = getWindow().getDecorView();

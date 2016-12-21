@@ -74,6 +74,7 @@
     <string name="pay_with_visa_privilege">Paga con VISA y obten un descuento especial</string>
     <string name="create_account">CREAR CUENTA</string>
     <string name="send">Enviar</string>
+    <string name="send_chat">Enviar</string>
     <string name="check_email">Revisa tu correo!</string>
     <string name="conf_email1">Hemos enviado un correo a </string>
     <string name="conf_email2">con un enlace seguro para reestablecer tu contraseña.</string>

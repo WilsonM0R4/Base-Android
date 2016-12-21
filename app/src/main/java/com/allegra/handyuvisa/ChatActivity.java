@@ -41,8 +41,8 @@ import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
 import com.allegra.handyuvisa.BackFragment;
-//LoadAnimate.InflateReadyListener,
-public class ChatActivity extends FrontBackAnimate implements
+//
+public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateReadyListener,
         com.allegra.handyuvisa.BackFragment.MenuSelectListener,
         FrontBackAnimate.InflateReadyListener{
 
@@ -86,9 +86,10 @@ public class ChatActivity extends FrontBackAnimate implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        /*super.setView(R.layout.fragment_chat_in_progress, R.drawable.load__chat,
-                R.string.txt_lbl_setupChat, this);*/
-        setView(R.layout.fragment_chat_in_progress, this);
+        super.setView(R.layout.fragment_chat_in_progress, R.drawable.load__chat,
+                R.string.txt_lbl_setupChat, this);
+        //setView(R.layout.fragment_chat_in_progress, this);
+
         initLivePersonService();
         MyBus.getInstance().register(this);
     }
@@ -143,47 +144,16 @@ public class ChatActivity extends FrontBackAnimate implements
         super.getStartActivity(intent);
     }
 
-   /* @Override
+    @Override
     public void onCancelLoading() {
         Log.d(TAG, "Llega al onCancelLoading");
         finish();
-    }*/
+    }
 
 
     //*****************PROPER METHODS*****************
-    protected void animate() {
-
-        DisplayMetrics dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(dm);
-        int width = dm.widthPixels;
-        int resId = R.animator.front_open;
-        if (width > 800) {
-            resId = R.animator.front_open_xlarge;
-        }
-
-        getFragmentManager().beginTransaction().hide(frontFragment).hide(backFragment).commit();
-        if (state == 0) {//Button menu pressed, BackFragment is hidden
-            state = 1;
-            showStatusBar(false);
-            getFragmentManager().beginTransaction()
-                    .setCustomAnimations(resId, 0)
-                    .show(frontFragment)
-                    .setCustomAnimations(R.animator.back_exposed, 0)
-                    .show(backFragment)
-                    .commit();
-            Log.d("Sergio", "0");
-        } else {
-            state = 0;
-            showStatusBar(true);
-            getFragmentManager().beginTransaction()
-                    .setCustomAnimations(R.animator.front_close, 0)
-                    .show(frontFragment)
-                    .setCustomAnimations(R.animator.back_hidden, 0)
-                    .show(backFragment)
-                    .commit();
-            Log.d("Sergio", "1");
-        }
-
+    public void onCloseMenuChat(View v){
+        animateBetter();
     }
 
     private void initLivePersonService() {

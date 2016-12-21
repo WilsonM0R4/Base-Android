@@ -32,7 +32,9 @@ public class LoadAnimate extends FragmentActivity implements BackFragment.MenuSe
     private static final String FRAGMENT_BACK = "FRAGMENT_BACK";
     private static final String FRAGMENT_LOADING = "LOADING";
     private static final String FRAGMENT_IN_PROGRESS = "IN_PROGRESS";
+   // private static final String FRAGMENT_FRONT = "FRAGMENT_FRONT";
     private BackFragment backFragment;
+    //private FrontBackAnimate.FrontFragment frontFragment;
     private LoadingFragment loadingFragment;
     private InProgressFragment inProgressFragment;
     private int state = 0;
@@ -63,6 +65,11 @@ public class LoadAnimate extends FragmentActivity implements BackFragment.MenuSe
                 .add(R.id.container_load_animate, inProgressFragment, FRAGMENT_IN_PROGRESS)
                 .add(R.id.container_load_animate, loadingFragment, FRAGMENT_LOADING)
                 .commit();
+        //********
+        /*frontFragment = new FrontBackAnimate.FrontFragment();
+        getFragmentManager().beginTransaction()
+                .add(R.id.container_front_back, frontFragment, FRAGMENT_FRONT)
+                .commit();*/
 
         getFragmentManager().beginTransaction().hide(inProgressFragment).commit();
         backFragment = (BackFragment) getFragmentManager().findFragmentByTag(FRAGMENT_BACK);
@@ -80,6 +87,7 @@ public class LoadAnimate extends FragmentActivity implements BackFragment.MenuSe
 
      public  void animateBetter(){
 
+         Log.d(TAG, "Llega al animateBetter");
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         int width = dm.widthPixels;
@@ -87,11 +95,34 @@ public class LoadAnimate extends FragmentActivity implements BackFragment.MenuSe
         if (width > 800) {
             resId = R.animator.front_open_xlarge;
         }
+         getFragmentManager().beginTransaction().hide(loadingFragment).hide(backFragment).commit();
+         if (state == 0) {//Button menu pressed, BackFragment is hidden
+             state = 1;
+             showStatusBar(false);
+             getFragmentManager().beginTransaction()
+                     .setCustomAnimations(resId, 0)
+                     .show(loadingFragment)
+                     .setCustomAnimations(R.animator.back_exposed, 0)
+                     .show(backFragment)
+                     .commit();
+             Log.d(TAG, "Llega 0");
+         } else {
+             state = 0;
+             showStatusBar(true);
+             getFragmentManager().beginTransaction()
+                     .setCustomAnimations(R.animator.front_close, 0)
+                     .show(loadingFragment)
+                     .setCustomAnimations(R.animator.back_hidden, 0)
+                     .show(backFragment)
+                     .commit();
+             Log.d(TAG, "Llega 1");
+         }
 
-        if (state == 1) {
+
+         /* if (state == 1) {
             getFragmentManager().beginTransaction().hide(loadingFragment).hide(backFragment).commit();
             //state = 1;
-            Log.d("Sergio", "Entra al state == 1");
+            Log.d(TAG, "Llega al state == 1");
             state = 0;
             showStatusBar(true);
             getFragmentManager().beginTransaction()
@@ -100,7 +131,7 @@ public class LoadAnimate extends FragmentActivity implements BackFragment.MenuSe
                     .setCustomAnimations(R.animator.back_hidden, 0)
                     .show(backFragment)
                     .commit();
-        }
+        }*/
     }
 
     public void onCloseMenu(View view) {
@@ -138,7 +169,6 @@ public class LoadAnimate extends FragmentActivity implements BackFragment.MenuSe
         } else {
             Log.d(TAG, "fragment is null????");
         }
-
     }
 
     protected void animateFrontBack() {

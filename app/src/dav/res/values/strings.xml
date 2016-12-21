@@ -66,6 +66,7 @@
     <string name="mCard_Premium">Disfruta tus viajes sin preocupaciones durante todo el año. Tendrás 100.000 USD en gastos médicos que te dan tranquilidad y confianza.</string>
     <string name="create_account">CREATE ACCOUNT</string>
     <string name="send">RESET MY PASSWORD</string>
+    <string name="send_chat">Send</string>
     <string name="send_again">SEND AGAIN</string>
     <string name="go_to_email">Go to email</string>
     <string name="go_to_login">BACK TO LOGIN</string>
