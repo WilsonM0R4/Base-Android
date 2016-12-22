@@ -21,6 +21,7 @@ public class SslConnection {
     private static TrustManager[] trustManagers;
     private static final String URBAN_AIRSHIP = "device-api.urbanairship.com";
     private static final String LIVEPERSON = "server.iad.liveperson.net";
+    private static final String ALLEGRA_PLATFORM = "pruebas.allegraplatform.com";
 
     private static class CustomX509TrustManager implements javax.net.ssl.X509TrustManager {
         private static final X509Certificate[] _AcceptedIssuers = new X509Certificate[]{};
@@ -52,7 +53,8 @@ public class SslConnection {
                         hostname.equals(Constants.URL_HOSTNAME_ALLEGRA_PLATFORM)||
                         hostname.equals(Constants.URL_HOSTNAME_APPS_FLYER)||
                         hostname.equals(URBAN_AIRSHIP)||
-                        hostname.equals(LIVEPERSON))return true;
+                        hostname.equals(LIVEPERSON)||
+                        hostname.equals(ALLEGRA_PLATFORM))return true;
                 else return false;
             }
         });

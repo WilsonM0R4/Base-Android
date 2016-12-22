@@ -58,7 +58,7 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
             android.Manifest.permission.READ_PHONE_STATE};
     private ImageView animation, iv_header;
     private RelativeLayout relLoader, relHeader;
-    private Button btnCancel;
+    private Button btnCancel, btnTest;
     private TextView tv_status_otc_connected, txtMute, txtSpeaker;
     private ImageButton btn_callinprogress, toggle_mute, toggle_speaker;
 
@@ -160,6 +160,15 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d(TAG, "Llega al cancel call");
+                finish();
+            }
+        });
+        btnTest = (Button)root.findViewById(R.id.test);
+        btnTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "Llega al test");
                 finish();
             }
         });
