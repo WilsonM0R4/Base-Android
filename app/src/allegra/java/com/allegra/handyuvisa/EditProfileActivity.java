@@ -428,7 +428,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             CuentaClienteInfoAdicional additionalInfo = new CuentaClienteInfoAdicional();
             additionalInfo.setCelular(txtMobile.getText().toString());
             additionalInfo.setEmpresa("");
-            additionalInfo.setCargo("");
+            //additionalInfo.setCargo("");
             additionalInfo.setCiudad("");
             additionalInfo.setClase("");
             additionalInfo.setCelularCodigo(txtSelectCountry.getText().toString());
