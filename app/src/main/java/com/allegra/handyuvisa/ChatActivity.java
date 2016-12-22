@@ -62,7 +62,7 @@ public class ChatActivity extends FrontBackAnimate implements
     private EditText sentText;
     private ImageView animation, iv_header;
     private RelativeLayout relLoader, relHeader;
-    private Button btnCancel;
+    private Button btnCancel, btnTest;
     private TextView tv_chat_agent, tv_chat_start;
     private LinearLayout form;
 
@@ -123,9 +123,20 @@ public class ChatActivity extends FrontBackAnimate implements
             }
         });
         btnCancel = (Button)root.findViewById(R.id.cancel_one_touch);
+        Log.d(TAG, "Llega antes de los cLlick");
+
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d(TAG, "Llega al cancel in chat");
+                finish();
+            }
+        });
+        btnTest = (Button)root.findViewById(R.id.test);
+        btnTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "Llega al test");
                 finish();
             }
         });

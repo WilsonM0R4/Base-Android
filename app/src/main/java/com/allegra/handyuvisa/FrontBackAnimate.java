@@ -57,37 +57,6 @@ public class FrontBackAnimate extends FragmentActivity implements BackFragment.M
         finish();
     }
 
-    /*@Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        Log.e("Sergio","Llega al if antes");
-        super.onActivityResult(requestCode, resultCode, data);
-        Class classForReturn = null;
-
-        switch (requestCode){
-
-            case Constants.REQUEST_CODE_MCARD:
-                classForReturn = Mcardhtml.class;
-                break;
-            case Constants.REQUEST_CODE_HOTELS:
-                classForReturn = HotelsActivity.class;
-                break;
-            case Constants.REQUEST_CODE_CONCIERGE:
-                classForReturn = ConciergeActivity.class;
-                break;
-            case Constants.REQUEST_CODE_SERVICES:
-                classForReturn = ServiceActivity.class;
-                break;
-            case Constants.REQUEST_CODE_SCAN_QR:
-                classForReturn = QRScanActivity.class;
-                break;
-        }
-
-        Intent intent = new Intent(getApplicationContext(),classForReturn);
-        startActivity(intent);
-        Log.e("Sergio","Llega al if");
-        //finish();
-    }*/
 
     //**********************INNER CLASSES***************************
     public static class FrontFragment extends Fragment {
