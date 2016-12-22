@@ -415,7 +415,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             //Model class for basic Info
             CuentaClienteInfo client = new CuentaClienteInfo();
             client.setSaludo("1");
-            client.setIdSesion(((VisaCheckoutApp) this.getApplication()).getIdSession());
+            client.setIdSesion(((com.allegra.handyuvisa.VisaCheckoutApp) this.getApplication()).getIdSession());
             client.setNombre(txtName.getText().toString());
             client.setApellido(txtLastName.getText().toString());
             client.setTipoDocumento(getTypeOfIdToSend(txtTypeOfIdSelected.getText().toString()));
@@ -428,7 +428,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             CuentaClienteInfoAdicional additionalInfo = new CuentaClienteInfoAdicional();
             additionalInfo.setCelular(txtMobile.getText().toString());
             additionalInfo.setEmpresa("");
-            additionalInfo.setCargo("");
+            //dditionalInfo.setCargo("");
             additionalInfo.setCiudad("");
             additionalInfo.setClase("");
             additionalInfo.setCelularCodigo(txtSelectCountry.getText().toString());
@@ -439,7 +439,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             property.setName(CuentaClienteInfo.PROPERTY);
             property.setValue(client);
             property.setType(client.getClass());
-            Log.d("IDSession",((VisaCheckoutApp)this.getApplication()).getIdSession());
+            Log.d("IDSession",((com.allegra.handyuvisa.VisaCheckoutApp)this.getApplication()).getIdSession());
             if (Util.hasInternetConnectivity(this)) {
                 setWaitinUI(true);
                 AsyncSoapObject.getInstance(Constants.getWSDL(), Constants.NAMESPACE_ALLEM,
