@@ -468,7 +468,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         if (celular.length() < 1) celular = "-";//If goes empty
         CuentaClienteInfoAdicional ccia = new CuentaClienteInfoAdicional();
         ccia.setEmpresa("");
-        ccia.setCargo("");
+        //ccia.setCargo("");
         ccia.setCelular(celular);
         ccia.setCiudad("");
         ccia.setClase("");
