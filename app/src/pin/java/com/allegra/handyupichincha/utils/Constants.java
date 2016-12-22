@@ -16,8 +16,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 
-import static android.R.attr.x;
-
 /**
  * Created by victor on 26/02/15.
  * com.allem.allemevent.utils

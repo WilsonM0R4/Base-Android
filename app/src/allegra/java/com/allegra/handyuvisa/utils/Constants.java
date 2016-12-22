@@ -496,7 +496,7 @@ public class Constants {
                     KeySaver.getStringSavedShare(ctx,KEY_SURNAME),
                     KeySaver.getStringSavedShare(ctx,KEY_EMAIL),"","",0,false,KeySaver.getStringSavedShare(ctx,KEY_MOBILE_NUMBER),
                     KeySaver.getStringSavedShare(ctx,KEY_ID_NUMBER),KeySaver.getStringSavedShare(ctx,KEY_ID_TYPE),
-                    KeySaver.getStringSavedShare(ctx,KEY_ID_COUNTRY) , KeySaver.getStringSavedShare(ctx,KEY_ID_MOBILE_CODE));
+                    KeySaver.getStringSavedShare(ctx,KEY_ID_COUNTRY) , KeySaver.getStringSavedShare(ctx,KEY_ID_MOBILE_CODE),"","");
                     String testCode =    KeySaver.getStringSavedShare(ctx,KEY_ID_MOBILE_CODE);
             //Log.d(TAG, testCode);
             user.channel=KeySaver.getStringSavedShare(ctx,KEY_PUSH_CHANNEL);
