@@ -146,24 +146,26 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
     @Override
     public void initViews(View root) {
         setActionbar();
-       /* relLoader = (RelativeLayout)root.findViewById(R.id.loader);
+        //relLoader = (RelativeLayout)root.findViewById(R.id.loader);
         relHeader = (RelativeLayout)root.findViewById(R.id.ll_header);
         animation = (ImageView)root.findViewById(R.id.load_circle);
         iv_header = (ImageView)root.findViewById(R.id.iv_header);
-        animation.post(new Runnable() {
+        /*animation.post(new Runnable() {
             @Override
             public void run() {
                 ((AnimationDrawable) animation.getBackground()).start();
             }
-        });
+        });*/
         btnCancel = (Button)root.findViewById(R.id.endCall);
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "Llega al cancel call");
+                toCancel = true;
+                setStatus(R.string.txt_lbl_cancelling);
                 finish();
             }
-        });*/
+        });
         /*btnTest = (Button)root.findViewById(R.id.test);
         btnTest.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -172,13 +174,13 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
                 toCancel = true;
                 finish();
             }
-        });
+        });*/
         tv_status_otc_connected = (TextView)root.findViewById(R.id.tv_status_otc_connected);
         txtMute = (TextView)root.findViewById(R.id.txtMute);
         txtSpeaker = (TextView)root.findViewById(R.id.txtSpeaker);
         btn_callinprogress = (ImageButton)root.findViewById(R.id.btn_callinprogress);
         toggle_mute = (ImageButton)root.findViewById(R.id.toggle_mute);
-        toggle_speaker  = (ImageButton)root.findViewById(R.id.toggle_speaker);*/
+        toggle_speaker  = (ImageButton)root.findViewById(R.id.toggle_speaker);
     }
 
     @Override
@@ -267,7 +269,7 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
     public void onDeviceStartedListening() {
 
         addStatusMessage("Device is listening for incoming connections");
-        //showProgress(false);
+        showProgress(false);
         statusCall=STANDBY;
         setButton(statusCall);
     }
@@ -280,7 +282,7 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
             addStatusMessage("Device is no longer listening for incoming connections");
         }
         setButton(-1);
-        //setStatus(R.string.txt_lbl_disconnect);
+        setStatus(R.string.txt_lbl_disconnect);
     }
 
     @Override
@@ -306,8 +308,8 @@ public class CallActivity extends LoadAnimate implements BasicPhone.LoginListene
     public void onLoginError(Exception error) {
         if(error!=null) addStatusMessage("Error Obtaining token " + error.getLocalizedMessage() + ":" + error.hashCode());
         else addStatusMessage("Login error");
-        /*showProgress(false);
-        setStatus(R.string.txt_lbl_disconnect);*/
+        showProgress(false);
+        setStatus(R.string.txt_lbl_disconnect);
     }
 
     @Override

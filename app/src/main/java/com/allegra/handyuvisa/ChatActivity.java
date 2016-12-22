@@ -112,10 +112,11 @@ public class ChatActivity extends LoadAnimate implements
         chatListView = (ListView) root.findViewById(R.id.lv_chat_msg);
         chatListView.setAdapter(chatMsgAdapter);
         sentText = (EditText) root.findViewById(R.id.et_chat_msg);
-      /*  relLoader = (RelativeLayout)root.findViewById(R.id.loader);
         relHeader = (RelativeLayout)root.findViewById(R.id.ll_header);
-        animation = (ImageView)root.findViewById(R.id.load_circle);
         iv_header = (ImageView)root.findViewById(R.id.iv_header);
+      /*  relLoader = (RelativeLayout)root.findViewById(R.id.loader);
+        animation = (ImageView)root.findViewById(R.id.load_circle);
+
         animation.post(new Runnable() {
             @Override
             public void run() {
@@ -156,11 +157,11 @@ public class ChatActivity extends LoadAnimate implements
 
         //super.onBackPressed();
         Log.d(TAG, "Back button is pressed");
-        /*if (chatState != null && chatState.equals("chatting")) {
+        if (chatState != null && chatState.equals("chatting")) {
             endChat();
         } else {
             Log.d(TAG, "Closing before chat has started");
-        }*/
+        }
     }
 
     @Override
@@ -193,12 +194,12 @@ public class ChatActivity extends LoadAnimate implements
     }
 
     public void showLayout(){
-      /*  relHeader.setVisibility(View.VISIBLE);
+        relHeader.setVisibility(View.VISIBLE);
         iv_header.setVisibility(View.VISIBLE);
         tv_chat_agent.setVisibility(View.VISIBLE);
         tv_chat_start.setVisibility(View.VISIBLE);
         chatListView.setVisibility(View.VISIBLE);
-        form.setVisibility(View.VISIBLE);*/
+        form.setVisibility(View.VISIBLE);
     }
 
     public void onCloseMenu(View v){
@@ -383,7 +384,7 @@ public class ChatActivity extends LoadAnimate implements
                         //Hide loader
                         //relLoader.setVisibility(View.GONE);
                         //Show layout
-                        //showLayout();
+                        showLayout();
                         getChatEventsNext();
                     } else {
                         getChatInfo();
@@ -405,7 +406,7 @@ public class ChatActivity extends LoadAnimate implements
                         //Hide loader
                         //relLoader.setVisibility(View.GONE);
                         //Show layout
-                        //showLayout();
+                        showLayout();
                         getChatEventsNext(); // now keep polling for details
                     } else if (chatState.equals("ended")) {
                         Log.d(TAG, "info: Chat state ended");
