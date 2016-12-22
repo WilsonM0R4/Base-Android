@@ -270,7 +270,7 @@ public class LoadAnimate extends FragmentActivity implements BackFragment.MenuSe
 
             fabButton = (ImageView) root.findViewById(R.id.load_circle);
             //ImageView icon_wait = (ImageView)root.findViewById(R.id.frame_gif);
-            //Button endCall = (Button) root.findViewById(R.id.cancel_one_touch);
+            Button endCall = (Button) root.findViewById(R.id.cancel_one_touch);
             int iconRes = statusIconRes;
             //icon_wait.setImageDrawable(getResources().getDrawable(iconRes));
             status = (TextView) root.findViewById(R.id.tv_status_otc);
@@ -286,13 +286,13 @@ public class LoadAnimate extends FragmentActivity implements BackFragment.MenuSe
                     ((AnimationDrawable) fabButton.getBackground()).start();
                 }
             });
-            /*endCall.setOnClickListener(new View.OnClickListener() {
+            endCall.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     listener.onCancelLoading();
                     Log.d(TAG,"Llega al clickListener de endCall" );
                 }
-            });*/
+            });
 
             return root;
         }

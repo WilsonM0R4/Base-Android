@@ -9,12 +9,12 @@
 
 
     <!-- LOADER -->
-    <include layout="@layout/fragment_loading"
+   <!-- <include layout="@layout/fragment_loading"
         android:id="@+id/loader"
         android:layout_height="match_parent"
         android:layout_width="match_parent">
 
-    </include>
+    </include>-->
 
     <!-- HEADER -->
 

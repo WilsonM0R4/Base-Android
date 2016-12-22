@@ -28,11 +28,11 @@ import com.allegra.handyuvisa.twilio.BasicPhone;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginListener,
+public class CallActivity extends LoadAnimate implements BasicPhone.LoginListener,
         BasicPhone.BasicConnectionListener,BasicPhone.BasicDeviceListener,
-        SensorEventListener,
+        SensorEventListener,LoadAnimate.InflateReadyListener,
         com.allegra.handyuvisa.BackFragment.MenuSelectListener,
-        FrontBackAnimate.InflateReadyListener{//LoadAnimate.InflateReadyListener,
+        FrontBackAnimate.InflateReadyListener{//
 
     //*************GLOBAL ATTRIBUTES**************
     protected String OTC_NUMBER = "+13057227632";//Older: +13055605384
@@ -66,9 +66,9 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        /*super.setView(R.layout.fragment_call_in_progress, R.drawable.load__call,
-                R.string.txt_lbl_callwait, this);*/
-        setView(R.layout.fragment_call_in_progress, this);
+        super.setView(R.layout.fragment_call_in_progress, R.drawable.load__call,
+                R.string.txt_lbl_callwait, this);
+        /*setView(R.layout.fragment_call_in_progress, this);*/
 
         addStatusMessage("One Touch Call");
         ctx = this;
@@ -146,7 +146,7 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
     @Override
     public void initViews(View root) {
         setActionbar();
-        relLoader = (RelativeLayout)root.findViewById(R.id.loader);
+       /* relLoader = (RelativeLayout)root.findViewById(R.id.loader);
         relHeader = (RelativeLayout)root.findViewById(R.id.ll_header);
         animation = (ImageView)root.findViewById(R.id.load_circle);
         iv_header = (ImageView)root.findViewById(R.id.iv_header);
@@ -163,12 +163,13 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
                 Log.d(TAG, "Llega al cancel call");
                 finish();
             }
-        });
-        btnTest = (Button)root.findViewById(R.id.test);
+        });*/
+        /*btnTest = (Button)root.findViewById(R.id.test);
         btnTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "Llega al test");
+                toCancel = true;
                 finish();
             }
         });
@@ -177,15 +178,15 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
         txtSpeaker = (TextView)root.findViewById(R.id.txtSpeaker);
         btn_callinprogress = (ImageButton)root.findViewById(R.id.btn_callinprogress);
         toggle_mute = (ImageButton)root.findViewById(R.id.toggle_mute);
-        toggle_speaker  = (ImageButton)root.findViewById(R.id.toggle_speaker);
+        toggle_speaker  = (ImageButton)root.findViewById(R.id.toggle_speaker);*/
     }
 
-  /*  @Override
+    @Override
     public void onCancelLoading() {
         Log.d(TAG, "CANCEL button pressed");
         toCancel = true;
         setStatus(R.string.txt_lbl_cancelling);
-    }*/
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -384,21 +385,21 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
             public void run() {
                 switch (callstatus) {
                     case STANDBY:
-                        //showProgress(true);
+                        showProgress(true);
                         break;
                     case CALLIP:
-                        //showProgress(true);
+                        showProgress(true);
                         break;
                     case CALLING:
-                        //showProgress(true);
+                        showProgress(true);
                         //Hide loader
-                        relLoader.setVisibility(View.GONE);
+                        //relLoader.setVisibility(View.GONE);
                         //Show layout
                         showLayout();
-                        //animate();
+                        animate();
                         break;
                     default:
-                        //showProgress(false);
+                        showProgress(false);
                 }
             }
         });

@@ -55,7 +55,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="35dp"
         />
-    <Button
+<!--    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_cancel_one_touch"
@@ -66,6 +66,6 @@
         android:textColor="@color/loading_salmon"
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/tv_status_otc"
-        />
+        />-->
 
 </RelativeLayout>
