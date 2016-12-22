@@ -337,7 +337,6 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
 
     private void onAlertSelectTypeOfId() {//View view
 
-
         final Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.custom_dialog_select_type_of_id);
         dialog.show();
