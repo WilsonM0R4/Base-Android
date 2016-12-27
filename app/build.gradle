@@ -238,7 +238,7 @@ android {
             signingConfig signingConfigs.cbhConfig
             minSdkVersion 19
             targetSdkVersion 25
-            buildConfigField "String", "idPortal", "6";
+            buildConfigField "String", "idPortal", "\"6\"";
 
             packagingOptions {
                 exclude "lib/arm64-v8a/libcardioDecider.so"

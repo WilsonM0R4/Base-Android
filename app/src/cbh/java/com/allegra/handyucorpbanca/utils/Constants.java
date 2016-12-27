@@ -48,8 +48,8 @@ public class Constants {
     //***************** EASY CHANGE BETWEEN TESTING AND PRODUCTION SYSTEM URLS *********************
 
     //** Parameter indicates mode: TESTING = false implies PRODUCTION mode **
-    public final static boolean TESTING = false;
-    public final static boolean TESTING_AIR = false;
+    public final static boolean TESTING = true;
+    public final static boolean TESTING_AIR = true;
 
     public final static String DEMOURL="http://demo.allemmarket.com/allemmarketapp/index/login/";
     public final static String DEMOHOST="allemmarket.com";
@@ -60,7 +60,12 @@ public class Constants {
     public final static int CAT_EVENTO=748;
     public final static int NUMBER_PICKER_SIZE = 7;
     public final static int PICKER_SIZE_CHILDREN_AND_INFANTS = 6;
-
+    public final static String URL_ALLEM_AIR_PROD_HOST = "secure.allegraplatform.com";
+    public final static String URL_HOSTNAME_SECUREACCEPTANCE = "secureacceptance.allegraplatform.com";
+    public final static String URL_HOSTNAME_ALLEGRA_PLATFORM = "www.allegraplatform.com";
+    public final static String URL_HOSTNAME_APPS_FLYER = "t.appsflyer.com";
+    public final static String URL_HOSTNAME_LIVEPERSON = "api.liveperson.net";
+    public final static String URL_HOSTNAME_TWILIO = "eventgw.twilio.com";
     public final static String URL_ALLEM_AIR_PROD = "https://secure.allegraplatform.com/GatewayIatai/IPPG";
     public final static String URL_ALLEM_AIR_TEST =  "https://pruebas.allegraplatform.com/GatewayIatai/IPPG";
     public final static String URL_ALLEM_WSDL_AIR_TEST = URL_ALLEM_AIR_TEST+"?WSDL";
