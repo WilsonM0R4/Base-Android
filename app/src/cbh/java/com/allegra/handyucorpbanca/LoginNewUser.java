@@ -995,12 +995,12 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             txtTitle.setLayoutParams(layoutParams3);
 
             //IMAGE VIEW SEPARATOR
-            View view = new View(context);
+            /*View view = new View(context);
             view.setBackgroundColor(getResources().getColor(R.color.loading_salmon));
             addView(view);
             LinearLayout.LayoutParams params6 = (LinearLayout.LayoutParams) view.getLayoutParams();
             params6.height = 14;
-            view.setLayoutParams(params6);
+            view.setLayoutParams(params6);*/
             View view = new View(context);
             view.setBackgroundColor(getResources().getColor(R.color.loading_salmon));
             addView(view);

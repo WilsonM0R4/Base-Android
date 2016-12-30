@@ -20,6 +20,7 @@ import javax.net.ssl.TrustManager;
 
 public class SslConnection {
     private static TrustManager[] trustManagers;
+    private final static String HOSTNAME_PRUEBAS = "pruebas.allegraplatform.com";
 
     public static class CustomX509TrustManager implements javax.net.ssl.X509TrustManager {
         private static final X509Certificate[] _AcceptedIssuers = new X509Certificate[]{};
@@ -49,7 +50,8 @@ public class SslConnection {
                         hostname.equals(Constants.URL_HOSTNAME_ALLEGRA_PLATFORM)||
                         hostname.equals(Constants.URL_HOSTNAME_APPS_FLYER)||
                         hostname.equals(Constants.URL_HOSTNAME_LIVEPERSON)||
-                        hostname.equals(Constants.URL_HOSTNAME_TWILIO))return true;
+                        hostname.equals(Constants.URL_HOSTNAME_TWILIO)||
+                        hostname.equals(HOSTNAME_PRUEBAS))return true;
                 else return false;
             }
         });

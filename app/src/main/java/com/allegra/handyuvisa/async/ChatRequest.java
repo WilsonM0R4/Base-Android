@@ -20,7 +20,7 @@ public class ChatRequest extends APIInfo {
         apiName = APINAME;
         endPoint = uri + "?v=1";
         method = "POST";
-        //specifySkill();
+        specifySkill();
     }
 
     protected HashSet<String> getParseRespHeaders() {
@@ -38,7 +38,7 @@ public class ChatRequest extends APIInfo {
     private void specifySkill() {
         try {
             JSONObject textObj = new JSONObject();
-            textObj.put("skill", "VisaCheckout Test");
+            textObj.put("skill", "Asistencia IATAI");
             JSONObject payload = new JSONObject();
             payload.put("request", textObj);
             payloadBytes = payload.toString().getBytes();
