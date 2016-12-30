@@ -31,8 +31,8 @@ import java.util.Map;
 public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginListener,
         BasicPhone.BasicConnectionListener,BasicPhone.BasicDeviceListener,
         SensorEventListener,
-        com.allegra.handyuvisa.BackFragment.MenuSelectListener,
-        FrontBackAnimate.InflateReadyListener{//LoadAnimate.InflateReadyListener,
+        com.allegra.handyuvisa.BackFragment.MenuSelectListener,LoadAnimate.InflateReadyListener,
+        FrontBackAnimate.InflateReadyListener{//
 
     //*************GLOBAL ATTRIBUTES**************
     protected String OTC_NUMBER = "+13057227632";//Older: +13055605384
@@ -156,13 +156,14 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
                 ((AnimationDrawable) animation.getBackground()).start();
             }
         });
-        btnCancel = (Button)root.findViewById(R.id.endCall);
+        /*btnCancel = (Button)root.findViewById(R.id.cancel_one_touch);
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d(TAG, "Llega al cancel de call");
                 finish();
             }
-        });
+        });*/
         tv_status_otc_connected = (TextView)root.findViewById(R.id.tv_status_otc_connected);
         txtMute = (TextView)root.findViewById(R.id.txtMute);
         txtSpeaker = (TextView)root.findViewById(R.id.txtSpeaker);
@@ -171,12 +172,12 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
         toggle_speaker  = (ImageButton)root.findViewById(R.id.toggle_speaker);
     }
 
-  /*  @Override
+    @Override
     public void onCancelLoading() {
         Log.d(TAG, "CANCEL button pressed");
         toCancel = true;
-        setStatus(R.string.txt_lbl_cancelling);
-    }*/
+        //setStatus(R.string.txt_lbl_cancelling);
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -335,7 +336,7 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
         btn_callinprogress.setVisibility(View.VISIBLE);
         toggle_mute.setVisibility(View.VISIBLE);
         toggle_speaker.setVisibility(View.VISIBLE);
-        btnCancel.setVisibility(View.VISIBLE);
+       // btnCancel.setVisibility(View.VISIBLE);
 
     }
 

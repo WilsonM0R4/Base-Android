@@ -196,9 +196,6 @@
             android:name=".PoliticalActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".TermsActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".CallActivityMcard"
             android:screenOrientation="portrait" />
         <activity
