@@ -28,6 +28,17 @@
         android:background="@color/white"
         android:id="@+id/ll_header">
 
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/cancel_button"
+            android:background="@color/GeneralAppHeaderTitle_backgroud"
+            android:id="@+id/imageButton3"
+            android:contentDescription="menu"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:onClick="onUp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

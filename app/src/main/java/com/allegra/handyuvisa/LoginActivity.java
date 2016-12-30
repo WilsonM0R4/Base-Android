@@ -257,7 +257,6 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         btn_newaccount.setEnabled(!b);
     }
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
