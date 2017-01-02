@@ -98,7 +98,8 @@
                 android:layout_marginBottom="20dp">
 
 
-                <Button android:id="@+id/login"
+                <com.allegra.handyuvisa.utils.CustomizedTextView
+                    android:id="@+id/login"
                     style="?metaButtonBarButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -110,7 +111,8 @@
                     android:background="@drawable/round_corner_transparent"/>
 
 
-                <Button android:id="@+id/register"
+                <com.allegra.handyuvisa.utils.CustomizedTextView
+                    android:id="@+id/register"
                     style="?metaButtonBarButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
