@@ -248,13 +248,13 @@ public class BackFragment extends Fragment  {
     public void sendToMarket(){
         Intent intent = new Intent(getActivity(),MarketPlaceActivity.class);
         getActivity().startActivity(intent);
-        getActivity().finish();
+
     }
 
     public void sendToChat(){
         Intent intent = new Intent(getActivity(),ChatActivity.class);
         getActivity().startActivity(intent);
-        getActivity().finish();
+
     }
 
     public void sendToCall(){

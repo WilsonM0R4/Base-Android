@@ -1,5 +1,6 @@
 package com.allegra.handyuvisa;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.drawable.AnimationDrawable;
@@ -29,6 +30,7 @@ import com.allegra.handyuvisa.async.ChatRequest;
 import com.allegra.handyuvisa.async.ChatResourceEventsInfo;
 import com.allegra.handyuvisa.async.MyBus;
 import com.allegra.handyuvisa.utils.Constants;
+import com.allegra.handyuvisa.utils.CustomizedTextView;
 import com.allegra.handyuvisa.utils.Util;
 import com.allegra.handyuvisa.async.AsyncTaskMPosResultEvent;
 import com.allegra.handyuvisa.async.ChatEventsNext;
@@ -125,7 +127,7 @@ public class ChatActivity extends FrontBackAnimate implements
             }
         });
         btnCancel = (Button)root.findViewById(R.id.cancel_one_touch);
-        Log.d(TAG, "Llega antes de los cLlick");
+        Log.d(TAG, "Llega antes de los click");
 
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -183,6 +185,29 @@ public class ChatActivity extends FrontBackAnimate implements
 
 
     //*****************PROPER METHODS*****************
+
+    public  void onAlertCancelChat(View v){
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.dialog_cancel_call_chat);
+        dialog.show();
+        //CustomizedTextViews (Cancel and Ok)
+        CustomizedTextView textCancel = (CustomizedTextView) dialog.findViewById(R.id.txtCancelDialogchat);
+        textCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+        CustomizedTextView textOk = (CustomizedTextView) dialog.findViewById(R.id.txtOkCancelChat);
+        textOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                finish();
+            }
+        });
+    }
 
     public void onMenu(View v){
         animate();

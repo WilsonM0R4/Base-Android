@@ -181,6 +181,7 @@ public class FrontBackAnimate extends FragmentActivity implements BackFragment.M
     }
 
     public void onUp(View view) {
+        Log.d(TAG, "Llega al onUp de FromtBck");
         super.onBackPressed();
     }
 
