@@ -203,7 +203,7 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
     void setGetYourCertificateLayout() {
         //Change layout
         setContentView(R.layout.get_your_certificate);
-        txtGetYourCertificate = (CustomizedTextView) findViewById(R.id.txtGetYourCertificate2);
+        txtGetYourCertificate = (CustomizedTextView) findViewById(R.id.txtGetYourCertificate);
         txtGetYourCertificate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
