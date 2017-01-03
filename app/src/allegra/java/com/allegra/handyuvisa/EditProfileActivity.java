@@ -337,7 +337,6 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
 
     private void onAlertSelectTypeOfId() {//View view
 
-
         final Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.custom_dialog_select_type_of_id);
         dialog.show();
@@ -428,7 +427,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             CuentaClienteInfoAdicional additionalInfo = new CuentaClienteInfoAdicional();
             additionalInfo.setCelular(txtMobile.getText().toString());
             additionalInfo.setEmpresa("");
-            additionalInfo.setCargo("");
+            //additionalInfo.setCargo("");
             additionalInfo.setCiudad("");
             additionalInfo.setClase("");
             additionalInfo.setCelularCodigo(txtSelectCountry.getText().toString());

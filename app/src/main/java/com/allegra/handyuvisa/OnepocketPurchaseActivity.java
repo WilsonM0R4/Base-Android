@@ -2,13 +2,13 @@ package com.allegra.handyuvisa;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-import com.allegra.handyuvisa.models.AllemUser;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allem.onepocket.BackHandler;
 import com.allem.onepocket.MenuHandler;
@@ -18,14 +18,11 @@ import com.allem.onepocket.RegisterCallback;
 import com.allem.onepocket.model.OneTransaction;
 import com.allem.onepocket.utils.OPKConstants;
 
-import java.util.Stack;
 
 public class OnepocketPurchaseActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
 
     private static final String TAG = "OPK_purchaseActivity";
-    private String sessionId;
     private PurchaseSummaryFragment summary;
-    private Stack<Fragment> stack = new Stack<>();
 
     //**************OVERRIDE METHODS****************
     @Override
@@ -40,13 +37,9 @@ public class OnepocketPurchaseActivity extends FrontBackAnimate implements Front
                     addFragment(fragment);
                 } else {
                     // clear the stack
-                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                    while (!stack.isEmpty()) {
-                        Fragment top = stack.pop();
-                        transaction.remove(top);
-                    }
-                    transaction.show(summary);
-                    transaction.commit();
+                    Log.d(TAG, "Clear the stack");
+                    FragmentManager manager = getFragmentManager();
+                    manager.popBackStackImmediate();
                 }
 
             }
@@ -58,15 +51,6 @@ public class OnepocketPurchaseActivity extends FrontBackAnimate implements Front
 
             @Override
             public void returnResult(Bundle bundle) {
-
-                int size = stack.size();
-                Fragment currentTop = stack.get(size - 1);
-                Fragment currentNext = stack.get(size - 2);
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.remove(currentTop);
-                transaction.detach(currentNext).attach(currentNext).show(currentNext);
-                transaction.commit();
-                stack.remove(size - 1);
             }
 
             @Override
@@ -75,10 +59,9 @@ public class OnepocketPurchaseActivity extends FrontBackAnimate implements Front
                 result.putExtra(OPKConstants.EXTRA_RESULT, data);
                 OnepocketPurchaseActivity.this.setResult(Activity.RESULT_OK, result);
 
-
                 switch (i) {
                     case 0:
-                        //Log.e(TAG, "Invalid perform id: 0");
+                        //Log.e(TAG, "perform id: 0 - MCARD - Return from onepocket");
                         if (OPKConstants.oneTransaction.getType().equals("MCARD") && data.equals("onepocket_return")) {
                             OnepocketPurchaseActivity.this.finish();
                         }
@@ -104,19 +87,7 @@ public class OnepocketPurchaseActivity extends FrontBackAnimate implements Front
         RegisterCallback.registerBack(new BackHandler() {
             @Override
             public void handle() {
-                if (!stack.empty()) {
-                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                    Fragment top = stack.pop();
-                    transaction.remove(top);
-                    if (!stack.empty()) {
-                        transaction.show(stack.peek());
-                    } else {
-                        transaction.show(summary);
-                    }
-                    transaction.commit();
-                } else {
-                    onUp(null);
-                }
+                onUp(null);
             }
         });
     }
@@ -169,13 +140,8 @@ public class OnepocketPurchaseActivity extends FrontBackAnimate implements Front
         Fragment currentTop = getFragmentManager().findFragmentById(R.id.opk_top);
         transaction.hide(currentTop);
 
-        for (Fragment f : stack) {
-            transaction.hide(f);
-        }
         transaction.add(R.id.opk_top, fragment, fragment.toString());
+        transaction.addToBackStack(null);
         transaction.commit();
-
-        stack.add(fragment);
-
     }
 }

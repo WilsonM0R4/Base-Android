@@ -5,11 +5,11 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
@@ -19,7 +19,7 @@ import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 
 
-public class MainActivity extends Activity implements BackFragment.MenuSelectListener {
+public class MainActivity extends FragmentActivity implements BackFragment.MenuSelectListener {
 
     private static final String TAG = "MainActivity";
     private FrontFragment frontFragment;

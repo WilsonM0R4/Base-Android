@@ -10,10 +10,10 @@
     <color name="WHITE_COLOR">#ffffff</color>
     <color name="BLACK_COLOR">#000000</color>
 
-    <color name= "PURPLE_COLOR">#CF447A</color>
+    <color name= "PURPLE_COLOR">#D02A7B</color>
     <color name= "ORANGE_COLOR">#EF411F</color>
     <color name= "TEXT_COLOR">#444444</color>
-    <color name= "GRAY_COLOR">#9B9999</color>
+    <color name= "GRAY_COLOR">#999999</color>
     <color name= "LIGHT_GRAY_COLOR">#F4F4F4</color>
     <color name="BORDER_GRAY_COLOR">#E2E2E2</color>
     <color name="DARK_GRAY_COLOR">#9C9C9C</color>

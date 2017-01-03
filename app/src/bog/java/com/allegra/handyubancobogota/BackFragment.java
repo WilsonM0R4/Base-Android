@@ -33,6 +33,10 @@ public class BackFragment extends Fragment  {
     public MenuSelectListener menulistener;
     public static MenuActivity[] activities;
 
+
+    public BackFragment(){
+
+    }
     //***************INTERFACES*****************
     public interface MenuSelectListener {
         void getStartActivity(Intent intent);
@@ -248,13 +252,11 @@ public class BackFragment extends Fragment  {
     public void sendToMarket(){
         Intent intent = new Intent(getActivity(),MarketPlaceActivity.class);
         getActivity().startActivity(intent);
-        getActivity().finish();
     }
 
     public void sendToChat(){
         Intent intent = new Intent(getActivity(),ChatActivity.class);
         getActivity().startActivity(intent);
-        getActivity().finish();
     }
 
     public void sendToCall(){
@@ -303,7 +305,6 @@ public class BackFragment extends Fragment  {
     public void sendToFlights(){
         Intent intent = new Intent(getActivity(),FlightsActivity.class);
         getActivity().startActivity(intent);
-        getActivity().finish();
     }
 
     public void sendToHotels(){
@@ -346,13 +347,11 @@ public class BackFragment extends Fragment  {
     public void sendToRestaurants(){
         Intent intent = new Intent(getActivity(),RestaurantsActivity.class);
         getActivity().startActivity(intent);
-        getActivity().finish();
     }
 
     public void sendToStore(){
         Intent intent = new Intent(getActivity(),StoreActivity.class);
         getActivity().startActivity(intent);
-        getActivity().finish();
     }
 
     //**************INNER CLASSES******************

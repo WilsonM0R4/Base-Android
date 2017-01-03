@@ -1,5 +1,6 @@
 package com.allegra.handyuvisa;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.drawable.AnimationDrawable;
@@ -29,6 +30,7 @@ import com.allegra.handyuvisa.async.ChatRequest;
 import com.allegra.handyuvisa.async.ChatResourceEventsInfo;
 import com.allegra.handyuvisa.async.MyBus;
 import com.allegra.handyuvisa.utils.Constants;
+import com.allegra.handyuvisa.utils.CustomizedTextView;
 import com.allegra.handyuvisa.utils.Util;
 import com.allegra.handyuvisa.async.AsyncTaskMPosResultEvent;
 import com.allegra.handyuvisa.async.ChatEventsNext;
@@ -49,7 +51,8 @@ import java.util.TimerTask;
 import com.allegra.handyuvisa.BackFragment;
 
 public class ChatActivity extends FrontBackAnimate implements
-        FrontBackAnimate.InflateReadyListener{//com.allegra.handyuvisa.BackFragment.MenuSelectListener,
+        FrontBackAnimate.InflateReadyListener,
+        BackFragment.MenuSelectListener{
 
     //*****************GLOBAL ATTRIBUTES*****************
 
@@ -62,7 +65,7 @@ public class ChatActivity extends FrontBackAnimate implements
     private EditText sentText;
     private ImageView animation, iv_header;
     private RelativeLayout relLoader, relHeader;
-    private Button btnCancel;
+    private Button btnCancel, btnTest;
     private TextView tv_chat_agent, tv_chat_start;
     private LinearLayout form;
 
@@ -90,9 +93,9 @@ public class ChatActivity extends FrontBackAnimate implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       /* super.setView(R.layout.fragment_chat_in_progress, R.drawable.load__chat,
+       /*super.setView(R.layout.fragment_chat_in_progress, R.drawable.load__chat,
                 R.string.txt_lbl_setupChat, this);*/
-        setView(R.layout.fragment_chat_in_progress, this);
+         setView(R.layout.fragment_chat_in_progress, this);
 
         initLivePersonService();
         MyBus.getInstance().register(this);
@@ -112,10 +115,11 @@ public class ChatActivity extends FrontBackAnimate implements
         chatListView = (ListView) root.findViewById(R.id.lv_chat_msg);
         chatListView.setAdapter(chatMsgAdapter);
         sentText = (EditText) root.findViewById(R.id.et_chat_msg);
-        relLoader = (RelativeLayout)root.findViewById(R.id.loader);
         relHeader = (RelativeLayout)root.findViewById(R.id.ll_header);
-        animation = (ImageView)root.findViewById(R.id.load_circle);
         iv_header = (ImageView)root.findViewById(R.id.iv_header);
+        relLoader = (RelativeLayout)root.findViewById(R.id.loader);
+        animation = (ImageView)root.findViewById(R.id.load_circle);
+
         animation.post(new Runnable() {
             @Override
             public void run() {
@@ -123,12 +127,23 @@ public class ChatActivity extends FrontBackAnimate implements
             }
         });
         btnCancel = (Button)root.findViewById(R.id.cancel_one_touch);
+        Log.d(TAG, "Llega antes de los click");
+
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d(TAG, "Llega al cancel in chat");
                 finish();
             }
         });
+        /*btnTest = (Button)root.findViewById(R.id.test);
+        btnTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "Llega al test");
+                finish();
+            }
+        });*/
         tv_chat_agent = (TextView)root.findViewById(R.id.tv_chat_agent);
         tv_chat_start = (TextView)root.findViewById(R.id.tv_chat_start);
         form = (LinearLayout)root.findViewById(R.id.form);
@@ -139,11 +154,11 @@ public class ChatActivity extends FrontBackAnimate implements
 
         //super.onBackPressed();
         Log.d(TAG, "Back button is pressed");
-        /*if (chatState != null && chatState.equals("chatting")) {
-            endChat();
+        if (chatState != null && chatState.equals("chatting")) {
+            //endChat();
         } else {
             Log.d(TAG, "Closing before chat has started");
-        }*/
+        }
     }
 
     @Override
@@ -169,14 +184,30 @@ public class ChatActivity extends FrontBackAnimate implements
     }
 
 
- /*   @Override
-    public void onCancelLoading() {
-        Log.d(TAG, "Llega al onCancelLoading");
-        finish();
-    }*/
-
-
     //*****************PROPER METHODS*****************
+
+    public  void onAlertCancelChat(View v){
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.dialog_cancel_call_chat);
+        dialog.show();
+        //CustomizedTextViews (Cancel and Ok)
+        CustomizedTextView textCancel = (CustomizedTextView) dialog.findViewById(R.id.txtCancelDialogchat);
+        textCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+        CustomizedTextView textOk = (CustomizedTextView) dialog.findViewById(R.id.txtOkCancelChat);
+        textOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                finish();
+            }
+        });
+    }
 
     public void onMenu(View v){
         animate();
@@ -369,7 +400,7 @@ public class ChatActivity extends FrontBackAnimate implements
                         handleAgentChatMsg(data);
                         updateChatHeader(data.get(ChatResourceEventsInfo.AGENT_NAME));
                         errorExists = false;
-                        //animate();
+                        animateBetter();
                         //Hide loader
                         relLoader.setVisibility(View.GONE);
                         //Show layout
@@ -391,7 +422,7 @@ public class ChatActivity extends FrontBackAnimate implements
                         agentName = data.get(ChatInfo.AGENT_NAME);
                         Log.d(TAG, "Agent name: " + agentName);
                         updateChatHeader(data.get(ChatInfo.AGENT_NAME));
-                        //animate();
+                        animateBetter();
                         //Hide loader
                         relLoader.setVisibility(View.GONE);
                         //Show layout

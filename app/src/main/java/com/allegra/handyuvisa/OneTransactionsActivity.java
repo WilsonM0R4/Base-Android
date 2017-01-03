@@ -1,27 +1,25 @@
 package com.allegra.handyuvisa;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
-import com.allegra.handyuvisa.models.AllemUser;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allem.onepocket.BackHandler;
 import com.allem.onepocket.MenuHandler;
 import com.allem.onepocket.NextHandler;
 import com.allem.onepocket.RegisterCallback;
 import com.allem.onepocket.TransactionsFragment;
-import com.allem.onepocket.model.OneTransaction;
-import com.allem.onepocket.utils.OPKConstants;
-
-import java.util.Stack;
 
 public class OneTransactionsActivity extends FrontBackAnimate  implements FrontBackAnimate.InflateReadyListener {
 
+    private static final String TAG = "OPK_Transaction";
+
     private TransactionsFragment oneTransctions;
-    private Stack<Fragment> stack = new Stack<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,13 +33,9 @@ public class OneTransactionsActivity extends FrontBackAnimate  implements FrontB
                     addFragment(fragment);
                 } else {
                     // clear the stack
-                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                    while (!stack.isEmpty()) {
-                        Fragment top = stack.pop();
-                        transaction.remove(top);
-                    }
-                    transaction.show(oneTransctions);
-                    transaction.commit();
+                    Log.d(TAG, "Clear the stack");
+                    FragmentManager manager = getFragmentManager();
+                    manager.popBackStackImmediate();
                 }
             }
 
@@ -52,16 +46,6 @@ public class OneTransactionsActivity extends FrontBackAnimate  implements FrontB
 
             @Override
             public void returnResult(Bundle bundle) {
-                int size = stack.size();
-                Fragment currentTop = stack.get(size - 1);
-//                Fragment confirm = stack.get(size - 1);
-                oneTransctions.getArguments().putParcelable(OPKConstants.EXTRA_RESULT, bundle);
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.remove(currentTop);
-                transaction.detach(oneTransctions).attach(oneTransctions).show(oneTransctions);
-                transaction.commit();
-
-                stack.remove(size - 1);
             }
 
             @Override
@@ -92,19 +76,7 @@ public class OneTransactionsActivity extends FrontBackAnimate  implements FrontB
         RegisterCallback.registerBack(new BackHandler() {
             @Override
             public void handle() {
-                if (!stack.empty()) {
-                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                    Fragment top = stack.pop();
-                    transaction.remove(top);
-                    if (!stack.empty()) {
-                        transaction.show(stack.peek());
-                    } else {
-                        transaction.show(oneTransctions);
-                    }
-                    transaction.commit();
-                } else {
-                    onUp(null);
-                }
+                onUp(null);
 
             }
         });
@@ -126,13 +98,9 @@ public class OneTransactionsActivity extends FrontBackAnimate  implements FrontB
         Fragment currentTop = getFragmentManager().findFragmentById(R.id.opk_top);
         transaction.hide(currentTop);
 
-        for (Fragment f : stack) {
-            transaction.hide(f);
-        }
         transaction.add(R.id.opk_top, fragment, fragment.toString());
+        transaction.addToBackStack(null);
         transaction.commit();
-
-        stack.push(fragment);
 
     }
 

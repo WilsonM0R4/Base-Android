@@ -53,13 +53,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
     TextView txtTypeOfIdSelected, txtSelectCountry;
     //******** Array Colors *********
     int[] allColors = new int[5];
-
-
-
     //String[] ColorsInput;
-
-
-
 
     //*********OVERRIDE METHODS****************
     @Override
