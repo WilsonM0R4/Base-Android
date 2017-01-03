@@ -176,7 +176,8 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
             public void onClick(View view) {
                 Log.d(TAG, "Llega al End call");
                 toCancel = true;
-                onEndCall(null);
+                onAlertCancelCall(null);
+                //onEndCall(null);
                 //finish();
             }
         });
@@ -332,6 +333,11 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
     public void getStartActivity(Intent intent) {
         onEndCall(null);
         super.getStartActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
     }
 
     //*******************PROPER METHODS**************
