@@ -6,6 +6,7 @@
     android:id="@+id/rl_call_body"
     android:background="@drawable/background"
     android:clickable="true"
+    android:onClick="onCloseMenu"
     tools:context=".CallActivity">
 
     <!-- LOADER -->
@@ -26,6 +27,17 @@
         android:background="@color/GeneralAppHeaderTitle_backgroud"
         android:visibility="gone"
         android:id="@+id/ll_header">
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/cancel_button"
+            android:background="@color/GeneralAppHeaderTitle_backgroud"
+            android:id="@+id/imageButton3"
+            android:contentDescription="menu"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:onClick="onAlertCancelCall" />
 
         <TextView
             android:layout_width="wrap_content"

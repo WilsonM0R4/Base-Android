@@ -660,4 +660,7 @@
     <string name="txtConfirmationCancelChatCall">Are you sure you want to end this\n current chat?</string>
     <string name="cancelDialogChatCall">CANCEL</string>
     <string name="okCancelChatCall">OK</string>
+    <string name="titleCancelCall">End call</string>
+    <string name="txtConfirmationCancelCall">Are you sure you want to end this\n current call?</string>
+
 </resources>

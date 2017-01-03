@@ -546,4 +546,6 @@
     <string name="txtConfirmationCancelChatCall">Estás seguro que deseas terminar\n este chat?</string>
     <string name="cancelDialogChatCall">CANCELAR</string>
     <string name="okCancelChatCall">ACEPTAR</string>
+    <string name="titleCancelCall">End call</string>
+    <string name="txtConfirmationCancelCall">Are you sure you want to end this\n current call?</string>
 </resources>

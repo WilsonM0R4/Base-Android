@@ -411,7 +411,6 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             }
         });
 
-
     }
 
     private void saveTmpInfo() {

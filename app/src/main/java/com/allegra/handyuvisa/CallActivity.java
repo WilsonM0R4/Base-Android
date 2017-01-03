@@ -1,7 +1,7 @@
 package com.allegra.handyuvisa;
 
-import android.*;
 import android.app.ActionBar;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -21,18 +21,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.allegra.handyuvisa.twilio.BasicPhone;
+import com.allegra.handyuvisa.utils.CustomizedTextView;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginListener,
         BasicPhone.BasicConnectionListener,BasicPhone.BasicDeviceListener,
         SensorEventListener,
-        com.allegra.handyuvisa.BackFragment.MenuSelectListener,LoadAnimate.InflateReadyListener,
-        FrontBackAnimate.InflateReadyListener{//
+        com.allegra.handyuvisa.BackFragment.MenuSelectListener,
+        FrontBackAnimate.InflateReadyListener{
 
     //*************GLOBAL ATTRIBUTES**************
     protected String OTC_NUMBER = "+13057227632";//Older: +13055605384
@@ -58,9 +59,10 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
             android.Manifest.permission.READ_PHONE_STATE};
     private ImageView animation, iv_header;
     private RelativeLayout relLoader, relHeader;
-    private Button btnCancel;
+    private Button btnCancel, btnEndCall;
     private TextView tv_status_otc_connected, txtMute, txtSpeaker;
     private ImageButton btn_callinprogress, toggle_mute, toggle_speaker;
+    private CustomizedTextView txtTitleDialog, txtCancelMessage;
 
     //**************************OVERRIDE METHODS***************************
     @Override
@@ -156,27 +158,34 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
                 ((AnimationDrawable) animation.getBackground()).start();
             }
         });
-        /*btnCancel = (Button)root.findViewById(R.id.cancel_one_touch);
+        //Button to cancel loading call
+        btnCancel = (Button)root.findViewById(R.id.cancel_one_touch);
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "Llega al cancel de call");
-                finish();
+                Log.d(TAG, "Llega CANCEL button");
+                toCancel = true;
+                onEndCall(null);
+                //finish();
             }
-        });*/
+        });
+        //Button to end current call
+        btnEndCall = (Button)root.findViewById(R.id.endCall);
+        btnEndCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "Llega al End call");
+                toCancel = true;
+                onEndCall(null);
+                //finish();
+            }
+        });
         tv_status_otc_connected = (TextView)root.findViewById(R.id.tv_status_otc_connected);
         txtMute = (TextView)root.findViewById(R.id.txtMute);
         txtSpeaker = (TextView)root.findViewById(R.id.txtSpeaker);
         btn_callinprogress = (ImageButton)root.findViewById(R.id.btn_callinprogress);
         toggle_mute = (ImageButton)root.findViewById(R.id.toggle_mute);
         toggle_speaker  = (ImageButton)root.findViewById(R.id.toggle_speaker);
-    }
-
-    @Override
-    public void onCancelLoading() {
-        Log.d(TAG, "CANCEL button pressed");
-        toCancel = true;
-        //setStatus(R.string.txt_lbl_cancelling);
     }
 
     @Override
@@ -327,6 +336,32 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
 
     //*******************PROPER METHODS**************
 
+
+    public void onAlertCancelCall(View v){
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.dialog_cancel_call);
+        dialog.show();
+        //CustomizedTextViews (Cancel and Ok)
+
+        CustomizedTextView textCancel = (CustomizedTextView) dialog.findViewById(R.id.txtCancelDialogchat);
+        textCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+        CustomizedTextView textOk = (CustomizedTextView) dialog.findViewById(R.id.txtOkCancelChat);
+        textOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                //finish();
+                onEndCall(null);
+            }
+        });
+    }
+
     public void showLayout(){
         relHeader.setVisibility(View.VISIBLE);
         iv_header.setVisibility(View.VISIBLE);
@@ -336,8 +371,7 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
         btn_callinprogress.setVisibility(View.VISIBLE);
         toggle_mute.setVisibility(View.VISIBLE);
         toggle_speaker.setVisibility(View.VISIBLE);
-       // btnCancel.setVisibility(View.VISIBLE);
-
+        btnEndCall.setVisibility(View.VISIBLE);
     }
 
     public void onCloseMenu(View v){
@@ -404,8 +438,7 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
 
     /* The BasicPhone Listeners*/
 
-    private void addStatusMessage(final String message)
-    {
+    private void addStatusMessage(final String message) {
         handler.post(new Runnable() {
             @Override
             public void run() {
@@ -415,6 +448,8 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
     }
 
     public void onEndCall(View view) {
+        Log.d(TAG, "Llega al onEndCall");
+        phone.disconnect();
         finish();
         overridePendingTransition(R.animator.back_slide_in, R.animator.front_slide_out);
     }

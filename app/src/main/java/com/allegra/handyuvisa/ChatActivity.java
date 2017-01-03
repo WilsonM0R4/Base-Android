@@ -7,9 +7,7 @@ import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.TextUtils;
-import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -17,13 +15,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.allegra.handyuvisa.async.AddChatLines;
-import com.allegra.handyuvisa.async.AsyncRestHelper;
 import com.allegra.handyuvisa.async.AsyncRestHelperChat;
 import com.allegra.handyuvisa.async.AsyncTaskMPosResultEventChat;
 import com.allegra.handyuvisa.async.ChatRequest;
@@ -32,7 +27,6 @@ import com.allegra.handyuvisa.async.MyBus;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
 import com.allegra.handyuvisa.utils.Util;
-import com.allegra.handyuvisa.async.AsyncTaskMPosResultEvent;
 import com.allegra.handyuvisa.async.ChatEventsNext;
 import com.allegra.handyuvisa.async.ChatInfo;
 import com.allegra.handyuvisa.async.EndChat;
@@ -48,7 +42,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
-import com.allegra.handyuvisa.BackFragment;
 
 public class ChatActivity extends FrontBackAnimate implements
         FrontBackAnimate.InflateReadyListener,
@@ -65,7 +58,7 @@ public class ChatActivity extends FrontBackAnimate implements
     private EditText sentText;
     private ImageView animation, iv_header;
     private RelativeLayout relLoader, relHeader;
-    private Button btnCancel, btnTest;
+    private Button btnCancel;
     private TextView tv_chat_agent, tv_chat_start;
     private LinearLayout form;
 
@@ -128,7 +121,6 @@ public class ChatActivity extends FrontBackAnimate implements
         });
         btnCancel = (Button)root.findViewById(R.id.cancel_one_touch);
         Log.d(TAG, "Llega antes de los click");
-
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -136,14 +128,7 @@ public class ChatActivity extends FrontBackAnimate implements
                 finish();
             }
         });
-        /*btnTest = (Button)root.findViewById(R.id.test);
-        btnTest.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d(TAG, "Llega al test");
-                finish();
-            }
-        });*/
+
         tv_chat_agent = (TextView)root.findViewById(R.id.tv_chat_agent);
         tv_chat_start = (TextView)root.findViewById(R.id.tv_chat_start);
         form = (LinearLayout)root.findViewById(R.id.form);
@@ -188,7 +173,7 @@ public class ChatActivity extends FrontBackAnimate implements
 
     public  void onAlertCancelChat(View v){
         final Dialog dialog = new Dialog(this);
-        dialog.setContentView(R.layout.dialog_cancel_call_chat);
+        dialog.setContentView(R.layout.dialog_cancel_chat);
         dialog.show();
         //CustomizedTextViews (Cancel and Ok)
         CustomizedTextView textCancel = (CustomizedTextView) dialog.findViewById(R.id.txtCancelDialogchat);
