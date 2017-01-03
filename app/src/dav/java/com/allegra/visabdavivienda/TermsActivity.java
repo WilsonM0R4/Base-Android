@@ -11,7 +11,7 @@ import android.webkit.WebViewClient;
 public class TermsActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener{
 
     private WebView webLegal;
-    private String url = "http://iataiapps.com/davivienda/terminos-y-condiciones.html";
+    private String url = "http://iataiapps.com/davivienda/terminos-y-condiciones.html";//
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
