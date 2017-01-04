@@ -35,7 +35,7 @@ public class UserDinamicoSQLiteHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_USER_TABLE = "CREATE TABLE user ( " + "nombredb TEXT, " + "apellidodb TEXT, " + " typeiddb TEXT, " +
-                "iddb TEXT, " + "nummcarddb TEXT, " + "cobertura TEXT )";
+                "iddb TEXT, " + "nummcarddb TEXT, " + "coberturadb TEXT )";
 
         db.execSQL(CREATE_USER_TABLE);
 
