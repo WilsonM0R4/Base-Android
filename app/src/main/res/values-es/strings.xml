@@ -542,10 +542,10 @@
     <string name="title_onetouch_call">Onetouch call</string>
     <string name="title_onetouch_chat">Onetouch chat</string>
     <string name="title_live_tranquility">¡Vive con tranquilidad!</string>
-    <string name="titleCancelChatCall">Terminar chat</string>
-    <string name="txtConfirmationCancelChatCall">Estás seguro que deseas terminar\n este chat?</string>
+    <string name="titleCancelChatCall">Terminar conversación</string>
+    <string name="txtConfirmationCancelChatCall">¿Seguro quieres terminar\n esta conversación?</string>
     <string name="cancelDialogChatCall">CANCELAR</string>
-    <string name="okCancelChatCall">ACEPTAR</string>
+    <string name="okCancelChatCall">OK</string>
     <string name="titleCancelCall">Terminar llamada</string>
-    <string name="txtConfirmationCancelCall">Estás seguro que deseas terminar\n esta llamada?</string>
+    <string name="txtConfirmationCancelCall">¿Seguro quieres terminar\n esta llamada?</string>
 </resources>

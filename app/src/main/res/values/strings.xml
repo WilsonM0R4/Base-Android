@@ -657,10 +657,10 @@
     <string name="title_onetouch_chat">Onetouch chat</string>
     <string name="title_live_tranquility">Live in peace!</string>
     <string name="titleCancelChatCall">End chat</string>
-    <string name="txtConfirmationCancelChatCall">Are you sure you want to end this\n current chat?</string>
+    <string name="txtConfirmationCancelChatCall">Are you sure you want to end\n this current chat?</string>
     <string name="cancelDialogChatCall">CANCEL</string>
     <string name="okCancelChatCall">OK</string>
     <string name="titleCancelCall">End call</string>
-    <string name="txtConfirmationCancelCall">Are you sure you want to end this\n current call?</string>
+    <string name="txtConfirmationCancelCall">Are you sure you want to end\n this current call?</string>
 
 </resources>
