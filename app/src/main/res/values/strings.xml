@@ -5,7 +5,7 @@
     <string name="txtInfoCertifications"># CERTIFICATE</string>
     <string name="payment_hotel_your">YOUR HOTEL</string>
     <string name="payment_hotel_nights">nights</string>
-    <string name="forgot_password">Recovery password</string>
+    <string name="forgot_password">Password recovery</string>
     <string name="location_permision">Your GPS seems to be disabled, do you want to enable it?</string>
     <string name="location_failed">Fail to fetch your current location. Please check your GPS status and try again</string>
     <string name="location_yes">Yes</string>
@@ -52,7 +52,7 @@
     <string name="conf_email2">with a secure link to reset your password.</string>
     <string name="conf_email3">Have you not yet received the email?</string>
     <string name="check_email">Check your email!</string>
-    <string name="title_qr_scan">Scan QR</string>
+    <string name="title_qr_scan">Scan Qr</string>
     <string name="slogan_welcome">Welcome to</string>
     <string name="slogan_all_in_one">the best all-in-one app</string>
     <string name="skip_intro">Skip to menu</string>
@@ -309,7 +309,7 @@
     <string name="country">Select country</string>
     <string name="purchase_detail">Purchase detail</string>
     <string name="text_suggest">You must write at least 3 characters</string>
-    <string name="text_hint_enter_airport">Enter city or airport</string>
+    <string name="text_hint_enter_airport">Enter city</string>
     <string name="txt_menu_flights">Flights</string>
     <string name="user_information">USER INFORMATION</string>
     <string name="text_select_dates_in_dialog">Select dates</string>
@@ -328,10 +328,10 @@
     <string name="txt_return_date">RETURN</string>
     <string name="alert_message_departure_or_arrive_not_selected_hotels">Please select your departure city</string>
     <string name="alert_message_no_flights">There are no available flights</string>
-    <string name="alert_message_departure_or_arrive_not_selected">Please select your departure city and your destination city</string>
+    <string name="alert_message_departure_or_arrive_not_selected">Before you continue please select your origin and your destination city</string>
     <string name="alert_message_return_date_not_selected">Please select your return date</string>
     <string name="alert_message_return_date_not_selected_hotels">Please select your Check In Date and Check Out Date</string>
-    <string name="title_alert_dialog_warning">Advertencia</string>
+    <string name="title_alert_dialog_warning">Oops! Something is missing!</string>
     <string name="room_and_guests_title">1 ROOM, 1 ADULT</string>
     <string name="txt_single_room">ROOM</string>
     <string name="text_single_adult">ADULT</string>
@@ -565,7 +565,7 @@
     <string name="title_concierge_city_by_city">City by city, your music, your tastes,\n places and experiences in your\n next destination.</string>
     <string name="txt_title_choose_activities">Choose activities</string>
     <string name="font_varela">fonts/VarelaRound-Regular.ttf</string>
-    <string name="txt_city_concierge_not_selected">Please select your destination</string>
+    <string name="txt_city_concierge_not_selected">Before you continue please select your destination city</string>
 
     <!--HANDY U STRINGS-->
 

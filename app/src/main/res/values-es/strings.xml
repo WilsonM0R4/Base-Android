@@ -233,7 +233,7 @@
     <string name="one_way_flight_type">Sólo ida</string>
     <string name="purchase_detail">Detalle de compra</string>
     <string name="text_suggest">Debes escribir al menos 3 caracteres</string>
-    <string name="text_hint_enter_airport">Ingresa ciudad o aeropuerto</string>
+    <string name="text_hint_enter_airport">Ingresa ciudad</string>
     <string name="txt_menu_flights">Vuelos</string>
     <string name="country">Selecciona país</string>
     <string name="user_information">INFORMACIÓN DE PERFIL</string>
@@ -248,11 +248,11 @@
     <string name="txt_month_year_selector_flights">FECHA</string>
     <string name="txt_departure_date">SALIDA</string>
     <string name="txt_return_date">REGRESO</string>
-    <string name="alert_message_departure_or_arrive_not_selected">Por favor selecciona tu ciudad de partida y tu ciudad de destino </string>
+    <string name="alert_message_departure_or_arrive_not_selected">Antes de continuar, selecciona tu ciudad de origén y tu ciudad de destino</string>
     <string name="alert_message_departure_or_arrive_not_selected_hotels">Por favor selecciona tu ciudad de destino </string>
     <string name="alert_message_return_date_not_selected">Por favor selecciona tu fecha de regreso</string>
     <string name="alert_message_return_date_not_selected_hotels">Por favor selecciona tu fecha de llegada</string>
-    <string name="title_alert_dialog_warning">Advertencia</string>
+    <string name="title_alert_dialog_warning">¡Vaya! ¡Algo falta!</string>
     <string name="activate_onepocket">Añadir método de pago para activar su onepocket</string>
     <string name="action_add_card">Añadir tarjeta</string>
     <string name="room_and_guests_title">1 HAB, 1 ADULTO</string>
@@ -456,7 +456,7 @@
     <string name="title_concierge_city_by_city">Ciudad por ciudad, tu música,\n tus gustos, lugares y experiencias\n en tu próximo destino.</string>
     <string name="txt_title_choose_activities">Selecciona actividades</string>
     <string name="font_varela">fonts/VarelaRound-Regular.ttf</string>
-    <string name="txt_city_concierge_not_selected">Por favor selecciona tu destino</string>
+    <string name="txt_city_concierge_not_selected">Antes de continuar, selecciona tu ciudad de destino</string>
     <string name="send_log_request">Por favor pulse aquí para enviarnos el log.</string>
     <string name="send_log_instruction">Por favor agregar pasos de reproducción e información adicional aquí.  Gracias!</string>
 
