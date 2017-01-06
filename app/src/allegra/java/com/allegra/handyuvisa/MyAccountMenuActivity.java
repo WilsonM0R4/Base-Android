@@ -60,7 +60,7 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
         final Integer[] images = {R.drawable.menu__profile, R.drawable.my_benefits, R.drawable.coverage, R.drawable.menu__history,
                 R.drawable.legal5};
         final Class[] activities = {MyAccountActivity.class, MyBenefits.class,
-                ProofOfCoverageDinamico.class, OneTransactionsActivity.class, LegalActivity.class};
+                ProofOfCoverageDinamicoActivity.class, OneTransactionsActivity.class, LegalActivity.class};
         lv.setAdapter(new ArrayAdapter<String>(MyAccountMenuActivity.this, R.layout.profile_layout, names) {
 
             public View getView(final int position, View view, ViewGroup parent) {
@@ -78,7 +78,7 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
                                     setGetYourCertificateLayout();
                                 } else {
                                     Log.e("CON CONEXION: "," ESTOY LOGEADO");//Test 2: Succeded
-                                    Intent i = new Intent(ctx, ProofOfCoverageDinamico.class);
+                                    Intent i = new Intent(ctx, ProofOfCoverageDinamicoActivity.class);
                                     startActivity(i);
                                 }
                             } else {

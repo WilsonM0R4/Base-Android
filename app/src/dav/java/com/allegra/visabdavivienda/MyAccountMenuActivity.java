@@ -70,7 +70,7 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
         final Class[] activities = {
                 MyAccountActivity.class,
                 com.allegra.handyuvisa.MyBenefits.class,
-                ProofOfCoverageDinamico.class,
+                ProofOfCoverageDinamicoActivity.class,
                 Myvisaenterprise.class,
                 OneTransactionsActivity.class,
                 LegalActivity.class};
@@ -91,7 +91,7 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
                                     setGetYourCertificateLayout();
                                 } else {
                                     Log.e("CON CONEXION: "," ESTOY LOGEADO");//Test 2: Succeded
-                                    Intent i = new Intent(ctx, ProofOfCoverageDinamico.class);
+                                    Intent i = new Intent(ctx, ProofOfCoverageDinamicoActivity.class);
                                     startActivity(i);
                                 }
                             } else {
