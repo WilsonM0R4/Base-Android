@@ -169,7 +169,7 @@ public class OnepocketContainerActivity extends FrontBackAnimate  implements Fro
                         break;
 
                     case 3:
-                        Intent poc = new Intent(OnepocketContainerActivity.this, ProofOfCoverageDinamico.class);
+                        Intent poc = new Intent(OnepocketContainerActivity.this, ProofOfCoverageDinamicoActivity.class);
                         startActivity(poc);
                         break;
                 }

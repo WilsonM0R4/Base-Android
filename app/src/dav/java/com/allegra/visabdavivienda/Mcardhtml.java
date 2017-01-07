@@ -114,7 +114,7 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
 
     public void goToProof(){
         Context context=this;
-        Intent intent = new Intent(context, ProofOfCoverageDinamico.class);
+        Intent intent = new Intent(context, ProofOfCoverageDinamicoActivity.class);
         context.startActivity(intent);
 
     }

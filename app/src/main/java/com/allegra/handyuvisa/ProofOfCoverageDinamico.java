@@ -39,7 +39,7 @@ import java.util.ArrayList;
 /**
  * Created by jsandoval on 22/11/16.
  */
-
+@Deprecated
 public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
 
     ImageView iv_allegra_proof, load_circle_proof;
