@@ -7,7 +7,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
+import com.allegra.handyuvisa.utils.Connectivity;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allem.onepocket.BackHandler;
 import com.allem.onepocket.MenuHandler;
@@ -74,8 +76,22 @@ public class ProofOfCoverageDinamicoActivity extends FrontBackAnimate implements
 
     @Override
     public void initViews(View root) {
-        checkLogin();
+        if (checkConnectivity()) {
+            checkLogin();
+        } else {
+            showProofOfCoverage();
+        }
 
+
+    }
+
+    private boolean checkConnectivity() {
+        if (Connectivity.isConnected(getApplicationContext()) || Connectivity.isConnectedWifi(getApplicationContext()) || Connectivity.isConnectedMobile(getApplicationContext())) {
+            return true;
+        } else {
+            Toast.makeText(getApplicationContext(), R.string.err_no_internet, Toast.LENGTH_SHORT).show();
+            return false;
+        }
     }
 
     @Override
@@ -95,19 +111,25 @@ public class ProofOfCoverageDinamicoActivity extends FrontBackAnimate implements
     }
 
 
-    private void checkLogin() {
+    private boolean checkLogin() {
         if(((VisaCheckoutApp)this.getApplication()).getIdSession()==null){
             Intent i =new Intent(ProofOfCoverageDinamicoActivity.this, LoginActivity.class);
             this.startActivityForResult(i, Constants.ONE_POCKET_NEEDS_LOGIN);
             finish();
-        }else {
-            FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            Bundle bundle = Constants.createDataBundle(Constants.getUser(this), (VisaCheckoutApp) getApplication());
-            proofOfCoverage = new ProofOfCoverageDinamicoFragment();
-            proofOfCoverage.setArguments(bundle);
-            transaction.add(R.id.opk_top, proofOfCoverage);
-            transaction.commit();
+            return false;
+        } else {
+            showProofOfCoverage();
+            return true;
         }
+    }
+
+    public void showProofOfCoverage() {
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        Bundle bundle = Constants.createDataBundle(Constants.getUser(this), (VisaCheckoutApp) getApplication());
+        proofOfCoverage = new ProofOfCoverageDinamicoFragment();
+        proofOfCoverage.setArguments(bundle);
+        transaction.add(R.id.opk_top, proofOfCoverage);
+        transaction.commit();
     }
 
 }
