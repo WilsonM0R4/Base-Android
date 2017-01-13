@@ -74,13 +74,13 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
                     public void onClick(View view) {
                         if (position == 3) {
                             if (Connectivity.isConnected(ctx) || Connectivity.isConnectedWifi(ctx) || Connectivity.isConnectedMobile(ctx)) {
-                                Log.e("CON CONEXION: ","ESTOY AQUI");//Test 2: Succeded
+                                Log.e("CON CONEXION: "," ESTOY AQUI");//Test 2: Succeded
                                 if (((com.allegra.handyuvisa.VisaCheckoutApp) ctx.getApplicationContext()).getIdSession() == null) {
                                     Log.e("CON CONEXION: "," NO ME HE LOGEADO");
                                     setGetYourCertificateLayout();
                                 } else {
                                     Log.e("CON CONEXION: "," ESTOY LOGEADO");//Test 2: Succeded
-                                    Intent i = new Intent(ctx, ProofOfCoverageDinamico.class);
+                                    Intent i = new Intent(ctx, ProofOfCoverageDinamicoActivity.class);
                                     startActivity(i);
                                 }
                             } else {
@@ -204,8 +204,8 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
 
     void setGetYourCertificateLayout() {
         //Change layout
-        setContentView(R.layout.get_your_certificate_dynamic);
-        txtGetYourCertificate = (CustomizedTextView)findViewById(R.id.txtGetYourCertificatedynamic);
+        setContentView(R.layout.get_your_certificate);
+        txtGetYourCertificate = (CustomizedTextView) findViewById(R.id.txtGetYourCertificate);
         txtGetYourCertificate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

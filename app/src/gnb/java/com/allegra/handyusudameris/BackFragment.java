@@ -33,6 +33,10 @@ public class BackFragment extends Fragment  {
     public MenuSelectListener menulistener;
     public static MenuActivity[] activities;
 
+
+    public BackFragment(){
+
+    }
     //***************INTERFACES*****************
     public interface MenuSelectListener {
         void getStartActivity(Intent intent);
@@ -227,7 +231,7 @@ public class BackFragment extends Fragment  {
 
     //***************PROPER METHODS**************
     public void sendToAccount(){
-        Intent intent = new Intent(getActivity(),MyAccountMenuActivity.class);
+        Intent intent = new Intent(getActivity(), com.allegra.handyuvisa.MyAccountMenuActivity.class);
         getActivity().startActivity(intent);
     }
 
@@ -248,13 +252,11 @@ public class BackFragment extends Fragment  {
     public void sendToMarket(){
         Intent intent = new Intent(getActivity(),MarketPlaceActivity.class);
         getActivity().startActivity(intent);
-        getActivity().finish();
     }
 
     public void sendToChat(){
         Intent intent = new Intent(getActivity(),ChatActivity.class);
         getActivity().startActivity(intent);
-        getActivity().finish();
     }
 
     public void sendToCall(){
@@ -265,7 +267,7 @@ public class BackFragment extends Fragment  {
     public void sendToPocket(){
         if (Util.isAuthenticated(getActivity())) {
             Intent intent = new Intent(getActivity(), OnepocketContainerActivity.class);
-            Bundle bundle = Constants.createDataBundle(Constants.getUser(getActivity()), (VisaCheckoutApp) getActivity().getApplication());
+            Bundle bundle = Constants.createDataBundle(Constants.getUser(getActivity()), (com.allegra.handyuvisa.VisaCheckoutApp) getActivity().getApplication());
             intent.putExtras(bundle);
             getActivity().startActivity(intent);
             getActivity().finish();
@@ -276,7 +278,7 @@ public class BackFragment extends Fragment  {
     }
 
     public void sendToMcard(){
-        sendToActivity(Mcardhtml.class, Constants.REQUEST_CODE_MCARD);
+        sendToActivity(com.allegra.handyuvisa.Mcardhtml.class, Constants.REQUEST_CODE_MCARD);
        /* if (Util.isAuthenticated(getActivity())) {
             Intent intent = new Intent(getActivity(),Mcardhtml.class);
             getActivity().startActivity(intent);
@@ -303,7 +305,6 @@ public class BackFragment extends Fragment  {
     public void sendToFlights(){
         Intent intent = new Intent(getActivity(),FlightsActivity.class);
         getActivity().startActivity(intent);
-        getActivity().finish();
     }
 
     public void sendToHotels(){
@@ -346,13 +347,11 @@ public class BackFragment extends Fragment  {
     public void sendToRestaurants(){
         Intent intent = new Intent(getActivity(),RestaurantsActivity.class);
         getActivity().startActivity(intent);
-        getActivity().finish();
     }
 
     public void sendToStore(){
         Intent intent = new Intent(getActivity(),StoreActivity.class);
         getActivity().startActivity(intent);
-        getActivity().finish();
     }
 
     //**************INNER CLASSES******************

@@ -8,7 +8,6 @@ import android.util.Log;
 
 import com.allegra.handyuvisa.utils.Constants;
 import com.allem.onepocket.utils.OPKLibraryConfig;
-import com.allem.onepocket.utils.ThemeType;
 import com.urbanairship.UAirship;
 import com.urbanairship.push.notifications.DefaultNotificationFactory;
 
@@ -160,8 +159,6 @@ public class VisaCheckoutApp extends MultiDexApplication {
 
     private void initOnepocket() {
         OPKLibraryConfig.setTestMode(Constants.TESTING);
-        OPKLibraryConfig.setIdPortal(Constants.ID_PORTAL);
-        OPKLibraryConfig.setTheme(ThemeType.SUDAMERIS);
     }
 
 }

@@ -18,12 +18,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.allegra.handyuvisa.utils.CustomizedTextView;
-import com.allegra.handyuvisa.utils.Util;
 import com.allegra.handyuvisa.models.AllemUser;
 import com.allegra.handyuvisa.models.Notifications;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.KeySaver;
+import com.allegra.handyuvisa.utils.Util;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -64,7 +63,7 @@ public class FrontFragment extends Fragment implements
                              Bundle savedInstanceState) {
 
         View rootView;
-        if (((VisaCheckoutApp)getActivity().getApplication()).getIdSession()==null) {
+        if (((com.allegra.handyuvisa.VisaCheckoutApp)getActivity().getApplication()).getIdSession()==null) {
             rootView = inflater.inflate(R.layout.activity_intro_screen, container, false);
         } else {
             rootView = inflater.inflate(R.layout.fragment_front, container, false);
@@ -80,17 +79,17 @@ public class FrontFragment extends Fragment implements
 
         if (Util.isAuthenticated(getActivity())) {
             AllemUser user = Constants.getUser(getActivity());
-            CustomizedTextView greeting = (CustomizedTextView) getActivity().findViewById(R.id.tv_username);
+            TextView greeting = (TextView) getActivity().findViewById(R.id.tv_username);
             String format = getActivity().getResources().getString(R.string.txt_user_greeting);
             String value = String.format(format, user.nombre);
             greeting.setText(value);
 
-            CustomizedTextView current = (CustomizedTextView) getActivity().findViewById(R.id.tv_current_time);
+            TextView current = (TextView) getActivity().findViewById(R.id.tv_current_time);
             current.setText(Util.getFormattedTime());
 
             loadNotifications(true);
             if (notifications != null) {
-                CustomizedTextView notifMessages = (CustomizedTextView) getActivity().findViewById(R.id.tv_notifications);
+                TextView notifMessages = (TextView) getActivity().findViewById(R.id.tv_notifications);
                 StringBuilder buf = new StringBuilder();
                 for (int i = 0; i < notifications.size(); i++) {
                     buf.append(notifications.get(i).message).append("\n");
@@ -193,7 +192,7 @@ public class FrontFragment extends Fragment implements
                     notifications.add(getNotification(notif.getJSONArray("notif").getJSONObject(i)));
                 }
             }
-            if ((((VisaCheckoutApp) getActivity().getApplication()).getIdSession() != null)){
+            if ((((com.allegra.handyuvisa.VisaCheckoutApp) getActivity().getApplication()).getIdSession() != null)){
                 if(KeySaver.isExist(getActivity(), channel)){
                     notif_shared = KeySaver.getStringSavedShare(getActivity(), channel);
                     if (notif_shared!=null){

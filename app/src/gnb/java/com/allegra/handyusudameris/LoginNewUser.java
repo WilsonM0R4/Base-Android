@@ -215,12 +215,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 //******Add all new views*****
                 SuccessfulRegister successfulRegister = new SuccessfulRegister(getApplicationContext());
                 formLayout.addView(successfulRegister);
-                Log.d("Serfar Prueba", channel);
-
-                //Temporary
-                /*Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(intent);
-                finish();*/
+                Log.d(TAG, channel);
 
             } else {
                 Toast.makeText(ctx, event.getFaultString(), Toast.LENGTH_LONG).show();
@@ -401,7 +396,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             @Override
             public void onClick(View view) {
                 saveTmpInfo();
-                Intent i = new Intent(getApplicationContext(), TermsActivity.class);
+                Intent i = new Intent(getApplicationContext(), com.allegra.handyuvisa.TermsActivity.class);
                 startActivity(i);
             }
         });
@@ -473,7 +468,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         if (celular.length() < 1) celular = "-";//If goes empty
         CuentaClienteInfoAdicional ccia = new CuentaClienteInfoAdicional();
         ccia.setEmpresa("");
-       // ccia.setCargo("");
+        //ccia.setCargo("");
         ccia.setCelular(celular);
         ccia.setCiudad("");
         ccia.setClase("");
@@ -986,7 +981,6 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             CustomizedTextView txtTitle = new CustomizedTextView(context);
             txtTitle.setText(R.string.title_register);
             addView(txtTitle);
-
             txtTitle.setTextColor(getResources().getColor(R.color.PURPLE_COLOR));
             txtTitle.setGravity(Gravity.CENTER_HORIZONTAL);
             txtTitle.setTextSize(18);
@@ -1002,7 +996,6 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             LinearLayout.LayoutParams params6 = (LinearLayout.LayoutParams) view.getLayoutParams();
             params6.height = 14;
             view.setLayoutParams(params6);
-
 
             //****************CONTENT SUB-LAYOUT****************************
             LinearLayout layConfirmation = new LinearLayout(context);
