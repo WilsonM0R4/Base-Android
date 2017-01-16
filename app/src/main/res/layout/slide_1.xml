@@ -1,39 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/bg_gradiente"
-    >
-    <LinearLayout
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="404dp"
-                android:src="@drawable/walkthrough_01_es"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/PURPLE_COLOR_GNB">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Bienvenido a Handy U Visa"
-                android:textColor="@color/WHITE_COLOR"
-                android:textAlignment="center"
-                android:textSize="20sp"
-                android:layout_marginTop="10dp"
-                android:textStyle="normal|bold" />
-        </LinearLayout>
-    </LinearLayout>
+        android:textColor="#ffffff"
+        android:textSize="54sp"
+        android:gravity="center"
+        android:text="SLIDE 2 "/>
 
 </LinearLayout>
