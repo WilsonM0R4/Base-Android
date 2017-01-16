@@ -1,10 +1,11 @@
 package com.allegra.handyuvisa;
 
-import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -19,12 +20,13 @@ import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 
 
-public class MainActivity extends FragmentActivity implements BackFragment.MenuSelectListener {
+public class MainActivity extends FragmentActivity implements com.allegra.handyuvisa.BackFragment.MenuSelectListener {
 
     private static final String TAG = "MainActivity";
     private FrontFragment frontFragment;
-    private BackFragment backFragment;
+    private com.allegra.handyuvisa.BackFragment backFragment;
     private boolean isLogin;
+    private boolean tutorial=true;
     private CustomizedTextView login, register;
     private int state = 0;   // 0 - front open + back exposed;
     // 1 - front close + back hidden;
@@ -52,31 +54,63 @@ public class MainActivity extends FragmentActivity implements BackFragment.MenuS
                     WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             getWindow().setStatusBarColor(Color.TRANSPARENT);
         }
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                //  Initialize SharedPreferences
+                SharedPreferences getPrefs = PreferenceManager
+                        .getDefaultSharedPreferences(getBaseContext());
 
-        frontFragment = (FrontFragment) getFragmentManager().findFragmentById(R.id.fragment_top);
-        backFragment = (BackFragment) getFragmentManager().findFragmentById( R.id.fragment_bottom );
-        backFragment.menulistener = this;
-        state = 0;
+                //  Create a new boolean and preference and set it to true
+                boolean isFirstStart = getPrefs.getBoolean("firstStart", true);
 
-        if (!isAuthenticated()) {
-            login = (CustomizedTextView) findViewById(R.id.login);
-            login.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                    startActivityForResult(intent, Constants.ACTIVITY_LOGIN);
+                //  If the activity has never started before...
+                if (isFirstStart) {
+
+                    //  Launch app intro
+                    Intent i = new Intent(MainActivity.this, com.allegra.handyuvisa.WalkThroughActivity.class);
+                    startActivity(i);
+
+                    //  Make a new preferences editor
+                    SharedPreferences.Editor e = getPrefs.edit();
+
+                    //  Edit preference to make it false because we don't want this to run again
+                    e.putBoolean("firstStart", false);
+
+                    //  Apply changes
+                    e.apply();
                 }
-            });
+            }
+        });
 
-            register = (CustomizedTextView) findViewById(R.id.register);
-            register.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(MainActivity.this, LoginNewUser.class);
-                    startActivity(intent);
-                }
-            });
-        }
+        // Start the thread
+        t.start();
+
+            frontFragment = (FrontFragment) getFragmentManager().findFragmentById(R.id.fragment_top);
+            backFragment = (com.allegra.handyuvisa.BackFragment) getFragmentManager().findFragmentById(R.id.fragment_bottom);
+            backFragment.menulistener = this;
+            state = 0;
+
+            if (!isAuthenticated()) {
+                login = (CustomizedTextView) findViewById(R.id.login);
+                login.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                        startActivityForResult(intent, Constants.ACTIVITY_LOGIN);
+                    }
+                });
+
+                register = (CustomizedTextView) findViewById(R.id.register);
+                register.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(MainActivity.this, com.allegra.handyuvisa.LoginNewUser.class);
+                        startActivity(intent);
+                    }
+                });
+            }
+
     }
 
     @Override
@@ -124,7 +158,7 @@ public class MainActivity extends FragmentActivity implements BackFragment.MenuS
     }
 
     private boolean isAuthenticated() {
-        return (((VisaCheckoutApp)getApplication()).getIdSession() != null);
+        return (((com.allegra.handyuvisa.VisaCheckoutApp)getApplication()).getIdSession() != null);
     }
 
     private void animate() {
