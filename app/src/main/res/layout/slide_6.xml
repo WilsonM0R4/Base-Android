@@ -16,7 +16,7 @@
         <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/title_walk_01"
+            android:text="@string/title_walk_06"
             android:textColor="@color/WHITE_COLOR"
             android:textAlignment="center"
             android:textSize="20sp"
@@ -27,7 +27,7 @@
         <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="219dp"
             android:layout_height="match_parent"
-            android:text="@string/walk_01"
+            android:text="@string/walk_06"
             android:textColor="@color/WHITE_COLOR"
             android:textAlignment="center"
             android:textSize="15sp"
