@@ -112,7 +112,7 @@ public class ProofOfCoverageDinamicoActivity extends FrontBackAnimate implements
 
 
     private boolean checkLogin() {
-        if(((VisaCheckoutApp)this.getApplication()).getIdSession()==null){
+        if(((com.allegra.handyuvisa.VisaCheckoutApp)this.getApplication()).getIdSession()==null){
             Intent i =new Intent(ProofOfCoverageDinamicoActivity.this, LoginActivity.class);
             this.startActivityForResult(i, Constants.ONE_POCKET_NEEDS_LOGIN);
             finish();
@@ -125,7 +125,7 @@ public class ProofOfCoverageDinamicoActivity extends FrontBackAnimate implements
 
     public void showProofOfCoverage() {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        Bundle bundle = Constants.createDataBundle(Constants.getUser(this), (VisaCheckoutApp) getApplication());
+        Bundle bundle = Constants.createDataBundle(Constants.getUser(this), (com.allegra.handyuvisa.VisaCheckoutApp) getApplication());
         proofOfCoverage = new ProofOfCoverageDinamicoFragment();
         proofOfCoverage.setArguments(bundle);
         transaction.add(R.id.opk_top, proofOfCoverage);

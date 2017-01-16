@@ -265,7 +265,7 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
     void launchMcardActivity() {
 
         //Launch mCard Activity
-        Intent i = new Intent(getApplicationContext(), Mcardhtml.class);
+        Intent i = new Intent(getApplicationContext(), com.allegra.handyuvisa.Mcardhtml.class);
         startActivity(i);
         finish();
     }
