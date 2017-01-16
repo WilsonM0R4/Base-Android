@@ -60,7 +60,7 @@
         <ImageView
             android:layout_width="fill_parent"
             android:layout_height="387dp"
-            android:src="@drawable/walkthrough_01_es"
+            android:src="@drawable/walkthrough_05_es"
             android:layout_marginTop="-10dp" />
     </LinearLayout>
 </RelativeLayout>
