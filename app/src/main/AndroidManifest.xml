@@ -154,6 +154,10 @@
             android:name=".LoginForgotActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".WalkThroughActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme"/>
+        <activity
             android:name=".IntroScreenActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"

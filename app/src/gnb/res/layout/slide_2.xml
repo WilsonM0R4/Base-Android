@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".WalkThroughActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/PURPLE_COLOR_GNB"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
+        <com.allegra.handyuvisa.utils.CustomizedTextView
+            android:layout_width="161dp"
+            android:layout_height="wrap_content"
+            android:text="@string/title_walk_02"
+            android:textColor="@color/WHITE_COLOR"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:layout_marginTop="390dp"
+            android:layout_gravity="center"
+            app:font="@string/font_muli_bold"
+            android:id="@+id/title_walk"/>
+
+        <com.allegra.handyuvisa.utils.CustomizedTextView
+            android:layout_width="219dp"
+            android:layout_height="match_parent"
+            android:text="@string/walk_02"
+            android:textColor="@color/WHITE_COLOR"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginTop="-85dp"
+            android:id="@+id/text_walk"
+            app:font="@string/font_muli_light"/>
+
+        <com.allegra.handyuvisa.utils.CustomizedTextView
+            android:layout_width="219dp"
+            android:layout_height="match_parent"
+            android:text="POWERED BY IATAI"
+            android:textColor="@color/WHITE_COLOR"
+            android:textAlignment="center"
+            android:textSize="10sp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginTop="-150dp"
+            android:id="@+id/powered_walk"
+            app:font="@string/font_muli_light"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="387dp"
+            android:src="@drawable/walkthrough_02_es"
+            android:layout_marginTop="-10dp" />
+    </LinearLayout>
+</RelativeLayout>
