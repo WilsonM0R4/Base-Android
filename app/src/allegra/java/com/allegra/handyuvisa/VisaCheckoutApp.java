@@ -97,8 +97,10 @@ public class VisaCheckoutApp extends MultiDexApplication {
     }
 
     private void initOnepocket() {
-        OPKLibraryConfig.setTestMode(Constants.TESTING);
-        OPKLibraryConfig.setIdPortal(Constants.ID_PORTAL);
+        new OPKLibraryConfig.Builder()
+                .testMode(Constants.TESTING)
+                .idPortal(Constants.ID_PORTAL)
+                .build();
     }
 
 }
