@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@color/PURPLE_COLOR"
+        android:background="@drawable/gradient_background"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true">
 
@@ -47,7 +47,7 @@
             android:textSize="9sp"
             android:gravity="center"
             android:layout_gravity="center"
-            android:layout_marginTop="-140dp"
+            android:layout_marginTop="-150dp"
             android:id="@+id/powered_walk"
             app:font="@string/font_muli"/>
 

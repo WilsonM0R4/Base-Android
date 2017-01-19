@@ -70,4 +70,11 @@
     <item name="android:textColor">@color/register_input_active</item>
     </style>
 
+    <!-- WalkTrough for HandyUVisa only -->
+    <style name="WalkTroughStyle">
+
+        <item name="android:background">@drawable/gradient_background</item>
+    </style>
+
+
 </resources>
