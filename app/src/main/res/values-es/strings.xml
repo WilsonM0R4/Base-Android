@@ -10,7 +10,7 @@
     <string name="BEFORE">ANTERIORES</string>
     <string name="demo_iatai">TEST IATAI</string>
     <string name="checkmytrip">Check My Trip</string>
-    <string name="skip_walk">Saltar</string>
+    <string name="skip_walk">Salta</string>
     <string name="done_walk">Inicia</string>
     <string name="cobertura_basica">Coberturas básicas</string>
     <string name="title_walk_01">Bienvenido a Handy U Visa</string>
@@ -20,7 +20,7 @@
     <string name="title_walk_05">Ahora comprar\n es más fácil</string>
     <string name="title_walk_06">Una buena experiencia\n para viajar</string>
     <string name="title_walk_07">Servicios y comercios\n con un toque</string>
-    <string name="walk_01">La solución "all-in-one"\n donde tienes miles de servicios\n y productos a la mano.</string>
+    <string name="walk_01">La solución \"all-in-one\" \n donde tienes miles de servicios\n y productos a la mano.</string>
     <string name="walk_02">Vive y viaja sin preocupaciones, con\n coberturas médicas, protección para tus\n necesidades cotidianas y financieras.</string>
     <string name="walk_03">Ahora tu certificado de cobertura\n está disponible en tu dispositivo\n móvil cuando lo necesites.</string>
     <string name="walk_04">Ahora puedes comprar en minutos,\n de manera más fácil y segura con\n Visa Checkout.</string>
@@ -565,4 +565,5 @@
     <string name="okCancelChatCall">OK</string>
     <string name="titleCancelCall">Terminar llamada</string>
     <string name="txtConfirmationCancelCall">¿Seguro quieres terminar\n esta llamada?</string>
+    <string name="txtWalktroughFooter">IATAI</string>
 </resources>

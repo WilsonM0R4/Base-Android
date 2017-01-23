@@ -6,13 +6,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".WalkThroughActivity">
 
-    <LinearLayout
+    <!--  UPPER SCREENSHOT -->
+
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/walkthrough_05_es"
+        android:id="@+id/imageView32"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@string/accept"
+        android:adjustViewBounds="true" />
+
+    <!-- INTERMEDIATE LAYOUT -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@drawable/gradient_background"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true">
+        android:layout_below="@+id/imageView32">
 
         <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="match_parent"
@@ -20,48 +33,39 @@
             android:text="@string/title_walk_05"
             android:textColor="@color/WHITE_COLOR"
             android:textAlignment="center"
-            android:textSize="18sp"
-            android:layout_marginTop="400dp"
+            android:textSize="22sp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
             app:font="@string/font_varela"
             android:id="@+id/title_walk" />
 
         <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:text="@string/walk_05"
             android:textColor="@color/WHITE_COLOR"
             android:textAlignment="center"
-            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/title_walk"
+            android:textSize="16sp"
             android:gravity="center"
-            android:layout_gravity="center"
-            android:layout_marginTop="-80dp"
             android:id="@+id/text_walk"
             app:font="@string/font_muli_light"/>
 
         <com.allegra.handyuvisa.utils.CustomizedTextView
-            android:layout_width="219dp"
-            android:layout_height="match_parent"
-            android:text="POWERED BY IATAI"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/txtWalktroughFooter"
             android:textColor="@color/WHITE_COLOR"
             android:textAlignment="center"
-            android:textSize="9sp"
+            android:textSize="12sp"
             android:gravity="center"
-            android:layout_gravity="center"
-            android:layout_marginTop="-150dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="1dp"
             android:id="@+id/powered_walk"
             app:font="@string/font_muli"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="387dp"
-            android:src="@drawable/walkthrough_05_es"
-            android:layout_marginTop="-10dp" />
-    </LinearLayout>
+
 </RelativeLayout>
