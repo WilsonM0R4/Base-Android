@@ -3,9 +3,8 @@ package com.allegra.handyuvisa;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-
-import com.allegra.handyuvisa.utils.CustomizedTextView;
 import com.allegra.handyuvisa.utils.SampleSlide;
+import com.allegra.handyuvisa.utils.CustomizedTextView;
 import com.github.paolorotolo.appintro.AppIntro;
 
 /**

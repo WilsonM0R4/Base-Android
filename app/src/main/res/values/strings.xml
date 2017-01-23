@@ -9,7 +9,7 @@
     <string name="location_permision">Your GPS seems to be disabled, do you want to enable it?</string>
     <string name="location_failed">Fail to fetch your current location. Please check your GPS status and try again</string>
     <string name="skip_walk">Skip</string>
-    <string name="done_walk">Next</string>
+    <string name="done_walk">Start</string>
     <string name="cobertura_basica">Basic coverages</string>
     <string name="title_walk_01">Welcome to\n Handy U Visa </string>
     <string name="title_walk_02">Feel secure\n with mCard</string>
