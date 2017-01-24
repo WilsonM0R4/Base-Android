@@ -142,6 +142,9 @@
             android:name=".StoreActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".TermsActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".CallActivityServices"
             android:screenOrientation="portrait" />
         <activity
