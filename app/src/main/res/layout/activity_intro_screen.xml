@@ -43,7 +43,7 @@
                 android:id="@+id/iv_visa"
                 android:layout_weight="0.5"
                 android:src="@drawable/vco"
-                android:layout_marginRight="20dp" />
+                android:layout_marginEnd="20dp" />
 
         </LinearLayout>
 
@@ -63,7 +63,6 @@
             <com.allegra.handyuvisa.utils.CustomizedTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/tv_all_in_one"
                 android:id="@+id/tv_welcome"
                 android:text="@string/slogan_welcome"
                 android:textColor="@color/HomeTitle_text"
@@ -76,7 +75,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_all_in_one"
-                android:layout_above="@+id/fullscreen_login_register"
                 android:text="@string/slogan_all_in_one"
                 android:textColor="@color/HomeDescription_text"
                 android:gravity="center_horizontal"
@@ -97,9 +95,9 @@
                 <com.allegra.handyuvisa.utils.CustomizedTextView
                     android:id="@+id/login"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="11dp"
-                    android:layout_marginLeft="22dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginEnd="22dp"
                     android:background="@drawable/round_corner_transparent"
                     android:text="@string/login"
                     android:gravity="center"
@@ -111,9 +109,9 @@
                 <com.allegra.handyuvisa.utils.CustomizedTextView
                     android:id="@+id/register"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="22dp"
-                    android:layout_marginLeft="11dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="22dp"
+                    android:layout_marginEnd="11dp"
                     android:background="@drawable/round_corner_white"
                     android:text="@string/register"
                     android:gravity="center"
@@ -126,7 +124,7 @@
 
             <com.allegra.handyuvisa.utils.CustomizedTextView
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_height="0dp"
                 android:id="@+id/skip_intro"
                 android:layout_weight="1"
                 android:layout_gravity="center"
@@ -141,9 +139,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_below="@+id/skip_intro"
                 android:id="@+id/tv_version"
-                android:text="IATAI"
+                android:text="@string/txtWalktroughFooter"
                 android:textColor="@color/HomeFooter_text"
                 android:textSize="12sp"
                 app:font="@string/font_muli"

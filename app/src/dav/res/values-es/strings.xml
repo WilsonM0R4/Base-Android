@@ -14,7 +14,7 @@
     <string name="BEFORE">ANTERIORES</string>
     <string name="demo_iatai">TEST IATAI</string>
     <string name="prod_iatai">IATAI</string>
-    <string name="skip_walk">Saltar</string>
+    <string name="skip_walk">Salta</string>
     <string name="done_walk">Inicia</string>
     <string name="cobertura_basica">Coberturas básicas</string>
     <string name="title_walk_01">Bienvenido a Visa B Davivienda</string>
@@ -41,7 +41,7 @@
     <string name="coverage">Prueba de Cobertura</string>
     <string name="benefits">Mis Beneficios</string>
     <string name="title_activity_intro_screen">IntroScreenActivity</string>
-    <string name="login">INGRESAR</string>
+    <string name="login">INGRESA</string>
     <string name="onepocket">Onepocket</string>
     <string name="mCard">mCard</string>
     <string name="GPSAlertDialogTitle">Visa B Davivienda Localizacion</string>

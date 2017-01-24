@@ -8,7 +8,7 @@
     <string name="SAME_WEEK">ÚLTIMA SEMANA</string>
     <string name="mytips">Tips</string>
     <string name="SAME_MONTH">ÚLTIMO MES</string>
-    <string name="skip_walk">Saltar</string>
+    <string name="skip_walk">Salta</string>
     <string name="done_walk">Inicia</string>
     <string name="cobertura_basica">Basic Coverages</string>
     <string name="title_walk_01">Bienvenido a Handy U GNB Sudameris</string>
@@ -37,7 +37,7 @@
     <string name="coverage">Prueba de Cobertura</string>
     <string name="benefits">Mis Beneficios</string>
     <string name="title_activity_intro_screen">IntroScreenActivity</string>
-    <string name="login">INGRESAR</string>
+    <string name="login">INGRESA</string>
     <string name="onepocket">Onepocket</string>
     <string name="mCard">mCard</string>
     <string name="GPSAlertDialogTitle">Handy U GNB Sudameris Localizacion</string>

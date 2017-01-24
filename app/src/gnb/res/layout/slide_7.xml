@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/bg_gradient_gnb"
+        android:background="@color/PURPLE_COLOR_GNB"
         android:layout_alignParentBottom="true"
         android:layout_below="@+id/imageView32">
 

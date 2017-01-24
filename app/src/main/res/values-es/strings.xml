@@ -39,7 +39,7 @@
     <string name="coverage">Prueba de Cobertura</string>
     <string name="benefits">Mis Beneficios</string>
     <string name="title_activity_intro_screen">IntroScreenActivity</string>
-    <string name="login">INGRESAR</string>
+    <string name="login">INGRESA</string>
     <string name="onepocket">Onepocket</string>
     <string name="mCard">mCard</string>
     <string name="GPSAlertDialogTitle">Handy U Visa Localizacion</string>
