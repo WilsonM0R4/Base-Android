@@ -1,6 +1,5 @@
 package com.allegra.handyuvisa;
 
-import android.*;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -29,16 +28,12 @@ import android.webkit.WebViewClient;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.allegra.handyuvisa.models.AllemUser;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
 import com.allegra.handyuvisa.utils.GPSTracker;
 import com.allem.onepocket.utils.OPKConstants;
-import com.google.android.gms.analytics.HitBuilders;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.location.LocationServices;
 
 import java.net.URLEncoder;
 import java.util.List;
@@ -92,7 +87,7 @@ public class ServiceActivity extends  FrontBackAnimate implements FrontBackAnima
     @Override
     public void initViews(View root) {
 
-        url = Constants.getServiceUrl()+userNombre+"&havemcard="+mcard+"&email="+userMail+"&v=1";
+        url = Constants.getServiceUrl()+"&email="+userMail+"&v=1"+"&idPortal="+Constants.ID_PORTAL;
         menu = (ImageButton) root.findViewById(R.id.menu_image);
         webServices = (WebView) root.findViewById(R.id.webView3);
         webServices.getSettings().setJavaScriptEnabled(true);
@@ -319,8 +314,8 @@ public class ServiceActivity extends  FrontBackAnimate implements FrontBackAnima
         }
 
         public boolean shouldOverrideUrlLoading(WebView webView, String url) {
-            if (url.equals("allegra:touchcallService")) {
-                Intent i = new Intent(context, CallActivityServices.class);
+            if (url.equals("allegra:mcard")) {
+                Intent i = new Intent(context, Mcardhtml.class);
                 context.startActivity(i);
                 return true;
             }
