@@ -140,7 +140,6 @@ public class ProofOfCoverageActivity extends FrontBackAnimate implements FrontBa
                 //******************
                 findValueOfMcard();
                 setValues();
-
             }
         }
     }
