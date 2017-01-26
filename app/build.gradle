@@ -279,7 +279,7 @@ android {
 
 dependencies {
     testCompile 'junit:junit:4.12'
-    compile project(':onepocket-sdk-2.0.0-379')
+    compile project(':onepocket-sdk-2.0.0-380')
     //3rd party libraries
     compile('com.google.code.ksoap2-android:ksoap2-android:3.6.1') {
         exclude group: 'com.squareup.okio', module: 'okio'
