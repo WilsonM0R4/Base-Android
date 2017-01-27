@@ -323,11 +323,6 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".HotelsPaymentActivity"
-            android:label="@string/title_activity_hotels_payment"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".FlightsPaymentActivity"
             android:label="@string/title_activity_flights_payment"
             android:screenOrientation="portrait"
