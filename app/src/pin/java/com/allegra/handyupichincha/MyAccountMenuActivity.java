@@ -58,7 +58,7 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
                 getString(R.string.transactions_history),
                 getString(R.string.legal_title),
         };
-        final Integer[] images = {R.drawable.menu__profile, R.drawable.my_benefits,R.drawable.my_benefits, R.drawable.coverage, R.drawable.menu__history,
+        final Integer[] images = {R.drawable.menu__profile, R.drawable.my_benefits,R.drawable.menu_tips, R.drawable.coverage, R.drawable.menu__history,
                 R.drawable.legal2};
         final Class[] activities = {MyAccountActivity.class, com.allegra.handyuvisa.MyBenefits.class, com.allegra.handyuvisa.MyTips.class,
                 ProofOfCoverageActivity.class, OneTransactionsActivity.class, LegalActivity.class};
