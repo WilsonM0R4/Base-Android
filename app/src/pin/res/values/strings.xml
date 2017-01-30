@@ -317,8 +317,8 @@
     <string name="txt_lbl_notification">Notification</string>
     <string name="form_errors">There are some errors in the form, please correct them and try again</string>
     <string name="title_your_code">Your code</string>
-    <string name="round_trip_flight_type">Round-Trip</string>
-    <string name="one_way_flight_type">One-Way</string>
+    <string name="round_trip_flight_type">Round Trip</string>
+    <string name="one_way_flight_type">One Way</string>
     <string name="country">Select country</string>
     <string name="purchase_detail">Purchase detail</string>
     <string name="text_suggest">You must write at least 3 characters</string>
