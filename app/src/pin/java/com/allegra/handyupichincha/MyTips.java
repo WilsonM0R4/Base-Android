@@ -14,7 +14,7 @@ import android.widget.ProgressBar;
 public class MyTips extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
 
     private WebView webMyTips;
-    private String url = "http://allegra.global/app/demo-tips/tips.html";
+    private String url = "http://iataiapps.com/pichincha/tips/tips.html";
     private String returnURL;
     private ImageButton back, menu;
     private ProgressBar progressBar;
@@ -36,7 +36,7 @@ public class MyTips extends FrontBackAnimate implements FrontBackAnimate.Inflate
         webMyTips.setWebViewClient(new MyBrowser());
         back = (ImageButton) root.findViewById(R.id.back_image);
         menu = (ImageButton) root.findViewById(R.id.menu_close);
-        progressBar = (ProgressBar) root.findViewById(R.id.progressBar_benefits);
+        progressBar = (ProgressBar) root.findViewById(R.id.progressBar_MyTips);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override

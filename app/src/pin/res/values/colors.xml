@@ -12,6 +12,7 @@
     <color name="BLACK_COLOR">#000000</color>
 
     <color name= "PURPLE_COLOR">#CF447A</color>
+    <color name="YELLOW_PIN">#F9C013</color>
     <color name="btn_register">#59595B</color>
     <color name= "ORANGE_COLOR">#EF411F</color>
     <color name= "TEXT_COLOR">#444444</color>
@@ -28,21 +29,22 @@
     <color name="GeneralDescription">@color/DARK_GRAY_COLOR</color>
     <!-- Button -->
     <!-- BigButton -->
-    <color name="BigButton_backgroung">@color/ORANGE_COLOR</color>
+    <color name="BigButton_backgroung">@color/YELLOW_PIN</color>
     <color name="BigButton_border">@color/CLEAR_COLOR</color>
     <color name="BigButton_text">@color/WHITE_COLOR</color>
+    <color name="HomeButtonSmall_text">@color/bg_gradiente</color>
     <!-- BigButtonWithBorder -->
     <color name="BigButtonWithBorder_backgroung">@color/CLEAR_COLOR</color>
     <color name="BigButtonWithBorder_border">@color/ORANGE_COLOR</color>
-    <color name="BigButtonWithBorder_text">@color/ORANGE_COLOR</color>
+    <color name="BigButtonWithBorder_text">@color/bg_gradiente</color>
     <!-- SmallButton -->
-    <color name="SmallButton_backgroung">@color/PURPLE_COLOR</color>
+    <color name="SmallButton_backgroung">@color/YELLOW_PIN</color>
     <color name="SmallButton_border">@color/CLEAR_COLOR</color>
     <color name="SmallButton_text">@color/WHITE_COLOR</color>
     <!-- SmallButtonWithBorder -->
     <color name="SmallButtonWithBorder_backgroung">@color/CLEAR_COLOR</color>
-    <color name="SmallButtonWithBorder_border">@color/ORANGE_COLOR</color>
-    <color name="SmallButtonWithBorder_text">@color/ORANGE_COLOR</color>
+    <color name="SmallButtonWithBorder_border">@color/bg_gradiente</color>
+    <color name="SmallButtonWithBorder_text">@color/bg_gradiente</color>
     <!-- HomeButtonSmall -->
     <color name="HomeButtonSmall_backgroung">@color/WHITE_COLOR</color>
     <color name="HomeButtonSmall_border">@color/btn_register</color>
@@ -59,7 +61,7 @@
     <color name="ForgotPassButton_border">@color/CLEAR_COLOR</color>
     <color name="ForgotPassButton_text">@color/PURPLE_COLOR</color>
     <!-- BigButton2 -->
-    <color name="BigButton2_backgroung">@color/PURPLE_COLOR</color>
+    <color name="BigButton2_backgroung">@color/YELLOW_PIN</color>
     <color name="BigButton2_border">@color/CLEAR_COLOR</color>
     <color name="BigButton2_text">@color/WHITE_COLOR</color>
     <!-- BigButtonWithBorder2 -->
@@ -106,7 +108,7 @@
         <item>@color/ThirdSelectorButtonNormal_text</item>
         <item>@color/ThirdSelectorButtonSelected_text</item>
     </array>
-    <color name="ThirdSelectorButtonTitle_text">@color/PURPLE_COLOR</color>
+    <color name="ThirdSelectorButtonTitle_text">@color/YELLOW_PIN</color>
     <!-- ThirdSelectorButtonNormal -->
     <color name="ThirdSelectorButtonNormal_backgroung">@color/CLEAR_COLOR</color>
     <color name="ThirdSelectorButtonNormal_border">@color/CLEAR_COLOR</color>
@@ -114,14 +116,14 @@
     <!-- ThirdSelectorButtonSelected -->
     <color name="ThirdSelectorButtonSelected_backgroung">@color/CLEAR_COLOR</color>
     <color name="ThirdSelectorButtonSelected_border">@color/PURPLE_COLOR</color>
-    <color name="ThirdSelectorButtonSelected_text">@color/PURPLE_COLOR</color>
+    <color name="ThirdSelectorButtonSelected_text">@color/YELLOW_PIN</color>
     <color name="ThirdSelectorButtonSelected_shadow">@color/CLEAR_COLOR</color>
 
     <!--- Calendar Selector Date -->
     <!-- CalendarHeaderDate -->
     <color name="CalendarHeaderDate_text">@color/GRAY_COLOR</color>
     <!-- CalendarBodyDate -->
-    <color name="CalendarBodyDate_text">@color/PURPLE_COLOR</color>
+    <color name="CalendarBodyDate_text">@color/YELLOW_PIN</color>
     <!-- CalendarFooterDateDay -->
     <color name="CalendarFooterDateDay_text">@color/GRAY_COLOR</color>
     <!-- CalendarHeaderTitle -->
@@ -131,7 +133,7 @@
     <!-- CalendarFooterDateMonth -->
     <color name="CalendarFooterDateMonth_text">@color/GRAY_COLOR</color>
     <!-- CalendarSelectorRange -->
-    <color name="CalendarSelectorRange_backgroung">@color/PURPLE_COLOR</color>
+    <color name="CalendarSelectorRange_backgroung">@color/YELLOW_PIN</color>
     <color name="CalendarSelectorRange_border">@color/CLEAR_COLOR</color>
     <color name="CalendarSelectorRange_text">@color/WHITE_COLOR </color>
     <!--- Person Selector -->
@@ -144,7 +146,7 @@
     <color name="PersonSelectorContentBox_border">@color/CLEAR_COLOR</color>
     <color name="PersonSelectorContentBox_text">@color/GRAY_COLOR</color>
     <!-- PersonSelectorItemDescriptionTitle -->
-    <color name="PersonSelectorItemDescriptionTitle_text">@color/PURPLE_COLOR</color>
+    <color name="PersonSelectorItemDescriptionTitle_text">@color/bg_gradiente</color>
     <!-- PersonSelectorItemDescriptionSubTitle -->
     <color name="PersonSelectorItemDescriptionSubTitle">@color/GRAY_COLOR</color>
     <!-- PersonSelectorItemDescriptionNumber -->
@@ -189,7 +191,7 @@
     <color name="SearchCellSelected_backgroung">@color/PURPLE_COLOR</color>
     <!--- Guest Per Room -->
     <!--GuestPerRoomTitle -->
-    <color name="GuestPerRoomTitle_backgroung">@color/PURPLE_COLOR</color>
+    <color name="GuestPerRoomTitle_backgroung">@color/bg_gradiente</color>
     <color name="GuestPerRoomTitle_text">@color/WHITE_COLOR</color>
     <!-- GuestPerRoomDescription -->
     <color name="GuestPerRoomDescription_backgroung">@color/LIGHT_GRAY_COLOR</color>
@@ -200,7 +202,7 @@
     <color name="SelectedRoomDescription_text">@color/GRAY_COLOR</color>
     <!-- SelectedRoomButtonAddRoom -->
     <color name="SelectedRoomButtonAddRoom_backgroung">@color/LIGHT_GRAY_COLOR</color>
-    <color name="SelectedRoomButtonAddRoom_text">@color/PURPLE_COLOR</color>
+    <color name="SelectedRoomButtonAddRoom_text">@color/YELLOW_PIN</color>
 
     <!--- Menu -->
     <!-- InternalMenus -->
@@ -214,7 +216,7 @@
     <color name="HomeMenusLine2_background">@color/CLEAR_COLOR_GRADIENT</color>
     <!-- GeneralAppHeaderTitle -->
     <color name="GeneralAppHeaderTitle_backgroud">@color/CLEAR_COLOR</color>
-    <color name="GeneralAppHeaderTitle_text">@color/PURPLE_COLOR</color>
+    <color name="GeneralAppHeaderTitle_text">@color/bg_gradiente</color>
     <!--- Alert -->
     <!-- HeaderAlert -->
     <color name="HeaderAlert_backgroung">@color/CLEAR_COLOR</color>
@@ -247,13 +249,13 @@
     <color name="HomeFooter_text">@color/WHITE_COLOR</color>
     <!--- title -->
     <!-- GeneralTitle1 -->
-    <color name="GeneralTitle1_text">@color/ORANGE_COLOR</color>
+    <color name="GeneralTitle1_text">@color/bg_gradiente</color>
     <!-- GeneralTitle2 -->
-    <color name="GeneralTitle2_text">@color/PURPLE_COLOR</color>
+    <color name="GeneralTitle2_text">@color/YELLOW_PIN</color>
     <!-- HomeDescriptionTitle -->
     <color name="HomeDescriptionTitle_text">@color/GRAY_COLOR</color>
     <!-- ProfileTitle -->
-    <color name="ProfileTitle_text">@color/PURPLE_COLOR</color>
+    <color name="ProfileTitle_text">@color/bg_gradiente</color>
     <!-- NavbarTitle -->
     <color name="NavbarTitle_text">@color/PURPLE_COLOR</color>
     <!-- DataRecoveryPassword -->
@@ -299,9 +301,9 @@
     <!-- SecondColorHeader -->
     <color name="SecondColorHeader_backgroung">@color/CLEAR_COLOR</color>
     <!-- FirstColorLineHeader -->
-    <color name="FirstColorLineHeader_backgroung">@color/ORANGE_COLOR</color>
+    <color name="FirstColorLineHeader_backgroung">@color/YELLOW_PIN</color>
     <!-- SecondColorLineHeader -->
-    <color name="SecondColorLineHeader_backgroung">@color/PURPLE_COLOR</color>
+    <color name="SecondColorLineHeader_backgroung">@color/YELLOW_PIN</color>
     <!-- Proof of coverage -->
     <color name="ProofOfCoverageTitle_text">@color/GRAY_COLOR</color>
     <color name="ProofOfCoverageName_text">@color/PURPLE_COLOR</color>

@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.allegra.handyuvisa.utils.Constants;
 import com.allem.onepocket.utils.OPKLibraryConfig;
+import com.allem.onepocket.utils.ThemeType;
 import com.urbanairship.UAirship;
 import com.urbanairship.push.notifications.DefaultNotificationFactory;
 
@@ -158,7 +159,7 @@ public class VisaCheckoutApp extends MultiDexApplication {
     }
 
     private void initOnepocket() {
-        new OPKLibraryConfig.Builder().testMode(Constants.TESTING).build();
+        new OPKLibraryConfig.Builder().testMode(Constants.TESTING).idPortal(Constants.ID_PORTAL).setTheme(ThemeType.PICHINCHA).build();
     }
 
 }

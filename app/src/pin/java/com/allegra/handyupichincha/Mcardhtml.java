@@ -25,6 +25,7 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
     private ImageButton menu;
     private String returnURL, userEmail;
     public String onePocketmessage;
+    public String goToProof;
     //private String url = "http://52.71.117.239:8080/McardMembresiaAllus/app/app/app/index_320.xhtml?email=";
     private String url_prod = Constants.getMcardhtml();
     //private String url = "http://allegra.global/membresias/planes/";
@@ -73,6 +74,7 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
     protected void onResume() {
         super.onResume();
         loadWebView();
+        /*loadWebViewOnepocket();*/
     }
 
     @Override
@@ -93,9 +95,14 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
 
     private void loadWebView() {
         //url="http://alegra.dracobots.com/Hotel/Flow/Availability?";
-        webmcard.addJavascriptInterface(new AppJavaScriptProxyMcard(this), "androidProxy");
+        webmcard.addJavascriptInterface(new AppJavaScriptProxyProof(this), "androidProxy");
         webmcard.loadUrl(url_prod+userEmail);
     }
+
+    /*private void loadWebViewOnepocket(){
+        webmcard.addJavascriptInterface(new AppJavaScriptProxyMcard(this), "androidProxy");
+        webmcard.loadUrl(url_prod+userEmail);
+    }*/
 
     public void openOnePocket(){
 
@@ -107,7 +114,7 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
 
     public void goToProof(){
         Context context=this;
-        Intent intent = new Intent(context, ProofOfCoverageDinamico.class);
+        Intent intent = new Intent(context, ProofOfCoverageDinamicoActivity.class);
         context.startActivity(intent);
 
     }
