@@ -195,7 +195,7 @@ public class ConciergeActivity extends FrontBackAnimate implements FrontBackAnim
                     conciergeName.setText(city);
                     conciergeStateOrCountry.setText(country);
                 }else {//Only city
-                    conciergeName.setText(city);
+                    conciergeName.setText(labelConcierge);
                     conciergeStateOrCountry.setText("");
                 }
                 //conciergeName.setText(String.valueOf(concierge.getLabel()));
