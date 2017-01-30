@@ -221,7 +221,7 @@ public class ProofOfCoverageActivity extends FrontBackAnimate implements FrontBa
         centerListView.setVisibility(View.GONE);
         bottomTexts.setVisibility(View.GONE);
         setContentView(R.layout.get_your_certificate);
-        txtGetYourCertificate = (CustomizedTextView) findViewById(R.id.txtGetYourCertificate);
+        //txtGetYourCertificate = (CustomizedTextView) findViewById(R.id.txtGetYourCertificate);
         txtGetYourCertificate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
