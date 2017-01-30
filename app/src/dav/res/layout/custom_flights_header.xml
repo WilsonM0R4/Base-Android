@@ -22,20 +22,6 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp">
 
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:text="@string/one_way_flight_type"
-                android:textStyle="bold"
-                android:id="@+id/btn_oneway"
-                android:background="@drawable/round_corner_transparent_for_type_of_trip"
-                android:textColor="@color/DoubleSelectorButtonNormal_text"
-                android:paddingTop="0dp"
-                android:paddingBottom="0dp"
-                android:layout_weight="1"
-                />  <!-- android:onClick="onOneWay" -->
-
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
@@ -45,6 +31,18 @@
                 android:background="@drawable/round_corner_magenta"
                 android:textColor="@color/DoubleSelectorButtonSelected_text"
                 android:onClick="onRoundTrip"
+                android:paddingTop="0dp"
+                android:paddingBottom="0dp"
+                android:layout_weight="1"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="@string/one_way_flight_type"
+                android:textStyle="bold"
+                android:id="@+id/btn_oneway"
+                android:background="@drawable/round_corner_transparent_for_type_of_trip"
+                android:textColor="@color/DoubleSelectorButtonNormal_text"
                 android:paddingTop="0dp"
                 android:paddingBottom="0dp"
                 android:layout_weight="1"
