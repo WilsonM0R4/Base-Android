@@ -169,12 +169,9 @@ public class ProofOfCoverageActivity extends FrontBackAnimate implements FrontBa
             case "9":
                 return "OTRO";
             //break;
-
         }
 
-
         return strType;
-
     }
 
     void findValueOfMcard() {
