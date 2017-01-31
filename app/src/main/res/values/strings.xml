@@ -643,6 +643,7 @@
     <string name="txt_continue">CONTINUE</string>
     <string name="test_terms"><u>terms and conditions</u></string>
     <string name="by_clicking">By clicking agree you accept</string>
+    <string name="editprofile_ok">Your profile has been updated!</string>
     <string name="the_article">the </string>
     <string name="and_article">and </string>
     <string name="before_continue">Before you continue!</string>

@@ -533,6 +533,7 @@
     <string name="txt_continue">CONTINUAR</string>
     <string name="test_terms"><u>términos y condiciones</u></string>
     <string name="by_clicking">Haciendo click en aceptar, aceptas</string>
+    <string name="editprofile_ok">Tu perfil se ha actualizado satisfactoriamente</string>
     <string name="the_article">los </string>
     <string name="and_article">y la </string>
     <string name="before_continue">Antes de continuar!</string>
