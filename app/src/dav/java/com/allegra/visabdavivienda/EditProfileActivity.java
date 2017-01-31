@@ -1,6 +1,5 @@
 package com.allegra.handyuvisa;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -9,7 +8,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
@@ -35,18 +33,15 @@ import org.ksoap2.serialization.PropertyInfo;
 
 import java.lang.reflect.Field;
 
-import static android.R.attr.editable;
-
 
 public class EditProfileActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
 
     //*********GLOBAL ATTRIBUTES****************
     private final String M_SELECTION_DIVIDER = "mSelectionDivider";
     private String cel_code;
-    CustomizedEditText txtName, txtLastName, txtMobile, txtEmail, txtPass, txtNewPass, txtNewPassConfirm, etNumberOfId, txtCompany, txtCompanyId;
+    CustomizedEditText txtName, txtLastName, txtMobile, txtEmail, txtPass, txtNewPass, txtNewPassConfirm, etNumberOfId;
     Button cancel, save;
     AllemUser user;
-    CuentaClienteInfoAdicional ccia;
     private ProgressBar pb_create;
     private NumberPicker countryPicker, typeOfIdPicker;
     private Context ctx;
@@ -109,7 +104,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             }
         });
 
-        //**********************NAME***********
+        //********************NAME*******************
         txtName.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
@@ -159,54 +154,6 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             }
         });
 
-        //********************COMPANY NAME*******************
-        txtCompany.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                if (editable.length() < 2 || editable.length() > 250) {
-                    txtCompany.setTextColor(allColors[0]);//Gray
-                    txtCompany.setHintTextColor(allColors[0]);//Gray
-                } else {
-                    txtCompany.setTextColor(allColors[1]);//Black
-                    txtCompany.setHintTextColor(allColors[1]);//Black
-                }
-            }
-        });
-
-        //*********************COMPANY ID NUMBER***************
-        txtCompanyId.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                if (editable.length()<1 || editable.length()>11){
-                    txtCompanyId.setTextColor(allColors[0]);
-                    txtCompanyId.setHintTextColor(allColors[0]);
-                }else {
-                    txtCompanyId.setTextColor(allColors[1]);
-                    txtCompanyId.setHintTextColor(allColors[1]);
-                }
-            }
-        });
-
         //********************PHONE NUMBER*******************
         txtMobile.addTextChangedListener(new TextWatcher() {
             @Override
@@ -221,36 +168,12 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if (editable.length() < 7 || editable.length() > 15) {
+                if (editable.length() < 3) {
                     txtMobile.setTextColor(allColors[0]);//Gray
                     txtMobile.setHintTextColor(allColors[0]);//Gray
                 } else {
                     txtMobile.setTextColor(allColors[1]);//Black
                     txtMobile.setHintTextColor(allColors[1]);//Black
-                }
-            }
-        });
-
-        //********************COMPANY NUMBER*******************
-        txtCompanyId.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                if (editable.length() < 10 || editable.length() > 11) {
-                    txtCompanyId.setTextColor(allColors[0]);//Gray
-                    txtCompanyId.setHintTextColor(allColors[0]);//Gray
-                } else {
-                    txtCompanyId.setTextColor(allColors[1]);//Black
-                    txtCompanyId.setHintTextColor(allColors[1]);//Black
                 }
             }
         });
@@ -324,8 +247,6 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
         pb_create = (ProgressBar) root.findViewById(R.id.pb_create);
         txtNewPassConfirm=(CustomizedEditText) root.findViewById(R.id.et_reppassword);
         txtSelectCountry = (TextView)root.findViewById(R.id.et_country_mobile);
-        txtCompany = (CustomizedEditText)root.findViewById(R.id.etempresa);
-        txtCompanyId = (CustomizedEditText)root.findViewById(R.id.etempresaid);
         loadUserProfile();
         setTextWatchers();
     }
@@ -333,7 +254,6 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
     //Carga y setea los datos del usuario
     private void loadUserProfile(){
 
-        ccia = new CuentaClienteInfoAdicional();
         user = Constants.getUser(this);
         txtName.setText(user.nombre);
         txtLastName.setText(user.apellido);
@@ -347,8 +267,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
         cel_code = prefs.getString("celular_codigo", "+57");*/
         txtSelectCountry.setText(user.celular_codigo);
         etNumberOfId.setText(user.idNumber);
-        txtCompany.setText(user.empresa);
-        txtCompanyId.setText(user.idEmpresa);
+
         /*CuentaClienteInfoAdicional ccia = new CuentaClienteInfoAdicional();
         ccia = user.*/
 
@@ -380,9 +299,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
 
         }
 
-
         return strType;
-
     }
 
 
@@ -413,13 +330,11 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             case 6:
                 txtTypeOfIdSelected.setText(getString(R.string.txt_otro));
                 break;
-
         }
 
     }
 
     private void onAlertSelectTypeOfId() {//View view
-
 
         final Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.custom_dialog_select_type_of_id);
@@ -483,11 +398,8 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
         }else {
             if (optionSelected.equals(getString(R.string.txt_Foreigner_ID)))return "2";
             if (optionSelected.equals(getString(R.string.txt_nit)))return "3";
-            if (optionSelected.equals(getString(R.string.txt_identity_card))) return "4";
-            if (optionSelected.equals(getString(R.string.txt_passport))){
-                etNumberOfId.setInputType(InputType.TYPE_CLASS_TEXT);
-                return "5";
-            }
+            if (optionSelected.equals(getString(R.string.txt_identity_card)))return "4";
+            if (optionSelected.equals(getString(R.string.txt_passport)))return "5";
             if (optionSelected.equals(getString(R.string.txt_nuip)))return "10";
             if (optionSelected.equals(getString(R.string.txt_otro)))return "9";
         }
@@ -497,8 +409,6 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
     //Validate and send new user information for ActualizarCuenta web service
     private void updateUser(){
 
-        CuentaClienteInfoAdicional additionalInfo = new CuentaClienteInfoAdicional();
-        additionalInfo.setCelular(txtMobile.getText().toString());
         if(validateData()) {
             //Model class for basic Info
             CuentaClienteInfo client = new CuentaClienteInfo();
@@ -509,16 +419,20 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             client.setTipoDocumento(getTypeOfIdToSend(txtTypeOfIdSelected.getText().toString()));
             client.setNumeroDocumento(etNumberOfId.getText().toString());
             client.setCurrentPassword(txtPass.getText().toString());
-            additionalInfo.setEmpresa(txtCompany.getText().toString());
-            additionalInfo.setNumEmpresa(txtCompanyId.getText().toString());
-            client.setCuentaClienteInformacionAdicional(additionalInfo);
             if(txtNewPass.getText().toString().length()>0) {
                 client.setPassword(txtNewPass.getText().toString());
             }
             //Model class for additional Info
+            CuentaClienteInfoAdicional additionalInfo = new CuentaClienteInfoAdicional();
+            additionalInfo.setCelular(txtMobile.getText().toString());
+            additionalInfo.setEmpresa("");
+            //additionalInfo.setCargo("");
             additionalInfo.setCiudad("");
             additionalInfo.setClase("");
             additionalInfo.setCelularCodigo(txtSelectCountry.getText().toString());
+
+            client.setCuentaClienteInformacionAdicional(additionalInfo);
+
             PropertyInfo property = new PropertyInfo();
             property.setName(CuentaClienteInfo.PROPERTY);
             property.setValue(client);
@@ -531,6 +445,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             } else {
                 Toast.makeText(this, R.string.err_no_internet, Toast.LENGTH_SHORT).show();
             }
+
 
         }else{
             Toast.makeText(
@@ -578,22 +493,14 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             result = false;
         }
 
-        //*************** Number of Celular***************
-        if(txtMobile.getText().toString().equals("") || txtMobile.getText().toString().length() < 7
-                || txtMobile.getText().toString().length() > 15){
+
+        if(txtMobile.getText().toString().equals("")){
             txtMobile.setHintTextColor(Color.RED);
             result = false;
         }
 
-        //***************Company Name***************
-        if(txtCompany.getText().toString().equals("") || txtCompany.getText().toString().length() > 250){
-            txtCompany.setHintTextColor(Color.RED);
-            result = false;
-        }
-
-        //***************Company Number***************
-        if(txtCompanyId.getText().toString().length()!=10){
-            txtCompanyId.setHintTextColor(Color.RED);
+        if (txtMobile.getText().toString().length()<7){
+            txtMobile.setHintTextColor(Color.RED);
             result = false;
         }
 
@@ -731,7 +638,11 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
         cancel.setEnabled(!b);
     }
 
-
+    public void goToMyAccount(){
+        Intent intent = new Intent(ctx, MyAccountActivity.class);
+        startActivity(intent);
+        finish();
+    }
     //Called when execute AsyncSoapObject request
     @Subscribe
     public void onAsyncTaskResult(AsyncTaskSoapObjectResultEvent event) {
@@ -745,7 +656,6 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
                 AllemUser currentUser= Constants.getUser(EditProfileActivity.this);
                 user.saludo= currentUser.saludo;
                 user.idSesion= currentUser.idSesion;
-                //Log.d("Sesion ID", currentUser.idSesion);
                 /*user.idType = currentUser.idType;
                 user.idNumber = currentUser.idNumber;
                 user.nombre = currentUser.nombre;
@@ -753,8 +663,18 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
                 //Save in SharedPReferences TypeOfID and Number OfID
 
                 Constants.saveUser(EditProfileActivity.this,user,currentUser.channel);
-
-                new AlertDialog.Builder(ctx).setTitle(getString(R.string.txt_lbl_notification)).setMessage(getString(R.string.edit_successful)).setPositiveButton("ok", null).show();
+                final Dialog dialog = new Dialog(this);
+                dialog.setContentView(R.layout.dialog_editprofile_ok);
+                dialog.show();
+                TextView textOk = (TextView) dialog.findViewById(R.id.btnAcceptProfile);
+                textOk.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                        goToMyAccount();
+                    }
+                });
+                //new AlertDialog.Builder(ctx).setTitle(getString(R.string.txt_lbl_notification)).setMessage(getString(R.string.edit_successful)).setPositiveButton("ok",null).show();
             }else{
                 Toast.makeText(EditProfileActivity.this, event.getFaultString(), Toast.LENGTH_LONG).show();
                 setResult(RESULT_CANCELED, returnIntent);

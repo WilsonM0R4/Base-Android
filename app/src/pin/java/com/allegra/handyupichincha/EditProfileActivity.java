@@ -1,6 +1,5 @@
 package com.allegra.handyuvisa;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -337,7 +336,6 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
 
     private void onAlertSelectTypeOfId() {//View view
 
-
         final Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.custom_dialog_select_type_of_id);
         dialog.show();
@@ -640,7 +638,11 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
         cancel.setEnabled(!b);
     }
 
-
+    public void goToMyAccount(){
+        Intent intent = new Intent(ctx, MyAccountActivity.class);
+        startActivity(intent);
+        finish();
+    }
     //Called when execute AsyncSoapObject request
     @Subscribe
     public void onAsyncTaskResult(AsyncTaskSoapObjectResultEvent event) {
@@ -661,8 +663,18 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
                 //Save in SharedPReferences TypeOfID and Number OfID
 
                 Constants.saveUser(EditProfileActivity.this,user,currentUser.channel);
-
-                new AlertDialog.Builder(ctx).setTitle(getString(R.string.txt_lbl_notification)).setMessage(getString(R.string.edit_successful)).setPositiveButton("ok", null).show();
+                final Dialog dialog = new Dialog(this);
+                dialog.setContentView(R.layout.dialog_editprofile_ok);
+                dialog.show();
+                TextView textOk = (TextView) dialog.findViewById(R.id.btnAcceptProfile);
+                textOk.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                        goToMyAccount();
+                    }
+                });
+                //new AlertDialog.Builder(ctx).setTitle(getString(R.string.txt_lbl_notification)).setMessage(getString(R.string.edit_successful)).setPositiveButton("ok",null).show();
             }else{
                 Toast.makeText(EditProfileActivity.this, event.getFaultString(), Toast.LENGTH_LONG).show();
                 setResult(RESULT_CANCELED, returnIntent);

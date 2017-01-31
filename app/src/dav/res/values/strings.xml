@@ -9,6 +9,7 @@
     <string name="myvisaenterprise">My Visa Enterprise</string>
     <string name="checkmytrip">Check My Trip</string>
     <string name="empresa_numero_hint">Company ID (10 Digits)</string>
+    <string name="editprofile_ok">Your profile has been updated!</string>
     <string name="title_endless">Handy S</string>
     <string name="empresa_register_hint">Company Name</string>
     <string name="forgot_password">Recovery password</string>
