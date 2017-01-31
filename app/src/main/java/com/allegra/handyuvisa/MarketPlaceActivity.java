@@ -20,7 +20,7 @@ import com.allem.onepocket.utils.OPKConstants;
 public class MarketPlaceActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
 
     public static final int REQUEST_ONEPOCKET_RETURN = 10001;
-
+    public static String URL_OPEN_PDF = "https://docs.google.com/viewer?url=";
     private static final String TAG = "MarketPlaceActivity";
 
     //private static final String MARKET_PLACE_URL = "http://www.allegra.market/?logo=1&onepocket=1";
@@ -132,11 +132,8 @@ public class MarketPlaceActivity extends FrontBackAnimate implements FrontBackAn
 
             if (Util.hasInternetConnectivity(MarketPlaceActivity.this)){
                 if (url.contains("http://")||url.contains("https://")){
-                    view.loadUrl(url);
-
-                }else{
-                    view.loadUrl(url);
-
+                    if (!url.contains(".pdf"))  URL_OPEN_PDF = "";
+                    view.loadUrl(URL_OPEN_PDF+url);
                 }
             }else{
                 Toast.makeText(MarketPlaceActivity.this, R.string.err_no_internet, Toast.LENGTH_SHORT).show();
