@@ -7,10 +7,12 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -45,6 +47,8 @@ import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
 import java.util.ArrayList;
+
+import static com.allegra.handyuvisa.R.id.et_password;
 
 /**
  * Created by victor on 19/02/15.
@@ -136,10 +140,9 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         });
         //ib_visibilitypass = (ImageButton) root.findViewById(R.id.ib_visibilitypass);
         username = (EditText) root.findViewById(R.id.et_email);
-        password = (EditText) root.findViewById(R.id.et_password);
+        password = (EditText) root.findViewById(et_password);
         btn_login = (CustomizedTextView) root.findViewById(R.id.btn_login);
         btn_newaccount = (CustomizedTextView) root.findViewById(R.id.btn_register);
-        btn_login.setEnabled(false);
         pb_login = (ProgressBar) root.findViewById(R.id.pb_login);
         pb_login.setVisibility(View.GONE);
         if (KeySaver.getStringSavedShare(ctx, Constants.KEY_EMAIL) != null) {
@@ -173,7 +176,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                    }
                    password.setSelection(password.length());
                }
-           });*/
+           });*//*
         username.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
@@ -191,7 +194,10 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                         .matches() && password.length() > 0) {
                     btn_login.setEnabled(true);
                 } else {
-                    btn_login.setEnabled(false);
+                    Toast.makeText(
+                            ctx,
+                            getString(R.string.form_errors),
+                            Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -213,7 +219,66 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                         .matches()) {
                     btn_login.setEnabled(true);
                 } else {
-                    btn_login.setEnabled(false);
+                    Toast.makeText(
+                            ctx,
+                            getString(R.string.form_errors),
+                            Toast.LENGTH_LONG).show();
+                }
+            }
+        });*/
+
+        username.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (android.util.Patterns.EMAIL_ADDRESS.matcher(editable.toString())
+                        .matches() && password.length() > 0) {
+                    username.setTextColor(getResources().getColor(R.color.InputFocus_text));
+                    username.setHintTextColor(getResources().getColor(R.color.InputFocus_text));
+                    password.setTextColor(getResources().getColor(R.color.InputFocus_text));
+                    password.setHintTextColor(getResources().getColor(R.color.InputFocus_text));
+                } else {
+                    username.setTextColor(getResources().getColor(R.color.InputNormal_border_hit));
+                    username.setHintTextColor(getResources().getColor(R.color.InputNormal_border_hit));
+                    password.setTextColor(getResources().getColor(R.color.InputFocus_text));
+                    password.setHintTextColor(getResources().getColor(R.color.InputFocus_text));
+                }
+            }
+        });
+
+        password.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (editable.length() > 0 && android.util.Patterns.EMAIL_ADDRESS.matcher(username.getText().toString())
+                        .matches()) {
+                    username.setTextColor(getResources().getColor(R.color.InputFocus_text));
+                    username.setHintTextColor(getResources().getColor(R.color.InputFocus_text));
+                    password.setTextColor(getResources().getColor(R.color.InputFocus_text));
+                    password.setHintTextColor(getResources().getColor(R.color.InputFocus_text));
+                } else {
+                    username.setTextColor(getResources().getColor(R.color.InputNormal_border_hit));
+                    username.setHintTextColor(getResources().getColor(R.color.InputNormal_border_hit));
+                    password.setTextColor(getResources().getColor(R.color.InputFocus_text));
+                    password.setHintTextColor(getResources().getColor(R.color.InputFocus_text));
                 }
             }
         });
@@ -223,12 +288,19 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
             public void onClick(View view) {
 
                 if (Util.hasInternetConnectivity(ctx)) {
-                    setWaitinUI(true);
-                    if (postValues.size() > 0) postValues.clear();
-                    postValues.add(new BasicNameValuePair("email", username.getText().toString()));
-                    postValues.add(new BasicNameValuePair("password", password.getText().toString()));
-                    AsyncSoapObject.getInstance(Constants.getALLEM_BASE(), Constants.NAMESPACE_ALLEM,
-                            Constants.METHOD_INICIAR_SESION, postValues, Constants.ACTIVITY_LOGIN).execute();
+                    if (checkFields()) {
+                        setWaitinUI(true);
+                        if (postValues.size() > 0) postValues.clear();
+                        postValues.add(new BasicNameValuePair("email", username.getText().toString()));
+                        postValues.add(new BasicNameValuePair("password", password.getText().toString()));
+                        AsyncSoapObject.getInstance(Constants.getALLEM_BASE(), Constants.NAMESPACE_ALLEM,
+                                Constants.METHOD_INICIAR_SESION, postValues, Constants.ACTIVITY_LOGIN).execute();
+                    } else {
+                        Toast.makeText(
+                                ctx,
+                                getString(R.string.form_errors),
+                                Toast.LENGTH_LONG).show();
+                    }
 
                 } else {
                     Toast.makeText(ctx, R.string.err_no_internet, Toast.LENGTH_SHORT).show();
@@ -328,7 +400,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
             Gson gson = new Gson();
             String strCoberturas = gson.toJson(coberturas);
             //Log.d("TAG","Coberturas = " + strCoberturas);
-            editor.putString("coberturas",strCoberturas);
+            editor.putString("coberturas", strCoberturas);
             editor.apply();
 
         }
@@ -473,7 +545,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
     }
 
     //Send SOAP request for bring ProofOfCoverage's info
-    void getValuesDynamicProofOfCoverage(){
+    void getValuesDynamicProofOfCoverage() {
 
         SharedPreferences preferences = this.getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
         String idCuentaAIM = preferences.getString("idCuenta", "3");
@@ -497,9 +569,9 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         if (Connectivity.isConnected(getApplicationContext()) || Connectivity.isConnectedWifi(getApplicationContext()) || Connectivity.isConnectedMobile(getApplicationContext())) {
             Log.d(TAG, "Entra al internet");
             AsyncSoapObjectProofDynamic.getInstance(Constants.getUrlDynamicProof(), Constants.NAMESPACE_PROOF,
-                    Constants.METHOD_PROOF,  postValues, Constants.REQUEST_CODE_PROOF).execute();
+                    Constants.METHOD_PROOF, postValues, Constants.REQUEST_CODE_PROOF).execute();
 
-        }else {
+        } else {
             Toast.makeText(getApplicationContext(), R.string.err_no_internet, Toast.LENGTH_SHORT).show();
         }
 
@@ -569,5 +641,25 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         animate();
     }
 
+    private boolean checkFields() {
+
+        boolean result = true;
+        if (username.getText().toString().equals("")) {
+            result = false;
+        }
+        if (!Patterns.EMAIL_ADDRESS.matcher(username.getText().toString()).matches()) {
+            username.setTextColor(Color.RED);
+            username.setHintTextColor(Color.RED);
+            result = false;
+        }
+        if (password.getText().toString().length() < 6) {
+            password.setTextColor(Color.RED);
+            password.setHintTextColor(Color.RED);
+            result = false;
+        }
+
+        return result;
+
+    }
 
 }
