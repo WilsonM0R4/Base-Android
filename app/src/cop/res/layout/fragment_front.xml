@@ -1,0 +1,143 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fl_login"
+    tools:context=".MainActivity"
+    android:background="@color/bg_gradiente">
+
+    <!--    The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+    <TextureView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/front_video"
+        android:gravity="fill"
+        android:onClick="ClickMe"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/login_controls_group"
+            style="?metaButtonBarStyle"
+            android:layout_gravity="bottom|center_horizontal"
+            android:background="@android:color/transparent"
+            android:orientation="vertical"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="false"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_marginBottom="30dp">
+
+            <com.allegra.handyuvisa.utils.CustomizedTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_username"
+                android:text="@string/txt_user_greeting"
+                android:textColor="@color/HomeTitle_text"
+                android:gravity="start"
+                android:background="@color/HomeTitle_backgroung"
+                android:textSize="36sp"
+                app:font="@string/font_muli"/>
+
+            <com.allegra.handyuvisa.utils.CustomizedTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_current_time"
+                android:textColor="@color/WHITE_COLOR"
+                android:textSize="20sp"
+                app:font="@string/font_muli_light"
+                android:gravity="left"
+                android:background="@android:color/transparent"
+                android:textAppearance="?android:textAppearanceMedium" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/txt_lbl_notifications"
+                android:textColor="@color/white"
+                android:gravity="left"
+                android:background="@android:color/transparent"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:visibility="gone" />
+
+            <com.allegra.handyuvisa.utils.CustomizedTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/txt_lbl_notifications"
+                android:textColor="@color/white"
+                android:gravity="left"
+                app:font="@string/font_muli"
+                android:background="@android:color/transparent"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:singleLine="false"
+                android:id="@+id/tv_notifications"
+                android:visibility="gone" />
+
+            <com.allegra.handyuvisa.utils.CustomizedTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:text="@string/skip_intro"
+                app:font="@string/font_muli"
+                android:textSize="14sp"
+                android:textColor="@color/HomeDescription_text"
+                android:background="@color/HomeDescription_backgroung"
+                android:onClick="onSkipIntro"
+                android:layout_marginTop="60dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="0dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"/>
+
+            <com.allegra.handyuvisa.utils.CustomizedTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="16dp"
+                android:text="POWERED BY IATAI"
+                app:font="@string/font_muli"
+                android:textSize="10sp"
+                android:textColor="@color/HomeFooter_text"
+                android:gravity="center_horizontal"
+                android:background="@color/HomeFooter_backgroung"
+                android:id="@+id/tvIatai"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/ll_header"
+            android:layout_marginTop="46dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/iv_visa"
+                android:src="@drawable/vco"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/handy"
+                android:id="@+id/iv_allegra"
+                android:layout_gravity="start"
+                android:textAlignment="center"
+                android:layout_marginTop="28dp" />
+
+        </LinearLayout>
+    </RelativeLayout>
+</FrameLayout>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    android:clickable="true"
+    android:onClick="onCloseMenu"
+    tools:context=".ChatActivity">
+
+    <!-- LOADER -->
+    <include layout="@layout/fragment_loading"
+        android:id="@+id/loader"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+    </include>
+
+
+    <!-- HEADER -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"
+        android:background="@color/white"
+        android:id="@+id/ll_header">
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/cancel_button"
+            android:background="@color/GeneralAppHeaderTitle_backgroud"
+            android:id="@+id/imageButton3"
+            android:contentDescription="menu"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:onClick="onAlertCancelChat" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/title_chat"
+            android:id="@+id/tv_title_secc"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/GeneralAppHeaderTitle_text"
+            />
+
+        <ImageButton
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/icon_menu"
+            android:background="@android:color/transparent"
+            android:id="@+id/menu_image"
+            android:onClick="onMenu"
+            android:contentDescription="menu"
+            android:layout_alignBottom="@+id/tv_title_secc"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:id="@+id/iv_header"
+        android:layout_below="@+id/ll_header"
+        android:paddingEnd="-2dp"
+        android:visibility="gone"
+        android:paddingStart="-2dp"
+        android:src="@drawable/separator_medium_mag"
+        android:contentDescription="Divider" />
+
+    <!--FIN DEL HEADER-->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:id="@+id/tv_chat_agent"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/iv_header"
+        android:text="@string/txt_lbl_agent"
+        android:textColor="@color/GeneralTitle2_text"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_chat_start"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/tv_chat_agent"
+        android:text="December 18, 2015"
+        android:textColor="@color/HomeDescriptionTitle_text"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_marginBottom="10dp" />
+
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:visibility="gone"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="120dp"
+        android:divider="@android:color/transparent"
+        android:id="@+id/lv_chat_msg"
+        android:layout_below="@+id/tv_chat_start">
+    </ListView>
+
+    <LinearLayout
+        android:id="@+id/form"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/et_chat_msg"
+            android:hint="@string/txt_hint_chat"
+            android:background="@color/GeneralAppHeaderTitle_backgroud"
+            android:textColor="@color/InputNormal_text"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_toLeftOf="@+id/btn_send"
+            android:layout_weight="2" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btn_send"
+            android:text="@string/send_chat"
+            android:textColor="@color/chatSendButton_text"
+            android:onClick="onAddLines"
+            android:layout_alignBottom="@+id/et_chat_msg"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

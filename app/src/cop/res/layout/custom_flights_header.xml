@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="10dp"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="false"
+    android:layout_below="@+id/ll_header"
+    android:clickable="true"
+    android:id="@+id/relLayFlightsHeader"
+    android:background="@drawable/header_flights">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="30dp"
+            android:id="@+id/ll_trip"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="@string/round_trip_flight_type"
+                android:textStyle="bold"
+                android:id="@+id/btn_roundtrip"
+                android:background="@drawable/round_corner_magenta"
+                android:textColor="@color/DoubleSelectorButtonSelected_text"
+                android:onClick="onRoundTrip"
+                android:paddingTop="0dp"
+                android:paddingBottom="0dp"
+                android:layout_weight="1"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="@string/one_way_flight_type"
+                android:textStyle="bold"
+                android:id="@+id/btn_oneway"
+                android:background="@drawable/round_corner_transparent_for_type_of_trip"
+                android:textColor="@color/DoubleSelectorButtonNormal_text"
+                android:paddingTop="0dp"
+                android:paddingBottom="0dp"
+                android:layout_weight="1"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/ll_trip"
+            android:id="@+id/ll_airplanes"
+            android:layout_marginTop="40dp">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:id="@+id/rel_lay_departure"
+                >
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:src="@drawable/flights__departure"
+                    android:id="@+id/iv_departure"
+                    android:onClick="onDepartingLocation"
+                    android:layout_centerHorizontal="true"
+                    />
+
+                <com.allegra.handyuvisa.utils.CustomizedTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/tv_depart_airport"
+                    android:textColor="@color/SelecterCityTitle_text"
+                    android:background="@android:color/transparent"
+                    android:textSize="30sp"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:visibility="gone"
+                    android:onClick="onDepartingLocation"
+                    android:layout_centerHorizontal="true"
+                    app:font="@string/font_muli_light"
+                    />
+                <com.allegra.handyuvisa.utils.CustomizedTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_city_departure"
+                    android:text="@string/txt_lbl_departure"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:textColor="@color/SelecterCitySubTitle_text"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/iv_departure"
+                    app:font="@string/font_muli_light"/>
+
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/flights__from__to"
+                android:onClick="onFlip"
+                android:layout_marginTop="0dp"/>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:id="@+id/rel_lay_arrival"
+                >
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/flights__arrival"
+                    android:id="@+id/iv_arrival"
+                    android:onClick="onDepartingLocation"/>
+
+                <com.allegra.handyuvisa.utils.CustomizedTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/tv_arriving_airport"
+                    android:textColor="@color/SelecterCityTitle_text"
+                    android:background="@android:color/transparent"
+                    android:textSize="30sp"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    android:onClick="onDepartingLocation"
+                    android:layout_centerHorizontal="true"
+                    app:font="@string/font_muli_light"
+                    />
+
+                <com.allegra.handyuvisa.utils.CustomizedTextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/SelecterCitySubTitle_text"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_city_arrival"
+                    android:textStyle="bold"
+                    android:text="@string/txt_lbl_arrival"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/iv_arrival"
+                    app:font="@string/font_muli_light"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+</RelativeLayout>

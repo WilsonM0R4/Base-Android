@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rl_search_in_progress"
+    android:clickable="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/WHITE_COLOR"
+        android:id="@+id/ll_header">
+
+        <ImageButton
+            android:layout_width="35dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="16dp"
+            android:id="@+id/ib_settings"
+            android:src="@drawable/navigation__back"
+            android:background="@android:color/transparent"
+            android:visibility="visible"
+            android:contentDescription="Up"
+            android:layout_alignParentStart="true"
+            android:layout_alignBottom="@+id/tv_title_secc"
+            android:layout_centerVertical="true"
+            android:onClick="onBackButton" />
+
+        <com.allegra.handyuvisa.utils.CustomizedTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/title_flight_results"
+            app:font="@string/font_varela"
+            android:id="@+id/tv_title_secc"
+            android:textColor="@color/GeneralAppHeaderTitle_text"
+            android:layout_centerInParent="true"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:background="@color/GeneralAppHeaderTitle_backgroud"
+            android:id="@+id/navigation_panel"
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_alignParentTop="false"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@+id/tv_title_secc"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/navigation__backurl_2"
+                android:background="@null"
+                android:padding="10dp"
+                android:onClick="onGoBack"
+                android:id="@+id/arrow_back"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/navigation__fwdurl"
+                android:background="@null"
+                android:padding="10dp"
+                android:onClick="onGoForward"
+                android:id="@+id/arrow_forward"/>
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:id="@+id/iv_header"
+            android:paddingEnd="-2dp"
+            android:paddingStart="-2dp"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/separator_medium_mag"
+            android:contentDescription="Divider"/>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="111dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="73dp"
+        android:id="@+id/pb_search_loader"
+        android:layout_centerInParent="true"
+        android:background="@drawable/run_animation"
+        android:layout_below="@+id/imgProgress"/>
+
+    <com.allegra.handyuvisa.utils.CustomizedTextView
+        android:id="@+id/txtLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="77dp"
+        android:layout_centerInParent="true"
+        android:textColor="@color/loading_salmon"
+        android:textSize="22sp"
+        android:layout_below="@+id/pb_search_loader"
+        app:font="@string/font_varela"
+        android:text="@string/txt_loading_loader" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="132dp"
+        android:id="@+id/imgProgress"
+        android:background="@drawable/logo_allegra_loader"
+        android:layout_below="@+id/ll_header"
+        android:layout_centerHorizontal="true"/>
+
+    <WebView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/webView"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/ll_header" />
+
+</RelativeLayout>

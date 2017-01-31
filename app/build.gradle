@@ -58,6 +58,13 @@ android {
             storePassword DAV_RELEASE_STORE_PASSWORD
         }
 
+        copConfig{
+            keyAlias COP_RELEASE_KEY_ALIAS
+            keyPassword COP_RELEASE_KEY_PASSWORD
+            storeFile file(COP_RELEASE_STORE_FILE)
+            storePassword COP_RELEASE_STORE_PASSWORD
+        }
+
     }
 
     compileSdkVersion 25
@@ -258,6 +265,27 @@ android {
             versionCode 25
             versionName "1.1.0-27"
             signingConfig signingConfigs.davConfig
+            minSdkVersion 19
+            targetSdkVersion 25
+
+            packagingOptions {
+                exclude "lib/arm64-v8a/libcardioDecider.so"
+                exclude "lib/mips64/libcardioDecider.so"
+                exclude "lib/x86_64/libcardioDecider.so"
+                exclude 'META-INF/maven/com.squareup.okio/okio/pom.xml'
+                exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
+                exclude 'META-INF/LICENSE'
+            }
+
+            // Enabling multidex support.
+            multiDexEnabled true
+        }
+
+        cop {
+            applicationId "com.allegra.handyucoopcentral"
+            versionCode 1
+            versionName "1.0.0-1"
+            signingConfig signingConfigs.copConfig
             minSdkVersion 19
             targetSdkVersion 25
 

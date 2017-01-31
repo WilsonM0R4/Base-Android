@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rl_call_body"
+    android:background="@drawable/background"
+    android:clickable="true"
+    android:onClick="onCloseMenu"
+    tools:context=".CallActivity">
+
+    <!-- LOADER -->
+    <include layout="@layout/fragment_loading"
+        android:id="@+id/loader"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+    </include>
+
+    <!-- HEADER -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/GeneralAppHeaderTitle_backgroud"
+        android:visibility="gone"
+        android:id="@+id/ll_header">
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/cancel_button"
+            android:background="@color/GeneralAppHeaderTitle_backgroud"
+            android:id="@+id/imageButton3"
+            android:contentDescription="menu"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:onClick="onAlertCancelCall" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/title_call"
+            android:id="@+id/tv_title_secc"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/GeneralAppHeaderTitle_text" />
+
+        <ImageButton
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/icon_menu"
+            android:background="@android:color/transparent"
+            android:id="@+id/menu_image"
+            android:onClick="onMenu"
+            android:contentDescription="menu"
+            android:layout_alignBottom="@+id/tv_title_secc"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:id="@+id/iv_header"
+        android:layout_below="@+id/ll_header"
+        android:paddingEnd="-2dp"
+        android:paddingStart="-2dp"
+        android:visibility="gone"
+        android:src="@drawable/separator_medium_mag"
+        android:contentDescription="Divider" />
+
+    <!-- FIN DEL HEADER -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/GeneralTitle2_text"
+        android:text="@string/txt_lbl_callInProgress"
+        android:background="@android:color/transparent"
+        android:id="@+id/tv_status_otc_connected"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_below="@+id/iv_header"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:visibility="gone"/>
+
+
+    <ImageButton
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:id="@+id/btn_callinprogress"
+        android:src="@drawable/calling"
+        android:background="@android:color/transparent"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:scaleType="centerInside"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/tv_status_otc_connected"
+        />
+
+
+    <ImageButton
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_mute"
+        android:id="@+id/toggle_mute"
+        android:onClick="onToggleMute"
+        android:layout_marginTop="41dp"
+        android:background="@android:color/transparent"
+        android:layout_below="@+id/btn_callinprogress"
+        android:layout_alignStart="@+id/btn_callinprogress"
+        android:visibility="gone"
+        />
+
+    <ImageButton
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_speaker"
+        android:id="@+id/toggle_speaker"
+        android:onClick="onToggleSpeaker"
+        android:background="@android:color/transparent"
+        android:layout_alignTop="@+id/toggle_mute"
+        android:layout_alignEnd="@+id/btn_callinprogress"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_lbl_mute"
+        android:id="@+id/txtMute"
+        android:textColor="@color/CallTitleComponent_text"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_below="@+id/toggle_mute"
+        android:layout_alignStart="@+id/toggle_mute"
+        android:layout_marginLeft="15dp"
+        android:visibility="gone"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_lbl_speaker"
+        android:textColor="@color/CallTitleComponent_text"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_below="@+id/toggle_speaker"
+        android:layout_alignStart="@+id/toggle_speaker"
+        android:layout_marginLeft="5dp"
+        android:id="@+id/txtSpeaker"
+        android:visibility="gone"/>
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="45dp"
+        android:text="@string/txt_lbl_endcall"
+        android:id="@+id/endCall"
+        android:background="@drawable/round_corner_magenta"
+        android:textColor="@color/BigButton_text"
+        android:onClick="onEndCall"
+        android:visibility="gone"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="38dp" />
+
+
+</RelativeLayout>
