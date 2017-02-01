@@ -174,7 +174,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Log.d(TAG, "Option: " + item.getItemId());
+       // Log.d(TAG, "Option: " + item.getItemId());
         switch (item.getItemId()) {
             case android.R.id.home:
                 this.finish();
@@ -215,7 +215,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 //******Add all new views*****
                 SuccessfulRegister successfulRegister = new SuccessfulRegister(getApplicationContext());
                 formLayout.addView(successfulRegister);
-                Log.d(TAG, channel);
+               // Log.d(TAG, channel);
 
             } else {
                 Toast.makeText(ctx, event.getFaultString(), Toast.LENGTH_LONG).show();
@@ -428,13 +428,13 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         editor.putString("mobiletmp", mobile);
         editor.putString("documentnumbertmp", documentnumber);
         editor.apply();
-        Log.d("SAVE TMP INFO", "SAVING...!");
+   /*     Log.d("SAVE TMP INFO", "SAVING...!");
         Log.d("UsernameTMP", username);
         Log.d("NombreTMP", name);
         Log.d("ApellidoTMP", suraname);
         Log.d("MobileTMP", mobile);
         Log.d("DocumentNumTMP", documentnumber);
-        Log.d("---------", "--------------");
+        Log.d("---------", "--------------");*/
 
     }
 
