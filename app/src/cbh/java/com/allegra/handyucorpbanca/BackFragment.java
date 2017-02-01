@@ -41,7 +41,7 @@ public class BackFragment extends Fragment  {
     //***************OVERRIDE METHODS**************
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.e("Sergio","Llega al del BackFragment");
+       // Log.e("Sergio","Llega al del BackFragment");
         super.onActivityResult(requestCode, resultCode, data);
         // Check which request we're responding to
         if (requestCode == Constants.REQUEST_CODE_HOTELS) {
@@ -193,7 +193,7 @@ public class BackFragment extends Fragment  {
         home.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                Log.d("Juan","Presionado");
+               // Log.d("Juan","Presionado");
                 Intent intent = new Intent(getActivity(), SendLogActivity.class);
                 getActivity().startActivity(intent);
                 return true;
@@ -227,7 +227,7 @@ public class BackFragment extends Fragment  {
 
     //***************PROPER METHODS**************
     public void sendToAccount(){
-        Intent intent = new Intent(getActivity(),MyAccountMenuActivity.class);
+        Intent intent = new Intent(getActivity(), com.allegra.handyuvisa.MyAccountMenuActivity.class);
         getActivity().startActivity(intent);
     }
 
@@ -265,7 +265,7 @@ public class BackFragment extends Fragment  {
     public void sendToPocket(){
         if (Util.isAuthenticated(getActivity())) {
             Intent intent = new Intent(getActivity(), OnepocketContainerActivity.class);
-            Bundle bundle = Constants.createDataBundle(Constants.getUser(getActivity()), (VisaCheckoutApp) getActivity().getApplication());
+            Bundle bundle = Constants.createDataBundle(Constants.getUser(getActivity()), (com.allegra.handyuvisa.VisaCheckoutApp) getActivity().getApplication());
             intent.putExtras(bundle);
             getActivity().startActivity(intent);
             getActivity().finish();
@@ -276,7 +276,7 @@ public class BackFragment extends Fragment  {
     }
 
     public void sendToMcard(){
-        sendToActivity(Mcardhtml.class, Constants.REQUEST_CODE_MCARD);
+        sendToActivity(com.allegra.handyuvisa.Mcardhtml.class, Constants.REQUEST_CODE_MCARD);
        /* if (Util.isAuthenticated(getActivity())) {
             Intent intent = new Intent(getActivity(),Mcardhtml.class);
             getActivity().startActivity(intent);
