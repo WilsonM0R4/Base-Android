@@ -439,7 +439,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             property.setName(CuentaClienteInfo.PROPERTY);
             property.setValue(client);
             property.setType(client.getClass());
-            Log.d("IDSession",((com.allegra.handyuvisa.VisaCheckoutApp)this.getApplication()).getIdSession());
+           // Log.d("IDSession",((com.allegra.handyuvisa.VisaCheckoutApp)this.getApplication()).getIdSession());
             if (Util.hasInternetConnectivity(this)) {
                 setWaitinUI(true);
                 AsyncSoapObject.getInstance(Constants.getWSDL(), Constants.NAMESPACE_ALLEM,
@@ -649,7 +649,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             setWaitinUI(false);
             Intent returnIntent = new Intent();
             if (event.getResult()!=null){
-                Log.d("Response",event.getResult().toString());
+              //  Log.d("Response",event.getResult().toString());
                 AllemUser user = SoapObjectParsers.toAllemUser(event.getResult());
                 AllemUser currentUser= Constants.getUser(EditProfileActivity.this);
                 user.saludo= currentUser.saludo;
