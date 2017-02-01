@@ -1,15 +1,11 @@
 package com.allegra.handyuvisa.parsers;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.util.Log;
-
 import com.allegra.handyuvisa.ProofDinamico.model.Cobertura;
 import com.allegra.handyuvisa.ProofDinamico.model.Poliza;
-import com.allegra.handyuvisa.models.McardCliente;
-import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.models.AllemUser;
 import com.allegra.handyuvisa.models.Compra;
+import com.allegra.handyuvisa.models.McardCliente;
+import com.allegra.handyuvisa.utils.Constants;
 
 import org.ksoap2.serialization.SoapObject;
 
@@ -17,8 +13,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Vector;
-
-import static android.content.Context.MODE_PRIVATE;
 
 
 /**
@@ -147,7 +141,7 @@ public class SoapObjectParsers {
             if(additionalInfo.hasProperty("pais")) pais= additionalInfo.getPropertyAsString("pais");
             if(additionalInfo.hasProperty("celular_codigo")) {
                 celular_codigo = additionalInfo.getPropertyAsString("celular_codigo");
-                Log.d("Sergio", "Es: " + celular_codigo);
+                //Log.d("Sergio", "Es: " + celular_codigo);
             }
             if (additionalInfo.hasProperty("empresa")) empresa = additionalInfo.getPropertyAsString("empresa");
             if (additionalInfo.hasProperty("empresa_nit")) empresa_nit = additionalInfo.getPropertyAsString("empresa_nit");
@@ -181,7 +175,7 @@ public class SoapObjectParsers {
         for(int i=0;i<soapObject.getPropertyCount();i++){
             if (order)k=i;
             else k=soapObject.getPropertyCount()-1-i;
-            Log.d(TAG, soapObject.getProperty(i).toString());
+           // Log.d(TAG, soapObject.getProperty(i).toString());
             SoapObject soapCompra = (SoapObject) soapObject.getProperty(k);
             Compra compra = new Compra(Integer.valueOf(soapCompra.getProperty(Constants.KEY_COMPRAS_ID_COMPRAS).toString()),
                     soapCompra.getProperty(Constants.KEY_COMPRAS_FECHA).toString(),
@@ -204,7 +198,7 @@ public class SoapObjectParsers {
         for(int i=0;i<soapObject.getPropertyCount();i++){
             if (order)k=i;
             else k=soapObject.getPropertyCount()-1-i;
-            Log.d(TAG, soapObject.getProperty(i).toString());
+           // Log.d(TAG, soapObject.getProperty(i).toString());
             HashMap<String,String> compra = new HashMap<>();
             SoapObject soapCompra = (SoapObject) soapObject.getProperty(k);
 

@@ -174,7 +174,7 @@ public class MainActivity extends FragmentActivity implements com.allegra.handyu
         //double screenInches = Math.sqrt(x + y);
         //Toast.makeText(this,  "w: " + width + " h: " + height, Toast.LENGTH_SHORT).show();
 
-        Log.d("Width",width+"");
+        //Log.d("Width",width+"");
         int resId = R.animator.front_open;
         if (width > 800) {
             resId = R.animator.front_open_xlarge;

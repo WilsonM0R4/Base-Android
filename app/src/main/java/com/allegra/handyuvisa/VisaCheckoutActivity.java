@@ -3,7 +3,6 @@ package com.allegra.handyuvisa;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -12,12 +11,11 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.allegra.handyuvisa.utils.Util;
+
 /*import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;*/
-
-import java.util.List;
 
 public class VisaCheckoutActivity extends Activity {
 
@@ -77,7 +75,7 @@ public class VisaCheckoutActivity extends Activity {
     private class MyWebViewClient extends WebViewClient {
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            Log.d(TAG, "url: " + url);
+           // Log.d(TAG, "url: " + url);
             if (Util.hasInternetConnectivity(VisaCheckoutActivity.this)){
                 if (url.contains("http://")||url.contains("https://")){
                     view.loadUrl(url);

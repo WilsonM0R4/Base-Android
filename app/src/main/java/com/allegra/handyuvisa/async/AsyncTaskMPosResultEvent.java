@@ -1,7 +1,5 @@
 package com.allegra.handyuvisa.async;
 
-import android.util.Log;
-
 import java.util.HashMap;
 
 public class AsyncTaskMPosResultEvent {
@@ -13,7 +11,7 @@ public class AsyncTaskMPosResultEvent {
 
         this.result = result;
         this.apiName = apiName;
-        Log.d(TAG,"Result");
+      //  Log.d(TAG,"Result");
         if (result != null) {
 
             for (Object objname : result.keySet()) {

@@ -1,7 +1,6 @@
 package com.allegra.handyuvisa;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,7 +47,7 @@ public class SearchAdapterAutoCompleteConcierge extends BaseAdapter {
         //return null;
         // create a ViewHolder reference
         ViewHolder holder;
-        Log.e("SEarchAdapter", "Concierge getView");
+       // Log.e("SEarchAdapter", "Concierge getView");
 
         //check to see if the reused view is null or not, if is not null then reuse it
         if (view == null) {
@@ -69,7 +68,7 @@ public class SearchAdapterAutoCompleteConcierge extends BaseAdapter {
         //get the string item from the position "i" from array list to put it on the TextView
         ConciergeActivity.Concierge concierge = results.get(i);
         String labelConcierge = concierge.getLabel();
-        Log.e("SErfar", labelConcierge.toString());
+       // Log.e("SErfar", labelConcierge.toString());
         if (labelConcierge.contains("-")){ //Split city and Country or State
             String[] parts = labelConcierge.split(" - ");
             String country = parts[0]; // 004

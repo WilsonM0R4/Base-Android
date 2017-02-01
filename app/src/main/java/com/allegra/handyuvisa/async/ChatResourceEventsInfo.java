@@ -1,7 +1,6 @@
 package com.allegra.handyuvisa.async;
 
 import android.util.JsonReader;
-import android.util.Log;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -60,12 +59,12 @@ public class ChatResourceEventsInfo extends APIInfoChat {
             }
             reader.endObject();
         } catch (IOException ex) {
-            Log.d(TAG, "Something bad");
+           // Log.d(TAG, "Something bad");
         } finally {
             try {
                 reader.close();
             } catch (IOException e) {
-                Log.e(TAG, "Can't close incoming onePocketmessage", e);
+              //  Log.e(TAG, "Can't close incoming onePocketmessage", e);
             }
         }
 
@@ -127,7 +126,7 @@ public class ChatResourceEventsInfo extends APIInfoChat {
                             id  = reader.nextString();
                         } else {
                             result.put(name + id, reader.nextString());
-                            Log.d(TAG, "name: " + name + id + " value: " + result.get(name+id));
+                         //   Log.d(TAG, "name: " + name + id + " value: " + result.get(name+id));
                         }
                     }
 

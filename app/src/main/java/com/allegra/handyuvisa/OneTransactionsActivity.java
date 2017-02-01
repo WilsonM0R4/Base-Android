@@ -5,7 +5,6 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import com.allegra.handyuvisa.utils.Constants;
@@ -33,7 +32,7 @@ public class OneTransactionsActivity extends FrontBackAnimate  implements FrontB
                     addFragment(fragment);
                 } else {
                     // clear the stack
-                    Log.d(TAG, "Clear the stack");
+                    //Log.d(TAG, "Clear the stack");
                     FragmentManager manager = getFragmentManager();
                     manager.popBackStackImmediate();
                 }
@@ -93,13 +92,13 @@ public class OneTransactionsActivity extends FrontBackAnimate  implements FrontB
 
 
     private void checkLogin() {
-        if(((VisaCheckoutApp)this.getApplication()).getIdSession()==null){
+        if(((com.allegra.handyuvisa.VisaCheckoutApp)this.getApplication()).getIdSession()==null){
             Intent i =new Intent(OneTransactionsActivity.this, LoginActivity.class);
             this.startActivityForResult(i, Constants.ONE_POCKET_NEEDS_LOGIN);
             finish();
         }else {
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            Bundle bundle = Constants.createDataBundle(Constants.getUser(this), (VisaCheckoutApp) getApplication());
+            Bundle bundle = Constants.createDataBundle(Constants.getUser(this), (com.allegra.handyuvisa.VisaCheckoutApp) getApplication());
             oneTransctions = new TransactionsFragment();
             oneTransctions.setArguments(bundle);
             transaction.add(R.id.opk_top, oneTransctions);

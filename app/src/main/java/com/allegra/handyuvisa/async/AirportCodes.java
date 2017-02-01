@@ -1,7 +1,7 @@
 package com.allegra.handyuvisa.async;
 
 import android.util.JsonReader;
-import android.util.Log;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -26,13 +26,13 @@ public class AirportCodes extends APIInfo {
     public AirportCodes(String query,String url) {
         apiName = APINAME;
         endPoint = url + query;
-        Log.d("Sergio endPoint",endPoint);
+       // Log.d("Sergio endPoint",endPoint);
         method = "GET";
 
     }
 
     public HashMap<String, String> parseData(InputStream inputStream) {
-        Log.d(TAG, "Parsing ChatEventsNext");
+       // Log.d(TAG, "Parsing ChatEventsNext");
 
         HashMap<String, String> result = new HashMap<>();
         JsonReader reader = new JsonReader(new InputStreamReader(inputStream));
@@ -51,12 +51,12 @@ public class AirportCodes extends APIInfo {
             }
             reader.endArray();
         } catch (IOException ex) {
-            Log.d(TAG, "Something bad");
+            //Log.d(TAG, "Something bad");
         } finally {
             try {
                 reader.close();
             } catch (IOException e) {
-                Log.e(TAG, "Can't close incoming onePocketmessage", e);
+               // Log.e(TAG, "Can't close incoming onePocketmessage", e);
             }
         }
 

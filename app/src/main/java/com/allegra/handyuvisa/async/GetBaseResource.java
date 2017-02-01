@@ -1,7 +1,6 @@
 package com.allegra.handyuvisa.async;
 
 import android.util.JsonReader;
-import android.util.Log;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -34,15 +33,15 @@ public class GetBaseResource extends APIInfoChat {
         try {
             reader.beginObject();
             while (reader.hasNext()) {
-                Log.d(TAG,"Entra al 1er while ");
+               // Log.d(TAG,"Entra al 1er while ");
                 String name = reader.nextName();
                 if (name.equals("account")) {
                     reader.beginObject();
                     while (reader.hasNext()) {
-                        Log.d(TAG,"Entra al 2do while ");
+                       // Log.d(TAG,"Entra al 2do while ");
                         name = reader.nextName();
                         if (name.equals("link")) {
-                            Log.d(TAG,"Entra al equals link ");
+                         //   Log.d(TAG,"Entra al equals link ");
                             reader.beginArray();
                             while (reader.hasNext()) {
                                 reader.beginObject();
@@ -53,8 +52,8 @@ public class GetBaseResource extends APIInfoChat {
                                 if (data2.equals(CHAT_REQUEST)){
                                     result.put(CHAT_REQUEST, data1);
                                 } else {
-                                    Log.d(TAG,"ES "+data2);
-                                    Log.d(TAG,"data1 "+data1);
+                                  //  Log.d(TAG,"ES "+data2);
+                                   // Log.d(TAG,"data1 "+data1);
                                 }
                                 reader.endObject();
                             }
@@ -62,23 +61,23 @@ public class GetBaseResource extends APIInfoChat {
                         } else {
                             reader.skipValue();
                         }
-                        Log.d(TAG, "Receive HTTP response name: " + name + " value: ");
+                       // Log.d(TAG, "Receive HTTP response name: " + name + " value: ");
                     }
                     reader.endObject();
                 } else {
-                    Log.d(TAG,"Entra al else de account ");
+                   // Log.d(TAG,"Entra al else de account ");
                     reader.skipValue();
                 }
             }
             reader.endObject();
 
         } catch (Exception ex) {
-            Log.d(TAG, "Something bad");
+           // Log.d(TAG, "Something bad");
         } finally {
             try {
                 reader.close();
             } catch (IOException e) {
-                Log.e(TAG, "Can't close incoming onePocketmessage", e);
+               // Log.e(TAG, "Can't close incoming onePocketmessage", e);
             }
         }
         return result;

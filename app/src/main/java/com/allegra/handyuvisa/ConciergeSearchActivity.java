@@ -2,31 +2,26 @@ package com.allegra.handyuvisa;
 /**
  * Created by jsandoval on 3/06/16.
  */
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
-import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.Util;
 import com.allem.onepocket.utils.OPKConstants;
-
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 
 public class ConciergeSearchActivity extends Activity{//LoadAnimate implements LoadAnimate.InflateReadyListener
 
@@ -55,8 +50,8 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
         //Get intent params
         id_destino_ser = getIntent().getStringExtra("&idCity");
         nombre_destino_ser = getIntent().getStringExtra("&labelCity");
-        Log.d("ID DESTINO SER ",String.valueOf(id_destino_ser));
-        Log.d("NOMBRE   DESTINO SER",String.valueOf(nombre_destino_ser));
+        //Log.d("ID DESTINO SER ",String.valueOf(id_destino_ser));
+        //Log.d("NOMBRE   DESTINO SER",String.valueOf(nombre_destino_ser));
         //Find views by Id
         webView = (WebView)findViewById(R.id.webView);//Concierge
        /* progressBar= (ImageView)findViewById(R.id.pb_search_loader);//pb_concierge
@@ -126,7 +121,7 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
 
         if (requestCode == Constants.ACTIVITY_LOGIN) {
             if(resultCode == RESULT_OK){
-                Log.d(TAG, "usuario logueado");
+                //Log.d(TAG, "usuario logueado");
                 ConciergeSearchActivity.this.invalidateOptionsMenu();
                 webView.loadUrl("about:blank");
                 loadWebView();
@@ -168,14 +163,14 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
         url = Constants.getSearchConciergeUrl() +
                 id_destino_ser + "&nombre_destino_ser1=" + nombre_destino_ser +
                 "&Payment=3"+"&Group="+mcard;
-        Log.d("url con data",url);
+        //Log.d("url con data",url);
         webView.loadUrl(url);
     }
 
     public void openOnePocket(){
         Intent intent = new Intent(this, OnepocketPurchaseActivity.class);
         Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(this), onePocketmessage,
-                OPKConstants.TYPE_HOTEL, (VisaCheckoutApp) getApplication());
+                OPKConstants.TYPE_HOTEL, (com.allegra.handyuvisa.VisaCheckoutApp) getApplication());
         intent.putExtras(bundle);
         startActivityForResult(intent, Constants.REQUEST_ONEPOCKET_RETURN);
     }
@@ -217,7 +212,7 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
 
-            Log.d(TAG, "url: " + url);
+            //Log.d(TAG, "url: " + url);
             if (Util.hasInternetConnectivity(ConciergeSearchActivity.this)){
                 if (url.contains("http://")||url.contains("https://")){
                     view.loadUrl(url);

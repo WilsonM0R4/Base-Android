@@ -9,8 +9,6 @@ import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -18,9 +16,9 @@ import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.Util;
 import com.allem.onepocket.utils.OPKConstants;
@@ -97,7 +95,7 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
         paramArriveAt = getIntent().getStringExtra("arriveAt");//IATA CODE ARRIVAL
         paramArriveAtName = getIntent().getStringExtra("arriveAtName");//LARGE NAME ARRIVAL
 
-        Log.d("paramCabin",String.valueOf(paramCabin));
+     /*   Log.d("paramCabin",String.valueOf(paramCabin));
         Log.d("paramAdult",String.valueOf(paramAdult));
         Log.d("paramChildren",String.valueOf(paramChildren));
         Log.d("paramDepartDate",String.valueOf(paramDepartDate));
@@ -106,7 +104,7 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
         Log.d("paramDepartFromName",String.valueOf(paramDepartFromName));
         Log.d("paramArriveAt",String.valueOf(paramArriveAt));
         Log.d("paramArriveAtName",String.valueOf(paramArriveAtName));
-        Log.d("paramInfant",String.valueOf(paramInfant));
+        Log.d("paramInfant",String.valueOf(paramInfant));*/
     }
 
     @Override
@@ -131,7 +129,7 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
 
         if (requestCode == Constants.ACTIVITY_LOGIN) {
             if(resultCode == RESULT_OK){
-                Log.d(TAG, "usuario logueado");
+                //Log.d(TAG, "usuario logueado");
                 FlightsSearchActivity.this.invalidateOptionsMenu();
                 webView.loadUrl("about:blank");
                 loadWebView();
@@ -202,7 +200,7 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
                 "&AirBookingClassPref="+flightClass+"&AirlineCode=*&AirFlexDateDeparture=*&AirTravelTimeStart=" +
                 "*&AirFlexDatesReturn=*&AirTravelTimeEnd=*&AirTravelDic=*&AirRestricTar=*&AirSeg=1&Payment=3";
         url = url + postData;
-        Log.d("url con data",url);
+        //Log.d("url con data",url);
         webView.loadUrl(url);
     }
 
@@ -227,7 +225,7 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
     public void openOnePocket(){
         Intent intent = new Intent(this, OnepocketPurchaseActivity.class);
         Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(this), onePocketmessage,
-                OPKConstants.TYPE_FLIGHT, (VisaCheckoutApp) getApplication());
+                OPKConstants.TYPE_FLIGHT, (com.allegra.handyuvisa.VisaCheckoutApp) getApplication());
         intent.putExtras(bundle);
         startActivityForResult(intent, Constants.REQUEST_ONEPOCKET_RETURN);
     }
@@ -269,7 +267,7 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
 
-            Log.d(TAG, "url: " + url);
+            //Log.d(TAG, "url: " + url);
             if (Util.hasInternetConnectivity(FlightsSearchActivity.this)){
                 if (url.contains("http://")||url.contains("https://")){
                     view.loadUrl(url);

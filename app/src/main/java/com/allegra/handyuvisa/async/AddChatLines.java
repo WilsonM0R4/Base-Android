@@ -1,7 +1,5 @@
 package com.allegra.handyuvisa.async;
 
-import android.util.Log;
-
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -35,7 +33,7 @@ public class AddChatLines extends APIInfoChat {
     }
 
     protected HashMap<String, String> parseData(InputStream inputStream) {
-        Log.d(TAG, "Not interested in response body");
+        //Log.d(TAG, "Not interested in response body");
         return new HashMap<>();
     }
 }

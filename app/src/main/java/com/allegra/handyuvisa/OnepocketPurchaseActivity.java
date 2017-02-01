@@ -6,7 +6,6 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import com.allegra.handyuvisa.utils.Constants;
@@ -37,7 +36,7 @@ public class OnepocketPurchaseActivity extends FrontBackAnimate implements Front
                     addFragment(fragment);
                 } else {
                     // clear the stack
-                    Log.d(TAG, "Clear the stack");
+                    //Log.d(TAG, "Clear the stack");
                     FragmentManager manager = getFragmentManager();
                     manager.popBackStackImmediate();
                 }
@@ -69,7 +68,7 @@ public class OnepocketPurchaseActivity extends FrontBackAnimate implements Front
 
                     case 1:
                         Intent intent = new Intent(OnepocketPurchaseActivity.this, OnepocketContainerActivity.class);
-                        Bundle bundle = Constants.createDataBundle(Constants.getUser(OnepocketPurchaseActivity.this), ((VisaCheckoutApp) OnepocketPurchaseActivity.this.getApplication()));
+                        Bundle bundle = Constants.createDataBundle(Constants.getUser(OnepocketPurchaseActivity.this), ((com.allegra.handyuvisa.VisaCheckoutApp) OnepocketPurchaseActivity.this.getApplication()));
                         intent.putExtras(bundle);
                         startActivity(intent);
                         break;

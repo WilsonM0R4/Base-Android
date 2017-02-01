@@ -1,12 +1,10 @@
 package com.allegra.handyuvisa;
 
-import android.*;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -17,8 +15,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.View;
 import android.webkit.GeolocationPermissions;
 import android.webkit.JavascriptInterface;
@@ -30,14 +26,11 @@ import android.webkit.WebViewClient;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
-import com.allegra.handyuvisa.models.AllemUser;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
 import com.allegra.handyuvisa.utils.GPSTracker;
 import com.allem.onepocket.utils.OPKConstants;
-import com.urbanairship.location.LocationService;
 
 import java.net.URLEncoder;
 import java.util.List;
@@ -102,7 +95,7 @@ public class RestaurantsActivity extends FrontBackAnimate implements FrontBackAn
         });
         getLocation();
 
-        Log.d(TAG, url);
+       // Log.d(TAG, url);
     }
 
     @Override
@@ -130,11 +123,11 @@ public class RestaurantsActivity extends FrontBackAnimate implements FrontBackAn
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     // Permission was granted, yay! Do the camera-related task you need to do.
-                    Log.e(TAG, "El permiso fue dado");
+                   // Log.e(TAG, "El permiso fue dado");
                     getCurrentLocation();
                 } else {
                     // Permission denied, boo! Disable the functionality that depends on this permission.
-                    Log.e(TAG, "Sin el permiso no podemos seguir");
+                    //Log.e(TAG, "Sin el permiso no podemos seguir");
                 }
                 return;
             }
@@ -184,7 +177,7 @@ public class RestaurantsActivity extends FrontBackAnimate implements FrontBackAn
         isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
 
         if (!isGPSEnabled) {
-            Log.d(TAG, "ESTOY ACA");
+           // Log.d(TAG, "ESTOY ACA");
             buildAlertMessageNoGps();
         } else {
             //Validate permissions
@@ -217,20 +210,20 @@ public class RestaurantsActivity extends FrontBackAnimate implements FrontBackAn
                 if (stateName.contains(", ")) {
                     String[] parts = stateName.split(", ");
                     city = parts[0];
-                    Log.d("City split", city);
+                  //  Log.d("City split", city);
                 } else {
                     if (stateName.contains(" ")) {
                         String[] parts = stateName.split(" ");
                         city = parts[0];
-                        Log.d("City split space", city);
+                      //  Log.d("City split space", city);
                     }
                 }
                 String query = URLEncoder.encode(city, "utf-8");
-                Log.d("cityName", cityName);
-                Log.d("stateName", stateName);
-                Log.d("countryName", countryName);
-                Log.d("LATITUDE", latitude.toString());
-                Log.d("LONGITUDE", longitude.toString());
+               // Log.d("cityName", cityName);
+               // Log.d("stateName", stateName);
+               // Log.d("countryName", countryName);
+               // Log.d("LATITUDE", latitude.toString());
+               // Log.d("LONGITUDE", longitude.toString());
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -247,7 +240,7 @@ public class RestaurantsActivity extends FrontBackAnimate implements FrontBackAn
     public void openOnePocket(){
 
         Intent intent = new Intent(RestaurantsActivity.this, OnepocketPurchaseActivity.class);
-        Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(this), onePocketmessage, OPKConstants.TYPE_MCARD, (VisaCheckoutApp) getApplication());
+        Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(this), onePocketmessage, OPKConstants.TYPE_MCARD, (com.allegra.handyuvisa.VisaCheckoutApp) getApplication());
         intent.putExtras(bundle);
         startActivityForResult(intent, Constants.REQUEST_ONEPOCKET_RETURN);
     }
@@ -327,13 +320,13 @@ public class RestaurantsActivity extends FrontBackAnimate implements FrontBackAn
 
             mlat = latitude.toString();
             mLon = longitude.toString();
-            Log.d(TAG, "Lat: "+mlat+" Long:"+ mLon);
+           // Log.d(TAG, "Lat: "+mlat+" Long:"+ mLon);
         }
 
         @JavascriptInterface
         public void postMessage(final String message) {
-            Log.e("Message", message);
-            Log.e("Repeat message", message);
+            //Log.e("Message", message);
+            //Log.e("Repeat message", message);
 
             //Obtengo latitud y longitud y Se los envío a la función JavaScript MyGeoLocation
             new Handler(Looper.getMainLooper()).post(new Runnable() {
@@ -343,18 +336,18 @@ public class RestaurantsActivity extends FrontBackAnimate implements FrontBackAn
                     if (message.contains("myCurrentLocation")) {
 
                         if (latitude!=null && longitude!= null) {
-                            Log.d(TAG,"Entra al if != null en postMessage");
-                            Log.d(TAG,"Lat: "+latitude.toString()+ " Long: "+longitude.toString());
+                           // Log.d(TAG,"Entra al if != null en postMessage");
+                           // Log.d(TAG,"Lat: "+latitude.toString()+ " Long: "+longitude.toString());
                             webView.evaluateJavascript("javascript:myGeoLocation(" + latitude.toString() + "," + longitude.toString() + ");", new ValueCallback<String>() {
                                 @Override
                                 public void onReceiveValue(String value) {
-                                    Log.d(TAG, "El value en postMessage "+value);
+                                   // Log.d(TAG, "El value en postMessage "+value);
                                 }
                             });
 
                         } else {//Hardcode Other location in Bogotá
                             webView.evaluateJavascript("javascript:myGeoLocation(4.665417, -74.077237);",null);
-                            Log.d(TAG,"lat lng son null en postMessage");
+                           // Log.d(TAG,"lat lng son null en postMessage");
                         }
 
                     }

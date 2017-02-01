@@ -116,7 +116,7 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d(TAG, "onDestroy: shutdown phone");
+        //Log.d(TAG, "onDestroy: shutdown phone");
         if (phone != null) {
             if (!speakerOff) {
                 // Speaker state seems to be retained in the Twilio library; clear its state before
@@ -127,10 +127,10 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
             if (phone.isConnected()) {
                 phone.disconnect();
             } else {
-                Log.d(TAG, "phone is not connected");
+                //Log.d(TAG, "phone is not connected");
             }
         } else {
-            Log.d(TAG, "phone is not initialized");
+           // Log.d(TAG, "phone is not initialized");
         }
     }
 
@@ -163,7 +163,7 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "Llega CANCEL button");
+                //Log.d(TAG, "Llega CANCEL button");
                 toCancel = true;
                 onEndCall(null);
                 //finish();
@@ -174,7 +174,7 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
         btnEndCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "Llega al End call");
+                //Log.d(TAG, "Llega al End call");
                 toCancel = true;
                 onAlertCancelCall(null);
                 //onEndCall(null);
@@ -454,7 +454,7 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
     }
 
     public void onEndCall(View view) {
-        Log.d(TAG, "Llega al onEndCall");
+        //Log.d(TAG, "Llega al onEndCall");
         phone.disconnect();
         finish();
         overridePendingTransition(R.animator.back_slide_in, R.animator.front_slide_out);

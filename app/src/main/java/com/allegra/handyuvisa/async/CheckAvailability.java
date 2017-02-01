@@ -1,7 +1,6 @@
 package com.allegra.handyuvisa.async;
 
 import android.util.JsonReader;
-import android.util.Log;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -47,12 +46,12 @@ public class CheckAvailability extends APIInfo {
             return result;
 
         } catch (Exception ex) {
-            Log.e(TAG, "Can't parse incoming onePocketmessage", ex);
+          //  Log.e(TAG, "Can't parse incoming onePocketmessage", ex);
         } finally {
             try {
                 reader.close();
             } catch (IOException e) {
-                Log.e(TAG, "Can't close incoming onePocketmessage", e);
+              //  Log.e(TAG, "Can't close incoming onePocketmessage", e);
             }
         }
         return result;

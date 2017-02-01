@@ -1,11 +1,10 @@
 package com.allegra.handyuvisa.async;
 
 import android.os.AsyncTask;
-import android.util.Log;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-//import java.net.HttpURLConnection;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
@@ -14,7 +13,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import javax.net.ssl.HttpsURLConnection;
+//import java.net.HttpURLConnection;
 
 //TODO remove logging of username and password!
 
@@ -44,7 +43,7 @@ public class AsyncRestHelper extends AsyncTask<Void, Void, HashMap<String, Strin
         try {
             result = communicate(apiInfo);
         } catch (IOException e) {
-            Log.e(TAG, "Can't complete task to endpoint", e);
+           // Log.e(TAG, "Can't complete task to endpoint", e);
             result = null;
         }
         return result ;
@@ -63,7 +62,7 @@ public class AsyncRestHelper extends AsyncTask<Void, Void, HashMap<String, Strin
         try {
             URL url = new URL(apiInfo.getEndpoint());
             urlConnection = (HttpURLConnection) url.openConnection();
-            Log.d(TAG, "URL: " + apiInfo.getEndpoint());
+           // Log.d(TAG, "URL: " + apiInfo.getEndpoint());
 
             urlConnection.setRequestMethod(apiInfo.getMethod());
             urlConnection.setConnectTimeout(APP_SERVER_CONNECTION_TIMEOUT);
@@ -81,33 +80,33 @@ public class AsyncRestHelper extends AsyncTask<Void, Void, HashMap<String, Strin
             }
 
             // TODO REMOVE BEFORE RELEASE
-            Log.d(TAG, "Request Header: " + tmp);
+           // Log.d(TAG, "Request Header: " + tmp);
 
 
             if (apiInfo.getMethod().equals("DELETE") || apiInfo.getPayload() == null) {
-                Log.d(TAG,"Llega al if");
+              //  Log.d(TAG,"Llega al if");
                 urlConnection.connect();
             } else {
-                Log.d(TAG, "Payload: " + new String(apiInfo.getPayload()));
+               // Log.d(TAG, "Payload: " + new String(apiInfo.getPayload()));
                 urlConnection.setDoOutput(true);
                 out = urlConnection.getOutputStream();
                 out.write(apiInfo.getPayload());
             }
 
             int code = urlConnection.getResponseCode();
-            Log.d(TAG, "Response code: " + code);
+           // Log.d(TAG, "Response code: " + code);
             if (code == 200 || code == 201 ||  code == 400 ||  code == 404){
                 if (code == 400 ||  code == 404){
                     dataReturn = apiInfo.parseData(urlConnection.getErrorStream());
-                    Log.e(TAG, "HTTPx Response: " + code + " - " + urlConnection.getResponseMessage());
-                    Log.d(TAG,"Entra al code == 400");
+                  //  Log.e(TAG, "HTTPx Response: " + code + " - " + urlConnection.getResponseMessage());
+                  //  Log.d(TAG,"Entra al code == 400");
                 } else {
                     dataReturn = apiInfo.parseData(urlConnection.getInputStream());
                 }
 
                 HashSet set = apiInfo.getParseRespHeaders();
                 if (set != null && set.contains("resp_code")) {
-                    Log.d(TAG,"Entra al if set.contains(resp_code)");
+                   // Log.d(TAG,"Entra al if set.contains(resp_code)");
                     dataReturn.put("resp_code", Integer.toString(code));
                 }
                 // Log the HTTP response headers from the server
@@ -126,21 +125,21 @@ public class AsyncRestHelper extends AsyncTask<Void, Void, HashMap<String, Strin
                             .append(urlConnection.getHeaderFields().get(key))
                             .append("\n");
                 }
-                Log.d(TAG, "Server's response: (" + tmp + ") ");
+               // Log.d(TAG, "Server's response: (" + tmp + ") ");
             }
         } finally {
             if (in != null) {
                 try {
                     in.close();
                 } catch (IOException e) {
-                    Log.e(TAG, "Can't close input stream", e);
+                   // Log.e(TAG, "Can't close input stream", e);
                 }
             }
             if (out != null) {
                 try {
                     out.close();
                 } catch (IOException e) {
-                    Log.e(TAG, "Can't close input stream", e);
+                   // Log.e(TAG, "Can't close input stream", e);
                 }
             }
             if (urlConnection != null) {

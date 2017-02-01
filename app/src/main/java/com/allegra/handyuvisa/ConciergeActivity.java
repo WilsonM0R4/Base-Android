@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,11 +25,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.allegra.handyuvisa.async.AsyncRestHelper;
-import com.allegra.handyuvisa.async.MyBus;
 import com.allegra.handyuvisa.async.AsyncTaskMPosResultEvent;
 import com.allegra.handyuvisa.async.ConciergeCodes;
+import com.allegra.handyuvisa.async.MyBus;
 import com.allegra.handyuvisa.utils.Constants;
 import com.squareup.otto.Subscribe;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -95,7 +95,7 @@ public class ConciergeActivity extends FrontBackAnimate implements FrontBackAnim
     //If search is active => GetUpAnimation  else Lock onBackButton
     @Override
     public void onBackPressed() {
-    Log.e("Sergio","Llega al back");
+    //Log.e("Sergio","Llega al back");
         /*if (isSearchActive) {
             onGetUpAnimationFlights();
         }*/
@@ -256,7 +256,7 @@ public class ConciergeActivity extends FrontBackAnimate implements FrontBackAnim
 
     //Called when  EditText note's  addTextChangedListener and setOnEditorActionListener
     private void performSearch(String query) {
-        Log.d(TAG, "performSearch");
+       // Log.d(TAG, "performSearch");
         progressBar.setVisibility(View.VISIBLE);
         ConciergeCodes apiInfo;
         apiInfo = new ConciergeCodes(query, urlConcierge);
@@ -279,7 +279,7 @@ public class ConciergeActivity extends FrontBackAnimate implements FrontBackAnim
                 String key = name.toString();
                 String value = data.get(name).toString();
 
-                Log.d("Sergio este es", key + " " + value);
+                //Log.d("Sergio este es", key + " " + value);
             }
             if (concierges != null) concierges.clear();
             if (event.getApiName().equals(ConciergeCodes.APINAME)) {
@@ -330,8 +330,8 @@ public class ConciergeActivity extends FrontBackAnimate implements FrontBackAnim
             Intent intent = new Intent(this, ConciergeSearchActivity.class);
             intent.putExtra("&labelCity", labelCity);
             intent.putExtra("&idCity", idCity);
-            Log.d("labelCity", String.valueOf(labelCity));
-            Log.d("idCity", String.valueOf(idCity));
+           // Log.d("labelCity", String.valueOf(labelCity));
+           // Log.d("idCity", String.valueOf(idCity));
 
             startActivity(intent);
         }

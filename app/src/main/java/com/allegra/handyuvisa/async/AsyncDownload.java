@@ -2,7 +2,6 @@ package com.allegra.handyuvisa.async;
 
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.util.Log;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -38,7 +37,7 @@ public class AsyncDownload extends AsyncTask<String, Void, Boolean> {
 
     @Override
     protected Boolean doInBackground(String... strings) {
-        Log.d(TAG, "parameter: " + url + "\n" + filename + "\n" + pathto);
+       // Log.d(TAG, "parameter: " + url + "\n" + filename + "\n" + pathto);
         return  downloadFile(url,filename,pathto);
     }
 
@@ -51,7 +50,7 @@ public class AsyncDownload extends AsyncTask<String, Void, Boolean> {
         boolean result =false;
         try {
             String linkencoded = Uri.encode(link);
-            Log.d(TAG, "link encoded: " + linkencoded + "\n" + link);
+           // Log.d(TAG, "link encoded: " + linkencoded + "\n" + link);
             URL url = new URL(link);
             URLConnection conexion = url.openConnection();
             conexion.connect();

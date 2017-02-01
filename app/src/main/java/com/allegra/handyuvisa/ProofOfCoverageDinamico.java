@@ -72,9 +72,9 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
         numberOfId = prefs.getString("numberOfId", "7887787");
         numberOfMcard = prefs.getString("numMcard", "123456789");
         String strIdCuenta = prefs.getString("idCuenta", "0");
-        Log.e("typeOfId", typeOfId);
-        Log.e("numberOfId", numberOfId);
-        Log.e("numberOfMcard", numberOfMcard);
+       // Log.e("typeOfId", typeOfId);
+       // Log.e("numberOfId", numberOfId);
+       // Log.e("numberOfMcard", numberOfMcard);
         idCuenta = Integer.valueOf(strIdCuenta);
         getValuesDynamicProofOfCoverage();
     }
@@ -159,30 +159,30 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
             editor.apply();
             //Validate if user have poliza
             if (numeroPoliza.equals("NO_TIENE")){
-                Log.d("NO TENGO MCARD", "NO TENGO ");
+                //Log.d("NO TENGO MCARD", "NO TENGO ");
                 setGetYourCertificateLayout();
             } else{
                 //Read from SharedPreferences
                 SharedPreferences preferences = this.getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
                 String lista = preferences.getString("coberturas", "3");
-                Log.d(TAG, "Lista "+lista);
+               // Log.d(TAG, "Lista "+lista);
                 Type type = new TypeToken<ArrayList<Cobertura>>(){}.getType();
                 ArrayList<Cobertura> carsList = gson.fromJson(lista, type);
                 //Fill adapter and show listView with coberturas
                 adapter= new CustomAdapterDinamico(carsList,getApplicationContext());
                 listCoberturas.setAdapter(adapter);
-                Log.d("SI TENGO MCARD", "SI TENGO ");
+               // Log.d("SI TENGO MCARD", "SI TENGO ");
                 AllemUser allemUser = Constants.getUser(getApplicationContext());
                 nombre = allemUser.nombre;
                 apellido = allemUser.apellido;
                 typeOfId = getTypeOfIdForDisplay(allemUser.idType);
                 numberOfId = allemUser.idNumber;
                 numberOfMcard = numeroPoliza;
-                Log.d("nombre", nombre);
-                Log.d("apellido", apellido);
-                Log.d("typeOfId", typeOfId);
-                Log.d("numberOfId", numberOfId);
-                Log.d("numeroMcard", numberOfMcard);
+              //  Log.d("nombre", nombre);
+               // Log.d("apellido", apellido);
+               // Log.d("typeOfId", typeOfId);
+               // Log.d("numberOfId", numberOfId);
+               // Log.d("numeroMcard", numberOfMcard);
                 setValues();
                 //Hide Loader
                 rl_body_proof.setVisibility(View.VISIBLE);
@@ -201,7 +201,7 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
         SharedPreferences preferences = this.getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
         String idCuentaAIM = preferences.getString("idCuenta", "3");
         String idPortal = Constants.ID_PORTAL;
-        Log.d(TAG, "El id es: "+idCuentaAIM);
+        //Log.d(TAG, "El id es: "+idCuentaAIM);
 
         //ARM REQUEST
         postValues = new ArrayList<>();
@@ -214,7 +214,7 @@ public class ProofOfCoverageDinamico extends FrontBackAnimate implements FrontBa
 
         //Boolean Flags
 
-        Log.d(TAG, "Booleans "+mostrarAppCobertura);
+       // Log.d(TAG, "Booleans "+mostrarAppCobertura);
 
         //If there is internet connection, send request
         if (Connectivity.isConnected(getApplicationContext()) || Connectivity.isConnectedWifi(getApplicationContext()) || Connectivity.isConnectedMobile(getApplicationContext())) {

@@ -169,17 +169,17 @@ public class BasicPhone implements DeviceListener,
 
     private void reallyLogin(final String capabilityToken)
     {
-        Log.d(TAG, "proceed to reallyLogin");
+       // Log.d(TAG, "proceed to reallyLogin");
         try {
             if (device == null) {
-                Log.d(TAG, "start a new device");
+               // Log.d(TAG, "start a new device");
                 device = Twilio.createDevice(capabilityToken, this);
                 Intent intent = new Intent(context, CallActivity.class);
                 PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent,
                         PendingIntent.FLAG_UPDATE_CURRENT);
                 device.setIncomingIntent(pendingIntent);
             } else {
-                Log.d(TAG, "REUSE existing device");
+              //  Log.d(TAG, "REUSE existing device");
                 device.updateCapabilityToken(capabilityToken);
             }
 
@@ -187,7 +187,7 @@ public class BasicPhone implements DeviceListener,
                 loginListener.onLoginFinished();
 
             if (queuedConnect) {
-                Log.d(TAG, "Someone call connect() before finished initialization");
+              //  Log.d(TAG, "Someone call connect() before finished initialization");
                 // If someone called connect() before we finished initializing
                 // the SDK, let's take care of that here.
                 connect(null);
@@ -224,7 +224,7 @@ public class BasicPhone implements DeviceListener,
         if (device == null)
             return;
 
-        Log.d(TAG, "twilio sdk init done, capability token got, device ready.. ok call");
+       // Log.d(TAG, "twilio sdk init done, capability token got, device ready.. ok call");
         if (canMakeOutgoing()) {
             disconnect();
 
@@ -237,13 +237,13 @@ public class BasicPhone implements DeviceListener,
     public void disconnect()
     {
         if (connection != null) {
-            Log.d(TAG, "active call going on");
+          //  Log.d(TAG, "active call going on");
             connection.disconnect();  // will null out in onDisconnected()
-            Log.d(TAG, "done disconnect");
+          //  Log.d(TAG, "done disconnect");
             if (basicConnectionListener != null)
                 basicConnectionListener.onConnectionDisconnecting();
         } else {
-            Log.d(TAG, "No active call right now");
+          //  Log.d(TAG, "No active call right now");
         }
     }
 
@@ -292,7 +292,7 @@ public class BasicPhone implements DeviceListener,
         intent.removeExtra(Device.EXTRA_CONNECTION);
 
         if (pendingIncomingConnection != null) {
-            Log.i(TAG, "A pending connection already exists");
+          //  Log.i(TAG, "A pending connection already exists");
             inConnection.ignore();
             return false;
         }
@@ -361,7 +361,7 @@ public class BasicPhone implements DeviceListener,
     public void onConnecting(Connection inConnection)
     {
         if (basicConnectionListener != null) {
-            Log.d(TAG, "basicConnectionListener onConnecting");
+           // Log.d(TAG, "basicConnectionListener onConnecting");
             basicConnectionListener.onConnectionConnecting();
         }
     }
@@ -371,7 +371,7 @@ public class BasicPhone implements DeviceListener,
     {
         updateAudioRoute();
         if (basicConnectionListener != null) {
-            Log.d(TAG, "basicConnectionListener onConnectionConnected");
+           // Log.d(TAG, "basicConnectionListener onConnectionConnected");
             basicConnectionListener.onConnectionConnected();
         }
     }
@@ -382,13 +382,13 @@ public class BasicPhone implements DeviceListener,
         if (inConnection == connection) {
             connection = null;
             if (basicConnectionListener != null) {
-                Log.d(TAG, "basicConnectionListener A onDisconnected");
+               // Log.d(TAG, "basicConnectionListener A onDisconnected");
                 basicConnectionListener.onConnectionDisconnected();
             }
         } else if (inConnection == pendingIncomingConnection) {
             pendingIncomingConnection = null;
             if (basicConnectionListener != null) {
-                Log.d(TAG, "basicConnectionListener B onDisconnected ");
+               // Log.d(TAG, "basicConnectionListener B onDisconnected ");
                 basicConnectionListener.onIncomingConnectionDisconnected();
             }
         }
@@ -400,7 +400,7 @@ public class BasicPhone implements DeviceListener,
         if (inConnection == connection) {
             connection = null;
             if (basicConnectionListener != null) {
-                Log.d(TAG, "basicConnectionListener onDisconnect ERROR");
+            //   Log.d(TAG, "basicConnectionListener onDisconnect ERROR");
                 basicConnectionListener.onConnectionFailedConnecting(new Exception(inErrorMessage), inErrorCode);
             }
         }
@@ -408,19 +408,19 @@ public class BasicPhone implements DeviceListener,
 
 
     private void getToken() {
-        Log.d(TAG, "Trying to get token");
+       // Log.d(TAG, "Trying to get token");
         StringRequest stringRequest = new StringRequest(Request.Method.GET, T_STRING,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.d(TAG,"got token: "+response);
+                      //  Log.d(TAG,"got token: "+response);
                         BasicPhone.this.reallyLogin(response);
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.e(TAG,"VolleyError: "+error.getMessage());
-                Log.e(TAG,error.toString());
+               // Log.e(TAG,"VolleyError: "+error.getMessage());
+              //  Log.e(TAG,error.toString());
                 BasicPhone.this.loginListener.onLoginError(error);
             }
         });

@@ -4,11 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,7 +40,7 @@ public class LoginForgotConfirmation extends FrontBackAnimate implements FrontBa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d(TAG, "Enter LoginForgotActivity");
+        //Log.d(TAG, "Enter LoginForgotActivity");
         postValues = new ArrayList<>();
         ctx = this;
         super.setView(R.layout.fragment_recoverpass_conf, this);

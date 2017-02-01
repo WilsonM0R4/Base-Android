@@ -17,7 +17,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.v4.app.ActivityCompat;
-import android.util.Log;
 import android.view.View;
 import android.webkit.GeolocationPermissions;
 import android.webkit.JavascriptInterface;
@@ -81,7 +80,7 @@ public class ServiceActivity extends  FrontBackAnimate implements FrontBackAnima
         else {
             mcard = "yes";
         }
-        Log.d(TAG, mcard);
+        //Log.d(TAG, mcard);
     }
 
     @Override
@@ -116,7 +115,7 @@ public class ServiceActivity extends  FrontBackAnimate implements FrontBackAnima
             }
         });
         getLocation();
-        Log.d(TAG, url);
+       // Log.d(TAG, url);
     }
 
     @Override
@@ -144,11 +143,11 @@ public class ServiceActivity extends  FrontBackAnimate implements FrontBackAnima
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     // Permission was granted, yay! Do the camera-related task you need to do.
-                    Log.e(TAG, "El permiso fue dado");
+                   // Log.e(TAG, "El permiso fue dado");
                     getCurrentLocation();
                 } else {
                     // Permission denied, boo! Disable the functionality that depends on this permission.
-                    Log.e(TAG, "Sin el permiso no podemos seguir");
+                   // Log.e(TAG, "Sin el permiso no podemos seguir");
                 }
                 return;
             }
@@ -197,7 +196,7 @@ public class ServiceActivity extends  FrontBackAnimate implements FrontBackAnima
             isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
 
             if (!isGPSEnabled) {
-                Log.d(TAG, "ESTOY ACA");
+               // Log.d(TAG, "ESTOY ACA");
                 buildAlertMessageNoGps();
             } else {
                 //Validate permissions
@@ -231,20 +230,20 @@ public class ServiceActivity extends  FrontBackAnimate implements FrontBackAnima
                 if (stateName.contains(", ")) {
                     String[] parts = stateName.split(", ");
                     city = parts[0];
-                    Log.d("City split", city);
+                   // Log.d("City split", city);
                 } else {
                     if (stateName.contains(" ")) {
                         String[] parts = stateName.split(" ");
                         city = parts[0];
-                        Log.d("City split space", city);
+                     //   Log.d("City split space", city);
                     }
                 }
                 String query = URLEncoder.encode(city, "utf-8");
-                Log.d("cityName", cityName);
-                Log.d("stateName", stateName);
-                Log.d("countryName", countryName);
-                Log.d("LATITUDE", latitude.toString());
-                Log.d("LONGITUDE", longitude.toString());
+              //  Log.d("cityName", cityName);
+               // Log.d("stateName", stateName);
+               // Log.d("countryName", countryName);
+               // Log.d("LATITUDE", latitude.toString());
+               // Log.d("LONGITUDE", longitude.toString());
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -260,7 +259,7 @@ public class ServiceActivity extends  FrontBackAnimate implements FrontBackAnima
     public void openOnePocket(){
 
         Intent intent = new Intent(ServiceActivity.this, OnepocketPurchaseActivity.class);
-        Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(this), onePocketmessage, OPKConstants.TYPE_MCARD, (VisaCheckoutApp) getApplication());
+        Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(this), onePocketmessage, OPKConstants.TYPE_MCARD, (com.allegra.handyuvisa.VisaCheckoutApp) getApplication());
         intent.putExtras(bundle);
         startActivityForResult(intent, Constants.REQUEST_ONEPOCKET_RETURN);
     }
@@ -315,7 +314,7 @@ public class ServiceActivity extends  FrontBackAnimate implements FrontBackAnima
 
         public boolean shouldOverrideUrlLoading(WebView webView, String url) {
             if (url.equals("allegra:mcard")) {
-                Intent i = new Intent(context, Mcardhtml.class);
+                Intent i = new Intent(context, com.allegra.handyuvisa.Mcardhtml.class);
                 context.startActivity(i);
                 return true;
             }
@@ -349,13 +348,13 @@ public class ServiceActivity extends  FrontBackAnimate implements FrontBackAnima
 
             mlat = latitude.toString();
             mLon = longitude.toString();
-            Log.d(TAG, "Lat: "+mlat+" Long:"+ mLon);
+           // Log.d(TAG, "Lat: "+mlat+" Long:"+ mLon);
         }
 
         @JavascriptInterface
         public void postMessage(String message){
 
-            Log.e(TAG, "mesage: "+message);
+           // Log.e(TAG, "mesage: "+message);
 
             if (message.contains("showLoader")){
                 //Show native loader

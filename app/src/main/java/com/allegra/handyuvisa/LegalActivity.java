@@ -6,7 +6,6 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.TextPaint;
 import android.text.style.URLSpan;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,10 +55,10 @@ public class LegalActivity extends FrontBackAnimate implements FrontBackAnimate.
                 version.setText("Version: " + versionName);
             }
         } catch (PackageManager.NameNotFoundException e) {
-            Log.e(TAG, "No Version number found");
+           // Log.e(TAG, "No Version number found");
         }
 
-        final Class[] activities = {PoliticalActivity.class, TermsActivity.class};
+        final Class[] activities = {PoliticalActivity.class, com.allegra.handyuvisa.TermsActivity.class};
         lv.setAdapter(new ArrayAdapter<String>(LegalActivity.this, R.layout.profile_layout_legal, names) {
 
             public View getView(final int position,View view,ViewGroup parent) {
@@ -100,7 +99,7 @@ public class LegalActivity extends FrontBackAnimate implements FrontBackAnimate.
 
 
     private void checkLogin() {
-        if(((VisaCheckoutApp)this.getApplication()).getIdSession()==null){
+        if(((com.allegra.handyuvisa.VisaCheckoutApp)this.getApplication()).getIdSession()==null){
             Intent i =new Intent(this,LoginActivity.class);
             this.startActivityForResult(i, Constants.ACTIVITY_LOGIN);
         }

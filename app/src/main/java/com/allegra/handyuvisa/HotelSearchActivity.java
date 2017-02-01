@@ -2,27 +2,21 @@ package com.allegra.handyuvisa;
 
 import android.app.ActionBar;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
-import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.allegra.handyuvisa.utils.Constants;
-import com.allegra.handyuvisa.utils.CustomizedTextView;
 import com.allegra.handyuvisa.utils.Util;
 import com.allem.onepocket.utils.OPKConstants;
 
@@ -119,7 +113,7 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
         paramDestinationName = getIntent().getStringExtra("&cityHotel");
         paramDestination = getIntent().getStringExtra("&cityHotelHidden");
 
-        Log.d("paramAdult",String.valueOf(paramAdults));
+        /*Log.d("paramAdult",String.valueOf(paramAdults));
         Log.d("paramChildren",String.valueOf(paramChildren));
         Log.d("paramAdult2",String.valueOf(paramAdults2));
         Log.d("paramChildren2",String.valueOf(paramChildren2));
@@ -132,7 +126,7 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
         Log.d("paramCheckOut",String.valueOf(paramCheckOut));
         Log.d("roomHotel", String.valueOf(paramRooms));
         Log.d("cityHotel", String.valueOf(paramDestinationName));
-        Log.d("cityHotelHidden", String.valueOf(paramDestination));
+        Log.d("cityHotelHidden", String.valueOf(paramDestination));*/
         //Validate mCard in order to send it
         SharedPreferences prefs =
                 getSharedPreferences("MisPreferencias", MODE_PRIVATE);
@@ -174,7 +168,7 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
 
         if (requestCode == Constants.ACTIVITY_LOGIN) {
             if(resultCode == RESULT_OK){
-                Log.d(TAG,"usuario logueado");
+               // Log.d(TAG,"usuario logueado");
                 HotelSearchActivity.this.invalidateOptionsMenu();
                 webView.loadUrl("about:blank");
                 loadWebView();
@@ -277,7 +271,7 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
         }
         webView.addJavascriptInterface(new AppJavaScriptProxyHotels(this), "androidProxy");
         url = url + postData;
-        Log.d("murl",url);
+        //Log.d("murl",url);
         webView.loadUrl(url);
     }
 
@@ -285,7 +279,7 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
 
         Intent intent = new Intent(HotelSearchActivity.this, OnepocketPurchaseActivity.class);
         Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(this), onePocketmessage,
-                OPKConstants.TYPE_HOTEL, (VisaCheckoutApp) getApplication());
+                OPKConstants.TYPE_HOTEL, (com.allegra.handyuvisa.VisaCheckoutApp) getApplication());
         intent.putExtras(bundle);
         startActivityForResult(intent, Constants.REQUEST_ONEPOCKET_RETURN);
     }
@@ -328,7 +322,7 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
 
-            Log.d(TAG, "url: " + url);
+           // Log.d(TAG, "url: " + url);
             if (Util.hasInternetConnectivity(HotelSearchActivity.this)){
                 if (url.contains("http://")||url.contains("https://")){
                     view.loadUrl(url);

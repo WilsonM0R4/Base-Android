@@ -1,6 +1,5 @@
 package com.allegra.handyuvisa;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -8,12 +7,9 @@ import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -25,7 +21,7 @@ import android.widget.TextView;
 //This class is one that consume a lot of memory, because of the way in that is menu inflated.
 //Example: super.onCreate(savedInstanceState);
 //setContentView(R.layout.activity_loadanimate);
-public class LoadAnimate extends FragmentActivity implements BackFragment.MenuSelectListener {
+public class LoadAnimate extends FragmentActivity implements com.allegra.handyuvisa.BackFragment.MenuSelectListener {
 
     //*************GLOBAL ATTRIBUTES*******************
     private static final String TAG = "LoadAnimate";
@@ -33,7 +29,7 @@ public class LoadAnimate extends FragmentActivity implements BackFragment.MenuSe
     private static final String FRAGMENT_LOADING = "LOADING";
     private static final String FRAGMENT_IN_PROGRESS = "IN_PROGRESS";
    // private static final String FRAGMENT_FRONT = "FRAGMENT_FRONT";
-    private BackFragment backFragment;
+    private com.allegra.handyuvisa.BackFragment backFragment;
     //private FrontBackAnimate.FrontFragment frontFragment;
     private LoadingFragment loadingFragment;
     private InProgressFragment inProgressFragment;
@@ -72,7 +68,7 @@ public class LoadAnimate extends FragmentActivity implements BackFragment.MenuSe
                 .commit();*/
 
         getFragmentManager().beginTransaction().hide(inProgressFragment).commit();
-        backFragment = (BackFragment) getFragmentManager().findFragmentByTag(FRAGMENT_BACK);
+        backFragment = (com.allegra.handyuvisa.BackFragment) getFragmentManager().findFragmentByTag(FRAGMENT_BACK);
         backFragment.menulistener = this;
     }
 
@@ -87,7 +83,7 @@ public class LoadAnimate extends FragmentActivity implements BackFragment.MenuSe
 
      public  void animateBetter(){
 
-         Log.d(TAG, "Llega al animateBetter");
+         //Log.d(TAG, "Llega al animateBetter");
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         int width = dm.widthPixels;
@@ -105,7 +101,7 @@ public class LoadAnimate extends FragmentActivity implements BackFragment.MenuSe
                      .setCustomAnimations(R.animator.back_exposed, 0)
                      .show(backFragment)
                      .commit();
-             Log.d(TAG, "Llega 0");
+            // Log.d(TAG, "Llega 0");
          } else {
              state = 0;
              showStatusBar(true);
@@ -115,7 +111,7 @@ public class LoadAnimate extends FragmentActivity implements BackFragment.MenuSe
                      .setCustomAnimations(R.animator.back_hidden, 0)
                      .show(backFragment)
                      .commit();
-             Log.d(TAG, "Llega 1");
+            // Log.d(TAG, "Llega 1");
          }
 
 
@@ -156,18 +152,18 @@ public class LoadAnimate extends FragmentActivity implements BackFragment.MenuSe
 
     protected void animate() {
         showStatusBar(true);
-        Log.d(TAG, "Switching fragment now - in CALLING");
+       // Log.d(TAG, "Switching fragment now - in CALLING");
         loadingFragment = (LoadingFragment) getFragmentManager().findFragmentByTag(FRAGMENT_LOADING);
         inProgressFragment = (InProgressFragment) getFragmentManager().findFragmentByTag(FRAGMENT_IN_PROGRESS);
         if (loadingFragment != null) {
-            Log.d(TAG,"Llega al loadingFragment != null");
+          //  Log.d(TAG,"Llega al loadingFragment != null");
             getFragmentManager().beginTransaction()
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE)
                     .hide(loadingFragment)
                     .show(inProgressFragment)
                     .commit();
         } else {
-            Log.d(TAG, "fragment is null????");
+           // Log.d(TAG, "fragment is null????");
         }
     }
 
@@ -290,7 +286,7 @@ public class LoadAnimate extends FragmentActivity implements BackFragment.MenuSe
                 @Override
                 public void onClick(View v) {
                     listener.onCancelLoading();
-                    Log.d(TAG,"Llega al clickListener de endCall" );
+                   // Log.d(TAG,"Llega al clickListener de endCall" );
                 }
             });
 

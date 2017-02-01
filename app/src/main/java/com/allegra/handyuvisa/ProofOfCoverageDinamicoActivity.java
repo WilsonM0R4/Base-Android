@@ -5,7 +5,6 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -38,7 +37,7 @@ public class ProofOfCoverageDinamicoActivity extends FrontBackAnimate implements
                     addFragment(fragment);
                 } else {
                     // clear the stack
-                    Log.d(TAG, "Clear the stack");
+                   // Log.d(TAG, "Clear the stack");
                     FragmentManager manager = getFragmentManager();
                     manager.popBackStackImmediate();
                 }

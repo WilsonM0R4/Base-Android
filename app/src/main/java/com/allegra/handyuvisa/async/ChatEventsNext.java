@@ -2,7 +2,6 @@ package com.allegra.handyuvisa.async;
 
 import android.util.JsonReader;
 import android.util.JsonToken;
-import android.util.Log;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -33,7 +32,7 @@ public class ChatEventsNext extends APIInfoChat {
 
 
     public HashMap<String, String> parseData(InputStream inputStream) {
-        Log.d(TAG, "Parsing ChatEventsNext");
+       // Log.d(TAG, "Parsing ChatEventsNext");
 
         HashMap<String, String> result = new HashMap<>();
         JsonReader reader = new JsonReader(new InputStreamReader(inputStream));
@@ -60,12 +59,12 @@ public class ChatEventsNext extends APIInfoChat {
             }
             reader.endObject();
         } catch (IOException ex) {
-            Log.d(TAG, "Something bad");
+          //  Log.d(TAG, "Something bad");
         } finally {
             try {
                 reader.close();
             } catch (IOException e) {
-                Log.e(TAG, "Can't close incoming onePocketmessage", e);
+               // Log.e(TAG, "Can't close incoming onePocketmessage", e);
             }
         }
 
@@ -111,7 +110,7 @@ public class ChatEventsNext extends APIInfoChat {
                         result.put(CHAT_STATE, reader.nextString());
                     } else {
                         result.put(name + id, reader.nextString());
-                        Log.d(TAG, "name: " + name + id + " value: " + result.get(name + id));
+                      //  Log.d(TAG, "name: " + name + id + " value: " + result.get(name + id));
                     }
                 }
 
@@ -137,7 +136,7 @@ public class ChatEventsNext extends APIInfoChat {
                         result.put(CHAT_STATE, reader.nextString());
                     } else {
                         result.put(name + id, reader.nextString());
-                        Log.d(TAG, "name: " + name + id + " value: " + result.get(name + id));
+                       // Log.d(TAG, "name: " + name + id + " value: " + result.get(name + id));
                     }
                 }
 

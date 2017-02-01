@@ -1,7 +1,6 @@
 package com.allegra.handyuvisa.async;
 
 import android.util.JsonReader;
-import android.util.Log;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -66,12 +65,12 @@ public class APIInfo {
         try {
             result = readMessage(reader);
         } catch (Exception ex) {
-            Log.e(TAG, "Can't parse incoming onePocketmessage", ex);
+           // Log.e(TAG, "Can't parse incoming onePocketmessage", ex);
         } finally {
             try {
                 reader.close();
             } catch (IOException e) {
-                Log.e(TAG, "Can't close incoming onePocketmessage", e);
+               // Log.e(TAG, "Can't close incoming onePocketmessage", e);
             }
         }
         return result;
@@ -82,11 +81,11 @@ public class APIInfo {
         reader.beginObject();
         while (reader.hasNext()) {
             String name = reader.nextName();
-            Log.d(TAG, name);
+            //Log.d(TAG, name);
             if (results.containsKey(name)) {
                 String data = reader.nextString();
                 results.put(name, data);
-                Log.d(TAG, "Receive HTTP response name: " + name + " value: " + data);
+               // Log.d(TAG, "Receive HTTP response name: " + name + " value: " + data);
             } else {
                 reader.skipValue();
             }

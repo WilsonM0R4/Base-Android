@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -46,7 +45,7 @@ public class IntroScreenActivity extends Activity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(IntroScreenActivity.this, LoginNewUser.class);
+                Intent intent = new Intent(IntroScreenActivity.this, com.allegra.handyuvisa.LoginNewUser.class);
                 startActivity(intent);
             }
         });
@@ -84,7 +83,7 @@ public class IntroScreenActivity extends Activity {
                     setButtonStates(true);
                 } else {
                     mediaPlayer.start();
-                    Log.d(TAG, "Loop ...");
+                    //Log.d(TAG, "Loop ...");
                 }
             }
         });

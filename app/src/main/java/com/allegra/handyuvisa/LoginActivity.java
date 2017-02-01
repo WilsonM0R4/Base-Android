@@ -128,7 +128,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 version.setText("Version " + versionName);
             }
         } catch (PackageManager.NameNotFoundException e) {
-            Log.d(TAG, "No Version number found");
+           // Log.d(TAG, "No Version number found");
         }
         forgotpass = (TextView) root.findViewById(R.id.forgotPassword);
         forgotpass.setOnClickListener(new View.OnClickListener() {
@@ -311,7 +311,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         btn_newaccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(ctx, LoginNewUser.class);
+                Intent i = new Intent(ctx, com.allegra.handyuvisa.LoginNewUser.class);
                 LoginActivity.this.startActivityForResult(i, Constants.ACTIVITY_LOGIN_NEW_USER);
             }
         });
@@ -450,9 +450,9 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 //Create an AllemUser object and set values
                 AllemUser user = SoapObjectParsers.toAllemUser(event.getResult());
                 //McardCliente mcardCliente = SoapObjectParsers.toMcardCliente(event.getResult());
-                ((VisaCheckoutApp) this.getApplication()).setIdSession(user.idSesion);
-                ((VisaCheckoutApp) this.getApplication()).setIdCuenta(user.idCuenta);
-                ((VisaCheckoutApp) this.getApplication()).setRawPassword(password.getText().toString());
+                ((com.allegra.handyuvisa.VisaCheckoutApp) this.getApplication()).setIdSession(user.idSesion);
+                ((com.allegra.handyuvisa.VisaCheckoutApp) this.getApplication()).setIdCuenta(user.idCuenta);
+                ((com.allegra.handyuvisa.VisaCheckoutApp) this.getApplication()).setRawPassword(password.getText().toString());
 
                 //Get values for work with these
                 String name = user.email.substring(0, user.email.indexOf('@'));
@@ -462,7 +462,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 UAirship.shared().getPushManager().editTags()
                         .addTag(channel)
                         .apply();
-                Log.d("CHANNEL: ", channel);
+                //Log.d("CHANNEL: ", channel);
                 String password = user.hashpassword;
                 String cel_code = user.celular_codigo;
                 String typeOfId = user.idType;
@@ -502,7 +502,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 setWaitinUI(false);
                 //*CHECK IF DATA BASE EXIST*/
                 Intent returnIntent = new Intent();
-                Log.e(TAG, "Acá sí");
+                //Log.e(TAG, "Acá sí");
                 setResult(RESULT_OK, returnIntent);
                 finish();
 
@@ -567,7 +567,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
 
         //If there is internet connection, send request
         if (Connectivity.isConnected(getApplicationContext()) || Connectivity.isConnectedWifi(getApplicationContext()) || Connectivity.isConnectedMobile(getApplicationContext())) {
-            Log.d(TAG, "Entra al internet");
+           // Log.d(TAG, "Entra al internet");
             AsyncSoapObjectProofDynamic.getInstance(Constants.getUrlDynamicProof(), Constants.NAMESPACE_PROOF,
                     Constants.METHOD_PROOF, postValues, Constants.REQUEST_CODE_PROOF).execute();
 
@@ -631,7 +631,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
     public void onBackPressed() {
 
         super.onBackPressed();
-        Log.d(TAG, "back pressed");
+       // Log.d(TAG, "back pressed");
         setResult(RESULT_CANCELED);
         finish();
         overridePendingTransition(R.animator.back_slide_in, R.animator.front_slide_out);

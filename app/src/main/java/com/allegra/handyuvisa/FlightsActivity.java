@@ -8,15 +8,12 @@ import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.location.Address;
-import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,24 +30,22 @@ import android.widget.NumberPicker;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.allegra.handyuvisa.async.AirportCodes;
 import com.allegra.handyuvisa.async.AsyncRestHelper;
 import com.allegra.handyuvisa.async.AsyncTaskMPosResultEvent;
 import com.allegra.handyuvisa.async.MyBus;
 import com.allegra.handyuvisa.utils.Constants;
-import com.allegra.handyuvisa.utils.Util;
 import com.allegra.handyuvisa.utils.GPSTracker;
+import com.allegra.handyuvisa.utils.Util;
 import com.squareup.otto.Subscribe;
 import com.squareup.timessquare.CalendarPickerView;
-import java.net.URLEncoder;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 
 /**
  * This class have the logic from SearchActivity with "searchType" = "flights"
@@ -218,56 +213,6 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
 
     //****************PROPER METHODS*************
 
-    /*public Location getLocation() {
-        try {
-
-            locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-            isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
-            isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
-
-            if (!isGPSEnabled) {
-                buildAlertMessageNoGps();
-            } else {
-                gp = new GPSTracker(this);
-                latitude = gp.getLatitude();
-                longitude = gp.getLongitude();
-                if (latitude != 0.0) {
-                    enterToGetLocation = true;
-                    Geocoder geocoder = new Geocoder(this, Locale.ENGLISH);
-                    List<Address> addresses = geocoder.getFromLocation(latitude, longitude, 1);
-                    String cityName = addresses.get(0).getAddressLine(0);
-                    String stateName = addresses.get(0).getAddressLine(1);
-                    String countryName = addresses.get(0).getAddressLine(2);
-                    String city = "";
-                    //Split special characters
-                    if (stateName.contains(", ")){
-                        String[] parts = stateName.split(", ");
-                         city = parts[0];
-                        Log.d("City split",city);
-                    }else {
-                        if (stateName.contains(" ")) {
-                            String[] parts = stateName.split(" ");
-                            city = parts[0];
-                            Log.d("City split space", city);
-                        }
-                    }
-                    String query = URLEncoder.encode(city, "utf-8");
-                    performSearchLocation(query);
-                    Log.d("cityName",cityName);
-                    Log.d("stateName",stateName);
-                    Log.d("countryName",countryName);
-                } else {
-                    Toast.makeText(FlightsActivity.this, "Fail to fetch your current location. " +
-                            "Please check your GPS status and try again",
-                            Toast.LENGTH_SHORT).show();
-                }
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return location;
-    }*/
 
     private void buildAlertMessageNoGps() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -292,8 +237,8 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
 
     //Called when  EditText note's  addTextChangedListener and setOnEditorActionListener
     private void performSearch(String query) {
-        Log.d(TAG, "performSearch");
-        Log.d("Query code", query);
+       // Log.d(TAG, "performSearch");
+        //Log.d("Query code", query);
         progressBar.setVisibility(View.VISIBLE);
         AirportCodes apiInfo;
         apiInfo = new AirportCodes(query, url_flights);
@@ -301,15 +246,6 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
         helper.execute();
     }
 
-    //Called in getLocation
-    /*private void performSearchLocation(String query) {
-        Log.d(TAG, "performSearchLocation");
-        Log.d("Query code Location", query);
-        AirportCodes apiInfo;
-        apiInfo = new AirportCodes(query, url_flights);
-        AsyncRestHelper helper = new AsyncRestHelper(apiInfo);
-        helper.execute();
-    }*/
 
     //Validate each numberPicker
     private void validateGuestQuantity(){
@@ -439,7 +375,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
             public void onDateSelected(Date date) {
                 List<Date> dates = calendar.getSelectedDates();
                 int size = dates.size();
-                Log.d("DATE RECEIVED", "");
+               // Log.d("DATE RECEIVED", "");
                 if (size > 1) {//Round Trip
                     dateBegin.setText(Util.Day_Formatter.format(dates.get(0)).toUpperCase());
                     yearBegin.setText(Util.M_Y_Formatter.format(dates.get(0)).toUpperCase());
@@ -570,7 +506,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
                 bundle.putExtra("name", data.getName());
                 bundle.putExtra("city", data.getListInformation());
 
-                Log.d(TAG, "Update airport code in view");
+              //  Log.d(TAG, "Update airport code in view");
                 TextView airport;
                 TextView city;
                 ImageView imageView;
@@ -683,7 +619,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
             airportData.clear();
             if (event.getApiName().equals(AirportCodes.APINAME)) {
                 int msgCount = Integer.parseInt(data.get(AirportCodes.MSG_COUNT));
-                Log.d("Cuenta",String.valueOf(msgCount));
+               // Log.d("Cuenta",String.valueOf(msgCount));
                 if (msgCount > 0) {
 
                     for (int i = 0; i < msgCount; i++) {
@@ -725,8 +661,8 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
 
     private void updateViews(Date dateBegin, Date dateEnd) {
 
-        Log.d("dateBegin", String.valueOf(dateBegin));
-        Log.d("dateEnd", String.valueOf(dateEnd));
+        //Log.d("dateBegin", String.valueOf(dateBegin));
+        //Log.d("dateEnd", String.valueOf(dateEnd));
         paramDepartDate = Util.Bookings_Formatter.format(dateBegin);
         //SET TEXTS FOR DEPARTURE DATE
         TextView textViewDepartDay, textViewDepartMonth, textViewDepartYear;
@@ -803,11 +739,11 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
                 intent.putExtra("children", paramChildren);
                 intent.putExtra("infant", paramInfants);
                 if (paramDepartDate.equals("")){
-                    Log.d("Sergio","Entra al vacio");
+                    //Log.d("Sergio","Entra al vacio");
                     Calendar now = Calendar.getInstance();
                     Date today = now.getTime();
                     paramDepartDate = Util.Bookings_Formatter.format(today);
-                    Log.d("Sergio", String.valueOf(paramDepartDate));
+                    //Log.d("Sergio", String.valueOf(paramDepartDate));
                 }
                 intent.putExtra("departOn", paramDepartDate);
                 intent.putExtra("arriveOn", paramArriveDate);
@@ -816,7 +752,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
                 intent.putExtra("arriveAtName", paramArriveAtName);
                 intent.putExtra("departFromName", paramDepartFromName);
 
-                Log.d("trip", String.valueOf(paramTrip));
+                /*Log.d("trip", String.valueOf(paramTrip));
                 Log.d("cabin", String.valueOf(paramCabin));
                 Log.d("adult", String.valueOf(paramAdults));
                 Log.d("children", String.valueOf(paramChildren));
@@ -826,7 +762,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
                 Log.d("departFrom", String.valueOf(paramDepartFrom));
                 Log.d("arriveAt", String.valueOf(paramArriveAt));
                 Log.d("arriveAtName", String.valueOf(paramArriveAtName));
-                Log.d("departFromName", String.valueOf(paramDepartFromName));
+                Log.d("departFromName", String.valueOf(paramDepartFromName));*/
 
                 startActivity(intent);
             }
@@ -914,7 +850,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
         params2.setMargins(0, 16, 0, 0);
         textView.setLayoutParams(params2);
 
-        Log.d("Entra a ", " onOneWay");
+       // Log.d("Entra a ", " onOneWay");
         monthReturn.setText("");
         yearReturn.setVisibility(View.GONE);
     }
@@ -1010,7 +946,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
 
         paramString = String.valueOf(textAdults.getText());
         int adults = Integer.parseInt(paramString);
-        Log.d("adults", paramString);
+        //Log.d("adults", paramString);
 
         paramString = String.valueOf(textChildren.getText());
         int children = Integer.parseInt(paramString);

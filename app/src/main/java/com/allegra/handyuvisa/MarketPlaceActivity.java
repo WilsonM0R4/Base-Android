@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -82,7 +81,7 @@ public class MarketPlaceActivity extends FrontBackAnimate implements FrontBackAn
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Log.d("Receiving","Receiving Activity ONE");
+        //Log.d("Receiving","Receiving Activity ONE");
         if (requestCode == REQUEST_ONEPOCKET_RETURN) {
             if (data != null) {
                 returnURL = data.getStringExtra("RESULT");
@@ -185,7 +184,7 @@ public class MarketPlaceActivity extends FrontBackAnimate implements FrontBackAn
 
     public void openOnePocket(){
         Intent intent = new Intent(MarketPlaceActivity.this, OnepocketPurchaseActivity.class);
-        Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(this), onePocketmessage, OPKConstants.TYPE_MARKETPLACE, (VisaCheckoutApp) getApplication());
+        Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(this), onePocketmessage, OPKConstants.TYPE_MARKETPLACE, (com.allegra.handyuvisa.VisaCheckoutApp) getApplication());
         intent.putExtras(bundle);
         startActivityForResult(intent, MarketPlaceActivity.REQUEST_ONEPOCKET_RETURN);
 

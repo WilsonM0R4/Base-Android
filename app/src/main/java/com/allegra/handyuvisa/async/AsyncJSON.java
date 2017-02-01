@@ -1,7 +1,6 @@
 package com.allegra.handyuvisa.async;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -64,12 +63,12 @@ public class AsyncJSON extends AsyncTask<String,Void,String> {
             } else {
                 if (stringBuilder.length()>0) stringBuilder.delete(0,stringBuilder.length()-1);
                 stringBuilder.insert(0,"{\"error\":"+statusCode+"}");
-                Log.d("JSON", "Failed to download file");
+               // Log.d("JSON", "Failed to download file");
             }
         } catch (Exception e) {
             if (stringBuilder.length()>0) stringBuilder.delete(0,stringBuilder.length()-1);
             stringBuilder.insert(0,"{\"error\":-1}");
-            Log.d("readJSONFeed", e.getLocalizedMessage());
+            //Log.d("readJSONFeed", e.getLocalizedMessage());
         }
         return stringBuilder.toString();
     }

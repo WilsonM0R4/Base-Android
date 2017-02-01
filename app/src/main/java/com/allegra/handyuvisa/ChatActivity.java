@@ -7,7 +7,6 @@ import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -21,16 +20,16 @@ import android.widget.TextView;
 import com.allegra.handyuvisa.async.AddChatLines;
 import com.allegra.handyuvisa.async.AsyncRestHelperChat;
 import com.allegra.handyuvisa.async.AsyncTaskMPosResultEventChat;
+import com.allegra.handyuvisa.async.ChatEventsNext;
+import com.allegra.handyuvisa.async.ChatInfo;
 import com.allegra.handyuvisa.async.ChatRequest;
 import com.allegra.handyuvisa.async.ChatResourceEventsInfo;
+import com.allegra.handyuvisa.async.EndChat;
+import com.allegra.handyuvisa.async.GetBaseResource;
 import com.allegra.handyuvisa.async.MyBus;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
 import com.allegra.handyuvisa.utils.Util;
-import com.allegra.handyuvisa.async.ChatEventsNext;
-import com.allegra.handyuvisa.async.ChatInfo;
-import com.allegra.handyuvisa.async.EndChat;
-import com.allegra.handyuvisa.async.GetBaseResource;
 import com.squareup.otto.Subscribe;
 
 import java.io.InputStream;
@@ -45,7 +44,7 @@ import java.util.TimerTask;
 
 public class ChatActivity extends FrontBackAnimate implements
         FrontBackAnimate.InflateReadyListener,
-        BackFragment.MenuSelectListener{
+        com.allegra.handyuvisa.BackFragment.MenuSelectListener{
 
     //*****************GLOBAL ATTRIBUTES*****************
 
@@ -120,11 +119,11 @@ public class ChatActivity extends FrontBackAnimate implements
             }
         });
         btnCancel = (Button)root.findViewById(R.id.cancel_one_touch);
-        Log.d(TAG, "Llega antes de los click");
+        //Log.d(TAG, "Llega antes de los click");
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "Llega al cancel in chat");
+                //Log.d(TAG, "Llega al cancel in chat");
                 finish();
             }
         });
@@ -138,11 +137,11 @@ public class ChatActivity extends FrontBackAnimate implements
     public void onBackPressed() {
 
         //super.onBackPressed();
-        Log.d(TAG, "Back button is pressed");
+       // Log.d(TAG, "Back button is pressed");
         if (chatState != null && chatState.equals("chatting")) {
             //endChat();
         } else {
-            Log.d(TAG, "Closing before chat has started");
+           // Log.d(TAG, "Closing before chat has started");
         }
     }
 
@@ -163,7 +162,7 @@ public class ChatActivity extends FrontBackAnimate implements
         if (chatState != null && chatState.equals("chatting")) {
             endChat();
         } else {
-            Log.d(TAG, "Closing before chat has started");
+            //Log.d(TAG, "Closing before chat has started");
         }
         super.getStartActivity(intent);
     }
@@ -253,7 +252,7 @@ public class ChatActivity extends FrontBackAnimate implements
     private void updateChatHeader(String agentData) {
 
         agentName = agentData;
-        Log.d(TAG, "Agent name: " + agentName);
+        //Log.d(TAG, "Agent name: " + agentName);
 
         if (agentName != null && agentName.length() > 0) {
             TextView agent = (TextView) findViewById(R.id.tv_chat_agent);
@@ -286,7 +285,7 @@ public class ChatActivity extends FrontBackAnimate implements
                     String clean = Html.fromHtml(text).toString();
                     Date dateObj = CHAT_TIME_PARSER.parse(data.get("time" + id), new ParsePosition(0));
                     chatMessages.add(new Message(clean, false, dateObj.getTime()));
-                    Log.d(TAG, "chatMessages[" + i + "]:" + text);
+                   // Log.d(TAG, "chatMessages[" + i + "]:" + text);
                 }
             }
 
@@ -297,12 +296,12 @@ public class ChatActivity extends FrontBackAnimate implements
 
     public void onHome(View view) {
 
-        Log.d(TAG, "Llega al onHome");
+       // Log.d(TAG, "Llega al onHome");
         //overridePendingTransition(R.animator.back_slide_in, R.animator.front_slide_out);
         if (chatState != null && chatState.equals("chatting")) {
             endChat();
         } else {
-            Log.d(TAG, "Closing before chat has started");
+           // Log.d(TAG, "Closing before chat has started");
         }
         super.onHome(view);
     }
@@ -312,7 +311,7 @@ public class ChatActivity extends FrontBackAnimate implements
         EndChat apiInfo = new EndChat(eventsUri);
         AsyncRestHelperChat helper = new AsyncRestHelperChat(apiInfo);
         helper.execute();
-        Log.d(TAG, "Llega al endChat");
+       // Log.d(TAG, "Llega al endChat");
     }
 
     private void getChatInfo() {
@@ -363,10 +362,10 @@ public class ChatActivity extends FrontBackAnimate implements
                 if (data.containsKey(GetBaseResource.CHAT_REQUEST)) {
                     requestChatUri = data.get(GetBaseResource.CHAT_REQUEST);
                     sendChatRequest(requestChatUri);
-                    Log.d(TAG, "Es "+requestChatUri);
+                   // Log.d(TAG, "Es "+requestChatUri);
                     errorExists = false;
                 } else {
-                    Log.e(TAG, "GetBaseResource fail");
+                   // Log.e(TAG, "GetBaseResource fail");
                 }
             } else if (event.getApiName().equalsIgnoreCase(ChatRequest.APINAME)) {
                 if (data.containsKey(ChatRequest.LOCATION)) {
@@ -374,7 +373,7 @@ public class ChatActivity extends FrontBackAnimate implements
                     errorExists = false;
                     getChatResourceEventsInfo();
                 } else {
-                    Log.e(TAG, "ChatRequest fails");
+                   // Log.e(TAG, "ChatRequest fails");
                 }
             } else if (event.getApiName().equalsIgnoreCase(ChatResourceEventsInfo.APINAME)) {
                 if (data.containsKey(ChatResourceEventsInfo.EVENTS_LINK)) {
@@ -394,18 +393,18 @@ public class ChatActivity extends FrontBackAnimate implements
                     } else {
                         getChatInfo();
                     }
-                    Log.d(TAG, "Got chat events and info");
-                    Log.d(TAG, "eventsUri: " + eventsUri);
-                    Log.d(TAG, "nextUri: " + nextUri);
+                   // Log.d(TAG, "Got chat events and info");
+                   // Log.d(TAG, "eventsUri: " + eventsUri);
+                   // Log.d(TAG, "nextUri: " + nextUri);
                 } else {
-                    Log.e(TAG, "ChatResourceEventsInfo fails");
+                   // Log.e(TAG, "ChatResourceEventsInfo fails");
                 }
             } else if (event.getApiName().equalsIgnoreCase(ChatInfo.APINAME)) {
                 if (data.containsKey(ChatInfo.CHAT_STATE)) {
                     chatState = data.get(ChatInfo.CHAT_STATE);
                     if (chatState.equals("chatting")) {
                         agentName = data.get(ChatInfo.AGENT_NAME);
-                        Log.d(TAG, "Agent name: " + agentName);
+                      //  Log.d(TAG, "Agent name: " + agentName);
                         updateChatHeader(data.get(ChatInfo.AGENT_NAME));
                         animateBetter();
                         //Hide loader
@@ -414,22 +413,22 @@ public class ChatActivity extends FrontBackAnimate implements
                         showLayout();
                         getChatEventsNext(); // now keep polling for details
                     } else if (chatState.equals("ended")) {
-                        Log.d(TAG, "info: Chat state ended");
+                      //  Log.d(TAG, "info: Chat state ended");
                         finish();
                     }  else {
                         getChatInfo();
-                        Log.d(TAG, "Still waiting for agent");
+                       // Log.d(TAG, "Still waiting for agent");
                     }
                     errorExists = false;
 
                 } else {
-                    Log.e(TAG, "ChatInfo fails");
+                  //  Log.e(TAG, "ChatInfo fails");
                 }
             } else if (event.getApiName().equalsIgnoreCase(AddChatLines.APINAME)) {
                 if (data.containsKey(AddChatLines.RESP_CODE)) {
                     errorExists = false;
                 } else {
-                    Log.e(TAG, "AddChatLines fails");
+                  //  Log.e(TAG, "AddChatLines fails");
                 }
             } else if (event.getApiName().equalsIgnoreCase(ChatEventsNext.APINAME)) {
                 if (data.containsKey(ChatEventsNext.CHAT_STATE)) {
@@ -439,10 +438,10 @@ public class ChatActivity extends FrontBackAnimate implements
                         handleAgentChatMsg(data);
                     } else if (chatState.equals("ended")) {
                         finish();
-                        Log.d(TAG, "next: chat state ended");
+                       // Log.d(TAG, "next: chat state ended");
                     }
                     errorExists = false;
-                    Log.d(TAG, "Got new chat events");
+                  //  Log.d(TAG, "Got new chat events");
                 }
                 getChatEventsNext();
 
@@ -451,7 +450,7 @@ public class ChatActivity extends FrontBackAnimate implements
                     finish();
                     errorExists = false;
                 } else {
-                    Log.e(TAG, "EndChat fails");
+                  //  Log.e(TAG, "EndChat fails");
                 }
             }
         }
