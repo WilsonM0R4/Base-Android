@@ -43,7 +43,7 @@ public class CheckMyTrip extends FrontBackAnimate implements FrontBackAnimate.In
         arrowBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("juan", "Go back");
+              //  Log.d("juan", "Go back");
                 onGoBack(v);
 
             }
@@ -56,7 +56,7 @@ public class CheckMyTrip extends FrontBackAnimate implements FrontBackAnimate.In
             }
         });
 
-        Log.d("juan", url);
+        //Log.d("juan", url);
     }
 
     public void onMenu(View view) {
