@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.multidex.MultiDexApplication;
-import android.util.Log;
 
 import com.allegra.handyuvisa.utils.Constants;
 import com.allem.onepocket.utils.OPKLibraryConfig;
@@ -34,7 +33,7 @@ public class VisaCheckoutApp extends MultiDexApplication {
             @Override
             public void onAirshipReady(UAirship airship) {
 
-                Log.d("ESTOY LISTO", "RECIBIDO");
+               // Log.d("ESTOY LISTO", "RECIBIDO");
                 DefaultNotificationFactory factory = (DefaultNotificationFactory)
                         UAirship.shared().getPushManager().getNotificationFactory();
                 factory.setSound(Uri.parse(path));

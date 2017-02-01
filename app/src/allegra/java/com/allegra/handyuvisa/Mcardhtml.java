@@ -3,7 +3,6 @@ package com.allegra.handyuvisa;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -54,7 +53,7 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
         arrowBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("juan", "Go back");
+               // Log.d("juan", "Go back");
                 onGoBack(v);
 
             }
@@ -67,7 +66,7 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
             }
         });
 
-        Log.d("juan", url_prod);
+       // Log.d("juan", url_prod);
     }
 
     @Override

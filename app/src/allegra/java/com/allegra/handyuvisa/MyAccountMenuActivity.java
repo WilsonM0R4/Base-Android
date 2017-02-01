@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,22 +71,22 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
                     public void onClick(View view) {
                         if (position == 2) {
                             if (Connectivity.isConnected(ctx) || Connectivity.isConnectedWifi(ctx) || Connectivity.isConnectedMobile(ctx)) {
-                                Log.e("CON CONEXION: "," ESTOY AQUI");//Test 2: Succeded
+                               // Log.e("CON CONEXION: "," ESTOY AQUI");//Test 2: Succeded
                                 if (((VisaCheckoutApp) ctx.getApplicationContext()).getIdSession() == null) {
-                                    Log.e("CON CONEXION: "," NO ME HE LOGEADO");
+                                 //   Log.e("CON CONEXION: "," NO ME HE LOGEADO");
                                     setGetYourCertificateLayout();
                                 } else {
-                                    Log.e("CON CONEXION: "," ESTOY LOGEADO");//Test 2: Succeded
+                                  //  Log.e("CON CONEXION: "," ESTOY LOGEADO");//Test 2: Succeded
                                     Intent i = new Intent(ctx, ProofOfCoverageDinamicoActivity.class);
                                     startActivity(i);
                                 }
                             } else {
-                                Log.e("SIN CONEXION: "," ESTOY AQUI");//Test 1: Succeded //Test 3: Succeded
+                               // Log.e("SIN CONEXION: "," ESTOY AQUI");//Test 1: Succeded //Test 3: Succeded
                                 if (((VisaCheckoutApp) ctx.getApplicationContext()).getIdSession() == null) {
-                                    Log.e("SIN CONEXION: "," NO ESTOY LOGEADO");//Test 1: Succeded
+                                 //   Log.e("SIN CONEXION: "," NO ESTOY LOGEADO");//Test 1: Succeded
                                     setGetYourCertificateLayout();
                                 } else {
-                                    Log.e("SIN CONEXION: "," ESTOY LOGEADO");//Test 3: Succeded
+                                   // Log.e("SIN CONEXION: "," ESTOY LOGEADO");//Test 3: Succeded
                                     //Toast.makeText(ctx, "NO TENGO INTERNET Y YA ME HE LOGEADO ACA LLAMO LA BASE DE DATOS", Toast.LENGTH_SHORT).show();
                                     usuarioSQLiteHelper = new UsuarioSQLiteHelper(getApplicationContext());
                                     db = usuarioSQLiteHelper.getReadableDatabase();

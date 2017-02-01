@@ -10,7 +10,6 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Surface;
 import android.view.TextureView;
@@ -18,11 +17,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.allegra.handyuvisa.utils.Util;
 import com.allegra.handyuvisa.models.AllemUser;
 import com.allegra.handyuvisa.models.Notifications;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.KeySaver;
+import com.allegra.handyuvisa.utils.Util;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -51,7 +50,7 @@ public class FrontFragment extends Fragment implements
     private BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            Log.d(TAG,"Notification received");
+         //   Log.d(TAG,"Notification received");
             loadNotifications(true);
         }
     };
@@ -112,9 +111,9 @@ public class FrontFragment extends Fragment implements
         try {
             releaseMediaPlayer();
             getActivity().unregisterReceiver(receiver);
-            Log.d(TAG, "Unregister broadcast filter");
+          //  Log.d(TAG, "Unregister broadcast filter");
         } catch (Exception ex) {
-            Log.e(TAG, "Fail to unregister broadcast receiver: " + ex.getMessage());
+          //  Log.e(TAG, "Fail to unregister broadcast receiver: " + ex.getMessage());
         }
     }
 
@@ -137,14 +136,14 @@ public class FrontFragment extends Fragment implements
 
     @Override
     public boolean onError(MediaPlayer mediaPlayer, int what, int extra) {
-        Log.e(TAG, "Error loading video: what: " + what + " extra: " + extra);
+       // Log.e(TAG, "Error loading video: what: " + what + " extra: " + extra);
         return false;
     }
 
     @Override
     public void onSurfaceTextureAvailable(SurfaceTexture surface, int i, int i1) {
 
-        Log.d("onSurfaceTexture", "ACA RECREA EL VIDEO");
+     //   Log.d("onSurfaceTexture", "ACA RECREA EL VIDEO");
         Surface s = new Surface(surface);
         surf=s;
         resumeMediaPlayer();
@@ -167,7 +166,7 @@ public class FrontFragment extends Fragment implements
 
 
     private void registerFilter() {
-        Log.d(TAG, "register broadcast filter");
+       // Log.d(TAG, "register broadcast filter");
         IntentFilter filter = new IntentFilter();
         filter.addAction(Constants.BCAST_NOTIFIC_UPDATE);
         getActivity().registerReceiver(receiver, filter);
@@ -182,7 +181,7 @@ public class FrontFragment extends Fragment implements
         try{
             JSONObject notif;
             String notif_shared = KeySaver.getStringSavedShare(getActivity(),Constants.PUSH_GLOBAL);
-            Log.d(TAG,"notif_global: "+notif_shared);
+          //  Log.d(TAG,"notif_global: "+notif_shared);
             if(notif_shared!=null){
                 if(notifications==null){
                     notifications = new ArrayList<>();
@@ -196,7 +195,7 @@ public class FrontFragment extends Fragment implements
                 if(KeySaver.isExist(getActivity(), channel)){
                     notif_shared = KeySaver.getStringSavedShare(getActivity(), channel);
                     if (notif_shared!=null){
-                        Log.d(TAG,"notif_shared: "+notif_shared);
+                     //   Log.d(TAG,"notif_shared: "+notif_shared);
                         if(notifications==null){
                             notifications = new ArrayList<>();
                         }
@@ -231,7 +230,7 @@ public class FrontFragment extends Fragment implements
 //            }
 
         }catch(Exception e){
-            Log.e(TAG,e.toString());
+           // Log.e(TAG,e.toString());
         }
     }
 
@@ -239,7 +238,7 @@ public class FrontFragment extends Fragment implements
         Notifications result=null;
         try {
             String msg = null;
-            Log.d(TAG,notific.toString());
+           // Log.d(TAG,notific.toString());
             msg = notific.getString("msg");
             String url;
             if (notific.has("url")){
@@ -275,7 +274,7 @@ public class FrontFragment extends Fragment implements
                                 try {
                                     mMediaPlayer.setDataSource(getActivity(), videoU);
                                 } catch (IOException e) {
-                                    Log.e(TAG, "Can't initialize media playing for loading video");
+                                   // Log.e(TAG, "Can't initialize media playing for loading video");
                                 }
                                 mMediaPlayer.prepareAsync();
                             }
@@ -290,13 +289,13 @@ public class FrontFragment extends Fragment implements
                 mMediaPlayer.setOnPreparedListener(this);
                 mMediaPlayer.setLooping(true);
             } catch (IllegalArgumentException e) {
-                Log.e(TAG, "Error loading video: ", e);
+               // Log.e(TAG, "Error loading video: ", e);
             } catch (SecurityException e) {
-                Log.e(TAG, "Error loading video: ", e);
+              //  Log.e(TAG, "Error loading video: ", e);
             } catch (IllegalStateException e) {
-                Log.e(TAG, "Error loading video: ", e);
+             //   Log.e(TAG, "Error loading video: ", e);
             } catch (IOException e) {
-                Log.e(TAG, "Error loading video: ", e);
+              //  Log.e(TAG, "Error loading video: ", e);
             }
 
       //  }
