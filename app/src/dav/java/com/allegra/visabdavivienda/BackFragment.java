@@ -47,7 +47,7 @@ public class BackFragment extends Fragment  {
     //***************OVERRIDE METHODS**************
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.e(TAG,"Llega al onActivityResult");
+       // Log.e(TAG,"Llega al onActivityResult");
         super.onActivityResult(requestCode, resultCode, data);
         // Check which request we're responding to
         if (requestCode == Constants.REQUEST_CODE_HOTELS) {
@@ -217,7 +217,7 @@ public class BackFragment extends Fragment  {
         home.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                Log.d("Juan","Presionado");
+               // Log.d("Juan","Presionado");
                 Intent intent = new Intent(getActivity(), SendLogActivity.class);
                 getActivity().startActivity(intent);
                 return true;
