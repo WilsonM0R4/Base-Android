@@ -7,9 +7,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.widget.VideoView;
 
-import com.allegra.handyuvisa.MainActivity;
-import com.allegra.handyuvisa.R;
-
 public class SplashScreenActivity extends Activity {
 
     private static final String VIDEO_INTRO = "android.resource://com.allegra.handyucorpbanca/raw/intro";

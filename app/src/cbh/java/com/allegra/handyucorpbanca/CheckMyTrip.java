@@ -56,7 +56,7 @@ public class CheckMyTrip extends FrontBackAnimate implements FrontBackAnimate.In
             }
         });
 
-       // Log.d("juan", url);
+        //Log.d("juan", url);
     }
 
     public void onMenu(View view) {

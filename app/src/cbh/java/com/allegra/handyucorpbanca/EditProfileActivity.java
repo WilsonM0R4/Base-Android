@@ -1,6 +1,5 @@
 package com.allegra.handyuvisa;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -10,7 +9,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.NumberPicker;
@@ -337,7 +335,6 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
 
     private void onAlertSelectTypeOfId() {//View view
 
-
         final Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.custom_dialog_select_type_of_id);
         dialog.show();
@@ -428,7 +425,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             CuentaClienteInfoAdicional additionalInfo = new CuentaClienteInfoAdicional();
             additionalInfo.setCelular(txtMobile.getText().toString());
             additionalInfo.setEmpresa("");
-           // additionalInfo.setCargo("");
+            //additionalInfo.setCargo("");
             additionalInfo.setCiudad("");
             additionalInfo.setClase("");
             additionalInfo.setCelularCodigo(txtSelectCountry.getText().toString());
@@ -439,7 +436,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             property.setName(CuentaClienteInfo.PROPERTY);
             property.setValue(client);
             property.setType(client.getClass());
-           // Log.d("IDSession",((com.allegra.handyuvisa.VisaCheckoutApp)this.getApplication()).getIdSession());
+            //Log.d("IDSession",((com.allegra.handyuvisa.VisaCheckoutApp)this.getApplication()).getIdSession());
             if (Util.hasInternetConnectivity(this)) {
                 setWaitinUI(true);
                 AsyncSoapObject.getInstance(Constants.getWSDL(), Constants.NAMESPACE_ALLEM,
@@ -640,7 +637,11 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
         cancel.setEnabled(!b);
     }
 
-
+    public void goToMyAccount(){
+        Intent intent = new Intent(ctx, MyAccountActivity.class);
+        startActivity(intent);
+        finish();
+    }
     //Called when execute AsyncSoapObject request
     @Subscribe
     public void onAsyncTaskResult(AsyncTaskSoapObjectResultEvent event) {
@@ -649,7 +650,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             setWaitinUI(false);
             Intent returnIntent = new Intent();
             if (event.getResult()!=null){
-               // Log.d("Response",event.getResult().toString());
+              //  Log.d("Response",event.getResult().toString());
                 AllemUser user = SoapObjectParsers.toAllemUser(event.getResult());
                 AllemUser currentUser= Constants.getUser(EditProfileActivity.this);
                 user.saludo= currentUser.saludo;
@@ -661,8 +662,18 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
                 //Save in SharedPReferences TypeOfID and Number OfID
 
                 Constants.saveUser(EditProfileActivity.this,user,currentUser.channel);
-
-                new AlertDialog.Builder(ctx).setTitle(getString(R.string.txt_lbl_notification)).setMessage(getString(R.string.edit_successful)).setPositiveButton("ok", null).show();
+                final Dialog dialog = new Dialog(this);
+                dialog.setContentView(R.layout.dialog_editprofile_ok);
+                dialog.show();
+                TextView textOk = (TextView) dialog.findViewById(R.id.btnAcceptProfile);
+                textOk.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                        goToMyAccount();
+                    }
+                });
+                //new AlertDialog.Builder(ctx).setTitle(getString(R.string.txt_lbl_notification)).setMessage(getString(R.string.edit_successful)).setPositiveButton("ok",null).show();
             }else{
                 Toast.makeText(EditProfileActivity.this, event.getFaultString(), Toast.LENGTH_LONG).show();
                 setResult(RESULT_CANCELED, returnIntent);

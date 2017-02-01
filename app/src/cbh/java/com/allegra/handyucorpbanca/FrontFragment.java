@@ -18,8 +18,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.allegra.handyuvisa.R;
-import com.allegra.handyuvisa.VisaCheckoutApp;
 import com.allegra.handyuvisa.models.AllemUser;
 import com.allegra.handyuvisa.models.Notifications;
 import com.allegra.handyuvisa.utils.Constants;
@@ -65,7 +63,7 @@ public class FrontFragment extends Fragment implements
                              Bundle savedInstanceState) {
 
         View rootView;
-        if (((VisaCheckoutApp)getActivity().getApplication()).getIdSession()==null) {
+        if (((com.allegra.handyuvisa.VisaCheckoutApp)getActivity().getApplication()).getIdSession()==null) {
             rootView = inflater.inflate(R.layout.activity_intro_screen, container, false);
         } else {
             rootView = inflater.inflate(R.layout.fragment_front, container, false);
@@ -194,11 +192,11 @@ public class FrontFragment extends Fragment implements
                     notifications.add(getNotification(notif.getJSONArray("notif").getJSONObject(i)));
                 }
             }
-            if ((((VisaCheckoutApp) getActivity().getApplication()).getIdSession() != null)){
+            if ((((com.allegra.handyuvisa.VisaCheckoutApp) getActivity().getApplication()).getIdSession() != null)){
                 if(KeySaver.isExist(getActivity(), channel)){
                     notif_shared = KeySaver.getStringSavedShare(getActivity(), channel);
                     if (notif_shared!=null){
-                      //  Log.d(TAG,"notif_shared: "+notif_shared);
+                       // Log.d(TAG,"notif_shared: "+notif_shared);
                         if(notifications==null){
                             notifications = new ArrayList<>();
                         }
@@ -277,7 +275,7 @@ public class FrontFragment extends Fragment implements
                                 try {
                                     mMediaPlayer.setDataSource(getActivity(), videoU);
                                 } catch (IOException e) {
-                                   // Log.e(TAG, "Can't initialize media playing for loading video");
+                                  //  Log.e(TAG, "Can't initialize media playing for loading video");
                                 }
                                 mMediaPlayer.prepareAsync();
                             }
@@ -292,13 +290,13 @@ public class FrontFragment extends Fragment implements
                 mMediaPlayer.setOnPreparedListener(this);
                 mMediaPlayer.setLooping(true);
             } catch (IllegalArgumentException e) {
-             //   Log.e(TAG, "Error loading video: ", e);
+               // Log.e(TAG, "Error loading video: ", e);
             } catch (SecurityException e) {
-              //  Log.e(TAG, "Error loading video: ", e);
+               // Log.e(TAG, "Error loading video: ", e);
             } catch (IllegalStateException e) {
-              //  Log.e(TAG, "Error loading video: ", e);
+               // Log.e(TAG, "Error loading video: ", e);
             } catch (IOException e) {
-              //  Log.e(TAG, "Error loading video: ", e);
+               // Log.e(TAG, "Error loading video: ", e);
             }
 
       //  }

@@ -193,7 +193,7 @@ public class BackFragment extends Fragment  {
         home.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-               // Log.d("Juan","Presionado");
+             //   Log.d("Juan","Presionado");
                 Intent intent = new Intent(getActivity(), SendLogActivity.class);
                 getActivity().startActivity(intent);
                 return true;

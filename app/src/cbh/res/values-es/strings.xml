@@ -13,7 +13,7 @@
     <string name="location_permision">Tu GPS parece estar deshabilitado. ¿Quieres habilitarlo?</string>
     <string name="location_failed">Falló al buscar a tu ubicación actual. Por favor, comprueba el estado de tu GPS y vuelve a intentarlo</string>
     <string name="location_yes">Si</string>
-    <string name="mytips">Consejos</string>
+    <string name="mytips">Tips</string>
     <string name="location_no">No</string>
     <string name="more_info">mas info.</string>
     <string name="alert_message_no_flights">No existen vuelos disponibles</string>

@@ -3,7 +3,6 @@ package com.allegra.handyuvisa;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -25,6 +24,7 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
     private ImageButton menu;
     private String returnURL, userEmail;
     public String onePocketmessage;
+    public String goToProof;
     //private String url = "http://52.71.117.239:8080/McardMembresiaAllus/app/app/app/index_320.xhtml?email=";
     private String url_prod = Constants.getMcardhtml();
     //private String url = "http://allegra.global/membresias/planes/";
@@ -53,7 +53,7 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
         arrowBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // Log.d("juan", "Go back");
+             //   Log.d("juan", "Go back");
                 onGoBack(v);
 
             }
@@ -66,13 +66,14 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
             }
         });
 
-       // Log.d("juan", url_prod);
+      //  Log.d("juan", url_prod);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         loadWebView();
+        /*loadWebViewOnepocket();*/
     }
 
     @Override
@@ -93,9 +94,14 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
 
     private void loadWebView() {
         //url="http://alegra.dracobots.com/Hotel/Flow/Availability?";
-        webmcard.addJavascriptInterface(new AppJavaScriptProxyMcard(this), "androidProxy");
+        webmcard.addJavascriptInterface(new AppJavaScriptProxyProof(this), "androidProxy");
         webmcard.loadUrl(url_prod+userEmail);
     }
+
+    /*private void loadWebViewOnepocket(){
+        webmcard.addJavascriptInterface(new AppJavaScriptProxyMcard(this), "androidProxy");
+        webmcard.loadUrl(url_prod+userEmail);
+    }*/
 
     public void openOnePocket(){
 
@@ -107,7 +113,7 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
 
     public void goToProof(){
         Context context=this;
-        Intent intent = new Intent(context, ProofOfCoverageDinamico.class);
+        Intent intent = new Intent(context, ProofOfCoverageDinamicoActivity.class);
         context.startActivity(intent);
 
     }
