@@ -61,7 +61,7 @@ public class VisaCheckoutApp extends MultiDexApplication {
             @Override
             public void onAirshipReady(UAirship airship) {
 
-                Log.d("ESTOY LISTO", "RECIBIDO");
+                //Log.d("ESTOY LISTO", "RECIBIDO");
                 DefaultNotificationFactory factory = (DefaultNotificationFactory)
                         UAirship.shared().getPushManager().getNotificationFactory();
                 factory.setSound(Uri.parse(path));
