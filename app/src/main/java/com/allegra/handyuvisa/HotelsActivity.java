@@ -92,6 +92,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
         public AirportData(String codeIATA, String country, String city, String name, int type) {
             this.codeIATA = codeIATA;
             this.country = country;
+            this.country = country;
             this.city = city;
             this.name = name;
             this.type=type;
@@ -652,9 +653,6 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
         }
         dateEnd.setTextColor(getResources().getColor(R.color.magenta));
         dateEnd.setTextSize(32);
-
-
-
         counterEvenDateSelected = 0;
 
         calendar.setOnDateSelectedListener(new CalendarPickerView.OnDateSelectedListener() {
@@ -1158,7 +1156,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
         if (event.getResult() != null) {
 
             data = event.getResult();
-            airportData.clear();
+            if (airportData != null)airportData.clear();
             adapter = new SearchAdapterHotels(this, airportData);
 
             if (event.getApiName().equals(AirportCodes.APINAME)) {

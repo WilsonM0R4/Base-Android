@@ -159,7 +159,8 @@ public class VisaCheckoutApp extends MultiDexApplication {
     }
 
     private void initOnepocket() {
-        new OPKLibraryConfig.Builder().testMode(Constants.TESTING).idPortal(Constants.ID_PORTAL).setTheme(ThemeType.PICHINCHA).build();
+        new OPKLibraryConfig.Builder().testMode(Constants.TESTING).idPortal(Constants.ID_PORTAL).
+                setTheme(ThemeType.PICHINCHA).build();
     }
 
 }

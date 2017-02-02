@@ -11,7 +11,7 @@
     <color name="WHITE_COLOR">#ffffff</color>
     <color name="BLACK_COLOR">#000000</color>
 
-    <color name= "PURPLE_COLOR">#CF447A</color>
+    <color name= "PURPLE_COLOR">#F9C013</color> <!-- #CF447A -->
     <color name="YELLOW_PIN">#F9C013</color>
     <color name="btn_register">#59595B</color>
     <color name= "ORANGE_COLOR">#EF411F</color>
@@ -341,7 +341,7 @@
     <color name="yellow">#FDD500</color>
     <color name="salmon">#FF686C</color>
     <color name="orange">#ef411f</color>
-    <color name="magenta">#d02a7b</color>
+    <color name="magenta">#F9C013</color>  <!-- #d02a7b  -->
     <color name="blue">#459FF8</color>
     <color name="purple">#9855D4</color>
     <color name="transaction_text">#707070</color>
