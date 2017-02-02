@@ -41,7 +41,7 @@ public class VisaCheckoutApp extends MultiDexApplication {
     @Override
     public void onCreate() {
         //super.onCreate();
-        //SystemClock.sleep(0);   // For running splash screen
+        //SystemClock.sleep(0);   // For running splash screen.
         super.onCreate();
 
 
