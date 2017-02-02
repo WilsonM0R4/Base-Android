@@ -1,5 +1,6 @@
 package com.allegra.handyuvisa;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -39,12 +40,16 @@ public class WalkThroughActivity extends AppIntro{
     @Override
     public void onSkipPressed(Fragment currentFragment ){
         super.onSkipPressed(currentFragment);
+        Intent intent = new Intent(WalkThroughActivity.this, MainActivity.class);
+        startActivity(intent);
         finish();
     }
 
     @Override
     public void onDonePressed(Fragment currentFragment ){
         super.onDonePressed(currentFragment);
+        Intent intent = new Intent(WalkThroughActivity.this, MainActivity.class);
+        startActivity(intent);
         finish();
     }
 
