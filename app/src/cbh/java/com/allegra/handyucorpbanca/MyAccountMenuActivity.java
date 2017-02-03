@@ -53,14 +53,17 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
         final String[] names = {
                 getString(R.string.title_my_profile),
                 getString(R.string.benefits),
+                getString(R.string.basic_coverages),
                 getString(R.string.mytips),
                 getString(R.string.coverage),
                 getString(R.string.transactions_history),
                 getString(R.string.legal_title),
         };
-        final Integer[] images = {R.drawable.menu__profile, R.drawable.my_benefits,R.drawable.tips,/*R.drawable.menu_tips*/ R.drawable.coverage, R.drawable.menu__history,
+        final Integer[] images = {R.drawable.menu__profile, R.drawable.my_benefits,R.drawable.basic_coverages,
+                R.drawable.tips,/*R.drawable.menu_tips*/ R.drawable.coverage, R.drawable.menu__history,
                 R.drawable.legal2};
-        final Class[] activities = {MyAccountActivity.class, com.allegra.handyuvisa.MyBenefits.class, com.allegra.handyuvisa.MyTips.class,
+        final Class[] activities = {MyAccountActivity.class, com.allegra.handyuvisa.MyBenefits.class,
+                com.allegra.handyucorpbanca.BasicCoveragesActivity.class,com.allegra.handyuvisa.MyTips.class,
                 ProofOfCoverageDinamicoActivity.class, OneTransactionsActivity.class, LegalActivity.class};
         lv.setAdapter(new ArrayAdapter<String>(MyAccountMenuActivity.this, R.layout.profile_layout, names) {
 

@@ -7,7 +7,6 @@
     android:weightSum="1"
     android:id="@+id/my_benefits_layout"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
     android:onClick="onCloseMenu">
 
     <RelativeLayout
@@ -34,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/benefits"
+            android:text="@string/basic_coverages"
             android:id="@+id/textView47"
             android:layout_centerHorizontal="true"
             android:textColor="@color/GeneralAppHeaderTitle_text" />
@@ -78,17 +77,17 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="4dp"
-        android:layout_below="@+id/ll_header"
+        android:id="@+id/iv_header"
         android:paddingEnd="-2dp"
         android:paddingStart="-2dp"
-        android:id="@+id/imageView24"
         android:src="@drawable/separator_medium_mag"
-        android:contentDescription="Divider" />
+        android:contentDescription="Divider"
+        />
 
     <WebView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:id="@+id/webBenefits"
+        android:id="@+id/webBasicCoverages"
         android:layout_marginTop="-2dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
