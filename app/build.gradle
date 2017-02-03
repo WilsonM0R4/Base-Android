@@ -241,8 +241,8 @@ android {
 
         cbh {
             applicationId "com.allegra.handyucorpbanca"
-            versionCode 10
-            versionName "1.2.0-10"
+            versionCode 1
+            versionName "1.2.0-3"
             signingConfig signingConfigs.cbhConfig
             minSdkVersion 19
             targetSdkVersion 25
@@ -307,7 +307,7 @@ android {
 
 dependencies {
     testCompile 'junit:junit:4.12'
-    compile project(':onepocket-sdk-2.0.0-384')
+    compile project(':onepocket-sdk-2.0.0-385')
     //3rd party libraries
     compile('com.google.code.ksoap2-android:ksoap2-android:3.6.1') {
         exclude group: 'com.squareup.okio', module: 'okio'
