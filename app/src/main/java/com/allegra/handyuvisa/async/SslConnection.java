@@ -22,7 +22,7 @@ public class SslConnection {
     private static final String URBAN_AIRSHIP = "device-api.urbanairship.com";
     private static final String LIVEPERSON = "server.iad.liveperson.net";
     private static final String ALLEGRA_PLATFORM = "pruebas.allegraplatform.com";
-    private static final String CORPBANCA_BASIC_COVERAGES = "easytravelprotection.com";
+    private static final String PICHINCHA_MARKET = "www.experienciaspichincha.com.co";
 
     private static class CustomX509TrustManager implements javax.net.ssl.X509TrustManager {
         private static final X509Certificate[] _AcceptedIssuers = new X509Certificate[]{};
@@ -55,7 +55,8 @@ public class SslConnection {
                         hostname.equals(Constants.URL_HOSTNAME_APPS_FLYER)||
                         hostname.equals(URBAN_AIRSHIP)||
                         hostname.equals(LIVEPERSON)||
-                        hostname.equals(ALLEGRA_PLATFORM))return true;
+                        hostname.equals(ALLEGRA_PLATFORM)||
+                        hostname.equals(PICHINCHA_MARKET))return true;
                 else return false;
             }
         });

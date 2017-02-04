@@ -2,9 +2,11 @@ package com.allegra.handyuvisa;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.SslErrorHandler;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -152,6 +154,12 @@ public class MarketPlaceActivity extends FrontBackAnimate implements FrontBackAn
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon){
             progressBar.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+
+            //super.onReceivedSslError(view, handler, error);
         }
     }
 
