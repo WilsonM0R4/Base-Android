@@ -143,6 +143,11 @@ public class MarketPlaceActivity extends FrontBackAnimate implements FrontBackAn
         }
 
         @Override
+        public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+            handler.proceed();
+        }
+
+        @Override
         public void onPageFinished(WebView view, String url) {
             progressBar.setVisibility(View.GONE);
             if (url.equals("about:blank")) {
@@ -156,11 +161,6 @@ public class MarketPlaceActivity extends FrontBackAnimate implements FrontBackAn
             progressBar.setVisibility(View.VISIBLE);
         }
 
-        @Override
-        public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
-
-            //super.onReceivedSslError(view, handler, error);
-        }
     }
 
     private void loadArrows(){

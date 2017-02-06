@@ -317,7 +317,7 @@ public class Constants {
     public static final String URL_SEARCH_CONCIERGE_TEST = "http://qaactividades.allegra.travel/Actividad/ResultadosGet/?id_destino_ser=";
     public static final String URL_STORE_TEST =  "http://52.203.29.124/allemstore_demo/";
     public static final String URL_RESTAURANT_TEST =  "http://52.203.29.124/allemrestaurant_demo/#!/brand/restaurantes/map";
-    public static final String URL_MARKETPLACE_TEST = "http://52.207.118.11/?logo=1&onepocket=1&utm_source=HandyuVisa&utm_medium=botonhandy&utm_campaign=App";
+    public static final String URL_MARKETPLACE_TEST = "http://52.207.118.11/?logo=1&onepocket=1";
     public static final String URL_LOGIN_TEST = "http://52.87.70.203:8080/AllemInMotion/AllemInMotion?wsdl";
     public static final String URL_SERVICE_TEST = "http://allegra.global/app/servicios_v3_demo/search/?";//"http://allegra.global/app/servicios_v2_demo/search/?name=";
     public static final String URL_MCARD_HTML_TEST = "http://52.207.72.167:8080/MembresiaProteccionIatai/app/index.xhtml?portal=5&email=";//"http://52.71.117.239:8080/MembresiaProteccionIatai/app/index.xhtml?portal=1&email=";
@@ -332,7 +332,7 @@ public class Constants {
     public static final String URL_SEARCH_CONCIERGE_PROD = "http://actividades.allegra.travel/Actividad/ResultadosGet?id_destino_ser=";
     public static final String URL_STORE_PROD = "http://52.203.29.124/allemstore_v2/";
     public static final String URL_RESTAURANT_PROD =  "http://52.203.29.124/allemrestaurant_v2/#!/brand/restaurantes/map";
-    public static final String URL_MARKETPLACE_PROD =  "https://www.experienciaspichincha.com.co?logo=1&onepocket=1&utm_source=HandyuVisa&utm_medium=botonhandy&utm_campaign=App";
+    public static final String URL_MARKETPLACE_PROD =  "https://www.experienciaspichincha.com.co?logo=1&onepocket=1";
     public static final String URL_LOGIN_PROD = "https://secureacceptance.allegraplatform.com/AllemInMotion/AllemInMotion";
     public static final String URL_SERVICE_PROD = "http://allegra.global/app/servicios_v3/search/?";//"http://allegra.global/app/servicios_v2/search/?name=";
     public static final String URL_MCARD_HTML_PROD = "http://52.7.111.227:8080//MembresiaProteccionIatai/app/index.xhtml?portal=5&email=";
