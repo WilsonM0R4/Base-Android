@@ -4,54 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/rl_call_body"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     android:clickable="true"
     tools:context=".CallActivity">
-
-    <!--<RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:background="@color/white"
-        android:id="@+id/ll_header">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/title_onetouch_chat"
-            android:textStyle="bold"
-            android:id="@+id/tv_title_secc"
-            android:layout_centerHorizontal="true"
-            android:textColor="@color/magenta" />
-
-        <ImageButton
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginRight="10dp"
-            android:src="@drawable/icon_menu"
-            android:background="@android:color/transparent"
-            android:id="@+id/menu_image"
-            android:onClick="onMenu"
-            android:contentDescription="menu"
-            android:layout_alignBottom="@+id/tv_title_secc"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="10dp" />
-
-    </RelativeLayout>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/iv_header"
-        android:layout_below="@+id/ll_header"
-        android:paddingEnd="-2dp"
-        android:paddingStart="-2dp"
-        android:src="@drawable/separator_medium_mag"
-        android:contentDescription="Divider" />-->
 
     <ImageView
         android:layout_width="wrap_content"
@@ -72,14 +27,20 @@
         android:background="@drawable/run_animation"
         />
 
-    <!--<ImageView
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/frame_gif"
-        android:layout_gravity="center"
-        android:layout_centerInParent="true"
-        android:src="@drawable/load__call"
-        />-->
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/loading_salmon"
+        android:text="@string/txt_lbl_callwait"
+        android:background="@android:color/transparent"
+        android:id="@+id/tv_status_otc"
+        android:layout_marginBottom="27dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:gravity="center"
+        android:layout_above="@+id/cancel_one_touch"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -96,33 +57,5 @@
         android:layout_marginBottom="35dp"
         />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/loading_salmon"
-        android:text="@string/txt_lbl_callwait"
-        android:background="@android:color/transparent"
-        android:id="@+id/tv_status_otc"
-        android:layout_marginBottom="27dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:gravity="center"
-        android:layout_above="@+id/cancel_one_touch"
-        android:layout_centerHorizontal="true" />
-    <!--<com.allegra.handyuvisa.utils.CustomizedTextView
-        android:id="@+id/btn_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="5dp"
-        android:layout_weight="1"
-        android:background="@drawable/round_corner_transparent_orange"
-        android:text="@string/btn_cancel_one_touch"
-        android:textColor="@color/orange"
-        app:font="@string/font_muli"
-        android:gravity="center"
-        android:textSize="16sp"/>-->
 
 </RelativeLayout>

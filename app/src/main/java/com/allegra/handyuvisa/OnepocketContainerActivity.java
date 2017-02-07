@@ -108,7 +108,7 @@ public class OnepocketContainerActivity extends FrontBackAnimate  implements Fro
     }
 
     private void checkLogin() {
-        if(((VisaCheckoutApp)this.getApplication()).getIdSession()==null){
+        if(((com.allegra.handyuvisa.VisaCheckoutApp)this.getApplication()).getIdSession()==null){
             Intent i =new Intent(OnepocketContainerActivity.this, LoginActivity.class);
             this.startActivityForResult(i, Constants.ONE_POCKET_NEEDS_LOGIN);
             finish();
@@ -159,7 +159,7 @@ public class OnepocketContainerActivity extends FrontBackAnimate  implements Fro
                     case 0:
                         Intent i1 = new Intent(OnepocketContainerActivity.this, OnepocketPurchaseActivity.class);
 
-                        Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(OnepocketContainerActivity.this), onePocketmessage, OPKConstants.TYPE_MCARD, (VisaCheckoutApp) getApplication());
+                        Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(OnepocketContainerActivity.this), onePocketmessage, OPKConstants.TYPE_MCARD, (com.allegra.handyuvisa.VisaCheckoutApp) getApplication());
                         i1.putExtras(bundle);
                         startActivityForResult(i1, 2);
                         break;
@@ -168,6 +168,10 @@ public class OnepocketContainerActivity extends FrontBackAnimate  implements Fro
                         //Log.e(TAG, "invalid perform id: " + 1);
                         break;
 
+                    case 3:
+                        Intent poc = new Intent(OnepocketContainerActivity.this, ProofOfCoverageDinamicoActivity.class);
+                        startActivity(poc);
+                        break;
                 }
 
             }

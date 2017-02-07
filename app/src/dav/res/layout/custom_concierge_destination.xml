@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:layout_marginTop="30dp">
+
+
+    <ImageView
+        android:layout_width="81dp"
+        android:layout_height="76dp"
+        android:background="@drawable/icon_concierge"
+        android:id="@+id/imgDestinationConcierge"
+        android:layout_marginRight="10dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.allegra.handyuvisa.utils.CustomizedTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtDestinationNameConcierge"
+            android:textSize="33sp"
+            android:textColor="@color/white"
+            app:font="@string/font_varela"
+            android:text=""/>
+
+        <com.allegra.handyuvisa.utils.CustomizedTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtConciergeStateOrCountry"
+            android:textSize="15sp"
+            android:textColor="@color/white"
+            android:text=""
+            app:font="@string/font_muli"/>
+
+    </LinearLayout>
+
+    <!--android:layout_gravity="center_horizontal"-->
+
+</LinearLayout>

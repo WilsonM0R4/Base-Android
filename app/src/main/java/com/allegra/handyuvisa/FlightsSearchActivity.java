@@ -9,8 +9,6 @@ import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -18,9 +16,9 @@ import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.Util;
 import com.allem.onepocket.utils.OPKConstants;
@@ -55,7 +53,6 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //super.setView(R.layout.fragment_search_in_progress, R.drawable.load__flight, R.string.txt_lbl_searchFlightsWait, this);
         setContentView(R.layout.fragment_search_in_progress);
         setActionbar(true);
         webView = (WebView)findViewById(R.id.webView);
@@ -98,7 +95,7 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
         paramArriveAt = getIntent().getStringExtra("arriveAt");//IATA CODE ARRIVAL
         paramArriveAtName = getIntent().getStringExtra("arriveAtName");//LARGE NAME ARRIVAL
 
-        Log.d("paramCabin",String.valueOf(paramCabin));
+     /*   Log.d("paramCabin",String.valueOf(paramCabin));
         Log.d("paramAdult",String.valueOf(paramAdult));
         Log.d("paramChildren",String.valueOf(paramChildren));
         Log.d("paramDepartDate",String.valueOf(paramDepartDate));
@@ -107,8 +104,7 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
         Log.d("paramDepartFromName",String.valueOf(paramDepartFromName));
         Log.d("paramArriveAt",String.valueOf(paramArriveAt));
         Log.d("paramArriveAtName",String.valueOf(paramArriveAtName));
-        Log.d("paramInfant",String.valueOf(paramInfant));
-
+        Log.d("paramInfant",String.valueOf(paramInfant));*/
     }
 
     @Override
@@ -133,7 +129,7 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
 
         if (requestCode == Constants.ACTIVITY_LOGIN) {
             if(resultCode == RESULT_OK){
-                Log.d(TAG, "usuario logueado");
+                //Log.d(TAG, "usuario logueado");
                 FlightsSearchActivity.this.invalidateOptionsMenu();
                 webView.loadUrl("about:blank");
                 loadWebView();
@@ -150,7 +146,6 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
                 //webView.clearHistory();
                 webView.loadUrl("about:blank");
                 progressBar.setVisibility(View.VISIBLE);
-
             }
         }
     }
@@ -162,9 +157,6 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
     }
 
     //******************PROPER METHODS**********************
-    public void onBackButton(View view){
-        finish();
-    }
 
     public void onUp(View view) {
         super.onBackPressed();
@@ -186,7 +178,6 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
     private void loadWebView() {
 
         url = Constants.getSearchFlightsUrl();
-                //"http://vuelos.allegra.travel/Vuelos/ResultadosGet?";
         String flightClass ="";
         switch (paramCabin){
             case 0:
@@ -201,13 +192,16 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
         }
         webView.addJavascriptInterface(new AppJavaScriptProxyFlights(this), "androidProxy");
 
-        String postData = "AirFlightType="+flightType+"&AirOriginLocation="+paramDepartFromName+"&AirOriginLocationIATA="+paramDepartFrom+"&AirDestinationLocation="+paramArriveAtName+"&AirReturnDateTime="+paramArriveDate+"&AirDestinationLocationIATA="+paramArriveAt+"&AirDepartureDateTime="+paramDepartDate+"&AirTravelAvailAdt="+paramAdult+
-                "&AirTravelAvailChd="+paramChildren+"&AirTravelAvailInf="+paramInfant+"&AirBookingClassPref="+flightClass+"&AirlineCode=*&AirFlexDateDeparture=*&AirTravelTimeStart=*&AirFlexDatesReturn=*&AirTravelTimeEnd=*&AirTravelDic=*&AirRestricTar=*&AirSeg=1&Payment=3";
+        String postData = "AirFlightType="+flightType+"&AirOriginLocation="+paramDepartFromName+
+                "&AirOriginLocationIATA="+paramDepartFrom+"&AirDestinationLocation="+paramArriveAtName+
+                "&AirReturnDateTime="+paramArriveDate+"&AirDestinationLocationIATA="+paramArriveAt+
+                "&AirDepartureDateTime="+paramDepartDate+"&AirTravelAvailAdt="+paramAdult+
+                "&AirTravelAvailChd="+paramChildren+"&AirTravelAvailInf="+paramInfant+
+                "&AirBookingClassPref="+flightClass+"&AirlineCode=*&AirFlexDateDeparture=*&AirTravelTimeStart=" +
+                "*&AirFlexDatesReturn=*&AirTravelTimeEnd=*&AirTravelDic=*&AirRestricTar=*&AirSeg=1&Payment=3";
         url = url + postData;
-        Log.d("url con data",url);
-        //webView.postUrl(url, EncodingUtils.getBytes(postData, "BASE64"));
+        //Log.d("url con data",url);
         webView.loadUrl(url);
-
     }
 
     public void onalertDialogDepartureOrArriveNotSelected(){
@@ -230,7 +224,8 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
 
     public void openOnePocket(){
         Intent intent = new Intent(this, OnepocketPurchaseActivity.class);
-        Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(this), onePocketmessage, OPKConstants.TYPE_FLIGHT, (VisaCheckoutApp) getApplication());
+        Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(this), onePocketmessage,
+                OPKConstants.TYPE_FLIGHT, (com.allegra.handyuvisa.VisaCheckoutApp) getApplication());
         intent.putExtras(bundle);
         startActivityForResult(intent, Constants.REQUEST_ONEPOCKET_RETURN);
     }
@@ -262,22 +257,26 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
         }
     }
 
+    public void onBackButton(View view){
+        finish();
+    }
+
     //******************INNER CLASSES**********************
     private class MyWebViewClient extends WebViewClient {
 
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
 
-            Log.d(TAG, "url: " + url);
+            //Log.d(TAG, "url: " + url);
             if (Util.hasInternetConnectivity(FlightsSearchActivity.this)){
                 if (url.contains("http://")||url.contains("https://")){
                     view.loadUrl(url);
                     urlWebView=url;
-                }else if(url.contains("detalleventaht:")&& Util.hasInternetConnectivity(FlightsSearchActivity.this)){
+                }else if(url.contains("detalleventaht:")&& Util.hasInternetConnectivity
+                        (FlightsSearchActivity.this)){
                 //urlWebView=HotelsActivity.this.url;
                     // TODO replace with Onepocket pay activity
                 }else if(url.equals("allegra:callbackFlights")){
-                    Log.d("Sergio","Llega rodallega");
                     onalertDialogDepartureOrArriveNotSelected();
                 }
                 else{
@@ -285,7 +284,8 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
                     urlWebView=url;
                 }
             }else{
-                Toast.makeText(FlightsSearchActivity.this, R.string.err_no_internet, Toast.LENGTH_SHORT).show();
+                Toast.makeText(FlightsSearchActivity.this, R.string.err_no_internet,
+                        Toast.LENGTH_SHORT).show();
             }
             return true;
         }
@@ -300,13 +300,11 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
                 webView.loadUrl(returnURL);
             }
             loadArrows();
-            //animate();
         }
 
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon){
             progressBar.setVisibility(View.VISIBLE);
-            //showProgress(true);
         }
     }
 

@@ -1,28 +1,35 @@
 package com.allegra.handyuvisa;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.allegra.handyuvisa.async.AddChatLines;
-import com.allegra.handyuvisa.async.AsyncRestHelper;
-import com.allegra.handyuvisa.async.ChatRequest;
-import com.allegra.handyuvisa.async.ChatResourceEventsInfo;
-import com.allegra.handyuvisa.async.MyBus;
-import com.allegra.handyuvisa.utils.Constants;
-import com.allegra.handyuvisa.utils.Util;
-import com.allegra.handyuvisa.async.AsyncTaskMPosResultEvent;
+import com.allegra.handyuvisa.async.AsyncRestHelperChat;
+import com.allegra.handyuvisa.async.AsyncTaskMPosResultEventChat;
 import com.allegra.handyuvisa.async.ChatEventsNext;
 import com.allegra.handyuvisa.async.ChatInfo;
+import com.allegra.handyuvisa.async.ChatRequest;
+import com.allegra.handyuvisa.async.ChatResourceEventsInfo;
 import com.allegra.handyuvisa.async.EndChat;
 import com.allegra.handyuvisa.async.GetBaseResource;
+import com.allegra.handyuvisa.async.MyBus;
+import com.allegra.handyuvisa.utils.Constants;
+import com.allegra.handyuvisa.utils.CustomizedTextView;
+import com.allegra.handyuvisa.utils.Util;
 import com.squareup.otto.Subscribe;
 
 import java.io.InputStream;
@@ -35,24 +42,24 @@ import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateReadyListener,
-                                        BackFragment.MenuSelectListener {
+public class ChatActivity extends FrontBackAnimate implements
+        FrontBackAnimate.InflateReadyListener,
+        com.allegra.handyuvisa.BackFragment.MenuSelectListener{
 
     //*****************GLOBAL ATTRIBUTES*****************
 
     private final String TAG = "ChatActivity";
     private static SimpleDateFormat CHAT_TIME_PARSER = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
-    private String requestChatUri;
-    private String chatSessionUri;
-    private String eventsUri;
-    private String nextUri;
-    private String infoUri;
-    private String agentName;
-    private String chatState;
+    private String agentName, infoUri, nextUri, chatState, eventsUri, chatSessionUri, requestChatUri;
     private ListView chatListView;
     private ArrayList<Message> chatMessages;
     private ChatMsgAdapter chatMsgAdapter;
     private EditText sentText;
+    private ImageView animation, iv_header;
+    private RelativeLayout relLoader, relHeader;
+    private Button btnCancel;
+    private TextView tv_chat_agent, tv_chat_start;
+    private LinearLayout form;
 
     //*****************INNER CLASSES*****************
 
@@ -78,7 +85,9 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.setView(R.layout.fragment_chat_in_progress, R.drawable.load__chat, R.string.txt_lbl_setupChat, this);
+       /*super.setView(R.layout.fragment_chat_in_progress, R.drawable.load__chat,
+                R.string.txt_lbl_setupChat, this);*/
+         setView(R.layout.fragment_chat_in_progress, this);
 
         initLivePersonService();
         MyBus.getInstance().register(this);
@@ -98,18 +107,53 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
         chatListView = (ListView) root.findViewById(R.id.lv_chat_msg);
         chatListView.setAdapter(chatMsgAdapter);
         sentText = (EditText) root.findViewById(R.id.et_chat_msg);
+        relHeader = (RelativeLayout)root.findViewById(R.id.ll_header);
+        iv_header = (ImageView)root.findViewById(R.id.iv_header);
+        relLoader = (RelativeLayout)root.findViewById(R.id.loader);
+        animation = (ImageView)root.findViewById(R.id.load_circle);
+
+        animation.post(new Runnable() {
+            @Override
+            public void run() {
+                ((AnimationDrawable) animation.getBackground()).start();
+            }
+        });
+        btnCancel = (Button)root.findViewById(R.id.cancel_one_touch);
+        //Log.d(TAG, "Llega antes de los click");
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Log.d(TAG, "Llega al cancel in chat");
+                finish();
+            }
+        });
+
+        tv_chat_agent = (TextView)root.findViewById(R.id.tv_chat_agent);
+        tv_chat_start = (TextView)root.findViewById(R.id.tv_chat_start);
+        form = (LinearLayout)root.findViewById(R.id.form);
     }
 
     @Override
     public void onBackPressed() {
 
-        super.onBackPressed();
-        Log.d(TAG, "Back button is pressed");
+        //super.onBackPressed();
+       // Log.d(TAG, "Back button is pressed");
         if (chatState != null && chatState.equals("chatting")) {
-            endChat();
+            //endChat();
         } else {
-            Log.d(TAG, "Closing before chat has started");
+           // Log.d(TAG, "Closing before chat has started");
         }
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig){
+        super.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    public void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
     }
 
     @Override
@@ -118,36 +162,71 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
         if (chatState != null && chatState.equals("chatting")) {
             endChat();
         } else {
-            Log.d(TAG, "Closing before chat has started");
+            //Log.d(TAG, "Closing before chat has started");
         }
         super.getStartActivity(intent);
-    }
-
-    @Override
-    public void onCancelLoading() {
-        finish();
     }
 
 
     //*****************PROPER METHODS*****************
 
+    public  void onAlertCancelChat(View v){
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.dialog_cancel_chat);
+        dialog.show();
+        //CustomizedTextViews (Cancel and Ok)
+        CustomizedTextView textCancel = (CustomizedTextView) dialog.findViewById(R.id.txtCancelDialogchat);
+        textCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+        CustomizedTextView textOk = (CustomizedTextView) dialog.findViewById(R.id.txtOkCancelChat);
+        textOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                finish();
+            }
+        });
+    }
+
+    public void onMenu(View v){
+        animate();
+    }
+
+    public void showLayout(){
+        relHeader.setVisibility(View.VISIBLE);
+        iv_header.setVisibility(View.VISIBLE);
+        tv_chat_agent.setVisibility(View.VISIBLE);
+        tv_chat_start.setVisibility(View.VISIBLE);
+        chatListView.setVisibility(View.VISIBLE);
+        form.setVisibility(View.VISIBLE);
+    }
+
+    public void onCloseMenu(View v){
+        animateBetter();
+    }
+
     private void initLivePersonService() {
         GetBaseResource apiInfo = new GetBaseResource();
-        AsyncRestHelper helper = new AsyncRestHelper(apiInfo);
+        AsyncRestHelperChat helper = new AsyncRestHelperChat(apiInfo);
         helper.execute();
     }
 
     private void sendChatRequest(String uri) {
 
         ChatRequest apiInfo = new ChatRequest(uri);
-        AsyncRestHelper helper = new AsyncRestHelper(apiInfo);
+        AsyncRestHelperChat helper = new AsyncRestHelperChat(apiInfo);
         helper.execute();
     }
 
     private void getChatResourceEventsInfo() {
 
         ChatResourceEventsInfo apiInfo = new ChatResourceEventsInfo(chatSessionUri);
-        AsyncRestHelper helper = new AsyncRestHelper(apiInfo);
+        AsyncRestHelperChat helper = new AsyncRestHelperChat(apiInfo);
         helper.execute();
     }
 
@@ -157,7 +236,7 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
             @Override
             public void run() {
                 ChatEventsNext apiInfo = new ChatEventsNext(nextUri);
-                AsyncRestHelper helper = new AsyncRestHelper(apiInfo);
+                AsyncRestHelperChat helper = new AsyncRestHelperChat(apiInfo);
                 helper.execute();
             }
         }, 2000);
@@ -173,7 +252,7 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
     private void updateChatHeader(String agentData) {
 
         agentName = agentData;
-        Log.d(TAG, "Agent name: " + agentName);
+        //Log.d(TAG, "Agent name: " + agentName);
 
         if (agentName != null && agentName.length() > 0) {
             TextView agent = (TextView) findViewById(R.id.tv_chat_agent);
@@ -206,7 +285,7 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
                     String clean = Html.fromHtml(text).toString();
                     Date dateObj = CHAT_TIME_PARSER.parse(data.get("time" + id), new ParsePosition(0));
                     chatMessages.add(new Message(clean, false, dateObj.getTime()));
-                    Log.d(TAG, "chatMessages[" + i + "]:" + text);
+                   // Log.d(TAG, "chatMessages[" + i + "]:" + text);
                 }
             }
 
@@ -217,29 +296,28 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
 
     public void onHome(View view) {
 
+       // Log.d(TAG, "Llega al onHome");
+        //overridePendingTransition(R.animator.back_slide_in, R.animator.front_slide_out);
         if (chatState != null && chatState.equals("chatting")) {
             endChat();
         } else {
-            Log.d(TAG, "Closing before chat has started");
+           // Log.d(TAG, "Closing before chat has started");
         }
         super.onHome(view);
-    }
-
-    public void onMenu(View view) {
-        animate();
     }
 
     private void endChat() {
 
         EndChat apiInfo = new EndChat(eventsUri);
-        AsyncRestHelper helper = new AsyncRestHelper(apiInfo);
+        AsyncRestHelperChat helper = new AsyncRestHelperChat(apiInfo);
         helper.execute();
+       // Log.d(TAG, "Llega al endChat");
     }
 
     private void getChatInfo() {
 
         ChatInfo apiInfo = new ChatInfo(infoUri);
-        AsyncRestHelper helper = new AsyncRestHelper(apiInfo);
+        AsyncRestHelperChat helper = new AsyncRestHelperChat(apiInfo);
         helper.execute();
     }
 
@@ -261,20 +339,20 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
 
         chatListView.setSelection(chatMessages.size() - 1);
         AddChatLines apiInfo = new AddChatLines(eventsUri, text);
-        AsyncRestHelper helper = new AsyncRestHelper(apiInfo);
+        AsyncRestHelperChat helper = new AsyncRestHelperChat(apiInfo);
         helper.execute();
     }
 
     //*****************SUBSCRIBE METHODS*****************
     @Subscribe
-    public void onAsyncTaskResult(AsyncTaskMPosResultEvent event) {
+    public void onAsyncTaskResult(AsyncTaskMPosResultEventChat event) {
 
         boolean errorExists = true;
         HashMap<String, String> data;
 
         if (event.getResult() != null) {
             data = event.getResult();
-            System.out.println("data");
+            System.out.println("entra al AsyncTaskMPosResultEventChat");
             for(Object objname:data.keySet()) {
                 System.out.println("data");
                 System.out.println(objname);
@@ -284,10 +362,10 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
                 if (data.containsKey(GetBaseResource.CHAT_REQUEST)) {
                     requestChatUri = data.get(GetBaseResource.CHAT_REQUEST);
                     sendChatRequest(requestChatUri);
-                    Log.d(TAG, "Es "+requestChatUri);
+                   // Log.d(TAG, "Es "+requestChatUri);
                     errorExists = false;
                 } else {
-                    Log.e(TAG, "GetBaseResource fail");
+                   // Log.e(TAG, "GetBaseResource fail");
                 }
             } else if (event.getApiName().equalsIgnoreCase(ChatRequest.APINAME)) {
                 if (data.containsKey(ChatRequest.LOCATION)) {
@@ -295,7 +373,7 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
                     errorExists = false;
                     getChatResourceEventsInfo();
                 } else {
-                    Log.e(TAG, "ChatRequest fails");
+                   // Log.e(TAG, "ChatRequest fails");
                 }
             } else if (event.getApiName().equalsIgnoreCase(ChatResourceEventsInfo.APINAME)) {
                 if (data.containsKey(ChatResourceEventsInfo.EVENTS_LINK)) {
@@ -306,43 +384,51 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
                         handleAgentChatMsg(data);
                         updateChatHeader(data.get(ChatResourceEventsInfo.AGENT_NAME));
                         errorExists = false;
-                        animate();
+                        animateBetter();
+                        //Hide loader
+                        relLoader.setVisibility(View.GONE);
+                        //Show layout
+                        showLayout();
                         getChatEventsNext();
                     } else {
                         getChatInfo();
                     }
-                    Log.d(TAG, "Got chat events and info");
-                    Log.d(TAG, "eventsUri: " + eventsUri);
-                    Log.d(TAG, "nextUri: " + nextUri);
+                   // Log.d(TAG, "Got chat events and info");
+                   // Log.d(TAG, "eventsUri: " + eventsUri);
+                   // Log.d(TAG, "nextUri: " + nextUri);
                 } else {
-                    Log.e(TAG, "ChatResourceEventsInfo fails");
+                   // Log.e(TAG, "ChatResourceEventsInfo fails");
                 }
             } else if (event.getApiName().equalsIgnoreCase(ChatInfo.APINAME)) {
                 if (data.containsKey(ChatInfo.CHAT_STATE)) {
                     chatState = data.get(ChatInfo.CHAT_STATE);
                     if (chatState.equals("chatting")) {
                         agentName = data.get(ChatInfo.AGENT_NAME);
-                        Log.d(TAG, "Agent name: " + agentName);
+                      //  Log.d(TAG, "Agent name: " + agentName);
                         updateChatHeader(data.get(ChatInfo.AGENT_NAME));
-                        animate();
+                        animateBetter();
+                        //Hide loader
+                        relLoader.setVisibility(View.GONE);
+                        //Show layout
+                        showLayout();
                         getChatEventsNext(); // now keep polling for details
                     } else if (chatState.equals("ended")) {
-                        Log.d(TAG, "info: Chat state ended");
+                      //  Log.d(TAG, "info: Chat state ended");
                         finish();
                     }  else {
                         getChatInfo();
-                        Log.d(TAG, "Still waiting for agent");
+                       // Log.d(TAG, "Still waiting for agent");
                     }
                     errorExists = false;
 
                 } else {
-                    Log.e(TAG, "ChatInfo fails");
+                  //  Log.e(TAG, "ChatInfo fails");
                 }
             } else if (event.getApiName().equalsIgnoreCase(AddChatLines.APINAME)) {
                 if (data.containsKey(AddChatLines.RESP_CODE)) {
                     errorExists = false;
                 } else {
-                    Log.e(TAG, "AddChatLines fails");
+                  //  Log.e(TAG, "AddChatLines fails");
                 }
             } else if (event.getApiName().equalsIgnoreCase(ChatEventsNext.APINAME)) {
                 if (data.containsKey(ChatEventsNext.CHAT_STATE)) {
@@ -352,10 +438,10 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
                         handleAgentChatMsg(data);
                     } else if (chatState.equals("ended")) {
                         finish();
-                        Log.d(TAG, "next: chat state ended");
+                       // Log.d(TAG, "next: chat state ended");
                     }
                     errorExists = false;
-                    Log.d(TAG, "Got new chat events");
+                  //  Log.d(TAG, "Got new chat events");
                 }
                 getChatEventsNext();
 
@@ -364,7 +450,7 @@ public class ChatActivity extends LoadAnimate implements LoadAnimate.InflateRead
                     finish();
                     errorExists = false;
                 } else {
-                    Log.e(TAG, "EndChat fails");
+                  //  Log.e(TAG, "EndChat fails");
                 }
             }
         }

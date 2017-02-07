@@ -1,18 +1,15 @@
 package com.allegra.handyuvisa;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -21,17 +18,19 @@ import android.widget.TextView;
  * Created by lchui on 1/4/16.
  */
 
-//This class is one that consume a lot of memory, because the way is inflated the menu.
+//This class is one that consume a lot of memory, because of the way in that is menu inflated.
 //Example: super.onCreate(savedInstanceState);
 //setContentView(R.layout.activity_loadanimate);
-public class LoadAnimate extends Activity implements BackFragment.MenuSelectListener {
+public class LoadAnimate extends FragmentActivity implements com.allegra.handyuvisa.BackFragment.MenuSelectListener {
 
     //*************GLOBAL ATTRIBUTES*******************
     private static final String TAG = "LoadAnimate";
     private static final String FRAGMENT_BACK = "FRAGMENT_BACK";
     private static final String FRAGMENT_LOADING = "LOADING";
     private static final String FRAGMENT_IN_PROGRESS = "IN_PROGRESS";
-    private BackFragment backFragment;
+   // private static final String FRAGMENT_FRONT = "FRAGMENT_FRONT";
+    private com.allegra.handyuvisa.BackFragment backFragment;
+    //private FrontBackAnimate.FrontFragment frontFragment;
     private LoadingFragment loadingFragment;
     private InProgressFragment inProgressFragment;
     private int state = 0;
@@ -62,9 +61,14 @@ public class LoadAnimate extends Activity implements BackFragment.MenuSelectList
                 .add(R.id.container_load_animate, inProgressFragment, FRAGMENT_IN_PROGRESS)
                 .add(R.id.container_load_animate, loadingFragment, FRAGMENT_LOADING)
                 .commit();
+        //********
+        /*frontFragment = new FrontBackAnimate.FrontFragment();
+        getFragmentManager().beginTransaction()
+                .add(R.id.container_front_back, frontFragment, FRAGMENT_FRONT)
+                .commit();*/
 
         getFragmentManager().beginTransaction().hide(inProgressFragment).commit();
-        backFragment = (BackFragment) getFragmentManager().findFragmentByTag(FRAGMENT_BACK);
+        backFragment = (com.allegra.handyuvisa.BackFragment) getFragmentManager().findFragmentByTag(FRAGMENT_BACK);
         backFragment.menulistener = this;
     }
 
@@ -79,6 +83,7 @@ public class LoadAnimate extends Activity implements BackFragment.MenuSelectList
 
      public  void animateBetter(){
 
+         //Log.d(TAG, "Llega al animateBetter");
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         int width = dm.widthPixels;
@@ -86,11 +91,34 @@ public class LoadAnimate extends Activity implements BackFragment.MenuSelectList
         if (width > 800) {
             resId = R.animator.front_open_xlarge;
         }
+         getFragmentManager().beginTransaction().hide(loadingFragment).hide(backFragment).commit();
+         if (state == 0) {//Button menu pressed, BackFragment is hidden
+             state = 1;
+             showStatusBar(false);
+             getFragmentManager().beginTransaction()
+                     .setCustomAnimations(resId, 0)
+                     .show(loadingFragment)
+                     .setCustomAnimations(R.animator.back_exposed, 0)
+                     .show(backFragment)
+                     .commit();
+            // Log.d(TAG, "Llega 0");
+         } else {
+             state = 0;
+             showStatusBar(true);
+             getFragmentManager().beginTransaction()
+                     .setCustomAnimations(R.animator.front_close, 0)
+                     .show(loadingFragment)
+                     .setCustomAnimations(R.animator.back_hidden, 0)
+                     .show(backFragment)
+                     .commit();
+            // Log.d(TAG, "Llega 1");
+         }
 
-        if (state == 1) {
+
+         /* if (state == 1) {
             getFragmentManager().beginTransaction().hide(loadingFragment).hide(backFragment).commit();
             //state = 1;
-            Log.d("Sergio", "Entra al state == 1");
+            Log.d(TAG, "Llega al state == 1");
             state = 0;
             showStatusBar(true);
             getFragmentManager().beginTransaction()
@@ -99,7 +127,7 @@ public class LoadAnimate extends Activity implements BackFragment.MenuSelectList
                     .setCustomAnimations(R.animator.back_hidden, 0)
                     .show(backFragment)
                     .commit();
-        }
+        }*/
     }
 
     public void onCloseMenu(View view) {
@@ -124,19 +152,19 @@ public class LoadAnimate extends Activity implements BackFragment.MenuSelectList
 
     protected void animate() {
         showStatusBar(true);
-        Log.d(TAG, "Switching fragment now - in CALLING");
+       // Log.d(TAG, "Switching fragment now - in CALLING");
         loadingFragment = (LoadingFragment) getFragmentManager().findFragmentByTag(FRAGMENT_LOADING);
         inProgressFragment = (InProgressFragment) getFragmentManager().findFragmentByTag(FRAGMENT_IN_PROGRESS);
         if (loadingFragment != null) {
+          //  Log.d(TAG,"Llega al loadingFragment != null");
             getFragmentManager().beginTransaction()
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE)
                     .hide(loadingFragment)
                     .show(inProgressFragment)
                     .commit();
         } else {
-            Log.d(TAG, "fragment is null????");
+           // Log.d(TAG, "fragment is null????");
         }
-
     }
 
     protected void animateFrontBack() {
@@ -232,6 +260,8 @@ public class LoadAnimate extends Activity implements BackFragment.MenuSelectList
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+            //*LLamar al layout del loader
             View root = inflater.inflate(R.layout.fragment_loading, container, false);
 
             fabButton = (ImageView) root.findViewById(R.id.load_circle);
@@ -256,6 +286,7 @@ public class LoadAnimate extends Activity implements BackFragment.MenuSelectList
                 @Override
                 public void onClick(View v) {
                     listener.onCancelLoading();
+                   // Log.d(TAG,"Llega al clickListener de endCall" );
                 }
             });
 

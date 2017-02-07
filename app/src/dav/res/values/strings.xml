@@ -1,0 +1,682 @@
+<resources>
+    <string name="app_name">Visa B Davivienda</string>
+    <string name="app_name_legal">Visa B Davivienda</string>
+    <string name="title_activity_branding_screen">BrandingScreenActivity</string>
+    <string name="txtInfoCertifications"># CERTIFICATE</string>
+    <string name="payment_hotel_your">YOUR HOTEL</string>
+    <string name="payment_hotel_nights">nights</string>
+    <string name="intellilink">Intellilink</string>
+    <string name="myvisaenterprise">My Visa Enterprise</string>
+    <string name="checkmytrip">Check My Trip</string>
+    <string name="empresa_numero_hint">Company ID (10 Digits)</string>
+    <string name="editprofile_ok">Your profile has been updated!</string>
+    <string name="title_endless">Handy S</string>
+    <string name="empresa_register_hint">Company Name</string>
+    <string name="forgot_password">Recovery password</string>
+    <string name="skip_walk">Skip</string>
+    <string name="done_walk">Start</string>
+    <string name="cobertura_basica">Basic coverages</string>
+    <string name="title_walk_01">Welcome to\n Visa B Davivienda </string>
+    <string name="title_walk_02">Feel secure\n with mCard</string>
+    <string name="title_walk_03">Tranquility at\n your fingertips</string>
+    <string name="title_walk_04">A new method\n of mobile payment</string>
+    <string name="title_walk_05">Buying is\n now easier</string>
+    <string name="title_walk_06">A great travel\n experience</string>
+    <string name="title_walk_07">Services and shops\n with one touch</string>
+    <string name="walk_01">The \"all-in-one\" solution where\n you have thousands of products\n and services in your hand.</string>
+    <string name="walk_02">Live and travel without worries with\n medical coverage. Protection for your\n everyday and financial needs.</string>
+    <string name="walk_03">Now your certificate of coverage is\n available on your mobile device\n when you need it.</string>
+    <string name="walk_04">You can now make purchases in\n minutes, safely and easily with Visa\n Checkout.</string>
+    <string name="walk_05">Find everything you want\n at the price you want\n on our market.</string>
+    <string name="walk_06">Find flights, hotels and\n activities in any part\n of the world.</string>
+    <string name="walk_07">Restaurants, shops, professional\n services for your home, care\n for pets, cars and much mores.</string>
+    <string name="location_permision">Your GPS seems to be disabled, do you want to enable it?</string>
+    <string name="location_failed">Fail to fetch your current location. Please check your GPS status and try again</string>
+    <string name="location_yes">Yes</string>
+    <string name="demo_iatai">TEST IATAI</string>
+    <string name="prod_iatai">IATAI</string>
+    <string name="location_no">No</string>
+    <string name="TODAY">TODAY</string>
+    <string name="room">ROOMS</string>
+    <string name="hotels_room_description">If you are traveling, please include yourself in Room 1</string>
+    <string name="hotels_guests_per_room">GUESTS PER ROOM</string>
+    <string name="SAME_WEEK">LAST WEEK</string>
+    <string name="SAME_MONTH">LAST MONTH</string>
+    <string name="BEFORE">OLDER</string>
+    <string name="more_items">More items</string>
+    <string name="txt_transaction_empty">No transactions found</string>
+    <string name="edit_personal_info">Personal info</string>
+    <string name="edit_change_password">Change password</string>
+    <string name="qr_description">DESCRIPTION</string>
+    <string name="qr_vendor">VENDOR</string>
+    <string name="qr_itemn">ITEMS</string>
+    <string name="qr_tax_fees">TAXES AND FEES</string>
+    <string name="qr_total_price">TOTAL PRICE</string>
+    <string name="qr_total_pay">PAY NOW</string>
+    <string name="handi_u">Handy Business</string>
+    <string name="onepocket">Onepocket</string>
+    <string name="payment_hotel_guest">Guest</string>
+    <string name="mCard">mCard</string>
+    <string name="payment_hotel_room">Room</string>
+    <string name="payment_hotel_checking">CHECK IN</string>
+    <string name="payment_hotel_checkout">CHECK OUT</string>
+    <string name="payment_hotel_taxes_fees">TAXES AND FEES</string>
+    <string name="payment_hotel_total_price">TOTAL PRICE</string>
+    <string name="payment_hotel_onepocket">PAY WITH ONE POCKET</string>
+    <string name="title_activity_intro_screen">IntroScreenActivity</string>
+    <string name="qr_scan_description">Scan the QR code with your phone camera to pay the bill.</string>
+    <string name="login">SIGN IN</string>
+    <string name="register">REGISTER</string>
+    <string name="recover_password">Forgot your password?</string>
+    <string name="call_us">CALL US</string>
+    <string name="call_us_now">CALL US NOW</string>
+    <string name="conf_email1">We just send an email to</string>
+    <string name="conf_email2">with a secure link to reset your password.</string>
+    <string name="conf_email3">Have you not yet received the email?</string>
+    <string name="check_email">Check your email!</string>
+    <string name="title_qr_scan">Scan QR</string>
+    <string name="slogan_welcome">Welcome to</string>
+    <string name="slogan_all_in_one">the best all-in-one app</string>
+    <string name="skip_intro">Skip to menu</string>
+    <string name="welcome">Welcome back!</string>
+    <string name="logout">SIGN OUT</string>
+    <string name="pay_with_visa_privilege">Pay with VISA and get special promo price</string>
+    <string name="mCard_Premium">Disfruta tus viajes sin preocupaciones durante todo el año. Tendrás 100.000 USD en gastos médicos que te dan tranquilidad y confianza.</string>
+    <string name="create_account">CREATE ACCOUNT</string>
+    <string name="send">RESET MY PASSWORD</string>
+    <string name="send_chat">Send</string>
+    <string name="send_again">SEND AGAIN</string>
+    <string name="go_to_email">Go to email</string>
+    <string name="go_to_login">BACK TO LOGIN</string>
+    <string name="info_forgot">Enter your email adress below\n and we will send you a secure link\n to reset your password</string>
+    <string name="search_flights">Search Flights</string>
+    <string name="search_concierge">Search Activities</string>
+    <string name="search_hotels">Search Hotels</string>
+    <string name="continue_checkout">CONTINUE TO CHECKOUT</string>
+    <string name="txt_user_greeting">Hi, %s</string>
+    <string name="title_my_account">My account</string>
+    <string name="title_visa_checkout">Visa Checkout</string>
+    <string name="title_market_place">Market</string>
+    <string name="services">Services</string>
+    <string name="onetouch">Onetouch</string>
+    <string name="title_flights">Book flights</string>
+    <string name="title_hotels">Hotels</string>
+    <string name="title_entertainment">Entertainment</string>
+    <string name="title_chat">Chat</string>
+    <string name="title_call">Call</string>
+    <string name="title_activity_vch">VCHActivity</string>
+    <string name="title_register">Register</string>
+    <string name="title_payment_summary">Payment Summary</string>
+    <string name="title_card_info">Card information</string>
+    <string name="title_flight_results">Flights results</string>
+    <string name="title_hotel_results">Hotels results</string>
+    <string name="txt_hint_email">E-mail</string>
+    <string name="txt_hint_pass">Password</string>
+    <string name="txt_hint_current_pass">Current password</string>
+    <string name="txt_hint_new_pass">New password</string>
+    <string name="txt_username">Name</string>
+    <string name="txt_hint_cc_name">Name</string>
+    <string name="txt_hint_cc_surname">Last Name</string>
+    <string name="txt_hint_repass">Confirm password</string>
+    <string name="txt_hint_register">Please enter your personal information to create your account.</string>
+    <string name="txt_hint_chat">Write your message</string>
+    <string name="txt_hint_search_airport">Enter at least 3 characters</string>
+    <string name="txt_btnaskrecover">SUBMIT</string>
+    <string name="txt_btnrecover">Restore password</string>
+    <string name="txt_lbl_recover">If you have registered a card, please enter the last 4 digits of this.</string>
+    <string name="txt_lbl_callwait">Please hold while we connect you to an adviser.</string>
+    <string name="txt_lbl_setupChat">We are connecting you to an adviser</string>
+    <string name="txt_lbl_callready">OneTouch Call is ready</string>
+    <string name="txt_lbl_callcalling">One Touch Call is calling</string>
+    <string name="txt_lbl_callInProgress">Speaking to adviser</string>
+    <string name="err_no_internet">There is no internet connection.</string>
+    <string name="err_novalid_mail">The email is not valid.</string>
+    <string name="resend_mail">We have resent the email.</string>
+    <string name="txt_lbl_endcall">END CALL</string>
+    <string name="txt_lbl_speaker">Speaker</string>
+    <string name="txt_lbl_mute">Mute</string>
+    <string name="txt_lbl_disconnect">OneTouch Call disconnected</string>
+    <string name="txt_lbl_connect_err">Onetouchcall is not available right now. Please try again later.</string>
+    <string name="txt_lbl_cancelling">We are cancelling your call.</string>
+    <string name="txt_lbl_agent">You are talking: %s</string>
+    <string name="txt_lbl_chat_ts">%d minutes ago</string>
+    <string name="txt_lbl_departure">FROM</string>
+    <string name="txt_lbl_arrival">TO</string>
+    <string name="txt_lbl_select_airport">Select airport or city</string>
+    <string name="txt_lbl_select_cabin">SELECT CABIN</string>
+    <string name="txt_lbl_depart">DEPART DATE</string>
+    <string name="txt_lbl_return">RETURN DATE</string>
+    <string name="txt_lbl_select_date">Select desired date</string>
+    <string name="txt_lbl_economy">Economy</string>
+    <string name="txt_lbl_business">Business</string>
+    <string name="txt_lbl_first">First</string>
+    <string name="txt_lbl_passengers">PASSENGERS</string>
+    <string name="txt_lbl_adults">ADULTS</string>
+    <string name="txt_lbl_adults_description">12+ years</string>
+    <string name="txt_lbl_child">CHILDREN</string>
+    <string name="txt_lbl_child_description">2&#8211;11 years</string>
+    <string name="txt_lbl_infants">INFANTS</string>
+    <string name="txt_lbl_infants_description">0&#8211;24 months</string>
+    <string name="txt_lbl_select_passengers">Select the number of passengers who will be travelling to your destination.</string>
+    <string name="txt_lbl_searchFlightsWait">We are looking for the best rates for your trip</string>
+    <string name="txt_lbl_searchConciergeWait">We are looking for the best rates for your activities</string>
+    <string name="tv_lbl_empty_search">Sorry no matches.</string>
+    <string name="txt_lbl_destination">ENTER YOUR DESTINATION</string>
+    <string name="txt_lbl_select_dest">SELECT YOUR DESTINATION</string>
+    <string name="txt_lbl_checkin">CHECK IN</string>
+    <string name="txt_lbl_checkout">CHECK OUT</string>
+    <string name="txt_lbl_select_guest">Select guest</string>
+    <string name="txt_lbl_child_guests">CHILD</string>
+    <string name="txt_lbl_child_guests_description">0&#8211;12 years</string>
+    <string name="txt_lbl_notifications">Notifications</string>
+    <string name="err_rooms_out_of_range">At least 1 room must be selected.</string>
+    <string name="txt_lbl_num_rooms">%d ROOMS</string>
+    <string name="children_count">CHILDREN %d</string>
+    <string name="children_age">%d years old </string>
+    <string name="txt_lbl_room_amount">%1$s$ %2$f</string>
+    <string name="txt_lbl_tax_fees">TAXES AND FEES</string>
+    <string name="txt_lbl_tax_amount">%1$s$ %2$f</string>
+    <string name="txt_lbl_total">TOTAL PRICE</string>
+    <string name="txt_lbl_total_amount">%1$s$ %2$s</string>
+    <string name="txt_lbl_your_hotel">YOUR HOTEL</string>
+    <string name="txt_lbl_room_guest_details">%1$d Guest | %2$s room | %3$d nights</string>
+    <string name="txt_lbl_checkin_date">%1$s %2$s</string>
+    <string name="txt_lbl_card_info_hint">Complete your credit card information to complete your purchase.</string>
+
+    <!-- Visa Checkout Integration -->
+    <string name="match_parent">match_parent</string>
+    <string name="txt_hint_id_number">ID Number</string>
+    <string name="et_hint_cvv2">CVV2</string>
+    <string name="txt_lbl_number_payments">NUMBER OF PAYMENTS</string>
+    <string name="pay_now">Pay now</string>
+    <string name="title_activity_qrscan">QRScanActivity</string>
+    <string name="title_activity_hotels_payment">HotelsPaymentActivity</string>
+    <string name="title_activity_flights_payment">FlightsPaymentActivity</string>
+    <string name="title_all_in_one_benefits">All in one benefits</string>
+    <string name="title_restaurants">Restaurants</string>
+    <string name="title_concierge">Concierge</string>
+
+    <string name="title_activity_scrolling">ScrollingActivity</string>
+    <string name="large_text">
+        "Material is the metaphor.\n\n"
+
+        "A material metaphor is the unifying theory of a rationalized space and a system of motion."
+        "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
+        "technologically advanced and open to imagination and magic.\n"
+        "Surfaces and edges of the material provide visual cues that are grounded in reality. The "
+        "use of familiar tactile attributes helps users quickly understand affordances. Yet the "
+        "flexibility of the material creates new affordances that supercede those in the physical "
+        "world, without breaking the rules of physics.\n"
+        "The fundamentals of light, surface, and movement are key to conveying how objects move, "
+        "interact, and exist in space and in relation to each other. Realistic lighting shows "
+        "seams, divides space, and indicates moving parts.\n\n"
+
+        "Bold, graphic, intentional.\n\n"
+
+        "The foundational elements of print based design typography, grids, space, scale, color, "
+        "and use of imagery guide visual treatments. These elements do far more than please the "
+        "eye. They create hierarchy, meaning, and focus. Deliberate color choices, edge to edge "
+        "imagery, large scale typography, and intentional white space create a bold and graphic "
+        "interface that immerse the user in the experience.\n"
+        "An emphasis on user actions makes core functionality immediately apparent and provides "
+        "waypoints for the user.\n\n"
+
+        "Motion provides meaning.\n\n"
+
+        "Motion respects and reinforces the user as the prime mover. Primary user actions are "
+        "inflection points that initiate motion, transforming the whole design.\n"
+        "All action takes place in a single environment. Objects are presented to the user without "
+        "breaking the continuity of experience even as they transform and reorganize.\n"
+        "Motion is meaningful and appropriate, serving to focus attention and maintain continuity. "
+        "Feedback is subtle yet clear. Transitions are efﬁcient yet coherent.\n\n"
+
+        "3D world.\n\n"
+
+        "The material environment is a 3D space, which means all objects have x, y, and z "
+        "dimensions. The z-axis is perpendicularly aligned to the plane of the display, with the "
+        "positive z-axis extending towards the viewer. Every sheet of material occupies a single "
+        "position along the z-axis and has a standard 1dp thickness.\n"
+        "On the web, the z-axis is used for layering and not for perspective. The 3D world is "
+        "emulated by manipulating the y-axis.\n\n"
+
+        "Light and shadow.\n\n"
+
+        "Within the material environment, virtual lights illuminate the scene. Key lights create "
+        "directional shadows, while ambient light creates soft shadows from all angles.\n"
+        "Shadows in the material environment are cast by these two light sources. In Android "
+        "development, shadows occur when light sources are blocked by sheets of material at "
+        "various positions along the z-axis. On the web, shadows are depicted by manipulating the "
+        "y-axis only. The following example shows the card with a height of 6dp.\n\n"
+
+        "Resting elevation.\n\n"
+
+        "All material objects, regardless of size, have a resting elevation, or default elevation "
+        "that does not change. If an object changes elevation, it should return to its resting "
+        "elevation as soon as possible.\n\n"
+
+        "Component elevations.\n\n"
+
+        "The resting elevation for a component type is consistent across apps (e.g., FAB elevation "
+        "does not vary from 6dp in one app to 16dp in another app).\n"
+        "Components may have different resting elevations across platforms, depending on the depth "
+        "of the environment (e.g., TV has a greater depth than mobile or desktop).\n\n"
+
+        "Responsive elevation and dynamic elevation offsets.\n\n"
+
+        "Some component types have responsive elevation, meaning they change elevation in response "
+        "to user input (e.g., normal, focused, and pressed) or system events. These elevation "
+        "changes are consistently implemented using dynamic elevation offsets.\n"
+        "Dynamic elevation offsets are the goal elevation that a component moves towards, relative "
+        "to the component’s resting state. They ensure that elevation changes are consistent "
+        "across actions and component types. For example, all components that lift on press have "
+        "the same elevation change relative to their resting elevation.\n"
+        "Once the input event is completed or cancelled, the component will return to its resting "
+        "elevation.\n\n"
+
+        "Avoiding elevation interference.\n\n"
+
+        "Components with responsive elevations may encounter other components as they move between "
+        "their resting elevations and dynamic elevation offsets. Because material cannot pass "
+        "through other material, components avoid interfering with one another any number of ways, "
+        "whether on a per component basis or using the entire app layout.\n"
+        "On a component level, components can move or be removed before they cause interference. "
+        "For example, a floating action button (FAB) can disappear or move off screen before a "
+        "user picks up a card, or it can move if a snackbar appears.\n"
+        "On the layout level, design your app layout to minimize opportunities for interference. "
+        "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
+        "when a user tries to pick up one of cards.\n\n"
+    </string>
+    <string name="action_settings">Settings</string>
+    <string name="facebook_app_id">949325301863169</string>
+    <string name="txt_version">Version</string>
+    <string name="mcard_trip">Multiple travel up to 120 days maximum per trip</string>
+    <string name="mcard_doctorhelp">Modelo exclusivo de IATAI de servicio médico online con atención diferencial, conecta a médicos con viajeros internacionales que buscan asistencia médica inmediata, las 24 horas del día, los 7 días de la semana a nivel mundial. Sin necesidad de trámites administrativos previos.</string>
+    <string name="mCard_Unlimited">Viaja tranquilo todo el año con gastos médicos ilimitados, podrás recuperar la inversión si cancelas y hacer compras online al mejor precio.</string>
+    <string name="mCard_Exclusive">Disfruta tus viajes sin preocupaciones todo el año. Tendrás 500.000 USD en gastos médicos y una indemnización si pierdes tu equipaje.</string>
+    <string name="mCard_Privilege">Disfruta tus viajes sin preocupaciones durante todo el año porque tendrás 50.000 USD en gastos médicos que te dan tranquilidad y confianza.</string>
+    <string name="title_my_profile">My profile</string>
+    <string name="transactions_history">Transaction history</string>
+    <string name="coverage">Proof of coverage</string>
+    <string name="coverage_string1">Coverage includes unlimited travel on the duration and the period of 120 days the same maximums from the time of admission to any different from the residence of the recipient country.</string>
+    <string name="coverage_string2">The benefits and limits given are subject, in any case, requirements, terms and conditions of the policies taken by IATAI.</string>
+    <string name="benefits">My benefits</string>
+    <string name="currency">USD</string>
+    <string name="Repatriating_remains">Repatriating remains</string>
+    <string name="medical_expenses">Eventual medical expenses for illness or accident</string>
+    <string name="emergency_transfer">Emergency transfer</string>
+    <string name="activation">Activation</string>
+    <string name="proteccion_cotidiana">Enjoy doing your daily shopping in one place and through a click, and feel secure with the coverage we offer in your mCard . In addition access discounts on all services Handy .</string>
+    <string name="activate_your_benefits">Activate your benefits</string>
+    <string name="privacy_terms">Privacy, Terms &amp; Conditions</string>
+    <string name="activation_description">
+        Some description.
+    </string>
+    <string name="know_your_benefits">Meet all your all-in-one benefits</string>
+    <string name="activation_help">Do you need help to activate ?</string>
+    <string name="title_activity_edit_profile">EditProfileActivity</string>
+    <string name="btn_save">SAVE</string>
+    <string name="legal_title">Legal</string>
+    <string name="privacy_policy">Privacy policy</string>
+    <string name="terms_condition">Terms and Conditions</string>
+    <string name="btn_cancel">CANCEL</string>
+    <string name="btn_cancel_one_touch">Cancel</string>
+    <string name="mobile_register_hint">Phone number</string>
+    <string name="title_edit_profile">Edit profile</string>
+    <string name="edit_successful">Your profile has been successfully edited</string>
+    <string name="txt_lbl_notification">Notification</string>
+    <string name="form_errors">There are some errors in the form, please correct them and try again</string>
+    <string name="title_your_code">Your code</string>
+    <string name="round_trip_flight_type">Round Trip</string>
+    <string name="one_way_flight_type">One Way</string>
+    <string name="country">Select country</string>
+    <string name="purchase_detail">Purchase detail</string>
+    <string name="text_suggest">You must write at least 3 characters</string>
+    <string name="text_hint_enter_airport">Enter city or airport</string>
+    <string name="txt_menu_flights">Flights</string>
+    <string name="user_information">USER INFORMATION</string>
+    <string name="text_select_dates_in_dialog">Select dates</string>
+    <string name="one_way_type">ONE WAY</string>
+    <string name="rooms_title">Room %s</string>
+    <string name="txt_hint_hotels_search">Enter the city or the hotel of destination</string>
+    <string name="txt_subtitle_hotels_search">Enter your destination</string>
+    <string name="txt_title_book_hotels">Book hotels</string>
+    <string name="txt_title_book_hotels_host">Guest per room</string>
+    <string name="activate_onepocket">Add payment method to activate your onepocket</string>
+    <string name="txt_select_date">SELECT DATE</string>
+    <string name="action_add_card">Add card</string>
+    <string name="more_info">MORE INFO</string>
+    <string name="txt_month_year_selector_flights"></string>
+    <string name="txt_departure_date">DEPARTURE</string>
+    <string name="txt_return_date">RETURN</string>
+    <string name="alert_message_departure_or_arrive_not_selected_hotels">Please select your departure city</string>
+    <string name="alert_message_no_flights">There are no available flights</string>
+    <string name="alert_message_departure_or_arrive_not_selected">Please select your departure city and your destination city</string>
+    <string name="alert_message_return_date_not_selected">Please select your return date</string>
+    <string name="alert_message_return_date_not_selected_hotels">Please select your Check In Date and Check Out Date</string>
+    <string name="title_alert_dialog_warning">Advertencia</string>
+    <string name="room_and_guests_title">1 ROOM, 1 ADULT</string>
+    <string name="txt_single_room">ROOM</string>
+    <string name="text_single_adult">ADULT</string>
+    <string name="text_single_child">CHILD</string>
+    <string name="text_single_infant">INFANT</string>
+    <string name="GPSAlertDialogTitle">Visa B Davivienda Location</string>
+    <string name="GPSAlertDialogMessage">Visa B Davivienda wants to use your location</string>
+    <string name="cancel">Cancel</string>
+    <string name="aditional_protection">ADITIONAL PROTECTION</string>
+    <string name="aditional_protection_string">Feel protected on your travels with unique and exclusive experiences designed for you.</string>
+    <string name="financiera_proteccion">We protect you even in unexpected situations that can jeopardize your finances .</string>
+    <string name="divider">Divider</string>
+    <string name="market_discount">Discounts on purchases through the market place</string>
+    <string name="hotel_discount">Discount hotel reservations through MCARD</string>
+    <string name="concierge_discount">Discounts destination activities through MCARD</string>
+    <string name="carental_discount">Discount car rental through MCARD</string>
+    <string name="prehospital_discount">Discounts pre-hospital medical, dental and transportation home emergencies ( ambulance medicalized , Ambulances Basic Medical Consultation and trolleys ) in the residence . In cities : in Armenia, Bogota , Pereira , Medellin , Cali , Manizales , Palmira , Rionegro</string>
+    <string name="carwash_discount">Discount for special services and combos in car wash</string>
+    <string name="chofer_discount">Discounted service for driver chosen to handle the customers vehicle. The service must be made with at least 2 hours in advance</string>
+    <string name="national_discount">Discount on services in handy U</string>
+    <string name="benefits_description">Access to discounts on services and solutions for your daily life through our allies.</string>
+    <string name="copy_related_privilege">Copy related to membership</string>
+    <string name="regular_price">REGULAR PRICE</string>
+    <string name="visa_price">PAY WITH VISA</string>
+    <string name="coverage_limite">Coverage Limit</string>
+
+
+    <!--DR HELP INFORMATION-->
+    <string-array name="header_titles">
+
+        <item>  Eventual medical expenses for illness or accident </item>
+        <item>Repatriation of Remains / Transfer Emergency</item>
+        <item>Medical Expense Extreme Sports</item>
+        <item>Disease expenses or Preexisting Condition</item>
+        <item>Pregnancy Medical Expenses up Week 28</item>
+        <item>Emergency dental expenses</item>
+        <item>Pharmaceutical costs</item>
+        <item>Round-trip ticket for an accompanying family member in case of hospitalization of the beneficiary.</item>
+        <item>Early return due to death of a relative</item>
+        <item>Hotel expenses for convalescence</item>
+        <item>Hotel expenses for a companion</item>
+
+    </string-array>
+
+    <!--ADDITIONAL INFORMATION-->
+    <string-array name="header_titles_aditional">
+
+        <item>  Trip cancellation / "any reason" / trip interruption </item>
+        <item>Air ticket Protection</item>
+        <item>Trip cancellation by the tour operator insolvency</item>
+        <item>Trip cancellation for work</item>
+        <item>Immediate compensation for delay and lost luggage</item>
+
+    </string-array>
+
+    <!--DAILY PROTECTION-->
+    <string-array name="header_titles_cotidiana">
+
+        <item>  Price Guarantee </item>
+        <item>Purchase protected</item>
+        <item>Extended warranty</item>
+        <item>Entry to shows</item>
+        <item>Personal accidents</item>
+        <item>Handy S</item>
+
+    </string-array>
+
+    <!--FINANCIAL PROTECTION-->
+    <string-array name="header_titles_financial" formatted="false">
+
+        <item>  ATM theft</item>
+        <item>Bag and wallet theft</item>
+        <item>Data Protection</item>
+
+    </string-array>
+
+    <!--DR HELP INFORMATION-->
+    <string-array name="h1_items">
+        <item>Feel protected against any eventuality medical emergency resulting from an illness or accident.</item>
+    </string-array>
+
+    <string-array name="h2_items">
+        <item>You will be protected against such difficult situations,that even involve a large expense for your family as repatriation.</item>
+    </string-array>
+
+    <string-array name="h3_items">
+        <item>If during your trip you will practice,practice or participate , as an amateur ; in high-risk sports competitions , you will be protected against any medical eventuality. * Subject to conditions of use and service.</item>
+    </string-array>
+
+    <string-array name="h4_items">
+        <item>You will be protected against any eventuality medical emergency arising from a health condition suffered prior to the travel date. * Subject to conditions of use and service.</item>
+    </string-array>
+
+    <string-array name="h5_items">
+        <item>During your pregnancy you will have medical protection ( including emergency medical checkups and ultrasounds ) by unforeseen complications , until the 28th week of gestation. * Subject to conditions of use and service.</item>
+    </string-array>
+
+    <string-array name="h6_items">
+        <item>Emergency Dental treatment necessary to resolve the unexpected sharp pain , except for infection.</item>
+    </string-array>
+
+    <string-array name="h7_items">
+        <item>Medicines required for the treatment of injury or illness are covered , everything must be under prescription.</item>
+    </string-array>
+
+    <string-array name="h8_items">
+        <item>In the event that the Holder must remain hospitalized for more than three ( 5) days , we will pay the cost of plane ticket on a commercial airline, regularly scheduled flight, economy class.</item>
+    </string-array>
+
+    <string-array name="h9_items">
+        <item>In the event that you must interrupt your trip death a relative ( spouse, parent, or child ) , we will pay the penalty of initial ticket or return ticket if you can not change the initial ticket.</item>
+    </string-array>
+
+    <string-array name="h10_items">
+        <item>In the event that you should prolong the journey beyond schedule as a result of an illness or accident during the trip and that need has been indicated by the attending physician , we will pay the costs and expenses of hotel accommodation and food to the limit indicated and for a maximum period of ten ( 10) days.</item>
+    </string-array>
+
+    <string-array name="h11_items">
+        <item>In the event that you should stay in the hospital for more than five ( 5) days , we will pay the accommodation and feeding of your companion to the limit indicated.</item>
+    </string-array>
+
+    <!--ADDITIONAL INFORMATION-->
+
+    <string-array name="h1A_items" formatted="false">
+        <item>If you should cancel or interrupt your trip for just cause we will refund up to 100 % of non-refundable expenses and / or recoverable . If canceled for any reason other , we will refund up to 75 % of non-refundable expenses and / or recoverable . The plan must have acquired at least 21 days prior to the departure and communicated the cancellation 72 hours before the trip started</item>
+    </string-array>
+
+    <string-array name="h2A_items" formatted="false">
+        <item>If for some reason you must cancel your trip , we will refund non-refundable expenses and / or recoverable your flight ticket . The issue should have been done and paid for at least 21 days prior to the departure and communicated the cancellation 72 hours before the trip started.</item>
+    </string-array>
+
+    <string-array name="h3A_items" formatted="false">
+        <item>If the tour operator ( cruise or airline ) with which you hired your trip out of the business with or without bankruptcy , we will refund the costs Up to 100% of the non- recoverable</item>
+    </string-array>
+
+    <string-array name="h4A_items" formatted="false">
+        <item>If you must interrupt your trip for work and are Cardmember Corporate / Business Credit , we will refund non-refundable expenses and / or recoverable.</item>
+    </string-array>
+
+    <string-array name="h5A_items" formatted="false">
+        <item>The compensation will be immediate, daily , from the time the PIR (Property Irregularity Report) is submitted to the coverage indicated on the product.</item>
+    </string-array>
+
+    <!--DAILY PROTECTION-->
+
+    <string-array name="h1C_items" formatted="false">
+        <item>If you buy a product through Onepocket and find an equivalent offer on make, model and serial for a lower rate , you will be covered with a refund for the price difference.</item>
+    </string-array>
+
+    <string-array name="h2C_items" formatted="false">
+        <item>Enjoy your shopping and make sure feel with the toppings we offer you refuge in case of qualified theft and accidental damage to the goods you buy with your credit or debit card through Onepocket.</item>
+    </string-array>
+
+    <string-array name="h3C_items" formatted="false">
+        <item>We extend the factory warranty for your new appliances purchased through Onepocket, once this has expired. You can assert your insurance and get the repair or replacement of your product,without losing your money.</item>
+    </string-array>
+
+    <string-array name="h4C_items" formatted="false">
+        <item>If you can not attend a scheduled show, we will refund the value of your ballot.</item>
+    </string-array>
+
+    <string-array name="h5C_items" formatted="false">
+        <item>You are protected in case of accident 24 hours , 365 days a year. This insurance is an economic support to you and / or your family to traumatic contingencies.</item>
+    </string-array>
+
+    <string-array name="h6C_items" formatted="false">
+        <item>Protection Liability and Warranty</item>
+    </string-array>
+
+
+    <!--FINANCIAL INFORMATION-->
+
+    <string-array name="h1F_items" formatted="false">
+        <item>You will be protected when you are forced by violence or threat to take away or withdraw money from an ATM . Thinking of all , also took shelter medical expenses you must incur for bodily or physical injury in case of aggression motive of theft of money</item>
+    </string-array>
+
+    <string-array name="h2F_items" formatted="false">
+        <item>Protect your bag and inside you! No need to worry about replacement costs for theft of your wallet , as well as the costs of transshipment, exclusively for the theft or loss of the following personal documents: identity card , aliens identity card , passport, pass driving , police certificate , military and credit and / or debit cards that have some cost to the bank card book .</item>
+    </string-array>
+
+    <string-array name="h3F_items" formatted="false">
+        <item>We protect your data from cyber attacks or cyber incident with our coverage for responsibility for data protection.</item>
+    </string-array>
+
+
+    <string name="join_new_experience">Join to a new experience</string>
+    <string name="txt_lbl_user_information">Enter the following information to create your account</string>
+    <string name="txt_select_country_picker">SELECT COUNTRY</string>
+    <string name="txt_password_incorrectly_entered">The password should have 6 characters or more</string>
+    <string name="txt_last_name_incorrect">Last name should have 2 characters or more</string>
+    <string name="txt_name_incorrect">Name should have 2 characters or more </string>
+    <string name="txt_invalid_email">Is not a valid e-mail</string>
+    <string name="txt_email_should_have_7_characters">E-mail should have 7 characters or more</string>
+    <!-- For show in dialog -->
+    <string name="COLOMBIA">(+57) Colombia</string>
+    <string name="ECUADOR">(+593) Ecuador</string>
+    <string name="PERU">(+51) Peru</string>
+    <string name="UNITED_STATES">(+1) United states</string>
+    <string name="ARGENTINA">(+54) Argentina</string>
+    <!-- For send in WS of LoginNewUser -->
+    <string name="ISO_COLOMBIA">CO</string>
+    <string name="ISO_ECUADOR">EC</string>
+    <string name="ISO_PERU">PE</string>
+    <string name="ISO_USA">US</string>
+    <string name="ISO_ARGENTINA">AR</string>
+    <!-- For send in WS of LoginNewUser -->
+    <string name="PhoneCode_COLOMBIA">+57</string>
+    <string name="PhoneCode_ECUADOR">+593</string>
+    <string name="PhoneCode_PERU">+51</string>
+    <string name="PhoneCode_USA">+01</string>
+    <string name="PhoneCode_ARGENTINA">+54</string>
+
+
+    <!-- all fonts-->
+    <string name="font_muli" translatable="false">fonts/Muli.ttf</string>
+    <string name="font_muli_bold" translatable="false">fonts/Muli-Bold.ttf</string>
+    <string name="font_muli_boldItalic" translatable="false">fonts/Muli-BoldItalic.ttf</string>
+    <string name="font_muli_extraLight" translatable="false">fonts/Muli-ExtraLight.ttf</string>
+    <string name="font_muli_extraLightItalic" translatable="false">fonts/Muli-ExtraLightItalic</string>
+    <string name="font_muli_italic" translatable="false">fonts/Muli-Italic.ttf</string>
+    <string name="font_muli_light" translatable="false">fonts/Muli-Light.ttf</string>
+    <string name="font_muli_lightItalic" translatable="false">fonts/Muli-LightItalic.ttf</string>
+    <string name="font_muli_SemiBoldItalic" translatable="false">fonts/Muli-Semi-BoldItalic.ttf</string>
+    <string name="font_muli_semiBold" translatable="false">fonts/Muli-SemiBold.ttf</string>
+    <string name="mcard_privilege" translatable="false">Privilege</string>
+    <string name="mcard_no_age_limit">No age limit</string>
+    <string name="mcard_premium" translatable="false">Premium</string>
+    <string name="title_services">Services</string>
+    <string name="title_cities_countries_attractions_concierge">CITIES, COUNTRIES,\n ATTRACTIONS OR ACTIVITIES</string>
+    <string name="title_concierge_whatever_you_want">Whatever you want to\n do in the world</string>
+    <string name="title_concierge_city_by_city">City by city, your music, your tastes,\n places and experiences in your\n next destination.</string>
+    <string name="txt_title_choose_activities">Choose activities</string>
+    <string name="font_varela">fonts/VarelaRound-Regular.ttf</string>
+    <string name="txt_city_concierge_not_selected">Please select your destination</string>
+
+    <!--HANDY U STRINGS-->
+
+    <string name="app_name_handy">Visa B Davivienda</string>
+
+    <!--server base url for api call and images  -->
+    <!-- <string name="base_url">http://ec2-52-26-68-235.us-west-2.compute.amazonaws.com:8080/HomZservice</string>
+     <string name="image_url">http://ec2-52-26-68-235.us-west-2.compute.amazonaws.com:8080/HomZservice/fileupload/</string>
+     <string name="image_category">http://ec2-52-26-68-235.us-west-2.compute.amazonaws.com:8080/HomZservice/fileupload/</string>-->
+
+
+    <!-- server base url for test -->
+
+
+    <!--UI screen text  -->
+    <string name="login_handy">LOGIN</string>
+    <string name="signup">SIGN UP</string>
+
+    <string name="login1">Login</string>
+    <string name="signup1">Sign Up</string>
+
+    <string name="emailhint">Enter Email</string>
+    <string name="passwordhint">Enter Password</string>
+    <string name="forgotpassword">Forgot Password?</string>
+
+    <string name="home">Home</string>
+    <string name="myprofile">My Profile</string>
+    <string name="aboutus">About Us</string>
+    <string name="mywallet">My Wallet</string>
+    <string name="logout_handy">Logout</string>
+    <string name="myaddress">My Address</string>
+    <string name="action_settings_handy">Settings</string>
+    <string name="welcome_msg1">Welcome to handy</string>
+    <string name="welcome_msg2">Miles of services in just\none place</string>
+    <string name="forgetpass_txt">Enter your email address in order to recover your passwrod back</string>
+    <string name="forgetpass_txt_btn">Recover My Password</string>
+    <string name="backtologin">Back To Login</string>
+
+    <!--set font names  -->
+    <string name="fontName_regular">Muli.ttf</string>
+    <string name="fontName_bold">Muli-Bold.ttf</string>
+
+    <!--general messages  -->
+    <string name="nointernet">No internet found.</string>
+    <string name="title_activity_my_address">MyAddressActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="taxi">Taxi</string>
+    <string name="text_hint_enter_city">Enter city</string>
+
+
+    <string name="send_log_request">Sorry an error has occurred.\nPlease press here to send us the log.</string>
+    <string name="send_log_instruction">Please add reproduction steps and addition info here. Thanks!</string>
+    <string name="decline_register">DECLINE</string>
+    <string name="accept_register">AGREE</string>
+    <string name="congratulations">¡Congratulations!</string>
+    <string name="you_can_enjoy_benefits">You can now enjoy all\n benefits it brings you\n Visa B Davivienda</string>
+    <string name="txt_continue">CONTINUE</string>
+    <string name="test_terms"><u>terms and conditions</u></string>
+    <string name="by_clicking">By clicking agree you accept</string>
+    <string name="the_article">the </string>
+    <string name="and_article">and </string>
+    <string name="before_continue">Before you continue!</string>
+    <string name="TXT_LETS_TALK">LET\'S TALK</string>
+    <string name="title_store">Store</string>
+    <string name="TXT_LATER">LATER</string>
+    <string name="TXT_ACTIVATE_NOW">Activate now your certificate of\n coverage and get more benefits</string>
+    <string name="hintTypeOfId">Type of ID</string>
+    <string name="hintIdNumber">ID Number</string>
+    <string name="txt_select_type_id">SELECT TYPE OF ID</string>
+    <string name="txt_citizenship_card">Citizenship card</string>
+    <string name="txt_Foreigner_ID">Foreigner id</string>
+    <string name="txt_identity_card">Identity card</string>
+    <string name="txt_passport">Passport</string>
+    <string name="txt_nit">NIT</string>
+    <string name="txt_otro">Other</string>
+    <string name="txt_nuip">NUIP</string>
+    <string name="sign_in">Sign in</string>
+    <string name="greet">Good to see you again</string>
+    <string name="IATAI_CERTIFICA">IATAI CERTIFIES</string>
+    <string name="UnlimitedMcard">UNLIMITED</string>
+    <string name="enjoy_all_benefits">Access hundreds of benefits, services and\n coverage offered by your handy mCard.</string>
+    <string name="get_your_certificate">GET IT NOW!</string>
+    <string name="privacy_policy_underscore"><u>privacy policy</u></string>
+    <string name="ups_try_again">Oops! try again</string>
+    <string name="your_search_no_results">Your search show no results</string>
+    <string name="txt_loading_loader">Loading</string>
+    <string name="title_onetouch_call">Onetouch call</string>
+    <string name="title_onetouch_chat">Onetouch chat</string>
+    <string name="title_live_tranquility">Live in peace!</string>
+    <string name="txtWalktroughFooter">POWERED BY IATAI</string>
+</resources>

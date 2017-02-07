@@ -12,14 +12,12 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.allegra.handyuvisa.utils.Constants;
-
 /**
  * Created by lchui on 1/10/16.
  */
 //This class is one that consume a lot of memory, because the way is inflated the menu.
 //Example:   setContentView(R.layout.activity_front_back);
-public class FrontBackAnimate extends FragmentActivity implements BackFragment.MenuSelectListener {
+public class FrontBackAnimate extends FragmentActivity implements com.allegra.handyuvisa.BackFragment.MenuSelectListener {
 
     //*************INTERFACES**************
     public interface InflateReadyListener {
@@ -30,7 +28,7 @@ public class FrontBackAnimate extends FragmentActivity implements BackFragment.M
     private static final String TAG = "FrontBackAnimate";
     private static final String FRAGMENT_FRONT = "FRAGMENT_FRONT";
     private FrontFragment frontFragment;
-    private BackFragment backFragment;
+    private com.allegra.handyuvisa.BackFragment backFragment;
     private static FrontBackAnimate.InflateReadyListener inflateListener;
     protected static int frontLayoutResId = R.layout.fragment_front;
     private int state = 0;
@@ -45,7 +43,7 @@ public class FrontBackAnimate extends FragmentActivity implements BackFragment.M
                             .add(R.id.container_front_back, frontFragment, FRAGMENT_FRONT)
                             .commit();
         Log.d(TAG,FRAGMENT_FRONT);
-        backFragment = (BackFragment) getFragmentManager().findFragmentById( R.id.fragment_bottom );
+        backFragment = (com.allegra.handyuvisa.BackFragment) getFragmentManager().findFragmentById( R.id.fragment_bottom );
         backFragment.menulistener = this;
         //Log.d(TAG,FRAGMENT_FRONT);
     }
@@ -57,37 +55,6 @@ public class FrontBackAnimate extends FragmentActivity implements BackFragment.M
         finish();
     }
 
-    /*@Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        Log.e("Sergio","Llega al if antes");
-        super.onActivityResult(requestCode, resultCode, data);
-        Class classForReturn = null;
-
-        switch (requestCode){
-
-            case Constants.REQUEST_CODE_MCARD:
-                classForReturn = Mcardhtml.class;
-                break;
-            case Constants.REQUEST_CODE_HOTELS:
-                classForReturn = HotelsActivity.class;
-                break;
-            case Constants.REQUEST_CODE_CONCIERGE:
-                classForReturn = ConciergeActivity.class;
-                break;
-            case Constants.REQUEST_CODE_SERVICES:
-                classForReturn = ServiceActivity.class;
-                break;
-            case Constants.REQUEST_CODE_SCAN_QR:
-                classForReturn = QRScanActivity.class;
-                break;
-        }
-
-        Intent intent = new Intent(getApplicationContext(),classForReturn);
-        startActivity(intent);
-        Log.e("Sergio","Llega al if");
-        //finish();
-    }*/
 
     //**********************INNER CLASSES***************************
     public static class FrontFragment extends Fragment {
@@ -106,7 +73,8 @@ public class FrontBackAnimate extends FragmentActivity implements BackFragment.M
     }
 
     //********************PROPER METHODS**********************
-    protected void setView(int resId, FrontBackAnimate.InflateReadyListener listener) {
+    public void  setView(int resId, FrontBackAnimate.InflateReadyListener listener) {
+        //Log.d(TAG, "Llega setView");
         frontLayoutResId = resId;
         inflateListener = listener;
     }
@@ -115,7 +83,7 @@ public class FrontBackAnimate extends FragmentActivity implements BackFragment.M
         return R.layout.fragment_front;
     }
 
-    protected void animate() {
+    public void animate() {
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -135,7 +103,7 @@ public class FrontBackAnimate extends FragmentActivity implements BackFragment.M
                     .setCustomAnimations(R.animator.back_exposed, 0)
                     .show(backFragment)
                     .commit();
-            Log.d("Sergio", "0");
+            //Log.d(TAG, "Llega 0");
         } else {
             state = 0;
             showStatusBar(true);
@@ -145,7 +113,7 @@ public class FrontBackAnimate extends FragmentActivity implements BackFragment.M
                     .setCustomAnimations(R.animator.back_hidden, 0)
                     .show(backFragment)
                     .commit();
-            Log.d("Sergio", "1");
+            //Log.d(TAG, "Llega 1");
         }
 
     }
@@ -163,7 +131,7 @@ public class FrontBackAnimate extends FragmentActivity implements BackFragment.M
         if (state == 1) {
             getFragmentManager().beginTransaction().hide(frontFragment).hide(backFragment).commit();
             //state = 1;
-            Log.d("Sergio", "Entra al state == 1");
+            //Log.d("Sergio", "Entra al state == 1");
             state = 0;
             showStatusBar(true);
             getFragmentManager().beginTransaction()
@@ -201,6 +169,8 @@ public class FrontBackAnimate extends FragmentActivity implements BackFragment.M
         animateBetter();
     }
 
+
+
     public void showStatusBar(boolean toShow) {
         View decorView = getWindow().getDecorView();
         // Hide the status bar.
@@ -209,6 +179,7 @@ public class FrontBackAnimate extends FragmentActivity implements BackFragment.M
     }
 
     public void onUp(View view) {
+        //Log.d(TAG, "Llega al onUp de FromtBck");
         super.onBackPressed();
     }
 

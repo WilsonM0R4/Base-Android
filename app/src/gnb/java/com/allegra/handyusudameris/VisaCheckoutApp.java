@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.allegra.handyuvisa.utils.Constants;
 import com.allem.onepocket.utils.OPKLibraryConfig;
+import com.allem.onepocket.utils.ThemeType;
 import com.urbanairship.UAirship;
 import com.urbanairship.push.notifications.DefaultNotificationFactory;
 
@@ -60,7 +61,7 @@ public class VisaCheckoutApp extends MultiDexApplication {
             @Override
             public void onAirshipReady(UAirship airship) {
 
-                Log.d("ESTOY LISTO", "RECIBIDO");
+                //Log.d("ESTOY LISTO", "RECIBIDO");
                 DefaultNotificationFactory factory = (DefaultNotificationFactory)
                         UAirship.shared().getPushManager().getNotificationFactory();
                 factory.setSound(Uri.parse(path));
@@ -158,7 +159,7 @@ public class VisaCheckoutApp extends MultiDexApplication {
     }
 
     private void initOnepocket() {
-        OPKLibraryConfig.setTestMode(Constants.TESTING);
+        new OPKLibraryConfig.Builder().testMode(Constants.TESTING).idPortal(Constants.ID_PORTAL).setTheme(ThemeType.GNB_SUDAMERIS).build();
     }
 
 }

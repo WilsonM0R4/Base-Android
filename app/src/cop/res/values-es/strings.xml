@@ -1,0 +1,560 @@
+<resources>
+    <string name="app_name">Handy U Coopcentral</string>
+    <string name="app_name_legal">Handy U Coopcentral</string>
+    <string name="facebook_app_id" >949325301863169</string>
+    <string name="txtInfoCertifications"># CERTIFICADO</string>
+    <string name="TODAY">HOY</string>
+    <string name="room">HAB</string>
+    <string name="SAME_WEEK">ÚLTIMA SEMANA</string>
+    <string name="mytips">Tips</string>
+    <string name="SAME_MONTH">ÚLTIMO MES</string>
+    <string name="skip_walk">Salta</string>
+    <string name="done_walk">Inicia</string>
+    <string name="cobertura_basica">Basic Coverages</string>
+    <string name="title_walk_01">Bienvenido a Handy U Coopcentral</string>
+    <string name="title_walk_02">Con mCard\n siéntete seguro</string>
+    <string name="title_walk_03">Tranquilidad al alcance\n de tu mano</string>
+    <string name="title_walk_04">Un nuevo método\n de pago móvil</string>
+    <string name="title_walk_05">Ahora comprar\n es más fácil</string>
+    <string name="title_walk_06">Una buena experiencia\n para viajar</string>
+    <string name="title_walk_07">Servicios y comercios\n con un toque</string>
+    <string name="walk_01">La solución "all-in-one"\n donde tienes miles de servicios\n y productos a la mano.</string>
+    <string name="walk_02">Vive y viaja sin preocupaciones, con\n coberturas médicas, protección para tus\n necesidades cotidianas y financieras.</string>
+    <string name="walk_03">Ahora tu certificado de cobertura\n está disponible en tu dispositivo\n móvil cuando lo necesites.</string>
+    <string name="walk_04">Ahora puedes comprar en minutos,\n de manera más fácil y segura con\n Visa Checkout.</string>
+    <string name="walk_05">Encuentra todo lo que quieres\n al precio que deseas en\n nuestro market.</string>
+    <string name="walk_06">Encuentra vuelos, hoteles y\n actividades, en cualquier lugar\n del mundo.</string>
+    <string name="walk_07">Restaurantes, tiendas, profesionales para tu hogar, atención para mascotas, carros y mucho más.</string>
+    <string name="BEFORE">ANTERIORES</string>
+    <string name="travel_quiet">¡Viaja con tranquilidad!</string>
+    <string name="forgot_password">Recuperación de Contraseña</string>
+    <string name="location_permision">Tu GPS parece estar deshabilitado. ¿Quieres habilitarlo?</string>
+    <string name="location_failed">Falló al buscar a tu ubicación actual. Por favor, comprueba el estado de tu GPS y vuelve a intentarlo</string>
+    <string name="location_yes">Si</string>
+    <string name="location_no">No</string>
+    <string name="more_info">mas info.</string>
+    <string name="alert_message_no_flights">No existen vuelos disponibles</string>
+    <string name="coverage">Prueba de Cobertura</string>
+    <string name="benefits">Mis Beneficios</string>
+    <string name="title_activity_intro_screen">IntroScreenActivity</string>
+    <string name="login">INGRESA</string>
+    <string name="onepocket">Onepocket</string>
+    <string name="mCard">mCard</string>
+    <string name="GPSAlertDialogTitle">Handy U Coopcentral Localizacion</string>
+    <string name="GPSAlertDialogMessage">Handy U Coopcentral desea usar tu localizacion</string>
+    <string name="cancel">Cancelar</string>
+    <string name="btn_cancel_one_touch">Cancelar</string>
+    <string name="mCard_Premium">Disfruta tus viajes sin preocupaciones durante todo el año. Tendrás 100.000 USD en gastos médicos que te dan tranquilidad y confianza.</string>
+    <string name="mCard_Unlimited">Viaja tranquilo todo el año con gastos médicos ilimitados, podrás recuperar la inversión si cancelas y hacer compras online al mejor precio.</string>
+    <string name="mCard_Exclusive">Disfruta tus viajes sin preocupaciones todo el año. Tendrás 500.000 USD en gastos médicos y una indemnización si pierdes tu equipaje.</string>
+    <string name="mCard_Privilege">Disfruta tus viajes sin preocupaciones durante todo el año porque tendrás 50.000 USD en gastos médicos que te dan tranquilidad y confianza.</string>
+    <string name="register">REGÍSTRATE</string>
+    <string name="coverage_string1">La cobertura incluye viajes ilimitados en la vigencia y el periodo de la misma de 120 días máximos desde el momento del ingreso a cualquier páis diferente al de la residencia del titular.</string>
+    <string name="coverage_string2">Los beneficios y los límites indicados quedan sujetos, en todo caso, a los requisitos, términos y condiciones de las pólizas contratadas por IATAI.</string>
+    <string name="currency">USD</string>
+    <string name="Repatriating_remains">Repatriación de restos mortales</string>
+    <string name="medical_expenses">Gastos médicos por enfermedad eventual o accidente</string>
+    <string name="emergency_transfer">Traslado de emergencia</string>
+    <string name="mcard_doctorhelp">Modelo exclusivo de IATAI de servicio médico online con atención diferencial, conecta a médicos con viajeros internacionales que buscan asistencia médica inmediata, las 24 horas del día, los 7 días de la semana a nivel mundial. Sin necesidad de trámites administrativos previos.</string>
+    <string name="handi_u">Handy U</string>
+    <string name="mcard_trip">Múltiples viajes hasta 120 días máximo por viaje</string>
+    <string name="payment_hotel_nights">noches</string>
+    <string name="payment_hotel_your">TU HOTEL</string>
+    <string name="payment_hotel_guest">Huéspedes</string>
+    <string name="payment_hotel_room">Habitaciones</string>
+    <string name="payment_hotel_checking">INGRESO</string>
+    <string name="txt_nit">NIT</string>
+    <string name="txt_otro">Otro</string>
+    <string name="title_store">Tiendas</string>
+    <string name="txt_nuip">NUIP</string>
+    <string name="payment_hotel_checkout">SALIDA</string>
+    <string name="payment_hotel_onepocket">PAGAR CON ONE POCKET</string>
+    <string name="payment_hotel_taxes_fees">IMPUESTOS</string>
+    <string name="payment_hotel_total_price">TOTAL</string>
+    <string name="recover_password">¿Olvidaste tu contraseña?</string>
+    <string name="call_us">Llámanos</string>
+    <string name="more_items">Más resultados</string>
+    <string name="txt_transaction_empty">Tu historial de transacciones está actualmente vacío.</string>
+    <string name="title_qr_scan">Escanear QR</string>
+    <string name="qr_scan_description">Escanea el código QR con la cámara de tu móvil para pagar tu factura</string>
+    <string name="slogan_welcome">Bienvenido a</string>
+    <string name="slogan_all_in_one">La mejor aplicación all-in-one</string>
+    <string name="skip_intro">Ir al menú</string>
+    <string name="welcome">Bienvenido!</string>
+    <string name="logout">DESCONECTAR</string>
+    <string name="pay_with_visa_privilege">Paga con VISA y obten un descuento especial</string>
+    <string name="create_account">CREAR CUENTA</string>
+    <string name="send">Enviar</string>
+    <string name="check_email">Revisa tu correo!</string>
+    <string name="conf_email1">Hemos enviado un correo a </string>
+    <string name="conf_email2">con un enlace seguro para reestablecer tu contraseña.</string>
+    <string name="conf_email3">¿Aún no has recibido el correo electrónico?</string>
+    <string name="send_again">Enviar de nuevo</string>
+    <string name="go_to_email">Ir al correo</string>
+    <string name="go_to_login">Ingresar</string>
+    <string name="info_forgot">Introduce tu dirección de correo electrónico a continuación y te enviaremos un enlace seguro para restablecer tu contraseña</string>
+    <string name="children_count">NIÑO %d</string>
+    <string name="children_age">%d años</string>
+    <string name="search_flights">Buscar vuelo</string>
+    <string name="search_hotels">Buscar hoteles</string>
+    <string name="continue_checkout">CONTINÚA</string>
+    <string name="title_my_account">Mi cuenta</string>
+    <string name="title_visa_checkout">Visa Checkout</string>
+    <string name="title_market_place">Market</string>
+    <string name="services">Servicios</string>
+    <string name="onetouch">Onetouch</string>
+    <string name="title_flights">Reservar vuelos</string>
+    <string name="err_novalid_mail">El correo no es valido.</string>
+    <string name="title_hotels">Hoteles</string>
+    <string name="title_entertainment">Entretenimiento</string>
+    <string name="title_chat">Chat</string>
+    <string name="title_call">Llámanos</string>
+    <string name="title_register">Registro</string>
+    <string name="title_card_info">Información de tarjeta</string>
+    <string name="title_payment_summary">Resumen de pago</string>
+    <string name="title_flight_results">Resultados de vuelos</string>
+    <string name="title_hotel_results">Resultados de hoteles </string>
+    <string name="title_restaurants">Restaurantes</string>
+    <string name="title_my_profile">Mi perfil</string>
+    <string name="qr_description">DESCRIPCIÓN</string>
+    <string name="edit_personal_info">Información personal</string>
+    <string name="edit_change_password">Cambiar contraseña</string>
+    <string name="resend_mail">Hemos reenviado el correo.</string>
+    <string name="qr_vendor">VENDEDOR</string>
+    <string name="qr_itemn">ITEMS</string>
+    <string name="qr_tax_fees">IMPUESTOS Y HONORARIOS</string>
+    <string name="qr_total_price">TOTAL</string>
+    <string name="qr_total_pay">PAGAR AHORA</string>
+    <string name="txt_user_greeting">Hola, %s</string>
+    <string name="txt_hint_email">Correo electrónico</string>
+    <string name="txt_hint_pass">Contraseña</string>
+    <string name="txt_username">Nombre</string>
+    <string name="txt_hint_repass">Confirmar contraseña</string>
+    <string name="txt_hint_register">Por favor, introduce tu información personal para crear tu cuenta.</string>
+    <string name="txt_hint_chat">Escriba su mensaje</string>
+    <string name="txt_hint_search_airport">Buscar aeropuerto; Mínimo 3 caracteres</string>
+    <string name="txt_btnaskrecover">Recuperar contraseña</string>
+    <string name="txt_lbl_callwait">Por favor espera mientras te conectamos con un asesor.</string>
+    <string name="txt_lbl_callready">OneTouch Call está listo</string>
+    <string name="txt_lbl_callcalling">OneTouch Call está llamando</string>
+    <string name="txt_lbl_callInProgress">OneTouch Call llamada en progreso</string>
+    <string name="txt_lbl_setupChat">Te estamos conectando a un asesor.</string>
+    <string name="txt_lbl_endcall">FINALIZAR LLAMADA</string>
+    <string name="txt_lbl_speaker">Altavoz</string>
+    <string name="txt_lbl_agent">Estás hablando con: %s</string>
+    <string name="txt_lbl_mute">Silencio</string>
+    <string name="txt_lbl_disconnect">OneTouch Call se desconectó</string>
+    <string name="err_no_internet">No hay conexión a internet.</string>
+    <string name="txt_lbl_connect_err">Onetouchcall no está disponible en este momento. Por favor, inténtelo de nuevo más tarde.</string>
+
+    <string name="txt_lbl_chat_ts">Hace %d minutos</string>
+    <string name="txt_lbl_departure">SALIDA</string>
+    <string name="txt_lbl_arrival">LLEGADA</string>
+    <string name="txt_lbl_select_airport">Seleccionar aeropuerto o ciudad</string>
+    <string name="txt_lbl_select_cabin">SELECCIONE LA CABINA</string>
+    <string name="txt_lbl_depart">FECHA DE SALIDA </string>
+    <string name="txt_lbl_return">FECHA DE REGRESO</string>
+    <string name="txt_lbl_select_date">Seleccione la fecha deseada</string>
+    <string name="txt_lbl_economy">Económica</string>
+    <string name="txt_lbl_business">Negocios</string>
+    <string name="txt_lbl_first">Primera clase</string>
+    <string name="txt_lbl_passengers">PASAJEROS</string>
+    <string name="txt_lbl_adults">ADULTOS</string>
+    <string name="txt_version">Versión</string>
+    <string name="txt_lbl_child">NIÑOS</string>
+
+    <!-- For send in WS of LoginNewUser -->
+    <string name="ISO_COLOMBIA">CO</string>
+    <string name="ISO_ECUADOR">EC</string>
+    <string name="ISO_PERU">PE</string>
+    <string name="ISO_USA">US</string>
+    <string name="ISO_ARGENTINA">AR</string>
+    <string name="txt_lbl_child_description">2&#8211;11 años</string>
+    <string name="txt_lbl_infants">BEBÉS</string>
+    <string name="txt_lbl_infants_description">0&#8211;24 meses</string>
+    <string name="txt_lbl_adults_description">12+ años</string>
+    <string name="txt_lbl_child_guests_description">0&#8211;12 años</string>
+    <string name="txt_lbl_searchFlightsWait">Estamos buscando las mejores tarifas para tu viaje</string>
+    <string name="txt_lbl_searchConciergeWait">Estamos buscando las mejores tarifas para tus actividades</string>
+    <string name="tv_lbl_empty_search">No se han encontrado coincidencias.</string>
+    <string name="txt_lbl_destination">INGRESA TU DESTINO</string>
+    <string name="txt_lbl_select_dest">SELECCIONE DESTINO</string>
+    <string name="hotels_guests_per_room">HUÉSPEDES POR HABITACIÓN</string>
+    <string name="hotels_room_description">Si vas a viajar, por favor inclúyete en la habitación 1</string>
+    <string name="txt_lbl_checkin">REGISTRARSE</string>
+    <string name="txt_lbl_checkout">REVISA</string>
+    <string name="legal_title">Legal</string>
+    <string name="txt_lbl_select_guest">huésped</string>
+    <string name="txt_lbl_child_guests">NIÑOS</string>
+    <string name="txt_lbl_notifications">Notificaciones</string>
+    <string name="txt_lbl_notification">Notificación</string>
+    <string name="err_rooms_out_of_range">Al menos 1 habitación debe ser seleccionada.</string>
+    <string name="txt_lbl_num_rooms">%d CUARTOS</string>
+    <string name="txt_lbl_room_amount">%1$s$ %2$f</string>
+    <string name="txt_lbl_tax_fees">IMPUESTOS Y HONORARIOS</string>
+    <string name="txt_lbl_tax_amount">%1$s$ %2$f</string>
+    <string name="txt_lbl_total">PRECIO TOTAL</string>
+    <string name="txt_lbl_total_amount">%1$s$ %2$s</string>
+    <string name="privacy_policy">Política de privacidad</string>
+    <string name="terms_condition">Terminos y condiciones</string>
+    <string name="txt_lbl_your_hotel">TU HOTEL</string>
+    <string name="txt_lbl_room_guest_details">%1$d Huésped | %2$s cuarto | %3$d noches</string>
+    <string name="txt_lbl_card_info_hint">Completa tu información de tarjeta de crédito para completar su compra.</string>
+    <!-- Visa Checkout Integration -->
+    <string name="match_parent">match_parent</string>
+    <string name="txt_hint_id_number">Número de documento</string>
+    <string name="et_hint_cvv2">CVV2</string>
+    <string name="txt_lbl_number_payments">NUMERO DE PAGOS</string>
+    <string name="pay_now">Pagar ahora</string>
+    <string name="transactions_history">Historial De Transacciones</string>
+    <string name="activation">Activación</string>
+    <string name="title_concierge">Actividades</string>
+    <string name="search_concierge">Buscar Actividades</string>
+    <string name="title_all_in_one_benefits">Beneficios all-in-one</string>
+    <string name="activation_description">
+                Este proceso te permite certificar la cobertura básica de asistencia internacional en caso de accidente o enfermedad.
+    </string>
+    <string name="know_your_benefits">Conoce los beneficios all-in-one</string>
+    <string name="btn_save">GUARDAR</string>
+    <string name="btn_cancel">CANCELAR</string>
+    <string name="txt_hint_current_pass">Contraseña actual</string>
+    <string name="txt_hint_new_pass">Contraseña nueva</string>
+    <string name="mobile_register_hint">Numero de celular</string>
+    <string name="title_edit_profile">Editar perfil</string>
+    <string name="edit_successful">Su perfil se ha editado satisfactoriamente</string>
+    <string name="form_errors">Hay algunos errores en el formulario, corrijalos e intente nuevamente</string>
+    <string name="title_your_code">Tu código</string>
+    <string name="activation_help">¿Necesitas ayuda para activar estos beneficios?</string>
+    <string name="call_us_now">Llámanos ahora</string>
+    <string name="large_text">  "Material is the metaphor.\n\n"          "A material metaphor is the unifying theory of a rationalized space and a system of motion."         "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "         "technologically advanced and open to imagination and magic.\n"         "Surfaces and edges of the material provide visual cues that are grounded in reality. The "         "use of familiar tactile attributes helps users quickly understand affordances. Yet the "         "flexibility of the material creates new affordances that supercede those in the physical "         "world, without breaking the rules of physics.\n"         "The fundamentals of light, surface, and movement are key to conveying how objects move, "         "interact, and exist in space and in relation to each other. Realistic lighting shows "         "seams, divides space, and indicates moving parts.\n\n"          "Bold, graphic, intentional.\n\n"          "The foundational elements of print based design typography, grids, space, scale, color, "         "and use of imagery guide visual treatments. These elements do far more than please the "         "eye. They create hierarchy, meaning, and focus. Deliberate color choices, edge to edge "         "imagery, large scale typography, and intentional white space create a bold and graphic "         "interface that immerse the user in the experience.\n"         "An emphasis on user actions makes core functionality immediately apparent and provides "         "waypoints for the user.\n\n"          "Motion provides meaning.\n\n"          "Motion respects and reinforces the user as the prime mover. Primary user actions are "         "inflection points that initiate motion, transforming the whole design.\n"         "All action takes place in a single environment. Objects are presented to the user without "         "breaking the continuity of experience even as they transform and reorganize.\n"         "Motion is meaningful and appropriate, serving to focus attention and maintain continuity. "         "Feedback is subtle yet clear. Transitions are efﬁcient yet coherent.\n\n"          "3D world.\n\n"          "The material environment is a 3D space, which means all objects have x, y, and z "         "dimensions. The z-axis is perpendicularly aligned to the plane of the display, with the "         "positive z-axis extending towards the viewer. Every sheet of material occupies a single "         "position along the z-axis and has a standard 1dp thickness.\n"         "On the web, the z-axis is used for layering and not for perspective. The 3D world is "         "emulated by manipulating the y-axis.\n\n"          "Light and shadow.\n\n"          "Within the material environment, virtual lights illuminate the scene. Key lights create "         "directional shadows, while ambient light creates soft shadows from all angles.\n"         "Shadows in the material environment are cast by these two light sources. In Android "         "development, shadows occur when light sources are blocked by sheets of material at "         "various positions along the z-axis. On the web, shadows are depicted by manipulating the "         "y-axis only. The following example shows the card with a height of 6dp.\n\n"          "Resting elevation.\n\n"          "All material objects, regardless of size, have a resting elevation, or default elevation "         "that does not change. If an object changes elevation, it should return to its resting "         "elevation as soon as possible.\n\n"          "Component elevations.\n\n"          "The resting elevation for a component type is consistent across apps (e.g., FAB elevation "         "does not vary from 6dp in one app to 16dp in another app).\n"         "Components may have different resting elevations across platforms, depending on the depth "         "of the environment (e.g., TV has a greater depth than mobile or desktop).\n\n"          "Responsive elevation and dynamic elevation offsets.\n\n"          "Some component types have responsive elevation, meaning they change elevation in response "         "to user input (e.g., normal, focused, and pressed) or system events. These elevation "         "changes are consistently implemented using dynamic elevation offsets.\n"         "Dynamic elevation offsets are the goal elevation that a component moves towards, relative "         "to the component’s resting state. They ensure that elevation changes are consistent "         "across actions and component types. For example, all components that lift on press have "         "the same elevation change relative to their resting elevation.\n"         "Once the input event is completed or cancelled, the component will return to its resting "         "elevation.\n\n"          "Avoiding elevation interference.\n\n"          "Components with responsive elevations may encounter other components as they move between "         "their resting elevations and dynamic elevation offsets. Because material cannot pass "         "through other material, components avoid interfering with one another any number of ways, "         "whether on a per component basis or using the entire app layout.\n"         "On a component level, components can move or be removed before they cause interference. "         "For example, a floating action button (FAB) can disappear or move off screen before a "         "user picks up a card, or it can move if a snackbar appears.\n"         "On the layout level, design your app layout to minimize opportunities for interference. "         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "         "when a user tries to pick up one of cards.\n\n"</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="activate_your_benefits">Activa tus beneficios</string>
+    <string name="privacy_terms">Privacidad, Términos y Condiciones</string>
+    <string name="txt_btnrecover">Recuperar contraseña</string>
+    <string name="txt_hint_cc_name">Nombre</string>
+    <string name="txt_hint_cc_surname">Apellido</string>
+    <string name="title_activity_branding_screen">BrandingScreenActivity</string>
+    <string name="title_activity_edit_profile">EditProfileActivity</string>
+    <string name="title_activity_flights_payment">FlightsPaymentActivity</string>
+    <string name="title_activity_hotels_payment">HotelsPaymentActivity</string>
+    <string name="title_activity_qrscan">QRScanActivity</string>
+    <string name="title_activity_scrolling">ScrollingActivity</string>
+    <string name="title_activity_vch">VCHActivity</string>
+    <string name="txt_lbl_checkin_date">%1$s %2$s</string>
+    <string name="txt_lbl_recover">Si registraste una tarjeta, por favor ingresa los 4 últimos dígitos de la misma</string>
+    <string name="txt_lbl_select_passengers">Selecciona el número de pasajeros que viajarán a tu destino</string>
+    <string name="round_trip_flight_type">Ida y Vuelta</string>
+    <string name="one_way_flight_type">Sólo ida</string>
+    <string name="purchase_detail">Detalle de compra</string>
+    <string name="text_suggest">Debes escribir al menos 3 caracteres</string>
+    <string name="text_hint_enter_airport">Ingresa ciudad o aeropuerto</string>
+    <string name="txt_menu_flights">Vuelos</string>
+    <string name="country">Selecciona país</string>
+    <string name="user_information">INFORMACIÓN DE PERFIL</string>
+    <string name="text_select_dates_in_dialog">Selecciona la fecha</string>
+    <string name="one_way_type">SÓLO IDA</string>
+    <string name="rooms_title">Habitación %s</string>
+    <string name="txt_hint_hotels_search">Ingresa la ciudad o el hotel de destino</string>
+    <string name="txt_subtitle_hotels_search">Ingresa tu destino</string>
+    <string name="txt_title_book_hotels">Reservar hoteles</string>
+    <string name="txt_title_book_hotels_host">Huespedes por Habitación</string>
+    <string name="txt_select_date">SELECCIONA</string> <!--   -->
+    <string name="txt_month_year_selector_flights">FECHA</string>
+    <string name="txt_departure_date">SALIDA</string>
+    <string name="txt_return_date">REGRESO</string>
+    <string name="alert_message_departure_or_arrive_not_selected">Por favor selecciona tu ciudad de partida y tu ciudad de destino </string>
+    <string name="alert_message_departure_or_arrive_not_selected_hotels">Por favor selecciona tu ciudad de destino </string>
+    <string name="alert_message_return_date_not_selected">Por favor selecciona tu fecha de regreso</string>
+    <string name="alert_message_return_date_not_selected_hotels">Por favor selecciona tu fecha de llegada</string>
+    <string name="title_alert_dialog_warning">Advertencia</string>
+    <string name="activate_onepocket">Añadir método de pago para activar su onepocket</string>
+    <string name="action_add_card">Añadir tarjeta</string>
+    <string name="room_and_guests_title">1 HAB, 1 ADULTO</string>
+    <string name="txt_single_room">HAB</string>
+    <string name="text_single_adult">ADULTO</string>
+    <string name="text_single_child">NIÑO</string>
+    <string name="text_single_infant">BEBÉ</string>
+    <string name="join_new_experience">Únete a una nueva experiencia</string>
+    <string name="txt_lbl_user_information">Ingresa la siguiente información para crear tu cuenta</string>
+    <string name="aditional_protection">PROTECCIONES ADICIONALES</string>
+    <string name="aditional_protection_string">Siéntete protegido en tus viajes con experiencias únicas y exclusivas diseñados para ti.</string>
+    <string name="proteccion_cotidiana">Disfruta haciendo tus compras cotidianas en un solo lugar y a través de un click, y siéntete seguro con las coberturas que te ofrecemos en tu mCard. Además accede a descuentos en todos los servicios de Handy</string>
+    <string name="financiera_proteccion">Te protegemos aun en situaciones inesperadas que pueden comprometer tus finanzas.</string>
+    <string name="market_discount">Descuentos en compras a través del market place</string>
+    <string name="hotel_discount">Descuentos en reservas de hoteles a través mcard</string>
+    <string name="concierge_discount">Descuentos en actividades en destino a través mcard</string>
+    <string name="carental_discount">Descuento en alquiler de autos a través de mcard</string>
+    <string name="prehospital_discount">Descuentos en servicios médicos prehospitalarios,  emergencias odontológicas a domicilio y transporte (Ambulancias Medicalizadas , Ambulancias Básicas  y Carros de Consulta Médica ) en el lugar de residencia. En las ciudades: En Armenia, Bogotá, Pereira, Medellín, Cali, Manizales, Palmira, Rionegro</string>
+    <string name="carwash_discount">Descuento para el servicios especiales y combos en lavado del vehículo.</string>
+    <string name="chofer_discount">Descuento en  el servicio para conductor elegido, para manejar el vehículo del cliente. El servicio se debe realizar con mínimo 2 horas de anticipación</string>
+    <string name="national_discount">Descuento en los servicios en handy U</string>
+    <string name="benefits_description">Accede a descuentos en servicios y soluciones para tu vida diaria a través de nuestros aliados</string>
+    <string name="copy_related_privilege">Copia relacionada con la membresía</string>
+    <string name="regular_price">PRECIO REGULAR</string>
+    <string name="visa_price">PAGO CON VISA</string>
+    <string name="coverage_limite">Limites de Cobertura</string>
+
+    <!--DR HELP INFORMATION-->
+    <string-array name="header_titles">
+        <item>  Gastos Médicos por Enfermedad Eventual o Accidente</item>
+        <item>Repatriación de Restos Mortales / Traslado de Emergencia</item>
+        <item>Gastos Médicos por Deportes Extremos</item>
+        <item>Gastos Enfermedad o Condición Preexistente</item>
+        <item>Gastos Médicos por Embarazo hasta Semana 28</item>
+        <item>Gastos odontológicos por urgencia</item>
+        <item>Gastos Farmaceuticos</item>
+        <item>Tiquete ida vuelta para un familiar acompañante en caso de hospitalización del beneficiario</item>
+        <item>Regreso anticipado por fallecimiento de un familiar</item>
+        <item>Gastos de hotel por convalecencia</item>
+        <item>Gastos hotel para acompañante</item>
+    </string-array>
+
+    <!--ADDITIONAL INFORMATION-->
+    <string-array name="header_titles_aditional">
+
+        <item>  Cancelación de viaje / "any reason" / interrupción de viaje</item>
+        <item>Protección ticket aéreo </item>
+        <item>Cancelación de viaje por insolvencia del operador turístico</item>
+        <item>Cancelación de viaje por trabajo</item>
+        <item>Indemnización inmediata por demora y pérdida de equipaje</item>
+
+    </string-array>
+
+    <!--DAILY PROTECTION-->
+    <string-array name="header_titles_cotidiana">
+
+        <item>Garantía de precio</item>
+        <item>Compra protegida</item>
+        <item>Garantía extendida</item>
+        <item>Entrada a espectáculos</item>
+        <item>Accidentes personales</item>
+        <item>Handy S</item>
+
+    </string-array>
+
+    <!--FINANCIAL PROTECTION-->
+    <string-array name="header_titles_financial" formatted="false">
+
+        <item>  Hurto en cajeros</item>
+        <item>Hurto de bolso y billetera</item>
+        <item>Protección de datos</item>
+
+    </string-array>
+
+    <!--DR HELP INFORMATION-->
+    <string-array name="h1_items">
+        <item>Siéntete protegido ante cualquier eventualidad médica de emergencia, derivada de una enfermedad o accidente.</item>
+    </string-array>
+
+    <string-array name="h2_items">
+        <item>Estarás protegido, ante situaciones tan difíciles, que inclusive impliquen un gran gasto para tu familia como es una repatriación.</item>
+    </string-array>
+
+    <string-array name="h3_items">
+        <item>Si durante tu viaje vas a practicar, entrenar o participar, en calidad de aficionado; en competencias deportivas de alto riesgo, estarás protegido ante cualquier eventualidad médica. *Sujeto a condiciones de uso y servicio.</item>
+    </string-array>
+
+    <string-array name="h4_items">
+        <item>Estarás protegido ante cualquier eventualidad médica de emergencia, derivada de una condición de salud padecida con anterioridad a la fecha de viaje. *Sujeto a condiciones de uso y servicio.</item>
+    </string-array>
+
+    <string-array name="h5_items">
+        <item>Durante tu embarazo tendrás protección médica (incluyendo chequeos médicos de emergencia y ecografías) por complicaciones imprevisibles, hasta la semana 28 de gestación. *Sujeto a condiciones de uso y servicio.</item>
+    </string-array>
+
+    <string-array name="h6_items">
+        <item>Tratamiento dental de emergencia necesario para resolver el dolor agudo inesperado, excepto por infección.</item>
+    </string-array>
+
+    <string-array name="h7_items">
+        <item>Se cubren los medicamentos que se requieran  para el tratamiento de lesión o enfermedad, todo debe ser bajo receta médica.</item>
+    </string-array>
+
+    <string-array name="h8_items">
+        <item>En el caso de que el Titular deba permanecer hospitalizado por más de tres (5) días,  pagaremos los gastos de tiquete de avión en aerolínea comercial, vuelo regularmente programado, clase turista.</item>
+    </string-array>
+
+    <string-array name="h9_items">
+        <item>En el caso de que  debas interrumpir tu viaje por la muerte un familiar (cónyuge, padre, madre, o hijos), pagaremos la penalidad del tiquete inicial o un tiquete de regreso en caso de que no se pueda modificar el tiquete inicial.</item>
+    </string-array>
+
+    <string-array name="h10_items">
+        <item>En el caso de que de que debas prolongar el viaje más allá de lo programado como consecuencia de una enfermedad o accidente durante el viaje y dicha necesidad haya sido indicada por el médico interviniente,  pagaremos los costos y gastos de alojamiento en  un hotel y alimentación hasta el límite indicado y por un plazo máximo de diez (10) días.</item>
+    </string-array>
+
+    <string-array name="h11_items">
+        <item>En el caso de que debas permanecer hospitalizado por más de cinco (5) días, pagaremos el alojamiento, y alimentación de tu acompañante hasta el límite indicado.</item>
+    </string-array>
+
+    <!--ADDITIONAL INFORMATION-->
+
+    <string-array name="h1A_items" formatted="false">
+        <item>En caso de que debas cancelar o interrumpir tu viaje por justa causa te reintegramos hasta el 100% de los gastos no reembolsables y/o recuperables. Si cancelas  por cualquier motivo diferente, te reintegraremos hasta el 75% de los gastos no reembolsables y/o recuperables. El plan debió haberse adquirido con mínimo 21 días de antelación a la fecha de salida y comunicado la cancelación 72 horas antes de iniciado el viaje.</item>
+    </string-array>
+    <string-array name="h2A_items" formatted="false">
+        <item>Si por algún motivo debes cancelar tu viaje, te reintegraremos los gastos no reembolsables y/o recuperables de tu tiquete de vuelo. La emisión debió haberse realizado y pagado con mínimo 21 días de antelación a la fecha de salida y comunicado la cancelación 72 horas antes de iniciado el viaje.</item>
+    </string-array>
+
+    <string-array name="h3A_items" formatted="false">
+        <item>Si el operador turístico (crucero o aerolínea) con el que contrataste tu viaje sale del negocio con o sin declaración de quiebra, te reintegraremos los gastos Hasta el 100% de lo no recuperable.</item>
+    </string-array>
+
+    <string-array name="h4A_items" formatted="false">
+        <item>Si debes interrumpir tu viaje por motivos de trabajo y eres Titular de tarjetas de crédito Corporativas/Empresariales, te reintegraremos los gastos no reembolsables y/o recuperables.</item>
+    </string-array>
+
+    <string-array name="h5A_items" formatted="false">
+        <item>La indemnización sera inmediata y diaria, a partir del momento en que se presente el PIR (Property Irregularity Report) hasta la cobertura indicada en el producto.</item>
+    </string-array>
+    <string name="txt_select_country_picker">SELECCIONA PAÍS</string>
+    <string name="txt_password_incorrectly_entered">La contraseña debe tener 6 caracteres o más</string>
+    <string name="txt_last_name_incorrect">El apellido debe tener 2 caracteres o más</string>
+    <string name="divider">Divisor</string>
+    <string name="txt_name_incorrect">El nombre debe tener 2 caracteres o más</string>
+    <string name="txt_invalid_email">No es un e-mail válido</string>
+    <string name="txt_email_should_have_7_characters">El email debe tener 7 caracteres o más</string>
+
+    <!--DAILY PROTECTION-->
+
+    <string-array name="h1C_items" formatted="false">
+        <item>Si compras un producto a través de Onepocket y encuentras una oferta equivalente en marca, modelo y serial por una tarifa inferior, estarás cubierto con un reintegro por la diferencia de precio.</item>
+    </string-array>
+    <string-array name="h2C_items" formatted="false">
+        <item>Disfruta hacer tus compras y siéntete seguro con las coberturas que te ofrecemos que te amparan en caso de hurto calificado y daño accidental de las mercancías que compres con tus tarjetas crédito o débito a través de Onepocket.</item>
+    </string-array>
+
+    <string-array name="h3C_items" formatted="false">
+        <item>Extendemos la garantía de fábrica de tus electrodomésticos nuevos adquiridos a través de Onepocket, una vez esta haya expirado. Podrás hacer valer tu seguro  y obtener la  reparación o reposición de tu producto, sin perder tu dinero.</item>
+    </string-array>
+
+    <string-array name="h4C_items" formatted="false">
+        <item>En caso de que no puedas asistir a un espectáculo programado, te reintegraremos el valor de tu boleta.</item>
+    </string-array>
+
+    <string-array name="h5C_items" formatted="false">
+        <item>Estarás protegido en caso de accidente las 24 horas, los 365 días del año. Este seguro representa un respaldo económico para ti y/o tu familia ante contingencias traumáticas.</item>
+    </string-array>
+
+    <string-array name="h6C_items" formatted="false">
+        <item>Protección por Responsabilidad Civil y Garantía</item>
+    </string-array>
+
+    <!--FINANCIAL INFORMATION-->
+
+    <string-array name="h1F_items" formatted="false">
+        <item>Estarás protegido cuando seas obligado por violencia o amenaza a despojarte o retirar dinero de un cajero automático. Pensando en todo, amparamos también los gastos médicos en que debas incurrir por lesiones corporales o físicas en caso de agresión motivo del hurto del dinero.</item>
+    </string-array>
+
+    <string-array name="h2F_items" formatted="false">
+        <item>Protegemos tu bolso y lo que llevas dentro! No tendrás que preocuparte por los costos de reemplazo por hurto de tu billetera, así como los costos de reexpedición, exclusivamente por el hurto o pérdida de los siguientes documentos personales: cedula de ciudadanía, cedula de extranjería, pasaporte, pase de conducción, certificado judicial, libreta militar y tarjetas crédito y/o débito que tengan algún costo ante la entidad financiera.</item>
+    </string-array>
+
+    <string-array name="h3F_items" formatted="false">
+        <item>Protegemos sus datos de ataques cibernéticos o incidentes informáticos, con nuestra cobertura para la responsabilidad de protección de datos.</item>
+    </string-array>
+    <string name="COLOMBIA">(+57) Colombia</string>
+    <string name="ECUADOR">(+593) Ecuador</string>
+    <string name="PERU">(+51) Perú</string>
+    <string name="UNITED_STATES">(+1) Estados unidos</string>
+    <string name="ARGENTINA">(+54) Argentina</string>
+    <!-- For send in WS of LoginNewUser -->
+    <string name="PhoneCode_COLOMBIA">+57</string>
+    <string name="PhoneCode_ECUADOR">+593</string>
+    <string name="PhoneCode_PERU">+51</string>
+    <string name="PhoneCode_USA">+01</string>
+    <string name="PhoneCode_ARGENTINA">+54</string>
+    <string name="mcard_no_age_limit">sin límite de edad</string>
+    <string name="title_services">Servicios</string>
+    <string name="title_cities_countries_attractions_concierge">CIUDADES, PAÍSES,\n ATRACCIONES O ACTIVIDADES</string>
+    <string name="title_concierge_whatever_you_want">Lo que quieras hacer\n en el mundo</string>
+    <string name="title_concierge_city_by_city">Ciudad por ciudad, tu música,\n tus gustos, lugares y experiencias\n en tu próximo destino.</string>
+    <string name="txt_title_choose_activities">Selecciona actividades</string>
+    <string name="font_varela">fonts/VarelaRound-Regular.ttf</string>
+    <string name="txt_city_concierge_not_selected">Por favor selecciona tu destino</string>
+    <string name="send_log_request">Por favor pulse aquí para enviarnos el log.</string>
+    <string name="send_log_instruction">Por favor agregar pasos de reproducción e información adicional aquí.  Gracias!</string>
+
+    <!--HANDY U STRINGS-->
+
+    <string name="app_name_handy">Handy U</string>
+
+    <!--server base url for api call and images  -->
+    <!-- <string name="base_url">http://ec2-52-26-68-235.us-west-2.compute.amazonaws.com:8080/HomZservice</string>
+     <string name="image_url">http://ec2-52-26-68-235.us-west-2.compute.amazonaws.com:8080/HomZservice/fileupload/</string>
+     <string name="image_category">http://ec2-52-26-68-235.us-west-2.compute.amazonaws.com:8080/HomZservice/fileupload/</string>-->
+
+
+
+    <!-- server base url for test -->
+
+
+    <!--UI screen text  -->
+    <string name="login_handy">LOGIN</string>
+    <string name="signup">SIGN UP</string>
+
+    <string name="login1">Login</string>
+    <string name="signup1">Sign Up</string>
+
+    <string name="emailhint">Enter Email</string>
+    <string name="passwordhint">Enter Password</string>
+    <string name="forgotpassword">Forgot Password?</string>
+
+    <string name="home">Home</string>
+    <string name="myprofile">My Profile</string>
+    <string name="aboutus">About Us</string>
+    <string name="mywallet">My Wallet</string>
+    <string name="logout_handy">Logout</string>
+    <string name="myaddress">My Address</string>
+    <string name="action_settings_handy">Settings</string>
+    <string name="welcome_msg1">Welcome to handy</string>
+    <string name="welcome_msg2">Miles of services in just\none place</string>
+    <string name="forgetpass_txt">Enter your email address in order to recover your passwrod back</string>
+    <string name="forgetpass_txt_btn">Recover My Password</string>
+    <string name="backtologin">Back To Login</string>
+
+    <!--set font names  -->
+    <string name="fontName_regular">Muli.ttf</string>
+    <string name="fontName_bold">Muli-Bold.ttf</string>
+
+    <!--general messages  -->
+    <string name="nointernet">No internet found.</string>
+    <string name="title_activity_my_address">MyAddressActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="taxi">Taxi</string>
+    <string name="text_hint_enter_city">Ingresa ciudad</string>
+    <string name="decline_register">RECHAZAR</string>
+    <string name="accept_register">ACEPTAR</string>
+    <string name="congratulations">¡Felicitaciones!</string>
+    <string name="you_can_enjoy_benefits">Ahora podrás disfrutar\n de todos los beneficios que te\n da Handy U Coopcentral</string>
+    <string name="txt_continue">CONTINUAR</string>
+    <string name="test_terms"><u>términos y condiciones</u></string>
+    <string name="by_clicking">Haciendo click en aceptar, aceptas</string>
+    <string name="the_article">los </string>
+    <string name="and_article">y la </string>
+    <string name="before_continue">Antes de continuar!</string>
+    <string name="TXT_LETS_TALK">CHARLEMOS</string>
+    <string name="TXT_LATER">MÁS TARDE</string>
+    <string name="TXT_ACTIVATE_NOW">Activa ahora tu certificado de\n cubrimiento y obtén más beneficios</string>
+    <string name="hintTypeOfId">Tipo de documento</string>
+    <string name="hintIdNumber">Número de documento</string>
+    <string name="txt_select_type_id">SELECCIONA TIPO DE DOCUMENTO</string>
+    <string name="txt_citizenship_card">Cédula de Ciudadanía</string>
+    <string name="txt_Foreigner_ID">Cédula de Extranjería</string>
+    <string name="txt_identity_card">Tarjeta de Identidad</string>
+    <string name="txt_passport">Pasaporte</string>
+    <string name="sign_in">Iniciar sesión</string>
+    <string name="greet">Qué bueno verte de nuevo</string>
+    <string name="IATAI_CERTIFICA">IATAI CERTIFICA</string>
+    <string name="UnlimitedMcard">ILIMITADO</string>
+    <string name="enjoy_all_benefits">Accede a cientos de beneficios, servicios y\n coberturas que te ofrece tu handy mCard.</string>
+    <string name="get_your_certificate">¡CONSÍGUELA AHORA!</string>
+    <string name="privacy_policy_underscore"><u>política de privacidad</u></string>
+    <string name="ups_try_again">¡Ups! Inténtalo de nuevo</string>
+    <string name="your_search_no_results">Tu búsqueda no muestra resultados</string>
+    <string name="txt_loading_loader">Loading</string>
+    <string name="title_onetouch_call">Onetouch call</string>
+    <string name="title_onetouch_chat">Onetouch chat</string>
+    <string name="title_live_tranquility">¡Vive con tranquilidad!</string>
+    <string name="txtWalktroughFooter">POWERED BY IATAI</string>
+</resources>

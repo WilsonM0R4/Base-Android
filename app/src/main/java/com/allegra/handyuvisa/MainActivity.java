@@ -1,31 +1,33 @@
 package com.allegra.handyuvisa;
 
-import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.support.v4.app.FragmentActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 
 import com.allegra.handyuvisa.utils.Constants;
+import com.allegra.handyuvisa.utils.CustomizedTextView;
 import com.allegra.handyuvisa.utils.Util;
 import com.appsflyer.AppsFlyerLib;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 
 
-public class MainActivity extends Activity implements BackFragment.MenuSelectListener {
+public class MainActivity extends FragmentActivity implements com.allegra.handyuvisa.BackFragment.MenuSelectListener {
 
     private static final String TAG = "MainActivity";
     private FrontFragment frontFragment;
-    private BackFragment backFragment;
+    private com.allegra.handyuvisa.BackFragment backFragment;
     private boolean isLogin;
-    private Button login;
-    private Button register;
+    private boolean tutorial=true;
+    private CustomizedTextView login, register;
     private int state = 0;   // 0 - front open + back exposed;
     // 1 - front close + back hidden;
 
@@ -52,31 +54,30 @@ public class MainActivity extends Activity implements BackFragment.MenuSelectLis
                     WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             getWindow().setStatusBarColor(Color.TRANSPARENT);
         }
+            frontFragment = (FrontFragment) getFragmentManager().findFragmentById(R.id.fragment_top);
+            backFragment = (com.allegra.handyuvisa.BackFragment) getFragmentManager().findFragmentById(R.id.fragment_bottom);
+            backFragment.menulistener = this;
+            state = 0;
 
-        frontFragment = (FrontFragment) getFragmentManager().findFragmentById(R.id.fragment_top);
-        backFragment = (BackFragment) getFragmentManager().findFragmentById( R.id.fragment_bottom );
-        backFragment.menulistener = this;
-        state = 0;
+            if (!isAuthenticated()) {
+                login = (CustomizedTextView) findViewById(R.id.login);
+                login.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                        startActivityForResult(intent, Constants.ACTIVITY_LOGIN);
+                    }
+                });
 
-        if (!isAuthenticated()) {
-            login = (Button) findViewById(R.id.login);
-            login.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                    startActivityForResult(intent, Constants.ACTIVITY_LOGIN);
-                }
-            });
-
-            register = (Button) findViewById(R.id.register);
-            register.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(MainActivity.this, LoginNewUser.class);
-                    startActivity(intent);
-                }
-            });
-        }
+                register = (CustomizedTextView) findViewById(R.id.register);
+                register.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(MainActivity.this, com.allegra.handyuvisa.LoginNewUser.class);
+                        startActivity(intent);
+                    }
+                });
+            }
 
     }
 
@@ -125,7 +126,7 @@ public class MainActivity extends Activity implements BackFragment.MenuSelectLis
     }
 
     private boolean isAuthenticated() {
-        return (((VisaCheckoutApp)getApplication()).getIdSession() != null);
+        return (((com.allegra.handyuvisa.VisaCheckoutApp)getApplication()).getIdSession() != null);
     }
 
     private void animate() {
@@ -141,7 +142,7 @@ public class MainActivity extends Activity implements BackFragment.MenuSelectLis
         //double screenInches = Math.sqrt(x + y);
         //Toast.makeText(this,  "w: " + width + " h: " + height, Toast.LENGTH_SHORT).show();
 
-        Log.d("Width",width+"");
+        //Log.d("Width",width+"");
         int resId = R.animator.front_open;
         if (width > 800) {
             resId = R.animator.front_open_xlarge;

@@ -214,7 +214,7 @@
     <color name="HomeMenusLine_background">@color/WHITE_COLOR</color>
     <color name="HomeMenusLine2_background">@color/CLEAR_COLOR_GRADIENT</color>
     <!-- GeneralAppHeaderTitle -->
-    <color name="GeneralAppHeaderTitle_backgroud">@color/CLEAR_COLOR</color>
+    <color name="GeneralAppHeaderTitle_backgroud">@color/WHITE_COLOR</color>
     <color name="GeneralAppHeaderTitle_text">@color/PURPLE_COLOR</color>
     <!--- Alert -->
     <!-- HeaderAlert -->
@@ -225,7 +225,7 @@
     <color name="BodyAlert_text">@color/GRAY_COLOR</color>
     <!--- Hotels/Concierge Destination -->
     <!-- HeaderDestination -->
-    <color name="HeaderDestination_backgroung">@color/CLEAR_COLOR</color>
+    <color name="HeaderDestination_backgroung">@color/WHITE_COLOR</color>
     <color name="HeaderDestination_text">@color/WHITE_COLOR</color>
     <!-- BodyDestinationCityNormal -->
     <color name="BodyDestinationCityNormal_backgroung">@color/CLEAR_COLOR</color>

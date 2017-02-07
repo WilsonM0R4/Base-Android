@@ -48,8 +48,8 @@ public class PushReceiver extends BroadcastReceiver {
         try {
             String action = intent.getAction();
 
-            Log.d(TAG, intent.getExtras().getString("com.parse.Data"));
-            Log.d(TAG, action);
+           // Log.d(TAG, intent.getExtras().getString("com.parse.Data"));
+           // Log.d(TAG, action);
             JSONObject json = new JSONObject(intent.getExtras().getString("com.parse.Data"));
             if (action.equalsIgnoreCase("com.parse.push.intent.RECEIVE")) {
                 String alert = json.getString("alert");
@@ -59,8 +59,8 @@ public class PushReceiver extends BroadcastReceiver {
                     link = "";
                 }
 
-                Log.d(TAG, "alert = " + alert);
-                Log.d(TAG, "link = " + link);
+               // Log.d(TAG, "alert = " + alert);
+               // Log.d(TAG, "link = " + link);
                 String channel = intent.getExtras().getString("com.parse.Channel");
                 if (channel == null) {
                     channel = Constants.PUSH_GLOBAL;
@@ -82,7 +82,7 @@ public class PushReceiver extends BroadcastReceiver {
                                                                             .put("timeinmillis", System.currentTimeMillis()));
                 }
 
-                Log.d(TAG, "Se guarda en channel " + channel + " en shared: " + notifications.toString());
+               // Log.d(TAG, "Se guarda en channel " + channel + " en shared: " + notifications.toString());
                 KeySaver.saveShare(context,channel,notifications.toString());
                 Intent bcast = new Intent();
                 bcast.setAction(Constants.BCAST_NOTIFIC_UPDATE);
@@ -95,7 +95,7 @@ public class PushReceiver extends BroadcastReceiver {
                 }
             }
         } catch (JSONException e) {
-            Log.d("jsonexc", "JSONException: " + e.getMessage());
+           // Log.d("jsonexc", "JSONException: " + e.getMessage());
         }
     }
 

@@ -37,10 +37,10 @@
     <uses-permission android:name="android.permission.READ_LOGS" />
 
     <permission
-        android:name="com.allegra.handyuvisa.permission.C2D_MESSAGE"
+        android:name="${applicationId}.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="com.allegra.handyuvisa.permission.C2D_MESSAGE" />
+    <uses-permission android:name="${applicationId}.permission.C2D_MESSAGE" />
 
     <!-- ******************Sensors*********************** -->
     <!-- card.io: Camera features - recommended -->
@@ -94,14 +94,7 @@
                 <action android:name="com.android.vending.INSTALL_REFERRER" />
             </intent-filter>
         </receiver>
-        <!-- Google Cloud Message Receiver -->
-        <receiver
-            android:name="com.google.android.gms.gcm.GcmReceiver"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-            </intent-filter>
-        </receiver>
+
         <receiver
             android:name="com.liveperson.mobile.android.networking.NetworkChangeReceiver"
             android:label="NetworkStateReceiver" >
@@ -142,6 +135,9 @@
             android:name=".StoreActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".TermsActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".CallActivityServices"
             android:screenOrientation="portrait" />
         <activity
@@ -153,6 +149,10 @@
         <activity
             android:name=".LoginForgotActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".WalkThroughActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme"/>
         <activity
             android:name=".IntroScreenActivity"
             android:label="@string/app_name"
@@ -184,6 +184,9 @@
             android:name=".Mcardexclusive"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".EndlessActivity"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".Mcardunlimited"
             android:screenOrientation="portrait" />
         <activity
@@ -193,11 +196,17 @@
             android:name=".PoliticalActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".TermsActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".CallActivityMcard"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".Intellilink"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Myvisaenterprise"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".CheckMyTrip"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ConciergeActivity"
             android:screenOrientation="portrait" />
@@ -314,11 +323,6 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".HotelsPaymentActivity"
-            android:label="@string/title_activity_hotels_payment"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".FlightsPaymentActivity"
             android:label="@string/title_activity_flights_payment"
             android:screenOrientation="portrait"
@@ -357,14 +361,6 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".TransactionHistoryActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".PurchaseDetailActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".OnepocketContainerActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
@@ -377,6 +373,10 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
+            android:name=".ProofOfCoverageDinamicoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
             android:name=".ProofOfCoverageActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
@@ -385,7 +385,7 @@
 
         <service
             android:name="com.twilio.client.TwilioClientService"
-            android:exported="false" />
+            android:exported="false"  android:stopWithTask="true"/>
         <service
             android:name="com.liveperson.mobile.android.service.visit.VisitService"
             android:enabled="true" />

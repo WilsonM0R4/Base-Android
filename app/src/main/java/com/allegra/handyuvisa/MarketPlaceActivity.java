@@ -2,10 +2,11 @@ package com.allegra.handyuvisa;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.webkit.SslErrorHandler;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -20,7 +21,7 @@ import com.allem.onepocket.utils.OPKConstants;
 public class MarketPlaceActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
 
     public static final int REQUEST_ONEPOCKET_RETURN = 10001;
-
+    public static String URL_OPEN_PDF = "https://docs.google.com/viewer?url=";
     private static final String TAG = "MarketPlaceActivity";
 
     //private static final String MARKET_PLACE_URL = "http://www.allegra.market/?logo=1&onepocket=1";
@@ -82,7 +83,7 @@ public class MarketPlaceActivity extends FrontBackAnimate implements FrontBackAn
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Log.d("Receiving","Receiving Activity ONE");
+        //Log.d("Receiving","Receiving Activity ONE");
         if (requestCode == REQUEST_ONEPOCKET_RETURN) {
             if (data != null) {
                 returnURL = data.getStringExtra("RESULT");
@@ -132,16 +133,18 @@ public class MarketPlaceActivity extends FrontBackAnimate implements FrontBackAn
 
             if (Util.hasInternetConnectivity(MarketPlaceActivity.this)){
                 if (url.contains("http://")||url.contains("https://")){
-                    view.loadUrl(url);
-
-                }else{
-                    view.loadUrl(url);
-
+                    if (!url.contains(".pdf"))  URL_OPEN_PDF = "";
+                    view.loadUrl(URL_OPEN_PDF+url);
                 }
             }else{
                 Toast.makeText(MarketPlaceActivity.this, R.string.err_no_internet, Toast.LENGTH_SHORT).show();
             }
             return true;
+        }
+
+        @Override
+        public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+            handler.proceed();
         }
 
         @Override
@@ -157,6 +160,7 @@ public class MarketPlaceActivity extends FrontBackAnimate implements FrontBackAn
         public void onPageStarted(WebView view, String url, Bitmap favicon){
             progressBar.setVisibility(View.VISIBLE);
         }
+
     }
 
     private void loadArrows(){
@@ -188,7 +192,7 @@ public class MarketPlaceActivity extends FrontBackAnimate implements FrontBackAn
 
     public void openOnePocket(){
         Intent intent = new Intent(MarketPlaceActivity.this, OnepocketPurchaseActivity.class);
-        Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(this), onePocketmessage, OPKConstants.TYPE_MARKETPLACE, (VisaCheckoutApp) getApplication());
+        Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(this), onePocketmessage, OPKConstants.TYPE_MARKETPLACE, (com.allegra.handyuvisa.VisaCheckoutApp) getApplication());
         intent.putExtras(bundle);
         startActivityForResult(intent, MarketPlaceActivity.REQUEST_ONEPOCKET_RETURN);
 

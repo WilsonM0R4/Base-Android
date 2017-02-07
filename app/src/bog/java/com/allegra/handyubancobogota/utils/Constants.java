@@ -2,7 +2,6 @@ package com.allegra.handyuvisa.utils;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.allegra.handyuvisa.VisaCheckoutApp;
 import com.allegra.handyuvisa.models.AllemCommerceUser;
@@ -22,6 +21,24 @@ import java.util.HashMap;
  * com.allem.allemevent.utils
  */
 public class Constants {
+
+    //********FOR DYNAMIC PROOF OF COVERAGE**********
+    public final static String ID_PORTAL = "3";
+    public final static String NAMESPACE_PROOF = "http://www.ws.iatai.com/poliza_servicio/";
+    public final static String METHOD_PROOF = "consultarPolizasBeneficiarioRequest";
+    public final static int ACTIVITY_PROOF = 10405;
+    public final static int REQUEST_CODE_PROOF = 9638;
+
+    public static final String URL_DYNAMIC_PROOF_TEST = "http://52.207.72.167:8080/PolizaIataiServicio/poliza_servicio_binding?wsdl";//"http://52.71.117.239:8080/PolizaIataiServicio/poliza_servicio_binding?wsdl";
+    public static final String URL_DYNAMIC_PROOF_PROD = "http://52.7.111.227:8080/PolizaIataiServicio/poliza_servicio_binding?wsdl";
+
+    public static String getUrlDynamicProof(){
+        if (TESTING) {
+            return URL_DYNAMIC_PROOF_TEST;
+        }else{
+            return URL_DYNAMIC_PROOF_PROD;
+        }
+    }
 
     public final static String SPLUNK_API_KEY = "e74061f2";
     public final static int REQUEST_CODE_TRANSACTION_HISTORY = 8891;
@@ -48,8 +65,8 @@ public class Constants {
     //***************** EASY CHANGE BETWEEN TESTING AND PRODUCTION SYSTEM URLS *********************
 
     //** Parameter indicates mode: TESTING = false implies PRODUCTION mode **
-    public final static boolean TESTING = false;
-    public final static boolean TESTING_AIR = false;
+    public final static boolean TESTING = true;
+    public final static boolean TESTING_AIR = true;
 
     public final static String DEMOURL="http://demo.allemmarket.com/allemmarketapp/index/login/";
     public final static String DEMOHOST="allemmarket.com";
@@ -81,7 +98,7 @@ public class Constants {
     }
 
     public final static String NAMESPACE_ALLEM= "http://ws.alleminmotion.iatai.com/";
-    public final static String URL_ALLEM_BASE_TEST = "https://pruebas.allegraplatform.com/AllemInMotion/AllemInMotion";
+    public final static String URL_ALLEM_BASE_TEST = "http://52.87.70.203:8080/AllemInMotion/AllemInMotion";//"https://http://52.87.70.203:8080/AllemInMotion/AllemInMotion";
     public final static String URL_ALLEM_BASE_PROD = "https://secureacceptance.allegraplatform.com/AllemInMotion/AllemInMotion";
     public final static String URL_ALLEM_WSDL_TEST = URL_ALLEM_BASE_TEST+"?wsdl";
     public final static String URL_ALLEM_WSDL_PROD = URL_ALLEM_BASE_PROD+"?wsdl";
@@ -96,6 +113,11 @@ public class Constants {
     public final static String METHOD_HACER_TRANSACCION = "HacerTransaccion";
     public final static String METHOD_OBTENER_COMPRAS = "ObtenerCompras";
     public final static String METHOD_HACER_TRANSACCION_ALLEM_MARKET = "HacerTransaccionAllemMarket";
+
+    public final static String URL_ALLEM_AIR_PROD_HOST = "secure.allegraplatform.com";
+    public final static String URL_HOSTNAME_SECUREACCEPTANCE = "secureacceptance.allegraplatform.com";
+    public final static String URL_HOSTNAME_ALLEGRA_PLATFORM = "www.allegraplatform.com";
+    public final static String URL_HOSTNAME_APPS_FLYER = "t.appsflyer.com";
 
 
     public final static String METHOD_INICIAR_SESION = "IniciarSesion";
@@ -295,9 +317,10 @@ public class Constants {
     public static final String URL_SEARCH_CONCIERGE_TEST = "http://qaactividades.allegra.travel/Actividad/ResultadosGet/?id_destino_ser=";
     public static final String URL_STORE_TEST =  "http://52.203.29.124/allemstore_demo/";
     public static final String URL_RESTAURANT_TEST =  "http://52.203.29.124/allemrestaurant_demo/#!/brand/restaurantes/map";
-    public static final String URL_MARKETPLACE_TEST =  "http://dev.allegra.market/?logo=1&onepocket=1utm_source=HandyuVisa&utm_medium=botonhandy&utm_campaign=App";
-    public static final String  URL_LOGIN_TEST = "https://pruebas.allegraplatform.com/AllemInMotion/AllemInMotion";
-    public static final String  URL_SERVICE_TEST = "http://allegra.global/app/servicios_v2_demo/search/?name=";
+    public static final String URL_MARKETPLACE_TEST = "http://dev.allegra.market/?logo=1&onepocket=1&utm_source=HandyuVisa&utm_medium=botonhandy&utm_campaign=App";
+    public static final String URL_LOGIN_TEST = "http://52.87.70.203:8080/AllemInMotion/AllemInMotion?wsdl";
+    public static final String URL_SERVICE_TEST = "http://allegra.global/app/servicios_v2_demo/search/?name=";
+    public static final String URL_MCARD_HTML_TEST = "http://52.207.72.167:8080/MembresiaProteccionIatai/app/index.xhtml?portal=1&email=";//"http://52.71.117.239:8080/MembresiaProteccionIatai/app/index.xhtml?portal=1&email=";
 
     //**********************NEW PRODUCTION URLS*************************
 
@@ -309,9 +332,10 @@ public class Constants {
     public static final String URL_SEARCH_CONCIERGE_PROD = "http://actividades.allegra.travel/Actividad/ResultadosGet?id_destino_ser=";
     public static final String URL_STORE_PROD = "http://52.203.29.124/allemstore_v2/";
     public static final String URL_RESTAURANT_PROD =  "http://52.203.29.124/allemrestaurant_v2/#!/brand/restaurantes/map";
-    public static final String URL_MARKETPLACE_PROD =  "https://www.allegra.market/?logo=1&onepocket=1utm_source=HandyuVisa&utm_medium=botonhandy&utm_campaign=App";
-    public static final String  URL_LOGIN_PROD = "https://secureacceptance.allegraplatform.com/AllemInMotion/AllemInMotion";
-    public static final String  URL_SERVICE_PROD = "http://allegra.global/app/servicios_v2/search/?name=";
+    public static final String URL_MARKETPLACE_PROD =  "https://www.allegra.market/?logo=1&onepocket=1&utm_source=HandyuVisa&utm_medium=botonhandy&utm_campaign=App";
+    public static final String URL_LOGIN_PROD = "https://secureacceptance.allegraplatform.com/AllemInMotion/AllemInMotion";
+    public static final String URL_SERVICE_PROD = "http://allegra.global/app/servicios_v2/search/?name=";
+    public static final String URL_MCARD_HTML_PROD = "http://52.7.111.227:8080//MembresiaProteccionIatai/app/index.xhtml?portal=1&email=";
     //**********************PROPER METHODS*************************
 
     public static String getWSDL(){
@@ -415,6 +439,15 @@ public class Constants {
         }
     }
 
+    //This is the method for MCARD functionality in this moment
+    public static String getMcardhtml (){
+        if (TESTING){
+            return URL_MCARD_HTML_TEST;
+        }else {
+            return URL_MCARD_HTML_PROD;
+        }
+    }
+
 
     /**
      * Guarda los datos del usuario en SharedPreferences
@@ -458,13 +491,13 @@ public class Constants {
         int idCuenta;
         boolean estado;
         if (existsUser(ctx)){
-                user = new AllemUser(KeySaver.getStringSavedShare(ctx,KEY_GREET),
+            user = new AllemUser(KeySaver.getStringSavedShare(ctx,KEY_GREET),
                     KeySaver.getStringSavedShare(ctx,KEY_NAME),
                     KeySaver.getStringSavedShare(ctx,KEY_SURNAME),
                     KeySaver.getStringSavedShare(ctx,KEY_EMAIL),"","",0,false,KeySaver.getStringSavedShare(ctx,KEY_MOBILE_NUMBER),
                     KeySaver.getStringSavedShare(ctx,KEY_ID_NUMBER),KeySaver.getStringSavedShare(ctx,KEY_ID_TYPE),
-                    KeySaver.getStringSavedShare(ctx,KEY_ID_COUNTRY) , KeySaver.getStringSavedShare(ctx,KEY_ID_MOBILE_CODE));
-                    String testCode =    KeySaver.getStringSavedShare(ctx,KEY_ID_MOBILE_CODE);
+                    KeySaver.getStringSavedShare(ctx,KEY_ID_COUNTRY) , KeySaver.getStringSavedShare(ctx,KEY_ID_MOBILE_CODE),"","");
+            String testCode =    KeySaver.getStringSavedShare(ctx,KEY_ID_MOBILE_CODE);
             //Log.d(TAG, testCode);
             user.channel=KeySaver.getStringSavedShare(ctx,KEY_PUSH_CHANNEL);
         }

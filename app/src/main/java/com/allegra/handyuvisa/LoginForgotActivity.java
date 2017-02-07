@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.allegra.handyuvisa.async.AsyncTaskSoapPrimitiveResultEvent;
 import com.allegra.handyuvisa.models.CuentaClienteRecover;
 import com.allegra.handyuvisa.utils.Constants;
+import com.allegra.handyuvisa.utils.CustomizedTextView;
 import com.allegra.handyuvisa.utils.Util;
 import com.allegra.handyuvisa.async.AsyncSoapObject;
 
@@ -31,7 +32,7 @@ public class LoginForgotActivity extends FrontBackAnimate implements FrontBackAn
     private final String TAG = "LoginForgotActivity";
     private EditText email_txt;
     private Context ctxx;
-    private Button send;
+    private CustomizedTextView send;
     private ArrayList<NameValuePair> postValues;
     private int recover;
     private String recoverstr;
@@ -48,7 +49,7 @@ public class LoginForgotActivity extends FrontBackAnimate implements FrontBackAn
 
     @Override
     public void initViews(final View root) {
-        send = (Button)root.findViewById(R.id.button_send);
+        send = (CustomizedTextView)root.findViewById(R.id.button_send);
         email_txt = (EditText)root.findViewById(R.id.email_text);
         recover = Constants.ACTIVITY_LOGIN_RECOVER;
         send.setOnClickListener(new View.OnClickListener() {

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <com.allegra.handyuvisa.utils.CustomizedTextView
+        android:id="@+id/text_passengers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/GuestPerRoomTitle_backgroung"
+        android:text="@string/txt_lbl_passengers"
+        android:textAlignment="center"
+        android:textColor="@color/GuestPerRoomTitle_text"
+        android:textSize="18sp"
+        app:font="@string/font_muli" />
+
+    <include
+        android:id="@+id/custom_adults_children"
+        layout="@layout/custom_adults_children_infants_textviews"
+        android:layout_width="match_parent"
+        android:layout_height="80dp" />
+
+    <com.allegra.handyuvisa.utils.CustomizedTextView
+        android:id="@+id/tv_cabin"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="9dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:text="@string/txt_lbl_select_cabin"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/GeneralTitle2_text"
+        android:textSize="20sp"
+        app:font="@string/font_muli" />
+
+    <LinearLayout
+        android:id="@+id/ll_cabin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_economy"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_corner_white_border_magenta"
+            android:onClick="onCabinEconomy"
+            android:text="@string/txt_lbl_economy"
+            android:textColor="@color/ThirdSelectorButtonSelected_text"
+            android:textSize="13sp"
+            />
+
+        <Button
+            android:id="@+id/btn_business"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_corner_transparent_fix"
+            android:onClick="onCabinBusiness"
+            android:text="@string/txt_lbl_business"
+            android:textColor="@color/ThirdSelectorButtonNormal_text"
+            android:textSize="13sp"
+            />
+
+        <Button
+            android:id="@+id/btn_first"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_corner_transparent_fix"
+            android:onClick="onCabinFirst"
+            android:text="@string/txt_lbl_first"
+            android:textColor="@color/ThirdSelectorButtonNormal_text"
+            android:textSize="13sp"
+             />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_search"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/round_corner_orange"
+        android:onClick="onSearchFlights"
+        android:text="@string/search_flights"
+        android:textColor="@color/BigButton_text"
+        android:textSize="18sp" />
+
+</LinearLayout>

@@ -6,7 +6,18 @@
     android:id="@+id/rl_call_body"
     android:background="@drawable/background"
     android:clickable="true"
+    android:onClick="onCloseMenu"
     tools:context=".CallActivity">
+
+    <!-- LOADER -->
+    <include layout="@layout/fragment_loading"
+        android:id="@+id/loader"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+    </include>
+
+    <!-- HEADER -->
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -14,8 +25,19 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:background="@color/GeneralAppHeaderTitle_backgroud"
-        android:onClick="onCloseMenu"
+        android:visibility="gone"
         android:id="@+id/ll_header">
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/cancel_button"
+            android:background="@color/GeneralAppHeaderTitle_backgroud"
+            android:id="@+id/imageButton3"
+            android:contentDescription="menu"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:onClick="onAlertCancelCall" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -25,9 +47,7 @@
             android:text="@string/title_call"
             android:id="@+id/tv_title_secc"
             android:layout_centerHorizontal="true"
-            android:textColor="@color/GeneralAppHeaderTitle_text"
-
-            />
+            android:textColor="@color/GeneralAppHeaderTitle_text" />
 
         <ImageButton
             android:layout_width="36dp"
@@ -51,9 +71,11 @@
         android:layout_below="@+id/ll_header"
         android:paddingEnd="-2dp"
         android:paddingStart="-2dp"
+        android:visibility="gone"
         android:src="@drawable/separator_medium_mag"
         android:contentDescription="Divider" />
 
+    <!-- FIN DEL HEADER -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -67,8 +89,7 @@
         android:layout_below="@+id/iv_header"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
-
-        />
+        android:visibility="gone"/>
 
 
     <ImageButton
@@ -78,7 +99,7 @@
         android:src="@drawable/calling"
         android:background="@android:color/transparent"
         android:layout_gravity="center"
-        android:visibility="visible"
+        android:visibility="gone"
         android:scaleType="centerInside"
         android:layout_marginTop="40dp"
         android:layout_centerHorizontal="true"
@@ -97,7 +118,7 @@
         android:background="@android:color/transparent"
         android:layout_below="@+id/btn_callinprogress"
         android:layout_alignStart="@+id/btn_callinprogress"
-
+        android:visibility="gone"
         />
 
     <ImageButton
@@ -110,18 +131,20 @@
         android:background="@android:color/transparent"
         android:layout_alignTop="@+id/toggle_mute"
         android:layout_alignEnd="@+id/btn_callinprogress"
-
+        android:visibility="gone"
         />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/txt_lbl_mute"
+        android:id="@+id/txtMute"
         android:textColor="@color/CallTitleComponent_text"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_below="@+id/toggle_mute"
         android:layout_alignStart="@+id/toggle_mute"
-        android:layout_marginLeft="15dp"/>
+        android:layout_marginLeft="15dp"
+        android:visibility="gone"/>
 
 
     <TextView
@@ -132,7 +155,9 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_below="@+id/toggle_speaker"
         android:layout_alignStart="@+id/toggle_speaker"
-        android:layout_marginLeft="5dp"/>
+        android:layout_marginLeft="5dp"
+        android:id="@+id/txtSpeaker"
+        android:visibility="gone"/>
 
     <Button
         android:layout_width="250dp"
@@ -142,25 +167,10 @@
         android:background="@drawable/round_corner_magenta"
         android:textColor="@color/BigButton_text"
         android:onClick="onEndCall"
+        android:visibility="gone"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="38dp" />
-
-    <!--<LinearLayout-->
-    <!--android:orientation="vertical"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="35dp"-->
-    <!--android:id="@+id/ll_footer"-->
-    <!--android:layout_alignParentBottom="true"-->
-    <!--android:layout_centerHorizontal="true"-->
-    <!--android:background="@color/allem_footer_bkgnd">-->
-
-    <!--<ImageView-->
-    <!--android:layout_width="fill_parent"-->
-    <!--android:layout_height="fill_parent"-->
-    <!--android:id="@+id/iv_logo_iatai"-->
-    <!--android:src="@drawable/iv_footer" />-->
-    <!--</LinearLayout>-->
 
 
 </RelativeLayout>

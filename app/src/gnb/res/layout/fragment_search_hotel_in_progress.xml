@@ -3,23 +3,97 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_alignParentLeft="true"
     android:layout_alignParentStart="false"
     android:id="@+id/rl_search_in_progress"
-    tools:context=".HotelSearchActivity">
+    tools:context=".HotelSearchActivity"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/WHITE_COLOR"
+        android:id="@+id/ll_header">
+
+        <ImageButton
+            android:layout_width="35dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="16dp"
+            android:id="@+id/ib_settings"
+            android:src="@drawable/navigation__back"
+            android:background="@android:color/transparent"
+            android:visibility="visible"
+            android:contentDescription="Up"
+            android:layout_alignParentStart="true"
+            android:layout_alignBottom="@+id/tv_title_secc"
+            android:layout_centerVertical="true"
+            android:onClick="onBackButton" />
+
+        <com.allegra.handyuvisa.utils.CustomizedTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/title_flight_results"
+            app:font="@string/font_varela"
+            android:id="@+id/tv_title_secc"
+            android:textColor="@color/GeneralAppHeaderTitle_text"
+            android:layout_centerInParent="true"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:background="@color/GeneralAppHeaderTitle_backgroud"
+            android:id="@+id/navigation_panel"
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_alignParentTop="false"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@+id/tv_title_secc"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/navigation__backurl_2"
+                android:background="@null"
+                android:padding="10dp"
+                android:onClick="onGoBack"
+                android:id="@+id/arrow_back"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/navigation__fwdurl"
+                android:background="@null"
+                android:padding="10dp"
+                android:onClick="onGoForward"
+                android:id="@+id/arrow_forward"/>
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:id="@+id/iv_header"
+            android:paddingEnd="-2dp"
+            android:paddingStart="-2dp"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/separator_medium_mag"
+            android:contentDescription="Divider"/>
+
+    </RelativeLayout>
 
     <WebView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:id="@+id/webView"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/ll_header" />
 
-    <ProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/pb_hotel"
-        android:layout_centerInParent="true"
-        android:visibility="gone" />
 
 </RelativeLayout>
+

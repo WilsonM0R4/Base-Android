@@ -1,7 +1,6 @@
 package com.allegra.handyuvisa.async;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,7 +35,7 @@ public class AsyncRestConciergeHelper extends AsyncTask <Void, Void, HashMap<Str
         try {
             result = communicate(apiInfo);
         } catch (IOException e) {
-            Log.e(TAG, "Can't complete task endpoint", e);
+           // Log.e(TAG, "Can't complete task endpoint", e);
             result = null;
         }
         return result ;
@@ -60,7 +59,7 @@ public class AsyncRestConciergeHelper extends AsyncTask <Void, Void, HashMap<Str
         try {
             URL url = new URL(apiInfo.getEndpoint());
             urlConnection = (HttpURLConnection) url.openConnection();
-            Log.d(TAG, "URL: " + apiInfo.getEndpoint());
+           // Log.d(TAG, "URL: " + apiInfo.getEndpoint());
 
             urlConnection.setRequestMethod(apiInfo.getMethod());
             urlConnection.setConnectTimeout(APP_SERVER_CONNECTION_TIMEOUT);
@@ -78,20 +77,20 @@ public class AsyncRestConciergeHelper extends AsyncTask <Void, Void, HashMap<Str
             }
 
             // TODO REMOVE BEFORE RELEASE
-            Log.d(TAG, "Request Header: " + tmp);
+           // Log.d(TAG, "Request Header: " + tmp);
 
 
             if (apiInfo.getMethod().equals("DELETE") || apiInfo.getPayload() == null) {
                 urlConnection.connect();
             } else {
-                Log.d(TAG, "Payload: " + new String(apiInfo.getPayload()));
+               // Log.d(TAG, "Payload: " + new String(apiInfo.getPayload()));
                 urlConnection.setDoOutput(true);
                 out = urlConnection.getOutputStream();
                 out.write(apiInfo.getPayload());
             }
 
             int code = urlConnection.getResponseCode();
-            Log.d(TAG, "Response code: " + code);
+          //  Log.d(TAG, "Response code: " + code);
             if (code == 200 || code == 201) {
                 dataReturn = apiInfo.parseData(urlConnection.getInputStream());
                 HashSet set = apiInfo.getParseRespHeaders();
@@ -114,21 +113,21 @@ public class AsyncRestConciergeHelper extends AsyncTask <Void, Void, HashMap<Str
                             .append(urlConnection.getHeaderFields().get(key))
                             .append("\n");
                 }
-                Log.d(TAG, "Server's response: (" + tmp + ") ");
+              //  Log.d(TAG, "Server's response: (" + tmp + ") ");
             }
         } finally {
             if (in != null) {
                 try {
                     in.close();
                 } catch (IOException e) {
-                    Log.e(TAG, "Can't close input stream", e);
+                   // Log.e(TAG, "Can't close input stream", e);
                 }
             }
             if (out != null) {
                 try {
                     out.close();
                 } catch (IOException e) {
-                    Log.e(TAG, "Can't close input stream", e);
+                  //  Log.e(TAG, "Can't close input stream", e);
                 }
             }
             if (urlConnection != null) {

@@ -4,17 +4,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.allegra.handyuvisa.async.AsyncSoapPrimitive;
 import com.allegra.handyuvisa.utils.Constants;
+import com.allegra.handyuvisa.utils.CustomizedTextView;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -28,9 +27,9 @@ public class LoginForgotConfirmation extends FrontBackAnimate implements FrontBa
 
     private final String TAG = "LoginForgotConfirmation";
     private ImageView close;
-    private Button login, email;
+    //private Button login, email;
     private TextView emailtext;
-    private Button send_again;
+    private CustomizedTextView send_again, login;
     private LayoutInflater inflater;
     private View rootview;
     private ViewGroup container;
@@ -41,7 +40,7 @@ public class LoginForgotConfirmation extends FrontBackAnimate implements FrontBa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d(TAG, "Enter LoginForgotActivity");
+        //Log.d(TAG, "Enter LoginForgotActivity");
         postValues = new ArrayList<>();
         ctx = this;
         super.setView(R.layout.fragment_recoverpass_conf, this);
@@ -58,7 +57,7 @@ public class LoginForgotConfirmation extends FrontBackAnimate implements FrontBa
                 onHome(v);
             }
         });
-        login = (Button)root.findViewById(R.id.to_login);
+        login = (CustomizedTextView)root.findViewById(R.id.to_login);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,7 +78,7 @@ public class LoginForgotConfirmation extends FrontBackAnimate implements FrontBa
         String str = i.getStringExtra("mail");
         emailtext.setText(str);
 
-        send_again = (Button)root.findViewById(R.id.send_again);
+        send_again = (CustomizedTextView) root.findViewById(R.id.send_again);
         send_again.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

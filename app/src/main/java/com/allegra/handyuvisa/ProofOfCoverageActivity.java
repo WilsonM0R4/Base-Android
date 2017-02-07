@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -52,9 +51,9 @@ public class ProofOfCoverageActivity extends FrontBackAnimate implements FrontBa
         numberOfId = prefs.getString("numberOfId", "7887787");
         numberOfMcard = prefs.getString("numberOfMcard", "123456789");
         String strIdCuenta = prefs.getString("idCuenta", "0");
-        Log.e("typeOfId", typeOfId);
+/*        Log.e("typeOfId", typeOfId);
         Log.e("numberOfId", numberOfId);
-        Log.e("numberOfMcard", numberOfMcard);
+        Log.e("numberOfMcard", numberOfMcard);*/
         idCuenta = Integer.valueOf(strIdCuenta);
         //Si hay internet: consumir el servicio para mCards
         if (Connectivity.isConnected(getApplicationContext()) || Connectivity.isConnectedWifi(getApplicationContext()) || Connectivity.isConnectedMobile(getApplicationContext())) {
@@ -64,12 +63,12 @@ public class ProofOfCoverageActivity extends FrontBackAnimate implements FrontBa
                     Constants.MCARD_METHOD, postValues, Constants.MCARD_CODE).execute();
         } else {
             valueOfMcard = prefs.getString("idMcard", "0");
-            Log.e("valueOfMcard", valueOfMcard);
+            //Log.e("valueOfMcard", valueOfMcard);
             idMcard = Integer.valueOf(valueOfMcard);
             findValueOfMcard();
             setValues();
         }
-        Log.e("TENGO INTERNET"," TRUE");//Test 2: Succeded
+       // Log.e("TENGO INTERNET"," TRUE");//Test 2: Succeded
     }
 
     @Override
@@ -120,7 +119,7 @@ public class ProofOfCoverageActivity extends FrontBackAnimate implements FrontBa
                 }
                 editor.putString("idMcard", strIdMcard);
                 editor.apply();
-                Log.d("strIdMcard", "Es " + strIdMcard);
+               // Log.d("strIdMcard", "Es " + strIdMcard);
 
                 idMcard = Integer.valueOf(strIdMcard);
                 valueOfMcard = strIdMcard;
@@ -133,14 +132,13 @@ public class ProofOfCoverageActivity extends FrontBackAnimate implements FrontBa
                 apellido = allemUser.apellido;
                 typeOfId = getTypeOfIdForDisplay(allemUser.idType);
                 numberOfId = allemUser.idNumber;
-                Log.d("nombre", nombre);
-                Log.d("apellido", apellido);
-                Log.d("typeOfId", typeOfId);
-                Log.d("numberOfId", numberOfId);
+                //Log.d("nombre", nombre);
+                //Log.d("apellido", apellido);
+                //Log.d("typeOfId", typeOfId);
+                //Log.d("numberOfId", numberOfId);
                 //******************
                 findValueOfMcard();
                 setValues();
-
             }
         }
     }
@@ -170,12 +168,9 @@ public class ProofOfCoverageActivity extends FrontBackAnimate implements FrontBa
             case "9":
                 return "OTRO";
             //break;
-
         }
 
-
         return strType;
-
     }
 
     void findValueOfMcard() {
@@ -222,7 +217,7 @@ public class ProofOfCoverageActivity extends FrontBackAnimate implements FrontBa
         centerListView.setVisibility(View.GONE);
         bottomTexts.setVisibility(View.GONE);
         setContentView(R.layout.get_your_certificate);
-        txtGetYourCertificate = (CustomizedTextView) findViewById(R.id.txtGetYourCertificate2);
+        //txtGetYourCertificate = (CustomizedTextView) findViewById(R.id.txtGetYourCertificate);
         txtGetYourCertificate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -235,7 +230,7 @@ public class ProofOfCoverageActivity extends FrontBackAnimate implements FrontBa
     void launchMcardActivity() {
 
         //Launch mCard Activity
-        Intent i = new Intent(getApplicationContext(), Mcardhtml.class);
+        Intent i = new Intent(getApplicationContext(), com.allegra.handyuvisa.Mcardhtml.class);
         startActivity(i);
         finish();
     }

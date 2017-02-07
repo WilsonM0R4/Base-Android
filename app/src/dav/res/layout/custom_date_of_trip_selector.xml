@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="10dp"
+    android:id="@+id/panel_dates"
+    android:onClick="onGetSchedule">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="16dp"
+        android:id="@+id/linLayDateBegin"
+        >
+
+        <com.allegra.handyuvisa.utils.CustomizedTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_departure_date"
+            android:textColor="@color/CalendarHeaderTitle_text"
+            android:id="@+id/textDeparture"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:textSize="14sp"
+            app:font="@string/font_muli_light"/>
+
+        <com.allegra.handyuvisa.utils.CustomizedTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/CalendarBodyDate_text"
+            android:id="@+id/textDepartureDay"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:textSize="32sp"
+            app:font="@string/font_muli_light"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal">
+
+            <com.allegra.handyuvisa.utils.CustomizedTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textStyle="bold"
+            android:textColor="@color/dark_gray"
+            android:id="@+id/textDepartureMonth"
+            android:gravity="center"
+            android:textSize="15sp"
+                app:font="@string/font_muli_semiBold"/>
+
+            <com.allegra.handyuvisa.utils.CustomizedTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_marginLeft="8dp"
+                android:textColor="@color/dark_gray"
+                android:id="@+id/textDepartureYear"
+                android:gravity="center"
+                android:textSize="15sp"
+                app:font="@string/font_muli_light"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:layout_centerInParent="true"
+        android:src="@drawable/flights__calendar"
+        android:paddingRight="16dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="1dp"
+        android:paddingBottom="18dp"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:id="@+id/llyReturnDate"
+        android:layout_alignParentEnd="true">
+
+        <com.allegra.handyuvisa.utils.CustomizedTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_return_date"
+            android:textColor="@color/CalendarHeaderTitle_text"
+            android:id="@+id/textReturn"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:textSize="14sp"
+            app:font="@string/font_muli_light"/>
+
+        <com.allegra.handyuvisa.utils.CustomizedTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_select_date"
+            android:textColor="@color/gray"
+            android:id="@+id/textReturnDay"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_vertical"
+            android:textSize="22sp"
+            app:font="@string/font_muli_light"/>
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center">
+
+        <com.allegra.handyuvisa.utils.CustomizedTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textStyle="bold"
+            android:textColor="@color/CalendarFooterDateMonth_text"
+            android:id="@+id/textReturnMonth"
+            android:gravity="center"
+            android:textSize="15sp"
+            app:font="@string/font_muli_semiBold"/>
+
+        <com.allegra.handyuvisa.utils.CustomizedTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_marginLeft="8dp"
+            android:textColor="@color/CalendarFooterDateMonth_text"
+            android:id="@+id/textReturnYear"
+            android:gravity="center"
+            android:textSize="15sp"
+            app:font="@string/font_muli_light"/>
+
+    </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>

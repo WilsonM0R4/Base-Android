@@ -1,7 +1,6 @@
 package com.allegra.handyuvisa.async;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -53,9 +52,9 @@ public class AsyncSoapObjectTest extends AsyncTask<String,Void,Vector<SoapObject
     @Override
     protected Vector<SoapObject> doInBackground(String... strings) {
 
-        Log.d(TAG, "url: " + url);
-        Log.d(TAG, "namespace: " + namespace);
-        Log.d(TAG, "soapaction:" + soapaction);
+       // Log.d(TAG, "url: " + url);
+       // Log.d(TAG, "namespace: " + namespace);
+       // Log.d(TAG, "soapaction:" + soapaction);
         HttpTransportSE transporte = new HttpTransportSE(url);
 
         SoapObject request = new SoapObject(namespace, method);
@@ -80,23 +79,23 @@ public class AsyncSoapObjectTest extends AsyncTask<String,Void,Vector<SoapObject
             transporte.debug=true;
             SslConnection.allowSSLCertificate();
             transporte.call(soapaction, envelope);
-            Log.d(TAG, transporte.requestDump);
+           // Log.d(TAG, transporte.requestDump);
             Object obj = envelope.getResponse();
 
             if (obj==null) {//0 mcards
                 result = new Vector<SoapObject>();
-                Log.e("Lista", "0 mcards");
+              //  Log.e("Lista", "0 mcards");
             }
 
             if(obj instanceof Vector){//2 Mcards or more
                 result = (Vector<SoapObject>) envelope.getResponse();
                 int size = result.size();
-                Log.e("Tamaño","Es "+String.valueOf(size));
+               // Log.e("Tamaño","Es "+String.valueOf(size));
             }else if(obj instanceof SoapObject){//One Mcard: Privilege
                 result = new Vector<SoapObject>();
                 result.add((SoapObject) obj);
                 int size = result.size();
-                Log.e("Tamaño","Es "+String.valueOf(size));
+              //  Log.e("Tamaño","Es "+String.valueOf(size));
             }
 
 

@@ -1,13 +1,34 @@
 <resources>
     <string name="app_name">Handy U Visa</string>
     <string name="app_name_legal">Handy U Visa</string>
-    <string name="facebook_app_id" >949325301863169</string>
+    <string name="facebook_app_id">949325301863169</string>
     <string name="txtInfoCertifications"># CERTIFICADO</string>
     <string name="TODAY">HOY</string>
     <string name="room">HAB</string>
     <string name="SAME_WEEK">ÚLTIMA SEMANA</string>
     <string name="SAME_MONTH">ÚLTIMO MES</string>
     <string name="BEFORE">ANTERIORES</string>
+    <string name="demo_iatai">TEST IATAI</string>
+    <string name="checkmytrip">Check My Trip</string>
+    <string name="skip_walk">Salta</string>
+    <string name="done_walk">Inicia</string>
+    <string name="cobertura_basica">Coberturas básicas</string>
+    <string name="title_walk_01">Bienvenido a\n Handy U Visa</string>
+    <string name="title_walk_02">Con mCard\n siéntete seguro</string>
+    <string name="title_walk_03">Tranquilidad al alcance\n de tu mano</string>
+    <string name="title_walk_04">Un nuevo método\n de pago móvil</string>
+    <string name="title_walk_05">Ahora comprar\n es más fácil</string>
+    <string name="title_walk_06">Una buena experiencia\n para viajar</string>
+    <string name="title_walk_07">Servicios y comercios\n con un toque</string>
+    <string name="walk_01">La solución \"all-in-one\" \n donde tienes miles de servicios\n y productos a la mano.</string>
+    <string name="walk_02">Vive y viaja sin preocupaciones, con\n coberturas médicas, protección para tus\n necesidades cotidianas y financieras.</string>
+    <string name="walk_03">Ahora tu certificado de cobertura\n está disponible en tu dispositivo\n móvil cuando lo necesites.</string>
+    <string name="walk_04">Ahora puedes comprar en minutos,\n de manera más fácil y segura con\n Visa Checkout.</string>
+    <string name="walk_05">Encuentra todo lo que quieres\n al precio que deseas en\n nuestro market.</string>
+    <string name="walk_06">Encuentra vuelos, hoteles y\n actividades, en cualquier lugar\n del mundo.</string>
+    <string name="walk_07">Restaurantes, tiendas, profesionales\n para tu hogar, atención para\n mascotas, carros y mucho más.</string>
+    <string name="title_endless">Handy S</string>
+    <string name="prod_iatai">IATAI</string>
     <string name="forgot_password">Recuperación de Contraseña</string>
     <string name="location_permision">Tu GPS parece estar deshabilitado. ¿Quieres habilitarlo?</string>
     <string name="location_failed">Falló al buscar a tu ubicación actual. Por favor, comprueba el estado de tu GPS y vuelve a intentarlo</string>
@@ -66,6 +87,7 @@
     <string name="pay_with_visa_privilege">Paga con VISA y obten un descuento especial</string>
     <string name="create_account">CREAR CUENTA</string>
     <string name="send">Enviar</string>
+    <string name="send_chat">Enviar</string>
     <string name="check_email">Revisa tu correo!</string>
     <string name="conf_email1">Hemos enviado un correo a </string>
     <string name="conf_email2">con un enlace seguro para reestablecer tu contraseña.</string>
@@ -127,7 +149,7 @@
     <string name="txt_lbl_disconnect">OneTouch Call se desconectó</string>
     <string name="err_no_internet">No hay conexión a internet.</string>
     <string name="txt_lbl_connect_err">Onetouchcall no está disponible en este momento. Por favor, inténtelo de nuevo más tarde.</string>
-
+    <string name="txt_lbl_cancelling">Estamos cancelando su llamada.</string>
     <string name="txt_lbl_chat_ts">Hace %d minutos</string>
     <string name="txt_lbl_departure">SALIDA</string>
     <string name="txt_lbl_arrival">LLEGADA</string>
@@ -228,7 +250,7 @@
     <string name="one_way_flight_type">Sólo ida</string>
     <string name="purchase_detail">Detalle de compra</string>
     <string name="text_suggest">Debes escribir al menos 3 caracteres</string>
-    <string name="text_hint_enter_airport">Ingresa ciudad o aeropuerto</string>
+    <string name="text_hint_enter_airport">Ingresa ciudad</string>
     <string name="txt_menu_flights">Vuelos</string>
     <string name="country">Selecciona país</string>
     <string name="user_information">INFORMACIÓN DE PERFIL</string>
@@ -243,11 +265,11 @@
     <string name="txt_month_year_selector_flights">FECHA</string>
     <string name="txt_departure_date">SALIDA</string>
     <string name="txt_return_date">REGRESO</string>
-    <string name="alert_message_departure_or_arrive_not_selected">Por favor selecciona tu ciudad de partida y tu ciudad de destino </string>
+    <string name="alert_message_departure_or_arrive_not_selected">Antes de continuar, selecciona tu ciudad de origén y tu ciudad de destino</string>
     <string name="alert_message_departure_or_arrive_not_selected_hotels">Por favor selecciona tu ciudad de destino </string>
     <string name="alert_message_return_date_not_selected">Por favor selecciona tu fecha de regreso</string>
     <string name="alert_message_return_date_not_selected_hotels">Por favor selecciona tu fecha de llegada</string>
-    <string name="title_alert_dialog_warning">Advertencia</string>
+    <string name="title_alert_dialog_warning">¡Vaya! ¡Algo falta!</string>
     <string name="activate_onepocket">Añadir método de pago para activar su onepocket</string>
     <string name="action_add_card">Añadir tarjeta</string>
     <string name="room_and_guests_title">1 HAB, 1 ADULTO</string>
@@ -451,7 +473,7 @@
     <string name="title_concierge_city_by_city">Ciudad por ciudad, tu música,\n tus gustos, lugares y experiencias\n en tu próximo destino.</string>
     <string name="txt_title_choose_activities">Selecciona actividades</string>
     <string name="font_varela">fonts/VarelaRound-Regular.ttf</string>
-    <string name="txt_city_concierge_not_selected">Por favor selecciona tu destino</string>
+    <string name="txt_city_concierge_not_selected">Antes de continuar, selecciona tu ciudad de destino</string>
     <string name="send_log_request">Por favor pulse aquí para enviarnos el log.</string>
     <string name="send_log_instruction">Por favor agregar pasos de reproducción e información adicional aquí.  Gracias!</string>
 
@@ -507,10 +529,11 @@
     <string name="decline_register">RECHAZAR</string>
     <string name="accept_register">ACEPTAR</string>
     <string name="congratulations">¡Felicitaciones!</string>
-    <string name="you_can_enjoy_benefits">Ahora podrás disfrutar\n de todos los beneficios que\n te da handy U Visa</string>
+    <string name="you_can_enjoy_benefits">Ahora podrás disfrutar\n de todos los beneficios que\n te da Handy U Visa</string>
     <string name="txt_continue">CONTINUAR</string>
     <string name="test_terms"><u>términos y condiciones</u></string>
     <string name="by_clicking">Haciendo click en aceptar, aceptas</string>
+    <string name="editprofile_ok">Tu perfil se ha actualizado satisfactoriamente</string>
     <string name="the_article">los </string>
     <string name="and_article">y la </string>
     <string name="before_continue">Antes de continuar!</string>
@@ -528,13 +551,20 @@
     <string name="greet">Qué bueno verte de nuevo</string>
     <string name="IATAI_CERTIFICA">IATAI CERTIFICA</string>
     <string name="UnlimitedMcard">ILIMITADO</string>
-    <string name="enjoy_all_benefits">Disfruta todos los beneficios que te trae\n tu membresía a través de handy mCard</string>
-    <string name="get_your_certificate">OBTÉN TU CERTIFICADO</string>
+    <string name="enjoy_all_benefits">Accede a cientos de beneficios, servicios y\n coberturas que te ofrece tu handy mCard.</string>
+    <string name="get_your_certificate">¡CONSÍGUELA AHORA!</string>
     <string name="privacy_policy_underscore"><u>política de privacidad</u></string>
     <string name="ups_try_again">¡Ups! Inténtalo de nuevo</string>
     <string name="your_search_no_results">Tu búsqueda no muestra resultados</string>
     <string name="txt_loading_loader">Loading</string>
     <string name="title_onetouch_call">Onetouch call</string>
     <string name="title_onetouch_chat">Onetouch chat</string>
-
+    <string name="title_live_tranquility">¡Vive con tranquilidad!</string>
+    <string name="titleCancelChatCall">Terminar conversación</string>
+    <string name="txtConfirmationCancelChatCall">¿Seguro quieres terminar\n esta conversación?</string>
+    <string name="cancelDialogChatCall">CANCELAR</string>
+    <string name="okCancelChatCall">OK</string>
+    <string name="titleCancelCall">Terminar llamada</string>
+    <string name="txtConfirmationCancelCall">¿Seguro quieres terminar\n esta llamada?</string>
+    <string name="txtWalktroughFooter">IATAI</string>
 </resources>

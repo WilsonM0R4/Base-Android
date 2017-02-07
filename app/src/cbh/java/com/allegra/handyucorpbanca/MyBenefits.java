@@ -13,7 +13,7 @@ import android.widget.ProgressBar;
 public class MyBenefits extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
 
     private WebView webBenefits;
-    private String url = "http://easytravelprotection.com/app/coberturas/index.html";
+    private String url = "http://iataiapps.com/corpbanca/coberturas/index.html";
     private String returnURL;
     private ImageButton arrowBack, arrowF, back;
     private ProgressBar progressBar;

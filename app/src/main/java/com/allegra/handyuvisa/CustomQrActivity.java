@@ -1,21 +1,21 @@
 package com.allegra.handyuvisa;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
+import android.view.View;
+import android.widget.ImageButton;
 
 import com.journeyapps.barcodescanner.CaptureManager;
 import com.journeyapps.barcodescanner.CompoundBarcodeView;
 
 public class CustomQrActivity extends AppCompatActivity implements
         CompoundBarcodeView.TorchListener {
+
     private CaptureManager capture;
     private CompoundBarcodeView barcodeScannerView;
+    private ImageButton menuClose;
 
 
     @Override
@@ -26,9 +26,17 @@ public class CustomQrActivity extends AppCompatActivity implements
 
         barcodeScannerView = (CompoundBarcodeView)findViewById(R.id.zxing_barcode_scanner);
         barcodeScannerView.setTorchListener(this);
+        menuClose = (ImageButton)findViewById(R.id.menu_close_qr);
+        menuClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
         init(getIntent(), savedInstanceState);
     }
+
 
     @Override
     protected void onResume() {
@@ -46,6 +54,10 @@ public class CustomQrActivity extends AppCompatActivity implements
     protected void onDestroy() {
         super.onDestroy();
         capture.onDestroy();
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 
     @Override

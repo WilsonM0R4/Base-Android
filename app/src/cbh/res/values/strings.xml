@@ -651,4 +651,5 @@
     <string name="txt_loading_loader">Loading</string>
     <string name="title_onetouch_call">Onetouch call</string>
     <string name="title_onetouch_chat">Onetouch chat</string>
+    <string name="basic_coverages">Basic Coverages</string>
 </resources>

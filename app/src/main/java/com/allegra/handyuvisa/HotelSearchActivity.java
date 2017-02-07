@@ -1,5 +1,3 @@
-
-
 package com.allegra.handyuvisa;
 
 import android.app.ActionBar;
@@ -8,16 +6,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
-import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -59,36 +54,35 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //super.setView(R.layout.fragment_search_in_progress, R.drawable.load__hotel, R.string.txt_lbl_searchFlightsWait, this);
+        setContentView(R.layout.fragment_search_hotel_in_progress);
         setActionbar(true);
-        setContentView(R.layout.fragment_search_in_progress);
-        //*********
-
+        //Find views by Id
         webView = (WebView)findViewById(R.id.webView);
-        progressBar= (ImageView) findViewById(R.id.pb_search_loader);
+      /*  progressBar = (ImageView) findViewById(R.id.pb_search_loader);
         imgLogoAllegra = (ImageView)findViewById(R.id.imgProgress);
-        txtLoading = (TextView)findViewById(R.id.txtLoading);
-        txtLoading.setVisibility(View.GONE);
-        //btn_buy = (Button) findViewById(R.id.btn_buy);
+        txtLoading = (TextView)findViewById(R.id.txtLoading);*/
+        TextView title = (TextView)findViewById(R.id.tv_title_secc);
+        arrowBack= (ImageButton)findViewById(R.id.arrow_back);
+        arrowF= (ImageButton)findViewById(R.id.arrow_forward);
+        //Set webView settings
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        webSettings.setLoadsImagesAutomatically(true);
+
+        /*webSettings.setDomStorageEnabled(true);
+        webSettings.setLoadsImagesAutomatically(true);*/
         webView.setWebViewClient(new MyWebViewClient());
-        TextView title = (TextView)findViewById(R.id.tv_title_secc);
+
         title.setText(R.string.title_hotel_results);
-        //Animation
-        progressBar.setVisibility(View.VISIBLE);
+        /*webView.setVisibility(View.GONE);*/
+        // Set Animation
+        /*progressBar.setVisibility(View.VISIBLE);
         progressBar.post(new Runnable() {
             @Override
             public void run() {
                 ((AnimationDrawable) progressBar.getBackground()).start();
             }
-        });
-
-        arrowBack= (ImageButton)findViewById(R.id.arrow_back);
-        arrowF= (ImageButton)findViewById(R.id.arrow_forward);
-        webView.addJavascriptInterface(new AppJavaScriptProxyHotels(this), "androidProxy");
-
+        });*/
+        //Get intent params from HotelsActivity
         paramChildren = getIntent().getIntExtra("&childHotel1", 0);
         paramAdults = getIntent().getIntExtra("&adultHotel1", 1);
         paramRooms = getIntent().getIntExtra("&roomHotel", 1);
@@ -119,7 +113,7 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
         paramDestinationName = getIntent().getStringExtra("&cityHotel");
         paramDestination = getIntent().getStringExtra("&cityHotelHidden");
 
-        Log.d("paramAdult",String.valueOf(paramAdults));
+        /*Log.d("paramAdult",String.valueOf(paramAdults));
         Log.d("paramChildren",String.valueOf(paramChildren));
         Log.d("paramAdult2",String.valueOf(paramAdults2));
         Log.d("paramChildren2",String.valueOf(paramChildren2));
@@ -132,8 +126,8 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
         Log.d("paramCheckOut",String.valueOf(paramCheckOut));
         Log.d("roomHotel", String.valueOf(paramRooms));
         Log.d("cityHotel", String.valueOf(paramDestinationName));
-        Log.d("cityHotelHidden", String.valueOf(paramDestination));
-
+        Log.d("cityHotelHidden", String.valueOf(paramDestination));*/
+        //Validate mCard in order to send it
         SharedPreferences prefs =
                 getSharedPreferences("MisPreferencias", MODE_PRIVATE);
         mcard = prefs.getString("idMcard", "0");
@@ -151,20 +145,6 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
         super.onConfigurationChanged(newConfig);
     }
 
-
-    private void setActionbar(boolean hide) {
-
-        actionBar = getActionBar();
-        if(actionBar!=null){
-            if (hide) {
-                actionBar.hide();
-            } else {
-                actionBar.setDisplayHomeAsUpEnabled(true);
-                actionBar.setHomeButtonEnabled(true);
-            }
-        }
-    }
-
     @Override
     protected void onPause() {
         super.onPause();
@@ -177,17 +157,57 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
         loadWebView();
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        urlWebView=this.url;
+    }
 
-    /**
-     * Now is requesting by GET method
-     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == Constants.ACTIVITY_LOGIN) {
+            if(resultCode == RESULT_OK){
+               // Log.d(TAG,"usuario logueado");
+                HotelSearchActivity.this.invalidateOptionsMenu();
+                webView.loadUrl("about:blank");
+                loadWebView();
+            }
+            if (resultCode == RESULT_CANCELED) {
+
+            }
+
+        }else if (requestCode == Constants.ONE_POCKET_NEEDS_LOGIN){
+            openOnePocket();
+        } else if (requestCode == Constants.REQUEST_ONEPOCKET_RETURN) {
+            if (data != null) {
+                returnURL = data.getStringExtra("RESULT");
+                webView.loadUrl("about:blank");
+                //progressBar.setVisibility(View.VISIBLE);
+            }
+        }
+    }
+
+    //******************PROPER METHODS********************
+   private void setActionbar(boolean hide) {
+
+        actionBar = getActionBar();
+        if(actionBar!=null){
+            if (hide) {
+                actionBar.hide();
+            } else {
+                actionBar.setDisplayHomeAsUpEnabled(true);
+                actionBar.setHomeButtonEnabled(true);
+            }
+        }
+    }
+
+
+     // Now is requesting by GET method
     private void loadWebView() {
 
-        url = Constants.getSearchHotelsUrl();//"http://hoteles.allegra.travel/Hotel/Flow/Availability?"
-        //url="http://alegra.dracobots.com/Hotel/Flow/Availability?";
-        webView.addJavascriptInterface(new AppJavaScriptProxyHotels(this), "androidProxy");
+        url = Constants.getSearchHotelsUrl();
         String postData = "";
-
         //TODO: Siempre enviar "es-CO" cuando la locale sea "es", cuando sea "en" se envía "en-US"
         switch(paramRooms) {
             case 1:
@@ -249,117 +269,17 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
                         "&Group="+mcard;
                 break;
         }
-        //webView.postUrl(url, EncodingUtils.getBytes(postData, "BASE64"));
-        url = url + postData;
-        Log.d("murl",url);
-
-        webView.loadUrl(url);
-    }
-
-    /*public void onMenu(View view) {
-        //animate();
-    }*/
-
-    /*@Override
-    public void initViews(View root) {
-        //url = getIntent().getStringExtra("url");
-        //Log.d("URL HOTELS",url);
-        webView = (WebView)root.findViewById(R.id.webView);
-        progressBar= (ProgressBar) root.findViewById(R.id.pb_search);
-        //btn_buy = (Button) findViewById(R.id.btn_buy);
-        WebSettings webSettings = webView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
-        webSettings.setLoadsImagesAutomatically(true);
-        webView.setWebViewClient(new MyWebViewClient());
-        TextView title = (TextView) root.findViewById(R.id.tv_title_secc);
-        title.setText(R.string.title_hotel_results);
-        //progressBar.setVisibility(View.VISIBLE);
-        arrowBack= (ImageButton)root.findViewById(R.id.arrow_back);
-        //arrowF= (ImageButton)root.findViewById(R.id.arrow_forward);
         webView.addJavascriptInterface(new AppJavaScriptProxyHotels(this), "androidProxy");
-        System.gc();
-    }
-
-    @Override
-    public void onCancelLoading() {
-        finish();
-    }*/
-
-    private class MyWebViewClient extends WebViewClient {
-        @Override
-        public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            Log.d(TAG, "url: " + url);
-            if (Util.hasInternetConnectivity(HotelSearchActivity.this)){
-                if (url.contains("http://")||url.contains("https://")){
-                    view.loadUrl(url);
-                    urlWebView=url;
-                }else if(url.contains("detalleventaht:")&& Util.hasInternetConnectivity(HotelSearchActivity.this)){
-                //urlWebView=HotelsActivity.this.url;
-
-                    // TODO replace with Onepocket pay activity
-                }else{
-                    view.loadUrl(url);
-                    urlWebView=url;
-                }
-            }else{
-                Toast.makeText(HotelSearchActivity.this, R.string.err_no_internet, Toast.LENGTH_SHORT).show();
-            }
-            return true;
-        }
-
-        @Override
-        public void onPageFinished(WebView view, String url) {
-            progressBar.setVisibility(View.GONE);
-            imgLogoAllegra.setVisibility(View.GONE);
-            txtLoading.setVisibility(View.GONE);
-            if (url.equals("about:blank")) {
-                webView.loadUrl(returnURL);
-            }
-            loadArrows();
-              //animate();
-        }
-        @Override
-        public void onPageStarted(WebView view, String url, Bitmap favicon){
-            //Only once
-            if (onlyOnceProgressBar==0) {
-                progressBar.setVisibility(View.VISIBLE);
-                onlyOnceProgressBar++;
-            }
-            //showProgress(true);
-        }
-    }
-
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        if (requestCode == Constants.ACTIVITY_LOGIN) {
-            if(resultCode == RESULT_OK){
-                Log.d(TAG,"usuario logueado");
-                HotelSearchActivity.this.invalidateOptionsMenu();
-                webView.loadUrl("about:blank");
-                loadWebView();
-            }
-            if (resultCode == RESULT_CANCELED) {
-
-            }
-
-        }else if (requestCode == Constants.ONE_POCKET_NEEDS_LOGIN){
-            openOnePocket();
-        } else if (requestCode == Constants.REQUEST_ONEPOCKET_RETURN) {
-            if (data != null) {
-                returnURL = data.getStringExtra("RESULT");
-                webView.clearHistory();
-                webView.loadUrl("about:blank");
-                progressBar.setVisibility(View.VISIBLE);
-            }
-        }
+        url = url + postData;
+        //Log.d("murl",url);
+        webView.loadUrl(url);
     }
 
     public void openOnePocket(){
 
         Intent intent = new Intent(HotelSearchActivity.this, OnepocketPurchaseActivity.class);
-        Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(this), onePocketmessage, OPKConstants.TYPE_HOTEL, (VisaCheckoutApp) getApplication());
+        Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(this), onePocketmessage,
+                OPKConstants.TYPE_HOTEL, (com.allegra.handyuvisa.VisaCheckoutApp) getApplication());
         intent.putExtras(bundle);
         startActivityForResult(intent, Constants.REQUEST_ONEPOCKET_RETURN);
     }
@@ -383,7 +303,6 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
         if(webView.canGoBack()) {
             webView.goBack();
         }
-
     }
 
     public void onGoForward(View view){
@@ -392,14 +311,51 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
         }
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        urlWebView=this.url;
-    }
-
-
     public void onBackButton(View view){
         finish();
+    }
+
+    //**************INNER CLASSES******************
+
+
+    private class MyWebViewClient extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+
+           // Log.d(TAG, "url: " + url);
+            if (Util.hasInternetConnectivity(HotelSearchActivity.this)){
+                if (url.contains("http://")||url.contains("https://")){
+                    view.loadUrl(url);
+                    urlWebView=url;
+                }else if(url.contains("detalleventaht:")&& Util.hasInternetConnectivity
+                        (HotelSearchActivity.this)){
+                    //urlWebView=HotelsActivity.this.url;
+                    // TODO replace with Onepocket pay activity
+                }else{
+                    view.loadUrl(url);
+                    urlWebView=url;
+                }
+            }else{
+                Toast.makeText(HotelSearchActivity.this, R.string.err_no_internet,
+                        Toast.LENGTH_SHORT).show();
+            }
+            return true;
+        }
+
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            /*progressBar.setVisibility(View.GONE);
+            imgLogoAllegra.setVisibility(View.GONE);
+            txtLoading.setVisibility(View.GONE);
+            webView.setVisibility(View.VISIBLE);*/
+            if (url.equals("about:blank")) {
+                webView.loadUrl(returnURL);
+            }
+            loadArrows();
+        }
+        @Override
+        public void onPageStarted(WebView view, String url, Bitmap favicon){
+            //progressBar.setVisibility(View.VISIBLE);
+        }
     }
 }

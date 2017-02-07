@@ -7,7 +7,6 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -15,21 +14,19 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.allegra.handyuvisa.async.MyBus;
-import com.allegra.handyuvisa.utils.Contents;
-import com.allegra.handyuvisa.utils.Util;
 import com.allegra.handyuvisa.async.AsyncSoapObject;
 import com.allegra.handyuvisa.async.AsyncTaskSoapObjectResultEvent;
+import com.allegra.handyuvisa.async.MyBus;
 import com.allegra.handyuvisa.models.SolicitudCobro;
 import com.allegra.handyuvisa.utils.Constants;
+import com.allegra.handyuvisa.utils.Contents;
 import com.allegra.handyuvisa.utils.QRCodeEncoder;
-import com.allem.onepocket.model.OneTransaction;
+import com.allegra.handyuvisa.utils.Util;
 import com.allem.onepocket.utils.OPKConstants;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
-import com.journeyapps.barcodescanner.CaptureManager;
 import com.squareup.otto.Subscribe;
 
 import org.apache.http.NameValuePair;
@@ -126,9 +123,9 @@ public class QRScanActivity extends FrontBackAnimate{// implements FrontBackAnim
                     BigDecimal tmpIVA = tax.setScale(2, BigDecimal.ROUND_HALF_UP);
                     BigDecimal adjIVA = tmpIVA.setScale(0, BigDecimal.ROUND_HALF_UP);
 
-                    Log.d(TAG, "El valor es: "+solicitud.valor.toString());
-                    Log.d(TAG, "El iva es: "+ solicitud.iva.toString());
-                    Log.d(TAG, "La baseDevolucion  es: "+solicitud.baseDevolucion.toString());
+                  //  Log.d(TAG, "El valor es: "+solicitud.valor.toString());
+                   // Log.d(TAG, "El iva es: "+ solicitud.iva.toString());
+                   // Log.d(TAG, "La baseDevolucion  es: "+solicitud.baseDevolucion.toString());
 
                     //taxes.setText("$  " + adjIVA);
                     //Log.d(TAG, "El adjIVA es: "+adjIVA.toString());
@@ -145,7 +142,7 @@ public class QRScanActivity extends FrontBackAnimate{// implements FrontBackAnim
                             "\",\"codeISO\":\"" + currency +
                             "\",\"reference\":\"" + reference +
                             "\"}";
-                    Bundle bundle = Constants.createQRPurchaseBundle(Constants.getUser(QRScanActivity.this), solicitud, data, OPKConstants.TYPE_QRCODE, (VisaCheckoutApp) QRScanActivity.this.getApplication());
+                    Bundle bundle = Constants.createQRPurchaseBundle(Constants.getUser(QRScanActivity.this), solicitud, data, OPKConstants.TYPE_QRCODE, (com.allegra.handyuvisa.VisaCheckoutApp) QRScanActivity.this.getApplication());
                     intent2.putExtras(bundle);
                     startActivity(intent2);
 
@@ -238,7 +235,7 @@ public class QRScanActivity extends FrontBackAnimate{// implements FrontBackAnim
 
 
     private boolean checkLogin() {
-        if(((VisaCheckoutApp)this.getApplication()).getIdSession()==null){
+        if(((com.allegra.handyuvisa.VisaCheckoutApp)this.getApplication()).getIdSession()==null){
             Intent i =new Intent(QRScanActivity.this,LoginActivity.class);
             this.startActivityForResult(i, Constants.ACTIVITY_LOGIN);
             return false;

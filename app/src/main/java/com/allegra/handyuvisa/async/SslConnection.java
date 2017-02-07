@@ -1,7 +1,5 @@
 package com.allegra.handyuvisa.async;
 
-import android.util.Log;
-
 import com.allegra.handyuvisa.utils.Constants;
 
 import java.security.KeyManagementException;
@@ -19,18 +17,24 @@ import javax.net.ssl.TrustManager;
  */
 
 public class SslConnection {
+    private static final String TAG = "SSLConection";
     private static TrustManager[] trustManagers;
-    private final static String HOSTNAME_PRUEBAS = "pruebas.allegraplatform.com";
+    private static final String URBAN_AIRSHIP = "device-api.urbanairship.com";
+    private static final String LIVEPERSON = "server.iad.liveperson.net";
+    private static final String ALLEGRA_PLATFORM = "pruebas.allegraplatform.com";
+   // private static final String PICHINCHA_MARKET = "www.experienciaspichincha.com.co/?logo=1&onepocket=1";
 
-    public static class CustomX509TrustManager implements javax.net.ssl.X509TrustManager {
+    private static class CustomX509TrustManager implements javax.net.ssl.X509TrustManager {
         private static final X509Certificate[] _AcceptedIssuers = new X509Certificate[]{};
 
         public void checkClientTrusted(X509Certificate[] arg0, String arg1)
                 throws CertificateException {
+            //Log.d(TAG, "Str: "+arg1);
         }
 
         public void checkServerTrusted(X509Certificate[] arg0, String arg1)
                 throws CertificateException {
+            //Log.d(TAG, "Str: "+arg1);
         }
 
         public X509Certificate[] getAcceptedIssuers() {
@@ -38,7 +42,7 @@ public class SslConnection {
         }
     }
 
-    public static void allowSSLCertificate() {
+    static void allowSSLCertificate() {
 
         javax.net.ssl.HttpsURLConnection.setDefaultHostnameVerifier(new HostnameVerifier() {
             @Override
@@ -49,9 +53,10 @@ public class SslConnection {
                         hostname.equals(Constants.URL_HOSTNAME_SECUREACCEPTANCE)||
                         hostname.equals(Constants.URL_HOSTNAME_ALLEGRA_PLATFORM)||
                         hostname.equals(Constants.URL_HOSTNAME_APPS_FLYER)||
-                        hostname.equals(Constants.URL_HOSTNAME_LIVEPERSON)||
-                        hostname.equals(Constants.URL_HOSTNAME_TWILIO)||
-                        hostname.equals(HOSTNAME_PRUEBAS))return true;
+                        hostname.equals(URBAN_AIRSHIP)||
+                        hostname.equals(LIVEPERSON)||
+                        hostname.equals(ALLEGRA_PLATFORM))return true;
+                       // hostname.equals(PICHINCHA_MARKET))return true;
                 else return false;
             }
         });
@@ -65,9 +70,9 @@ public class SslConnection {
             context.init(null, trustManagers, new SecureRandom());
             javax.net.ssl.HttpsURLConnection.setDefaultSSLSocketFactory(context.getSocketFactory());
         } catch (NoSuchAlgorithmException e) {
-            Log.e("allowSSLCertificate", e.toString());
+            //Log.e("NoSuchAlgorithmExce", e.toString());
         } catch (KeyManagementException e) {
-            Log.e("allowSSLCertificate", e.toString());
+            //Log.e("KeyManagementExce", e.toString());
         }
     }
 }

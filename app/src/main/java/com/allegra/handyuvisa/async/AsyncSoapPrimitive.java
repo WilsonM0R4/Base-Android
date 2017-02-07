@@ -1,10 +1,9 @@
 package com.allegra.handyuvisa.async;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
-import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.models.Server;
+import com.allegra.handyuvisa.utils.Constants;
 
 import org.apache.http.NameValuePair;
 import org.ksoap2.SoapEnvelope;
@@ -60,16 +59,16 @@ public class AsyncSoapPrimitive extends AsyncTask<String,Void,SoapPrimitive> {
 
     @Override
     protected SoapPrimitive doInBackground(String... strings) {
-        Log.d(TAG, "url: " + url);
-        Log.d(TAG, "namespace: " + namespace);
-        Log.d(TAG, "soapaction:" + soapaction);
+      //  Log.d(TAG, "url: " + url);
+      //  Log.d(TAG, "namespace: " + namespace);
+      //  Log.d(TAG, "soapaction:" + soapaction);
         SoapPrimitive result = null;
         SoapObject request = new SoapObject(namespace, method);
 
         try {
             if(postValues!=null){
                 for (int i=0;i<postValues.size();i++){
-                    Log.d(TAG, postValues.get(i).getName() + ":" + postValues.get(i).getValue());
+                   // Log.d(TAG, postValues.get(i).getName() + ":" + postValues.get(i).getValue());
                     request.addProperty(postValues.get(i).getName(),postValues.get(i).getValue());
                 }
             }
@@ -88,9 +87,9 @@ public class AsyncSoapPrimitive extends AsyncTask<String,Void,SoapPrimitive> {
             transporte.debug=true;
             SslConnection.allowSSLCertificate();
             transporte.call(soapaction, envelope);
-            Log.d(TAG, transporte.requestDump);
+           // Log.d(TAG, transporte.requestDump);
             result = (SoapPrimitive) envelope.getResponse();
-            Log.d(TAG, transporte.responseDump);
+           // Log.d(TAG, transporte.responseDump);
             faultcode=-1;
             faultstring="OK";
         } catch (Exception e) {

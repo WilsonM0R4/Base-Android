@@ -98,28 +98,33 @@
                 android:layout_marginBottom="20dp">
 
 
-                <Button android:id="@+id/login"
-                    style="?metaButtonBarButtonStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                <com.allegra.handyuvisa.utils.CustomizedTextView
+                    android:id="@+id/login"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginEnd="22dp"
+                    android:background="@drawable/round_corner_transparent"
                     android:text="@string/login"
-                    android:textColor="@color/SmallButton_text"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="5dp"
-                    android:background="@drawable/round_corner_transparent"/>
-
-
-                <Button android:id="@+id/register"
-                    style="?metaButtonBarButtonStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:layout_weight="1"
+                    android:textColor="@color/SmallButton_text"
+                    app:font="@string/font_muli"
+                    android:textSize="16sp"/>
+
+                <com.allegra.handyuvisa.utils.CustomizedTextView
+                    android:id="@+id/register"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="22dp"
+                    android:layout_marginEnd="11dp"
+                    android:background="@drawable/round_corner_white"
                     android:text="@string/register"
+                    android:gravity="center"
+                    android:layout_weight="1"
                     android:textColor="@color/HomeButtonSmall_text"
-                    android:layout_marginRight="30dp"
-                    android:layout_marginLeft="5dp"
-                    android:background="@drawable/round_corner_white"/>
+                    app:font="@string/font_muli"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 

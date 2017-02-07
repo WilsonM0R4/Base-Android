@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".WalkThroughActivity">
+
+    <!--  UPPER SCREENSHOT -->
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/walkthrough_07_es"
+        android:id="@+id/imageView32"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@string/accept"
+        android:adjustViewBounds="true" />
+
+    <!-- INTERMEDIATE LAYOUT -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/bg_gradiente"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/imageView32">
+
+        <com.allegra.handyuvisa.utils.CustomizedTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_walk_07"
+            android:textColor="@color/WHITE_COLOR"
+            android:textAlignment="center"
+            android:textSize="22sp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            app:font="@string/font_varela"
+            android:id="@+id/title_walk" />
+
+        <com.allegra.handyuvisa.utils.CustomizedTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/walk_07"
+            android:textColor="@color/WHITE_COLOR"
+            android:textAlignment="center"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/title_walk"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:id="@+id/text_walk"
+            app:font="@string/font_muli_light"/>
+
+        <com.allegra.handyuvisa.utils.CustomizedTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/txtWalktroughFooter"
+            android:textColor="@color/WHITE_COLOR"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="1dp"
+            android:id="@+id/powered_walk"
+            app:font="@string/font_muli"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background"
+    android:layout_marginTop="0dp">
+
+    <!--<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:orientation="horizontal"
+        android:id="@+id/lin_lay_check_or_Cancel"
+        android:weightSum="5"
+        android:layout_marginTop="20dp">
+
+        <ImageButton
+            android:id="@+id/btn_cancel_date_picker"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:background="@drawable/flights__cancel"
+            android:gravity="left"
+            android:layout_weight="0.3" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/text_select_dates_in_dialog"
+            android:textColor="@color/magenta"
+            android:textSize="20sp"
+            android:gravity="center_horizontal"
+            android:layout_weight="4.4"/>
+
+        <ImageButton
+            android:id="@+id/btn_save_date_picker"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:background="@drawable/flights__confirm"
+            android:gravity="right"
+            android:layout_weight="0.3"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="-3dp"
+        android:layout_marginRight="-3dp"
+        android:id="@+id/iv_header"
+        android:layout_below="@+id/lin_lay_check_or_Cancel"
+        android:src="@drawable/separator"
+        android:contentDescription="Divider" />
+
+    <include layout="@layout/custom_date_selector_without_onclick"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/iv_header"
+        android:id="@+id/custom_date_of_trip_header"/>
+
+    <com.squareup.timessquare.CalendarPickerView
+        android:id="@+id/cv_duration"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_below="@+id/custom_date_of_trip_header"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp" /> -->
+
+</RelativeLayout>

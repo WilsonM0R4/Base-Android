@@ -4,19 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.multidex.MultiDexApplication;
-import android.util.Log;
 
 import com.allegra.handyuvisa.utils.Constants;
 import com.allem.onepocket.utils.OPKLibraryConfig;
 import com.urbanairship.UAirship;
 import com.urbanairship.push.notifications.DefaultNotificationFactory;
-
-/*import com.parse.Parse;
-import com.parse.ParseException;
-import com.parse.ParseInstallation;
-import com.parse.ParsePush;
-import com.parse.ParseUser;
-import com.parse.SaveCallback;*/
 
 /**
  * Created by lisachui on 12/1/15.
@@ -32,35 +24,16 @@ public class VisaCheckoutApp extends MultiDexApplication {
     private String path = "android.resource://com.allegra.handyuvisa/raw/allegra_sound";
 
 
-    //final String SPLUNK_API_KEY = "d87dc4ae6083e6b16e3b473";
-    //Mint.initAndStartSession(MyActivity.this, "e74061f2");
-    //final String SPLUNK_API_KEY = "e74061f2";
-
-
     @Override
     public void onCreate() {
-        //super.onCreate();
-        //SystemClock.sleep(0);   // For running splash screen
         super.onCreate();
-
-
-        //UrbanAirship
-/*        UAirship.takeOff(this, new UAirship.OnReadyCallback() {
-            @Override
-            public void onAirshipReady(UAirship airship) {
-
-                // Enable user notifications
-                airship.getPushManager().setUserNotificationsEnabled(true);
-                UAirship.shared().getNamedUser().setId(null);
-            }
-        });*/
 
         UAirship.takeOff(this, new UAirship.OnReadyCallback() {
 
             @Override
             public void onAirshipReady(UAirship airship) {
 
-                Log.d("ESTOY LISTO", "RECIBIDO");
+               // Log.d("ESTOY LISTO", "RECIBIDO");
                 DefaultNotificationFactory factory = (DefaultNotificationFactory)
                         UAirship.shared().getPushManager().getNotificationFactory();
                 factory.setSound(Uri.parse(path));
@@ -70,41 +43,6 @@ public class VisaCheckoutApp extends MultiDexApplication {
         });
 
         initOnepocket();
-        /*Parse.enableLocalDatastore(getApplicationContext());
-        Parse.initialize(this, "YLafvQVsiUgpHPhTBZFuEIEfdnCtzHNV6fwiOWnY", "PpAKINbIw42zMgFuzstKl6IOrrQqRFAxupHqkGdn");
-        ParseInstallation.getCurrentInstallation().saveEventually(new SaveCallback() {
-            @Override
-            public void done(ParseException e) {
-                if (e != null) Log.e(TAG, e.toString());
-                else {
-                    ParseUser.enableAutomaticUser();
-                    ParseUser.getCurrentUser().saveInBackground(new SaveCallback() {
-                        @Override
-                        public void done(ParseException e) {
-                            currentUser = ParseUser.getCurrentUser();
-                            if (currentUser != null) {
-                                Log.d(TAG, "currentuser: " + currentUser.getObjectId() + " platform:" + Build.VERSION.RELEASE);
-                                currentUser.put("platform", "Android");
-                                currentUser.put("systemVer", Build.VERSION.RELEASE);
-                                currentUser.saveInBackground();
-                                ParseInstallation currentInstall = ParseInstallation.getCurrentInstallation();
-                                currentInstall.put("user", currentUser);
-                                currentInstall.saveInBackground();
-                            }
-                        }
-                    });
-                    subscribeGlobal();
-                }
-            }
-        });
-*/
-        // Setup handler for uncaught exceptions.
-        /*Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
-            @Override
-            public void uncaughtException(Thread thread, Throwable e) {
-                handleUncaughtException(thread, e);
-            }
-        });*/
     }
 
 
@@ -158,8 +96,10 @@ public class VisaCheckoutApp extends MultiDexApplication {
     }
 
     private void initOnepocket() {
-        OPKLibraryConfig.setTestMode(Constants.TESTING);
-        OPKLibraryConfig.setIdPortal(BuildConfig.idPortal);
+        new OPKLibraryConfig.Builder()
+                .testMode(Constants.TESTING)
+                .idPortal(Constants.ID_PORTAL)
+                .build();
     }
 
 }

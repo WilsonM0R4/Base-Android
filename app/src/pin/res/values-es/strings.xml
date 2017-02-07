@@ -6,8 +6,28 @@
     <string name="TODAY">HOY</string>
     <string name="room">HAB</string>
     <string name="SAME_WEEK">ÚLTIMA SEMANA</string>
+    <string name="mytips">Tips</string>
     <string name="SAME_MONTH">ÚLTIMO MES</string>
+    <string name="skip_walk">Salta</string>
+    <string name="done_walk">Inicia</string>
+    <string name="cobertura_basica">Basic Coverages</string>
+    <string name="title_walk_01">Bienvenido a Handy U Pichincha</string>
+    <string name="title_walk_02">Con mCard\n siéntete seguro</string>
+    <string name="title_walk_03">Tranquilidad al alcance\n de tu mano</string>
+    <string name="editprofile_ok">Tu perfil se ha actualizado satisfactoriamente</string>
+    <string name="title_walk_04">Un nuevo método\n de pago móvil</string>
+    <string name="title_walk_05">Ahora comprar\n es más fácil</string>
+    <string name="title_walk_06">Una buena experiencia\n para viajar</string>
+    <string name="title_walk_07">Servicios y comercios\n con un toque</string>
+    <string name="walk_01">La solución "all-in-one"\n donde tienes miles de servicios\n y productos a la mano.</string>
+    <string name="walk_02">Vive y viaja sin preocupaciones, con\n coberturas médicas, protección para tus\n necesidades cotidianas y financieras.</string>
+    <string name="walk_03">Ahora tu certificado de cobertura\n está disponible en tu dispositivo\n móvil cuando lo necesites.</string>
+    <string name="walk_04">Ahora puedes comprar en minutos,\n de manera más fácil y segura con\n Visa Checkout.</string>
+    <string name="walk_05">Encuentra todo lo que quieres\n al precio que deseas en\n nuestro market.</string>
+    <string name="walk_06">Encuentra vuelos, hoteles y\n actividades, en cualquier lugar\n del mundo.</string>
+    <string name="walk_07">Restaurantes, tiendas, profesionales para tu hogar, atención para mascotas, carros y mucho más.</string>
     <string name="BEFORE">ANTERIORES</string>
+    <string name="travel_quiet">¡Viaja con tranquilidad!</string>
     <string name="forgot_password">Recuperación de Contraseña</string>
     <string name="location_permision">Tu GPS parece estar deshabilitado. ¿Quieres habilitarlo?</string>
     <string name="location_failed">Falló al buscar a tu ubicación actual. Por favor, comprueba el estado de tu GPS y vuelve a intentarlo</string>
@@ -507,7 +527,7 @@
     <string name="decline_register">RECHAZAR</string>
     <string name="accept_register">ACEPTAR</string>
     <string name="congratulations">¡Felicitaciones!</string>
-    <string name="you_can_enjoy_benefits">Ahora podrás disfrutar\n de todos los beneficios que\n te da handy U Visa</string>
+    <string name="you_can_enjoy_benefits">Ahora podrás disfrutar\n de todos los beneficios que te\n da Handy U Pichincha</string>
     <string name="txt_continue">CONTINUAR</string>
     <string name="test_terms"><u>términos y condiciones</u></string>
     <string name="by_clicking">Haciendo click en aceptar, aceptas</string>
@@ -528,13 +548,14 @@
     <string name="greet">Qué bueno verte de nuevo</string>
     <string name="IATAI_CERTIFICA">IATAI CERTIFICA</string>
     <string name="UnlimitedMcard">ILIMITADO</string>
-    <string name="enjoy_all_benefits">Disfruta todos los beneficios que te trae\n tu membresía a través de handy mCard</string>
-    <string name="get_your_certificate">OBTÉN TU CERTIFICADO</string>
+    <string name="enjoy_all_benefits">Accede a cientos de beneficios, servicios y\n coberturas que te ofrece tu handy mCard.</string>
+    <string name="get_your_certificate">¡CONSÍGUELA AHORA!</string>
     <string name="privacy_policy_underscore"><u>política de privacidad</u></string>
     <string name="ups_try_again">¡Ups! Inténtalo de nuevo</string>
     <string name="your_search_no_results">Tu búsqueda no muestra resultados</string>
     <string name="txt_loading_loader">Loading</string>
     <string name="title_onetouch_call">Onetouch call</string>
     <string name="title_onetouch_chat">Onetouch chat</string>
-
+    <string name="title_live_tranquility">¡Vive con tranquilidad!</string>
+    <string name="txtWalktroughFooter">POWERED BY IATAI</string>
 </resources>

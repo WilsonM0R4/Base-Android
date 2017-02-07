@@ -7,11 +7,12 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.database.sqlite.SQLiteDatabase;
-import android.net.Uri;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,29 +22,33 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.allegra.handyuvisa.ProofDinamico.asyncProofDynamic.AsyncSoapObjectProofDynamic;
+import com.allegra.handyuvisa.ProofDinamico.asyncProofDynamic.AsyncTaskSoapObjectResultEventProofDynamic;
+import com.allegra.handyuvisa.ProofDinamico.model.Cobertura;
+import com.allegra.handyuvisa.ProofDinamico.model.Poliza;
 import com.allegra.handyuvisa.async.AsyncSoapObject;
-import com.allegra.handyuvisa.async.AsyncSoapObjectTest;
 import com.allegra.handyuvisa.async.AsyncTaskSoapObjectResultEvent;
-import com.allegra.handyuvisa.async.AsyncTaskSoapObjectResultEventMcard;
 import com.allegra.handyuvisa.async.MyBus;
 import com.allegra.handyuvisa.models.AllemUser;
-import com.allegra.handyuvisa.models.McardCliente;
 import com.allegra.handyuvisa.models.UserDataBase;
 import com.allegra.handyuvisa.parsers.SoapObjectParsers;
+import com.allegra.handyuvisa.utils.Connectivity;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
 import com.allegra.handyuvisa.utils.KeySaver;
 import com.allegra.handyuvisa.utils.UsuarioSQLiteHelper;
 import com.allegra.handyuvisa.utils.Util;
+import com.google.gson.Gson;
 import com.splunk.mint.Mint;
 import com.squareup.otto.Subscribe;
 import com.urbanairship.UAirship;
-import com.urbanairship.push.notifications.DefaultNotificationFactory;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
 import java.util.ArrayList;
+
+import static com.allegra.handyuvisa.R.id.et_password;
 
 /**
  * Created by victor on 19/02/15.
@@ -54,16 +59,15 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
     private final String TAG = "LoginActivity";
     private ActionBar actionBar;
     private Context ctx;
-    private int idCuenta;
+    String nombre, apellido, typeOfId, numberOfId, numberOfMcard;
     //private ImageButton ib_visibilitypass;
     private boolean passIsVisible = false;
     private EditText username, password;
     private CustomizedTextView btn_login, btn_newaccount;
-    private ArrayList<NameValuePair> postValues;
     private ArrayList<String> arrayListMemberships;
     private ProgressBar pb_login;
     private TextView version, forgotpass;
-
+    int idCuenta = 0;
     private String idMcard, numMcard;
     int idMcard1 = 0;
     private String valueOfMcard;
@@ -71,6 +75,8 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
     SQLiteDatabase dbbase;
     private static final String SOUND_NOTIFICATIONS = "android.resource://com.allegra.handyuvisa/raw/allegra_sound";
     public UAirship uAirship;
+    private ArrayList<NameValuePair> postValues;
+    boolean mostrarAppCobertura = true, mostrarAppBeneficios = true, mostrarSoloPolizaPrincipal = true;
 
 
     //*************************OVERRIDE METHODS*********************
@@ -91,11 +97,9 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         Mint.initAndStartSession(getApplicationContext(), Constants.SPLUNK_API_KEY);
         // Enable logging
         Mint.enableLogging(true);
-        // Log last 100 messages
+        // Log last 200 messages
         Mint.setLogging(200);
-
         findValueOfMcard();
-
         //Error for test Splunk
         /*String str =  null;
         Log.d(TAG, str);*/
@@ -121,10 +125,10 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
             String versionName = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
             TextView version = (TextView) root.findViewById(R.id.version);
             if (version != null) {
-                version.setText("Version: " + versionName);
+                version.setText("Version " + versionName);
             }
         } catch (PackageManager.NameNotFoundException e) {
-            Log.d(TAG, "No Version number found");
+           // Log.d(TAG, "No Version number found");
         }
         forgotpass = (TextView) root.findViewById(R.id.forgotPassword);
         forgotpass.setOnClickListener(new View.OnClickListener() {
@@ -136,10 +140,9 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         });
         //ib_visibilitypass = (ImageButton) root.findViewById(R.id.ib_visibilitypass);
         username = (EditText) root.findViewById(R.id.et_email);
-        password = (EditText) root.findViewById(R.id.et_password);
+        password = (EditText) root.findViewById(et_password);
         btn_login = (CustomizedTextView) root.findViewById(R.id.btn_login);
         btn_newaccount = (CustomizedTextView) root.findViewById(R.id.btn_register);
-        btn_login.setEnabled(false);
         pb_login = (ProgressBar) root.findViewById(R.id.pb_login);
         pb_login.setVisibility(View.GONE);
         if (KeySaver.getStringSavedShare(ctx, Constants.KEY_EMAIL) != null) {
@@ -173,7 +176,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                    }
                    password.setSelection(password.length());
                }
-           });*/
+           });*//*
         username.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
@@ -191,7 +194,10 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                         .matches() && password.length() > 0) {
                     btn_login.setEnabled(true);
                 } else {
-                    btn_login.setEnabled(false);
+                    Toast.makeText(
+                            ctx,
+                            getString(R.string.form_errors),
+                            Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -213,7 +219,66 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                         .matches()) {
                     btn_login.setEnabled(true);
                 } else {
-                    btn_login.setEnabled(false);
+                    Toast.makeText(
+                            ctx,
+                            getString(R.string.form_errors),
+                            Toast.LENGTH_LONG).show();
+                }
+            }
+        });*/
+
+        username.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (android.util.Patterns.EMAIL_ADDRESS.matcher(editable.toString())
+                        .matches() && password.length() > 0) {
+                    username.setTextColor(getResources().getColor(R.color.InputFocus_text));
+                    username.setHintTextColor(getResources().getColor(R.color.InputFocus_text));
+                    password.setTextColor(getResources().getColor(R.color.InputFocus_text));
+                    password.setHintTextColor(getResources().getColor(R.color.InputFocus_text));
+                } else {
+                    username.setTextColor(getResources().getColor(R.color.InputNormal_border_hit));
+                    username.setHintTextColor(getResources().getColor(R.color.InputNormal_border_hit));
+                    password.setTextColor(getResources().getColor(R.color.InputFocus_text));
+                    password.setHintTextColor(getResources().getColor(R.color.InputFocus_text));
+                }
+            }
+        });
+
+        password.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (editable.length() > 0 && android.util.Patterns.EMAIL_ADDRESS.matcher(username.getText().toString())
+                        .matches()) {
+                    username.setTextColor(getResources().getColor(R.color.InputFocus_text));
+                    username.setHintTextColor(getResources().getColor(R.color.InputFocus_text));
+                    password.setTextColor(getResources().getColor(R.color.InputFocus_text));
+                    password.setHintTextColor(getResources().getColor(R.color.InputFocus_text));
+                } else {
+                    username.setTextColor(getResources().getColor(R.color.InputNormal_border_hit));
+                    username.setHintTextColor(getResources().getColor(R.color.InputNormal_border_hit));
+                    password.setTextColor(getResources().getColor(R.color.InputFocus_text));
+                    password.setHintTextColor(getResources().getColor(R.color.InputFocus_text));
                 }
             }
         });
@@ -223,12 +288,19 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
             public void onClick(View view) {
 
                 if (Util.hasInternetConnectivity(ctx)) {
-                    setWaitinUI(true);
-                    if (postValues.size() > 0) postValues.clear();
-                    postValues.add(new BasicNameValuePair("email", username.getText().toString()));
-                    postValues.add(new BasicNameValuePair("password", password.getText().toString()));
-                    AsyncSoapObject.getInstance(Constants.getALLEM_BASE(), Constants.NAMESPACE_ALLEM,
-                            Constants.METHOD_INICIAR_SESION, postValues, Constants.ACTIVITY_LOGIN).execute();
+                    if (checkFields()) {
+                        setWaitinUI(true);
+                        if (postValues.size() > 0) postValues.clear();
+                        postValues.add(new BasicNameValuePair("email", username.getText().toString()));
+                        postValues.add(new BasicNameValuePair("password", password.getText().toString()));
+                        AsyncSoapObject.getInstance(Constants.getALLEM_BASE(), Constants.NAMESPACE_ALLEM,
+                                Constants.METHOD_INICIAR_SESION, postValues, Constants.ACTIVITY_LOGIN).execute();
+                    } else {
+                        Toast.makeText(
+                                ctx,
+                                getString(R.string.form_errors),
+                                Toast.LENGTH_LONG).show();
+                    }
 
                 } else {
                     Toast.makeText(ctx, R.string.err_no_internet, Toast.LENGTH_SHORT).show();
@@ -239,7 +311,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         btn_newaccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(ctx, LoginNewUser.class);
+                Intent i = new Intent(ctx, com.allegra.handyuvisa.LoginNewUser.class);
                 LoginActivity.this.startActivityForResult(i, Constants.ACTIVITY_LOGIN_NEW_USER);
             }
         });
@@ -256,7 +328,6 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         btn_login.setEnabled(!b);
         btn_newaccount.setEnabled(!b);
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -296,9 +367,47 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
 
     }
 
+    //SOAP Response from new Request Dynamic Proof of coverage
+    @Subscribe
+    public void onAsyncTaskResult(AsyncTaskSoapObjectResultEventProofDynamic event) {
+        //Log.d(TAG, event.getFaultString());
+
+        if (event.getResult() != null) {
+            Poliza poliza = SoapObjectParsers.toPoliza(event.getResult());
+            String str = event.getResult().toString();
+            //Log.d(TAG, "Resultado: "+str);
+            AllemUser allemUser = Constants.getUser(getApplicationContext());
+            //AllemUser allemUser = SoapObjectParsers.toAllemUser(event.getResult());
+            //((VisaCheckoutApp) this.getApplication()).setIdSession(allemUser.idSesion);
+            /*nombre = allemUser.nombre;
+            apellido = allemUser.apellido;
+            typeOfId = getTypeOfIdForDisplay(allemUser.idType);
+            numberOfId = allemUser.idNumber;
+            Log.d("nombre", nombre);
+            Log.d("apellido", apellido);
+            Log.d("typeOfId", typeOfId);
+            Log.d("numberOfId", numberOfId);
+            */
+            //Ya se tiene el objeto Póliza, ahora guardar el número en SharedPreferences
+            String numeroPoliza = poliza.getNumeroPoliza();
+            //Log.d(TAG, "numero: "+numeroPoliza);
+            //Save in SharedPreferences
+            SharedPreferences prefs = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString("numMcard", numeroPoliza);
+            //Obtener el listado de coberturas y guardarlo
+            ArrayList<Cobertura> coberturas = poliza.getCoberturas();
+            Gson gson = new Gson();
+            String strCoberturas = gson.toJson(coberturas);
+            //Log.d("TAG","Coberturas = " + strCoberturas);
+            editor.putString("coberturas", strCoberturas);
+            editor.apply();
+
+        }
+    }
 
     //Response from SOAP Service, get Mcards purchased by an user
-    @Subscribe
+    /*@Subscribe
     public void onAsyncTaskResult(AsyncTaskSoapObjectResultEventMcard event) {
         Log.d("SergioMcardEntra", event.getFaultString());
         if (event.getCodeRequest() == Constants.MCARD_CODE) {
@@ -327,54 +436,43 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 Log.d("numMcard", "Es" + numMcard);
             }
         }
-    }
-
-    public class CustomDefaultNotificationFactory extends DefaultNotificationFactory {
-
-        public CustomDefaultNotificationFactory(Context context) {
-            super(context);
-        }
-
-    }
-
+    }*/
 
     //Response from SOAP Service, get user login info
     @Subscribe
     public void onAsyncTaskResult(AsyncTaskSoapObjectResultEvent event) {
 
-        Log.d("SergioEntra", event.getFaultString());
+        //Log.d("SergioEntra", event.getFaultString());
         if (event.getCodeRequest() == Constants.ACTIVITY_LOGIN) {
-            setWaitinUI(false);
+
             if (event.getResult() != null) {
 
                 //Create an AllemUser object and set values
                 AllemUser user = SoapObjectParsers.toAllemUser(event.getResult());
                 //McardCliente mcardCliente = SoapObjectParsers.toMcardCliente(event.getResult());
-                ((VisaCheckoutApp) this.getApplication()).setIdSession(user.idSesion);
-                ((VisaCheckoutApp) this.getApplication()).setIdCuenta(user.idCuenta);
-                ((VisaCheckoutApp) this.getApplication()).setRawPassword(password.getText().toString());
+                ((com.allegra.handyuvisa.VisaCheckoutApp) this.getApplication()).setIdSession(user.idSesion);
+                ((com.allegra.handyuvisa.VisaCheckoutApp) this.getApplication()).setIdCuenta(user.idCuenta);
+                ((com.allegra.handyuvisa.VisaCheckoutApp) this.getApplication()).setRawPassword(password.getText().toString());
+
                 //Get values for work with these
                 String name = user.email.substring(0, user.email.indexOf('@'));
                 String domain = user.email.substring(user.email.indexOf('@') + 1, user.email.length()).replace(".", "");
                 String channel = name + domain + user.idCuenta;
                 //Notifications UrbanAirship
-                CustomDefaultNotificationFactory notificationFactory = new CustomDefaultNotificationFactory(UAirship.getApplicationContext());
-                Uri sound = Uri.parse(SOUND_NOTIFICATIONS);
                 UAirship.shared().getPushManager().editTags()
                         .addTag(channel)
                         .apply();
-                UAirship.shared().getPushManager().setNotificationFactory(notificationFactory);
-                //UAirship.shared().getPushManager().setNotificationFactory(notificationFactory);
-                Log.d("CHANNEL: ", channel);
+                //Log.d("CHANNEL: ", channel);
                 String password = user.hashpassword;
                 String cel_code = user.celular_codigo;
                 String typeOfId = user.idType;
                 //String numMcard = mcardCliente.getNumeroMembresia();
                 String numberOfId = user.idNumber;
-                //Log.d("Sergio", "Es: "+cel_code);
 
                 String nombre = user.nombre;
                 String apellido = user.apellido;
+                String empresa = user.empresa;
+                String empresa_nit = user.idEmpresa;
                 //Save in SharedPreferences
                 SharedPreferences prefs =
                         getSharedPreferences("MisPreferencias", MODE_PRIVATE);
@@ -384,32 +482,101 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 editor.putString("nombre", nombre);
                 editor.putString("typeOfId", getTypeOfDocumentFromIdCode(typeOfId));
                 editor.putString("numberOfId", numberOfId);
-                //editor.putString("celular_codigo",cel_code);
+                editor.putString("empresa", empresa);
+                editor.putString("empresa_nit", empresa_nit);
+
                 idCuenta = user.idCuenta;
                 editor.putString("idCuenta", String.valueOf(idCuenta));
                 editor.apply();
                 //Launch SOAP request for mCard
                 if (postValues.size() > 0) postValues.clear();
                 postValues.add(new BasicNameValuePair("idCuenta", String.valueOf(idCuenta)));
-                AsyncSoapObjectTest asyncSoapObjectTest = new AsyncSoapObjectTest(getApplicationContext());
+               /* AsyncSoapObjectTest asyncSoapObjectTest = new AsyncSoapObjectTest(getApplicationContext());
                 asyncSoapObjectTest.getInstance2(Constants.getMcardUrl(), Constants.MCARD_NAMESPACE,
-                        Constants.MCARD_METHOD, postValues, Constants.MCARD_CODE).execute();
+                        Constants.MCARD_METHOD, postValues, Constants.MCARD_CODE).execute();*/
+                getValuesDynamicProofOfCoverage();
                 Constants.saveUser(ctx, user, channel);
                 valueOfMcard = prefs.getString("idMcard", "0");
                 idMcard1 = Integer.valueOf(valueOfMcard);
                 db.addUser(new UserDataBase(nombre, apellido, getTypeOfDocumentFromIdCode(typeOfId), numberOfId, prefs.getString("numMcard", numMcard), findValueOfMcard(), findValueOfMcard(), findValueOfMcard()));
-                /*CHECK IF DATA BASE EXIST*/
+                setWaitinUI(false);
+                //*CHECK IF DATA BASE EXIST*/
                 Intent returnIntent = new Intent();
-                Log.e("Sergio", "Acá sí");
+                //Log.e(TAG, "Acá sí");
                 setResult(RESULT_OK, returnIntent);
                 finish();
 
             } else {
                 Toast.makeText(ctx, event.getFaultString(), Toast.LENGTH_LONG).show();
+                setWaitinUI(false);
             }
 
         }
     }
+
+
+    private String getTypeOfIdForDisplay(String idType) {
+
+        String strType = "";
+        switch (idType) {
+
+            case "1":
+                return "CC";
+            //break;
+            case "2":
+                return "CE";
+            case "3":
+                return "NIT";
+            //break;
+            case "4":
+                return "TI";
+            case "5":
+                return "PS";
+            //break;
+            case "10":
+                return "NUIP";
+            case "9":
+                return "OTRO";
+            //break;
+
+        }
+
+        return strType;
+    }
+
+    //Send SOAP request for bring ProofOfCoverage's info
+    void getValuesDynamicProofOfCoverage() {
+
+        SharedPreferences preferences = this.getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+        String idCuentaAIM = preferences.getString("idCuenta", "3");
+        String idPortal = Constants.ID_PORTAL;
+        //Log.d(TAG, "El id es: "+idCuentaAIM);
+
+        //ARM REQUEST
+        postValues = new ArrayList<>();
+        if (postValues.size() > 0) postValues.clear();
+        postValues.add(new BasicNameValuePair("idCuentaAIM", idCuentaAIM));//"10489"
+        postValues.add(new BasicNameValuePair("idPortal", idPortal));
+        postValues.add(new BasicNameValuePair("mostrarAppCobertura", Boolean.toString(mostrarAppCobertura)));
+        postValues.add(new BasicNameValuePair("mostrarAppBeneficios", Boolean.toString(mostrarAppBeneficios)));
+        postValues.add(new BasicNameValuePair("mostrarSoloPolizaPrincipal", Boolean.toString(mostrarSoloPolizaPrincipal)));
+
+        //Boolean Flags
+
+        //Log.d(TAG, "Booleans "+mostrarAppCobertura);
+
+        //If there is internet connection, send request
+        if (Connectivity.isConnected(getApplicationContext()) || Connectivity.isConnectedWifi(getApplicationContext()) || Connectivity.isConnectedMobile(getApplicationContext())) {
+           // Log.d(TAG, "Entra al internet");
+            AsyncSoapObjectProofDynamic.getInstance(Constants.getUrlDynamicProof(), Constants.NAMESPACE_PROOF,
+                    Constants.METHOD_PROOF, postValues, Constants.REQUEST_CODE_PROOF).execute();
+
+        } else {
+            Toast.makeText(getApplicationContext(), R.string.err_no_internet, Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
 
     public String findValueOfMcard() {
 
@@ -464,7 +631,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
     public void onBackPressed() {
 
         super.onBackPressed();
-        Log.d(TAG, "back pressed");
+       // Log.d(TAG, "back pressed");
         setResult(RESULT_CANCELED);
         finish();
         overridePendingTransition(R.animator.back_slide_in, R.animator.front_slide_out);
@@ -474,5 +641,25 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         animate();
     }
 
+    private boolean checkFields() {
+
+        boolean result = true;
+        if (username.getText().toString().equals("")) {
+            result = false;
+        }
+        if (!Patterns.EMAIL_ADDRESS.matcher(username.getText().toString()).matches()) {
+            username.setTextColor(Color.RED);
+            username.setHintTextColor(Color.RED);
+            result = false;
+        }
+        if (password.getText().toString().length() < 6) {
+            password.setTextColor(Color.RED);
+            password.setHintTextColor(Color.RED);
+            result = false;
+        }
+
+        return result;
+
+    }
 
 }

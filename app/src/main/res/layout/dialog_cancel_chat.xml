@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <com.allegra.handyuvisa.utils.CustomizedTextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/titleCancelChatCall"
+    android:textColor="@color/ALLEGRA_PURPLE_COLOR"
+    android:text="@string/titleCancelChatCall"
+    android:textSize="21sp"
+    app:font="@string/font_muli"
+    android:gravity="center_horizontal"
+    android:layout_marginTop="28dp" />
+
+    <com.allegra.handyuvisa.utils.CustomizedTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="22dp"
+        android:layout_marginStart="22dp"
+        android:id="@+id/txtConfirmationCancelChatCall"
+        android:textColor="@color/GRAY_COLOR"
+        android:text="@string/txtConfirmationCancelChatCall"
+        android:textSize="16sp"
+        app:font="@string/font_muli_light"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="12dp" />
+
+    <LinearLayout
+        android:id="@+id/ll_login_register_new_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginBottom="18dp"
+        android:weightSum="2">
+
+        <com.allegra.handyuvisa.utils.CustomizedTextView
+            android:id="@+id/txtCancelDialogchat"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="11dp"
+            android:layout_marginStart="2dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_corner_transparent_orange"
+            android:text="@string/cancelDialogChatCall"
+            android:textColor="@color/BigButtonWithBorder_text"
+            app:font="@string/font_muli"
+            android:gravity="center"
+            android:textSize="15sp"/>
+
+        <com.allegra.handyuvisa.utils.CustomizedTextView
+            android:id="@+id/txtOkCancelChat"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginStart="11dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_corner_magenta"
+            android:text="@string/okCancelChatCall"
+            android:gravity="center"
+            android:textColor="@color/BigButton_text"
+            app:font="@string/font_muli"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

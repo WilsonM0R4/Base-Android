@@ -1,11 +1,11 @@
 package com.allegra.handyuvisa.parsers;
 
-import android.util.Log;
-
-import com.allegra.handyuvisa.models.McardCliente;
-import com.allegra.handyuvisa.utils.Constants;
+import com.allegra.handyuvisa.ProofDinamico.model.Cobertura;
+import com.allegra.handyuvisa.ProofDinamico.model.Poliza;
 import com.allegra.handyuvisa.models.AllemUser;
 import com.allegra.handyuvisa.models.Compra;
+import com.allegra.handyuvisa.models.McardCliente;
+import com.allegra.handyuvisa.utils.Constants;
 
 import org.ksoap2.serialization.SoapObject;
 
@@ -39,6 +39,56 @@ public class SoapObjectParsers {
         return  mcardCliente;
     }
 
+    //*************New method for parse DynamicProofOfCoverage************
+
+    public static Poliza toPoliza(Vector<SoapObject> vector){
+
+        Poliza poliza;
+        Iterator<SoapObject> itr = vector.iterator();
+        ArrayList<Cobertura>  arrListCoberturas =  new ArrayList<>();
+        SoapObject soapObject, poliza1, coberturas;
+        String numeroPoliza = "", nombreCobertura = "", valorTexto = "";
+
+
+        while(itr.hasNext()){
+
+            soapObject = itr.next();
+
+            if (soapObject.hasProperty("poliza")){
+                //Log.e(TAG, "Count "+soapObject.getPropertyCount());
+                //Dentro del objeto polizas obtengo la poliza
+                poliza1 = (SoapObject)soapObject.getProperty("poliza");
+                //Log.e(TAG, "Count inferior "+poliza1.getPropertyCount());
+                //DEntro de la poliza itero por todos sus campos y extraigo el primer valor
+                numeroPoliza = poliza1.getPropertyAsString("numeroPoliza");
+                //Iterar a lo largo del array de coberturas
+                coberturas = (SoapObject)poliza1.getProperty("coberturas");
+                //Log.e(TAG, "Count coberturas "+coberturas.getPropertyCount());
+
+                for (int i = 0; i < coberturas.getPropertyCount(); i++){
+                    Object  cobertura = coberturas.getProperty(i);
+                    if (cobertura instanceof SoapObject)
+                    {
+                        SoapObject coberture = (SoapObject) cobertura;
+                        nombreCobertura = coberture.getPrimitivePropertySafelyAsString("nombre");
+                        valorTexto = coberture.getPrimitivePropertySafelyAsString("valorTexto");
+                        //Log.e(TAG, "nom: "+nombreCobertura);
+                        //Log.e(TAG, "Valor: "+valorTexto);
+                        //Creo un objeto cobertura
+                        Cobertura cobertura1 = new Cobertura(nombreCobertura, valorTexto);
+                        //Lo adiciono al arrayList
+                        arrListCoberturas.add(cobertura1);
+                    }
+                }
+            } else{//Sino usamos un valor por defecto que indica que no tiene póliza
+                numeroPoliza = "NO_TIENE";
+            }
+            //Log.e(TAG, "numeroPoliza "+numeroPoliza);
+        }
+        poliza = new Poliza(numeroPoliza, arrListCoberturas);
+        return poliza;
+    }
+
     public static McardCliente toMcardCliente(Vector<SoapObject> vector){
         McardCliente mcardCliente = null;
         ArrayList<String> arrayProducto = new ArrayList<>();
@@ -58,8 +108,8 @@ public class SoapObjectParsers {
                 idProducto = soapObject.getPropertyAsString("numeroMembresia");
                 arrayProducto.add(numMembresia);
             }*/
-            Log.e("idProducto",idProducto);
-            Log.e("numeroMembresia",numMembresia);
+            //Log.e("idProducto",idProducto);
+            //Log.e("numeroMembresia",numMembresia);
         }
 
         //******Validate idProducto*********
@@ -69,8 +119,8 @@ public class SoapObjectParsers {
             else if (arrayProducto.contains("208")) idMayorProducto = "208";//PREMIUM
             else if (arrayProducto.contains("212")) idMayorProducto = "212";//PRIVILEGE
 
-        Log.e("idMayorProducto",idMayorProducto);
-        Log.e("numMcard",numMembresia);
+        //Log.e("idMayorProducto",idMayorProducto);
+        //Log.e("numMcard",numMembresia);
         mcardCliente = new McardCliente(idMayorProducto,numMembresia);//soapObject.getPropertyAsString("idProducto")
         return  mcardCliente;
     }
@@ -78,7 +128,7 @@ public class SoapObjectParsers {
 
     public static AllemUser toAllemUser(SoapObject soapObject){
         AllemUser allemUser = null;
-        String saludo="",idSesion="", celular="", idNumber="", idType="", pais = "", celular_codigo = "";
+        String saludo="",idSesion="", celular="", idNumber="", idType="", pais = "", celular_codigo = "", empresa = "", empresa_nit = "";
         if (soapObject.hasProperty("saludo")){
             saludo= soapObject.getPropertyAsString("saludo");
         }
@@ -91,8 +141,10 @@ public class SoapObjectParsers {
             if(additionalInfo.hasProperty("pais")) pais= additionalInfo.getPropertyAsString("pais");
             if(additionalInfo.hasProperty("celular_codigo")) {
                 celular_codigo = additionalInfo.getPropertyAsString("celular_codigo");
-                Log.d("Sergio", "Es: " + celular_codigo);
+                //Log.d("Sergio", "Es: " + celular_codigo);
             }
+            if (additionalInfo.hasProperty("empresa")) empresa = additionalInfo.getPropertyAsString("empresa");
+            if (additionalInfo.hasProperty("empresa_nit")) empresa_nit = additionalInfo.getPropertyAsString("empresa_nit");
         }
 
         if (soapObject.hasProperty("numeroDocumento")){
@@ -112,7 +164,7 @@ public class SoapObjectParsers {
                 soapObject.getPropertyAsString("password"),
                 idSesion,
                 Integer.valueOf(soapObject.getProperty("idCuenta").toString()),
-                Boolean.valueOf(soapObject.getProperty("estado").toString()),celular,idNumber,idType, pais, celular_codigo);
+                Boolean.valueOf(soapObject.getProperty("estado").toString()),celular,idNumber,idType, pais, celular_codigo, empresa, empresa_nit);
 
         return allemUser;
     }
@@ -123,7 +175,7 @@ public class SoapObjectParsers {
         for(int i=0;i<soapObject.getPropertyCount();i++){
             if (order)k=i;
             else k=soapObject.getPropertyCount()-1-i;
-            Log.d(TAG, soapObject.getProperty(i).toString());
+           // Log.d(TAG, soapObject.getProperty(i).toString());
             SoapObject soapCompra = (SoapObject) soapObject.getProperty(k);
             Compra compra = new Compra(Integer.valueOf(soapCompra.getProperty(Constants.KEY_COMPRAS_ID_COMPRAS).toString()),
                     soapCompra.getProperty(Constants.KEY_COMPRAS_FECHA).toString(),
@@ -146,7 +198,7 @@ public class SoapObjectParsers {
         for(int i=0;i<soapObject.getPropertyCount();i++){
             if (order)k=i;
             else k=soapObject.getPropertyCount()-1-i;
-            Log.d(TAG, soapObject.getProperty(i).toString());
+           // Log.d(TAG, soapObject.getProperty(i).toString());
             HashMap<String,String> compra = new HashMap<>();
             SoapObject soapCompra = (SoapObject) soapObject.getProperty(k);
 
