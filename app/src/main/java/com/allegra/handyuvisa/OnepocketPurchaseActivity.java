@@ -17,11 +17,14 @@ import com.allem.onepocket.RegisterCallback;
 import com.allem.onepocket.model.OneTransaction;
 import com.allem.onepocket.utils.OPKConstants;
 
+import java.util.Stack;
+
 
 public class OnepocketPurchaseActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
 
     private static final String TAG = "OPK_purchaseActivity";
     private PurchaseSummaryFragment summary;
+    private Stack<Fragment> stack = new Stack<>();
 
     //**************OVERRIDE METHODS****************
     @Override
@@ -86,7 +89,19 @@ public class OnepocketPurchaseActivity extends FrontBackAnimate implements Front
         RegisterCallback.registerBack(new BackHandler() {
             @Override
             public void handle() {
-                onUp(null);
+                if (!stack.empty()) {
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    Fragment top = stack.pop();
+                    transaction.remove(top);
+                    if (!stack.empty()) {
+                        transaction.show(stack.peek());
+                    } else {
+                        transaction.show(summary);
+                    }
+                    transaction.commit();
+                } else {
+                    onUp(null);
+                }
             }
         });
     }
@@ -139,8 +154,13 @@ public class OnepocketPurchaseActivity extends FrontBackAnimate implements Front
         Fragment currentTop = getFragmentManager().findFragmentById(R.id.opk_top);
         transaction.hide(currentTop);
 
+        for (Fragment f : stack) {
+            transaction.hide(f);
+        }
         transaction.add(R.id.opk_top, fragment, fragment.toString());
-        transaction.addToBackStack(null);
         transaction.commit();
+
+        stack.push(fragment);
+
     }
 }
