@@ -89,7 +89,7 @@
         <!-- This is the App Flyers Receiver -->
         <receiver
             android:name="com.appsflyer.SingleInstallBroadcastReceiver"
-            android:exported="true" >
+            android:exported="false" >
             <intent-filter>
                 <action android:name="com.android.vending.INSTALL_REFERRER" />
             </intent-filter>

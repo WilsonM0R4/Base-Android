@@ -29,7 +29,6 @@
     <string name="location_failed">Fail to fetch your current location. Please check your GPS status and try again</string>
     <string name="location_yes">Yes</string>
     <string name="location_no">No</string>
-    <string name="mytips">Tips</string>
     <string name="TODAY">TODAY</string>
     <string name="room">ROOMS</string>
     <string name="mytips">Tips</string>
