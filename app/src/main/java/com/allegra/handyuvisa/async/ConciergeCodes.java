@@ -1,7 +1,6 @@
 package com.allegra.handyuvisa.async;
 
 import android.util.JsonReader;
-import android.util.Log;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,7 +19,7 @@ public class ConciergeCodes extends APIInfo {
     public ConciergeCodes(String query,String url) {
         apiName = APINAME;
         endPoint = url + query;
-        Log.d("Concierge EndPoint",endPoint);
+        //Log.d("Concierge EndPoint",endPoint);
         method = "GET";
 
     }
