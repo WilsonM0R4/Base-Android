@@ -4,8 +4,6 @@ import android.app.ActionBar;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.text.TextPaint;
-import android.text.style.URLSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -105,13 +103,5 @@ public class LegalActivity extends FrontBackAnimate implements FrontBackAnimate.
         }
     }
 
-    private static class URLSpanNoUnderline extends URLSpan {
-        public URLSpanNoUnderline(String url) {
-            super(url);
-        }
-        @Override public void updateDrawState(TextPaint ds) {
-            super.updateDrawState(ds);
-            ds.setUnderlineText(false);
-        }
-    }
+
 }

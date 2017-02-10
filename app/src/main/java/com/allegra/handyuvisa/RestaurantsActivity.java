@@ -10,6 +10,7 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -18,6 +19,7 @@ import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.webkit.GeolocationPermissions;
 import android.webkit.JavascriptInterface;
+import android.webkit.SslErrorHandler;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -305,6 +307,10 @@ public class RestaurantsActivity extends FrontBackAnimate implements FrontBackAn
                 webView.loadUrl(returnURL);
             }
             loadArrows();
+        }
+        @Override
+        public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+            handler.proceed();
         }
     }
 
