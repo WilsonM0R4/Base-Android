@@ -421,7 +421,6 @@
         android:textColor="@color/white"
         android:background="@drawable/round_corner_orange"
         android:layout_gravity="center"
-        android:onClick=""
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="10dp"
