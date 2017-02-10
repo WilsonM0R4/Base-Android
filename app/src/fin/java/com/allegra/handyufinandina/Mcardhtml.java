@@ -2,9 +2,11 @@ package com.allegra.handyuvisa;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.http.SslError;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.webkit.SslErrorHandler;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageButton;
@@ -144,6 +146,12 @@ public class Mcardhtml extends FrontBackAnimate implements FrontBackAnimate.Infl
             }
             loadArrows();
         }
+
+        @Override
+        public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+            handler.proceed();
+        }
+
 
     }
 

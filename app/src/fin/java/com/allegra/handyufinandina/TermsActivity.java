@@ -1,7 +1,9 @@
 package com.allegra.handyuvisa;
 
+import android.net.http.SslError;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.SslErrorHandler;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -34,6 +36,10 @@ public class TermsActivity extends FrontBackAnimate implements FrontBackAnimate.
         public boolean shouldOverrideUrlLoading(WebView webView, String url){
             webView.loadUrl(url);
             return true;
+        }
+        @Override
+        public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+            handler.proceed();
         }
     }
 
