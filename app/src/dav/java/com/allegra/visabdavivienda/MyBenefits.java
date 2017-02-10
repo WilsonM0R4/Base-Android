@@ -1,8 +1,10 @@
 package com.allegra.handyuvisa;
 
 import android.graphics.drawable.AnimationDrawable;
+import android.net.http.SslError;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.SslErrorHandler;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageButton;
@@ -95,6 +97,11 @@ public class MyBenefits extends FrontBackAnimate implements FrontBackAnimate.Inf
             if (mActivity != null) {
                 mActivity.get().onWebViewFinished(url);
             }
+        }
+
+        @Override
+        public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+            handler.proceed();
         }
     }
 

@@ -1,7 +1,9 @@
 package com.allegra.handyuvisa;
 
+import android.net.http.SslError;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.SslErrorHandler;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageButton;
@@ -66,6 +68,11 @@ public class MyTips extends FrontBackAnimate implements FrontBackAnimate.Inflate
             if (url.equals("about:blank")) {
                 webMyTips.loadUrl(returnURL);
             }
+        }
+
+        @Override
+        public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+            handler.proceed();
         }
 
     }
