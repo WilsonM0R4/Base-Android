@@ -5,13 +5,15 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Environment;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+
+import com.allegra.handyuvisa.utils.Constants;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -117,6 +119,11 @@ public class SendLogActivity extends Activity {
             writer.write ("Android version: " +  Build.VERSION.SDK_INT + "\n");
             writer.write ("Device: " + model + "\n");
             writer.write ("App version: " + (versionName == null ? "(null)" : versionName) + "\n");
+            writer.write ("Project Name: " + BuildConfig.APPLICATION_ID + "\n");
+            if (Constants.TESTING){
+            writer.write ("Enviroment :" + "Production" + "\n");}else {
+                writer.write("Enviroment: "+ "QA Test" + "\n");
+            }
 
             char[] buffer = new char[10000];
             do {
