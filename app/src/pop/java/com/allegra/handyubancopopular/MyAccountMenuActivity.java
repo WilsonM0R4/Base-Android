@@ -17,7 +17,6 @@ import android.widget.TextView;
 
 import com.allegra.handyuvisa.utils.Connectivity;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
-import com.allegra.handyuvisa.utils.UsuarioSQLiteHelper;
 
 public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
 
@@ -26,10 +25,6 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
     private String nombre, apellido, tipoid, numid, nummcard, value1, value2, value3;
     Context ctx;
     CustomizedTextView txtGetYourCertificate;
-    SQLiteDatabase db;
-    Cursor cursor;
-    UsuarioSQLiteHelper usuarioSQLiteHelper;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,59 +119,6 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
                     }
 
                 });
-/*                rowView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (position==2){
-                            if(Util.hasInternetConnectivity(ctx)){
-                                if(((VisaCheckoutApp)ctx.getApplicationContext()).getIdSession()==null){
-                                    setGetYourCertificateLayout();
-                                }else {
-                                    Intent i = new Intent(ctx,ProofOfCoverageActivity.class);
-                                    startActivity(i);
-                                }
-                            }else {
-
-                                if(((VisaCheckoutApp)ctx.getApplicationContext()).getIdSession()==null){
-                                    setGetYourCertificateLayout();
-                                }else {
-                                    //Toast.makeText(ctx,"NO TENGO INTERNET Y YA ME HE LOGEADO ACA LLAMO LA BASE DE DATOS", Toast.LENGTH_SHORT).show();
-                                    usuarioSQLiteHelper = new UsuarioSQLiteHelper(getApplicationContext());
-                                    db = usuarioSQLiteHelper.getReadableDatabase();
-                                    cursor = usuarioSQLiteHelper.getInformationDatabase(db);
-                                    if (cursor.moveToFirst()){
-                                        do{
-                                            nombre = cursor.getString(0);
-                                            apellido = cursor.getString(1);
-                                            tipoid = cursor.getString(2);
-                                            numid = cursor.getString(3);
-                                            nummcard = cursor.getString(4);
-                                            value1 = cursor.getString(5);
-                                            value2 = cursor.getString(6);
-                                            value3 = cursor.getString(7);
-                                        }while (cursor.moveToNext());
-                                    }
-                                    Intent intent = new Intent(ctx, ProofOfCoverageActivityOff.class);
-                                    intent.putExtra("nombre",nombre);
-                                    intent.putExtra("apellido",apellido);
-                                    intent.putExtra("tipoid",tipoid);
-                                    intent.putExtra("numid",numid);
-                                    intent.putExtra("numcard",nummcard);
-                                    intent.putExtra("value1",value1);
-                                    intent.putExtra("value2",value2);
-                                    intent.putExtra("value3",value3);
-                                    startActivity(intent);
-
-                                }
-                            }
-
-
-                        } else {
-                            Intent intent = new Intent(MyAccountMenuActivity.this, activities[position]);
-                            MyAccountMenuActivity.this.startActivity(intent);
-                        }
-                    }
-                });*/
                 TextView txtTitle = (TextView) rowView.findViewById(R.id.profileOptionText);
                 ImageView imageView = (ImageView) rowView.findViewById(R.id.imageView);
 

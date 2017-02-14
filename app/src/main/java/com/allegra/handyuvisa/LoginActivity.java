@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
@@ -30,13 +29,11 @@ import com.allegra.handyuvisa.async.AsyncSoapObject;
 import com.allegra.handyuvisa.async.AsyncTaskSoapObjectResultEvent;
 import com.allegra.handyuvisa.async.MyBus;
 import com.allegra.handyuvisa.models.AllemUser;
-import com.allegra.handyuvisa.models.UserDataBase;
 import com.allegra.handyuvisa.parsers.SoapObjectParsers;
 import com.allegra.handyuvisa.utils.Connectivity;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
 import com.allegra.handyuvisa.utils.KeySaver;
-import com.allegra.handyuvisa.utils.UsuarioSQLiteHelper;
 import com.allegra.handyuvisa.utils.Util;
 import com.google.gson.Gson;
 import com.splunk.mint.Mint;
@@ -71,10 +68,6 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
     private String idMcard, numMcard;
     int idMcard1 = 0;
     private String valueOfMcard;
-    UsuarioSQLiteHelper db;
-    SQLiteDatabase dbbase;
-    private static final String SOUND_NOTIFICATIONS = "android.resource://com.allegra.handyuvisa/raw/allegra_sound";
-    public UAirship uAirship;
     private ArrayList<NameValuePair> postValues;
     boolean mostrarAppCobertura = true, mostrarAppBeneficios = true, mostrarSoloPolizaPrincipal = true;
 
@@ -89,7 +82,6 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
         MyBus.getInstance().register(this);
         super.setView(R.layout.fragment_login, this);
         postValues = new ArrayList<>();
-        db = new UsuarioSQLiteHelper(this);
 
         //TODO: Uncomment this before push
         //Splunk
@@ -498,7 +490,6 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
                 Constants.saveUser(ctx, user, channel);
                 valueOfMcard = prefs.getString("idMcard", "0");
                 idMcard1 = Integer.valueOf(valueOfMcard);
-                db.addUser(new UserDataBase(nombre, apellido, getTypeOfDocumentFromIdCode(typeOfId), numberOfId, prefs.getString("numMcard", numMcard), findValueOfMcard(), findValueOfMcard(), findValueOfMcard()));
                 setWaitinUI(false);
                 //*CHECK IF DATA BASE EXIST*/
                 Intent returnIntent = new Intent();
