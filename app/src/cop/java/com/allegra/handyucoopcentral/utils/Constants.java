@@ -315,8 +315,8 @@ public class Constants {
     public static final String URL_SEARCH_FLIGHTS_TEST = "http://qavuelos.allegra.travel/Vuelos/ResultadosGet?";
     public static final String URL_SEARCH_HOTELS_TEST =  "http://qahoteles.allegra.travel/Hotel/Flow/Availability?";
     public static final String URL_SEARCH_CONCIERGE_TEST = "http://qaactividades.allegra.travel/Actividad/ResultadosGet/?id_destino_ser=";
-    public static final String URL_STORE_TEST =  "http://52.203.29.124/allemstore_demo/";
-    public static final String URL_RESTAURANT_TEST =  "http://52.203.29.124/allemrestaurant_demo/#!/brand/restaurantes/map";
+    public static final String URL_STORE_TEST =  "http://handys.iataiapps.com/allemstore_demo/";
+    public static final String URL_RESTAURANT_TEST =  "http://handys.iataiapps.com/allemrestaurant_demo/#!/brand/restaurantes/map";
     public static final String URL_MARKETPLACE_TEST = "http://dev.allegra.market/?logo=1&onepocket=1&utm_source=HandyuVisa&utm_medium=botonhandy&utm_campaign=App";
     public static final String URL_LOGIN_TEST = "http://52.87.70.203:8080/AllemInMotion/AllemInMotion?wsdl";
     public static final String URL_SERVICE_TEST = "http://allegra.global/app/servicios_v3_demo/search/?";
@@ -331,8 +331,8 @@ public class Constants {
     public static final String URL_SEARCH_FLIGHTS_PROD = "http://vuelos.allegra.travel/Vuelos/ResultadosGet?";
     public static final String URL_SEARCH_HOTELS_PROD = "http://hoteles.allegra.travel/Hotel/Flow/Availability?";
     public static final String URL_SEARCH_CONCIERGE_PROD = "http://actividades.allegra.travel/Actividad/ResultadosGet?id_destino_ser=";
-    public static final String URL_STORE_PROD = "http://52.203.29.124/allemstore_v2/";
-    public static final String URL_RESTAURANT_PROD =  "http://52.203.29.124/allemrestaurant_v2/#!/brand/restaurantes/map";
+    public static final String URL_STORE_PROD = "http://handys.iataiapps.com/allemstore_v2/";
+    public static final String URL_RESTAURANT_PROD =  "http://handys.iataiapps.com/allemrestaurant_v2/#!/brand/restaurantes/map";
     public static final String URL_MARKETPLACE_PROD =  "https://www.allegra.market/?logo=1&onepocket=1&utm_source=HandyuVisa&utm_medium=botonhandy&utm_campaign=App";
     public static final String URL_LOGIN_PROD = "https://secureacceptance.allegraplatform.com/AllemInMotion/AllemInMotion";
     public static final String URL_SERVICE_PROD = "http://allegra.global/app/servicios_v3/search/?";
