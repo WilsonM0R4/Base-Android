@@ -144,3 +144,11 @@
 -dontnote org.xmlpull.v1.**
 -keep class org.xmlpull.** { *; }
 -dontwarn org.w3c.dom.bootstrap.DOMImplementationRegistry
+
+#onepockeet
+-keep class com.visa.** { *; }
+-keep class com.threatmetrix.** { *; }
+-keep class android.support.** { *; }
+-keep class de.greenrobot.** { *; }
+
+-keep public class com.allem.onepocket.model.VisaCheckoutPayment { *; }

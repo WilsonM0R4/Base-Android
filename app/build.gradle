@@ -141,7 +141,7 @@ android {
         gnb {
             applicationId "com.allegra.handyusudameris"
             versionCode 20
-            versionName "1.0.0-20"
+            versionName "1.0.0-21"
             signingConfig signingConfigs.gnbConfig
             minSdkVersion 19
             targetSdkVersion 25
