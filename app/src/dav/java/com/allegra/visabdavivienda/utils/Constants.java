@@ -24,6 +24,8 @@ public class Constants {
 
     //********FOR DYNAMIC PROOF OF COVERAGE**********
     public final static String ID_PORTAL = "9";
+    //********FOR ONEPOCKET LOGGING**********
+    public final static boolean LOGGING = true;
     public final static String NAMESPACE_PROOF = "http://www.ws.iatai.com/poliza_servicio/";
     public final static String METHOD_PROOF = "consultarPolizasBeneficiarioRequest";
     public final static int ACTIVITY_PROOF = 10405;

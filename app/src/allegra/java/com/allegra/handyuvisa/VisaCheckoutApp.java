@@ -99,6 +99,7 @@ public class VisaCheckoutApp extends MultiDexApplication {
         new OPKLibraryConfig.Builder()
                 .testMode(Constants.TESTING)
                 .idPortal(Constants.ID_PORTAL)
+                .enableLogging(Constants.LOGGING)
                 .build();
     }
 

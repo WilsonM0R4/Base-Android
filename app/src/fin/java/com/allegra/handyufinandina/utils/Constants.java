@@ -22,6 +22,8 @@ import java.util.HashMap;
  */
 public class Constants {
 
+    //********FOR ONEPOCKET LOGGING**********
+    public final static boolean LOGGING = true;
     public final static String SPLUNK_API_KEY = "e74061f2";
     public final static int REQUEST_CODE_TRANSACTION_HISTORY = 8891;
     public final static int REQUEST_CODE_PROOF_OF_COVERAGE = 8890;

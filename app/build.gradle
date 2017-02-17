@@ -140,7 +140,7 @@ android {
         }
         gnb {
             applicationId "com.allegra.handyusudameris"
-            versionCode 20
+            versionCode 21
             versionName "1.0.0-21"
             signingConfig signingConfigs.gnbConfig
             minSdkVersion 19
@@ -311,7 +311,7 @@ android {
 
 dependencies {
     testCompile 'junit:junit:4.12'
-    compile project(':onepocket-sdk-2.0.0-386')
+    compile project(':onepocket-sdk-2.0.0-389')
     //3rd party libraries
     compile('com.google.code.ksoap2-android:ksoap2-android:3.6.1') {
         exclude group: 'com.squareup.okio', module: 'okio'

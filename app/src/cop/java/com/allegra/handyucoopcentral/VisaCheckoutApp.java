@@ -102,6 +102,7 @@ public class VisaCheckoutApp extends MultiDexApplication {
                 .testMode(Constants.TESTING)
                 .idPortal(Constants.ID_PORTAL)
                 .setTheme(ThemeType.COOPCENTRAL)
+                .enableLogging(Constants.LOGGING)
                 .build();
     }
 

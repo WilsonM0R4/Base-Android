@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.multidex.MultiDexApplication;
-import android.util.Log;
 
 import com.allegra.handyuvisa.utils.Constants;
 import com.allem.onepocket.utils.OPKLibraryConfig;
@@ -159,7 +158,12 @@ public class VisaCheckoutApp extends MultiDexApplication {
     }
 
     private void initOnepocket() {
-        new OPKLibraryConfig.Builder().testMode(Constants.TESTING).idPortal(Constants.ID_PORTAL).setTheme(ThemeType.GNB_SUDAMERIS).build();
+        new OPKLibraryConfig.Builder()
+                .testMode(Constants.TESTING)
+                .idPortal(Constants.ID_PORTAL)
+                .setTheme(ThemeType.GNB_SUDAMERIS)
+                .enableLogging(Constants.LOGGING)
+                .build();
     }
 
 }
