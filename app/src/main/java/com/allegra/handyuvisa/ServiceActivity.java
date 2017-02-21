@@ -316,7 +316,7 @@ public class ServiceActivity extends  FrontBackAnimate implements FrontBackAnima
 
         public boolean shouldOverrideUrlLoading(WebView webView, String url) {
             if (url.equals("allegra:touchcallService")) {
-                Intent i = new Intent(context, CallActivity.class);
+                Intent i = new Intent(context, CallActivityServices.class);
                 context.startActivity(i);
                 return true;
             }

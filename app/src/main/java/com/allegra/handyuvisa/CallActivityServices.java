@@ -10,6 +10,6 @@ public class CallActivityServices extends CallActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        OTC_NUMBER = "+18053645093";
+        OTC_NUMBER = "+13055673390";
     }
 }
