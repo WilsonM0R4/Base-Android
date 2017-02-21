@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 
 import com.allegra.handyuvisa.EditProfileActivity;
-import com.allegra.handyuvisa.HomeActivity_Handy;
+import com.allegra.handyuvisa.MainActivity;
 import com.allegra.handyuvisa.MainActivity;
 import com.allegra.handyuvisa.R;
 import com.squareup.picasso.Picasso;
@@ -96,7 +96,7 @@ public class DrawerMenu extends LinearLayout implements View.OnClickListener {
     public void onClick(View v) {
         if (v == llHome) {
             Constants.menu_selection = 1;
-            Intent intent=new Intent(context, HomeActivity_Handy.class);
+            Intent intent=new Intent(context, MainActivity.class);
             context.startActivity(intent);
         }
         else if(v==llEditProfile)

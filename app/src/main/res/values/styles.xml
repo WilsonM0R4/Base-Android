@@ -46,6 +46,11 @@
         <item name="colorAccent">@color/magenta</item>
     </style>
 
+    <style name="ErrorDialog.Theme" parent="Dialog.Theme">
+        <item name="android:windowMinWidthMajor">320dp</item>
+        <item name="android:windowMinWidthMinor">320dp</item>
+    </style>
+
     <!-- ActionBar styles -->
     <style name="AppActionBar" parent="Widget.AppCompat.Light.ActionBar">
         <item name="android:background">@android:color/white</item>

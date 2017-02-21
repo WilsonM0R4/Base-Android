@@ -99,4 +99,7 @@
         android:id="@+id/progressBar_benefits"
         android:layout_centerInParent="true"
         android:visibility="gone" />
+
+    <include layout="@layout/progressbar_webview" />
+
 </LinearLayout>

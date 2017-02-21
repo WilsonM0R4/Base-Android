@@ -681,4 +681,21 @@
     <string name="titleCancelCall">End call</string>
     <string name="txtConfirmationCancelCall">Are you sure you want to end\n this current call?</string>
     <string name="txtWalktroughFooter">IATAI</string>
+
+
+
+    <!--ERROR HANDLING-->
+    <string name="error_ok">OK</string>
+    <string name="txt_error_code">ERROR CODE: </string>
+    <string name="title_network_issue">No Internet Connection</string>
+    <string name="txt_network_issue_message">Sorry, no Internet connectivity was detected.\nPlease reconnect and try again.</string>
+    <string name="title_system_error">We’re Sorry!</string>
+    <string name="txt_system_error_message">We are having difficulties.\nPlease try again later.</string>
+    <string name="title_security_error">We’re Sorry!</string>
+    <string name="txt_security_error_message">We are having some technical difficulties.\nPlease try again later.</string>
+    <string name="idErrorCodeUnknown">UNKNOWN</string>
+    <string name="idErrorCodeAB003">AB003</string>
+    <string name="idErrorCodeAB004">AB004</string>
+    <string name="idErrorCodeAB005">AB005</string>
+    <string name="idErrorCodeAB0051">AB0051</string>
 </resources>

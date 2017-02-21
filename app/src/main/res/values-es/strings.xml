@@ -567,4 +567,21 @@
     <string name="titleCancelCall">Terminar llamada</string>
     <string name="txtConfirmationCancelCall">¿Seguro quieres terminar\n esta llamada?</string>
     <string name="txtWalktroughFooter">IATAI</string>
+
+
+
+    <!--ERROR HANDLING-->
+    <string name="error_ok">OK</string>
+    <string name="txt_error_code">ERROR CODE: </string>
+    <string name="title_network_issue">No hay conexión a Internet</string>
+    <string name="txt_network_issue_message">Lo sentimos, no se detectó ninguna conexión a Internet. Vuelve a conectarte e inténtalo de nuevo.</string>
+    <string name="title_system_error">¡Lo Sentimos!</string>
+    <string name="txt_system_error_message">Estamos teniendo dificultades.\nPor favor, inténtalo de nuevo más tarde.</string>
+    <string name="title_security_error">¡Lo Sentimos!</string>
+    <string name="txt_security_error_message">"Estamos teniendo algunas dificultades técnicas.\nPor favor, inténtalo de nuevo más tarde."</string>
+    <string name="idErrorCodeUnknown">UNKNOWN</string>
+    <string name="idErrorCodeAB003">AB003</string>
+    <string name="idErrorCodeAB004">AB004</string>
+    <string name="idErrorCodeAB005">AB005</string>
+    <string name="idErrorCodeAB0051">AB0041</string>
 </resources>

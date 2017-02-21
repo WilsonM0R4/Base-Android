@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.allegra.handyuvisa.utils.CustomizedTextView
+        android:id="@+id/titleSecurityError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:text="@string/title_security_error"
+        android:textColor="@color/ALLEGRA_PURPLE_COLOR"
+        android:textSize="21sp"
+        app:font="@string/font_muli" />
+
+    <com.allegra.handyuvisa.utils.CustomizedTextView
+        android:id="@+id/txtSecurityErrorMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="22dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center_horizontal"
+        android:text="@string/txt_security_error_message"
+        android:textColor="@color/GRAY_COLOR"
+        android:textSize="16sp"
+        app:font="@string/font_muli_light" />
+
+    <com.allegra.handyuvisa.utils.CustomizedTextView
+        android:id="@+id/txtErrorCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="22dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="28dp"
+        android:gravity="center_horizontal"
+        android:lines="1"
+        android:text="@string/txt_error_code"
+        android:textColor="@color/BLACK_COLOR"
+        android:textSize="16sp"
+        app:font="@string/font_muli_light" />
+
+    <com.allegra.handyuvisa.utils.CustomizedTextView
+        android:id="@+id/txtOK"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="18dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginTop="22dp"
+        android:background="@drawable/round_corner_transparent_orange"
+        android:gravity="center"
+        android:text="@string/error_ok"
+        android:textColor="@color/BigButtonWithBorder_text"
+        android:textSize="15sp"
+        app:font="@string/font_muli" />
+
+</LinearLayout>

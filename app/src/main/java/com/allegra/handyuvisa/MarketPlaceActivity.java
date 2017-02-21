@@ -2,15 +2,21 @@ package com.allegra.handyuvisa;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.AnimationDrawable;
 import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.webkit.SslErrorHandler;
+import android.webkit.WebBackForwardList;
+import android.webkit.WebHistoryItem;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -18,7 +24,7 @@ import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.Util;
 import com.allem.onepocket.utils.OPKConstants;
 
-public class MarketPlaceActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
+public class MarketPlaceActivity extends WebViewActivity implements FrontBackAnimate.InflateReadyListener {
 
     public static final int REQUEST_ONEPOCKET_RETURN = 10001;
     public static String URL_OPEN_PDF = "https://docs.google.com/viewer?url=";
@@ -30,7 +36,6 @@ public class MarketPlaceActivity extends FrontBackAnimate implements FrontBackAn
     private static final String EMPTY_SHOPPING_CART = "http://dev.allegra.market/purchaseintent/index/verifytransaction?hash=";*/
 
     private ImageButton arrowBack, arrowF;
-    private WebView webView;
     private ProgressBar progressBar;
     private ImageButton goUp;
     public String onePocketmessage;
@@ -41,13 +46,12 @@ public class MarketPlaceActivity extends FrontBackAnimate implements FrontBackAn
         super.onCreate(savedInstanceState);
         System.gc();
         super.setView(R.layout.activity_market_place, this);
-
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        webView.stopLoading();
+        mWebView.stopLoading();
     }
 
     @Override
@@ -62,33 +66,23 @@ public class MarketPlaceActivity extends FrontBackAnimate implements FrontBackAn
         if (actionBar != null) {
             actionBar.hide();
         }
-
-        webView = (WebView)root.findViewById(R.id.webview_marketplace);
+        setupWebView(root);
         progressBar = (ProgressBar)root.findViewById(R.id.pb_marketplace);
-        WebSettings webSettings = webView.getSettings();
-        webSettings.setDomStorageEnabled(true);
-        webSettings.setJavaScriptEnabled(true);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);
-        }// http://stackoverflow.com/questions/31509277/webview-images-are-not-showing-with-https
-        webView.setWebViewClient(new MyWebViewClient());
-        webView.addJavascriptInterface(new AppJavaScriptProxyMarketPlace(this), "androidProxy");
         progressBar.setVisibility(View.VISIBLE);
         goUp = (ImageButton) root.findViewById(R.id.ib_up);
         arrowBack= (ImageButton)root.findViewById(R.id.arrow_back);
         arrowF= (ImageButton)root.findViewById(R.id.arrow_forward);
-
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        //Log.d("Receiving","Receiving Activity ONE");
+        Log.d("Receiving","Receiving Activity ONE");
         if (requestCode == REQUEST_ONEPOCKET_RETURN) {
             if (data != null) {
                 returnURL = data.getStringExtra("RESULT");
-                webView.clearHistory();
-                webView.loadUrl("about:blank");
+                mWebView.clearHistory();
+                mWebView.loadUrl("about:blank");
             }
         }else if (requestCode == Constants.ONE_POCKET_NEEDS_LOGIN){
             openOnePocket();
@@ -103,15 +97,15 @@ public class MarketPlaceActivity extends FrontBackAnimate implements FrontBackAn
     }
 
     public void onUp(View view) {
-        if (webView.canGoBack()) {
-            webView.goBack();
+        if (mWebView.canGoBack()) {
+            mWebView.goBack();
         }
     }
 
     private void loadWebView() {
         progressBar.setVisibility(View.VISIBLE);
 
-        webView.loadUrl(MARKET_URL_PRODUCTION);
+        mWebView.loadUrl(MARKET_URL_PRODUCTION);
         /*ParseQuery<ParseObject> query = ParseQuery.getQuery("Config");
         query.whereEqualTo("name", "marketPlaceURL");
         query.findInBackground(new FindCallback<ParseObject>() {
@@ -127,51 +121,40 @@ public class MarketPlaceActivity extends FrontBackAnimate implements FrontBackAn
 
     }
 
-    private class MyWebViewClient extends WebViewClient {
-        @Override
-        public boolean shouldOverrideUrlLoading(WebView view, String url) {
 
-            if (Util.hasInternetConnectivity(MarketPlaceActivity.this)){
-                if (url.contains("http://")||url.contains("https://")){
-                    if (!url.contains(".pdf"))  URL_OPEN_PDF = "";
-                    view.loadUrl(URL_OPEN_PDF+url);
-                }
-            }else{
-                Toast.makeText(MarketPlaceActivity.this, R.string.err_no_internet, Toast.LENGTH_SHORT).show();
-            }
-            return true;
+    @Override
+    public void onPageStarted(WebView view, String url, Bitmap favicon) {
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void onPageFinished(WebView view, String url) {
+        progressBar.setVisibility(View.GONE);
+        if (url.equals("about:blank")) {
+            mWebView.loadUrl(returnURL);
         }
+        loadArrows();
+    }
 
-        @Override
-        public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
-            handler.proceed();
+    @Override
+    public boolean onShouldOverrideUrlLoading(WebView view, String url) {
+        //TODO: continue implementing PDF
+        if (url.contains("http://") || url.contains("https://")) {
+            if (!url.contains(".pdf")) URL_OPEN_PDF = "";
+            view.loadUrl(URL_OPEN_PDF + url);
         }
-
-        @Override
-        public void onPageFinished(WebView view, String url) {
-            progressBar.setVisibility(View.GONE);
-            if (url.equals("about:blank")) {
-                webView.loadUrl(returnURL);
-            }
-            loadArrows();
-        }
-
-        @Override
-        public void onPageStarted(WebView view, String url, Bitmap favicon){
-            progressBar.setVisibility(View.VISIBLE);
-        }
-
+        return true;
     }
 
     private void loadArrows(){
 
-        if(webView.canGoBack()){
+        if(mWebView.canGoBack()){
             arrowBack.setImageDrawable(getResources().getDrawable(R.drawable.navigation__backurl));
         }else{
             arrowBack.setImageDrawable(getResources().getDrawable(R.drawable.navigation__backurl_2));
         }
 
-        if(webView.canGoForward()){
+        if(mWebView.canGoForward()){
             arrowF.setImageDrawable(getResources().getDrawable(R.drawable.navigation__fwdurl_2));
         }else{
             arrowF.setImageDrawable(getResources().getDrawable(R.drawable.navigation__fwdurl));
@@ -179,14 +162,14 @@ public class MarketPlaceActivity extends FrontBackAnimate implements FrontBackAn
     }
 
     public void onGoBack(View view){
-        if(webView.canGoBack()) {
-            webView.goBack();
+        if(mWebView.canGoBack()) {
+            mWebView.goBack();
         }
     }
 
     public void onGoForward(View view){
-        if(webView.canGoForward()) {
-            webView.goForward();
+        if(mWebView.canGoForward()) {
+            mWebView.goForward();
         }
     }
 
@@ -198,4 +181,21 @@ public class MarketPlaceActivity extends FrontBackAnimate implements FrontBackAn
 
     }
 
+    private void setupWebView(View root) {
+        mWebView = (WebView)root.findViewById(R.id.webview_marketplace);
+        setupLoadingView(root);
+        mWebView.setWebViewClient(new SecureBrowser(this));
+        mWebView.addJavascriptInterface(new AppJavaScriptProxyMarketPlace(this), "androidProxy");
+        WebSettings webSettings = mWebView.getSettings();
+        webSettings.setDomStorageEnabled(true);
+        webSettings.setJavaScriptEnabled(true);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);
+        }// http://stackoverflow.com/questions/31509277/webview-images-are-not-showing-with-https
+    }
+
+    private void setupLoadingView(View root) {
+        mLoadingView = (FrameLayout) root.findViewById(R.id.loading_view);
+        mLoadingBar = (ImageView) root.findViewById(R.id.pb_search_loader);
+    }
 }

@@ -1,22 +1,20 @@
 package com.allegra.handyuvisa;
 
-import android.net.http.SslError;
 import android.os.Bundle;
 import android.view.View;
-import android.webkit.SslErrorHandler;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 /**
  * Created by jsandoval on 25/07/16.
  */
-public class MyBenefits extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
+public class MyBenefits extends WebViewActivity implements FrontBackAnimate.InflateReadyListener {
 
-    private WebView webBenefits;
     private String url = "http://allegra.global/visa/app/es/beneficios/index.html";
-    private String returnURL;
+
     private ImageButton arrowBack, arrowF, back;
     private ProgressBar progressBar;
 
@@ -29,11 +27,7 @@ public class MyBenefits extends FrontBackAnimate implements FrontBackAnimate.Inf
 
     @Override
     public void initViews(View root) {
-
-        webBenefits = (WebView)root.findViewById(R.id.webBenefits);
-        webBenefits.getSettings().setJavaScriptEnabled(true);
-        webBenefits.loadUrl(url);
-        webBenefits.setWebViewClient(new MyBrowser());
+        setupWebView(root);
         arrowBack = (ImageButton) root.findViewById(R.id.arrow_back_benefits);
         arrowF = (ImageButton) root.findViewById(R.id.arrow_foward_benefits);
         back = (ImageButton) root.findViewById(R.id.back_image);
@@ -62,26 +56,17 @@ public class MyBenefits extends FrontBackAnimate implements FrontBackAnimate.Inf
 
     }
 
-    private class MyBrowser extends WebViewClient {
+    private void setupWebView(View root) {
+        mWebView = (WebView) root.findViewById(R.id.webBenefits);
+        setupLoadingView(root);
+        mWebView.getSettings().setJavaScriptEnabled(true);
+        mWebView.setWebViewClient(new SecureBrowser(this));
+        mWebView.loadUrl(url);
+    }
 
-        public boolean shouldOverrideUrlLoading(WebView webView, String url){
-            webView.loadUrl(url);
-            return true;
-        }
-
-        public void onPageFinished(WebView view, String url) {
-            progressBar.setVisibility(View.GONE);
-            if (url.equals("about:blank")) {
-                webBenefits.loadUrl(returnURL);
-            }
-            loadArrows();
-        }
-
-        @Override
-        public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
-            handler.proceed();
-        }
-
+    protected void setupLoadingView(View root) {
+        mLoadingBar = (ImageView) root.findViewById(R.id.pb_search_loader);
+        mLoadingView = (FrameLayout) root.findViewById(R.id.loading_view);
     }
 
     public void onMenu(View view) {
@@ -92,16 +77,21 @@ public class MyBenefits extends FrontBackAnimate implements FrontBackAnimate.Inf
         super.onBackPressed();
     }
 
+    @Override
+    public void onPageFinished(WebView view, String url) {
+        progressBar.setVisibility(View.GONE);
+        loadArrows();
+    }
 
     private void loadArrows() {
 
-        if (webBenefits.canGoBack()) {
+        if (mWebView.canGoBack()) {
             arrowBack.setImageDrawable(getResources().getDrawable(R.drawable.navigation__backurl));
         } else {
             arrowBack.setImageDrawable(getResources().getDrawable(R.drawable.navigation__backurl_2));
         }
 
-        if (webBenefits.canGoForward()) {
+        if (mWebView.canGoForward()) {
             arrowF.setImageDrawable(getResources().getDrawable(R.drawable.navigation__fwdurl_2));
         } else {
             arrowF.setImageDrawable(getResources().getDrawable(R.drawable.navigation__fwdurl));
@@ -110,17 +100,14 @@ public class MyBenefits extends FrontBackAnimate implements FrontBackAnimate.Inf
 
 
     public void onGoBack(View view) {
-        if (webBenefits.canGoBack()) {
-            webBenefits.goBack();
+        if (mWebView.canGoBack()) {
+            mWebView.goBack();
         }
     }
 
     public void onGoForward(View view) {
-        if (webBenefits.canGoForward()) {
-            webBenefits.goForward();
+        if (mWebView.canGoForward()) {
+            mWebView.goForward();
         }
     }
-
-
-
 }

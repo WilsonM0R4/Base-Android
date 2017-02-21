@@ -34,6 +34,7 @@ import com.allegra.handyuvisa.models.AllemUser;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
 import com.allegra.handyuvisa.utils.GPSTracker;
+import com.allegra.handyuvisa.views.SystemErrorDialog;
 import com.allem.onepocket.utils.OPKConstants;
 
 import java.net.URLEncoder;
@@ -341,9 +342,21 @@ public class ServiceActivity extends  FrontBackAnimate implements FrontBackAnima
             }
             loadArrows();
         }
+
         @Override
-        public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
-            handler.proceed();
+        public void onReceivedSslError(WebView view, final SslErrorHandler handler, SslError error) {
+            handler.cancel();
+            final SystemErrorDialog errorDialog = new SystemErrorDialog(ServiceActivity.this, R.style.Dialog_Theme,
+                    R.string.title_system_error, R.string.txt_system_error_message, R.string.idErrorCodeAB0051);
+            errorDialog.getButton().setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    errorDialog.dismiss();
+                    ServiceActivity.this.onHome(v);
+                    ServiceActivity.this.finish();
+                }
+            });
+            errorDialog.show();
         }
     }
 

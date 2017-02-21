@@ -10,21 +10,21 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
-import android.net.http.SslError;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.v4.app.ActivityCompat;
+import android.util.Log;
 import android.view.View;
 import android.webkit.GeolocationPermissions;
 import android.webkit.JavascriptInterface;
-import android.webkit.SslErrorHandler;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -38,9 +38,8 @@ import java.net.URLEncoder;
 import java.util.List;
 import java.util.Locale;
 
-public class RestaurantsActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
+public class RestaurantsActivity extends WebViewActivity implements FrontBackAnimate.InflateReadyListener {
 
-    private WebView webView;
     private ProgressBar progressBar;
     private String url = Constants.getRestaurantUrl();
     private ImageButton arrowBack, arrowF;
@@ -55,6 +54,9 @@ public class RestaurantsActivity extends FrontBackAnimate implements FrontBackAn
     Dialog dialog;
     public static final int REQUEST_LOCATION_CODE = 1234, MY_PERMISSIONS_REQUEST_LOCATION = 4563;
     String[] PERMISSIONS = { android.Manifest.permission.ACCESS_COARSE_LOCATION, android.Manifest.permission.ACCESS_FINE_LOCATION};
+    public static final int MY_PERMISSIONS_REQUEST_CALL = 8888;
+    String[] MY_PERMISSIONS_CALL = { android.Manifest.permission.CALL_PHONE};
+    private String callUrl;
 
     //*************************OVERRIDE METHODS******************
 
@@ -68,16 +70,7 @@ public class RestaurantsActivity extends FrontBackAnimate implements FrontBackAn
     @Override
     public void initViews(View root) {
 
-        webView = (WebView) root.findViewById(R.id.webView2);
-        webView.getSettings().setJavaScriptEnabled(true);
-        webView.getSettings().setBuiltInZoomControls(true);
-        webView.getSettings().setGeolocationEnabled(true);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            webView.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
-        }
-        webView.setWebChromeClient(new RestaurantsActivity.GeoWebChromeClient());
-        webView.loadUrl(url);
-        webView.setWebViewClient(new RestaurantsActivity.MyBrowser(this));
+        setupWebView(root);
         arrowBack = (ImageButton) root.findViewById(R.id.arrow_back_restaurants);
         arrowF = (ImageButton) root.findViewById(R.id.arrow_foward_restaurants);
         progressBar = (ProgressBar) root.findViewById(R.id.progressBar_Restaurants);
@@ -97,7 +90,7 @@ public class RestaurantsActivity extends FrontBackAnimate implements FrontBackAn
         });
         getLocation();
 
-       // Log.d(TAG, url);
+        // Log.d(TAG, url);
     }
 
     @Override
@@ -111,7 +104,7 @@ public class RestaurantsActivity extends FrontBackAnimate implements FrontBackAn
         super.onActivityResult(requestCode, resultCode, data);
 
         //Validate permissions
-        if(android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !hasPermissions(this, PERMISSIONS)){
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !hasPermissions(this, PERMISSIONS)) {
             ActivityCompat.requestPermissions(this, PERMISSIONS, MY_PERMISSIONS_REQUEST_LOCATION);
         } else {
             getCurrentLocation();
@@ -125,7 +118,7 @@ public class RestaurantsActivity extends FrontBackAnimate implements FrontBackAn
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     // Permission was granted, yay! Do the camera-related task you need to do.
-                   // Log.e(TAG, "El permiso fue dado");
+                    // Log.e(TAG, "El permiso fue dado");
                     getCurrentLocation();
                 } else {
                     // Permission denied, boo! Disable the functionality that depends on this permission.
@@ -133,9 +126,14 @@ public class RestaurantsActivity extends FrontBackAnimate implements FrontBackAn
                 }
                 return;
             }
-
             // other 'case' lines to check for other
             // permissions this app might request
+            case MY_PERMISSIONS_REQUEST_CALL: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    startCall(callUrl);
+                }
+                return;
+            }
         }
     }
 
@@ -149,7 +147,7 @@ public class RestaurantsActivity extends FrontBackAnimate implements FrontBackAn
                 .setPositiveButton(R.string.location_yes,
                         new DialogInterface.OnClickListener() {
                             public void onClick(final DialogInterface dialog, final int id) {
-                                startActivityForResult(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS),REQUEST_LOCATION_CODE);
+                                startActivityForResult(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS), REQUEST_LOCATION_CODE);
                             }
                         })
                 .setNegativeButton(R.string.location_no, new DialogInterface.OnClickListener() {
@@ -162,7 +160,7 @@ public class RestaurantsActivity extends FrontBackAnimate implements FrontBackAn
     }
 
     public static boolean hasPermissions(Context context, String... permissions) {
-        if ( context != null && permissions != null) {
+        if (context != null && permissions != null) {
             for (String permission : permissions) {
                 if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
                     return false;
@@ -179,11 +177,11 @@ public class RestaurantsActivity extends FrontBackAnimate implements FrontBackAn
         isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
 
         if (!isGPSEnabled) {
-           // Log.d(TAG, "ESTOY ACA");
+            // Log.d(TAG, "ESTOY ACA");
             buildAlertMessageNoGps();
         } else {
             //Validate permissions
-            if(android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !hasPermissions(this, PERMISSIONS)){
+            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !hasPermissions(this, PERMISSIONS)) {
                 ActivityCompat.requestPermissions(this, PERMISSIONS, MY_PERMISSIONS_REQUEST_LOCATION);
             } else {
                 getCurrentLocation();
@@ -192,8 +190,9 @@ public class RestaurantsActivity extends FrontBackAnimate implements FrontBackAn
         return location;
     }
 
-    private void getCurrentLocation () {
-
+    private void getCurrentLocation() {
+        
+        //TODO: Need to fix. Strong reference. Working on UI Thread
         gp = new GPSTracker(this);
         latitude = gp.getLatitude();
         longitude = gp.getLongitude();
@@ -212,20 +211,20 @@ public class RestaurantsActivity extends FrontBackAnimate implements FrontBackAn
                 if (stateName.contains(", ")) {
                     String[] parts = stateName.split(", ");
                     city = parts[0];
-                  //  Log.d("City split", city);
+                    //  Log.d("City split", city);
                 } else {
                     if (stateName.contains(" ")) {
                         String[] parts = stateName.split(" ");
                         city = parts[0];
-                      //  Log.d("City split space", city);
+                        //  Log.d("City split space", city);
                     }
                 }
                 String query = URLEncoder.encode(city, "utf-8");
-               // Log.d("cityName", cityName);
-               // Log.d("stateName", stateName);
-               // Log.d("countryName", countryName);
-               // Log.d("LATITUDE", latitude.toString());
-               // Log.d("LONGITUDE", longitude.toString());
+                // Log.d("cityName", cityName);
+                // Log.d("stateName", stateName);
+                // Log.d("countryName", countryName);
+                // Log.d("LATITUDE", latitude.toString());
+                // Log.d("LONGITUDE", longitude.toString());
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -235,11 +234,11 @@ public class RestaurantsActivity extends FrontBackAnimate implements FrontBackAn
 
     private void loadWebView() {
 
-        webView.addJavascriptInterface(new RestaurantsActivity.JsInterface(this), "androidProxy");
-        webView.loadUrl(url);
+        mWebView.addJavascriptInterface(new RestaurantsActivity.JsInterface(this), "androidProxy");
+        mWebView.loadUrl(url);
     }
 
-    public void openOnePocket(){
+    public void openOnePocket() {
 
         Intent intent = new Intent(RestaurantsActivity.this, OnepocketPurchaseActivity.class);
         Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(this), onePocketmessage, OPKConstants.TYPE_MCARD, (com.allegra.handyuvisa.VisaCheckoutApp) getApplication());
@@ -252,20 +251,20 @@ public class RestaurantsActivity extends FrontBackAnimate implements FrontBackAn
     }
 
     public void onUp(View view) {
-        if (webView.canGoBack()) {
-            webView.goBack();
+        if (mWebView.canGoBack()) {
+            mWebView.goBack();
         }
     }
 
     private void loadArrows() {
 
-        if (webView.canGoBack()) {
+        if (mWebView.canGoBack()) {
             arrowBack.setImageDrawable(getResources().getDrawable(R.drawable.navigation__backurl));
         } else {
             arrowBack.setImageDrawable(getResources().getDrawable(R.drawable.navigation__backurl_2));
         }
 
-        if (webView.canGoForward()) {
+        if (mWebView.canGoForward()) {
             arrowF.setImageDrawable(getResources().getDrawable(R.drawable.navigation__fwdurl_2));
         } else {
             arrowF.setImageDrawable(getResources().getDrawable(R.drawable.navigation__fwdurl));
@@ -274,45 +273,79 @@ public class RestaurantsActivity extends FrontBackAnimate implements FrontBackAn
 
 
     public void onGoBack(View view) {
-        if (webView.canGoBack()) {
-            webView.goBack();
+        if (mWebView.canGoBack()) {
+            mWebView.goBack();
         }
     }
 
     public void onGoForward(View view) {
-        if (webView.canGoForward()) {
-            webView.goForward();
+        if (mWebView.canGoForward()) {
+            mWebView.goForward();
         }
     }
+
+    private void setupWebView(View root) {
+        mWebView = (WebView) root.findViewById(R.id.webView2);
+        mWebView.getSettings().setJavaScriptEnabled(true);
+        mWebView.getSettings().setBuiltInZoomControls(true);
+        mWebView.getSettings().setGeolocationEnabled(true);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            mWebView.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+        }
+        mWebView.setWebChromeClient(new RestaurantsActivity.GeoWebChromeClient());
+        mWebView.setWebViewClient(new SecureBrowser(this));
+        setupLoadingView(root);
+    }
+
+    private void setupLoadingView(View root) {
+        mLoadingView = (FrameLayout) root.findViewById(R.id.loading_view);
+        mLoadingBar = (ImageView) root.findViewById(R.id.pb_search_loader);
+    }
+
+    @Override
+    public boolean onShouldOverrideUrlLoading(WebView webView, String url) {
+
+        if (url.equals("allegra:touchcallService")) {
+            Intent i = new Intent(this, CallActivityServices.class);
+            this.startActivity(i);
+            return true;
+        }
+        //Fix For Phone Call functions
+        if (url.startsWith("tel:")) {
+            callUrl = url;
+            startCall(callUrl);
+        }
+        return true;
+    }
+
+    private void startCall(String url) {
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !hasPermission(this, MY_PERMISSIONS_CALL[0])) {
+            ActivityCompat.requestPermissions(this, MY_PERMISSIONS_CALL, MY_PERMISSIONS_REQUEST_CALL);
+        } else {
+            Intent intentCall = new Intent(Intent.ACTION_CALL, Uri.parse(url));
+            if (ActivityCompat.checkSelfPermission(this, MY_PERMISSIONS_CALL[0]) != PackageManager.PERMISSION_GRANTED) {
+                return;
+            }
+            this.startActivity(intentCall);
+        }
+    }
+
+    public static boolean hasPermission(Context context, String permission) {
+        if (context != null && permission != null) {
+            if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public void onPageFinished(WebView view, String url) {
+        progressBar.setVisibility(View.GONE);
+        loadArrows();
+    }
+
     //*******************************INNER CLASSES****************************
-
-    private class MyBrowser extends WebViewClient {
-
-        private Context context;
-        public MyBrowser(Context context) {
-            this.context = context;
-        }
-
-        public boolean shouldOverrideUrlLoading(WebView webView, String url) {
-            if (url.equals("allegra:touchcallService")) {
-                Intent i = new Intent(context, CallActivityServices.class);
-                context.startActivity(i);
-                return true;
-            }
-            return super.shouldOverrideUrlLoading(webView, url);
-        }
-        public void onPageFinished(WebView view, String url) {
-            progressBar.setVisibility(View.GONE);
-            if (url.equals("about:blank")) {
-                webView.loadUrl(returnURL);
-            }
-            loadArrows();
-        }
-        @Override
-        public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
-            handler.proceed();
-        }
-    }
 
     private class JsInterface {
 
@@ -344,7 +377,7 @@ public class RestaurantsActivity extends FrontBackAnimate implements FrontBackAn
                         if (latitude!=null && longitude!= null) {
                            // Log.d(TAG,"Entra al if != null en postMessage");
                            // Log.d(TAG,"Lat: "+latitude.toString()+ " Long: "+longitude.toString());
-                            webView.evaluateJavascript("javascript:myGeoLocation(" + latitude.toString() + "," + longitude.toString() + ");", new ValueCallback<String>() {
+                            mWebView.evaluateJavascript("javascript:myGeoLocation(" + latitude.toString() + "," + longitude.toString() + ");", new ValueCallback<String>() {
                                 @Override
                                 public void onReceiveValue(String value) {
                                    // Log.d(TAG, "El value en postMessage "+value);
@@ -352,7 +385,7 @@ public class RestaurantsActivity extends FrontBackAnimate implements FrontBackAn
                             });
 
                         } else {//Hardcode Other location in Bogotá
-                            webView.evaluateJavascript("javascript:myGeoLocation(4.665417, -74.077237);",null);
+                            mWebView.evaluateJavascript("javascript:myGeoLocation(4.665417, -74.077237);",null);
                            // Log.d(TAG,"lat lng son null en postMessage");
                         }
 
@@ -371,7 +404,7 @@ public class RestaurantsActivity extends FrontBackAnimate implements FrontBackAn
                         CustomizedTextView textView = (CustomizedTextView)findViewById(R.id.txtLoading);
                         pb_search_loader.setVisibility(View.VISIBLE);
                         imgProgress.setVisibility(View.VISIBLE);
-                        webView.setVisibility(View.GONE);
+                        mWebView.setVisibility(View.GONE);
                         textView.setVisibility(View.VISIBLE);
                     }
                 });
@@ -388,7 +421,7 @@ public class RestaurantsActivity extends FrontBackAnimate implements FrontBackAn
 
                         pb_search_loader.setVisibility(View.GONE);
                         imgProgress.setVisibility(View.GONE);
-                        webView.setVisibility(View.VISIBLE);
+                        mWebView.setVisibility(View.VISIBLE);
                         textView.setVisibility(View.GONE);
                     }
                 });

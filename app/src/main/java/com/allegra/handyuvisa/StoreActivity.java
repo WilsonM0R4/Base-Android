@@ -10,6 +10,7 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
@@ -26,6 +27,7 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -42,9 +44,8 @@ import java.util.Locale;
 /**
  * Created by jsandoval on 1/08/16.
  */
-public class StoreActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
+public class StoreActivity extends WebViewActivity implements FrontBackAnimate.InflateReadyListener {
 
-    private WebView webView;
     private ProgressBar progressBar;
     private String url = Constants.getStoreUrl();
     private ImageButton arrowBack, arrowF;
@@ -59,6 +60,9 @@ public class StoreActivity extends FrontBackAnimate implements FrontBackAnimate.
     public static final int REQUEST_LOCATION_CODE = 1234, MY_PERMISSIONS_REQUEST_LOCATION = 4563;
     String[] PERMISSIONS = { android.Manifest.permission.ACCESS_COARSE_LOCATION,
             android.Manifest.permission.ACCESS_FINE_LOCATION};
+    public static final int MY_PERMISSIONS_REQUEST_CALL = 8888;
+    String[] MY_PERMISSIONS_CALL = { android.Manifest.permission.CALL_PHONE};
+    private String callUrl;
 
     //********************************OVERRIDE METHODS*****************************
 
@@ -71,18 +75,7 @@ public class StoreActivity extends FrontBackAnimate implements FrontBackAnimate.
 
     @Override
     public void initViews(View root) {
-
-        webView = (WebView) root.findViewById(R.id.webStore);
-        webView.getSettings().setJavaScriptEnabled(true);
-        webView.getSettings().setBuiltInZoomControls(true);
-        webView.getSettings().setGeolocationEnabled(true);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            webView.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
-        }
-        webView.setWebChromeClient(new StoreActivity.GeoWebChromeClient());
-        webView.loadUrl(url);
-        webView.setWebViewClient(new StoreActivity.MyBrowser(this));
-
+        setupWebView(root);
         arrowBack = (ImageButton) root.findViewById(R.id.arrow_back_store);
         arrowF = (ImageButton) root.findViewById(R.id.arrow_foward_store);
         progressBar = (ProgressBar) root.findViewById(R.id.progressBar_store);
@@ -138,6 +131,12 @@ public class StoreActivity extends FrontBackAnimate implements FrontBackAnimate.
                 return;
             }
             // Other 'case' lines to check for other permissions this app might request
+            case MY_PERMISSIONS_REQUEST_CALL: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    startCall(callUrl);
+                }
+                return;
+            }
         }
     }
 
@@ -196,6 +195,7 @@ public class StoreActivity extends FrontBackAnimate implements FrontBackAnimate.
 
     private void getCurrentLocation () {
 
+        //TODO: Need to fix. Strong reference. Working on UI Thread
         gp = new GPSTracker(this);
         latitude = gp.getLatitude();
         longitude = gp.getLongitude();
@@ -237,8 +237,8 @@ public class StoreActivity extends FrontBackAnimate implements FrontBackAnimate.
 
     private void loadWebView() {
         StoreActivity.JsInterface jsInterface = new StoreActivity.JsInterface(getApplicationContext());
-        webView.addJavascriptInterface(jsInterface, "androidProxy");
-        webView.loadUrl(url);
+        mWebView.addJavascriptInterface(jsInterface, "androidProxy");
+        mWebView.loadUrl(url);
     }
 
     public void openOnePocket(){
@@ -254,19 +254,19 @@ public class StoreActivity extends FrontBackAnimate implements FrontBackAnimate.
     }
 
     public void onUp(View view) {
-        if (webView.canGoBack()) {
-            webView.goBack();
+        if (mWebView.canGoBack()) {
+            mWebView.goBack();
         }
     }
 
     private void loadArrows() {
-        if (webView.canGoBack()) {
+        if (mWebView.canGoBack()) {
             arrowBack.setImageDrawable(getResources().getDrawable(R.drawable.navigation__backurl));
         } else {
             arrowBack.setImageDrawable(getResources().getDrawable(R.drawable.navigation__backurl_2));
         }
 
-        if (webView.canGoForward()) {
+        if (mWebView.canGoForward()) {
             arrowF.setImageDrawable(getResources().getDrawable(R.drawable.navigation__fwdurl_2));
         } else {
             arrowF.setImageDrawable(getResources().getDrawable(R.drawable.navigation__fwdurl));
@@ -274,59 +274,93 @@ public class StoreActivity extends FrontBackAnimate implements FrontBackAnimate.
     }
 
     public void onGoBack(View view) {
-        if (webView.canGoBack()) {
-            webView.goBack();
+        if (mWebView.canGoBack()) {
+            mWebView.goBack();
         }
     }
 
     public void onGoForward(View view) {
-        if (webView.canGoForward()) {
-            webView.goForward();
+        if (mWebView.canGoForward()) {
+            mWebView.goForward();
         }
+    }
+
+    private void setupWebView(View root) {
+        mWebView = (WebView) root.findViewById(R.id.webStore);
+        setupLoadingView(root);
+        mWebView.getSettings().setJavaScriptEnabled(true);
+        mWebView.getSettings().setBuiltInZoomControls(true);
+        mWebView.getSettings().setGeolocationEnabled(true);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            mWebView.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+        }
+        mWebView.setWebChromeClient(new StoreActivity.GeoWebChromeClient());
+        mWebView.setWebViewClient(new SecureBrowser(this));
+
+    }
+
+
+    private void setupLoadingView(View root) {
+        mLoadingView = (FrameLayout) root.findViewById(R.id.loading_view);
+        mLoadingBar = (ImageView) root.findViewById(R.id.pb_search_loader);
+    }
+
+    @Override
+    public boolean onShouldOverrideUrlLoading(WebView webView, String url) {
+
+        if (url.equals("allegra:touchcallService")) {
+            Intent i = new Intent(this, CallActivityServices.class);
+            this.startActivity(i);
+            return true;
+        }
+        //Fix For Phone Call functions
+        if (url.startsWith("tel:")) {
+            callUrl = url;
+            startCall(callUrl);
+        }
+        return true;
+    }
+
+    private void startCall(String url) {
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !hasPermission(this, MY_PERMISSIONS_CALL[0])) {
+            ActivityCompat.requestPermissions(this, MY_PERMISSIONS_CALL, MY_PERMISSIONS_REQUEST_CALL);
+        } else {
+            Intent intentCall = new Intent(Intent.ACTION_CALL, Uri.parse(url));
+            if (ActivityCompat.checkSelfPermission(this, MY_PERMISSIONS_CALL[0]) != PackageManager.PERMISSION_GRANTED) {
+                return;
+            }
+            this.startActivity(intentCall);
+        }
+    }
+
+    public static boolean hasPermission(Context context, String permission) {
+        if (context != null && permission != null) {
+            if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public void onPageFinished(WebView view, String url) {
+        progressBar.setVisibility(View.GONE);
+        //*******************Send location's parameters to myGeoLocation JavaScript Function***************************
+        if (latitude!=null && longitude!= null) {
+
+            mWebView.evaluateJavascript("javascript:myGeoLocation(" + latitude.toString() + "," + longitude.toString() + ");",
+                    new ValueCallback<String>() {
+                        @Override
+                        public void onReceiveValue(String value) {
+                        }
+                    });
+        } else {//Hardcode Other location in Bogotá
+            mWebView.evaluateJavascript("javascript:myGeoLocation(4.665417, -74.077237);",null);
+        }
+        loadArrows();
     }
 
     //********************************INNER CLASSES***********************************************
-
-    private class MyBrowser extends WebViewClient {
-
-        private Context context;
-
-        public MyBrowser(Context context) {
-            this.context = context;
-        }
-
-        public boolean shouldOverrideUrlLoading(WebView webView, String url) {
-            if (url.equals("allegra:touchcallService")) {
-                Intent i = new Intent(context, CallActivityServices.class);
-                context.startActivity(i);
-                return true;
-            }
-            return super.shouldOverrideUrlLoading(webView, url);
-        }
-        public void onPageFinished(WebView view, String url) {
-            progressBar.setVisibility(View.GONE);
-            if (url.equals("about:blank")) {
-                webView.loadUrl(returnURL);
-            }
-            //*******************Send location's parameters to myGeoLocation JavaScript Function***************************
-            if (latitude!=null && longitude!= null) {
-
-                webView.evaluateJavascript("javascript:myGeoLocation(" + latitude.toString() + "," + longitude.toString() + ");",
-                        new ValueCallback<String>() {
-                    @Override
-                    public void onReceiveValue(String value) {
-                    }
-                });
-            } else {//Hardcode Other location in Bogotá
-                webView.evaluateJavascript("javascript:myGeoLocation(4.665417, -74.077237);",null);
-            }
-            loadArrows();
-        }
-        @Override
-        public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
-            handler.proceed();
-        }
-    }
 
     private class JsInterface {
 
@@ -358,7 +392,7 @@ public class StoreActivity extends FrontBackAnimate implements FrontBackAnimate.
                     CustomizedTextView textView = (CustomizedTextView)findViewById(R.id.txtLoading);
                     pb_search_loader.setVisibility(View.VISIBLE);
                     imgProgress.setVisibility(View.VISIBLE);
-                    webView.setVisibility(View.GONE);
+                    mWebView.setVisibility(View.GONE);
                     textView.setVisibility(View.VISIBLE);
                 }
             });
@@ -375,7 +409,7 @@ public class StoreActivity extends FrontBackAnimate implements FrontBackAnimate.
 
                         pb_search_loader.setVisibility(View.GONE);
                         imgProgress.setVisibility(View.GONE);
-                        webView.setVisibility(View.VISIBLE);
+                        mWebView.setVisibility(View.VISIBLE);
                         textView.setVisibility(View.GONE);
                         }
                 });
