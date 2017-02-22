@@ -1156,13 +1156,16 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
         if (event.getResult() != null) {
 
             data = event.getResult();
-            if (airportData != null)airportData.clear();
-            adapter = new SearchAdapterHotels(this, airportData);
+            if (airportData != null) {
+                airportData.clear();
+                adapter = new SearchAdapterHotels(this, airportData);
+            }
+
 
             if (event.getApiName().equals(AirportCodes.APINAME)) {
                 int msgCount = Integer.parseInt(data.get(AirportCodes.MSG_COUNT));
                 //Log.d("Sergio msgCount", String.valueOf(msgCount));
-                if (msgCount > 0) {
+                if (msgCount > 0 && airportData != null) {
                     for (int i = 0; i < msgCount; i++) {
                         airportData.add(new AirportData(data.get("IATA" + i),
                                 data.get("IataCountry" + i),

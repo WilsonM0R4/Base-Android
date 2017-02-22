@@ -206,7 +206,7 @@ public class ConciergeActivity extends FrontBackAnimate implements FrontBackAnim
                 imm.hideSoftInputFromWindow(edtSearch.getWindowToken(), 0);
 
                 hideSearchConciergeAndShowViews();
-                return;
+                //return;
             }
         });
 
@@ -286,6 +286,7 @@ public class ConciergeActivity extends FrontBackAnimate implements FrontBackAnim
                 int msgCount = Integer.parseInt(data.get(ConciergeCodes.MSG_COUNT));
                 if (msgCount > 0) {
                     for (int i = 0; i < msgCount; i++) {
+                        if (concierges != null)
                         concierges.add(new Concierge(data.get("id" + i),
                                 data.get("label" + i)));
                     }
