@@ -114,4 +114,10 @@
         android:layout_centerInParent="true"
         android:visibility="gone" />
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_header">
+        <include layout="@layout/progressbar_webview" />
+    </FrameLayout>
 </RelativeLayout>
