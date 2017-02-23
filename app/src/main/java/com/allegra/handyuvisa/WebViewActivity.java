@@ -20,6 +20,7 @@ public abstract class WebViewActivity extends FrontBackAnimate implements Secure
     //any WebView related activitiy is suggested to put it's webView here
     //Please remember to Add
     protected WebView mWebView;
+    // must be setup with setupLoadingView() to avoid crash
     protected FrameLayout mLoadingView;
     protected ImageView mLoadingBar;
 
@@ -30,6 +31,7 @@ public abstract class WebViewActivity extends FrontBackAnimate implements Secure
 
     @Override
     public void onPageFinished(WebView view, String url) {
+        hideLoadingView();
     }
 
     @Override
@@ -44,28 +46,27 @@ public abstract class WebViewActivity extends FrontBackAnimate implements Secure
 
     @Override
     public void onNetworkUnavailable(int error) {
-        Log.d("Gang", "network onConnectivityLost");
-        showLoadingView();
         mWebView.setVisibility(View.GONE);
         showNetworkIssueDialog(error);
     }
 
     @Override
     public void onNetworkAvailable() {
-        Log.d("Gang", "network onConnectivityAvailable");
         if (mWebView == null) {
             return;
         }
         if (mWebView.getVisibility() == View.GONE) {
             mWebView.setVisibility(View.VISIBLE);
+            mWebView.invalidate();
             mWebView.loadUrl(mWebView.getUrl());
         }
         hideLoadingView();
     }
 
     public void showLoadingView() {
-        if (mLoadingView.getVisibility() == View.GONE) {
+        if (mLoadingView.getVisibility() == View.GONE || mLoadingView.getVisibility() == View.INVISIBLE) {
             mLoadingView.setVisibility(View.VISIBLE);
+            mLoadingView.invalidate();
         }
 
         mLoadingBar.setBackgroundResource(R.drawable.run_animation_2);
@@ -76,8 +77,10 @@ public abstract class WebViewActivity extends FrontBackAnimate implements Secure
         if (mLoadingView.getVisibility() == View.GONE) {
             return;
         }
-        ((AnimationDrawable) mLoadingBar.getBackground()).stop();
-        mLoadingView.setVisibility(View.GONE);
+        if (mLoadingView.getVisibility() == View.VISIBLE) {
+            ((AnimationDrawable) mLoadingBar.getBackground()).stop();
+            mLoadingView.setVisibility(View.INVISIBLE);
+        }
     }
 
     //TODO: Should be utilizing errorcode from onReceiveError
@@ -88,6 +91,7 @@ public abstract class WebViewActivity extends FrontBackAnimate implements Secure
             @Override
             public void onClick(View v) {
                 errorDialog.dismiss();
+                showLoadingView();
             }
         });
         errorDialog.show();

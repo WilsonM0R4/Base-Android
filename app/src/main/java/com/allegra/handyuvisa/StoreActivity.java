@@ -319,8 +319,9 @@ public class StoreActivity extends WebViewActivity implements FrontBackAnimate.I
         if (url.startsWith("tel:")) {
             callUrl = url;
             startCall(callUrl);
+            return true;
         }
-        return true;
+        return super.onShouldOverrideUrlLoading(webView, url);
     }
 
     private void startCall(String url) {
@@ -346,6 +347,7 @@ public class StoreActivity extends WebViewActivity implements FrontBackAnimate.I
 
     @Override
     public void onPageFinished(WebView view, String url) {
+        super.onPageFinished(view, url);
         progressBar.setVisibility(View.GONE);
         //*******************Send location's parameters to myGeoLocation JavaScript Function***************************
         if (latitude!=null && longitude!= null) {
