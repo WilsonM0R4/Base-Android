@@ -340,6 +340,14 @@ public class Constants {
     public static final String  URL_LOGIN_PROD = "https://secureacceptance.allegraplatform.com/AllemInMotion/AllemInMotion";
     public static final String  URL_SERVICE_PROD = "http://allegra.global/app/servicios_v3/search/?";//"http://allegra.global/app/servicios_v2/search/?name=";
     public static final String URL_MCARD_HTML_PROD = "http://52.7.111.227:8080/MembresiaProteccionIatai/app/index.xhtml?portal=9&email=";
+
+    //**********************OTHER URLS*************************
+
+    public static final String URL_VIDEO_INTRO = "android.resource://com.allegra.visabdavivienda/raw/intro";
+    public static final String URL_MY_BENEFITS = "http://allegra.global/visa/app/es/beneficios/index.html";
+    public static final String URL_TERMS_AND_CONDITIONS = "http://iataiapps.com/davivienda/terminos-y-condiciones.html";
+    public static final String URL_POLICY = "http://allegra.global/terminos-y-condiciones/legales-app-allegra/politica-de-privacidad.html";
+
     //**********************PROPER METHODS*************************
 
     public static String getWSDL(){
@@ -452,6 +460,21 @@ public class Constants {
         }
     }
 
+    public static String getVideoIntrosUrl() {
+        return URL_VIDEO_INTRO;
+    }
+
+    public static String getMyBenefitsUrl() {
+        return URL_MY_BENEFITS;
+    }
+
+    public static String getTermsAndConditionsUrl() {
+        return URL_TERMS_AND_CONDITIONS;
+    }
+
+    public static String getPolicyUrl() {
+        return URL_POLICY;
+    }
 
     /**
      * Guarda los datos del usuario en SharedPreferences
