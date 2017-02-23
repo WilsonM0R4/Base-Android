@@ -62,7 +62,7 @@ public class StoreActivity extends WebViewActivity implements FrontBackAnimate.I
             android.Manifest.permission.ACCESS_FINE_LOCATION};
     public static final int MY_PERMISSIONS_REQUEST_CALL = 8888;
     String[] MY_PERMISSIONS_CALL = { android.Manifest.permission.CALL_PHONE};
-    private String callUrl;
+    private String callUrl = "";
 
     //********************************OVERRIDE METHODS*****************************
 
@@ -100,7 +100,9 @@ public class StoreActivity extends WebViewActivity implements FrontBackAnimate.I
     @Override
     protected void onResume() {
         super.onResume();
-        loadWebView();
+        if (callUrl.equals("")) {
+            loadWebView();
+        }
     }
 
     @Override
