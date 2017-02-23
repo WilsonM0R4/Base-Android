@@ -9,9 +9,11 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.widget.VideoView;
 
+import com.allegra.handyuvisa.utils.Constants;
+
 public class SplashScreenActivity extends Activity {
 
-    private static final String VIDEO_INTRO = "android.resource://com.allegra.handyusudameris/raw/intro";
+    private static final String VIDEO_INTRO = Constants.getVideoIntrosUrl();
     private VideoView videoView;
 
     @Override
@@ -44,7 +46,7 @@ public class SplashScreenActivity extends Activity {
                 if (isFirstStart) {
 
                     //  Launch app intro
-                    Intent i = new Intent(SplashScreenActivity.this, com.allegra.handyuvisa.WalkThroughActivity.class);
+                    Intent i = new Intent(SplashScreenActivity.this, WalkThroughActivity.class);
                     startActivity(i);
 
                     //  Make a new preferences editor
@@ -60,6 +62,7 @@ public class SplashScreenActivity extends Activity {
                     startActivity(intent);
                 }
                 finish();
+
             }
         });
         videoView.start();
