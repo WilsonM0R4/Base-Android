@@ -77,13 +77,12 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="4dp"
-        android:id="@+id/iv_header"
-        android:src="@drawable/separator_medium_mag"
-        android:contentDescription="Divider"
+        android:layout_height="6dp"
         android:paddingEnd="-2dp"
         android:paddingStart="-2dp"
-        android:layout_below="@+id/ll_header" />
+        android:id="@+id/imageView24"
+        android:src="@drawable/separator_medium_mag"
+        android:contentDescription="Divider" />
 
     <WebView
         android:layout_width="fill_parent"
@@ -100,4 +99,7 @@
         android:id="@+id/progressBar_benefits"
         android:layout_centerInParent="true"
         android:visibility="gone" />
+
+    <include layout="@layout/progressbar_webview" />
+
 </LinearLayout>
