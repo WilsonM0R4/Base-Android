@@ -15,7 +15,7 @@
         android:layout_marginTop="20dp"
         android:gravity="center_horizontal"
         android:text="@string/title_network_issue"
-        android:textColor="@color/ALLEGRA_PURPLE_COLOR"
+        android:textColor="@color/HeaderTitle"
         android:textSize="21sp"
         app:font="@string/font_muli" />
 
