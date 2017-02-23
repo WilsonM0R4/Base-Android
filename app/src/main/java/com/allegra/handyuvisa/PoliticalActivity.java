@@ -7,13 +7,15 @@ import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
+import com.allegra.handyuvisa.utils.Constants;
+
 
 /**
  * Created by jsandoval on 2/06/16.
  */
 public class PoliticalActivity extends WebViewActivity implements FrontBackAnimate.InflateReadyListener {
 
-    private String url = "http://allegra.global/terminos-y-condiciones/legales-app-allegra/politica-de-privacidad.html";
+    private String url = Constants.getPolicyUrl();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
