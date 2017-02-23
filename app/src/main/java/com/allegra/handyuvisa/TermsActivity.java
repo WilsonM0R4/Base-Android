@@ -7,12 +7,14 @@ import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
+import com.allegra.handyuvisa.utils.Constants;
+
 /**
  * Created by jsandoval on 2/06/16.
  */
 public class TermsActivity extends WebViewActivity implements FrontBackAnimate.InflateReadyListener {
 
-    private String url = "http://allegra.global/terminos-y-condiciones/legales-app-allegra/terminos-y-condiciones.html";
+    private String url = Constants.getTermsAndConditionsUrl();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
