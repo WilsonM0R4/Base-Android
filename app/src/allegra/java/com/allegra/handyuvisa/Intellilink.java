@@ -32,6 +32,10 @@ public class Intellilink extends FrontBackAnimate implements FrontBackAnimate.In
 
         webIntellink = (WebView)root.findViewById(R.id.webIntellilink);
         webIntellink.getSettings().setJavaScriptEnabled(true);
+        webIntellink.getSettings().setAllowContentAccess(false);
+        webIntellink.getSettings().setAllowFileAccess(false);
+        webIntellink.getSettings().setAllowFileAccessFromFileURLs(false);
+        webIntellink.getSettings().setAllowUniversalAccessFromFileURLs(false);
         webIntellink.loadUrl(url);
         webIntellink.setWebViewClient(new Intellilink.MyBrowser());
         arrowBack = (ImageButton) root.findViewById(R.id.arrow_back_intellink);

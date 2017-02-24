@@ -35,6 +35,10 @@ public class CheckMyTrip extends FrontBackAnimate implements FrontBackAnimate.In
         menu = (ImageButton) root.findViewById(R.id.menu_image);
         webcheck = (WebView) root.findViewById(R.id.webcheck);
         webcheck.getSettings().setJavaScriptEnabled(true);
+        webcheck.getSettings().setAllowContentAccess(false);
+        webcheck.getSettings().setAllowFileAccess(false);
+        webcheck.getSettings().setAllowFileAccessFromFileURLs(false);
+        webcheck.getSettings().setAllowUniversalAccessFromFileURLs(false);
         webcheck.loadUrl(url);
         webcheck.setWebViewClient(new CheckMyTrip.MyBrowser(this));
         arrowBack = (ImageButton) root.findViewById(R.id.arrow_back_check);
