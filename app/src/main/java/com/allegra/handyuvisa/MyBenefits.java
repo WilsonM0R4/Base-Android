@@ -62,6 +62,10 @@ public class MyBenefits extends WebViewActivity implements FrontBackAnimate.Infl
         mWebView = (WebView) root.findViewById(R.id.webBenefits);
         setupLoadingView(root);
         mWebView.getSettings().setJavaScriptEnabled(true);
+        mWebView.getSettings().setAllowContentAccess(false);
+        mWebView.getSettings().setAllowFileAccess(false);
+        mWebView.getSettings().setAllowFileAccessFromFileURLs(false);
+        mWebView.getSettings().setAllowUniversalAccessFromFileURLs(false);
         mWebView.setWebViewClient(new SecureBrowser(this));
         mWebView.loadUrl(url);
     }

@@ -2,13 +2,9 @@ package com.allegra.handyuvisa;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.http.SslError;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.webkit.SslErrorHandler;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -126,6 +122,10 @@ public class Mcardhtml extends WebViewActivity implements FrontBackAnimate.Infla
     public void setupWebView(View root) {
         mWebView = (WebView) root.findViewById(R.id.webmcard);
         mWebView.getSettings().setJavaScriptEnabled(true);
+        mWebView.getSettings().setAllowContentAccess(false);
+        mWebView.getSettings().setAllowFileAccess(false);
+        mWebView.getSettings().setAllowFileAccessFromFileURLs(false);
+        mWebView.getSettings().setAllowUniversalAccessFromFileURLs(false);
         mWebView.setWebViewClient(new SecureBrowser(this));
         setupLoadingView(root);
     }

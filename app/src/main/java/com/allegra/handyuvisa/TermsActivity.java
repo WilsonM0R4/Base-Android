@@ -1,6 +1,5 @@
 package com.allegra.handyuvisa;
 
-import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
@@ -35,6 +34,10 @@ public class TermsActivity extends WebViewActivity implements FrontBackAnimate.I
     private void setupWebView(View root) {
         mWebView = (WebView) root.findViewById(R.id.webview_legal_terms);
         mWebView.getSettings().setJavaScriptEnabled(true);
+        mWebView.getSettings().setAllowContentAccess(false);
+        mWebView.getSettings().setAllowFileAccess(false);
+        mWebView.getSettings().setAllowFileAccessFromFileURLs(false);
+        mWebView.getSettings().setAllowUniversalAccessFromFileURLs(false);
         mWebView.setWebViewClient(new SecureBrowser(this));
         mWebView.loadUrl(url);
         mLoadingView = (FrameLayout) root.findViewById(R.id.loading_view);

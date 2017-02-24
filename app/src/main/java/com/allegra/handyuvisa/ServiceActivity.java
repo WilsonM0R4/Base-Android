@@ -94,6 +94,10 @@ public class ServiceActivity extends  FrontBackAnimate implements FrontBackAnima
         webServices.getSettings().setJavaScriptEnabled(true);
         webServices.getSettings().setBuiltInZoomControls(true);
         webServices.getSettings().setGeolocationEnabled(true);
+        webServices.getSettings().setAllowContentAccess(false);
+        webServices.getSettings().setAllowFileAccess(false);
+        webServices.getSettings().setAllowFileAccessFromFileURLs(false);
+        webServices.getSettings().setAllowUniversalAccessFromFileURLs(false);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             webServices.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
         }
