@@ -406,10 +406,10 @@ public class RestaurantsActivity extends WebViewActivity implements FrontBackAni
                         ImageView pb_search_loader = (ImageView)findViewById(R.id.pb_search_loader);
                         ImageView imgProgress = (ImageView)findViewById(R.id.imgProgress);
                         CustomizedTextView textView = (CustomizedTextView)findViewById(R.id.txtLoading);
-                        pb_search_loader.setVisibility(View.VISIBLE);
-                        imgProgress.setVisibility(View.VISIBLE);
-                        mWebView.setVisibility(View.GONE);
-                        textView.setVisibility(View.VISIBLE);
+                        if (pb_search_loader != null)pb_search_loader.setVisibility(View.VISIBLE);
+                        if (imgProgress != null)imgProgress.setVisibility(View.VISIBLE);
+                        if (mWebView != null)mWebView.setVisibility(View.GONE);
+                        if (textView != null)textView.setVisibility(View.VISIBLE);
                     }
                 });
 
@@ -423,10 +423,10 @@ public class RestaurantsActivity extends WebViewActivity implements FrontBackAni
                         ImageView imgProgress = (ImageView)findViewById(R.id.imgProgress);
                         CustomizedTextView textView = (CustomizedTextView)findViewById(R.id.txtLoading);
 
-                        pb_search_loader.setVisibility(View.GONE);
-                        imgProgress.setVisibility(View.GONE);
-                        mWebView.setVisibility(View.VISIBLE);
-                        textView.setVisibility(View.GONE);
+                        if (pb_search_loader != null)pb_search_loader.setVisibility(View.GONE);
+                        if (imgProgress != null)imgProgress.setVisibility(View.GONE);
+                        if (mWebView != null)mWebView.setVisibility(View.VISIBLE);
+                        if (textView != null)textView.setVisibility(View.GONE);
                     }
                 });
 
