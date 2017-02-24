@@ -32,6 +32,10 @@ public class Myvisaenterprise extends FrontBackAnimate implements FrontBackAnima
 
         webmyvisa = (WebView)root.findViewById(R.id.webmyvisa);
         webmyvisa.getSettings().setJavaScriptEnabled(true);
+        webmyvisa.getSettings().setAllowContentAccess(false);
+        webmyvisa.getSettings().setAllowFileAccess(false);
+        webmyvisa.getSettings().setAllowFileAccessFromFileURLs(false);
+        webmyvisa.getSettings().setAllowUniversalAccessFromFileURLs(false);
         webmyvisa.loadUrl(url);
         webmyvisa.setWebViewClient(new Myvisaenterprise.MyBrowser());
         arrowBack = (ImageButton) root.findViewById(R.id.arrow_back_myvisa);

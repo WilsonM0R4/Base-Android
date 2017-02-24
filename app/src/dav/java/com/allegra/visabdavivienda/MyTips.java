@@ -9,6 +9,8 @@ import android.webkit.WebViewClient;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 
+import static com.allegra.handyuvisa.R.id.webmyvisa;
+
 /**
  * Created by jsandoval on 15/11/16.
  */
@@ -34,6 +36,10 @@ public class MyTips extends FrontBackAnimate implements FrontBackAnimate.Inflate
 
         webMyTips = (WebView)root.findViewById(R.id.webMyTips);
         webMyTips.getSettings().setJavaScriptEnabled(true);
+        webMyTips.getSettings().setAllowContentAccess(false);
+        webMyTips.getSettings().setAllowFileAccess(false);
+        webMyTips.getSettings().setAllowFileAccessFromFileURLs(false);
+        webMyTips.getSettings().setAllowUniversalAccessFromFileURLs(false);
         webMyTips.loadUrl(url);
         webMyTips.setWebViewClient(new MyBrowser());
         back = (ImageButton) root.findViewById(R.id.back_image);
