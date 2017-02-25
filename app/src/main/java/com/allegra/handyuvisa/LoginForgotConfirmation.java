@@ -11,12 +11,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.allegra.handyuvisa.async.AsyncSoapPrimitive;
+import com.allegra.handyuvisa.async.AsyncSoapObject;
+import com.allegra.handyuvisa.models.CuentaClienteRecover;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
+import com.allegra.handyuvisa.utils.Util;
 
 import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
+import org.ksoap2.serialization.PropertyInfo;
 
 import java.util.ArrayList;
 
@@ -82,9 +84,7 @@ public class LoginForgotConfirmation extends FrontBackAnimate implements FrontBa
         send_again.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                postValues.add(new BasicNameValuePair(Constants.KEY_EMAIL, emailtext.getText().toString()));
-                AsyncSoapPrimitive.getInstance(Constants.getWSDL(), Constants.NAMESPACE_ALLEM,
-                        Constants.METHOD_RECUPERAR_PASSWORD, postValues, recover).execute();
+                sendInfo();
                 Toast.makeText(ctx, getString( R.string.resend_mail), Toast.LENGTH_SHORT).show();
             }
         });
@@ -99,6 +99,24 @@ public class LoginForgotConfirmation extends FrontBackAnimate implements FrontBa
     public void onBackPressed() {
         Intent intent = new Intent(ctx,LoginActivity.class);
         startActivity(intent);
+    }
+
+    private void sendInfo() {
+
+        CuentaClienteRecover cuentaClienteRecover = new CuentaClienteRecover();
+        cuentaClienteRecover.setEmail(emailtext.getText().toString());
+
+        PropertyInfo property = new PropertyInfo();
+        property.setName(CuentaClienteRecover.PROPERTY);
+        property.setValue(cuentaClienteRecover);
+        property.setType(cuentaClienteRecover.getClass());
+
+        if (Util.hasInternetConnectivity(ctx)) {
+            AsyncSoapObject.getInstance(Constants.getWSDL(), Constants.NAMESPACE_ALLEM,
+                    Constants.METHOD_RECUPERAR_PASSWORD, property, Constants.ACTIVITY_LOGIN_RECOVER).execute();
+        } else {
+            Toast.makeText(ctx, getString(R.string.err_no_internet), Toast.LENGTH_SHORT).show();
+        }
     }
 
 }
