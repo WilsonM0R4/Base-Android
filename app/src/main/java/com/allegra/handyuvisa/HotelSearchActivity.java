@@ -181,8 +181,8 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
             openOnePocket();
         } else if (requestCode == Constants.REQUEST_ONEPOCKET_RETURN) {
             if (data != null) {
-                returnURL = data.getStringExtra("RESULT");
-                webView.loadUrl("about:blank");
+                Intent intent = new Intent(this, HotelsActivity.class);
+                startActivity(intent);
                 //progressBar.setVisibility(View.VISIBLE);
             }
         }

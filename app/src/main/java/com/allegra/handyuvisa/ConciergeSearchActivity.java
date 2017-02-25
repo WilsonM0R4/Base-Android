@@ -134,8 +134,8 @@ public class ConciergeSearchActivity extends Activity{//LoadAnimate implements L
             openOnePocket();
         } else if (requestCode == Constants.REQUEST_ONEPOCKET_RETURN) {
             if (data != null) {
-                returnURL = data.getStringExtra("RESULT");
-                webView.loadUrl("about:blank");
+                Intent intent = new Intent(this, ConciergeActivity.class);
+                startActivity(intent);
                 //progressBar.setVisibility(View.VISIBLE);
             }
         }

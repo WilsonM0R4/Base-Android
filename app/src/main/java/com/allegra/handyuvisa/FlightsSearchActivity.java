@@ -9,6 +9,7 @@ import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -144,7 +145,8 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
             if (data != null) {
                 returnURL = data.getStringExtra("RESULT");
                 //webView.clearHistory();
-                webView.loadUrl("about:blank");
+                Intent intent = new Intent(this, FlightsActivity.class);
+                startActivity(intent);
                 progressBar.setVisibility(View.VISIBLE);
             }
         }
@@ -267,7 +269,7 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
 
-            //Log.d(TAG, "url: " + url);
+            Log.d(TAG, "url: " + url);
             if (Util.hasInternetConnectivity(FlightsSearchActivity.this)){
                 if (url.contains("http://")||url.contains("https://")){
                     view.loadUrl(url);
@@ -278,6 +280,8 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
                     // TODO replace with Onepocket pay activity
                 }else if(url.equals("allegra:callbackFlights")){
                     onalertDialogDepartureOrArriveNotSelected();
+                }else if(url.equals("")){
+
                 }
                 else{
                     view.loadUrl(url);
