@@ -108,9 +108,6 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
     public void onResume() {
         super.onResume();
         if(mSensor!=null) mSensorManager.registerListener(this, mSensor,SensorManager.SENSOR_DELAY_NORMAL);
-        if (phone.handleIncomingIntent(getIntent())) {
-            addStatusMessage("Received incoming connection");
-        }
     }
 
     @Override
@@ -200,12 +197,6 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
                 return super.onOptionsItemSelected(item);
         }
     }
-
-    @Override
-    public void onIncomingConnectionDisconnected() {
-        addStatusMessage("Pending incoming connection disconnected");
-    }
-
 
     @Override
     public void onConnectionConnecting() {
@@ -390,7 +381,7 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
         mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
         if (mSensor!=null) mSensorRange=mSensor.getMaximumRange();
         setListeners();
-        phone.login("OneTouchCall", true, true);
+        phone.login("OneTouchCall", true, false);
         //setButton(-1);
     }
 
