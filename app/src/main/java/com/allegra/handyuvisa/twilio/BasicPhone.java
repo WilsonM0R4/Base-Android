@@ -7,13 +7,10 @@
 
 package com.allegra.handyuvisa.twilio;
 
-import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
 import android.media.AudioManager;
 import android.util.Log;
 
-import com.allegra.handyuvisa.CallActivity;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -46,7 +43,6 @@ public class BasicPhone implements DeviceListener,
 
     public interface BasicConnectionListener
     {
-        public void onIncomingConnectionDisconnected();
         public void onConnectionConnecting();
         public void onConnectionConnected();
         public void onConnectionFailedConnecting(Exception error, int errorCode);
@@ -81,7 +77,6 @@ public class BasicPhone implements DeviceListener,
     private RequestQueue queue;
 
     private Device device;
-    private Connection pendingIncomingConnection;
     private Connection connection;
     private boolean speakerEnabled;
     
@@ -173,12 +168,8 @@ public class BasicPhone implements DeviceListener,
             if (device == null) {
                // Log.d(TAG, "start a new device");
                 device = Twilio.createDevice(capabilityToken, this);
-                Intent intent = new Intent(context, CallActivity.class);
-                PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent,
-                        PendingIntent.FLAG_UPDATE_CURRENT);
-                device.setIncomingIntent(pendingIntent);
             } else {
-              //  Log.d(TAG, "REUSE existing device");
+               // Log.d(TAG, "REUSE existing device");
                 device.updateCapabilityToken(capabilityToken);
             }
 
@@ -246,25 +237,6 @@ public class BasicPhone implements DeviceListener,
         }
     }
 
-    public void acceptConnection()
-    {
-        if (pendingIncomingConnection != null) {
-            if (connection != null)
-                disconnect();
-
-            pendingIncomingConnection.accept();
-            connection = pendingIncomingConnection;
-            pendingIncomingConnection = null;
-        }
-    }
-
-    public void ignoreIncomingConnection()
-    {
-        if (pendingIncomingConnection != null) {
-            pendingIncomingConnection.ignore();
-        }
-    }
-
     public boolean isConnected()
     {
         return connection != null && connection.getState() == Connection.State.CONNECTED;
@@ -273,33 +245,6 @@ public class BasicPhone implements DeviceListener,
     public Connection.State getConnectionState()
     {
         return connection != null ? connection.getState() : Connection.State.DISCONNECTED;
-    }
-
-    public boolean hasPendingConnection()
-    {
-        return pendingIncomingConnection != null;
-    }
-
-    public boolean handleIncomingIntent(Intent intent)
-    {
-        Device inDevice = intent.getParcelableExtra(Device.EXTRA_DEVICE);
-        Connection inConnection = intent.getParcelableExtra(Device.EXTRA_CONNECTION);
-        if (inDevice == null && inConnection == null)
-            return false;
-
-        intent.removeExtra(Device.EXTRA_DEVICE);
-        intent.removeExtra(Device.EXTRA_CONNECTION);
-
-        if (pendingIncomingConnection != null) {
-          //  Log.i(TAG, "A pending connection already exists");
-            inConnection.ignore();
-            return false;
-        }
-
-        pendingIncomingConnection = inConnection;
-        pendingIncomingConnection.setConnectionListener(this);
-
-        return true;
     }
 
     public boolean canMakeOutgoing()
@@ -311,15 +256,6 @@ public class BasicPhone implements DeviceListener,
         return caps.containsKey(Capability.OUTGOING) && (Boolean)caps.get(Capability.OUTGOING);
     }
 
-    public boolean canAcceptIncoming()
-    {
-        if (device == null)
-            return false;
-
-        Map<Capability, Object> caps = device.getCapabilities();
-        return caps.containsKey(Capability.INCOMING) && (Boolean)caps.get(Capability.INCOMING);
-    }
-    
     public void setCallMuted(boolean isMuted) {
     	if (connection != null) {
     		connection.setMuted(isMuted);
@@ -383,12 +319,6 @@ public class BasicPhone implements DeviceListener,
             if (basicConnectionListener != null) {
                // Log.d(TAG, "basicConnectionListener A onDisconnected");
                 basicConnectionListener.onConnectionDisconnected();
-            }
-        } else if (inConnection == pendingIncomingConnection) {
-            pendingIncomingConnection = null;
-            if (basicConnectionListener != null) {
-               // Log.d(TAG, "basicConnectionListener B onDisconnected ");
-                basicConnectionListener.onIncomingConnectionDisconnected();
             }
         }
     }

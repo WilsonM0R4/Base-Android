@@ -2,6 +2,7 @@ package com.allegra.handyuvisa;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.webkit.JavascriptInterface;
 
 import com.allegra.handyuvisa.utils.Constants;
