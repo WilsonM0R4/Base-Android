@@ -2,6 +2,7 @@ package com.allegra.handyuvisa;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.webkit.JavascriptInterface;
 
 import com.allegra.handyuvisa.utils.Constants;
@@ -19,14 +20,9 @@ public class AppJavaScriptProxyConcierge {
 
     @JavascriptInterface
     public void postMessage(String message) {
-        //Log.v("OPK", message);
-        String data = message.replaceAll("\\\\n", "");
-        String data2 = data.replaceAll("\\\\", "");
-        String data3 = data2.replace("\"{", "{");
-        String data4 = data3.replace("}\"", "}");
-        //Log.v("OPK", "Filtered: " + data4);
+        //Log.d("Message", message);
 
-        ((ConciergeSearchActivity)activity).onePocketmessage =data4;
+        ((ConciergeSearchActivity)activity).onePocketmessage = message;
         if(checkLogin())  ((ConciergeSearchActivity) activity).openOnePocket();
     }
 
