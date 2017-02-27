@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 
 import com.allegra.handyuvisa.utils.CustomizedTextView;
-import com.allegra.handyuvisa.utils.SampleSlide;
+//import com.allegra.handyuvisa.utils.SampleSlide;
 import com.github.paolorotolo.appintro.AppIntro;
 
 /**
@@ -21,13 +21,13 @@ public class WalkThroughActivity extends AppIntro{
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        addSlide(SampleSlide.newInstance(R.layout.slide_1));
+        /*addSlide(SampleSlide.newInstance(R.layout.slide_1));
         addSlide(SampleSlide.newInstance(R.layout.slide_2));
         addSlide(SampleSlide.newInstance(R.layout.slide_3));
         addSlide(SampleSlide.newInstance(R.layout.slide_4));
         addSlide(SampleSlide.newInstance(R.layout.slide_5));
         addSlide(SampleSlide.newInstance(R.layout.slide_6));
-        addSlide(SampleSlide.newInstance(R.layout.slide_7));
+        addSlide(SampleSlide.newInstance(R.layout.slide_7));*/
         setSkipText(getString(R.string.skip_walk));
         setDoneText(getString(R.string.done_walk));
         getWindow().setBackgroundDrawable(null);

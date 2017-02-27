@@ -31,7 +31,6 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
         super.onCreate(savedInstanceState);
         super.setView(R.layout.activity_my_account_menu, this);
         ctx = this;
-
     }
 
 

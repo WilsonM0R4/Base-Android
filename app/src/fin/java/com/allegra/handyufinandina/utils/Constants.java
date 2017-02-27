@@ -22,6 +22,8 @@ import java.util.HashMap;
  */
 public class Constants {
 
+    public final static String ID_PORTAL = "2";
+
     //********FOR ONEPOCKET LOGGING**********
     public final static boolean LOGGING = true;
     public final static String SPLUNK_API_KEY = "e74061f2";
@@ -213,10 +215,10 @@ public class Constants {
     public final static String KEY_TRANS_URL_REDIR = "urlRedireccion";
     public final static String KEY_TRANS_LIST = "listRespuestaTransaccion";
 
-    public final static String URL_ALLEM_AIR_PROD_HOST = "secure.allegraplatform.com";
+    /*public final static String URL_ALLEM_AIR_PROD_HOST = "secure.allegraplatform.com";
     public final static String URL_HOSTNAME_SECUREACCEPTANCE = "secureacceptance.allegraplatform.com";
     public final static String URL_HOSTNAME_ALLEGRA_PLATFORM = "www.allegraplatform.com";
-    public final static String URL_HOSTNAME_APPS_FLYER = "t.appsflyer.com";
+    public final static String URL_HOSTNAME_APPS_FLYER = "t.appsflyer.com";*/
 
     //Cobro
     public final static String KEY_COBRO_NIT = "nit";
