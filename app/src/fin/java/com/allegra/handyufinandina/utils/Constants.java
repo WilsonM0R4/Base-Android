@@ -22,7 +22,7 @@ import java.util.HashMap;
  */
 public class Constants {
 
-    public final static String ID_PORTAL = "2";
+    public final static String ID_PORTAL = "6";
 
     //********FOR ONEPOCKET LOGGING**********
     public final static boolean LOGGING = true;
