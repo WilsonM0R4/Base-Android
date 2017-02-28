@@ -136,11 +136,6 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
         super.onConfigurationChanged(newConfig);
     }
 
-    @Override
-    public void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-        setIntent(intent);
-    }
 
     @Override
     public void initViews(View root) {
