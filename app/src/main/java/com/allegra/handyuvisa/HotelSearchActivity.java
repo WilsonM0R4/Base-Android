@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -271,7 +272,7 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
         }
         webView.addJavascriptInterface(new AppJavaScriptProxyHotels(this), "androidProxy");
         url = url + postData;
-        //Log.d("murl",url);
+        //Log.d("Hotel url",url);
         webView.loadUrl(url);
     }
 
