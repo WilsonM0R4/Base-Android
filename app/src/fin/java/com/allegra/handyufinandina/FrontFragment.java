@@ -43,18 +43,6 @@ public class FrontFragment extends Fragment implements
     Surface surf;
     private MediaPlayer mMediaPlayer;
     private TextureView videoView; // TextView for display (similar to VideoView?)
-    private ArrayList<Notifications> notifications;
-
-
-    //***************BroadcastReceivers****************
-
-    private BroadcastReceiver receiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-           // Log.d(TAG,"Notification received");
-            loadNotifications(true);
-        }
-    };
 
     //************OVERRIDE METHODS*****************
 
@@ -86,16 +74,6 @@ public class FrontFragment extends Fragment implements
 
             TextView current = (TextView) getActivity().findViewById(R.id.tv_current_time);
             current.setText(Util.getFormattedTime());
-
-            loadNotifications(true);
-            if (notifications != null) {
-                TextView notifMessages = (TextView) getActivity().findViewById(R.id.tv_notifications);
-                StringBuilder buf = new StringBuilder();
-                for (int i = 0; i < notifications.size(); i++) {
-                    buf.append(notifications.get(i).message).append("\n");
-                }
-                notifMessages.setText(buf.toString());
-            }
         }
     }
 
@@ -103,19 +81,12 @@ public class FrontFragment extends Fragment implements
     public void onResume() {
         super.onResume();
         resumeMediaPlayer();
-        registerFilter();
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        try {
-            releaseMediaPlayer();
-            getActivity().unregisterReceiver(receiver);
-           // Log.d(TAG, "Unregister broadcast filter");
-        } catch (Exception ex) {
-           // Log.e(TAG, "Fail to unregister broadcast receiver: " + ex.getMessage());
-        }
+        releaseMediaPlayer();
     }
 
     private void setVideoView(){
@@ -162,97 +133,6 @@ public class FrontFragment extends Fragment implements
 
     @Override
     public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
-
-    }
-
-
-    private void registerFilter() {
-       // Log.d(TAG, "register broadcast filter");
-        IntentFilter filter = new IntentFilter();
-        filter.addAction(Constants.BCAST_NOTIFIC_UPDATE);
-        getActivity().registerReceiver(receiver, filter);
-    }
-
-    private void loadNotifications(boolean frombcast) {
-        if (notifications != null) {
-            notifications.clear();
-        }
-
-        String channel = KeySaver.getStringSavedShare(getActivity(), Constants.KEY_PUSH_CHANNEL);
-        try{
-            JSONObject notif;
-            String notif_shared = KeySaver.getStringSavedShare(getActivity(),Constants.PUSH_GLOBAL);
-           // Log.d(TAG,"notif_global: "+notif_shared);
-            if(notif_shared!=null){
-                if(notifications==null){
-                    notifications = new ArrayList<>();
-                }
-                notif = new JSONObject(notif_shared);
-                for(int i=(notif.getJSONArray("notif").length()-1);i>=0;i--){
-                    notifications.add(getNotification(notif.getJSONArray("notif").getJSONObject(i)));
-                }
-            }
-            if ((((com.allegra.handyuvisa.VisaCheckoutApp) getActivity().getApplication()).getIdSession() != null)){
-                if(KeySaver.isExist(getActivity(), channel)){
-                    notif_shared = KeySaver.getStringSavedShare(getActivity(), channel);
-                    if (notif_shared!=null){
-                      //  Log.d(TAG,"notif_shared: "+notif_shared);
-                        if(notifications==null){
-                            notifications = new ArrayList<>();
-                        }
-                        notif = new JSONObject(notif_shared);
-                        for(int i=(notif.getJSONArray("notif").length()-1);i>=0;i--){
-                            notifications.add(getNotification(notif.getJSONArray("notif").getJSONObject(i)));
-                        }
-                    }
-                }
-            }
-
-//            if(notifications!=null){
-//
-//                Collections.sort(notifications, new Comparator<Notifications>() {
-//                    public int compare(Notifications p1, Notifications p2) {
-//                        return Long.valueOf(p2.timeinmillis).compareTo(p1.timeinmillis);
-//                    }
-//                });
-//
-//                adapter = new NotifAdapter(ctx,notifications);
-//
-//                if (frombcast) {adapter.notifyDataSetChanged();
-//                    lv_notific.setAdapter(adapter);}
-//                else{lv_notific.setAdapter(adapter);}
-//                if (notifications.size()>0){
-//                    tv_no_notif.setVisibility(View.GONE);
-//                    lv_notific.setVisibility(View.VISIBLE);
-//                }else{
-//                    tv_no_notif.setVisibility(View.VISIBLE);
-//                    lv_notific.setVisibility(View.GONE);
-//                }
-//            }
-
-        }catch(Exception e){
-           // Log.e(TAG,e.toString());
-        }
-    }
-
-    private Notifications getNotification(JSONObject notific){
-        Notifications result=null;
-        try {
-            String msg = null;
-           // Log.d(TAG,notific.toString());
-            msg = notific.getString("msg");
-            String url;
-            if (notific.has("url")){
-                url=notific.getString("url");
-            }else{
-                url="";
-            }
-            long timeinmillis = notific.getLong("timeinmillis");
-            result =  new Notifications(msg,url,timeinmillis);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return result;
 
     }
 
