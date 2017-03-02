@@ -3,11 +3,13 @@ package com.allegra.handyuvisa;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.multidex.MultiDexApplication;
 import android.util.Log;
 
 import com.allegra.handyuvisa.utils.Constants;
 import com.allem.onepocket.utils.OPKLibraryConfig;
+import com.urbanairship.AirshipConfigOptions;
 import com.urbanairship.UAirship;
 import com.urbanairship.push.notifications.DefaultNotificationFactory;
 
@@ -29,20 +31,44 @@ public class VisaCheckoutApp extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
 
-        UAirship.takeOff(this, new UAirship.OnReadyCallback() {
+        AirshipConfigOptions options = new AirshipConfigOptions.Builder()
+                .setDevelopmentAppKey("KYQyaYDmTniGid2KzD4ItA")
+                .setDevelopmentAppSecret("kxsqJmKtT7G_rg62BfdNtA")
+                .setProductionAppKey("jTWvMHv6QdSvYvZNPRTb0Q")
+                .setProductionAppSecret("AeE9Ic7mS8WwI-LlbIkr-A")
+                .setInProduction(!BuildConfig.DEBUG)
+                .setGcmSender("624140577621")// FCM/GCM sender ID
+                .build();
+
+        UAirship.takeOff(this,options, new UAirship.OnReadyCallback() {
 
             @Override
             public void onAirshipReady(UAirship airship) {
 
-             //   Log.d(TAG, "Entra al onAirshipReady");
+                // Log.d("ESTOY LISTO", "RECIBIDO");
                 DefaultNotificationFactory factory = (DefaultNotificationFactory)
                         UAirship.shared().getPushManager().getNotificationFactory();
                 factory.setSound(Uri.parse(path));
                 airship.getPushManager().setUserNotificationsEnabled(true);
                 UAirship.shared().getNamedUser().setId(null);
             }
-        });
 
+
+            public AirshipConfigOptions createAirshipConfigOptions(@NonNull Context context) {
+
+                AirshipConfigOptions options = new AirshipConfigOptions.Builder()
+                        .setDevelopmentAppKey("KYQyaYDmTniGid2KzD4ItA")
+                        .setDevelopmentAppSecret("kxsqJmKtT7G_rg62BfdNtA")
+                        .setProductionAppKey("jTWvMHv6QdSvYvZNPRTb0Q")
+                        .setProductionAppSecret("AeE9Ic7mS8WwI-LlbIkr-A")
+                        .setInProduction(!BuildConfig.DEBUG)
+                        .setGcmSender("624140577621")// FCM/GCM sender ID
+                        .build();
+
+                return options;
+            }
+
+        });
         initOnepocket();
     }
 
