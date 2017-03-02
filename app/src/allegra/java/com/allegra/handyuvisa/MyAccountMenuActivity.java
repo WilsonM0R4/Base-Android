@@ -3,8 +3,6 @@ package com.allegra.handyuvisa;
 import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -133,7 +131,7 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
         //Validate login successful
         if (resultCode == RESULT_OK)//Constants.ACTIVITY_LOGIN
         {
-            Intent i = new Intent(this, ProofOfCoverageActivity.class);
+            Intent i = new Intent(this, ProofOfCoverageDinamicoActivity.class);
             this.startActivity(i);
             //sendIntentForProofOfCoverage();
         }
