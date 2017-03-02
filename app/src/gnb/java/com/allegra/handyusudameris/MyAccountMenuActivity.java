@@ -93,20 +93,6 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
         }
     }
 
-    void setGetYourCertificateLayout() {
-        //Change layout
-        setContentView(R.layout.get_your_certificate);
-        txtGetYourCertificate = (CustomizedTextView) findViewById(R.id.txtGetYourCertificate);
-        txtGetYourCertificate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                launchloginActivity();
-            }
-        });
-
-
-    }
-
     public void onUpProof(View view) {
         onBackPressed();
     }
@@ -122,16 +108,4 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
         animate();
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        //Validate login successful
-        if (resultCode == RESULT_OK)//Constants.ACTIVITY_LOGIN
-        {
-            Intent i = new Intent(this, ProofOfCoverageDinamicoActivity.class);
-            this.startActivity(i);
-            //sendIntentForProofOfCoverage();
-        }
-
-    }
 }

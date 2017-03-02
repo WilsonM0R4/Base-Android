@@ -123,16 +123,4 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
         animate();
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        //Validate login successful
-        if (resultCode == RESULT_OK)//Constants.ACTIVITY_LOGIN
-        {
-            Intent i = new Intent(this, ProofOfCoverageActivity.class);
-            this.startActivity(i);
-            //sendIntentForProofOfCoverage();
-        }
-
-    }
 }

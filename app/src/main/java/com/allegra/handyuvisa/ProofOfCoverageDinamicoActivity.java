@@ -85,6 +85,14 @@ public class ProofOfCoverageDinamicoActivity extends FrontBackAnimate implements
 
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            showProofOfCoverage();
+        }
+    }
+
     private boolean checkConnectivity() {
         if (Connectivity.isConnected(getApplicationContext()) || Connectivity.isConnectedWifi(getApplicationContext()) || Connectivity.isConnectedMobile(getApplicationContext())) {
             return true;
@@ -115,7 +123,6 @@ public class ProofOfCoverageDinamicoActivity extends FrontBackAnimate implements
         if(((com.allegra.handyuvisa.VisaCheckoutApp)this.getApplication()).getIdSession()==null){
             Intent i =new Intent(ProofOfCoverageDinamicoActivity.this, LoginActivity.class);
             this.startActivityForResult(i, Constants.ONE_POCKET_NEEDS_LOGIN);
-            finish();
             return false;
         } else {
             showProofOfCoverage();
