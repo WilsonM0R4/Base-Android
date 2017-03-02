@@ -3,10 +3,12 @@ package com.allegra.handyuvisa;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.multidex.MultiDexApplication;
 
 import com.allegra.handyuvisa.utils.Constants;
 import com.allem.onepocket.utils.OPKLibraryConfig;
+import com.urbanairship.AirshipConfigOptions;
 import com.urbanairship.UAirship;
 import com.urbanairship.push.notifications.DefaultNotificationFactory;
 
@@ -17,7 +19,7 @@ public class VisaCheckoutApp extends MultiDexApplication {
 
     private static final String TAG = "VisaCheckoutApp";
     public Context context = this;
-    private String idSession=null,channel,urlResto;
+    private String idSession = null, channel, urlResto;
     private String rawPassword;
     private int idCuenta;
     private String urlHotel;
@@ -26,21 +28,48 @@ public class VisaCheckoutApp extends MultiDexApplication {
 
     @Override
     public void onCreate() {
+
         super.onCreate();
 
-        UAirship.takeOff(this, new UAirship.OnReadyCallback() {
+        AirshipConfigOptions options = new AirshipConfigOptions.Builder()
+                .setDevelopmentAppKey("ZksAwaB2T4-iCFihSqn7QQ")
+                .setDevelopmentAppSecret("nwtQUK1IQymtVyGIRS0zTg")
+                .setProductionAppKey("XEZzHSdES3KoQ3WB2za04Ay")
+                .setProductionAppSecret("FaP_YJVBR-W6KX20jxWy2A")
+                .setInProduction(!BuildConfig.DEBUG)
+                .setGcmSender("1043839550330")// FCM/GCM sender ID
+                .build();
+
+        UAirship.takeOff(this,options, new UAirship.OnReadyCallback() {
 
             @Override
             public void onAirshipReady(UAirship airship) {
 
-               // Log.d("ESTOY LISTO", "RECIBIDO");
+                // Log.d("ESTOY LISTO", "RECIBIDO");
                 DefaultNotificationFactory factory = (DefaultNotificationFactory)
                         UAirship.shared().getPushManager().getNotificationFactory();
                 factory.setSound(Uri.parse(path));
                 airship.getPushManager().setUserNotificationsEnabled(true);
                 UAirship.shared().getNamedUser().setId(null);
             }
+
+
+            public AirshipConfigOptions createAirshipConfigOptions(@NonNull Context context) {
+
+                AirshipConfigOptions options = new AirshipConfigOptions.Builder()
+                        .setDevelopmentAppKey("ZksAwaB2T4-iCFihSqn7QQ")
+                        .setDevelopmentAppSecret("nwtQUK1IQymtVyGIRS0zTg")
+                        .setProductionAppKey("XEZzHSdES3KoQ3WB2za04Ay")
+                        .setProductionAppSecret("FaP_YJVBR-W6KX20jxWy2A")
+                        .setInProduction(!BuildConfig.DEBUG)
+                        .setGcmSender("1043839550330")// FCM/GCM sender ID
+                        .build();
+
+                return options;
+            }
+
         });
+
 
         initOnepocket();
     }
@@ -70,9 +99,9 @@ public class VisaCheckoutApp extends MultiDexApplication {
         this.idCuenta = idCuenta;
     }
 
-    public void deleteSesion(){
-        this.idCuenta=-1;
-        this.idSession=null;
+    public void deleteSesion() {
+        this.idCuenta = -1;
+        this.idSession = null;
     }
 
 
@@ -84,10 +113,10 @@ public class VisaCheckoutApp extends MultiDexApplication {
         this.urlHotel = urlHotel;
     }
 
-    public void handleUncaughtException (Thread thread, Throwable e) {
+    public void handleUncaughtException(Thread thread, Throwable e) {
         e.printStackTrace(); // not all Android versions will print the stack trace automatically
 
-        Intent intent = new Intent ();
+        Intent intent = new Intent();
         intent.setAction("com.allem.alleminmotion.visacheckout.SEND_LOG"); // see step 5.
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK); // required when starting from Application
         startActivity(intent);
