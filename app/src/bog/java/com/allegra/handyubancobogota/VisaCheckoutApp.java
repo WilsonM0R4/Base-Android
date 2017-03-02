@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.allegra.handyuvisa.utils.Constants;
 import com.allem.onepocket.utils.OPKLibraryConfig;
+import com.urbanairship.AirshipConfigOptions;
 import com.urbanairship.UAirship;
 import com.urbanairship.push.notifications.DefaultNotificationFactory;
 
@@ -54,8 +55,16 @@ public class VisaCheckoutApp extends MultiDexApplication {
                 UAirship.shared().getNamedUser().setId(null);
             }
         });*/
+        AirshipConfigOptions options = new AirshipConfigOptions.Builder()
+                .setDevelopmentAppKey("ZksAwaB2T4-iCFihSqn7QQ")
+                .setDevelopmentAppSecret("nwtQUK1IQymtVyGIRS0zTg")
+                .setProductionAppKey("XEZzHSdES3KoQ3WB2za04Ay")
+                .setProductionAppSecret("FaP_YJVBR-W6KX20jxWy2A")
+                .setInProduction(!BuildConfig.DEBUG)
+                .setGcmSender("1043839550330")// FCM/GCM sender ID
+                .build();
 
-        UAirship.takeOff(this, new UAirship.OnReadyCallback() {
+        UAirship.takeOff(this,options, new UAirship.OnReadyCallback() {
 
             @Override
             public void onAirshipReady(UAirship airship) {
