@@ -16,8 +16,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 
-import static java.lang.Boolean.FALSE;
-
 /**
  * Created by victor on 26/02/15.
  * com.allem.allemevent.utils
@@ -69,8 +67,8 @@ public class Constants {
     //***************** EASY CHANGE BETWEEN TESTING AND PRODUCTION SYSTEM URLS *********************
 
     //** Parameter indicates mode: TESTING = false implies PRODUCTION mode **
-    public final static boolean TESTING = false;
-    public final static boolean TESTING_AIR = false;
+    public final static boolean TESTING = true;
+    public final static boolean TESTING_AIR = true;
 
     public final static String DEMOURL="http://demo.allemmarket.com/allemmarketapp/index/login/";
     public final static String DEMOHOST="allemmarket.com";

@@ -145,8 +145,7 @@ public class FlightsSearchActivity extends Activity {//LoadAnimate  implements L
             if (data != null) {
                 returnURL = data.getStringExtra("RESULT");
                 //webView.clearHistory();
-                Intent intent = new Intent(this, FlightsActivity.class);
-                startActivity(intent);
+                webView.loadUrl("about:blank");
                 progressBar.setVisibility(View.VISIBLE);
             }
         }

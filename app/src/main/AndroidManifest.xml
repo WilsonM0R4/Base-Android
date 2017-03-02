@@ -135,9 +135,6 @@
             android:name=".Mcardhtml"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ProofOfCoverageActivityOff"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".LoginForgotActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -200,9 +197,6 @@
             android:screenOrientation="portrait"/>
         <activity
             android:name=".ConciergeActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".VisaCheckoutActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".MarketPlaceActivity"
@@ -291,9 +285,6 @@
         <activity
             android:name=".HotelSearchActivity"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".CardInfoActivity"
-            android:screenOrientation="portrait" />
 
         <!-- Activities responsible for gathering payment info via card.io -->
         <activity
@@ -365,10 +356,6 @@
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ProofOfCoverageDinamicoActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".ProofOfCoverageActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
 

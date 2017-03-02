@@ -32,7 +32,6 @@ import com.allegra.handyuvisa.utils.CustomizedTextView;
 import com.allegra.handyuvisa.utils.Util;
 import com.squareup.otto.Subscribe;
 
-import java.io.InputStream;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -242,12 +241,6 @@ public class ChatActivity extends FrontBackAnimate implements
         }, 2000);
     }
 
-    private HashMap<String, String> testJson() {
-
-        InputStream in = getResources().openRawResource(R.raw.info);
-        ChatInfo info = new ChatInfo(null);
-        return info.parseData(in);
-    }
 
     private void updateChatHeader(String agentData) {
 

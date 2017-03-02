@@ -140,8 +140,8 @@ android {
         }
         gnb {
             applicationId "com.allegra.handyusudameris"
-            versionCode 21
-            versionName "1.0.0-21"
+            versionCode 23
+            versionName "1.0.0-23"
             signingConfig signingConfigs.gnbConfig
             minSdkVersion 19
             targetSdkVersion 25
@@ -204,7 +204,7 @@ android {
         pin {
             applicationId "com.allegra.handyupichincha"
             versionCode 1
-            versionName "1.2.0-3"
+            versionName "1.0.0-1"
             signingConfig signingConfigs.pinConfig
             minSdkVersion 19
             targetSdkVersion 25
@@ -266,8 +266,8 @@ android {
 
         dav {
             applicationId "com.allegra.visabdavivienda"
-            versionCode 25
-            versionName "1.1.0-27"
+            versionCode 27
+            versionName "1.0.0-1"
             signingConfig signingConfigs.davConfig
             minSdkVersion 19
             targetSdkVersion 25

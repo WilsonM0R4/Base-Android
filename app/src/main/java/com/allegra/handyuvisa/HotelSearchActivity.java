@@ -7,7 +7,6 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -182,8 +181,8 @@ public class HotelSearchActivity extends Activity {//LoadAnimate implements Load
             openOnePocket();
         } else if (requestCode == Constants.REQUEST_ONEPOCKET_RETURN) {
             if (data != null) {
-                Intent intent = new Intent(this, HotelsActivity.class);
-                startActivity(intent);
+                returnURL = data.getStringExtra("RESULT");
+                webView.loadUrl("about:blank");
                 //progressBar.setVisibility(View.VISIBLE);
             }
         }

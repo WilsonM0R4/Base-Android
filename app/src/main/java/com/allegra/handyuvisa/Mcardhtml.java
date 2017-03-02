@@ -95,10 +95,6 @@ public class Mcardhtml extends WebViewActivity implements FrontBackAnimate.Infla
         mWebView.loadUrl(url_prod+userEmail);
     }
 
-    /*private void loadWebViewOnepocket(){
-        mWebView.addJavascriptInterface(new AppJavaScriptProxyMcard(this), "androidProxy");
-        mWebView.loadUrl(url_prod+userEmail);
-    }*/
 
     public void openOnePocket(){
 

@@ -28,7 +28,8 @@ public class ProofOfCoverageDinamicoActivity extends FrontBackAnimate implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.setView(R.layout.activity_proof_of_coverage_dinamico, this);
+        super.setView(R.layout
+                .activity_proof_of_coverage_dinamico, this);
 
         RegisterCallback.registerNext(new NextHandler() {
             @Override
