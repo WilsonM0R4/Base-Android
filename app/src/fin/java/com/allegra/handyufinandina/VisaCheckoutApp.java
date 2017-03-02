@@ -3,11 +3,12 @@ package com.allegra.handyuvisa;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.multidex.MultiDexApplication;
-import android.util.Log;
 
 import com.allegra.handyuvisa.utils.Constants;
 import com.allem.onepocket.utils.OPKLibraryConfig;
+import com.urbanairship.AirshipConfigOptions;
 import com.urbanairship.UAirship;
 import com.urbanairship.push.notifications.DefaultNotificationFactory;
 
@@ -45,29 +46,45 @@ public class VisaCheckoutApp extends MultiDexApplication {
 
 
         //UrbanAirship
-/*        UAirship.takeOff(this, new UAirship.OnReadyCallback() {
+        AirshipConfigOptions options = new AirshipConfigOptions.Builder()
+                .setDevelopmentAppKey("ZksAwaB2T4-iCFihSqn7QQ")
+                .setDevelopmentAppSecret("nwtQUK1IQymtVyGIRS0zTg")
+                .setProductionAppKey("XEZzHSdES3KoQ3WB2za04Ay")
+                .setProductionAppSecret("FaP_YJVBR-W6KX20jxWy2A")
+                .setInProduction(!BuildConfig.DEBUG)
+                .setGcmSender("1043839550330")// FCM/GCM sender ID
+                .build();
+
+        UAirship.takeOff(this,options, new UAirship.OnReadyCallback() {
+
             @Override
             public void onAirshipReady(UAirship airship) {
 
-                // Enable user notifications
-                airship.getPushManager().setUserNotificationsEnabled(true);
-                UAirship.shared().getNamedUser().setId(null);
-            }
-        });*/
-
-        UAirship.takeOff(this, new UAirship.OnReadyCallback() {
-
-            @Override
-            public void onAirshipReady(UAirship airship) {
-
-              //  Log.d("ESTOY LISTO", "RECIBIDO");
+                // Log.d("ESTOY LISTO", "RECIBIDO");
                 DefaultNotificationFactory factory = (DefaultNotificationFactory)
                         UAirship.shared().getPushManager().getNotificationFactory();
                 factory.setSound(Uri.parse(path));
                 airship.getPushManager().setUserNotificationsEnabled(true);
                 UAirship.shared().getNamedUser().setId(null);
             }
+
+
+            public AirshipConfigOptions createAirshipConfigOptions(@NonNull Context context) {
+
+                AirshipConfigOptions options = new AirshipConfigOptions.Builder()
+                        .setDevelopmentAppKey("ZksAwaB2T4-iCFihSqn7QQ")
+                        .setDevelopmentAppSecret("nwtQUK1IQymtVyGIRS0zTg")
+                        .setProductionAppKey("XEZzHSdES3KoQ3WB2za04Ay")
+                        .setProductionAppSecret("FaP_YJVBR-W6KX20jxWy2A")
+                        .setInProduction(!BuildConfig.DEBUG)
+                        .setGcmSender("1043839550330")// FCM/GCM sender ID
+                        .build();
+
+                return options;
+            }
+
         });
+
 
         initOnepocket();
         /*Parse.enableLocalDatastore(getApplicationContext());
