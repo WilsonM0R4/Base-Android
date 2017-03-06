@@ -137,6 +137,9 @@
             android:name=".LoginForgotActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".VisaCheckoutWeb"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".WalkThroughActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme"/>

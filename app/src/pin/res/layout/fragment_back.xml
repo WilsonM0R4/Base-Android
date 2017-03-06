@@ -160,6 +160,51 @@
                     android:padding="2dip" />
 
                 <LinearLayout
+                    android:id="@+id/visacheckout_option"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/main_menu_table_row"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="35dp"
+                        android:src="@drawable/menu__onepocket" />
+
+                    <com.allegra.handyuvisa.utils.CustomizedTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/onepocket"
+                        android:textColor="@color/HomeMenus_text"
+                        android:textSize="17sp"
+                        app:font="@string/font_varela" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/menu_gotob" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_weight="1"
+                    android:background="@drawable/separator_gradient"
+                    android:padding="2dip" />
+
+                <LinearLayout
                     android:id="@+id/mCard_option"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

@@ -16,6 +16,7 @@
     <string name="empresa_register_hint">Empresa</string>
     <string name="myvisaenterprise">Mi Visa Empresarial</string>
     <string name="intellilink">Intellilink</string>
+    <string name="visacheckoutweb">Visa Checkout</string>
     <string name="empresa_numero_hint">Compañía ID (10 Digitos)</string>
     <string name="title_walk_03">Tranquilidad al alcance\n de tu mano</string>
     <string name="editprofile_ok">Tu perfil se ha actualizado satisfactoriamente</string>

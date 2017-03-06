@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context=".Intellilink"
+    android:layout_width="match_parent"
+    android:weightSum="1"
+    android:id="@+id/intellilink_layout"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:onClick="onCloseMenu">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/GeneralAppHeaderTitle_backgroud"
+        android:id="@+id/ll_header">
+
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="16dp"
+            android:id="@+id/ib_up"
+            android:src="@drawable/icon_back_to"
+            android:background="@android:color/transparent"
+            android:onClick="onUp"
+            android:visibility="invisible"
+            android:contentDescription="Up"
+            android:layout_alignParentStart="true"
+            android:layout_alignBottom="@+id/tv_title_secc"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/visacheckoutweb"
+            android:id="@+id/tv_title_secc"
+            android:textColor="@color/GeneralAppHeaderTitle_text"
+            android:layout_centerInParent="true" />
+
+        <ImageButton
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/icon_menu"
+            android:background="@android:color/transparent"
+            android:id="@+id/menu_visa"
+            android:onClick="onMenu"
+            android:contentDescription="menu"
+            android:layout_alignBottom="@+id/tv_title_secc"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp" />
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/GeneralAppHeaderTitle_backgroud"
+            android:id="@+id/navigation_panel"
+            android:layout_alignParentRight="false"
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_alignParentTop="false"
+            android:layout_toEndOf="@+id/ib_up"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="5dp">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/navigation__backurl_2"
+                android:background="@null"
+                android:padding="10dp"
+                android:onClick="onGoBack"
+                android:id="@+id/arrow_back_visaweb" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/navigation__fwdurl"
+                android:background="@null"
+                android:padding="10dp"
+                android:id="@+id/arrow_forward_visaweb" />
+        </RelativeLayout>
+
+        </RelativeLayout>
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:paddingEnd="-2dp"
+        android:paddingStart="-2dp"
+        android:id="@+id/imageView24"
+        android:src="@drawable/separator_medium_mag"
+        android:contentDescription="Divider" />
+
+    <WebView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/webVisaCheckout"
+        android:layout_marginTop="-2dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar_visacheckout"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+</LinearLayout>
