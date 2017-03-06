@@ -34,12 +34,12 @@ import java.util.ArrayList;
  * Created by lisachui on 12/1/15.
  */
 public class FrontFragment extends Fragment implements
-                                    TextureView.SurfaceTextureListener,
-                                    MediaPlayer.OnPreparedListener,
-                                    MediaPlayer.OnErrorListener {
+        TextureView.SurfaceTextureListener,
+        MediaPlayer.OnPreparedListener,
+        MediaPlayer.OnErrorListener {
 
     private static final String TAG = "FrontFragment";
-    private static final String VIDEO_BACKGROUND = "android.resource://com.allegra.visabdavivienda/raw/background_dark";
+    private static final String VIDEO_BACKGROUND = "android.resource://com.allegra.handyupichincha/raw/background_dark";
     Surface surf;
     private MediaPlayer mMediaPlayer;
     private TextureView videoView; // TextView for display (similar to VideoView?)
@@ -74,6 +74,7 @@ public class FrontFragment extends Fragment implements
 
             TextView current = (TextView) getActivity().findViewById(R.id.tv_current_time);
             current.setText(Util.getFormattedTime());
+
         }
     }
 
@@ -108,14 +109,14 @@ public class FrontFragment extends Fragment implements
 
     @Override
     public boolean onError(MediaPlayer mediaPlayer, int what, int extra) {
-      //  Log.e(TAG, "Error loading video: what: " + what + " extra: " + extra);
+        //  Log.e(TAG, "Error loading video: what: " + what + " extra: " + extra);
         return false;
     }
 
     @Override
     public void onSurfaceTextureAvailable(SurfaceTexture surface, int i, int i1) {
 
-       // Log.d("onSurfaceTexture", "ACA RECREA EL VIDEO");
+        //  Log.d("onSurfaceTexture", "ACA RECREA EL VIDEO");
         Surface s = new Surface(surface);
         surf=s;
         resumeMediaPlayer();
@@ -140,46 +141,46 @@ public class FrontFragment extends Fragment implements
 
         final Uri videoU = Uri.parse(VIDEO_BACKGROUND);
         //if (mMediaPlayer != null) {
-            try {
-                mMediaPlayer = new MediaPlayer();
-                mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                    @Override
-                    public void onCompletion(MediaPlayer mediaPlayer) {
-                        // KitKat only: even though MediaPlayer goes to PREPARE state, the video
-                        // may not be playing; retrying helps in this case;
-                        if (mMediaPlayer!=null) {
-                            if (mMediaPlayer.isPlaying()) {
-                                mMediaPlayer.start();
-                            } else {
-                                mediaPlayer.reset();
-                                try {
-                                    mMediaPlayer.setDataSource(getActivity(), videoU);
-                                } catch (IOException e) {
-                                   // Log.e(TAG, "Can't initialize media playing for loading video");
-                                }
-                                mMediaPlayer.prepareAsync();
+        try {
+            mMediaPlayer = new MediaPlayer();
+            mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mediaPlayer) {
+                    // KitKat only: even though MediaPlayer goes to PREPARE state, the video
+                    // may not be playing; retrying helps in this case;
+                    if (mMediaPlayer!=null) {
+                        if (mMediaPlayer.isPlaying()) {
+                            mMediaPlayer.start();
+                        } else {
+                            mediaPlayer.reset();
+                            try {
+                                mMediaPlayer.setDataSource(getActivity(), videoU);
+                            } catch (IOException e) {
+                                // Log.e(TAG, "Can't initialize media playing for loading video");
                             }
+                            mMediaPlayer.prepareAsync();
                         }
                     }
-                });
+                }
+            });
 
-                mMediaPlayer.setDataSource(getActivity(), videoU);
-                mMediaPlayer.setSurface(surf);
-                mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-                mMediaPlayer.prepareAsync();
-                mMediaPlayer.setOnPreparedListener(this);
-                mMediaPlayer.setLooping(true);
-            } catch (IllegalArgumentException e) {
-               // Log.e(TAG, "Error loading video: ", e);
-            } catch (SecurityException e) {
-              //  Log.e(TAG, "Error loading video: ", e);
-            } catch (IllegalStateException e) {
-             //   Log.e(TAG, "Error loading video: ", e);
-            } catch (IOException e) {
-              //  Log.e(TAG, "Error loading video: ", e);
-            }
+            mMediaPlayer.setDataSource(getActivity(), videoU);
+            mMediaPlayer.setSurface(surf);
+            mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+            mMediaPlayer.prepareAsync();
+            mMediaPlayer.setOnPreparedListener(this);
+            mMediaPlayer.setLooping(true);
+        } catch (IllegalArgumentException e) {
+            // Log.e(TAG, "Error loading video: ", e);
+        } catch (SecurityException e) {
+            // Log.e(TAG, "Error loading video: ", e);
+        } catch (IllegalStateException e) {
+            // Log.e(TAG, "Error loading video: ", e);
+        } catch (IOException e) {
+            // Log.e(TAG, "Error loading video: ", e);
+        }
 
-      //  }
+        //  }
     }
 
 }

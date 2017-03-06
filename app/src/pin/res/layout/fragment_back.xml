@@ -2,7 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_gradiente"
+    android:background="@drawable/bg_gradient_gnb"
     android:orientation="vertical">
 
     <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -173,13 +173,13 @@
                         android:layout_height="25dp"
                         android:layout_gravity="left"
                         android:layout_marginLeft="35dp"
-                        android:src="@drawable/menu__onepocket" />
+                        android:src="@drawable/visa_checkout_menu" />
 
                     <com.allegra.handyuvisa.utils.CustomizedTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="@string/onepocket"
+                        android:text="@string/visacheckoutweb"
                         android:textColor="@color/HomeMenus_text"
                         android:textSize="17sp"
                         app:font="@string/font_varela" />
@@ -325,7 +325,7 @@
                     android:background="@drawable/separator_gradient"
                     android:padding="2dip" />
 
-                <LinearLayout
+                <!--<LinearLayout
                     android:id="@+id/market_option"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -359,9 +359,9 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/menu_gotob" />
+                            android:src="@drawable/menu__gotob" />
                     </RelativeLayout>
-                </LinearLayout>
+                </LinearLayout>/>-->
 
                 <View
                     android:layout_width="match_parent"
@@ -498,6 +498,7 @@
                     </RelativeLayout>
                 </LinearLayout>
 
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dip"
@@ -543,6 +544,53 @@
                             android:src="@drawable/menu_gotob" />
                     </RelativeLayout>
                 </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_weight="1"
+                    android:background="@drawable/separator_gradient"
+                    android:padding="2dip" />
+
+                <LinearLayout
+                    android:id="@+id/market_option"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/main_menu_table_row"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="35dp"
+                        android:src="@drawable/menu__market" />
+
+                    <com.allegra.handyuvisa.utils.CustomizedTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/title_market_place"
+                        android:textColor="@color/HomeMenus_text"
+                        android:textSize="17sp"
+                        app:font="@string/font_varela" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/menu_gotob" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+
 
                 <View
                     android:layout_width="match_parent"
@@ -646,101 +694,101 @@
                     android:padding="2dip" />
 
                 <!-- <LinearLayout
-                         android:layout_width="match_parent"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:orientation="horizontal"
+                     android:background="@drawable/main_menu_table_row"
+                     android:padding="10dp"
+                     android:gravity="center_vertical"
+                     android:id="@+id/restaurants_option"
+                     >
+
+
+                     <ImageView
+                         android:layout_height="25dp"
+                         android:layout_width="25dp"
+                         android:src="@mipmap/menu_restaurants"
+                         android:layout_gravity="left"
+                         android:layout_marginLeft="35dp"
+                         />
+
+                     <com.allem.alleminmotion.utils.CustomizedTextView
                          android:layout_height="wrap_content"
-                         android:orientation="horizontal"
-                         android:background="@drawable/main_menu_table_row"
-                         android:padding="10dp"
-                         android:gravity="center_vertical"
-                         android:id="@+id/restaurants_option"
+                         android:layout_width="wrap_content"
+                         android:text="@string/title_restaurants"
+                         android:textColor="@android:color/white"
+                         android:textSize="17sp"
+                         android:id="@+id/textRestaurants"
+                         android:layout_marginLeft="9dp"
+                         app:font="@string/font_varela"
+                         />
+                     <RelativeLayout
+                         android:layout_width="match_parent"
+                         android:layout_height="match_parent"
                          >
-
-
                          <ImageView
-                             android:layout_height="25dp"
-                             android:layout_width="25dp"
-                             android:src="@mipmap/menu_restaurants"
-                             android:layout_gravity="left"
-                             android:layout_marginLeft="35dp"
-                             />
-
-                         <com.allem.alleminmotion.utils.CustomizedTextView
                              android:layout_height="wrap_content"
                              android:layout_width="wrap_content"
-                             android:text="@string/title_restaurants"
-                             android:textColor="@android:color/white"
-                             android:textSize="17sp"
-                             android:id="@+id/textRestaurants"
-                             android:layout_marginLeft="9dp"
-                             app:font="@string/font_varela"
+                             android:src="@drawable/menu__gotob"
+                             android:layout_alignParentRight="true"
+                             android:layout_centerVertical="true"
                              />
-                         <RelativeLayout
-                             android:layout_width="match_parent"
-                             android:layout_height="match_parent"
-                             >
-                             <ImageView
-                                 android:layout_height="wrap_content"
-                                 android:layout_width="wrap_content"
-                                 android:src="@drawable/menu__gotob"
-                                 android:layout_alignParentRight="true"
-                                 android:layout_centerVertical="true"
-                                 />
-                         </RelativeLayout>
-                     </LinearLayout>
-                     <View
-                         android:layout_width="match_parent"
-                         android:layout_height="1dip"
-                         android:layout_weight="1"
-                         android:background="@drawable/separator_gradient"
-                         android:padding="2dip"
-                         />-->
+                     </RelativeLayout>
+                 </LinearLayout>
+                 <View
+                     android:layout_width="match_parent"
+                     android:layout_height="1dip"
+                     android:layout_weight="1"
+                     android:background="@drawable/separator_gradient"
+                     android:padding="2dip"
+                     />-->
 
                 <!--   <LinearLayout
-                           android:layout_width="match_parent"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:orientation="horizontal"
+                       android:background="@drawable/main_menu_table_row"
+                       android:padding="10dp"
+                       android:gravity="center_vertical"
+                       android:id="@+id/taxi_option" >
+
+                       <ImageView
+                           android:layout_height="22dp"
+                           android:layout_width="22dp"
+                           android:src="@drawable/taxi4"
+                           android:layout_gravity="left"
+                           android:layout_marginLeft="35dp" />
+
+                       <com.allem.alleminmotion.utils.CustomizedTextView
+                           android:id="@+id/textTaxi"
                            android:layout_height="wrap_content"
-                           android:orientation="horizontal"
-                           android:background="@drawable/main_menu_table_row"
-                           android:padding="10dp"
-                           android:gravity="center_vertical"
-                           android:id="@+id/taxi_option" >
+                           android:layout_width="wrap_content"
+                           android:text="@string/taxi"
+                           android:textColor="@android:color/white"
+                           android:textSize="17sp"
+                           app:font="@string/font_varela"
+                           android:layout_marginLeft="12dp" />
+
+                       <RelativeLayout
+                           android:layout_width="match_parent"
+                           android:layout_height="match_parent" >
 
                            <ImageView
-                               android:layout_height="22dp"
-                               android:layout_width="22dp"
-                               android:src="@drawable/taxi4"
-                               android:layout_gravity="left"
-                               android:layout_marginLeft="35dp" />
-
-                           <com.allem.alleminmotion.utils.CustomizedTextView
-                               android:id="@+id/textTaxi"
                                android:layout_height="wrap_content"
                                android:layout_width="wrap_content"
-                               android:text="@string/taxi"
-                               android:textColor="@android:color/white"
-                               android:textSize="17sp"
-                               app:font="@string/font_varela"
-                               android:layout_marginLeft="12dp" />
-
-                           <RelativeLayout
-                               android:layout_width="match_parent"
-                               android:layout_height="match_parent" >
-
-                               <ImageView
-                                   android:layout_height="wrap_content"
-                                   android:layout_width="wrap_content"
-                                   android:src="@drawable/menu__gotob"
-                                   android:layout_alignParentRight="true"
-                                   android:layout_centerVertical="true" />
-                           </RelativeLayout>
-                       </LinearLayout>-->
+                               android:src="@drawable/menu__gotob"
+                               android:layout_alignParentRight="true"
+                               android:layout_centerVertical="true" />
+                       </RelativeLayout>
+                   </LinearLayout>-->
 
                 <!-- <View
-                         android:layout_width="match_parent"
-                         android:layout_height="1dip"
-                         android:layout_weight="1"
-                         android:background="@drawable/separator_gradient"
-                         android:padding="2dip"
-                         />-->
+                     android:layout_width="match_parent"
+                     android:layout_height="1dip"
+                     android:layout_weight="1"
+                     android:background="@drawable/separator_gradient"
+                     android:padding="2dip"
+                     />-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -866,43 +914,46 @@
                     android:padding="2dip"
 
                     />
-            </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/endless_option"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/main_menu_table_row"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="10dp">
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:src="@drawable/menu_endless_xxhdpi" />
 
-                <com.allegra.handyuvisa.utils.CustomizedTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:text="@string/title_endless"
-                    android:textColor="@color/HomeMenus_text"
-                    android:textSize="19sp"
-                    app:font="@string/font_varela" />
 
-                <RelativeLayout
+                <LinearLayout
+                    android:id="@+id/endless_option"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/main_menu_table_row"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/menu__gotob" />
-                </RelativeLayout>
+                        android:layout_gravity="left"
+                        android:src="@drawable/menu_endless_xxhdpi" />
+
+                    <com.allegra.handyuvisa.utils.CustomizedTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="@string/title_endless"
+                        android:textColor="@color/HomeMenus_text"
+                        android:textSize="19sp"
+                        app:font="@string/font_varela" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/menu_gotob" />
+                    </RelativeLayout>
+                </LinearLayout>
             </LinearLayout>
 
         </ScrollView>

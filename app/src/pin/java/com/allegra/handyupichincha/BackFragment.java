@@ -68,7 +68,7 @@ public class BackFragment extends Fragment  {
                 new MenuActivity(R.string.title_market_place, R.drawable.menu__mktplace, MarketPlaceActivity.class),
                 new MenuActivity(R.string.title_flights, R.drawable.menu__flights, FlightsActivity.class),
                 new MenuActivity(R.string.onepocket,R.drawable.menu__onepocket,McardActivity.class),
-                new MenuActivity(R.string.visacheckoutweb, R.drawable.menu__onepocket, VisaCheckoutWeb.class),
+                new MenuActivity(R.string.visacheckoutweb, R.drawable.visa_checkout_menu, VisaCheckoutWeb.class),
                 new MenuActivity(R.string.title_hotels, R.drawable.menu__hotels, HotelsActivity.class),
                 new MenuActivity(R.string.title_concierge, R.drawable.concierge5,ConciergeActivity.class),
                 new MenuActivity(R.string.title_services, R.drawable.menu__services, ServiceActivity.class),
