@@ -256,6 +256,42 @@
                 android:textColorHint="@color/InputNormal_border_hit"
                 android:background="@drawable/apptheme_edit_text_holo_light" />
 
+            <com.allegra.handyuvisa.utils.CustomizedEditText
+                android:id="@+id/et_empresa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginTop="18dp"
+                android:drawableLeft="@drawable/field_visa"
+                android:drawableRight="@drawable/icon_clear"
+                android:hint="@string/empresa_register_hint"
+                android:maxLength="100"
+                android:inputType="textPersonName"
+                android:singleLine="true"
+                android:textSize="15sp"
+                app:fontEdit="@string/font_muli"
+                android:textColorHint="@color/InputNormal_border_hit"
+                android:background="@drawable/apptheme_edit_text_holo_light" />
+
+            <com.allegra.handyuvisa.utils.CustomizedEditText
+                android:id="@+id/et_empresa_num"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginTop="18dp"
+                android:drawableLeft="@drawable/field_nit"
+                android:drawableRight="@drawable/icon_clear"
+                android:hint="@string/empresa_numero_hint"
+                android:maxLength="100"
+                android:inputType="phone"
+                android:singleLine="true"
+                android:textSize="15sp"
+                app:fontEdit="@string/font_muli"
+                android:textColorHint="@color/InputNormal_border_hit"
+                android:background="@drawable/apptheme_edit_text_holo_light" />
+
             <LinearLayout
                 android:id="@+id/ll_login_register_new_user"
                 android:layout_width="match_parent"

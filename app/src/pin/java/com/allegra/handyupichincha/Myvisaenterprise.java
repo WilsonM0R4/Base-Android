@@ -15,7 +15,7 @@ import android.widget.ProgressBar;
 
 public class Myvisaenterprise extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
     private WebView webmyvisa;
-    private String url = "https://visaempresarial.com/co/";
+    private String url = "https://www.visaempresarial.com/co-bancopichincha/";
     private String returnURL;
     private ImageButton arrowBack, arrowF, back;
     private ProgressBar progressBar;
@@ -80,7 +80,6 @@ public class Myvisaenterprise extends FrontBackAnimate implements FrontBackAnima
             }
             loadArrows();
         }
-
         @Override
         public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
             handler.proceed();

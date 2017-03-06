@@ -12,10 +12,14 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.allegra.handyuvisa.CheckMyTrip;
 import com.allegra.handyuvisa.models.AllemUser;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
 import com.allegra.handyuvisa.utils.Util;
+import com.google.android.gms.vision.text.Line;
+
+import static com.allegra.handyuvisa.R.id.call_option;
 
 /**
  * Created by lisachui on 12/1/15.
@@ -26,12 +30,14 @@ import com.allegra.handyuvisa.utils.Util;
 public class BackFragment extends Fragment  {
 
     //*************GLOBAL ATTRIBUTES*******************
-    //private String optionSelectedForService = "";
+    private String TAG = "BackFragment";
     private CustomizedTextView textOptionSelectedForService;
     private ImageButton home;
     //public int SCAN_QR_CODE = 123456;
     public MenuSelectListener menulistener;
     public static MenuActivity[] activities;
+    private final String PACKAGE_NAME = "com.allem.allemcomercios";
+
 
     //***************INTERFACES*****************
     public interface MenuSelectListener {
@@ -41,7 +47,7 @@ public class BackFragment extends Fragment  {
     //***************OVERRIDE METHODS**************
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-       // Log.e("Sergio","Llega al del BackFragment");
+       // Log.e(TAG,"Llega al onActivityResult");
         super.onActivityResult(requestCode, resultCode, data);
         // Check which request we're responding to
         if (requestCode == Constants.REQUEST_CODE_HOTELS) {
@@ -69,6 +75,7 @@ public class BackFragment extends Fragment  {
                 new MenuActivity(R.string.title_qr_scan, R.drawable.menu__qr__code, QRScanActivity.class),
                 new MenuActivity(R.string.title_chat, R.drawable.menu__onetouch__chat, ChatActivity.class),
                 new MenuActivity(R.string.title_call, R.drawable.menu__onetouch__call, CallActivity.class),
+                new MenuActivity(R.string.title_endless, R.drawable.menu_endless_xxhdpi,  EndlessActivity.class)
         };
 
 
@@ -84,7 +91,16 @@ public class BackFragment extends Fragment  {
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
+
         super.onActivityCreated(savedInstanceState);
+
+        LinearLayout endless_option = (LinearLayout) getView().findViewById(R.id.endless_option);
+        endless_option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendToEndless();
+            }
+        });
 
         LinearLayout account_option = (LinearLayout) getView().findViewById(R.id.account_option);
         account_option.setOnClickListener(new View.OnClickListener() {
@@ -149,6 +165,14 @@ public class BackFragment extends Fragment  {
             }
         });
 
+/*        LinearLayout checkmytrip_option = (LinearLayout) getView().findViewById(R.id.checkmytrip_option);
+        checkmytrip_option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendToCheck();
+            }
+        });*/
+
         LinearLayout call_option = (LinearLayout) getView().findViewById(R.id.call_option);
         call_option.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -193,7 +217,7 @@ public class BackFragment extends Fragment  {
         home.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-             //   Log.d("Juan","Presionado");
+               // Log.d("Juan","Presionado");
                 Intent intent = new Intent(getActivity(), SendLogActivity.class);
                 getActivity().startActivity(intent);
                 return true;
@@ -225,6 +249,19 @@ public class BackFragment extends Fragment  {
 
     }
 
+    public void sendToEndless(){
+        //If user has Endless installed, launch Endless Main Activity
+        //If not, normal url
+        Intent i = getActivity().getPackageManager().getLaunchIntentForPackage(PACKAGE_NAME);
+        if (i != null) {
+            getActivity().startActivity(i);
+        } /*else {
+
+            Intent intent = new Intent(getActivity(), EndlessActivity.class);
+            getActivity().startActivity(intent);
+        }*/
+    }
+
     //***************PROPER METHODS**************
     public void sendToAccount(){
         Intent intent = new Intent(getActivity(), com.allegra.handyuvisa.MyAccountMenuActivity.class);
@@ -248,13 +285,13 @@ public class BackFragment extends Fragment  {
     public void sendToMarket(){
         Intent intent = new Intent(getActivity(),MarketPlaceActivity.class);
         getActivity().startActivity(intent);
-        getActivity().finish();
+        //getActivity().finish();
     }
 
     public void sendToChat(){
         Intent intent = new Intent(getActivity(),ChatActivity.class);
         getActivity().startActivity(intent);
-        getActivity().finish();
+        //getActivity().finish();
     }
 
     public void sendToCall(){
@@ -268,7 +305,7 @@ public class BackFragment extends Fragment  {
             Bundle bundle = Constants.createDataBundle(Constants.getUser(getActivity()), (com.allegra.handyuvisa.VisaCheckoutApp) getActivity().getApplication());
             intent.putExtras(bundle);
             getActivity().startActivity(intent);
-            getActivity().finish();
+            //getActivity().finish();
         }else {
             Intent intent = new Intent(getActivity(),LoginActivity.class);
             getActivity().startActivity(intent);
@@ -305,6 +342,12 @@ public class BackFragment extends Fragment  {
         getActivity().startActivity(intent);
         getActivity().finish();
     }
+/*
+    public void sendToCheck(){
+        Intent intent = new Intent(getActivity(), CheckMyTrip.class);
+        getActivity().startActivity(intent);
+        getActivity().finish();
+    }*/
 
     public void sendToHotels(){
       /*  if(Util.isAuthenticated(getActivity())) {
@@ -346,13 +389,13 @@ public class BackFragment extends Fragment  {
     public void sendToRestaurants(){
         Intent intent = new Intent(getActivity(),RestaurantsActivity.class);
         getActivity().startActivity(intent);
-        getActivity().finish();
+        //getActivity().finish();
     }
 
     public void sendToStore(){
         Intent intent = new Intent(getActivity(),StoreActivity.class);
         getActivity().startActivity(intent);
-        getActivity().finish();
+        //getActivity().finish();
     }
 
     //**************INNER CLASSES******************

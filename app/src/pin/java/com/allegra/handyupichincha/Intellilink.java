@@ -82,7 +82,6 @@ public class Intellilink extends FrontBackAnimate implements FrontBackAnimate.In
             }
             loadArrows();
         }
-
         @Override
         public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
             handler.proceed();

@@ -14,6 +14,10 @@
     <string name="editprofile_ok">Your profile has been updated!</string>
     <string name="title_walk_03">Tranquility at\n your fingertips</string>
     <string name="title_walk_04">A new method\n of mobile payment</string>
+    <string name="empresa_numero_hint">Company ID (10 Digits)</string>
+    <string name="empresa_register_hint">Company Name</string>
+    <string name="myvisaenterprise">My Visa Enterprise</string>
+    <string name="intellilink">Intellilink</string>
     <string name="title_walk_05">Buying is\n now easier</string>
     <string name="title_walk_06">A great travel\n experience</string>
     <string name="title_walk_07">Services and shops\n with one touch</string>

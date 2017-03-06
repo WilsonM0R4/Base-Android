@@ -437,7 +437,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             property.setName(CuentaClienteInfo.PROPERTY);
             property.setValue(client);
             property.setType(client.getClass());
-            //Log.d("IDSession",((com.allegra.handyuvisa.VisaCheckoutApp)this.getApplication()).getIdSession());
+           // Log.d("IDSession",((com.allegra.handyuvisa.VisaCheckoutApp)this.getApplication()).getIdSession());
             if (Util.hasInternetConnectivity(this)) {
                 setWaitinUI(true);
                 AsyncSoapObject.getInstance(Constants.getWSDL(), Constants.NAMESPACE_ALLEM,

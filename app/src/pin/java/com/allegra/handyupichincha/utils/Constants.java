@@ -67,8 +67,8 @@ public class Constants {
     //***************** EASY CHANGE BETWEEN TESTING AND PRODUCTION SYSTEM URLS *********************
 
     //** Parameter indicates mode: TESTING = false implies PRODUCTION mode **
-    public final static boolean TESTING = true;
-    public final static boolean TESTING_AIR = true;
+    public final static boolean TESTING = false;
+    public final static boolean TESTING_AIR = false;
 
     public final static String DEMOURL="http://demo.allemmarket.com/allemmarketapp/index/login/";
     public final static String DEMOHOST="allemmarket.com";
@@ -334,7 +334,7 @@ public class Constants {
     public static final String URL_SEARCH_CONCIERGE_PROD = "http://actividades.allegra.travel/Actividad/ResultadosGet?id_destino_ser=";
     public static final String URL_STORE_PROD = "http://handys.iataiapps.com/services/stores/production/";
     public static final String URL_RESTAURANT_PROD =  "http://handys.iataiapps.com/services/restaurants/production/#!/brand/restaurantes/map";
-    public static final String URL_MARKETPLACE_PROD =  "https://www.experienciaspichincha.com.co?logo=1&onepocket=1";
+    public static final String URL_MARKETPLACE_PROD =  "https://www.experienciaspichincha.com.co/visa-business?logo=1&onepocket=1";
     public static final String URL_LOGIN_PROD = "https://secureacceptance.allegraplatform.com/AllemInMotion/AllemInMotion";
     public static final String URL_SERVICE_PROD = "http://allegra.global/app/servicios_v3/search/?";//"http://allegra.global/app/servicios_v2/search/?name=";
     public static final String URL_MCARD_HTML_PROD = "http://52.7.111.227:8080//MembresiaProteccionIatai/app/index.xhtml?portal=5&email=";

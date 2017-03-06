@@ -18,7 +18,7 @@ import static com.allegra.handyuvisa.R.id.webmyvisa;
 public class MyTips extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
 
     private WebView webMyTips;
-    private String url = "http://iataiapps.com/pichincha/tips/tips.html";
+    private String url = "http://allegra.global/app/demo-tips/tips.html";
     private String returnURL;
     private ImageButton back, menu;
     private ProgressBar progressBar;

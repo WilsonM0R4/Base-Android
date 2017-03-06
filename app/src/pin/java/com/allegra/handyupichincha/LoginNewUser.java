@@ -48,7 +48,6 @@ import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.squareup.otto.Subscribe;
-import com.urbanairship.UAirship;
 
 import org.ksoap2.serialization.PropertyInfo;
 
@@ -61,8 +60,8 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
     private Context ctx;
     private ImageButton ib_showhidepass, ib_showhiderepass, ib_close;
     private boolean passIsVisible = false, repassIsVisible = false;
-    private EditText et_username, et_password, et_names, et_surname, et_mobile, et_document_number;
-    private String username, name, suraname, mobile, documentnumber;
+    private EditText et_username, et_password, et_names, et_surname, et_mobile, et_document_number, et_empresa, et_num_empresa;
+    private String username, name, suraname, mobile, documentnumber, empresa, numempresa;
     private String tmpUsername, tmpName, tmpSurname, tmpMobile, tmpDocumentNumber;
     private NumberPicker countryPicker, typeOfIdPicker;
     private CustomizedTextView btn_sendreg, btn_login;
@@ -112,7 +111,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 // Otherwise, set the URL to null.
                 Uri.parse("http://host/path"),
                 // TODO: Make sure this auto-generated app URL is correct.
-                Uri.parse("android-app://com.allegra.handyupichincha/http/host/path")//com.allem.alleminmotion.visacheckout
+                Uri.parse("android-app://com.allegra.visabdavivienda/http/host/path")//com.allem.alleminmotion.visacheckout
         );
         AppIndex.AppIndexApi.start(client, viewAction);
     }
@@ -131,7 +130,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 // Otherwise, set the URL to null.
                 Uri.parse("http://host/path"),
                 // TODO: Make sure this auto-generated app URL is correct.
-                Uri.parse("android-app://com.allegra.handyupichincha/http/host/path")//com.allem.alleminmotion.visacheckout
+                Uri.parse("android-app://com.allegra.visabdavivienda/http/host/path")//com.allem.alleminmotion.visacheckout
         );
         AppIndex.AppIndexApi.end(client, viewAction);
         client.disconnect();
@@ -151,8 +150,6 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
     @Override
     public void initViews(View root) {
 
-
-        System.gc();
         ib_showhidepass = (ImageButton) root.findViewById(R.id.ib_showhide_pass);
         ib_showhiderepass = (ImageButton) root.findViewById(R.id.ib_showhide_repass);
         et_username = (EditText) root.findViewById(R.id.et_email);
@@ -163,6 +160,8 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         btn_login = (CustomizedTextView) root.findViewById(R.id.btn_login_new);
         pb_create = (ProgressBar) root.findViewById(R.id.pb_create);
         et_mobile = (EditText) root.findViewById(R.id.et_mobile);
+        et_empresa = (EditText)root.findViewById(R.id.et_empresa);
+        et_num_empresa = (EditText)root.findViewById(R.id.et_empresa_num);
         et_document_number = (EditText) root.findViewById(R.id.etIdNumber);
         textCountrySelected = (TextView) root.findViewById(R.id.et_country_mobile);
         txtTypeOfIdSelected = (TextView) root.findViewById(R.id.etTypeOfId);
@@ -203,19 +202,18 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 /*if(KeySaver.isExist(ctx,Constants.USER_PUSH)) ((AsobancariaApplication) this.getApplication()).unSetParseChannels();
                 ((AsobancariaApplication)this.getApplication()).setParseChannel(channel);*/
 
-                /**Add Notifications UrbanAirship**/
-
-                UAirship.shared().getPushManager().editTags()
-                        .addTag(channel)
-                        .apply();
-
                 //Remove all views from layout
                 LinearLayout formLayout = (LinearLayout) findViewById(R.id.rl_body);
                 formLayout.removeAllViews();
                 //******Add all new views*****
                 SuccessfulRegister successfulRegister = new SuccessfulRegister(getApplicationContext());
                 formLayout.addView(successfulRegister);
-              //  Log.d(TAG, channel);
+               // Log.d("Serfar Prueba", channel);
+
+                //Temporary
+                /*Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
+                finish();*/
 
             } else {
                 Toast.makeText(ctx, event.getFaultString(), Toast.LENGTH_LONG).show();
@@ -226,6 +224,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
     }
 
     //************ PROPER METHODS**************
+
 
 
     private void setListeners() {
@@ -412,7 +411,6 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             }
         });
 
-
     }
 
     private void saveTmpInfo() {
@@ -422,34 +420,44 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         suraname = et_surname.getText().toString();
         mobile = et_mobile.getText().toString();
         documentnumber = et_document_number.getText().toString();
+        empresa = et_empresa.getText().toString();
+        numempresa = et_num_empresa.getText().toString();
         editor.putString("usernametmp", username);
         editor.putString("nombretmp", name);
         editor.putString("apellidotmp", suraname);
         editor.putString("mobiletmp", mobile);
         editor.putString("documentnumbertmp", documentnumber);
+        editor.putString("empresatmp", empresa);
+        editor.putString("numempresatmp", numempresa);
         editor.apply();
-    /*    Log.d("SAVE TMP INFO", "SAVING...!");
+       /* Log.d("SAVE TMP INFO", "SAVING...!");
         Log.d("UsernameTMP", username);
         Log.d("NombreTMP", name);
         Log.d("ApellidoTMP", suraname);
         Log.d("MobileTMP", mobile);
         Log.d("DocumentNumTMP", documentnumber);
+        Log.d("EmpresaTMP", empresa);
+        Log.d("NumEmpresaTMP", numempresa);
         Log.d("---------", "--------------");*/
 
     }
 
     private void loadTmpInfo(){
-        String tmpUser, tmpName, tmpSurname, tmpMobile, tmpDocumentNum;
+        String tmpUser, tmpName, tmpSurname, tmpMobile, tmpDocumentNum, tmpEmpresa, tmpNumEmpresa;
         tmpUser = prefs.getString("usernametmp",username);
         tmpName = prefs.getString("nombretmp",name);
         tmpSurname = prefs.getString("apellidotmp",suraname);
         tmpMobile = prefs.getString("mobiletmp",mobile);
         tmpDocumentNum = prefs.getString("documentnumbertmp",documentnumber);
+        tmpEmpresa = prefs.getString("empresatmp", empresa);
+        tmpNumEmpresa = prefs.getString("numempresatmp", numempresa);
         et_username.setText(tmpUser);
         et_names.setText(tmpName);
         et_surname.setText(tmpSurname);
         et_mobile.setText(tmpMobile);
         et_document_number.setText(tmpDocumentNum);
+        et_empresa.setText(tmpEmpresa);
+        et_num_empresa.setText(tmpNumEmpresa);
     }
 
     @Override
@@ -465,10 +473,12 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
 
         int greet = 1, rb_id;
         String celular = et_mobile.getText().toString();
+        String empresa = et_empresa.getText().toString();
+        String num_empresa = et_num_empresa.getText().toString();
         if (celular.length() < 1) celular = "-";//If goes empty
         CuentaClienteInfoAdicional ccia = new CuentaClienteInfoAdicional();
-        ccia.setEmpresa("");
-       // ccia.setCargo("");
+        ccia.setEmpresa(empresa);
+        ccia.setNumEmpresa(num_empresa);
         ccia.setCelular(celular);
         ccia.setCiudad("");
         ccia.setClase("");
@@ -681,6 +691,53 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             }
         });
 
+        //************************COMPANY NAME*****************
+        et_empresa.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (editable.length() < 1) {
+                    et_empresa.setTextColor(getResources().getColor(R.color.InputNormal_border_hit));
+                    et_empresa.setHintTextColor(getResources().getColor(R.color.InputNormal_border_hit));
+                }else{
+                    et_empresa.setTextColor(getResources().getColor(R.color.InputFocus_text));
+                    et_empresa.setHintTextColor(getResources().getColor(R.color.InputFocus_text));
+                }
+            }
+        });
+        //***********************COMPANY NUMBER*****************
+        et_num_empresa.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (editable.length() < 7) {
+                    et_num_empresa.setTextColor(getResources().getColor(R.color.InputNormal_border_hit));
+                    et_num_empresa.setHintTextColor(getResources().getColor(R.color.InputNormal_border_hit));
+                }else{
+                    et_num_empresa.setTextColor(getResources().getColor(R.color.InputFocus_text));
+                    et_num_empresa.setHintTextColor(getResources().getColor(R.color.InputFocus_text));
+                }
+            }
+        });
+
         //********************PASSWORD*******************
         et_password.addTextChangedListener(new TextWatcher() {
             @Override
@@ -705,6 +762,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                 //btn_sendreg.setEnabled(checkFields());
             }
         });
+
 
     }
 
@@ -771,6 +829,16 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             result = false;
         }
 
+        if(et_empresa.getText().toString().length()<1){
+            et_empresa.setHintTextColor(Color.RED);
+            result = false;
+        }
+
+        if(et_num_empresa.getText().toString().length()<7){
+            et_num_empresa.setHintTextColor(Color.RED);
+            result = false;
+        }
+
         return result;
     }
 
@@ -785,6 +853,8 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         btn_sendreg.setEnabled(!b);
         et_mobile.setEnabled(!b);
         et_document_number.setEnabled(!b);
+        et_empresa.setEnabled(!b);
+        et_num_empresa.setEnabled(!b);
     }
 
     private void onAlertSelectCountry() {
@@ -991,10 +1061,10 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
 
             //IMAGE VIEW SEPARATOR
             View view = new View(context);
-            view.setBackgroundColor(getResources().getColor(R.color.loading_salmon));
+            view.setBackgroundColor(getResources().getColor(R.color.BigButtonWithBorder_border));
             addView(view);
             LinearLayout.LayoutParams params6 = (LinearLayout.LayoutParams) view.getLayoutParams();
-            params6.height = 14;
+            params6.height = 10;
             view.setLayoutParams(params6);
 
             //****************CONTENT SUB-LAYOUT****************************

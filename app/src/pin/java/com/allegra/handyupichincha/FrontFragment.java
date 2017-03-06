@@ -39,7 +39,7 @@ public class FrontFragment extends Fragment implements
                                     MediaPlayer.OnErrorListener {
 
     private static final String TAG = "FrontFragment";
-    private static final String VIDEO_BACKGROUND = "android.resource://com.allegra.handyupichincha/raw/background_dark";
+    private static final String VIDEO_BACKGROUND = "android.resource://com.allegra.visabdavivienda/raw/background_dark";
     Surface surf;
     private MediaPlayer mMediaPlayer;
     private TextureView videoView; // TextView for display (similar to VideoView?)
@@ -108,7 +108,7 @@ public class FrontFragment extends Fragment implements
 
     @Override
     public boolean onError(MediaPlayer mediaPlayer, int what, int extra) {
-       // Log.e(TAG, "Error loading video: what: " + what + " extra: " + extra);
+      //  Log.e(TAG, "Error loading video: what: " + what + " extra: " + extra);
         return false;
     }
 
@@ -155,7 +155,7 @@ public class FrontFragment extends Fragment implements
                                 try {
                                     mMediaPlayer.setDataSource(getActivity(), videoU);
                                 } catch (IOException e) {
-                                  //  Log.e(TAG, "Can't initialize media playing for loading video");
+                                   // Log.e(TAG, "Can't initialize media playing for loading video");
                                 }
                                 mMediaPlayer.prepareAsync();
                             }
@@ -172,11 +172,11 @@ public class FrontFragment extends Fragment implements
             } catch (IllegalArgumentException e) {
                // Log.e(TAG, "Error loading video: ", e);
             } catch (SecurityException e) {
-               // Log.e(TAG, "Error loading video: ", e);
+              //  Log.e(TAG, "Error loading video: ", e);
             } catch (IllegalStateException e) {
-               // Log.e(TAG, "Error loading video: ", e);
+             //   Log.e(TAG, "Error loading video: ", e);
             } catch (IOException e) {
-               // Log.e(TAG, "Error loading video: ", e);
+              //  Log.e(TAG, "Error loading video: ", e);
             }
 
       //  }

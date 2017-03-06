@@ -11,7 +11,7 @@ import android.view.ViewGroup;
  * Created by jsandoval on 13/01/17.
  */
 
-public class SampleSlide extends Fragment {
+public class SampleSlide  extends Fragment {
 
     private static final String ARG_LAYOUT_RES_ID = "layoutResId";
     private int layoutResId;
