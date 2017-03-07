@@ -10,6 +10,9 @@
     <string name="BEFORE">ANTERIORES</string>
     <string name="demo_iatai">TEST IATAI</string>
     <string name="checkmytrip">Check My Trip</string>
+    <string name="intellilink">Intellilink</string>
+    <string name="myvisaenterprise">Mi Visa Empresarial</string>
+    <string name="visacheckoutweb">Visa Checkout</string>
     <string name="skip_walk">Salta</string>
     <string name="done_walk">Inicia</string>
     <string name="cobertura_basica">Coberturas básicas</string>

@@ -79,8 +79,8 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
                 rowView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                            Intent intent = new Intent(MyAccountMenuActivity.this, activities[position]);
-                            MyAccountMenuActivity.this.startActivity(intent);
+                        Intent intent = new Intent(MyAccountMenuActivity.this, activities[position]);
+                        MyAccountMenuActivity.this.startActivity(intent);
                     }
 
                 });

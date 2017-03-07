@@ -10,6 +10,9 @@
     <string name="location_failed">Fail to fetch your current location. Please check your GPS status and try again</string>
     <string name="skip_walk">Skip</string>
     <string name="done_walk">Start</string>
+    <string name="intellilink">Intellilink</string>
+    <string name="myvisaenterprise">My Visa Enterprise</string>
+    <string name="visacheckoutweb">Visa Checkout</string>
     <string name="cobertura_basica">Basic coverages</string>
     <string name="title_walk_01">Welcome to\n Handy U Visa</string>
     <string name="title_walk_02">Feel secure\n with mCard</string>
