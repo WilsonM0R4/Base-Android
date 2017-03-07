@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/benefits"
+            android:text="@string/intellilink"
             android:id="@+id/textView47"
             android:layout_centerHorizontal="true"
             android:textColor="@color/GeneralAppHeaderTitle_text" />

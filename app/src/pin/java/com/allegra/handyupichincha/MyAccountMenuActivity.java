@@ -59,7 +59,7 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
                 R.drawable.my_benefits,
                 R.drawable.coverage,
                 R.drawable.mi_visa_bussines,
-                R.drawable.mi_visa_bussines,
+                R.drawable.intellilink,
                 R.drawable.menu__history,
                 R.drawable.legal2};
         final Class[] activities = {

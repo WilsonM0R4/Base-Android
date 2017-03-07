@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Handy U Pichincha</string>
-    <string name="app_name_legal">Handy U Pichincha</string>
+    <string name="app_name">Handy B Pichincha</string>
+    <string name="app_name_legal">Handy B Pichincha</string>
     <string name="facebook_app_id" >949325301863169</string>
     <string name="txtInfoCertifications"># CERTIFICADO</string>
     <string name="TODAY">HOY</string>
@@ -11,7 +11,7 @@
     <string name="skip_walk">Salta</string>
     <string name="done_walk">Inicia</string>
     <string name="cobertura_basica">Basic Coverages</string>
-    <string name="title_walk_01">Bienvenido a Handy U Pichincha</string>
+    <string name="title_walk_01">Bienvenido a Handy B Pichincha</string>
     <string name="title_walk_02">Con mCard\n siéntete seguro</string>
     <string name="empresa_register_hint">Empresa</string>
     <string name="myvisaenterprise">Mi Visa Empresarial</string>
@@ -46,8 +46,8 @@
     <string name="login">INGRESA</string>
     <string name="onepocket">Onepocket</string>
     <string name="mCard">mCard</string>
-    <string name="GPSAlertDialogTitle">Handy U Pichincha Localizacion</string>
-    <string name="GPSAlertDialogMessage">Handy U Pichincha desea usar tu localizacion</string>
+    <string name="GPSAlertDialogTitle">Handy B Pichincha Localizacion</string>
+    <string name="GPSAlertDialogMessage">Handy B Pichincha desea usar tu localizacion</string>
     <string name="cancel">Cancelar</string>
     <string name="btn_cancel_one_touch">Cancelar</string>
     <string name="mCard_Premium">Disfruta tus viajes sin preocupaciones durante todo el año. Tendrás 100.000 USD en gastos médicos que te dan tranquilidad y confianza.</string>
@@ -62,7 +62,7 @@
     <string name="medical_expenses">Gastos médicos por enfermedad eventual o accidente</string>
     <string name="emergency_transfer">Traslado de emergencia</string>
     <string name="mcard_doctorhelp">Modelo exclusivo de IATAI de servicio médico online con atención diferencial, conecta a médicos con viajeros internacionales que buscan asistencia médica inmediata, las 24 horas del día, los 7 días de la semana a nivel mundial. Sin necesidad de trámites administrativos previos.</string>
-    <string name="handi_u">Handy U</string>
+    <string name="handi_u">Handy B</string>
     <string name="mcard_trip">Múltiples viajes hasta 120 días máximo por viaje</string>
     <string name="payment_hotel_nights">noches</string>
     <string name="payment_hotel_your">TU HOTEL</string>
@@ -482,7 +482,7 @@
 
     <!--HANDY U STRINGS-->
 
-    <string name="app_name_handy">Handy U</string>
+    <string name="app_name_handy">Handy B</string>
 
     <!--server base url for api call and images  -->
     <!-- <string name="base_url">http://ec2-52-26-68-235.us-west-2.compute.amazonaws.com:8080/HomZservice</string>
@@ -532,7 +532,7 @@
     <string name="decline_register">RECHAZAR</string>
     <string name="accept_register">ACEPTAR</string>
     <string name="congratulations">¡Felicitaciones!</string>
-    <string name="you_can_enjoy_benefits">Ahora podrás disfrutar\n de todos los beneficios que te\n da Handy U Pichincha</string>
+    <string name="you_can_enjoy_benefits">Ahora podrás disfrutar\n de todos los beneficios que te\n da Handy B Pichincha</string>
     <string name="txt_continue">CONTINUAR</string>
     <string name="test_terms"><u>términos y condiciones</u></string>
     <string name="by_clicking">Haciendo click en aceptar, aceptas</string>

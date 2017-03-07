@@ -1,7 +1,7 @@
 <resources>
     <string name="travel_quiet">¡Travel with ease!</string>
-    <string name="app_name">Handy U Pichincha</string>
-    <string name="app_name_legal">Handy U Pichincha</string>
+    <string name="app_name">Handy B Pichincha</string>
+    <string name="app_name_legal">Handy B Pichincha</string>
     <string name="title_activity_branding_screen">BrandingScreenActivity</string>
     <string name="txtInfoCertifications"># CERTIFICATE</string>
     <string name="payment_hotel_your">YOUR HOTEL</string>
@@ -9,7 +9,7 @@
     <string name="skip_walk">Skip</string>
     <string name="done_walk">Start</string>
     <string name="cobertura_basica">Basic coverages</string>
-    <string name="title_walk_01">Welcome to\n Handy U Pichincha </string>
+    <string name="title_walk_01">Welcome to\n Handy B Pichincha </string>
     <string name="title_walk_02">Feel secure\n with mCard</string>
     <string name="editprofile_ok">Your profile has been updated!</string>
     <string name="title_walk_03">Tranquility at\n your fingertips</string>
@@ -356,8 +356,8 @@
     <string name="text_single_adult">ADULT</string>
     <string name="text_single_child">CHILD</string>
     <string name="text_single_infant">INFANT</string>
-    <string name="GPSAlertDialogTitle">Handy U Pichincha Location</string>
-    <string name="GPSAlertDialogMessage">Handy U Pichincha wants to use your location</string>
+    <string name="GPSAlertDialogTitle">Handy B Pichincha Location</string>
+    <string name="GPSAlertDialogMessage">Handy B Pichincha wants to use your location</string>
     <string name="cancel">Cancel</string>
     <string name="aditional_protection">ADITIONAL PROTECTION</string>
     <string name="aditional_protection_string">Feel protected on your travels with unique and exclusive experiences designed for you.</string>
@@ -640,7 +640,7 @@
     <string name="decline_register">DECLINE</string>
     <string name="accept_register">AGREE</string>
     <string name="congratulations">¡Congratulations!</string>
-    <string name="you_can_enjoy_benefits">You can now enjoy all\n benefits it brings you\n Handy U Pichincha</string>
+    <string name="you_can_enjoy_benefits">You can now enjoy all\n benefits it brings you\n Handy B Pichincha</string>
     <string name="txt_continue">CONTINUE</string>
     <string name="test_terms"><u>terms and conditions</u></string>
     <string name="by_clicking">By clicking agree you accept</string>
