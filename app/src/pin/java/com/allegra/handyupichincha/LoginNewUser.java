@@ -1051,7 +1051,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             CustomizedTextView txtTitle = new CustomizedTextView(context);
             txtTitle.setText(R.string.title_register);
             addView(txtTitle);
-            txtTitle.setTextColor(getResources().getColor(R.color.PURPLE_COLOR));
+            txtTitle.setTextColor(getResources().getColor(R.color.bg_gradiente));
             txtTitle.setGravity(Gravity.CENTER_HORIZONTAL);
             txtTitle.setTextSize(18);
             LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) txtTitle.getLayoutParams();
@@ -1061,7 +1061,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
 
             //IMAGE VIEW SEPARATOR
             View view = new View(context);
-            view.setBackgroundColor(getResources().getColor(R.color.BigButtonWithBorder_border));
+            view.setBackgroundColor(getResources().getColor(R.color.YELLOW_PIN));
             addView(view);
             LinearLayout.LayoutParams params6 = (LinearLayout.LayoutParams) view.getLayoutParams();
             params6.height = 10;
