@@ -342,7 +342,7 @@ public class Constants {
     //**********************OTHER URLS*************************
 
     public static final String URL_VIDEO_INTRO = "android.resource://com.allegra.handyupichincha/raw/intro";
-    public static final String URL_MY_BENEFITS = "http://iataiapps.com/pichincha/coberturas/misbeneficios.html";
+    public static final String URL_MY_BENEFITS = "http://iataiapps.com/pichincha-business/coberturas/misbeneficios.html";
     public static final String URL_TERMS_AND_CONDITIONS = "http://allegra.global/terminos-y-condiciones/legales-app-allegra/terminos-y-condiciones.html";
     public static final String URL_POLICY = "http://allegra.global/terminos-y-condiciones/legales-app-allegra/politica-de-privacidad.html";
 
