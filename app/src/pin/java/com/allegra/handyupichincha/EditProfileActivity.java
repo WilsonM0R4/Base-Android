@@ -39,7 +39,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
     //*********GLOBAL ATTRIBUTES****************
     private final String M_SELECTION_DIVIDER = "mSelectionDivider";
     private String cel_code;
-    CustomizedEditText txtName, txtLastName, txtMobile, txtEmail, txtPass, txtNewPass, txtNewPassConfirm, etNumberOfId;
+    CustomizedEditText txtName, txtLastName, txtMobile, txtEmail, txtPass, txtNewPass, txtNewPassConfirm, etNumberOfId, txtempresa, txtempresaid;
     Button cancel, save;
     AllemUser user;
     private ProgressBar pb_create;
@@ -240,6 +240,8 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
         txtLastName= (CustomizedEditText) root.findViewById(R.id.et_surname);
         txtMobile= (CustomizedEditText) root.findViewById(R.id.et_mobile);
         txtEmail= (CustomizedEditText)root.findViewById(R.id.et_email);
+        txtempresa= (CustomizedEditText)root.findViewById(R.id.etempresa);
+        txtempresaid = (CustomizedEditText)root.findViewById(R.id.etempresaid);
         cancel= (Button) root.findViewById(R.id.btn_ed_cancel);
         save= (Button)root.findViewById(R.id.btn_ed_save);
         txtPass =(CustomizedEditText) root.findViewById(R.id.et_current_password);
@@ -259,6 +261,8 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
         txtLastName.setText(user.apellido);
         if(user.celular.length()>0) txtMobile.setText(user.celular);
         txtEmail.setText(user.email);
+        txtempresa.setText(user.empresa);
+        txtempresaid.setText(user.idEmpresa);
         txtTypeOfIdSelected.setText(getTypeOfIdForDisplay(user.idType));
         //Get celular_codigo from SharedPreferences
      /*   SharedPreferences prefs =
@@ -267,6 +271,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
         cel_code = prefs.getString("celular_codigo", "+57");*/
         txtSelectCountry.setText(user.celular_codigo);
         etNumberOfId.setText(user.idNumber);
+
 
         /*CuentaClienteInfoAdicional ccia = new CuentaClienteInfoAdicional();
         ccia = user.*/
@@ -437,7 +442,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             property.setName(CuentaClienteInfo.PROPERTY);
             property.setValue(client);
             property.setType(client.getClass());
-           // Log.d("IDSession",((com.allegra.handyuvisa.VisaCheckoutApp)this.getApplication()).getIdSession());
+            //Log.d("IDSession",((com.allegra.handyuvisa.VisaCheckoutApp)this.getApplication()).getIdSession());
             if (Util.hasInternetConnectivity(this)) {
                 setWaitinUI(true);
                 AsyncSoapObject.getInstance(Constants.getWSDL(), Constants.NAMESPACE_ALLEM,

@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class Constants {
 
     //********FOR DYNAMIC PROOF OF COVERAGE**********
-    public final static String ID_PORTAL = "5";
+    public final static String ID_PORTAL = "11";
     //********FOR ONEPOCKET LOGGING**********
     public final static boolean LOGGING = true;
     public final static String NAMESPACE_PROOF = "http://www.ws.iatai.com/poliza_servicio/";
@@ -322,7 +322,7 @@ public class Constants {
     public static final String URL_MARKETPLACE_TEST = "http://52.207.118.11/?logo=1&onepocket=1";
     public static final String URL_LOGIN_TEST = "http://52.87.70.203:8080/AllemInMotion/AllemInMotion?wsdl";
     public static final String URL_SERVICE_TEST = "http://allegra.global/app/servicios_v3_demo/search/?";//"http://allegra.global/app/servicios_v2_demo/search/?name=";
-    public static final String URL_MCARD_HTML_TEST = "http://52.207.72.167:8080/MembresiaProteccionIatai/app/index.xhtml?portal=5&email=";//"http://52.71.117.239:8080/MembresiaProteccionIatai/app/index.xhtml?portal=1&email=";
+    public static final String URL_MCARD_HTML_TEST = "http://52.207.72.167:8080/MembresiaProteccionIatai/app/index.xhtml?portal=11&email=";//"http://52.71.117.239:8080/MembresiaProteccionIatai/app/index.xhtml?portal=1&email=";
 
     //**********************NEW PRODUCTION URLS*************************
 
@@ -337,12 +337,12 @@ public class Constants {
     public static final String URL_MARKETPLACE_PROD =  "https://www.experienciaspichincha.com.co/visa-business?logo=1&onepocket=1";
     public static final String URL_LOGIN_PROD = "https://secureacceptance.allegraplatform.com/AllemInMotion/AllemInMotion";
     public static final String URL_SERVICE_PROD = "http://allegra.global/app/servicios_v3/search/?";//"http://allegra.global/app/servicios_v2/search/?name=";
-    public static final String URL_MCARD_HTML_PROD = "http://52.7.111.227:8080//MembresiaProteccionIatai/app/index.xhtml?portal=5&email=";
+    public static final String URL_MCARD_HTML_PROD = "http://52.7.111.227:8080//MembresiaProteccionIatai/app/index.xhtml?portal=11&email=";
 
     //**********************OTHER URLS*************************
 
     public static final String URL_VIDEO_INTRO = "android.resource://com.allegra.handyupichincha/raw/intro";
-    public static final String URL_MY_BENEFITS = "http://iataiapps.com/pichincha/coberturas/misbeneficios.html";
+    public static final String URL_MY_BENEFITS = "http://iataiapps.com/pichincha-business/coberturas/misbeneficios.html";
     public static final String URL_TERMS_AND_CONDITIONS = "http://allegra.global/terminos-y-condiciones/legales-app-allegra/terminos-y-condiciones.html";
     public static final String URL_POLICY = "http://allegra.global/terminos-y-condiciones/legales-app-allegra/politica-de-privacidad.html";
 

@@ -59,7 +59,7 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
                 R.drawable.my_benefits,
                 R.drawable.coverage,
                 R.drawable.mi_visa_bussines,
-                R.drawable.mi_visa_bussines,
+                R.drawable.intellilink,
                 R.drawable.menu__history,
                 R.drawable.legal2};
         final Class[] activities = {
@@ -79,8 +79,8 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
                 rowView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                            Intent intent = new Intent(MyAccountMenuActivity.this, activities[position]);
-                            MyAccountMenuActivity.this.startActivity(intent);
+                        Intent intent = new Intent(MyAccountMenuActivity.this, activities[position]);
+                        MyAccountMenuActivity.this.startActivity(intent);
                     }
 
                 });
