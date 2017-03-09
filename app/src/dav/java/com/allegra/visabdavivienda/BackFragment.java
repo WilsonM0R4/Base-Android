@@ -17,7 +17,7 @@ import com.allegra.handyuvisa.models.AllemUser;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
 import com.allegra.handyuvisa.utils.Util;
-import com.google.android.gms.vision.text.Line;
+
 
 import static com.allegra.handyuvisa.R.id.call_option;
 
