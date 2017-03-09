@@ -540,7 +540,7 @@
     <string name="join_new_experience">Join to a new experience</string>
     <string name="txt_lbl_user_information">Enter the following information to create your account</string>
     <string name="txt_select_country_picker">SELECT COUNTRY</string>
-    <string name="txt_password_incorrectly_entered">The password should have 6 characters or more</string>
+    <string name="txt_password_incorrectly_entered">The password should have 3 characters or more</string>
     <string name="txt_last_name_incorrect">Last name should have 2 characters or more</string>
     <string name="txt_name_incorrect">Name should have 2 characters or more </string>
     <string name="txt_invalid_email">Is not a valid e-mail</string>

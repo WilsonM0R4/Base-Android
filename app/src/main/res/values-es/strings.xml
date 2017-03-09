@@ -413,7 +413,7 @@
         <item>La indemnización sera inmediata y diaria, a partir del momento en que se presente el PIR (Property Irregularity Report) hasta la cobertura indicada en el producto.</item>
     </string-array>
     <string name="txt_select_country_picker">SELECCIONA PAÍS</string>
-    <string name="txt_password_incorrectly_entered">La contraseña debe tener 6 caracteres o más</string>
+    <string name="txt_password_incorrectly_entered">La contraseña debe tener 3 caracteres o más</string>
     <string name="txt_last_name_incorrect">El apellido debe tener 2 caracteres o más</string>
     <string name="divider">Divisor</string>
     <string name="txt_name_incorrect">El nombre debe tener 2 caracteres o más</string>

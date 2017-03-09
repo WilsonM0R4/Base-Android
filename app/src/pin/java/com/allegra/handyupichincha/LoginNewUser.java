@@ -317,7 +317,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus) {
-                    if (et_password.getText().toString().length() < 6) {
+                    if (et_password.getText().toString().length() < 3) {
                         showToast(getString(R.string.txt_password_incorrectly_entered));
                         et_password.setTextColor(getResources().getColor(R.color.InputNormal_border_hit));
                         et_password.setHintTextColor(getResources().getColor(R.color.InputNormal_border_hit));
@@ -752,7 +752,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if (editable.toString().equals("")) {
+                if (editable.length() < 3) {
                     et_password.setTextColor(getResources().getColor(R.color.InputNormal_border_hit));
                     et_password.setHintTextColor(getResources().getColor(R.color.InputNormal_border_hit));
                 } else {
@@ -799,13 +799,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             result = false;
         }
         //***************Password***************
-/*        if (et_password.getText().toString().length() < 6) {
-            et_password.setTextColor(Color.RED);
-            et_password.setHintTextColor(Color.RED);
-            result = false;
-        }*/
-        //***************NEW VALIDATION PASSWORD********
-        if (et_password.getText().toString().equals("")) {
+        if (et_password.getText().toString().length() < 6) {
             et_password.setTextColor(Color.RED);
             et_password.setHintTextColor(Color.RED);
             result = false;

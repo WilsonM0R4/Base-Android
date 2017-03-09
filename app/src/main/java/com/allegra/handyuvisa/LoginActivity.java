@@ -232,7 +232,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
             @Override
             public void afterTextChanged(Editable editable) {
                 if (android.util.Patterns.EMAIL_ADDRESS.matcher(editable.toString())
-                        .matches() && password.toString().equals("")) {
+                        .matches() && password.length() > 0) {
                     username.setTextColor(getResources().getColor(R.color.InputFocus_text));
                     username.setHintTextColor(getResources().getColor(R.color.InputFocus_text));
                     password.setTextColor(getResources().getColor(R.color.InputFocus_text));
@@ -637,7 +637,7 @@ public class LoginActivity extends FrontBackAnimate implements FrontBackAnimate.
             username.setHintTextColor(Color.RED);
             result = false;
         }
-        if (password.getText().toString().equals("")) {
+        if (password.getText().toString().length() < 3) {
             password.setTextColor(Color.RED);
             password.setHintTextColor(Color.RED);
             result = false;
