@@ -513,13 +513,13 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
         //****************PASSWORD *************
         if(txtPass.getText().toString().length()>0 || txtNewPass.getText().toString().length()>0 || txtNewPassConfirm.getText().toString().length()>0) {
 
-            if (txtPass.getText().toString().length() < 6) {
+            if (txtPass.getText().toString().length() < 3) {
                 txtPass.setTextColor(Color.RED);
                 txtPass.setHintTextColor(Color.RED);
                 result = false;
             }
 
-            if (txtNewPass.getText().toString().length() < 6) {
+            if (txtNewPass.getText().toString().length() < 3) {
                 txtNewPass.setTextColor(Color.RED);
                 txtNewPass.setHintTextColor(Color.RED);
                 result = false;

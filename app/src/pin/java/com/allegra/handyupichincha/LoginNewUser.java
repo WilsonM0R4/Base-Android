@@ -799,7 +799,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             result = false;
         }
         //***************Password***************
-        if (et_password.getText().toString().length() < 6) {
+        if (et_password.getText().toString().length() < 3) {
             et_password.setTextColor(Color.RED);
             et_password.setHintTextColor(Color.RED);
             result = false;
