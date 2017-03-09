@@ -1,14 +1,11 @@
 package com.allegra.handyuvisa;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 
@@ -23,7 +20,7 @@ import com.facebook.appevents.AppEventsLogger;
 public class MainActivity extends FragmentActivity implements com.allegra.handyuvisa.BackFragment.MenuSelectListener {
 
     private static final String TAG = "MainActivity";
-    private FrontFragment frontFragment;
+    private com.allegra.handyuvisa.FrontFragment frontFragment;
     private com.allegra.handyuvisa.BackFragment backFragment;
     private boolean isLogin;
     private boolean tutorial=true;
@@ -54,7 +51,7 @@ public class MainActivity extends FragmentActivity implements com.allegra.handyu
                     WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             getWindow().setStatusBarColor(Color.TRANSPARENT);
         }
-            frontFragment = (FrontFragment) getFragmentManager().findFragmentById(R.id.fragment_top);
+            frontFragment = (com.allegra.handyuvisa.FrontFragment) getFragmentManager().findFragmentById(R.id.fragment_top);
             backFragment = (com.allegra.handyuvisa.BackFragment) getFragmentManager().findFragmentById(R.id.fragment_bottom);
             backFragment.menulistener = this;
             state = 0;
