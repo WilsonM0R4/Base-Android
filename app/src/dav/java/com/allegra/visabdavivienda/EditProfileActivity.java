@@ -192,7 +192,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if (editable.length() < 6) {
+                if (editable.length() < 3) {
                     txtNewPass.setTextColor(allColors[0]);//Gray
                     txtNewPass.setHintTextColor(allColors[0]);//Gray
                 } else {
@@ -217,7 +217,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if (editable.length() < 6) {
+                if (editable.length() < 3) {
                     txtNewPassConfirm.setTextColor(allColors[0]);//Gray
                     txtNewPassConfirm.setHintTextColor(allColors[0]);//Gray
                 } else {
@@ -508,13 +508,13 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
         //****************PASSWORD *************
         if(txtPass.getText().toString().length()>0 || txtNewPass.getText().toString().length()>0 || txtNewPassConfirm.getText().toString().length()>0) {
 
-            if (txtPass.getText().toString().length() < 6) {
+            if (txtPass.getText().toString().length() < 3) {
                 txtPass.setTextColor(Color.RED);
                 txtPass.setHintTextColor(Color.RED);
                 result = false;
             }
 
-            if (txtNewPass.getText().toString().length() < 6) {
+            if (txtNewPass.getText().toString().length() < 3) {
                 txtNewPass.setTextColor(Color.RED);
                 txtNewPass.setHintTextColor(Color.RED);
                 result = false;
