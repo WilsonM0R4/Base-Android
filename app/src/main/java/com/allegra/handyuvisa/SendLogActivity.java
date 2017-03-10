@@ -121,8 +121,9 @@ public class SendLogActivity extends Activity {
             writer.write ("App version: " + (versionName == null ? "(null)" : versionName) + "\n");
             writer.write ("Project Name: " + BuildConfig.APPLICATION_ID + "\n");
             if (Constants.TESTING){
-            writer.write ("Enviroment :" + "Production" + "\n");}else {
-                writer.write("Enviroment: "+ "QA Test" + "\n");
+                writer.write ("Environment :" + "QA Test" + "\n");}
+            else {
+                writer.write("Environment: "+ "Production" + "\n");
             }
 
             char[] buffer = new char[10000];
