@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.allegra.handyuvisa.models.AllemUser;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
+import com.allegra.handyuvisa.utils.MenuCallback;
 import com.allegra.handyuvisa.utils.Util;
 
 /**
@@ -22,7 +23,7 @@ import com.allegra.handyuvisa.utils.Util;
 
 //This class is one that consume a lot of memory, because the way is inflated the menu.
 //Example: new MenuActivity (R.string.title_call, R.drawable.menu__onetouch__call, CallActivity.class)
-public class BackFragment extends Fragment  {
+public class BackFragment extends Fragment {
 
     //*************GLOBAL ATTRIBUTES*******************
     //private String optionSelectedForService = "";
@@ -31,6 +32,10 @@ public class BackFragment extends Fragment  {
     //public int SCAN_QR_CODE = 123456;
     public MenuSelectListener menulistener;
     public static MenuActivity[] activities;
+    MenuCallback menuCallback;
+
+    public static final String VIEW_TYPE_MCARD = "mCard";
+    public static final String VIEW_TYPE_MARKET = "market";
 
     //***************INTERFACES*****************
     public interface MenuSelectListener {
@@ -55,7 +60,7 @@ public class BackFragment extends Fragment  {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        activities = new MenuActivity[] {
+        /*ractivities = new MenuActivity[] {
                 new MenuActivity(R.string.title_my_account, R.drawable.menu__account,  MyAccountActivity.class),
                 new MenuActivity(R.string.title_market_place, R.drawable.menu__mktplace, MarketPlaceActivity.class),
                 new MenuActivity(R.string.title_flights, R.drawable.menu__flights, FlightsActivity.class),
@@ -68,7 +73,7 @@ public class BackFragment extends Fragment  {
                 new MenuActivity(R.string.title_qr_scan, R.drawable.menu__qr__code, QRScanActivity.class),
                 new MenuActivity(R.string.title_chat, R.drawable.menu__onetouch__chat, ChatActivity.class),
                 new MenuActivity(R.string.title_call, R.drawable.menu__onetouch__call, CallActivity.class),
-        };
+        };*/
 
 
     }
@@ -80,16 +85,64 @@ public class BackFragment extends Fragment  {
         return inflater.inflate(R.layout.fragment_back, container, false);
     }
 
+    /*@Override
+    public void onClick(View v) {
+        switch(v.getId()){
+            case R.id.account_option:
+                goToView(new MyAccountMenuActivity());
+                break;
+            case R.id.onepocket_option:
+                sendToPocket();
+                break;
+            case R.id.mCard_option:
+                sendToMcard();
+                break;
+            case R.id.scanqr_option:
+                sendToQrScan();
+                break;
+            case R.id.market_option:
+                sendToMarket();
+                break;
+            case R.id.flights_option:
+                sendToFlights();
+                break;
+            case R.id.hotels_option:
+                sendToHotels();
+                break;
+            case R.id.concierge_option:
+                sendToConcierge();
+                break;
+            case R.id.call_option:
+                sendToCall();
+                break;
+            case R.id.chat_option:
+                sendToChat();
+                break;
+            case R.id.restaurants_options:
+                sendToRestaurants();
+                break;
+            case R.id.services_option:
+                sendToServices();
+                break;
+            case R.id.store_options:
+                sendToStore();
+                break;
+
+        }
+    }*/
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        menuCallback = ((MainActivity) getActivity()).fragmentMain;
+
         LinearLayout account_option = (LinearLayout) getView().findViewById(R.id.account_option);
         account_option.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendToAccount();
+                //sendToAccount();
+                goToView(new MyAccountMenuActivity());
             }
         });
 
@@ -188,6 +241,7 @@ public class BackFragment extends Fragment  {
             }
         });
 
+
         home = (ImageButton)getView().findViewById(R.id.iv_home);
         home.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -198,6 +252,13 @@ public class BackFragment extends Fragment  {
                 return true;
             }
         });
+
+        /*home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToView(new FrontFragment()                                                                                    );
+            }
+        });*/
 
 
       /*  ListView mainMenu = (ListView)(getActivity().findViewById(R.id.main_menu));
@@ -225,13 +286,25 @@ public class BackFragment extends Fragment  {
     }
 
     //***************PROPER METHODS**************
-    public void sendToAccount(){
-        Intent intent = new Intent(getActivity(),MyAccountMenuActivity.class);
-        getActivity().startActivity(intent);
+
+    private void goToView(Fragment fragment){
+        menuCallback.goToView(fragment);
+        //((FragmentMain) getParentFragment()).replaceLayout(fragment, false);
     }
 
+    /*public void sendToAccount(){
+        Intent intent = new Intent(getActivity(),MyAccountMenuActivity.class);
+        getActivity().startActivity(intent);
+    }*/
+
     public void sendToQrScan(){
-        sendToActivity(QRScanActivity.class, Constants.REQUEST_CODE_SCAN_QR);
+
+        goToView(new QRScanActivity());
+
+        /** below method temporally commented **/
+        //sendToActivity(QRScanActivity.class, Constants.REQUEST_CODE_SCAN_QR);
+
+
         /*if (Util.isAuthenticated(getActivity())) {
             Intent intent = new Intent(getActivity(),QRScanActivity.class);
             getActivity().startActivity(intent);
@@ -245,37 +318,73 @@ public class BackFragment extends Fragment  {
     }
 
     public void sendToMarket(){
-        Intent intent = new Intent(getActivity(),MarketPlaceActivity.class);
-        getActivity().startActivity(intent);
+        /*Intent intent = new Intent(getActivity(),MarketPlaceActivity.class);
+        getActivity().startActivity(intent);*/
+
+        Bundle bundle =  new Bundle();
+        bundle.putString(WebFragment.LOADING_URL, Constants.getMarketPlaceUrl());
+        bundle.putString(WebFragment.WEB_TITLE, getActivity().getString(R.string.title_market_place));
+        bundle.putString(WebFragment.STARTER_VIEW, VIEW_TYPE_MARKET);
+        bundle.putBoolean(MainActivity.WEB_FRAGMENT_INDICATOR, true);
+
+        WebFragment webFragment = new WebFragment();
+        webFragment.setArguments(bundle);
+        goToView(webFragment);
 
     }
 
     public void sendToChat(){
-        Intent intent = new Intent(getActivity(),ChatActivity.class);
-        getActivity().startActivity(intent);
+        /*Intent intent = new Intent(getActivity(),ChatActivity.class);
+        getActivity().startActivity(intent);*/
+
+        goToView(new ChatActivity());
 
     }
 
     public void sendToCall(){
-        Intent intent = new Intent(getActivity(),CallActivity.class);
-        getActivity().startActivity(intent);
+
+        goToView(new CallActivity());
+        /*Intent intent = new Intent(getActivity(),CallActivity.class);
+        getActivity().startActivity(intent);*/
     }
 
     public void sendToPocket(){
         if (Util.isAuthenticated(getActivity())) {
-            Intent intent = new Intent(getActivity(), OnepocketContainerActivity.class);
+            OnepocketContainerActivity fragmentOPK = new OnepocketContainerActivity();
+
+
+            //Intent intent = new Intent(getActivity(), OnepocketContainerActivity.class);
             Bundle bundle = Constants.createDataBundle(Constants.getUser(getActivity()), (VisaCheckoutApp) getActivity().getApplication());
-            intent.putExtras(bundle);
-            getActivity().startActivity(intent);
-            getActivity().finish();
+            fragmentOPK.setArguments(bundle);
+
+            goToView(fragmentOPK);
+            //intent.putExtras(bundle);
+            /*getActivity().startActivity(intent);
+            getActivity().finish();*/
         }else {
-            Intent intent = new Intent(getActivity(),LoginActivity.class);
-            getActivity().startActivity(intent);
+
+            goToView(new LoginActivity());
+            /*Intent intent = new Intent(getActivity(),LoginActivity.class);
+            getActivity().startActivity(intent);*/
         }
     }
 
     public void sendToMcard(){
-        sendToActivity(Mcardhtml.class, Constants.REQUEST_CODE_MCARD);
+
+        Bundle bundle = new Bundle();
+        bundle.putString(WebFragment.LOADING_URL, Constants.getMcardhtml());
+        bundle.putString(WebFragment.WEB_TITLE, getActivity().getString(R.string.mCard));
+        bundle.putBoolean(MainActivity.WEB_FRAGMENT_INDICATOR, true);
+        bundle.putString(WebFragment.STARTER_VIEW, VIEW_TYPE_MCARD);
+
+        WebFragment fragment = new WebFragment();
+        fragment.setArguments(bundle);
+
+        goToView(fragment);
+
+        //REVIEW BELOW METHOD
+        //sendToActivity(Mcardhtml.class, Constants.REQUEST_CODE_MCARD);
+
        /* if (Util.isAuthenticated(getActivity())) {
             Intent intent = new Intent(getActivity(),Mcardhtml.class);
             getActivity().startActivity(intent);
@@ -289,7 +398,20 @@ public class BackFragment extends Fragment  {
     }
 
     public void sendToServices(){
-        sendToActivity(ServiceActivity.class, Constants.REQUEST_CODE_SERVICES);
+
+        Bundle bundle = new Bundle();
+
+        bundle.putBoolean(WebFragment.CAN_RETURN, false);
+        bundle.putString(WebFragment.STARTER_VIEW, getClass().getName());
+        bundle.putString(WebFragment.WEB_TITLE, getString(R.string.services));
+        bundle.putString(WebFragment.LOADING_URL, Constants.getServiceUrl());
+
+        WebFragment servicesFragment = new WebFragment();
+
+        servicesFragment.setArguments(bundle);
+        goToView(servicesFragment);
+
+        //sendToActivity(ServiceActivity.class, Constants.REQUEST_CODE_SERVICES);
         /*if(Util.isAuthenticated(getActivity())){
             Intent intent = new Intent(getActivity(),ServiceActivity.class);
             getActivity().startActivity(intent);
@@ -300,25 +422,33 @@ public class BackFragment extends Fragment  {
     }
 
     public void sendToFlights(){
-        Intent intent = new Intent(getActivity(),FlightsActivity.class);
+
+        ((MainActivity) getActivity()).replaceLayout(new FlightsActivity(), false);
+        /*Intent intent = new Intent(getActivity(),FlightsActivity.class);
         getActivity().startActivity(intent);
-        getActivity().finish();
+        getActivity().finish();*/
     }
 
     public void sendToHotels(){
-      /*  if(Util.isAuthenticated(getActivity())) {
-            Intent intent = new Intent(getActivity(), HotelsActivity.class);
+        if(Util.isAuthenticated(getActivity())) {
+            /*Intent intent = new Intent(getActivity(), HotelsActivity.class);
             getActivity().startActivity(intent);
-            getActivity().finish();
+            getActivity().finish();*/
+            goToView(new HotelsActivity());
+
         }else {
-            Intent intent = new Intent(getActivity(),LoginActivity.class);
-            getActivity().startActivityForResult(intent, Constants.SUCCESSFUL_CODE);
-        }*/
-        sendToActivity(HotelsActivity.class, Constants.REQUEST_CODE_HOTELS);
+            //Intent intent = new Intent(getActivity(),LoginActivity.class);
+            //getActivity().startActivityForResult(intent, Constants.SUCCESSFUL_CODE);
+            goToView(new LoginActivity());
+        }
+        //ssendToActivity(HotelsActivity.class, Constants.REQUEST_CODE_HOTELS);
     }
 
     public void sendToConcierge(){
-        sendToActivity(ConciergeActivity.class, Constants.REQUEST_CODE_CONCIERGE);
+
+        goToView(new ConciergeActivity());
+
+        //sendToActivity(ConciergeActivity.class, Constants.REQUEST_CODE_CONCIERGE);
         /*if(Util.isAuthenticated(getActivity())) {
             Intent intent = new Intent(getActivity(), ConciergeActivity.class);
             getActivity().startActivity(intent);
@@ -329,29 +459,55 @@ public class BackFragment extends Fragment  {
     }
 
     //REFACTORING METHOD
-    private void sendToActivity(Class activity, int code){
+    private void  sendToActivity(Class activity, int code){
 
+        /** REVIEW THIS METHOD **/
         if(Util.isAuthenticated(getActivity())) {
             Intent intent = new Intent(getActivity(), activity);
             getActivity().startActivity(intent);
             //getActivity().finish();
         }else {
-            Intent intent = new Intent(getActivity(),LoginActivity.class);
-            getActivity().startActivityForResult(intent, code);
+            /*Intent intent = new Intent(getActivity(),LoginActivity.class);
+            getActivity().startActivityForResult(intent, code);*/
             //getActivity().finish();
         }
     }
 
     public void sendToRestaurants(){
-        Intent intent = new Intent(getActivity(),RestaurantsActivity.class);
+
+        Bundle bundle = new Bundle();
+
+        bundle.putBoolean(WebFragment.CAN_RETURN, false);
+        bundle.putString(WebFragment.WEB_TITLE, getString(R.string.title_restaurants));
+        bundle.putString(WebFragment.STARTER_VIEW, getClass().getName());
+        bundle.putString(WebFragment.LOADING_URL, Constants.getRestaurantUrl());
+
+        WebFragment restaurantsFragment = new WebFragment();
+
+        restaurantsFragment.setArguments(bundle);
+        goToView(restaurantsFragment);
+
+        /*Intent intent = new Intent(getActivity(),RestaurantsActivity.class);
         getActivity().startActivity(intent);
-        getActivity().finish();
+        getActivity().finish();*/
     }
 
     public void sendToStore(){
-        Intent intent = new Intent(getActivity(),StoreActivity.class);
+
+        Bundle bundle = new Bundle();
+
+        bundle.putBoolean(WebFragment.CAN_RETURN, false);
+        bundle.putString(WebFragment.WEB_TITLE, getString(R.string.title_store));
+        bundle.putString(WebFragment.STARTER_VIEW, getClass().getName());
+        bundle.putString(WebFragment.LOADING_URL, Constants.getStoreUrl());
+
+        WebFragment fragmentStore = new WebFragment();
+
+        fragmentStore.setArguments(bundle);
+        goToView(fragmentStore);
+        /*Intent intent = new Intent(getActivity(),StoreActivity.class);
         getActivity().startActivity(intent);
-        getActivity().finish();
+        getActivity().finish();*/
     }
 
     //**************INNER CLASSES******************

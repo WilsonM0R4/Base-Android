@@ -1,6 +1,7 @@
 package com.allegra.handyuvisa;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.content.Intent;
 import android.util.Log;
 import android.webkit.JavascriptInterface;
@@ -12,24 +13,24 @@ import com.allegra.handyuvisa.utils.Constants;
  */
 public class AppJavaScriptProxyFlights {
 
-    private Activity activity = null;
+    private Fragment fragment = null;
     private final String  TAG  = "AppJavaScriptProxyFligh";
 
-    public AppJavaScriptProxyFlights(Activity activity) {
-        this.activity = activity;
+    public AppJavaScriptProxyFlights(Fragment fragment) {
+        this.fragment = fragment;
     }
 
     @JavascriptInterface
     public void postMessage(String message) {
         //Log.d("Message", message);
-        ((FlightsSearchActivity)activity).onePocketmessage = message;
-        if(checkLogin())  ((FlightsSearchActivity) activity).openOnePocket();
+        ((FlightsSearchActivity) fragment).onePocketmessage = message;
+        if(checkLogin())  ((FlightsSearchActivity) fragment).openOnePocket();
     }
 
     private boolean checkLogin() {
-        if(((com.allegra.handyuvisa.VisaCheckoutApp)activity.getApplication()).getIdSession()==null){
-            Intent i =new Intent(activity,LoginActivity.class);
-            activity.startActivityForResult(i, Constants.ONE_POCKET_NEEDS_LOGIN);
+        if(((com.allegra.handyuvisa.VisaCheckoutApp)fragment.getActivity().getApplication()).getIdSession()==null){
+            Intent i =new Intent(fragment.getActivity(),LoginActivity.class);
+            fragment.getActivity().startActivityForResult(i, Constants.ONE_POCKET_NEEDS_LOGIN);
             return false;
         }
 

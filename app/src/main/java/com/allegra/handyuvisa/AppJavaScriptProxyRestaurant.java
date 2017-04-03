@@ -32,7 +32,8 @@ public class AppJavaScriptProxyRestaurant {
 
         }
 
-        ((RestaurantsActivity)activity).onePocketmessage = message;
+        /** temporally commented **/
+        //((RestaurantsActivity) activity).onePocketmessage = message;
         //if(checkLogin()) ((ServiceActivity) activity).openOnePocket();
         // temporal change
     }

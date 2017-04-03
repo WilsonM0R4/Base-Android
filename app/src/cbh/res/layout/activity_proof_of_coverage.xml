@@ -36,7 +36,6 @@
                 android:layout_marginLeft="16dp"
                 android:background="@android:color/transparent"
                 android:contentDescription="menu"
-                android:onClick="onUp"
                 android:src="@drawable/navigation__back" />
 
             <com.allegra.handyuvisa.utils.CustomizedTextView

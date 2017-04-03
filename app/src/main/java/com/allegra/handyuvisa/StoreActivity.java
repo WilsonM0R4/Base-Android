@@ -64,10 +64,10 @@ public class StoreActivity extends WebViewActivity implements FrontBackAnimate.I
     //********************************OVERRIDE METHODS*****************************
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setView(R.layout.fragment_store, this);
+        //setView(R.layout.fragment_store, this); need to override fragment methods
     }
 
     @Override
@@ -95,7 +95,7 @@ public class StoreActivity extends WebViewActivity implements FrontBackAnimate.I
     }
 
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
         if (callUrl.equals("")) {
             loadWebView();
@@ -103,12 +103,12 @@ public class StoreActivity extends WebViewActivity implements FrontBackAnimate.I
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         //Validate permissions
-        if(android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !hasPermissions(this, PERMISSIONS)){
-            ActivityCompat.requestPermissions(this, PERMISSIONS, MY_PERMISSIONS_REQUEST_LOCATION);
+        if(android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !hasPermissions(getActivity(), PERMISSIONS)){
+            ActivityCompat.requestPermissions(getActivity(), PERMISSIONS, MY_PERMISSIONS_REQUEST_LOCATION);
         } else {
             getCurrentLocation();
         }
@@ -142,7 +142,7 @@ public class StoreActivity extends WebViewActivity implements FrontBackAnimate.I
     //********************************PROPER METHODS********************************************
 
     private void buildAlertMessageNoGps() {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setMessage(
                 R.string.location_permision)
                 .setCancelable(false)
@@ -174,7 +174,7 @@ public class StoreActivity extends WebViewActivity implements FrontBackAnimate.I
 
     public Location getLocation() {
 
-        locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+        locationManager = (LocationManager) getActivity().getSystemService(MainActivity.LOCATION_SERVICE);
         isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
         isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
 
@@ -183,8 +183,8 @@ public class StoreActivity extends WebViewActivity implements FrontBackAnimate.I
             buildAlertMessageNoGps();
         } else {
             //Validate permissions
-            if(android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !hasPermissions(this, PERMISSIONS)){
-                ActivityCompat.requestPermissions(this, PERMISSIONS, MY_PERMISSIONS_REQUEST_LOCATION);
+            if(android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !hasPermissions(getActivity(), PERMISSIONS)){
+                ActivityCompat.requestPermissions(getActivity(), PERMISSIONS, MY_PERMISSIONS_REQUEST_LOCATION);
             } else {
                 getCurrentLocation();
             }
@@ -195,7 +195,7 @@ public class StoreActivity extends WebViewActivity implements FrontBackAnimate.I
     private void getCurrentLocation () {
 
         //TODO: Need to fix. Strong reference. Working on UI Thread
-        gp = new GPSTracker(this);
+        gp = new GPSTracker(getActivity());
         latitude = gp.getLatitude();
         longitude = gp.getLongitude();
 
@@ -203,7 +203,7 @@ public class StoreActivity extends WebViewActivity implements FrontBackAnimate.I
 
             try {
                 enterToGetLocation = true;
-                Geocoder geocoder = new Geocoder(this, Locale.ENGLISH);
+                Geocoder geocoder = new Geocoder(getActivity(), Locale.ENGLISH);
                 List<Address> addresses = geocoder.getFromLocation(latitude, longitude, 1);
                 String cityName = addresses.get(0).getAddressLine(0);
                 String stateName = addresses.get(0).getAddressLine(1);
@@ -235,21 +235,23 @@ public class StoreActivity extends WebViewActivity implements FrontBackAnimate.I
     }
 
     private void loadWebView() {
-        StoreActivity.JsInterface jsInterface = new StoreActivity.JsInterface(getApplicationContext());
+        StoreActivity.JsInterface jsInterface = new StoreActivity.JsInterface(getActivity().getApplicationContext());
         mWebView.addJavascriptInterface(jsInterface, "androidProxy");
         mWebView.loadUrl(url);
     }
 
     public void openOnePocket(){
 
-        Intent intent = new Intent(StoreActivity.this, OnepocketPurchaseActivity.class);
+        /** temporally commented **/
+
+        /*Intent intent = new Intent(StoreActivity.this, OnepocketPurchaseActivity.class);
         Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(this), onePocketmessage, OPKConstants.TYPE_MCARD, (com.allegra.handyuvisa.VisaCheckoutApp) getApplication());
         intent.putExtras(bundle);
-        startActivityForResult(intent, Constants.REQUEST_ONEPOCKET_RETURN);
+        startActivityForResult(intent, Constants.REQUEST_ONEPOCKET_RETURN);*/
     }
 
     public void onMenu(View view) {
-        animate();
+        ((MainActivity) getActivity()).animate();
     }
 
     public void onUp(View view) {
@@ -312,7 +314,7 @@ public class StoreActivity extends WebViewActivity implements FrontBackAnimate.I
     public boolean onShouldOverrideUrlLoading(WebView webView, String url) {
 
         if (url.equals("allegra:touchcallService")) {
-            Intent i = new Intent(this, CallActivityServices.class);
+            Intent i = new Intent(getActivity(), CallActivityServices.class);
             this.startActivity(i);
             return true;
         }
@@ -326,11 +328,11 @@ public class StoreActivity extends WebViewActivity implements FrontBackAnimate.I
     }
 
     private void startCall(String url) {
-        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !hasPermission(this, MY_PERMISSIONS_CALL[0])) {
-            ActivityCompat.requestPermissions(this, MY_PERMISSIONS_CALL, MY_PERMISSIONS_REQUEST_CALL);
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !hasPermission(getActivity(), MY_PERMISSIONS_CALL[0])) {
+            ActivityCompat.requestPermissions(getActivity(), MY_PERMISSIONS_CALL, MY_PERMISSIONS_REQUEST_CALL);
         } else {
             Intent intentCall = new Intent(Intent.ACTION_CALL, Uri.parse(url));
-            if (ActivityCompat.checkSelfPermission(this, MY_PERMISSIONS_CALL[0]) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.checkSelfPermission(getActivity(), MY_PERMISSIONS_CALL[0]) != PackageManager.PERMISSION_GRANTED) {
                 return;
             }
             this.startActivity(intentCall);
@@ -392,9 +394,9 @@ public class StoreActivity extends WebViewActivity implements FrontBackAnimate.I
            new Handler(Looper.getMainLooper()).post(new Runnable() {
                 @Override
                 public void run() {
-                    ImageView pb_search_loader = (ImageView)findViewById(R.id.pb_search_loader);
-                    ImageView imgProgress = (ImageView)findViewById(R.id.imgProgress);
-                    CustomizedTextView textView = (CustomizedTextView)findViewById(R.id.txtLoading);
+                    ImageView pb_search_loader = (ImageView) getView().findViewById(R.id.pb_search_loader);
+                    ImageView imgProgress = (ImageView)getView().findViewById(R.id.imgProgress);
+                    CustomizedTextView textView = (CustomizedTextView)getView().findViewById(R.id.txtLoading);
                     pb_search_loader.setVisibility(View.VISIBLE);
                     imgProgress.setVisibility(View.VISIBLE);
                     mWebView.setVisibility(View.GONE);
@@ -408,9 +410,9 @@ public class StoreActivity extends WebViewActivity implements FrontBackAnimate.I
                 new Handler(Looper.getMainLooper()).post(new Runnable() {
                     @Override
                     public void run() {
-                        ImageView pb_search_loader = (ImageView)findViewById(R.id.pb_search_loader);
-                        ImageView imgProgress = (ImageView)findViewById(R.id.imgProgress);
-                        CustomizedTextView textView = (CustomizedTextView)findViewById(R.id.txtLoading);
+                        ImageView pb_search_loader = (ImageView)getView().findViewById(R.id.pb_search_loader);
+                        ImageView imgProgress = (ImageView)getView().findViewById(R.id.imgProgress);
+                        CustomizedTextView textView = (CustomizedTextView)getView().findViewById(R.id.txtLoading);
 
                         pb_search_loader.setVisibility(View.GONE);
                         imgProgress.setVisibility(View.GONE);

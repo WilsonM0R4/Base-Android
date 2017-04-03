@@ -1,6 +1,7 @@
 package com.allegra.handyuvisa;
 
 import android.app.Dialog;
+import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -9,8 +10,11 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.NumberPicker;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -33,7 +37,7 @@ import org.ksoap2.serialization.PropertyInfo;
 import java.lang.reflect.Field;
 
 
-public class EditProfileActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
+public class EditProfileActivity extends Fragment {
 
     //*********GLOBAL ATTRIBUTES****************
     private final String M_SELECTION_DIVIDER = "mSelectionDivider";
@@ -45,29 +49,42 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
     private NumberPicker countryPicker, typeOfIdPicker;
     private Context ctx;
     TextView txtTypeOfIdSelected, txtSelectCountry;
+    ImageButton backButton, menuButton;
+
     //******** Array Colors *********
     int[] allColors = new int[5];
     //String[] ColorsInput;
 
     //*********OVERRIDE METHODS****************
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.setView(R.layout.activity_edit_profile, this);
-        ctx = this;
+        //super.setView(R.layout.activity_edit_profile, this);
+        ctx = this.getActivity();
         MyBus.getInstance().register(this);
     }
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        super.onCreateView(inflater, container, savedInstanceState);
 
+        return inflater.inflate(R.layout.activity_edit_profile, container, false);
+    }
 
     @Override
+    public void onViewCreated(View view, Bundle savedInstanceState){
+        super.onViewCreated(view, savedInstanceState);
+
+        initViews(view);
+    }
+
     public void initViews(View root) {
         setViewElements(root);
         setListeners();
     }
 
     @Override
-    protected void onDestroy() {
+    public void onDestroy() {
         MyBus.getInstance().unregister(this);
         super.onDestroy();
     }
@@ -75,7 +92,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
     //*********PROPER METHODS****************
 
     private void setTextWatchers() {
-        allColors = getApplicationContext().getResources().getIntArray(R.array.Input);
+        allColors = getActivity().getApplicationContext().getResources().getIntArray(R.array.Input);
         //********************DOCUMENT NUMBER*******************
         etNumberOfId.addTextChangedListener(new TextWatcher() {
             @Override
@@ -233,6 +250,9 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
     //CUMPLE LA FUNCIÓN DEL MÉTODO initViews
     private void setViewElements(View root){
 
+        backButton = (ImageButton) root.findViewById(R.id.ib_up);
+        menuButton = (ImageButton) root.findViewById(R.id.menu_image);
+
         etNumberOfId = (CustomizedEditText)root.findViewById(R.id.etIdNumber);
         txtTypeOfIdSelected = (TextView) root.findViewById(R.id.etTypeOfId);
         txtName= (CustomizedEditText) root.findViewById(R.id.et_names);
@@ -253,7 +273,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
     //Carga y setea los datos del usuario
     private void loadUserProfile(){
 
-        user = Constants.getUser(this);
+        user = Constants.getUser(ctx);
         txtName.setText(user.nombre);
         txtLastName.setText(user.apellido);
         if(user.celular.length()>0) txtMobile.setText(user.celular);
@@ -304,7 +324,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
 
     private void updateTextOfTypeOfId() {
 
-        txtTypeOfIdSelected = (TextView) findViewById(R.id.etTypeOfId);
+        txtTypeOfIdSelected = (TextView) getView().findViewById(R.id.etTypeOfId);
         int typeOfID = typeOfIdPicker.getValue();
 
         switch (typeOfID) {
@@ -335,10 +355,10 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
 
     private void onAlertSelectTypeOfId() {//View view
 
-        final Dialog dialog = new Dialog(this);
+        final Dialog dialog = new Dialog(ctx);
         dialog.setContentView(R.layout.custom_dialog_select_type_of_id);
         dialog.show();
-        typeOfIdPicker = new NumberPicker(this);
+        typeOfIdPicker = new NumberPicker(ctx);
         typeOfIdPicker = (NumberPicker) dialog.findViewById(R.id.selectTypeOfIdPicker);
         typeOfIdPicker.setMinValue(0);
         typeOfIdPicker.setMaxValue(6);
@@ -412,7 +432,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             //Model class for basic Info
             CuentaClienteInfo client = new CuentaClienteInfo();
             client.setSaludo("1");
-            client.setIdSesion(((VisaCheckoutApp) this.getApplication()).getIdSession());
+            client.setIdSesion(((VisaCheckoutApp) getActivity().getApplication()).getIdSession());
             client.setNombre(txtName.getText().toString());
             client.setApellido(txtLastName.getText().toString());
             client.setTipoDocumento(getTypeOfIdToSend(txtTypeOfIdSelected.getText().toString()));
@@ -437,12 +457,12 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             property.setValue(client);
             property.setType(client.getClass());
            // Log.d("IDSession",((VisaCheckoutApp)this.getApplication()).getIdSession());
-            if (Util.hasInternetConnectivity(this)) {
+            if (Util.hasInternetConnectivity(ctx)) {
                 setWaitinUI(true);
                 AsyncSoapObject.getInstance(Constants.getWSDL(), Constants.NAMESPACE_ALLEM,
                         Constants.METHOD_ACTUALIZAR_CUENTA, property, Constants.ACTIVITY_UPDATE_USER).execute();
             } else {
-                Toast.makeText(this, R.string.err_no_internet, Toast.LENGTH_SHORT).show();
+                Toast.makeText(ctx, R.string.err_no_internet, Toast.LENGTH_SHORT).show();
             }
 
 
@@ -533,15 +553,31 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
     }
 
     public void onMenu(View view) {
-        animate();
+        ((MainActivity) getActivity()).animate();
     }
 
     private void setListeners(){
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity) getActivity()).replaceLayout(new MyAccountActivity(), true);
+            }
+        });
+
+        menuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity) getActivity()).animate();
+            }
+        });
+
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //animate();
-                onBackPressed();
+               // onBackPressed();
+                ((MainActivity) getActivity()).replaceLayout(new MyAccountActivity(), true);
             }
         });
 
@@ -569,10 +605,10 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
 
     private void onAlertSelectCountry() {
 
-        final Dialog dialog = new Dialog(this);
+        final Dialog dialog = new Dialog(ctx);
         dialog.setContentView(R.layout.custom_country_selector_picker_dialog);
         dialog.show();
-        countryPicker = new NumberPicker(this);
+        countryPicker = new NumberPicker(ctx);
         countryPicker = (NumberPicker) dialog.findViewById(R.id.selectCountryPicker);
         countryPicker.setMinValue(0);
         countryPicker.setMaxValue(4);
@@ -640,7 +676,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
     public void goToMyAccount(){
         Intent intent = new Intent(ctx, MyAccountActivity.class);
         startActivity(intent);
-        finish();
+        //finish();
     }
     //Called when execute AsyncSoapObject request
     @Subscribe
@@ -652,7 +688,7 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
             if (event.getResult()!=null){
               //  Log.d("Response",event.getResult().toString());
                 AllemUser user = SoapObjectParsers.toAllemUser(event.getResult());
-                AllemUser currentUser= Constants.getUser(EditProfileActivity.this);
+                AllemUser currentUser= Constants.getUser(ctx);
                 user.saludo= currentUser.saludo;
                 user.idSesion= currentUser.idSesion;
                 /*user.idType = currentUser.idType;
@@ -661,8 +697,8 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
                 user.apellido = currentUser.apellido;*/
                 //Save in SharedPReferences TypeOfID and Number OfID
 
-                Constants.saveUser(EditProfileActivity.this,user,currentUser.channel);
-                final Dialog dialog = new Dialog(this);
+                Constants.saveUser(ctx,user,currentUser.channel);
+                final Dialog dialog = new Dialog(ctx);
                 dialog.setContentView(R.layout.dialog_editprofile_ok);
                 dialog.show();
                 TextView textOk = (TextView) dialog.findViewById(R.id.btnAcceptProfile);
@@ -675,8 +711,8 @@ public class EditProfileActivity extends FrontBackAnimate implements FrontBackAn
                 });
                 //new AlertDialog.Builder(ctx).setTitle(getString(R.string.txt_lbl_notification)).setMessage(getString(R.string.edit_successful)).setPositiveButton("ok",null).show();
             }else{
-                Toast.makeText(EditProfileActivity.this, event.getFaultString(), Toast.LENGTH_LONG).show();
-                setResult(RESULT_CANCELED, returnIntent);
+                Toast.makeText(ctx, event.getFaultString(), Toast.LENGTH_LONG).show();
+                getActivity().setResult(MainActivity.RESULT_CANCELED, returnIntent);
             }
 
         }

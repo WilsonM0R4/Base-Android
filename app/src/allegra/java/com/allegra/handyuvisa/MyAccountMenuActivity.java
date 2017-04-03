@@ -1,6 +1,7 @@
 package com.allegra.handyuvisa;
 
 import android.app.ActionBar;
+import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,32 +9,56 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
 
-public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
+public class MyAccountMenuActivity extends Fragment {
 
+    public static final String VIEW_TYPE_MY_BENEFITS = "my_benefits";
 
     private ActionBar actionBar;
     private String nombre, apellido, tipoid, numid, nummcard, value1, value2, value3;
     Context ctx;
     CustomizedTextView txtGetYourCertificate;
+    ImageButton menuButton;
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.setView(R.layout.activity_my_account_menu, this);
-        ctx = this;
-
+        //super.setView(R.layout.activity_my_account_menu, this);
+        ctx = this.getActivity();
+        ((MainActivity) getActivity()).statusBarVisibility(false);
     }
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        return inflater.inflate(R.layout.activity_my_account_menu, container, false);
+    }
 
     @Override
+    public void onViewCreated(View view, Bundle savedInstanceState){
+        initViews(view);
+    }
+
     public void initViews(View root) {
+
+        ((FragmentMain) getParentFragment()).configToolbar(false, Constants.TYPE_MENU, getString(R.string.title_my_account));
+
+        /*menuButton = (ImageButton)root.findViewById(R.id.menu_image);
+
+        menuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity) getActivity()).animate();
+            }
+        });*/
+
         setActionbar();
         initializeListView(root);
     }
@@ -52,19 +77,40 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
         };
         final Integer[] images = {R.drawable.menu__profile, R.drawable.my_benefits,/*R.drawable.menu_tips*/R.drawable.coverage, R.drawable.menu__history,
                 R.drawable.legal5};
-        final Class[] activities = {MyAccountActivity.class, com.allegra.handyuvisa.MyBenefits.class, //MyTips.class,
-                ProofOfCoverageDinamicoActivity.class, OneTransactionsActivity.class, LegalActivity.class};
-        lv.setAdapter(new ArrayAdapter<String>(MyAccountMenuActivity.this, R.layout.profile_layout, names) {
+        /*final Class[] activities = {MyAccountActivity.class, com.allegra.handyuvisa.MyBenefits.class, //MyTips.class,
+                ProofOfCoverageDinamicoActivity.class, OneTransactionsActivity.class, LegalActivity.class};*/
+
+        Bundle benefitsBundle;
+
+        benefitsBundle = new Bundle();
+
+        benefitsBundle.putString(WebFragment.WEB_TITLE, getString(R.string.benefits));
+        benefitsBundle.putString(WebFragment.STARTER_VIEW, VIEW_TYPE_MY_BENEFITS);
+        benefitsBundle.putString(WebFragment.LOADING_URL, Constants.getMyBenefitsUrl());
+        benefitsBundle.putBoolean(WebFragment.CAN_RETURN, true);
+
+        WebFragment benefits = new WebFragment();
+        benefits.setArguments(benefitsBundle);
+
+        final Fragment[] fragments = {new MyAccountActivity(), benefits,
+                new ProofOfCoverageDinamicoActivity(), new OneTransactionsActivity(),
+                new LegalActivity()};
+
+        lv.setAdapter(new ArrayAdapter<String>(MyAccountMenuActivity.this.getActivity(),
+                R.layout.profile_layout, names) {
 
             public View getView(final int position, View view, ViewGroup parent) {
-                final LayoutInflater inflater = MyAccountMenuActivity.this.getLayoutInflater();
+                final LayoutInflater inflater = getActivity().getLayoutInflater();
                 View rowView = inflater.inflate(R.layout.profile_layout, null, true);
 
                 rowView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(MyAccountMenuActivity.this, activities[position]);
-                        MyAccountMenuActivity.this.startActivity(intent);
+
+                        ((FragmentMain) getParentFragment()).replaceLayout(fragments[position], false);
+
+                        /*Intent intent = new Intent(MyAccountMenuActivity.this, activities[position]);
+                        MyAccountMenuActivity.this.startActivity(intent);*/
                     }
 
                 });
@@ -82,7 +128,7 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
     }
 
     private void setActionbar() {
-        actionBar = getActionBar();
+        actionBar = getActivity().getActionBar();
         if (actionBar != null) {
             actionBar.setIcon(R.drawable.ab_icon_back);
             actionBar.setDisplayHomeAsUpEnabled(true);
@@ -94,44 +140,46 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
 
     void setGetYourCertificateLayout() {
         //Change layout
-        setContentView(R.layout.get_your_certificate_dynamic);
+        /*setContentView(R.layout.get_your_certificate_dynamic);
         txtGetYourCertificate = (CustomizedTextView) findViewById(R.id.txtGetYourCertificatedynamic);
         txtGetYourCertificate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 launchloginActivity();
             }
-        });
+        });*/
 
 
     }
 
     public void onUpProof(View view) {
-        onBackPressed();
+        //onBackPressed();
     }
 
     public void onUpProofDinamico(View view) {
-        onBackPressed();
+        //onBackPressed();
     }
 
     void launchloginActivity() {
 
-        Intent i = new Intent(this, LoginActivity.class);
-        startActivity(i);
-        finish();
+        ((FragmentMain) getParentFragment()).replaceLayout(new LoginActivity(), false);
+
+        /*Intent i = new Intent(this, LoginActivity.class);
+        startActivity(i);*/
+        //finish();
     }
 
     public void onMenu(View view) {
-        animate();
+        ((MainActivity) getActivity()).animate();
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         //Validate login successful
-        if (resultCode == RESULT_OK)//Constants.ACTIVITY_LOGIN
+        if (resultCode == MainActivity.RESULT_OK)//Constants.ACTIVITY_LOGIN
         {
-            Intent i = new Intent(this, ProofOfCoverageDinamicoActivity.class);
+            Intent i = new Intent(ctx, ProofOfCoverageDinamicoActivity.class);
             this.startActivity(i);
             //sendIntentForProofOfCoverage();
         }

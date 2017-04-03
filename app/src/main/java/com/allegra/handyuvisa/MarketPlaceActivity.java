@@ -2,29 +2,23 @@ package com.allegra.handyuvisa;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.drawable.AnimationDrawable;
-import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.webkit.SslErrorHandler;
-import android.webkit.WebBackForwardList;
-import android.webkit.WebHistoryItem;
+import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.allegra.handyuvisa.utils.Constants;
-import com.allegra.handyuvisa.utils.Util;
 import com.allem.onepocket.utils.OPKConstants;
 
-public class MarketPlaceActivity extends WebViewActivity implements FrontBackAnimate.InflateReadyListener {
+public class MarketPlaceActivity extends WebViewActivity {
 
     public static final int REQUEST_ONEPOCKET_RETURN = 10001;
     public static String URL_OPEN_PDF = "https://docs.google.com/viewer?url=";
@@ -35,34 +29,47 @@ public class MarketPlaceActivity extends WebViewActivity implements FrontBackAni
    /* private static final String MARKET_PLACE_URL_TEST = "http://dev.allegra.market/?onepocket=1";
     private static final String EMPTY_SHOPPING_CART = "http://dev.allegra.market/purchaseintent/index/verifytransaction?hash=";*/
 
-    private ImageButton arrowBack, arrowF;
+    private ImageButton arrowBack, arrowF, menuButton;
     private ProgressBar progressBar;
     private ImageButton goUp;
     public String onePocketmessage;
     private String returnURL;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        System.gc();
-        super.setView(R.layout.activity_market_place, this);
+        //System.gc();
+        //super.setView(R.layout.activity_market_place, this);
     }
 
     @Override
-    protected void onPause() {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedIsntanceState){
+        super.onCreateView(inflater, container, savedIsntanceState);
+        return inflater.inflate(R.layout.activity_market_place, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState){
+        super.onViewCreated(view, savedInstanceState);
+
+        ((MainActivity) getActivity()).statusBarVisibility(false);
+        initViews(view);
+    }
+
+    @Override
+    public void onPause() {
         super.onPause();
         mWebView.stopLoading();
     }
 
     @Override
-    protected void onPostResume() {
-        super.onPostResume();
+    public void onResume() {
+        super.onResume();
         loadWebView();
     }
 
-    @Override
     public void initViews(View root) {
-        android.app.ActionBar actionBar = getActionBar();
+        android.app.ActionBar actionBar = getActivity().getActionBar();
         if (actionBar != null) {
             actionBar.hide();
         }
@@ -72,10 +79,19 @@ public class MarketPlaceActivity extends WebViewActivity implements FrontBackAni
         goUp = (ImageButton) root.findViewById(R.id.ib_up);
         arrowBack= (ImageButton)root.findViewById(R.id.arrow_back);
         arrowF= (ImageButton)root.findViewById(R.id.arrow_forward);
+        menuButton = (ImageButton) root.findViewById(R.id.menu_image);
+
+        menuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity) getActivity()).animate();
+            }
+        });
+
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         Log.d("Receiving","Receiving Activity ONE");
         if (requestCode == REQUEST_ONEPOCKET_RETURN) {
@@ -91,7 +107,7 @@ public class MarketPlaceActivity extends WebViewActivity implements FrontBackAni
     }
 
     public void onMenu(View view) {
-        animate();
+        ((MainActivity) getActivity()).animate();
 //        super.onBackPressed();
 //        overridePendingTransition(R.animator.back_slide_in, R.animator.front_slide_out);
     }
@@ -176,10 +192,18 @@ public class MarketPlaceActivity extends WebViewActivity implements FrontBackAni
     }
 
     public void openOnePocket(){
-        Intent intent = new Intent(MarketPlaceActivity.this, OnepocketPurchaseActivity.class);
-        Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(this), onePocketmessage, OPKConstants.TYPE_MARKETPLACE, (com.allegra.handyuvisa.VisaCheckoutApp) getApplication());
-        intent.putExtras(bundle);
-        startActivityForResult(intent, MarketPlaceActivity.REQUEST_ONEPOCKET_RETURN);
+        //Intent intent = new Intent(MarketPlaceActivity.this, OnepocketPurchaseActivity.class);
+        Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(getActivity()),
+                onePocketmessage,
+                OPKConstants.TYPE_MARKETPLACE,
+                (com.allegra.handyuvisa.VisaCheckoutApp) getActivity().getApplication());
+
+        OnepocketPurchaseActivity fragmentOPKPurchase = new OnepocketPurchaseActivity();
+        fragmentOPKPurchase.setArguments(bundle);
+
+        ((MainActivity) getActivity()).replaceLayout(fragmentOPKPurchase, false);
+        //intent.putExtras(bundle);
+        //startActivityForResult(intent, MarketPlaceActivity.REQUEST_ONEPOCKET_RETURN);*/
 
     }
 
@@ -187,13 +211,13 @@ public class MarketPlaceActivity extends WebViewActivity implements FrontBackAni
         mWebView = (WebView)root.findViewById(R.id.webview_marketplace);
         setupLoadingView(root);
         mWebView.setWebViewClient(new SecureBrowser(this));
-        mWebView.addJavascriptInterface(new AppJavaScriptProxyMarketPlace(this), "androidProxy");
+        //mWebView.addJavascriptInterface(new AppJavaScriptProxy(this), "androidProxy"); //getActivity() is temporal
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setDomStorageEnabled(true);
-        webSettings.setJavaScriptEnabled(true);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);
         }// http://stackoverflow.com/questions/31509277/webview-images-are-not-showing-with-https
+        webSettings.setJavaScriptEnabled(true);
     }
 
     private void setupLoadingView(View root) {

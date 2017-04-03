@@ -5,11 +5,13 @@ package com.allegra.handyuvisa;
  */
 
 import android.app.Dialog;
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
@@ -17,6 +19,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -34,12 +37,14 @@ import com.squareup.otto.Subscribe;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class ConciergeActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
+public class ConciergeActivity extends Fragment{
 
-    RelativeLayout customDestinationConcierge, customSearchConcierge;//Initially is gone, contains EditText and ListView between others
-    LinearLayout  customTextAndButtonSearchConcierge, linLayGetUpAnimationFlights;//Initially is gone, is the custom view with text and image inside header
+    RelativeLayout header, customDestinationConcierge, customSearchConcierge;//Initially is gone, contains EditText and ListView between others
+    LinearLayout  containerLocation, customTextAndButtonSearchConcierge, linLayGetUpAnimationFlights;//Initially is gone, is the custom view with text and image inside header
     ListView listView;
     ProgressBar progressBar;
+    ImageButton menuButton;
+    Button searchButton;
     SearchAdapterAutoCompleteConcierge adapter;
     String TAG = "ConciergeActivity", labelCity = "", idCity;
     String urlConcierge = Constants.getAutocompleteConciergeUrl();//"http://actividades.allegra.travel/Actividad/json_destinos2/?query="
@@ -76,14 +81,27 @@ public class ConciergeActivity extends FrontBackAnimate implements FrontBackAnim
 
     //****** OVERRIDE METHODS ******
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setView(R.layout.fragment_concierge,this);
         //System.gc();
         MyBus.getInstance().register(this);
         //airportData = new ArrayList<>();
         //getLocation();
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        super.onCreateView(inflater, container, savedInstanceState);
+
+        return inflater.inflate(R.layout.fragment_concierge, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState){
+        super.onViewCreated(view, savedInstanceState);
+        ((MainActivity) getActivity()).statusBarVisibility(false);
+        initViews(view);
     }
 
     @Override
@@ -93,17 +111,22 @@ public class ConciergeActivity extends FrontBackAnimate implements FrontBackAnim
     }
 
     //If search is active => GetUpAnimation  else Lock onBackButton
-    @Override
+    /*@Override
     public void onBackPressed() {
     //Log.e("Sergio","Llega al back");
-        /*if (isSearchActive) {
+        if (isSearchActive) {
             onGetUpAnimationFlights();
-        }*/
-    }
+        }
+    }*/
 
-    @Override
-    public void initViews(View root) {
+    private void initViews(View root) {
 
+        header = (RelativeLayout) root.findViewById(R.id.ll_header);
+        menuButton = (ImageButton) root.findViewById(R.id.menu_image);
+
+        searchButton = (Button) root.findViewById(R.id.btn_search);
+
+        containerLocation = (LinearLayout) root.findViewById(R.id.concierge_location_container);
         customSearchConcierge = (RelativeLayout) root.findViewById(R.id.activity_search_concierge);
         customDestinationConcierge = (RelativeLayout) root.findViewById(R.id.custom_concierge_header);
         customTextAndButtonSearchConcierge = (LinearLayout) root.findViewById(R.id.custom_search_concierge);
@@ -116,16 +139,43 @@ public class ConciergeActivity extends FrontBackAnimate implements FrontBackAnim
             }
         });
 
+        header.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onMenu();
+            }
+        });
+
+        menuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onMenu();
+            }
+        });
+
+        containerLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onConciergeLocation();
+            }
+        });
+
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onSearchConcierge();
+            }
+        });
     }
 
     //****** PROPER METHODS ******
 
-    public void onMenu(View view) {
-        animate();
+    public void onMenu() {
+        ((MainActivity) getActivity()).animate();
     }
 
     public void onClearSearch(View view) {
-        TextView search = (TextView) findViewById(R.id.et_search);
+        TextView search = (TextView) getView().findViewById(R.id.et_search);
         search.setText("");
     }
 
@@ -134,9 +184,9 @@ public class ConciergeActivity extends FrontBackAnimate implements FrontBackAnim
         customTextAndButtonSearchConcierge.setVisibility(View.GONE);
         customSearchConcierge.setVisibility(View.VISIBLE);
         //Clear EditText
-        EditText edtSearch = (EditText) findViewById(R.id.et_search);
+        EditText edtSearch = (EditText) getView().findViewById(R.id.et_search);
         edtSearch.setText("");
-        LinearLayout linLayGetUp = (LinearLayout) findViewById(R.id.linLayGetUpAnimationFlights);
+        LinearLayout linLayGetUp = (LinearLayout) getView().findViewById(R.id.linLayGetUpAnimationFlights);
         linLayGetUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -156,33 +206,33 @@ public class ConciergeActivity extends FrontBackAnimate implements FrontBackAnim
     void onGetUpAnimationConcierge() {
         hideSearchConciergeAndShowViews();
         //if keyboard is open, close it.
-        EditText edtSearch = (EditText) findViewById(R.id.et_search);
-        InputMethodManager imm = (InputMethodManager) this.getSystemService(INPUT_METHOD_SERVICE);
+        EditText edtSearch = (EditText) getView().findViewById(R.id.et_search);
+        InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(MainActivity.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(edtSearch.getWindowToken(), 0);
 
     }
 
     //This method performs autocomplete in ListView
-    public void onConciergeLocation(View view) {
+    public void onConciergeLocation() {
 
         hideViewsAndShowSearchConcierge();
 
         //Relate the listView from java to the one created in xml
-        listView = (ListView) findViewById(R.id.list);
+        listView = (ListView) getView().findViewById(R.id.list);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long id) {
                 //Update textViews inside Header
                 ConciergeActivity.Concierge concierge =(Concierge)adapterView.getItemAtPosition(i);
-                ImageView imgSelectDestination = (ImageView) findViewById(R.id.selec_destination_concierge);
+                ImageView imgSelectDestination = (ImageView) getView().findViewById(R.id.selec_destination_concierge);
                 imgSelectDestination.setVisibility(View.GONE);
-                TextView txtSElectDestination = (TextView)findViewById(R.id.txt_select_your_destination_concierge);
+                TextView txtSElectDestination = (TextView) getView().findViewById(R.id.txt_select_your_destination_concierge);
                 txtSElectDestination.setVisibility(View.GONE);
 
-                View linLayDestinationHotels = findViewById(R.id.ll_destination_concierge);
+                View linLayDestinationHotels = getView().findViewById(R.id.ll_destination_concierge);
                 linLayDestinationHotels.setVisibility(View.VISIBLE);
-                TextView conciergeName = (TextView)findViewById(R.id.txtDestinationNameConcierge);
-                TextView conciergeStateOrCountry = (TextView)findViewById(R.id.txtConciergeStateOrCountry);
+                TextView conciergeName = (TextView) getView().findViewById(R.id.txtDestinationNameConcierge);
+                TextView conciergeStateOrCountry = (TextView) getView().findViewById(R.id.txtConciergeStateOrCountry);
                 String labelConcierge = concierge.getLabel();
                 //For send to SearchConciergeActivity:
                 labelCity = labelConcierge;
@@ -200,9 +250,9 @@ public class ConciergeActivity extends FrontBackAnimate implements FrontBackAnim
                 }
                 //conciergeName.setText(String.valueOf(concierge.getLabel()));
                 //if keyboard is open, close it.
-                EditText edtSearch = (EditText) findViewById(R.id.et_search);
-                InputMethodManager imm = (InputMethodManager) getApplicationContext().
-                        getSystemService(INPUT_METHOD_SERVICE);
+                EditText edtSearch = (EditText) getView().findViewById(R.id.et_search);
+                InputMethodManager imm = (InputMethodManager) getActivity().getApplicationContext().
+                        getSystemService(MainActivity.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(edtSearch.getWindowToken(), 0);
 
                 hideSearchConciergeAndShowViews();
@@ -211,12 +261,12 @@ public class ConciergeActivity extends FrontBackAnimate implements FrontBackAnim
         });
 
         concierges = new ArrayList<>();
-        adapter = new SearchAdapterAutoCompleteConcierge(this, concierges);
+        adapter = new SearchAdapterAutoCompleteConcierge(getActivity(), concierges);
         listView.setAdapter(adapter);
-        progressBar = (ProgressBar) findViewById(R.id.pb_search);
+        progressBar = (ProgressBar) getView().findViewById(R.id.pb_search);
 
 
-        final EditText note = (EditText) findViewById(R.id.et_search);
+        final EditText note = (EditText) getView().findViewById(R.id.et_search);
         note.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -241,7 +291,7 @@ public class ConciergeActivity extends FrontBackAnimate implements FrontBackAnim
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
                     InputMethodManager mgr = (InputMethodManager)
-                            getSystemService(INPUT_METHOD_SERVICE);
+                            getActivity().getSystemService(MainActivity.INPUT_METHOD_SERVICE);
                     mgr.hideSoftInputFromWindow(v.getWindowToken(), 0);
                     performSearch(note.getText().toString());
                 }
@@ -294,7 +344,7 @@ public class ConciergeActivity extends FrontBackAnimate implements FrontBackAnim
                     listView.setSelection(0);
                 } else {
                     adapter.notifyDataSetChanged();
-                    listView.setEmptyView(findViewById(R.id.emptyElement));
+                    listView.setEmptyView( getView().findViewById(R.id.emptyElement));
                 }
             }
         }
@@ -322,25 +372,35 @@ public class ConciergeActivity extends FrontBackAnimate implements FrontBackAnim
     }
 
     //Perform call to ConciergeSearchActivity
-    public void onSearchConcierge(View view) {
+    public void onSearchConcierge() {
     //Get  destination initial values in order to search
         if (labelCity.equals("")) {
             //Toast.makeText(getApplicationContext(),"Pilas no puede ir vacio" ,Toast.LENGTH_LONG).show();
             onalertDialogDepartureOrArriveNotSelected();
         } else {
-            Intent intent = new Intent(this, ConciergeSearchActivity.class);
-            intent.putExtra("&labelCity", labelCity);
-            intent.putExtra("&idCity", idCity);
+
+            Bundle bundle = new Bundle();
+            bundle.putString("&labelCity", labelCity);
+            bundle.putString("&idCity", idCity);
+
+            bundle.putBoolean(WebFragment.CAN_RETURN, true);
+            bundle.putString(WebFragment.WEB_TITLE, getString(R.string.title_concierge));
+            bundle.putString(WebFragment.LOADING_URL, Constants.getSearchConciergeUrl());
+            bundle.putString(WebFragment.STARTER_VIEW, this.getClass().getName());
            // Log.d("labelCity", String.valueOf(labelCity));
            // Log.d("idCity", String.valueOf(idCity));
 
-            startActivity(intent);
+            WebFragment webConcierge = new WebFragment();
+
+            webConcierge.setArguments(bundle);
+            ((MainActivity) getActivity()).replaceLayout( webConcierge, false);
+            //startActivity(intent);
         }
     }
 
     public void onalertDialogDepartureOrArriveNotSelected() {
 
-        final Dialog dialog = new Dialog(this);
+        final Dialog dialog = new Dialog(getActivity());
         dialog.setContentView(R.layout.custom_alert_dialog_city_concierge_not_selected);
         dialog.show();
 

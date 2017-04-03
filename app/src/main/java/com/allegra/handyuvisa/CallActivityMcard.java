@@ -8,7 +8,7 @@ import android.os.Bundle;
 public class CallActivityMcard extends CallActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         OTC_NUMBER = "+5714890939";
     }

@@ -18,6 +18,7 @@
         android:textSize="18sp"
         app:font="@string/font_muli" />
 
+
     <include
         android:id="@+id/custom_adults_children"
         layout="@layout/custom_adults_children_infants_textviews"
@@ -57,8 +58,7 @@
             android:onClick="onCabinEconomy"
             android:text="@string/txt_lbl_economy"
             android:textColor="@color/ThirdSelectorButtonSelected_text"
-            android:textSize="13sp"
-            />
+            android:textSize="13sp" />
 
         <Button
             android:id="@+id/btn_business"
@@ -69,8 +69,7 @@
             android:onClick="onCabinBusiness"
             android:text="@string/txt_lbl_business"
             android:textColor="@color/ThirdSelectorButtonNormal_text"
-            android:textSize="13sp"
-            />
+            android:textSize="13sp" />
 
         <Button
             android:id="@+id/btn_first"
@@ -81,8 +80,7 @@
             android:onClick="onCabinFirst"
             android:text="@string/txt_lbl_first"
             android:textColor="@color/ThirdSelectorButtonNormal_text"
-            android:textSize="13sp"
-             />
+            android:textSize="13sp" />
 
     </LinearLayout>
 
@@ -95,7 +93,6 @@
         android:layout_marginRight="30dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/round_corner_orange"
-        android:onClick="onSearchFlights"
         android:text="@string/search_flights"
         android:textColor="@color/BigButton_text"
         android:textSize="18sp" />

@@ -2,7 +2,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:onClick="onCloseMenu"
     android:background="@color/white"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".Mcardhtml">
@@ -33,7 +32,6 @@
             android:src="@drawable/icon_menu"
             android:background="@android:color/transparent"
             android:id="@+id/menu_image"
-            android:onClick="onMenu"
             android:contentDescription="menu"
             android:layout_alignBottom="@+id/tv_title_secc"
             android:layout_alignParentEnd="true"

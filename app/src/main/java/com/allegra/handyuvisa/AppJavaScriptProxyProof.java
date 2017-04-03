@@ -23,12 +23,14 @@ public class AppJavaScriptProxyProof {
         //Log.e("Message", message);
         //Log.e("Repeat message", message);
 
-        if (message.contains("proofOfCoverage")) {
+
+        /** temporally commented **/
+        /*if (message.contains("proofOfCoverage")) {
             ((com.allegra.handyuvisa.Mcardhtml)activity).goToProof();
         }else{
             ((com.allegra.handyuvisa.Mcardhtml) activity).onePocketmessage = message;
             if (checkLogin()) ((com.allegra.handyuvisa.Mcardhtml) activity).openOnePocket();
-        }
+        }*/
     }
 
     private boolean checkLogin() {

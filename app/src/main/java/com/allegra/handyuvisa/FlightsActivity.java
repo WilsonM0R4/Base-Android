@@ -2,6 +2,7 @@ package com.allegra.handyuvisa;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.Fragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -15,6 +16,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
@@ -37,6 +39,7 @@ import com.allegra.handyuvisa.async.AsyncTaskMPosResultEvent;
 import com.allegra.handyuvisa.async.MyBus;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.GPSTracker;
+import com.allegra.handyuvisa.utils.NavigationCallback;
 import com.allegra.handyuvisa.utils.Util;
 import com.squareup.otto.Subscribe;
 import com.squareup.timessquare.CalendarPickerView;
@@ -50,11 +53,11 @@ import java.util.List;
 /**
  * This class have the logic from SearchActivity with "searchType" = "flights"
  */
-public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
+public class FlightsActivity extends Fragment {
 
     //GLOBAL ATTRIBUTES
 
-    private Button oneWay, round,economy,business,first;
+    private Button oneWay, round,economy,business,first, searchFlightsButton;
     private static final String TAG = "FlightsActivity";
     private int paramTrip = 0; // 0 - round trip; 1 - one way
     private int paramCabin = 0; // 0 - economy; 1 - business; 2 - first
@@ -75,7 +78,9 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
     private ProgressBar progressBar;
     private int flightsType = 2;
     View customDateOFTrip, customPassengersCabinSearch, rllSearchAirport;
-    boolean alreadyEnterToThisMethod, isSearchActive = false;
+    RelativeLayout dateTripSelector, headerContainer;
+    LinearLayout passengersSelector;
+    boolean alreadyEnterToThisMethod, isSearchActive = false, isDeparture = false;
     TextView monthReturn, yearReturn;
     private static final int TEXT_RETURN_DATE_SIZE = 32;//TextSize in sp
     private static final int TEXT_ONE_WAY_SIZE = 22;//TextSize in sp
@@ -90,8 +95,9 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
     Boolean flagloca=false;
     String loctitle="";
     Boolean addAddress = true;
-    TextView airportCode,city ;
-    ImageView imageView;
+    TextView airportCode, arrivalAirporCode ,city, arrivalCity ;
+    ImageView imageView, ivArrival, ivFlip;
+    ImageButton menuButton;
 
     //INNER CLASSES
 
@@ -139,12 +145,26 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
     //OVERRIDE METHODS
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setView(R.layout.fragment_flights, this);
+        //setView(R.layout.fragment_flights, this);
         MyBus.getInstance().register(this);
         airportData = new ArrayList<>();
+        ((MainActivity) getActivity()).statusBarVisibility(false);
         //getLocation();
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        super.onCreateView(inflater, container, savedInstanceState);
+        return inflater.inflate(R.layout.fragment_flights, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState){
+        super.onViewCreated(view, savedInstanceState);
+
+        initViews(view);
     }
 
     @Override
@@ -153,13 +173,17 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
         super.onDestroy();
     }
 
-    @Override
-    public void initViews(View root) {
+
+    private void initViews(View root) {
+
+        menuButton = (ImageButton) root.findViewById(R.id.menu_image);
+        headerContainer = (RelativeLayout) root.findViewById(R.id.ll_header);
 
         //Set initial Date
         TextView dateBegin = (TextView) root.findViewById(R.id.textDepartureDay);
         TextView yearBegin = (TextView) root.findViewById(R.id.textDepartureMonth);
         TextView textViewYear = (TextView) root.findViewById(R.id.textDepartureYear);
+
         monthReturn = (TextView) root.findViewById(R.id.textReturnMonth);
         monthReturn.setText(R.string.txt_month_year_selector_flights);
         yearReturn = (TextView) root.findViewById(R.id.textReturnYear);
@@ -167,21 +191,32 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
         //For get geo location and set texts:
         airportCode = (TextView) root.findViewById(R.id.tv_depart_airport);
         city = (TextView) root.findViewById(R.id.tv_city_departure);
-        imageView = (ImageView) root.findViewById(R.id.iv_departure);
 
-        Button search = (Button)root.findViewById(R.id.btn_search);
+        arrivalAirporCode = (TextView) root.findViewById(R.id.tv_arriving_airport);
+        arrivalCity = (TextView) root.findViewById(R.id.tv_city_arrival);
+
+        imageView = (ImageView) root.findViewById(R.id.iv_departure);
+        ivFlip = (ImageView) root.findViewById(R.id.imageView33);
+        ivArrival = (ImageView) root.findViewById(R.id.iv_arrival);
+
+        dateTripSelector = (RelativeLayout) root.findViewById(R.id.panel_dates);
+        passengersSelector = (LinearLayout) root.findViewById(R.id.linLayTextsPassengersPerCategory);
+
+        searchFlightsButton = (Button)root.findViewById(R.id.btn_search);
         round = (Button)root.findViewById(R.id.btn_roundtrip);
         oneWay = (Button)root.findViewById(R.id.btn_oneway);
         economy = (Button) root.findViewById(R.id.btn_economy);
         business = (Button)root.findViewById(R.id.btn_business);
         first = (Button)root.findViewById(R.id.btn_first);
-        search.setTypeface(Typeface.createFromAsset(getAssets(),getString(R.string.font_muli)));
+        searchFlightsButton.setTypeface(Typeface.createFromAsset(getActivity().getAssets(),getString(R.string.font_muli)));
 
-        round.setTypeface(Typeface.createFromAsset(getAssets(), getString(R.string.font_muli_light)));
-        oneWay.setTypeface(Typeface.createFromAsset(getAssets(), getString(R.string.font_muli_light)));
-        economy.setTypeface(Typeface.createFromAsset(getAssets(),getString(R.string.font_muli_light)));
-        business.setTypeface(Typeface.createFromAsset(getAssets(),getString(R.string.font_muli)));
-        first.setTypeface(Typeface.createFromAsset(getAssets(),getString(R.string.font_muli)));
+
+
+        round.setTypeface(Typeface.createFromAsset(getActivity().getAssets(), getString(R.string.font_muli_light)));
+        oneWay.setTypeface(Typeface.createFromAsset(getActivity().getAssets(), getString(R.string.font_muli_light)));
+        economy.setTypeface(Typeface.createFromAsset(getActivity().getAssets(),getString(R.string.font_muli_light)));
+        business.setTypeface(Typeface.createFromAsset(getActivity().getAssets(),getString(R.string.font_muli)));
+        first.setTypeface(Typeface.createFromAsset(getActivity().getAssets(),getString(R.string.font_muli)));
 
         Calendar now = Calendar.getInstance();
         Date today = now.getTime();
@@ -190,32 +225,132 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
         textViewYear.setText(Util.Y_Formatter.format(today).toUpperCase());
 
         //Is a solution for a bug when the method is called from xml onClick attribute
-        Button btnOneWay = (Button) root.findViewById(R.id.btn_oneway);
-        btnOneWay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        //Button btnOneWay = (Button) root.findViewById(R.id.btn_oneway);
 
-                onOneWay(view);
-            }
-        });
+        setListeners();
 
         //updateTextsForAirportAndCity();
     }
 
     //If search is active => GetUpAnimation  else Lock onBackButton
-    @Override
+    /*@Override
     public void onBackPressed() {
 
         if (isSearchActive) {
             onGetUpAnimationFlights();
         }
-    }
+    }*/
 
     //****************PROPER METHODS*************
 
 
+    private void setListeners(){
+
+        new NavigationCallback() {
+            @Override
+            public void onForwardPressed(Fragment fragment) {
+
+            }
+        };
+
+        headerContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity) getActivity()).animate();
+            }
+        });
+
+        round.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onRoundTrip(getView());
+            }
+        });
+
+        oneWay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                onOneWay(getView());
+            }
+        });
+
+        menuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity) getActivity()).animate();
+            }
+        });
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                isDeparture = true;
+                onDepartingLocation(getView());
+            }
+        });
+
+        ivArrival.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                isDeparture = false;
+                onDepartingLocation(getView());
+            }
+        });
+
+        ivFlip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onFlip(getView());
+            }
+        });
+
+        dateTripSelector.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onGetSchedule(getView());
+            }
+        });
+
+        passengersSelector.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onAlertDialogNumberPicker(getView());
+            }
+        });
+
+        economy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onCabinEconomy(getView());
+            }
+        });
+
+        business.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onCabinBusiness(getView());
+            }
+        });
+
+        first.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onCabinFirst(getView());
+            }
+        });
+
+        searchFlightsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onSearchFlights(getView());
+            }
+        });
+
+    }
+
     private void buildAlertMessageNoGps() {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setMessage(
                 "Your GPS seems to be disabled, do you want to enable it?")
                 .setCancelable(false)
@@ -348,7 +483,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
     */
     public void onGetSchedule(View view) {
 
-        dialog = new Dialog(this, android.R.style.Theme_NoTitleBar_Fullscreen);
+        dialog = new Dialog(getActivity(), android.R.style.Theme_NoTitleBar_Fullscreen);
         dialog.setContentView(R.layout.dialog_date_picker_custom);
 
         final TextView dateBegin = (TextView) dialog.findViewById(R.id.textDepartureDayWithoutOnClick);
@@ -447,7 +582,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
     }
 
     public void onMenu(View view) {
-        animate();
+        ((MainActivity) getActivity()).animate();
     }
 
     public void hideViewsAndShowSearchFlight() {
@@ -458,9 +593,9 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
         isSearchActive = true;
 
         //Clear EditText
-        EditText edtSearch = (EditText) findViewById(R.id.et_search);
+        EditText edtSearch = (EditText) getView().findViewById(R.id.et_search);
         edtSearch.setText("");
-        LinearLayout linLayGetUp = (LinearLayout) findViewById(R.id.linLayGetUpAnimationFlights);
+        LinearLayout linLayGetUp = (LinearLayout) getView().findViewById(R.id.linLayGetUpAnimationFlights);
         linLayGetUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -483,20 +618,20 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
      */
     public void onDepartingLocation(View view) {
 
-        customDateOFTrip = findViewById(R.id.custom_date_of_trip);
-        customPassengersCabinSearch = findViewById(R.id.custom_passengers_cabin_search);
-        rllSearchAirport = findViewById(R.id.search_airport);
+        customDateOFTrip = view.findViewById(R.id.custom_date_of_trip);
+        customPassengersCabinSearch = view.findViewById(R.id.custom_passengers_cabin_search);
+        rllSearchAirport = view.findViewById(R.id.search_airport);
         hideViewsAndShowSearchFlight();
 
-        boolean departure = false;
+        /*boolean departure = false;
         //Validation
         if (view.getId() == R.id.iv_departure || view.getId() == R.id.tv_depart_airport) {
             departure = true;
-        }
-        final boolean isDeparture = departure;
+        }*/
+        //final boolean isDeparture = departure;
 
         //relate the listView from java to the one created in xml
-        listView = (ListView) findViewById(R.id.list);
+        listView = (ListView) view.findViewById(R.id.list);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -507,19 +642,19 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
                 bundle.putExtra("city", data.getListInformation());
 
               //  Log.d(TAG, "Update airport code in view");
-                TextView airport;
-                TextView city;
-                ImageView imageView;
+                //TextView airport;
+                //TextView city;
+                //ImageView imageView;
 
                 if (isDeparture) {
-                    imageView = (ImageView) findViewById(R.id.iv_departure);
+                    //imageView = (ImageView)view.findViewById(R.id.iv_departure);
                     imageView.setVisibility(View.GONE);
-                    airport = (TextView) findViewById(R.id.tv_depart_airport);
-                    city = (TextView) findViewById(R.id.tv_city_departure);
+                    //airportCode = (TextView) view.findViewById(R.id.tv_depart_airport);
+                    //city = (TextView) view.findViewById(R.id.tv_city_departure);
                     paramDepartFromName = data.getCity();
                     paramDepartFrom = data.getCodeIATA();
-                    airport.setVisibility(View.VISIBLE);
-                    airport.setText(paramDepartFrom);
+                    airportCode.setVisibility(View.VISIBLE);
+                    airportCode.setText(paramDepartFrom);
                     city.setText(paramDepartFromName);
 
                     RelativeLayout.LayoutParams p = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -532,30 +667,31 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
                     city.setLayoutParams(lp);
 
                 } else {//Arrival
-                    imageView = (ImageView) findViewById(R.id.iv_arrival);
-                    airport = (TextView) findViewById(R.id.tv_arriving_airport);
-                    city = (TextView) findViewById(R.id.tv_city_arrival);
-                    imageView.setVisibility(View.GONE);
+                    //imageView = (ImageView) view.findViewById(R.id.iv_arrival);
+                    //airportCode = (TextView) view.findViewById(R.id.tv_arriving_airport);
+                    //city = (TextView) view.findViewById(R.id.tv_city_arrival);
+                    ivArrival.setVisibility(View.GONE);
                     paramArriveAt = data.getCodeIATA();
                     paramArriveAtName = data.getCity();
                     String cityName = paramArriveAtName;
-                    airport.setVisibility(View.VISIBLE);
-                    airport.setText(paramArriveAt);
-                    city.setText(cityName);
+                    arrivalAirporCode.setVisibility(View.VISIBLE);
+                    arrivalAirporCode.setText(paramArriveAt);
+                    arrivalCity.setText(cityName);
                     RelativeLayout.LayoutParams p = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                             ViewGroup.LayoutParams.WRAP_CONTENT);
                     p.addRule(RelativeLayout.BELOW, R.id.tv_arriving_airport);
-                    city.setLayoutParams(p);
+                    arrivalCity.setLayoutParams(p);
 
-                    RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) city.getLayoutParams();
+                    RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) arrivalCity.getLayoutParams();
                     lp.addRule(RelativeLayout.CENTER_HORIZONTAL);
-                    city.setLayoutParams(lp);
+                    arrivalCity.setLayoutParams(lp);
                 }
 
                 //if keyboard is open, close it.
-                EditText edtSearch = (EditText) findViewById(R.id.et_search);
-                InputMethodManager imm = (InputMethodManager) getApplicationContext().getSystemService(INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(edtSearch.getWindowToken(), 0);
+                /*EditText edtSearch = (EditText) view.findViewById(R.id.et_search);
+                InputMethodManager imm = (InputMethodManager) getActivity().getApplicationContext()
+                        .getSystemService(MainActivity.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(edtSearch.getWindowToken(), 0);*/
 
                 hideSearchFlightAndShowViews();
                 return;
@@ -566,11 +702,11 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
         // The adapter is responsible for maintaining the data backing this nameList and for producing
         // a view to represent an item in that data set.
 
-        adapter = new SearchAdapter(this, airportData);
+        adapter = new SearchAdapter(getActivity(), airportData);
         listView.setAdapter(adapter);
-        progressBar = (ProgressBar) findViewById(R.id.pb_search);
+        progressBar = (ProgressBar) view.findViewById(R.id.pb_search);
 
-        final EditText note = (EditText) findViewById(R.id.et_search);
+        final EditText note = (EditText) view.findViewById(R.id.et_search);
         note.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -593,7 +729,8 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    InputMethodManager mgr = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+                    InputMethodManager mgr = (InputMethodManager) getActivity().
+                            getSystemService(MainActivity.INPUT_METHOD_SERVICE);
                     mgr.hideSoftInputFromWindow(v.getWindowToken(), 0);
                     performSearch(note.getText().toString());
                 }
@@ -632,7 +769,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
                         }
                     if (adapter != null && listView != null) {
                         adapter.notifyDataSetChanged();
-                        listView.setEmptyView(findViewById(R.id.emptyElement));
+                        listView.setEmptyView(getView().findViewById(R.id.emptyElement));
                     }
                 }
             }
@@ -667,9 +804,9 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
         //SET TEXTS FOR DEPARTURE DATE
         TextView textViewDepartDay, textViewDepartMonth, textViewDepartYear;
 
-        textViewDepartDay = (TextView) findViewById(R.id.textDepartureDay);
-        textViewDepartMonth = (TextView) findViewById(R.id.textDepartureMonth);
-        textViewDepartYear = (TextView) findViewById(R.id.textDepartureYear);
+        textViewDepartDay = (TextView) getView().findViewById(R.id.textDepartureDay);
+        textViewDepartMonth = (TextView) getView().findViewById(R.id.textDepartureMonth);
+        textViewDepartYear = (TextView) getView().findViewById(R.id.textDepartureYear);
 
         textViewDepartDay.setText(Util.Day_Formatter.format(dateBegin).toUpperCase());
         textViewDepartMonth.setText(Util.M_Formatter.format(dateBegin).toUpperCase());
@@ -677,9 +814,9 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
         //SET TEXTS FOR RETURN DATE
         TextView textViewReturnDay, textViewReturnMonth, textViewReturnYear;
 
-        textViewReturnDay = (TextView) findViewById(R.id.textReturnDay);
-        textViewReturnMonth = (TextView) findViewById(R.id.textReturnMonth);
-        textViewReturnYear = (TextView) findViewById(R.id.textReturnYear);
+        textViewReturnDay = (TextView) getView().findViewById(R.id.textReturnDay);
+        textViewReturnMonth = (TextView) getView().findViewById(R.id.textReturnMonth);
+        textViewReturnYear = (TextView) getView().findViewById(R.id.textReturnYear);
 
         if (dateEnd != null) {//Round Trip
             paramArriveDate = Util.Bookings_Formatter.format(dateEnd);
@@ -692,7 +829,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
             yearReturn.setVisibility(View.VISIBLE);
 
             //Margin Right for LinearLayout
-            LinearLayout llyReturnDate = (LinearLayout) findViewById(R.id.llyReturnDate);
+            LinearLayout llyReturnDate = (LinearLayout) getView().findViewById(R.id.llyReturnDate);
             RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) llyReturnDate.getLayoutParams();
             params.rightMargin = (int) (16f * this.getResources().getDisplayMetrics().density);
             llyReturnDate.setLayoutParams(params);
@@ -732,12 +869,13 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
 
             } else {
 
-                Intent intent = new Intent(this, FlightsSearchActivity.class);
-                intent.putExtra("trip", paramTrip);
-                intent.putExtra("cabin", paramCabin);
-                intent.putExtra("adult", paramAdults);
-                intent.putExtra("children", paramChildren);
-                intent.putExtra("infant", paramInfants);
+                //Intent intent = new Intent(getActivity(), .class);
+                Bundle extraData = new Bundle();
+                extraData.putInt("trip", paramTrip);
+                extraData.putInt("cabin", paramCabin);
+                extraData.putInt("adult", paramAdults);
+                extraData.putInt("children", paramChildren);
+                extraData.putInt("infant", paramInfants);
                 if (paramDepartDate.equals("")){
                     //Log.d("Sergio","Entra al vacio");
                     Calendar now = Calendar.getInstance();
@@ -745,12 +883,12 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
                     paramDepartDate = Util.Bookings_Formatter.format(today);
                     //Log.d("Sergio", String.valueOf(paramDepartDate));
                 }
-                intent.putExtra("departOn", paramDepartDate);
-                intent.putExtra("arriveOn", paramArriveDate);
-                intent.putExtra("departFrom", paramDepartFrom);
-                intent.putExtra("arriveAt", paramArriveAt);
-                intent.putExtra("arriveAtName", paramArriveAtName);
-                intent.putExtra("departFromName", paramDepartFromName);
+                extraData.putString("departOn", paramDepartDate);
+                extraData.putString("arriveOn", paramArriveDate);
+                extraData.putString("departFrom", paramDepartFrom);
+                extraData.putString("arriveAt", paramArriveAt);
+                extraData.putString("arriveAtName", paramArriveAtName);
+                extraData.putString("departFromName", paramDepartFromName);
 
                 /*Log.d("trip", String.valueOf(paramTrip));
                 Log.d("cabin", String.valueOf(paramCabin));
@@ -764,16 +902,25 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
                 Log.d("arriveAtName", String.valueOf(paramArriveAtName));
                 Log.d("departFromName", String.valueOf(paramDepartFromName));*/
 
-                startActivity(intent);
+                //startActivity(intent);
+
+                extraData.putString(WebFragment.STARTER_VIEW, this.getClass().getName());
+                extraData.putString(WebFragment.WEB_TITLE, getString(R.string.title_flight_results));
+                extraData.putString(WebFragment.LOADING_URL, Constants.getSearchFlightsUrl());
+                extraData.putBoolean(WebFragment.CAN_RETURN, true);
+
+                WebFragment fragmentSearchFlights = new WebFragment();
+                fragmentSearchFlights.setArguments(extraData);
+                ((MainActivity) getActivity()).replaceLayout(fragmentSearchFlights, false);
             }
         }
     }
 
     public void onCabinEconomy(View view) {
 
-        economy.setTypeface(Typeface.createFromAsset(getAssets(),getString(R.string.font_muli_light)));
-        business.setTypeface(Typeface.createFromAsset(getAssets(),getString(R.string.font_muli)));
-        first.setTypeface(Typeface.createFromAsset(getAssets(),getString(R.string.font_muli)));
+        economy.setTypeface(Typeface.createFromAsset(getActivity().getAssets(),getString(R.string.font_muli_light)));
+        business.setTypeface(Typeface.createFromAsset(getActivity().getAssets(),getString(R.string.font_muli)));
+        first.setTypeface(Typeface.createFromAsset(getActivity().getAssets(),getString(R.string.font_muli)));
 
         paramCabin = 0;
         setButtonAttributes(economy, R.drawable.round_corner_white_border_magenta, R.color.ThirdSelectorButtonTitle_text);
@@ -783,9 +930,9 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
 
     public void onCabinBusiness(View view) {
 
-        economy.setTypeface(Typeface.createFromAsset(getAssets(),getString(R.string.font_muli)));
-        business.setTypeface(Typeface.createFromAsset(getAssets(),getString(R.string.font_muli_light)));
-        first.setTypeface(Typeface.createFromAsset(getAssets(),getString(R.string.font_muli)));
+        economy.setTypeface(Typeface.createFromAsset(getActivity().getAssets(),getString(R.string.font_muli)));
+        business.setTypeface(Typeface.createFromAsset(getActivity().getAssets(),getString(R.string.font_muli_light)));
+        first.setTypeface(Typeface.createFromAsset(getActivity().getAssets(),getString(R.string.font_muli)));
 
         paramCabin = 1;
         setButtonAttributes(economy, R.drawable.round_corner_transparent_fix, R.color.ThirdSelectorButtonNormal_text);
@@ -795,9 +942,9 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
 
     public void onCabinFirst(View view) {
 
-        economy.setTypeface(Typeface.createFromAsset(getAssets(),getString(R.string.font_muli)));
-        business.setTypeface(Typeface.createFromAsset(getAssets(),getString(R.string.font_muli)));
-        first.setTypeface(Typeface.createFromAsset(getAssets(),getString(R.string.font_muli_light)));
+        economy.setTypeface(Typeface.createFromAsset(getActivity().getAssets(),getString(R.string.font_muli)));
+        business.setTypeface(Typeface.createFromAsset(getActivity().getAssets(),getString(R.string.font_muli)));
+        first.setTypeface(Typeface.createFromAsset(getActivity().getAssets(),getString(R.string.font_muli_light)));
 
         paramCabin = 2;
         setButtonAttributes(economy, R.drawable.round_corner_transparent_fix, R.color.ThirdSelectorButtonNormal_text);
@@ -807,14 +954,15 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
 
     public void onRoundTrip(View view) {
 
-        round = (Button) findViewById(R.id.btn_roundtrip);
-        oneWay = (Button) findViewById(R.id.btn_oneway);
+        round = (Button) view.findViewById(R.id.btn_roundtrip);
+        oneWay = (Button) view.findViewById(R.id.btn_oneway);
 
         paramTrip = 0;
+
         setButtonAttributes(round, R.drawable.round_corner_magenta, R.color.DoubleSelectorButtonSelected_text);
         setButtonAttributes(oneWay, R.drawable.round_corner_transparent_for_type_of_trip_fix, R.color.DoubleSelectorButtonNormal_text);
         //Change Arrive Date
-        TextView textReturnDay = (TextView) findViewById(R.id.textReturnDay);
+        TextView textReturnDay = (TextView) view.findViewById(R.id.textReturnDay);
         textReturnDay.setText(R.string.txt_select_date);
         textReturnDay.setTextSize(22);
 
@@ -823,7 +971,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
         yearReturn.setVisibility(View.GONE);
 
         //Margin Right for LinearLayout
-        LinearLayout llyReturnDate = (LinearLayout) findViewById(R.id.llyReturnDate);
+        LinearLayout llyReturnDate = (LinearLayout) view.findViewById(R.id.llyReturnDate);
         RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) llyReturnDate.getLayoutParams();
         params.rightMargin = (int) (16f * this.getResources().getDisplayMetrics().density);
         llyReturnDate.setLayoutParams(params);
@@ -831,8 +979,8 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
     }
 
     public void onOneWay(View view) {
-        Button round = (Button) findViewById(R.id.btn_roundtrip);
-        Button oneWay = (Button) findViewById(R.id.btn_oneway);
+        //Button round = (Button) view.findViewById(R.id.btn_roundtrip);
+        //Button oneWay = (Button) view.findViewById(R.id.btn_oneway);
 
         paramTrip = 1;
         setButtonAttributes(round, R.drawable.round_corner_transparent_for_type_of_trip_fix, R.color.DoubleSelectorButtonNormal_text);
@@ -841,7 +989,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
         //Change Arrive Date
         TextView textView;
         paramArriveDate = "";
-        textView = (TextView) findViewById(R.id.textReturnDay);
+        textView = (TextView) view.findViewById(R.id.textReturnDay);
         textView.setText(R.string.one_way_type);
         textView.setTextColor(getResources().getColor(R.color.gray));
         textView.setTextSize(TEXT_ONE_WAY_SIZE);
@@ -857,10 +1005,10 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
 
     public void onFlip(View view) {
 
-        TextView fromAirport = (TextView) findViewById(R.id.tv_depart_airport);
-        TextView toAirport = (TextView) findViewById(R.id.tv_arriving_airport);
-        TextView fromCity = (TextView) findViewById(R.id.tv_city_departure);
-        TextView toCity = (TextView) findViewById(R.id.tv_city_arrival);
+        TextView fromAirport = (TextView) view.findViewById(R.id.tv_depart_airport);
+        TextView toAirport = (TextView) view.findViewById(R.id.tv_arriving_airport);
+        TextView fromCity = (TextView) view.findViewById(R.id.tv_city_departure);
+        TextView toCity = (TextView) view.findViewById(R.id.tv_city_arrival);
 
         String cityFrom = fromCity.getText().toString();
         String cityTo = toCity.getText().toString();
@@ -882,7 +1030,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
     }
 
     public void onClearSearch(View view) {
-        TextView search = (TextView) findViewById(R.id.et_search);
+        TextView search = (TextView) view.findViewById(R.id.et_search);
         search.setText("");
     }
 
@@ -904,7 +1052,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
     }
 
     public void onalertDialogDateNotSelected() {
-        final Dialog dialog = new Dialog(this);
+        final Dialog dialog = new Dialog(getActivity());
         dialog.setContentView(R.layout.custom_alert_dialog_date_not_selected);
         dialog.show();
 
@@ -919,7 +1067,7 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
 
     public void onalertDialogDepartureOrArriveNotSelected() {
 
-        final Dialog dialog = new Dialog(this);
+        final Dialog dialog = new Dialog(getActivity());
         dialog.setContentView(R.layout.custom_alert_dialog_city_not_selected);
         dialog.show();
 
@@ -934,15 +1082,15 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
 
     public void onAlertDialogNumberPicker(View view) {
 
-        final Dialog dialog = new Dialog(this);
+        final Dialog dialog = new Dialog(getActivity());
         dialog.setContentView(R.layout.custom_number_picker_dialog);
         dialog.show();
         adultsPicker = (NumberPicker) dialog.findViewById(R.id.adultsNumberPicker);
         childrenPicker = (NumberPicker) dialog.findViewById(R.id.childrenNumberPicker);
         infantsPicker = (NumberPicker) dialog.findViewById(R.id.infantsNumberPicker);
-        TextView textAdults = (TextView) findViewById(R.id.adultsTextView);
-        TextView textChildren = (TextView) findViewById(R.id.childrenTextView);
-        TextView textInfants = (TextView) findViewById(R.id.infantsTextView);
+        TextView textAdults = (TextView) view.findViewById(R.id.adultsTextView);
+        TextView textChildren = (TextView) view.findViewById(R.id.childrenTextView);
+        TextView textInfants = (TextView) view.findViewById(R.id.infantsTextView);
 
         paramString = String.valueOf(textAdults.getText());
         int adults = Integer.parseInt(paramString);
@@ -978,9 +1126,9 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
     //Update TextViews with new results
     public void updateTextsOfPassengers() {
 
-        TextView textAdults = (TextView) findViewById(R.id.adultsTextView);
-        TextView textChildren = (TextView) findViewById(R.id.childrenTextView);
-        TextView textInfants = (TextView) findViewById(R.id.infantsTextView);
+        TextView textAdults = (TextView) getView().findViewById(R.id.adultsTextView);
+        TextView textChildren = (TextView) getView().findViewById(R.id.childrenTextView);
+        TextView textInfants = (TextView) getView().findViewById(R.id.infantsTextView);
         textAdults.setText(String.valueOf(adultsPicker.getValue()));
         textChildren.setText(String.valueOf(childrenPicker.getValue()));
         textInfants.setText(String.valueOf(infantsPicker.getValue()));
@@ -991,8 +1139,9 @@ public class FlightsActivity extends FrontBackAnimate implements FrontBackAnimat
     public void onGetUpAnimationFlights() {
         hideSearchFlightAndShowViews();
         //if keyboard is open, close it.
-        EditText edtSearch = (EditText) findViewById(R.id.et_search);
-        InputMethodManager imm = (InputMethodManager) this.getSystemService(INPUT_METHOD_SERVICE);
+        EditText edtSearch = (EditText) getView().findViewById(R.id.et_search);
+        InputMethodManager imm = (InputMethodManager) getActivity().
+                getSystemService(MainActivity.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(edtSearch.getWindowToken(), 0);
 
     }

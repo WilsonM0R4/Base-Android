@@ -1,8 +1,8 @@
 package com.allegra.handyuvisa;
 
+import android.app.Fragment;
 import android.graphics.Bitmap;
 import android.graphics.drawable.AnimationDrawable;
-import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
@@ -15,9 +15,9 @@ import com.allegra.handyuvisa.views.NetworkIssueDialog;
  */
 
 //Flexible to extend other activity
-public abstract class WebViewActivity extends FrontBackAnimate implements SecureBrowser.OnSecureBroswerHandler {
+public abstract class WebViewActivity extends Fragment implements SecureBrowser.OnSecureBroswerHandler {
 
-    //any WebView related activitiy is suggested to put it's webView here
+    //any WebView related activity is suggested to put it's webView here
     //Please remember to Add
     protected WebView mWebView;
     // must be setup with setupLoadingView() to avoid crash
@@ -41,7 +41,9 @@ public abstract class WebViewActivity extends FrontBackAnimate implements Secure
 
     @Override
     public void onSslErrorReceivedHandlerCancelled() {
-        onHome(null);
+        //*** onHome(null);
+        //temporal change
+        ((MainActivity) getActivity()).replaceLayout(new FrontFragment(), true);
     }
 
     @Override
@@ -85,7 +87,7 @@ public abstract class WebViewActivity extends FrontBackAnimate implements Secure
 
     //TODO: Should be utilizing errorcode from onReceiveError
     public void showNetworkIssueDialog(int errorCode) {
-        final NetworkIssueDialog errorDialog = new NetworkIssueDialog(this, R.style.ErrorDialog_Theme);
+        final NetworkIssueDialog errorDialog = new NetworkIssueDialog(getActivity(), R.style.ErrorDialog_Theme);
         errorDialog.setErrorCode(R.string.idErrorCodeAB003);
         errorDialog.getButton().setOnClickListener(new View.OnClickListener() {
             @Override

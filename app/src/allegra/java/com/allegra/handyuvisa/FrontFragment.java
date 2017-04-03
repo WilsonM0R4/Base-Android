@@ -10,6 +10,7 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Surface;
 import android.view.TextureView;
@@ -21,6 +22,7 @@ import com.allegra.handyuvisa.models.AllemUser;
 import com.allegra.handyuvisa.models.Notifications;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.KeySaver;
+import com.allegra.handyuvisa.utils.NavigationCallback;
 import com.allegra.handyuvisa.utils.Util;
 
 import org.json.JSONException;
@@ -55,6 +57,18 @@ public class FrontFragment extends Fragment implements
         } else {
             rootView = inflater.inflate(R.layout.fragment_front, container, false);
         }
+        ((MainActivity) getActivity()).statusBarVisibility(true);
+
+
+
+        TextureView textureView = (TextureView)rootView.findViewById(R.id.front_video);
+        textureView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((FragmentMain) getParentFragment()).animate();
+            }
+        });
+
         return rootView;
     }
 
@@ -75,6 +89,41 @@ public class FrontFragment extends Fragment implements
             current.setText(Util.getFormattedTime());
 
         }
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState){
+        super.onViewCreated(view, savedInstanceState);
+
+        View login, register;
+
+        login = view.findViewById(R.id.login);
+        register = view.findViewById(R.id.register);
+
+        if(login!=null && register!=null){
+            view.findViewById(R.id.login).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Log.e("Front", "login pressed");
+
+                    LoginActivity login = new LoginActivity();
+
+                    ((FragmentMain) getParentFragment()).replaceLayout(
+                            new LoginActivity(), false);
+                }
+            });
+
+            view.findViewById(R.id.register).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ((FragmentMain) getParentFragment()).replaceLayout(new LoginNewUser(), false);
+                }
+            });
+        }
+
+        ((FragmentMain) getParentFragment()).configToolbar(true, 0, "");
+
     }
 
     @Override
@@ -181,6 +230,5 @@ public class FrontFragment extends Fragment implements
 
       //  }
     }
-
 }
 

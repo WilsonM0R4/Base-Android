@@ -13,30 +13,29 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:layout_marginBottom="20dp"
+        android:layout_marginTop="30dp"
         android:gravity="center_vertical">
 
         <ImageButton
+            android:id="@+id/iv_home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:src="@drawable/menu__home"
-            android:background="@android:color/transparent"
-            android:id="@+id/iv_home"
-            android:onClick="onHome"
             android:layout_centerVertical="true"
-            />
+            android:layout_marginLeft="16dp"
+            android:background="@android:color/transparent"
+            android:onClick="onHome"
+            android:src="@drawable/menu__home" />
+
         <ImageView
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:src="@drawable/allegra_logo"
-            />
+            android:src="@drawable/allegra_logo" />
 
     </RelativeLayout>
 
-        <LinearLayout
+    <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"

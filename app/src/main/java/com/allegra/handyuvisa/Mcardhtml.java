@@ -3,7 +3,9 @@ package com.allegra.handyuvisa;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
@@ -17,7 +19,7 @@ import com.allem.onepocket.utils.OPKConstants;
 /**
  * Created by jsandoval on 10/06/16.
  */
-public class Mcardhtml extends WebViewActivity implements FrontBackAnimate.InflateReadyListener {
+public class Mcardhtml extends WebViewActivity {
 
     private ProgressBar progressBar;
     private ImageButton arrowBack, arrowF;
@@ -30,15 +32,30 @@ public class Mcardhtml extends WebViewActivity implements FrontBackAnimate.Infla
     //private String url = "http://allegra.global/membresias/planes/";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setView(R.layout.fragment_mcard_html, this);
-        AllemUser user = Constants.getUser(this);
+        //setView(R.layout.fragment_mcard_html, this);
+        AllemUser user = Constants.getUser(getActivity()); //getActivity() is temporal
         userEmail = user.email;
+        ((MainActivity) getActivity()).statusBarVisibility(false);
+    }
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        super.onCreateView(inflater, container, savedInstanceState);
+        return inflater.inflate(R.layout.fragment_mcard_html, container, false);
     }
 
     @Override
+    public void onViewCreated(View view, Bundle savedInstanceState){
+        super.onViewCreated(view, savedInstanceState);
+
+        initViews(view);
+    }
+
+
     public void initViews(View root) {
 
         menu = (ImageButton) root.findViewById(R.id.menu_image);
@@ -46,6 +63,13 @@ public class Mcardhtml extends WebViewActivity implements FrontBackAnimate.Infla
         arrowBack = (ImageButton) root.findViewById(R.id.arrow_back_mcard);
         arrowF = (ImageButton) root.findViewById(R.id.arrow_foward_mcard);
         progressBar = (ProgressBar) root.findViewById(R.id.progressBar);
+
+        menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity) getActivity()).animate();
+            }
+        });
 
         arrowBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,14 +91,14 @@ public class Mcardhtml extends WebViewActivity implements FrontBackAnimate.Infla
     }
 
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
         loadWebView();
         /*loadWebViewOnepocket();*/
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         if (requestCode == Constants.REQUEST_ONEPOCKET_RETURN) {
             if (data != null) {
@@ -91,28 +115,31 @@ public class Mcardhtml extends WebViewActivity implements FrontBackAnimate.Infla
 
     private void loadWebView() {
         //url="http://alegra.dracobots.com/Hotel/Flow/Availability?";
-        mWebView.addJavascriptInterface(new AppJavaScriptProxyProof(this), "androidProxy");
+        mWebView.addJavascriptInterface(new AppJavaScriptProxyProof(getActivity()),
+                "androidProxy"); // getActivity() is temporal
         mWebView.loadUrl(url_prod+userEmail);
     }
 
 
     public void openOnePocket(){
 
-        Intent intent = new Intent(Mcardhtml.this, OnepocketPurchaseActivity.class);
+        /*** temporally commented ***/
+
+        /*Intent intent = new Intent(Mcardhtml.this, OnepocketPurchaseActivity.class);
         Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(this), onePocketmessage, OPKConstants.TYPE_MCARD, (com.allegra.handyuvisa.VisaCheckoutApp) getApplication());
         intent.putExtras(bundle);
-        startActivityForResult(intent, Constants.REQUEST_ONEPOCKET_RETURN);
+        startActivityForResult(intent, Constants.REQUEST_ONEPOCKET_RETURN);*/
     }
 
     public void goToProof(){
-        Context context=this;
+        Context context=this.getActivity().getApplicationContext(); //this.getActivity().getApplicationContext() is temporal
         Intent intent = new Intent(context, ProofOfCoverageDinamicoActivity.class);
         context.startActivity(intent);
 
     }
 
     public void onMenu(View view) {
-        animate();
+        ((MainActivity) getActivity()).animate();
     }
 
     public void setupWebView(View root) {
@@ -132,7 +159,9 @@ public class Mcardhtml extends WebViewActivity implements FrontBackAnimate.Infla
     }
 
     public boolean onShouldOverrideUrlLoading(WebView webView, String url) {
-        if (url.equals("allegra:touchcall")) {
+
+        /** temporally commented **/
+        /*if (url.equals("allegra:touchcall")) {
             Intent i = new Intent(this, CallActivity.class);
             this.startActivity(i);
             return true;
@@ -140,7 +169,7 @@ public class Mcardhtml extends WebViewActivity implements FrontBackAnimate.Infla
             Intent i = new Intent(this,ChatActivity.class);
             this.startActivity(i);
             return true;
-        }
+        }*/
         return super.onShouldOverrideUrlLoading(webView, url);
     }
 

@@ -5,7 +5,9 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.allegra.handyuvisa.utils.Constants;
 import com.allem.onepocket.BackHandler;
@@ -19,7 +21,7 @@ import com.allem.onepocket.utils.OPKConstants;
 import java.util.Stack;
 
 
-public class OnepocketContainerActivity extends FrontBackAnimate  implements FrontBackAnimate.InflateReadyListener {
+public class OnepocketContainerActivity extends Fragment {
 
     private static final String TAG = "OPK_ContainerActivity";
     private static final int REQUEST_CALL = 1;
@@ -29,18 +31,33 @@ public class OnepocketContainerActivity extends FrontBackAnimate  implements Fro
     private Stack<Fragment> stack = new Stack<>();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        checkLogin();
 
-        super.setView(R.layout.activity_onepocket_container, this);
-        initCallBack();
+
+
+        //super.setView(R.layout.activity_onepocket_container, this);
+
 
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        super.onCreateView(inflater, container, savedInstanceState);
+        return inflater.inflate(R.layout.activity_onepocket_container, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedIsntanceState){
+
+        ((MainActivity) getActivity()).statusBarVisibility(false);
+        initViews(view);
+        checkLogin();
+        initCallBack();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         if (OPKConstants.oneTransaction != null && data != null) {
             String result = data.getStringExtra(OPKConstants.EXTRA_RESULT);
@@ -67,8 +84,8 @@ public class OnepocketContainerActivity extends FrontBackAnimate  implements Fro
 //    }
 
     private void addFragment(Fragment fragment) {
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        Fragment currentTop = getFragmentManager().findFragmentById(R.id.opk_top);
+        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+        Fragment currentTop = getChildFragmentManager().findFragmentById(R.id.opk_top);
         transaction.hide(currentTop);
 
         for (Fragment f : stack) {
@@ -81,19 +98,20 @@ public class OnepocketContainerActivity extends FrontBackAnimate  implements Fro
 
     }
 
-    @Override
+
     public void initViews(View root) {
-        OneTransaction oneTransaction = getIntent().getParcelableExtra(OPKConstants.EXTRA_DATA);
+        OneTransaction oneTransaction = getArguments().getParcelable (OPKConstants.EXTRA_DATA);
         if (oneTransaction == null) {
+            Log.e("OPK", "null data");
             return;
         }
 
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
         onePocket = new OPKSummaryFragment();
         Bundle bundle = new Bundle();
         bundle.putParcelable(OPKConstants.EXTRA_DATA, oneTransaction);
         onePocket.setArguments(bundle);
-        transaction.add(R.id.opk_top, onePocket);
+        transaction.replace(R.id.opk_top, onePocket);
 
 //        // initialize with summary
 //        summary = new SummaryFragment();
@@ -102,16 +120,16 @@ public class OnepocketContainerActivity extends FrontBackAnimate  implements Fro
 
     }
 
-    @Override
-    public void onBackPressed() {
 
-    }
+    /*public void onBackPressed() {
+
+    }*/
 
     private void checkLogin() {
-        if(((com.allegra.handyuvisa.VisaCheckoutApp)this.getApplication()).getIdSession()==null){
-            Intent i =new Intent(OnepocketContainerActivity.this, LoginActivity.class);
-            this.startActivityForResult(i, Constants.ONE_POCKET_NEEDS_LOGIN);
-            finish();
+        if(((com.allegra.handyuvisa.VisaCheckoutApp)getActivity().getApplication()).getIdSession()==null){
+            Intent i =new Intent(getActivity(), LoginActivity.class);
+            startActivityForResult(i, Constants.ONE_POCKET_NEEDS_LOGIN);
+
         }
     }
 
@@ -124,7 +142,7 @@ public class OnepocketContainerActivity extends FrontBackAnimate  implements Fro
                     addFragment(fragment);
                 } else {
                     // clear the stack
-                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
                     while (!stack.isEmpty()) {
                         Fragment top = stack.pop();
                         transaction.remove(top);
@@ -145,7 +163,7 @@ public class OnepocketContainerActivity extends FrontBackAnimate  implements Fro
                 Fragment currentTop = stack.get(size - 1);
                 Fragment confirm = stack.get(size - 2);
                 confirm.getArguments().putParcelable(OPKConstants.EXTRA_RESULT, bundle);
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
                 transaction.remove(currentTop);
                 transaction.detach(confirm).attach(confirm).show(confirm);
                 transaction.commit();
@@ -157,9 +175,13 @@ public class OnepocketContainerActivity extends FrontBackAnimate  implements Fro
             public void perform(int i, String onePocketmessage) {
                 switch (i) {
                     case 0:
-                        Intent i1 = new Intent(OnepocketContainerActivity.this, OnepocketPurchaseActivity.class);
+                        Intent i1 = new Intent(getActivity(), OnepocketPurchaseActivity.class);
 
-                        Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(OnepocketContainerActivity.this), onePocketmessage, OPKConstants.TYPE_MCARD, (com.allegra.handyuvisa.VisaCheckoutApp) getApplication());
+                        Bundle bundle = Constants.createPurchaseBundle(
+                                Constants.getUser(getActivity()),
+                                onePocketmessage,
+                                OPKConstants.TYPE_MCARD,
+                                (com.allegra.handyuvisa.VisaCheckoutApp) getActivity().getApplication());
                         i1.putExtras(bundle);
                         startActivityForResult(i1, 2);
                         break;
@@ -169,8 +191,13 @@ public class OnepocketContainerActivity extends FrontBackAnimate  implements Fro
                         break;
 
                     case 3:
-                        Intent poc = new Intent(OnepocketContainerActivity.this, ProofOfCoverageDinamicoActivity.class);
-                        startActivity(poc);
+
+                        ((MainActivity) getActivity()).replaceLayout(
+                                new ProofOfCoverageDinamicoActivity(),
+                                false);
+
+                        /*Intent poc = new Intent(getActivity(), ProofOfCoverageDinamicoActivity.class);
+                        startActivity(poc);*/
                         break;
                 }
 
@@ -180,7 +207,7 @@ public class OnepocketContainerActivity extends FrontBackAnimate  implements Fro
         RegisterCallback.registerMenu(new MenuHandler() {
             @Override
             public void handle() {
-                animate();
+                ((MainActivity) getActivity()).animate();
             }
         });
 
@@ -188,7 +215,7 @@ public class OnepocketContainerActivity extends FrontBackAnimate  implements Fro
             @Override
             public void handle() {
                 if (!stack.empty()) {
-                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
                     Fragment top = stack.pop();
                     transaction.remove(top);
                     if (!stack.empty()) {
@@ -198,7 +225,8 @@ public class OnepocketContainerActivity extends FrontBackAnimate  implements Fro
                     }
                     transaction.commit();
                 } else {
-                    onUp(null);
+                    Log.e("OPK", "stack is empty");
+                    //onUp(null);
                 }
 
             }

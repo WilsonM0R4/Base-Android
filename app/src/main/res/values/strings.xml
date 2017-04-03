@@ -686,7 +686,6 @@
     <string name="txtWalktroughFooter">IATAI</string>
 
 
-
     <!--ERROR HANDLING-->
     <string name="error_ok">OK</string>
     <string name="txt_error_code">ERROR CODE: </string>
@@ -701,4 +700,7 @@
     <string name="idErrorCodeAB004">AB004</string>
     <string name="idErrorCodeAB005">AB005</string>
     <string name="idErrorCodeAB0051">AB0051</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

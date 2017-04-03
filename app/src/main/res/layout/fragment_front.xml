@@ -13,8 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/front_video"
-        android:gravity="fill"
-        android:onClick="ClickMe"/>
+        android:gravity="fill" />
 
     <RelativeLayout
         android:layout_width="match_parent"

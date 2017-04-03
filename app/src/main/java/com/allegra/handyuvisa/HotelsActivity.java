@@ -1,6 +1,7 @@
 package com.allegra.handyuvisa;
 
 import android.app.Dialog;
+import android.app.Fragment;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -43,7 +44,7 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 
-public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimate.InflateReadyListener  {
+public class HotelsActivity extends Fragment {
 
     public static final int REQUEST_CODE_DESTINATION = 1;
     private static final int MINIMUN_AGE_CHILDREN= 2, MAXIMUM_AGE_CHILDREN= 11, MAXIMUM_GUESS_IN_ROOM= 7;
@@ -114,24 +115,38 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
     //OVERRIDE METHODS
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setView(R.layout.fragment_hotels, this);
+        //setView(R.layout.fragment_hotels, this);
         MyBus.getInstance().register(this);
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        super.onCreateView(inflater, container, savedInstanceState);
+        ((MainActivity) getActivity()).statusBarVisibility(false);
+        return inflater.inflate(R.layout.fragment_hotels, container, false);
     }
 
     @Override
+    public void onViewCreated(View view, Bundle savedInstanceState){
+        super.onViewCreated(view, savedInstanceState);
+
+        initViews(view);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+
     public void initViews(View root) {
         initializePanels(root);
     }
 
     @Override
-    protected void onDestroy() {
+    public void onDestroy() {
         MyBus.getInstance().unregister(this);
         super.onDestroy();
     }
@@ -182,6 +197,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
         checkOut.setText("CHECKOUT");
         setDateSelector();
 
+
         roomsHeader = view.findViewById(R.id.relHeaderCancelAndSave);
         roomsGuestHeader = view.findViewById(R.id.magentaHeaderRooms);
         roomsGuestHeader.setVisibility(View.VISIBLE);
@@ -190,7 +206,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
         searchButton = (Button) view.findViewById(R.id.btn_search);
         roomsResume = roomsLayout.findViewById(R.id.show_resume_rooms);
 
-        searchButton.setTypeface(Typeface.createFromAsset(getAssets(),getString(R.string.font_muli)));
+        searchButton.setTypeface(Typeface.createFromAsset(getActivity().getAssets(),getString(R.string.font_muli)));
         addRoomOptionPanel = (LinearLayout) view.findViewById(R.id.add_room_option);
         addRoomsBtn = (LinearLayout) view.findViewById(R.id.add_room_option);
         roomsContainer = (LinearLayout) view.findViewById(R.id.rooms_container);
@@ -223,7 +239,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
 
             }
         });
-        layoutInflater = (LayoutInflater)this.getSystemService(LAYOUT_INFLATER_SERVICE);
+        layoutInflater = (LayoutInflater)getActivity().getSystemService(MainActivity.LAYOUT_INFLATER_SERVICE);
 
         addRoomsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -233,9 +249,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
             }
         });
 
-        listenerForCancelRoomsHotel(view);
-
-        listenerForSaveRoomsHotel(view);
+        setListeners(view);
 
         //Fix a bug
         ImageView imgDestinationText = (ImageView)view.findViewById(R.id.selec_destination);
@@ -246,6 +260,25 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
             }
         });
 
+    }
+
+    private void setListeners(final View rootView){
+        listenerForCancelRoomsHotel(rootView);
+        listenerForSaveRoomsHotel(rootView);
+
+        datesLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onGetSchedule(rootView);
+            }
+        });
+
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onSearchHotels();
+            }
+        });
     }
 
     public void listenerForSaveRoomsHotel(final View mView){
@@ -328,7 +361,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
 
         if (!enterToCancelRoomsSelector){//Show value for respective adults, children and infants
 
-            TextView textRoomsForEachGuest = (TextView) findViewById(R.id.room_title);
+            TextView textRoomsForEachGuest = (TextView) getView().findViewById(R.id.room_title);
             String numberOfRooms = "", numberOfAdults= "", numberOfChildren = "", numberOfInfants = "";
             //Validate numberOfRooms
             //PERSIST
@@ -364,7 +397,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
             textRoomsForEachGuest.setText(numberOfRooms+numberOfAdults+numberOfChildren+numberOfInfants);
 
         } else {//Default values
-            TextView textRoomsForEachGuest = (TextView) findViewById(R.id.room_title);
+            TextView textRoomsForEachGuest = (TextView) getView().findViewById(R.id.room_title);
           /*  Log.d("Total Rooms TEst",String.valueOf(paramRoomsTotal));
             Log.d("paramAdultsTotal TEst",String.valueOf(paramAdultsTotal));
             Log.d("paramChildrenTotal TEst",String.valueOf(paramChildrenTotal));
@@ -420,14 +453,14 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
         roomsLayout.setVisibility(View.GONE);
         headerSeparator.setVisibility(View.GONE);
 
-        roomsLayoutForSelect = findViewById(R.id.header_for_select);
+        roomsLayoutForSelect = getView().findViewById(R.id.header_for_select);
         roomsLayoutForSelect.setVisibility(View.VISIBLE);
         addRoomOptionPanel.setVisibility(View.VISIBLE);
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_OK) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == MainActivity.RESULT_OK) {
             if (requestCode == REQUEST_CODE_DESTINATION) {
                 paramDestination = data.getStringExtra(IATA);
                 paramDestinationName = data.getStringExtra("NameCity");
@@ -446,8 +479,8 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
         roomsLayout.setVisibility(View.VISIBLE);
         searchButton.setVisibility(View.VISIBLE);
         //if keyboard is open, close it.
-        EditText edtSearch = (EditText) findViewById(R.id.et_search);
-        InputMethodManager imm = (InputMethodManager)this.getSystemService(INPUT_METHOD_SERVICE);
+        EditText edtSearch = (EditText) getActivity().findViewById(R.id.et_search);
+        InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(MainActivity.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(edtSearch.getWindowToken(), 0);
 
     }
@@ -464,7 +497,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
         roomsLayout.setVisibility(View.GONE);
         searchButton.setVisibility(View.GONE);
 
-        LinearLayout linLayGetUp = (LinearLayout)findViewById(R.id.linLayGetUpAnimationFlights);
+        LinearLayout linLayGetUp = (LinearLayout) getActivity().findViewById(R.id.linLayGetUpAnimationFlights);
         linLayGetUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -474,13 +507,13 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
         });
 
         airportData = new ArrayList<>();
-        listView = (ListView)findViewById(R.id.list);
-        adapter = new SearchAdapterHotels(this, airportData);
+        listView = (ListView) getActivity().findViewById(R.id.list);
+        adapter = new SearchAdapterHotels(getActivity(), airportData);
         listView.setAdapter(adapter);
 
 
 
-        final EditText note = (EditText)findViewById(R.id.et_search);
+        final EditText note = (EditText) getView().findViewById(R.id.et_search);
         note.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -503,7 +536,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    InputMethodManager mgr = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+                    InputMethodManager mgr = (InputMethodManager) getActivity().getSystemService(MainActivity.INPUT_METHOD_SERVICE);
                     mgr.hideSoftInputFromWindow(v.getWindowToken(), 0);
                     performSearch(note.getText().toString());
                 }
@@ -531,17 +564,17 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
                 HotelsActivity.AirportData airportData = (AirportData)adapterView.getItemAtPosition(i);
                 //Log.d("List", String.valueOf(airportData.getCity())+ " "+ String.valueOf(airportData.getName()));
 
-                ImageView imgSelectDestination = (ImageView) findViewById(R.id.selec_destination);
+                ImageView imgSelectDestination = (ImageView) getActivity().findViewById(R.id.selec_destination);
                 imgSelectDestination.setVisibility(View.GONE);
-                TextView txtSElectDestination = (TextView)findViewById(R.id.txt_select_your_destination);
+                TextView txtSElectDestination = (TextView) getActivity().findViewById(R.id.txt_select_your_destination);
                 txtSElectDestination.setVisibility(View.GONE);
 
-                View linLayDestinationHotels = findViewById(R.id.ll_destination_hotels);
+                View linLayDestinationHotels = getActivity().findViewById(R.id.ll_destination_hotels);
                 linLayDestinationHotels.setVisibility(View.VISIBLE);
-                TextView txtHotelName = (TextView)findViewById(R.id.txtDestinationName);
+                TextView txtHotelName = (TextView) getActivity().findViewById(R.id.txtDestinationName);
                 txtHotelName.setText(String.valueOf(airportData.getName()));
                 paramDestination = airportData.getCodeIATA();
-                TextView txtHotelCityAndCountry = (TextView)findViewById(R.id.txtDestinationCityAndCountry);
+                TextView txtHotelCityAndCountry = (TextView) getActivity().findViewById(R.id.txtDestinationCityAndCountry);
                 txtHotelCityAndCountry.setText(String.valueOf(airportData.getName()).toUpperCase() + ", "+ String.valueOf(airportData.getCity()).toUpperCase());
                 searchLayout.setVisibility(View.GONE);
                 datesLayout.setVisibility(View.VISIBLE);
@@ -549,13 +582,13 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
                 roomsHeader.setVisibility(View.GONE);//Magenta text cancel and save buttons
                 roomsLayout.setVisibility(View.VISIBLE);
                 searchButton.setVisibility(View.VISIBLE);
-                InputMethodManager inputMethodManager = (InputMethodManager)HotelsActivity.this
-                        .getSystemService(INPUT_METHOD_SERVICE);
+                InputMethodManager inputMethodManager = (InputMethodManager)getActivity()
+                        .getSystemService(MainActivity.INPUT_METHOD_SERVICE);
                     inputMethodManager.hideSoftInputFromWindow(listView.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
             }
         });
 
-        RelativeLayout linLayDestinationHotels = (RelativeLayout)findViewById(R.id.ll_destination);//_hotels
+        RelativeLayout linLayDestinationHotels = (RelativeLayout) getActivity().findViewById(R.id.ll_destination);//_hotels
         linLayDestinationHotels.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -596,7 +629,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
 
     public void onGetSchedule(View view) {//Uses custom_date_selector_without_onclick
 
-        final Dialog dialog = new Dialog(this, android.R.style.Theme_NoTitleBar_Fullscreen);
+        final Dialog dialog = new Dialog(getActivity(), android.R.style.Theme_NoTitleBar_Fullscreen);
         dialog.setContentView(R.layout.dialog_date_picker_custom);
 
         final TextView dateBegin = (TextView) dialog.findViewById(R.id.textDepartureDayWithoutOnClick);
@@ -761,11 +794,11 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
        http://quickbooking.azurewebsites.net/Hotel/Flow/Availability?cityHotel=Miami&cityHotelHidden=MIA&roomHotel=1&adultHotel=1&childHotel=0&arrivalHotel=01%2F21%2F2016&departureHotel=01%2F24%2F2016) */
 
     //Perform call to HotelSearchActivity
-    public void onSearchHotels(View view) {
+    public void onSearchHotels() {
 
         //Get  destination initial values in order to search hotels
-        TextView destination = (TextView)findViewById(R.id.txtDestinationName);
-        TextView destinationCode = (TextView)findViewById(R.id.txtDestinationCityAndCountry);
+        TextView destination = (TextView) getView().findViewById(R.id.txtDestinationName);
+        TextView destinationCode = (TextView)getView().findViewById(R.id.txtDestinationCityAndCountry);
         paramDestinationName = destination.getText().toString();
         //paramDestination = destinationCode.getText().toString();
         //Get checkIn and checkOut initial values in order to search hotels
@@ -785,35 +818,35 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
         if (paramDestination.equals("")) {
             onalertDialogDepartureOrArriveNotSelected();
         } else {
-            Intent intent = new Intent(this, HotelSearchActivity.class);
-            intent.putExtra("&cityHotel", paramDestinationName);
-            intent.putExtra("&cityHotelHidden", paramDestination);
-            intent.putExtra("&arrivalHotel", paramCheckIn);
-            intent.putExtra("&departureHotel", paramCheckOut);
-            intent.putExtra("&roomHotel", paramRooms);
-            intent.putExtra("&adultHotel1", paramAdults);
+            Bundle bundle = new Bundle();
+            bundle.putString("&cityHotel", paramDestinationName);
+            bundle.putString("&cityHotelHidden", paramDestination);
+            bundle.putString("&arrivalHotel", paramCheckIn);
+            bundle.putString("&departureHotel", paramCheckOut);
+            bundle.putInt("&roomHotel", paramRooms);
+            bundle.putInt("&adultHotel1", paramAdults);
             paramChildren = paramChildren+paramInfants;
-            intent.putExtra("&childHotel1", paramChildren);
+            bundle.putInt("&childHotel1", paramChildren);
 
             switch(paramRooms){
 
                 case 2:
-                    intent.putExtra("&adultHotel2", paramAdults2);
-                    intent.putExtra("&childHotel2", paramChildren2+paramInfants2);
+                    bundle.putInt("&adultHotel2", paramAdults2);
+                    bundle.putInt("&childHotel2", paramChildren2+paramInfants2);
                     break;
                 case 3:
-                    intent.putExtra("&adultHotel2", paramAdults2);
-                    intent.putExtra("&childHotel2", paramChildren2+paramInfants2);
-                    intent.putExtra("&adultHotel3", paramAdults3);
-                    intent.putExtra("&childHotel3", paramChildren3+paramInfants3);
+                    bundle.putInt("&adultHotel2", paramAdults2);
+                    bundle.putInt("&childHotel2", paramChildren2+paramInfants2);
+                    bundle.putInt("&adultHotel3", paramAdults3);
+                    bundle.putInt("&childHotel3", paramChildren3+paramInfants3);
                     break;
                 case 4:
-                    intent.putExtra("&adultHotel2", paramAdults2);
-                    intent.putExtra("&childHotel2", paramChildren2+paramInfants2);
-                    intent.putExtra("&adultHotel3", paramAdults3);
-                    intent.putExtra("&childHotel3", paramChildren3+paramInfants3);
-                    intent.putExtra("&adultHotel4", paramAdults4);
-                    intent.putExtra("&childHotel4", paramChildren4+paramInfants4);
+                    bundle.putInt("&adultHotel2", paramAdults2);
+                    bundle.putInt("&childHotel2", paramChildren2+paramInfants2);
+                    bundle.putInt("&adultHotel3", paramAdults3);
+                    bundle.putInt("&childHotel3", paramChildren3+paramInfants3);
+                    bundle.putInt("&adultHotel4", paramAdults4);
+                    bundle.putInt("&childHotel4", paramChildren4+paramInfants4);
                     break;
             }
 
@@ -826,14 +859,25 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
         Log.d("cityHotel", String.valueOf(paramDestinationName));
         Log.d("cityHotelHidden", String.valueOf(paramDestination));
 */
-        startActivity(intent);
+        //startActivity(intent);
+
+            bundle.putBoolean(WebFragment.CAN_RETURN, true);
+            bundle.putString(WebFragment.WEB_TITLE, getString(R.string.title_hotel_results));
+            bundle.putString(WebFragment.STARTER_VIEW, this.getClass().getName());
+            bundle.putString(WebFragment.LOADING_URL, Constants.getSearchHotelsUrl());
+
+
+            WebFragment webHotels = new WebFragment();
+            webHotels.setArguments(bundle);
+            ((MainActivity) getActivity()).replaceLayout(webHotels, false);
+
             //System.gc();
     }
 
     }
 
     public void onMenu(View view) {
-        animate();
+        ((MainActivity) getActivity()).animate();
     }
 
     private void  addRoomToPanel(){
@@ -979,7 +1023,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
     //Show dialog for each room, in order to select adults, children and infants for that one.
     public void onAlertDialogGuestPickers(final View view,  int number, int adults, int children, int infants){
 
-        final Dialog dialog = new Dialog(this);
+        final Dialog dialog = new Dialog(getActivity());
         dialog.setContentView(R.layout.custom_number_picker_dialog_hotels);
         dialog.show();
         adultsPicker = (NumberPicker)dialog.findViewById(R.id.adultsNumberPicker);
@@ -1120,8 +1164,8 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
         //Log.d("dateBegin", String.valueOf(dateBegin));
         //Log.d("dateEnd", String.valueOf(dateEnd));
         counterEvenDateSelected = 0;
-        TextView destination = (TextView)findViewById(R.id.txtDestinationName);
-        TextView destinationCode = (TextView)findViewById(R.id.txtDestinationCityAndCountry);
+        TextView destination = (TextView) getView().findViewById(R.id.txtDestinationName);
+        TextView destinationCode = (TextView) getView().findViewById(R.id.txtDestinationCityAndCountry);
 
         paramDestinationName = destination.getText().toString();
         paramDestination = destinationCode.getText().toString();
@@ -1133,10 +1177,10 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
         paramCheckOut = Util.Bookings_Formatter_Hotels.format(dateEnd);
         //Log.d("paramCheckIn",paramCheckIn);Log.d("paramCheckOut",paramCheckOut);
 
-        TextView dateBegin2 = (TextView)findViewById(R.id.textDepartureDay);
-        TextView yearBegin = (TextView)findViewById(R.id.textDepartureMonth);
-        TextView dateEnd2 = (TextView) findViewById(R.id.textReturnDay);
-        TextView yearEnd = (TextView) findViewById(R.id.textReturnMonth);
+        TextView dateBegin2 = (TextView) getView().findViewById(R.id.textDepartureDay);
+        TextView yearBegin = (TextView) getView().findViewById(R.id.textDepartureMonth);
+        TextView dateEnd2 = (TextView) getView().findViewById(R.id.textReturnDay);
+        TextView yearEnd = (TextView) getView().findViewById(R.id.textReturnMonth);
 
         dateBegin2.setText(Util.Day_Formatter.format(dateBegin).toUpperCase());
         yearBegin.setText(Util.M_Y_Formatter.format(dateBegin).toUpperCase());
@@ -1158,7 +1202,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
             data = event.getResult();
             if (airportData != null) {
                 airportData.clear();
-                adapter = new SearchAdapterHotels(this, airportData);
+                adapter = new SearchAdapterHotels(getActivity(), airportData);
             }
 
 
@@ -1180,7 +1224,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
                 }
                 if (adapter != null && listView != null) {
                     adapter.notifyDataSetChanged();
-                    listView.setEmptyView(findViewById(R.id.emptyElement));
+                    listView.setEmptyView( getView().findViewById(R.id.emptyElement));
                 }
             }
            // if (adapter != null) adapter.notifyDataSetChanged();
@@ -1192,7 +1236,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
 
     //Clear the EditText for Search after (x) button is clicked
     public void onClearSearch(View view) {
-        TextView search = (TextView) findViewById(R.id.et_search);
+        TextView search = (TextView) getView().findViewById(R.id.et_search);
         search.setText("");
     }
 
@@ -1220,7 +1264,7 @@ public class HotelsActivity extends FrontBackAnimate  implements FrontBackAnimat
 
     public void onalertDialogDepartureOrArriveNotSelected(){
 
-        final Dialog dialog = new Dialog(this);
+        final Dialog dialog = new Dialog(getActivity());
         dialog.setContentView(R.layout.custom_alert_dialog_city_not_selected_hotels);
         dialog.show();
 

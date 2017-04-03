@@ -35,7 +35,6 @@
             android:src="@drawable/icon_menu"
             android:background="@android:color/transparent"
             android:id="@+id/menu_image"
-            android:onClick="onMenu"
             android:contentDescription="menu"
             android:layout_alignBottom="@+id/tv_title_secc"
             android:layout_alignParentEnd="true"
@@ -50,8 +49,7 @@
             android:id="@+id/imageButton6"
             android:contentDescription="menu"
             android:layout_centerVertical="true"
-            android:layout_alignParentStart="true"
-            android:onClick="onUp" />
+            android:layout_alignParentStart="true" />
     </RelativeLayout>
 
     <ImageView

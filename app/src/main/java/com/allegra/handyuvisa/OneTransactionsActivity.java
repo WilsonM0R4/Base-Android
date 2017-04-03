@@ -5,7 +5,10 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.allegra.handyuvisa.utils.Constants;
 import com.allem.onepocket.BackHandler;
@@ -14,16 +17,31 @@ import com.allem.onepocket.NextHandler;
 import com.allem.onepocket.RegisterCallback;
 import com.allem.onepocket.TransactionsFragment;
 
-public class OneTransactionsActivity extends FrontBackAnimate  implements FrontBackAnimate.InflateReadyListener {
+public class OneTransactionsActivity extends Fragment {
 
     private static final String TAG = "OPK_Transaction";
 
     private TransactionsFragment oneTransctions;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.setView(R.layout.activity_one_transactions, this);
+        //super.setView(R.layout.activity_one_transactions, this);
+
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        super.onCreateView(inflater, container, savedInstanceState);
+
+        return inflater.inflate(R.layout.activity_one_transactions, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState){
+        super.onViewCreated(view, savedInstanceState);
+
+        initViews(view);
 
         RegisterCallback.registerNext(new NextHandler() {
             @Override
@@ -55,29 +73,35 @@ public class OneTransactionsActivity extends FrontBackAnimate  implements FrontB
         RegisterCallback.registerMenu(new MenuHandler() {
             @Override
             public void handle() {
-                animate();
+                ((MainActivity) getActivity()).animate();
             }
         });
 
         RegisterCallback.registerBack(new BackHandler() {
             @Override
             public void handle() {
-                onUp(null);
+                Log.e("THistory", "back pressed");
+                //onUp(null);
+                if(getChildFragmentManager().getBackStackEntryCount() > 0){
+                    getChildFragmentManager().popBackStackImmediate();
+                }else{
+                    ((MainActivity) getActivity()).replaceLayout(new MyAccountMenuActivity(), true);
+                }
 
             }
         });
+
     }
 
-    @Override
     public void initViews(View root) {
         checkLogin();
 
     }
 
-    @Override
+    /*@Override
     public void onBackPressed() {
 
-    }
+    }*/
 
     private void addFragment(Fragment fragment) {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
@@ -92,13 +116,15 @@ public class OneTransactionsActivity extends FrontBackAnimate  implements FrontB
 
 
     private void checkLogin() {
-        if(((com.allegra.handyuvisa.VisaCheckoutApp)this.getApplication()).getIdSession()==null){
-            Intent i =new Intent(OneTransactionsActivity.this, LoginActivity.class);
-            this.startActivityForResult(i, Constants.ONE_POCKET_NEEDS_LOGIN);
-            finish();
+        if(((com.allegra.handyuvisa.VisaCheckoutApp)getActivity().getApplication()).getIdSession()==null){
+            ((MainActivity) getActivity()).replaceLayout(new LoginActivity(), false);
+            /*Intent i =new Intent(OneTransactionsActivity.this, LoginActivity.class);
+            this.startActivityForResult(i, Constants.ONE_POCKET_NEEDS_LOGIN);*/
+            //finish();
         }else {
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            Bundle bundle = Constants.createDataBundle(Constants.getUser(this), (com.allegra.handyuvisa.VisaCheckoutApp) getApplication());
+            Bundle bundle = Constants.createDataBundle(Constants.getUser(getActivity()),
+                    (com.allegra.handyuvisa.VisaCheckoutApp) getActivity().getApplication());
             oneTransctions = new TransactionsFragment();
             oneTransctions.setArguments(bundle);
             transaction.add(R.id.opk_top, oneTransctions);

@@ -93,7 +93,8 @@ public class SecureBrowser extends WebViewClient {
             //TODO: change handler.proceed() to handle SSL UNTRUSTED error
             handler.proceed();
         } else {
-            final SecurityIssueDialog errorDialog = new SecurityIssueDialog(mContext, R.style.ErrorDialog_Theme);
+            final SecurityIssueDialog errorDialog = new SecurityIssueDialog(mContext.getContext(),
+                    R.style.ErrorDialog_Theme);
             errorDialog.setErrorCode(R.string.idErrorCodeAB0051);
             errorDialog.getButton().setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -8,7 +8,7 @@
     android:id="@+id/my_benefits_layout"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:onClick="onCloseMenu">
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -24,7 +24,7 @@
             android:layout_height="36dp"
             android:src="@drawable/navigation__back"
             android:background="@android:color/transparent"
-            android:id="@+id/back_image"
+            android:id="@+id/back_navigation"
             android:layout_alignParentEnd="false"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp" />

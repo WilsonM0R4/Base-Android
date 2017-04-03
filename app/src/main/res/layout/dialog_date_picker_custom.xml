@@ -47,10 +47,11 @@
         android:layout_marginLeft="-3dp"
         android:layout_marginRight="-3dp"
         android:id="@+id/iv_header"
-        android:layout_below="@+id/lin_lay_check_or_Cancel"
         android:layout_height="3dp"
         android:background="@color/loading_salmon"
-        android:contentDescription="Divider" />
+        android:contentDescription="Divider"
+        android:layout_below="@+id/lin_lay_check_or_Cancel"
+        android:layout_centerHorizontal="true" />
 
     <include layout="@layout/custom_date_selector_without_onclick"
         android:layout_width="match_parent"

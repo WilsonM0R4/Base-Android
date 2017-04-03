@@ -1,13 +1,16 @@
 package com.allegra.handyuvisa;
 
 import android.app.Dialog;
+import android.app.Fragment;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,9 +44,7 @@ import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class ChatActivity extends FrontBackAnimate implements
-        FrontBackAnimate.InflateReadyListener,
-        com.allegra.handyuvisa.BackFragment.MenuSelectListener{
+public class ChatActivity extends Fragment implements com.allegra.handyuvisa.BackFragment.MenuSelectListener{
 
     //*****************GLOBAL ATTRIBUTES*****************
 
@@ -82,27 +83,40 @@ public class ChatActivity extends FrontBackAnimate implements
     //*****************OVERRIDE METHODS*****************
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
        /*super.setView(R.layout.fragment_chat_in_progress, R.drawable.load__chat,
                 R.string.txt_lbl_setupChat, this);*/
-         setView(R.layout.fragment_chat_in_progress, this);
+         //setView(R.layout.fragment_chat_in_progress, this);
 
         initLivePersonService();
         MyBus.getInstance().register(this);
     }
 
     @Override
-    protected void onDestroy() {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        super.onCreateView(inflater, container, savedInstanceState);
+
+        return inflater.inflate(R.layout.fragment_chat_in_progress, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState){
+        super.onViewCreated(view, savedInstanceState);
+
+        initViews(view);
+    }
+
+    @Override
+    public void onDestroy() {
         MyBus.getInstance().unregister(this);
         super.onDestroy();
     }
 
-    @Override
     public void initViews(View root) {
 
         chatMessages = new ArrayList<>();
-        chatMsgAdapter = new ChatMsgAdapter(this, chatMessages);
+        chatMsgAdapter = new ChatMsgAdapter(getActivity(), chatMessages);
         chatListView = (ListView) root.findViewById(R.id.lv_chat_msg);
         chatListView.setAdapter(chatMsgAdapter);
         sentText = (EditText) root.findViewById(R.id.et_chat_msg);
@@ -123,7 +137,7 @@ public class ChatActivity extends FrontBackAnimate implements
             @Override
             public void onClick(View view) {
                 //Log.d(TAG, "Llega al cancel in chat");
-                finish();
+                ((MainActivity) getActivity()).replaceLayout(new FrontFragment(), true);
             }
         });
 
@@ -132,7 +146,7 @@ public class ChatActivity extends FrontBackAnimate implements
         form = (LinearLayout)root.findViewById(R.id.form);
     }
 
-    @Override
+    /*@Override
     public void onBackPressed() {
 
         //super.onBackPressed();
@@ -142,18 +156,18 @@ public class ChatActivity extends FrontBackAnimate implements
         } else {
            // Log.d(TAG, "Closing before chat has started");
         }
-    }
+    }*/
 
     @Override
     public void onConfigurationChanged(Configuration newConfig){
         super.onConfigurationChanged(newConfig);
     }
 
-    @Override
+    /*@Override
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-    }
+    }*/
 
     @Override
     public void getStartActivity(Intent intent) {
@@ -163,14 +177,14 @@ public class ChatActivity extends FrontBackAnimate implements
         } else {
             //Log.d(TAG, "Closing before chat has started");
         }
-        super.getStartActivity(intent);
+        //super.getStartActivity(intent);
     }
 
 
     //*****************PROPER METHODS*****************
 
     public  void onAlertCancelChat(View v){
-        final Dialog dialog = new Dialog(this);
+        final Dialog dialog = new Dialog(getActivity());
         dialog.setContentView(R.layout.dialog_cancel_chat);
         dialog.show();
         //CustomizedTextViews (Cancel and Ok)
@@ -187,13 +201,13 @@ public class ChatActivity extends FrontBackAnimate implements
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
-                finish();
+                ((MainActivity) getActivity()).replaceLayout(new FrontFragment(), true);
             }
         });
     }
 
-    public void onMenu(View v){
-        animate();
+    public void onMenu(){
+        ((MainActivity) getActivity()).animate();
     }
 
     public void showLayout(){
@@ -206,7 +220,7 @@ public class ChatActivity extends FrontBackAnimate implements
     }
 
     public void onCloseMenu(View v){
-        animateBetter();
+        ((MainActivity) getActivity()).animate();
     }
 
     private void initLivePersonService() {
@@ -248,19 +262,19 @@ public class ChatActivity extends FrontBackAnimate implements
         //Log.d(TAG, "Agent name: " + agentName);
 
         if (agentName != null && agentName.length() > 0) {
-            TextView agent = (TextView) findViewById(R.id.tv_chat_agent);
+            TextView agent = (TextView) getView().findViewById(R.id.tv_chat_agent);
             String strFormat = getResources().getString(R.string.txt_lbl_agent);
             String value = String.format(strFormat, agentName);
             agent.setText(value);
 
-            TextView start = (TextView) findViewById(R.id.tv_chat_start);
+            TextView start = (TextView) getView().findViewById(R.id.tv_chat_start);
             Date dateObj = Calendar.getInstance().getTime();
             start.setText(Util.getFormattedTime(dateObj));
 
             String user = "";
-            if (Util.isAuthenticated(this)) {
-                if (Constants.getUser(this) != null) {
-                    user = Constants.getUser(this).nombre;
+            if (Util.isAuthenticated(getActivity())) {
+                if (Constants.getUser(getActivity()) != null) {
+                    user = Constants.getUser(getActivity()).nombre;
                 }
             }
             chatMsgAdapter.setSessionDetails(dateObj.getTime(), agentName, user);
@@ -296,7 +310,7 @@ public class ChatActivity extends FrontBackAnimate implements
         } else {
            // Log.d(TAG, "Closing before chat has started");
         }
-        super.onHome(view);
+        //super.onHome(view);
     }
 
     private void endChat() {
@@ -316,9 +330,10 @@ public class ChatActivity extends FrontBackAnimate implements
 
     public void onAddLines(View view) {
 
-        if(getCurrentFocus()!=null) {
-            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-            inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        if(getActivity().getCurrentFocus()!=null) {
+            InputMethodManager inputMethodManager = (InputMethodManager) getActivity().
+                    getSystemService(MainActivity.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), 0);
         }
 
         String text = sentText.getText().toString();
@@ -377,7 +392,7 @@ public class ChatActivity extends FrontBackAnimate implements
                         handleAgentChatMsg(data);
                         updateChatHeader(data.get(ChatResourceEventsInfo.AGENT_NAME));
                         errorExists = false;
-                        animateBetter();
+                        onMenu();
                         //Hide loader
                         relLoader.setVisibility(View.GONE);
                         //Show layout
@@ -399,7 +414,7 @@ public class ChatActivity extends FrontBackAnimate implements
                         agentName = data.get(ChatInfo.AGENT_NAME);
                       //  Log.d(TAG, "Agent name: " + agentName);
                         updateChatHeader(data.get(ChatInfo.AGENT_NAME));
-                        animateBetter();
+                        onMenu();
                         //Hide loader
                         relLoader.setVisibility(View.GONE);
                         //Show layout
@@ -407,7 +422,7 @@ public class ChatActivity extends FrontBackAnimate implements
                         getChatEventsNext(); // now keep polling for details
                     } else if (chatState.equals("ended")) {
                       //  Log.d(TAG, "info: Chat state ended");
-                        finish();
+                        ((MainActivity) getActivity()).replaceLayout(new FrontFragment(), true);
                     }  else {
                         getChatInfo();
                        // Log.d(TAG, "Still waiting for agent");
@@ -430,7 +445,7 @@ public class ChatActivity extends FrontBackAnimate implements
                         nextUri = data.get(ChatEventsNext.EVENT_NEXT);
                         handleAgentChatMsg(data);
                     } else if (chatState.equals("ended")) {
-                        finish();
+                        ((MainActivity) getActivity()).replaceLayout(new FrontFragment(), true);
                        // Log.d(TAG, "next: chat state ended");
                     }
                     errorExists = false;
@@ -440,7 +455,7 @@ public class ChatActivity extends FrontBackAnimate implements
 
             } else if (event.getApiName().equalsIgnoreCase(EndChat.APINAME)) {
                 if (data.containsKey(EndChat.RESP_CODE)) {
-                    finish();
+                    ((MainActivity) getActivity()).replaceLayout(new FrontFragment(), true);
                     errorExists = false;
                 } else {
                   //  Log.e(TAG, "EndChat fails");

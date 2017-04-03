@@ -1,7 +1,10 @@
 package com.allegra.handyuvisa;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
@@ -13,7 +16,7 @@ import com.allegra.handyuvisa.utils.Constants;
 /**
  * Created by jsandoval on 25/07/16.
  */
-public class MyBenefits extends WebViewActivity implements FrontBackAnimate.InflateReadyListener {
+public class MyBenefits extends WebViewActivity  {
 
     private String url = Constants.getMyBenefitsUrl();
 
@@ -21,18 +24,32 @@ public class MyBenefits extends WebViewActivity implements FrontBackAnimate.Infl
     private ProgressBar progressBar;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setView(R.layout.fragment_my_benefits,this);
+        //setView(R.layout.fragment_my_benefits,this); temporally commented
     }
 
     @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        super.onCreateView(inflater, container, savedInstanceState);
+        return inflater.inflate(R.layout.fragment_my_benefits, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedIsntanceState){
+        super.onViewCreated(view, savedIsntanceState);
+
+        initViews(view);
+    }
+
     public void initViews(View root) {
         setupWebView(root);
+
+
         arrowBack = (ImageButton) root.findViewById(R.id.arrow_back_benefits);
         arrowF = (ImageButton) root.findViewById(R.id.arrow_foward_benefits);
-        back = (ImageButton) root.findViewById(R.id.back_image);
+        back = (ImageButton) root.findViewById(R.id.back_navigation);
         progressBar = (ProgressBar) root.findViewById(R.id.progressBar_benefits);
 
         arrowBack.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +69,7 @@ public class MyBenefits extends WebViewActivity implements FrontBackAnimate.Infl
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.e("MyBenefits", "back arrow clicked");
                 onUp(v);
             }
         });
@@ -76,11 +94,13 @@ public class MyBenefits extends WebViewActivity implements FrontBackAnimate.Infl
     }
 
     public void onMenu(View view) {
-        animate();
+        ((MainActivity) getActivity()).animate();
     }
 
     public void onUp(View view) {
-        super.onBackPressed();
+
+        ((MainActivity) getActivity()).replaceLayout(new MyAccountMenuActivity(), true);
+        //super.onBackPressed(); temporally commented
     }
 
     @Override

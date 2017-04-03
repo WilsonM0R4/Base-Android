@@ -22,6 +22,16 @@ import java.util.HashMap;
  */
 public class    Constants {
 
+    //********CONSTANTS TOOLBAR***********
+    public static final int TYPE_MENU = 0;
+    public static final int TYPE_BACK = 1;
+    public static final int TYPE_BACK_MENU = 2;
+    public static final int TYPE_WEB_MENU = 3;
+    public static final int TYPE_BACK_WEB = 4;
+    public static final int TYPE_ICON_CANCEL = 5;
+    public static final int TYPE_ICONCANCEL_MENU = 6;
+    public static final int TYPE_NO_BUTTON = 7;
+
     //********FOR DYNAMIC PROOF OF COVERAGE**********
     public final static String ID_PORTAL = "1";
     //********FOR ONEPOCKET LOGGING**********
@@ -67,8 +77,8 @@ public class    Constants {
     //***************** EASY CHANGE BETWEEN TESTING AND PRODUCTION SYSTEM URLS *********************
 
     //** Parameter indicates mode: TESTING = false implies PRODUCTION mode **
-    public final static boolean TESTING = false;
-    public final static boolean TESTING_AIR = false;
+    public final static boolean TESTING = true;
+    public final static boolean TESTING_AIR = true;
 
     public final static String DEMOURL="http://demo.allemmarket.com/allemmarketapp/index/login/";
     public final static String DEMOHOST="allemmarket.com";

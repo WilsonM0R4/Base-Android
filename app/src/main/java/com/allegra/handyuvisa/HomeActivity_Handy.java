@@ -36,6 +36,7 @@ import java.util.List;
 
 public class HomeActivity_Handy extends FrontBackAnimate implements  FrontBackAnimate.InflateReadyListener {
 
+
     private TabLayout tabLayout;
     private ViewPager viewPager;
     SlideHolder slideHolder;

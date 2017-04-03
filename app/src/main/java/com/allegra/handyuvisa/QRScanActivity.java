@@ -1,12 +1,14 @@
 package com.allegra.handyuvisa;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -36,7 +38,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 
 
-public class QRScanActivity extends FrontBackAnimate{// implements FrontBackAnimate.InflateReadyListener
+public class QRScanActivity extends Fragment{// implements FrontBackAnimate.InflateReadyListener
 
     //**************GLOBAL ATTRIBUTES************
 
@@ -60,11 +62,11 @@ public class QRScanActivity extends FrontBackAnimate{// implements FrontBackAnim
         //setContentView(R.layout.activity_qrscan);
         //setView(R.layout.activity_qrscan, this);
         if (checkLogin()) {
-            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA)
+            if (ContextCompat.checkSelfPermission(getActivity(), android.Manifest.permission.CAMERA)
                     == PackageManager.PERMISSION_GRANTED) {
                 openScan();
             } else {
-                ActivityCompat.requestPermissions(this,
+                ActivityCompat.requestPermissions(getActivity(),
                         new String[]{android.Manifest.permission.CAMERA},
                         PERMISSIONS_REQUEST_CAMERA);
             }
@@ -82,8 +84,8 @@ public class QRScanActivity extends FrontBackAnimate{// implements FrontBackAnim
                     openScan();
 
                 } else {
-                    setResult(Activity.RESULT_CANCELED);
-                    finish();
+                    getActivity().setResult(Activity.RESULT_CANCELED);
+                    //finish();
                 }
             }
         }
@@ -106,7 +108,7 @@ public class QRScanActivity extends FrontBackAnimate{// implements FrontBackAnim
             case Constants.ACTIVITY_PAY_DETALLE:
                 if (event.getResult() != null) {
 
-                    solicitud = PayParsers.toSolicitudCobro(QRScanActivity.this, event.getResult());
+                    solicitud = PayParsers.toSolicitudCobro(getActivity(), event.getResult());
                     //vendor.setText(solicitud.razonSocial);
                     BigDecimal beforeTax = solicitud.baseDevolucion;
                     BigDecimal tmpBase = beforeTax.setScale(2, BigDecimal.ROUND_HALF_UP);
@@ -134,7 +136,7 @@ public class QRScanActivity extends FrontBackAnimate{// implements FrontBackAnim
                     reference = solicitud.referencia;
 
                     //Testing
-                    Intent intent2 = new Intent(QRScanActivity.this, OnepocketPurchaseActivity.class);
+                    //Intent intent2 = new Intent(this, OnepocketPurchaseActivity.class);
                     String data = "{\"businessName\":\"" + solicitud.razonSocial +//vendor.getText()
                             "\",\"purchaseValue\":\"" + ("$ " + solicitud.valor).toString().replace("$", "").trim() +//total.getText() adjTotal
                             "\",\"taxValue\":\"" + ("$  " + solicitud.iva).toString().replace("$", "").trim() +//adjIVA
@@ -142,16 +144,24 @@ public class QRScanActivity extends FrontBackAnimate{// implements FrontBackAnim
                             "\",\"codeISO\":\"" + currency +
                             "\",\"reference\":\"" + reference +
                             "\"}";
-                    Bundle bundle = Constants.createQRPurchaseBundle(Constants.getUser(QRScanActivity.this), solicitud, data, OPKConstants.TYPE_QRCODE, (com.allegra.handyuvisa.VisaCheckoutApp) QRScanActivity.this.getApplication());
-                    intent2.putExtras(bundle);
-                    startActivity(intent2);
+                    Bundle bundle = Constants.createQRPurchaseBundle(Constants.getUser(getActivity())
+                            , solicitud, data, OPKConstants.TYPE_QRCODE,
+                            (com.allegra.handyuvisa.VisaCheckoutApp) getActivity().getApplication());
 
-                    finish();
+                    OnepocketPurchaseActivity fragmentOPKPurchase = new OnepocketPurchaseActivity();
+                    fragmentOPKPurchase.setArguments(bundle);
+
+                    ((MainActivity) getActivity()).replaceLayout(fragmentOPKPurchase, false);
+
+                    /*intent2.putExtras(bundle);
+                    startActivity(intent2);*/
+
+                    //finish();
                 } else {
 
                     //Log.e(TAG, event.getFaultString());
-                    Toast.makeText(QRScanActivity.this, event.getFaultString(), Toast.LENGTH_LONG).show();
-                    finish();
+                    Toast.makeText(getActivity(), event.getFaultString(), Toast.LENGTH_LONG).show();
+                    //finish();
                 }
                 break;
             }
@@ -160,7 +170,7 @@ public class QRScanActivity extends FrontBackAnimate{// implements FrontBackAnim
     //***************PROPER METHODS************
 
     public void onMenu(View view) {
-        animate();
+        //((MainActivity) getActivity()).animate();
     }
 
     private Bitmap drawQRCode(String data,int size) throws Exception
@@ -181,24 +191,28 @@ public class QRScanActivity extends FrontBackAnimate{// implements FrontBackAnim
     }
 
     private void obtenerTicket(String idSolicitud) {
-        if (Util.hasInternetConnectivity(this)){
+        if (Util.hasInternetConnectivity(getActivity())){
             //setWaitinUI(true);
             //Log.d(TAG,Constants.KEY_ID_SOLICITUD+":"+idSolicitud);
             postValues.add(new BasicNameValuePair(Constants.KEY_ID_SOLICITUD,idSolicitud));
             AsyncSoapObject.getInstance(Constants.getWSDL(), Constants.NAMESPACE_ALLEM,
                     Constants.METHOD_OBTENER_SOLICITUD_DE_PAGO, postValues, Constants.ACTIVITY_PAY_DETALLE).execute();
         }else{
-            Toast.makeText(this, "No tiene conexión a internet", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "No tiene conexión a internet", Toast.LENGTH_SHORT).show();
         }
     }
 
+    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
 
         IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
 
         if (scanResult != null) {
 
             String id = scanResult.getContents();
+
+            Log.e("OPK", "result data is -- "+id);
             if (resultCode == -1) {
                 //Log.d("resultado QR", id);
                 try {
@@ -211,7 +225,7 @@ public class QRScanActivity extends FrontBackAnimate{// implements FrontBackAnim
                 return;
             }else{
                 //Log.d("backing", id);
-                finish();
+                //finish();
             }
 
         }
@@ -223,7 +237,8 @@ public class QRScanActivity extends FrontBackAnimate{// implements FrontBackAnim
 
     private void openScan(){
         //Log.d("Entra a","openScan");
-        IntentIntegrator integrator = new IntentIntegrator(this);
+        //IntentIntegrator integrator = new IntentIntegrator(getActivity());
+        IntentIntegrator integrator = IntentIntegrator.forFragment(this);
         integrator.setCaptureActivity(CustomQrActivity.class);
         integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
         integrator.setPrompt(getResources().getString(R.string.qr_scan_description));
@@ -235,9 +250,12 @@ public class QRScanActivity extends FrontBackAnimate{// implements FrontBackAnim
 
 
     private boolean checkLogin() {
-        if(((com.allegra.handyuvisa.VisaCheckoutApp)this.getApplication()).getIdSession()==null){
-            Intent i =new Intent(QRScanActivity.this,LoginActivity.class);
-            this.startActivityForResult(i, Constants.ACTIVITY_LOGIN);
+        if(((com.allegra.handyuvisa.VisaCheckoutApp)getActivity().getApplication()).getIdSession()==null){
+
+            ((MainActivity) getActivity()).replaceLayout(new LoginActivity(), false);
+
+            /*Intent i =new Intent(QRScanActivity.this,LoginActivity.class);
+            this.startActivityForResult(i, Constants.ACTIVITY_LOGIN);*/
             return false;
         }
         return true;

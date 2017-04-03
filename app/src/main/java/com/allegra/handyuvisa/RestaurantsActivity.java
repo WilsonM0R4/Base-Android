@@ -60,13 +60,6 @@ public class RestaurantsActivity extends WebViewActivity implements FrontBackAni
     //*************************OVERRIDE METHODS******************
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-
-        super.onCreate(savedInstanceState);
-        setView(R.layout.activity_restaurants, this);
-    }
-
-    @Override
     public void initViews(View root) {
 
         setupWebView(root);
@@ -93,7 +86,14 @@ public class RestaurantsActivity extends WebViewActivity implements FrontBackAni
     }
 
     @Override
-    protected void onResume() {
+    public void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+        //setView(R.layout.activity_restaurants, this); need implement fragment methods
+    }
+
+    @Override
+    public void onResume() {
         super.onResume();
         if (callUrl.equals("")) {
             loadWebView();
@@ -101,12 +101,12 @@ public class RestaurantsActivity extends WebViewActivity implements FrontBackAni
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         //Validate permissions
-        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !hasPermissions(this, PERMISSIONS)) {
-            ActivityCompat.requestPermissions(this, PERMISSIONS, MY_PERMISSIONS_REQUEST_LOCATION);
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !hasPermissions(getActivity(), PERMISSIONS)) {
+            ActivityCompat.requestPermissions(getActivity(), PERMISSIONS, MY_PERMISSIONS_REQUEST_LOCATION);
         } else {
             getCurrentLocation();
         }
@@ -141,7 +141,7 @@ public class RestaurantsActivity extends WebViewActivity implements FrontBackAni
     //************************PROPER METHODS**************************
 
     private void buildAlertMessageNoGps() {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity().getApplicationContext());
         builder.setMessage(
                 R.string.location_permision)
                 .setCancelable(false)
@@ -173,7 +173,7 @@ public class RestaurantsActivity extends WebViewActivity implements FrontBackAni
 
     public Location getLocation() {
 
-        locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+        locationManager = (LocationManager) getActivity().getSystemService(MainActivity.LOCATION_SERVICE);
         isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
         isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
 
@@ -182,8 +182,8 @@ public class RestaurantsActivity extends WebViewActivity implements FrontBackAni
             buildAlertMessageNoGps();
         } else {
             //Validate permissions
-            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !hasPermissions(this, PERMISSIONS)) {
-                ActivityCompat.requestPermissions(this, PERMISSIONS, MY_PERMISSIONS_REQUEST_LOCATION);
+            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !hasPermissions(getActivity(), PERMISSIONS)) {
+                ActivityCompat.requestPermissions(getActivity(), PERMISSIONS, MY_PERMISSIONS_REQUEST_LOCATION);
             } else {
                 getCurrentLocation();
             }
@@ -194,7 +194,7 @@ public class RestaurantsActivity extends WebViewActivity implements FrontBackAni
     private void getCurrentLocation() {
         
         //TODO: Need to fix. Strong reference. Working on UI Thread
-        gp = new GPSTracker(this);
+        gp = new GPSTracker(getActivity());
         latitude = gp.getLatitude();
         longitude = gp.getLongitude();
 
@@ -202,7 +202,7 @@ public class RestaurantsActivity extends WebViewActivity implements FrontBackAni
 
             try {
                 enterToGetLocation = true;
-                Geocoder geocoder = new Geocoder(this, Locale.ENGLISH);
+                Geocoder geocoder = new Geocoder(getActivity(), Locale.ENGLISH);
                 List<Address> addresses = geocoder.getFromLocation(latitude, longitude, 1);
                 String cityName = addresses.get(0).getAddressLine(0);
                 String stateName = addresses.get(0).getAddressLine(1);
@@ -235,20 +235,22 @@ public class RestaurantsActivity extends WebViewActivity implements FrontBackAni
 
     private void loadWebView() {
 
-        mWebView.addJavascriptInterface(new RestaurantsActivity.JsInterface(this), "androidProxy");
+        mWebView.addJavascriptInterface(new RestaurantsActivity.JsInterface(getActivity()), "androidProxy");
         mWebView.loadUrl(url);
     }
 
     public void openOnePocket() {
 
-        Intent intent = new Intent(RestaurantsActivity.this, OnepocketPurchaseActivity.class);
+        /*** temporally commented ***/
+
+        /*Intent intent = new Intent(RestaurantsActivity.this, OnepocketPurchaseActivity.class);
         Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(this), onePocketmessage, OPKConstants.TYPE_MCARD, (com.allegra.handyuvisa.VisaCheckoutApp) getApplication());
         intent.putExtras(bundle);
-        startActivityForResult(intent, Constants.REQUEST_ONEPOCKET_RETURN);
+        startActivityForResult(intent, Constants.REQUEST_ONEPOCKET_RETURN);*/
     }
 
     public void onMenu(View view) {
-        animate();
+        ((MainActivity) getActivity()).animate();
     }
 
     public void onUp(View view) {
@@ -311,7 +313,7 @@ public class RestaurantsActivity extends WebViewActivity implements FrontBackAni
     public boolean onShouldOverrideUrlLoading(WebView webView, String url) {
 
         if (url.equals("allegra:touchcallService")) {
-            Intent i = new Intent(this, CallActivityServices.class);
+            Intent i = new Intent(getActivity(), CallActivityServices.class);
             this.startActivity(i);
             return true;
         }
@@ -325,11 +327,11 @@ public class RestaurantsActivity extends WebViewActivity implements FrontBackAni
     }
 
     private void startCall(String url) {
-        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !hasPermission(this, MY_PERMISSIONS_CALL[0])) {
-            ActivityCompat.requestPermissions(this, MY_PERMISSIONS_CALL, MY_PERMISSIONS_REQUEST_CALL);
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !hasPermission(getActivity(), MY_PERMISSIONS_CALL[0])) {
+            ActivityCompat.requestPermissions(getActivity(), MY_PERMISSIONS_CALL, MY_PERMISSIONS_REQUEST_CALL);
         } else {
             Intent intentCall = new Intent(Intent.ACTION_CALL, Uri.parse(url));
-            if (ActivityCompat.checkSelfPermission(this, MY_PERMISSIONS_CALL[0]) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.checkSelfPermission(getActivity(), MY_PERMISSIONS_CALL[0]) != PackageManager.PERMISSION_GRANTED) {
                 return;
             }
             this.startActivity(intentCall);
@@ -406,9 +408,9 @@ public class RestaurantsActivity extends WebViewActivity implements FrontBackAni
                 new Handler(Looper.getMainLooper()).post(new Runnable() {
                     @Override
                     public void run() {
-                        ImageView pb_search_loader = (ImageView)findViewById(R.id.pb_search_loader);
-                        ImageView imgProgress = (ImageView)findViewById(R.id.imgProgress);
-                        CustomizedTextView textView = (CustomizedTextView)findViewById(R.id.txtLoading);
+                        ImageView pb_search_loader = (ImageView) getView().findViewById(R.id.pb_search_loader);
+                        ImageView imgProgress = (ImageView) getView().findViewById(R.id.imgProgress);
+                        CustomizedTextView textView = (CustomizedTextView)getView().findViewById(R.id.txtLoading);
                         if (pb_search_loader != null)pb_search_loader.setVisibility(View.VISIBLE);
                         if (imgProgress != null)imgProgress.setVisibility(View.VISIBLE);
                         if (mWebView != null)mWebView.setVisibility(View.GONE);
@@ -422,9 +424,9 @@ public class RestaurantsActivity extends WebViewActivity implements FrontBackAni
                 new Handler(Looper.getMainLooper()).post(new Runnable() {
                     @Override
                     public void run() {
-                        ImageView pb_search_loader = (ImageView)findViewById(R.id.pb_search_loader);
-                        ImageView imgProgress = (ImageView)findViewById(R.id.imgProgress);
-                        CustomizedTextView textView = (CustomizedTextView)findViewById(R.id.txtLoading);
+                        ImageView pb_search_loader = (ImageView)getView().findViewById(R.id.pb_search_loader);
+                        ImageView imgProgress = (ImageView)getView().findViewById(R.id.imgProgress);
+                        CustomizedTextView textView = (CustomizedTextView)getView().findViewById(R.id.txtLoading);
 
                         if (pb_search_loader != null)pb_search_loader.setVisibility(View.GONE);
                         if (imgProgress != null)imgProgress.setVisibility(View.GONE);

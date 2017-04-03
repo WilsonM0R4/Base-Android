@@ -1,5 +1,6 @@
 package com.allegra.handyuvisa;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -25,7 +26,7 @@ import java.util.ArrayList;
 /**
  * Created by jsandoval on 14/06/16.
  */
-public class LoginForgotConfirmation extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
+public class LoginForgotConfirmation extends Fragment {
 
     private final String TAG = "LoginForgotConfirmation";
     private ImageView close;
@@ -40,30 +41,45 @@ public class LoginForgotConfirmation extends FrontBackAnimate implements FrontBa
     private Context ctx;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //Log.d(TAG, "Enter LoginForgotActivity");
         postValues = new ArrayList<>();
-        ctx = this;
-        super.setView(R.layout.fragment_recoverpass_conf, this);
+        ctx = getActivity();
+        //super.setView(R.layout.fragment_recoverpass_conf, this);
     }
 
     @Override
+    public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        super.onCreateView(inflater, container, savedInstanceState);
+
+        return inflater.inflate(R.layout.fragment_recoverpass_conf, container, false);
+    }
+
+    @Override
+    public void onViewCreated (View view, Bundle savedInstanceState){
+        super.onViewCreated(view, savedInstanceState);
+
+        initViews(view);
+    }
+
+
     public void initViews(final View root) {
         recover = Constants.ACTIVITY_LOGIN_RECOVER;
-        close = (ImageView)root.findViewById(R.id.close_btn);
         emailtext = (TextView)root.findViewById(R.id.email_recovery);
+
+        /*close = (ImageView)root.findViewById(R.id.close_btn);
         close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onHome(v);
             }
-        });
+        });*/
         login = (CustomizedTextView)root.findViewById(R.id.to_login);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onHome(v);
+                ((FragmentMain) getParentFragment()).replaceLayout(new LoginActivity(), true);
             }
         });
      /*   email = (Button)root.findViewById(R.id.go_to_email);
@@ -76,8 +92,8 @@ public class LoginForgotConfirmation extends FrontBackAnimate implements FrontBa
             }
         });*/
 
-        Intent i = getIntent();
-        String str = i.getStringExtra("mail");
+
+        String str = getArguments().getString("mail");
         emailtext.setText(str);
 
         send_again = (CustomizedTextView) root.findViewById(R.id.send_again);
@@ -88,6 +104,8 @@ public class LoginForgotConfirmation extends FrontBackAnimate implements FrontBa
                 Toast.makeText(ctx, getString( R.string.resend_mail), Toast.LENGTH_SHORT).show();
             }
         });
+
+        ((FragmentMain) getParentFragment()).configToolbar(false, Constants.TYPE_ICON_CANCEL, getString(R.string.forgot_password));
     }
 
     @Override
@@ -95,11 +113,11 @@ public class LoginForgotConfirmation extends FrontBackAnimate implements FrontBa
         super.onConfigurationChanged(newConfig);
     }
 
-    @Override
+    /*@Override
     public void onBackPressed() {
         Intent intent = new Intent(ctx,LoginActivity.class);
         startActivity(intent);
-    }
+    }*/
 
     private void sendInfo() {
 

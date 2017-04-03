@@ -6,7 +6,10 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.allegra.handyuvisa.utils.Constants;
 import com.allem.onepocket.BackHandler;
@@ -20,7 +23,7 @@ import com.allem.onepocket.utils.OPKConstants;
 import java.util.Stack;
 
 
-public class OnepocketPurchaseActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
+public class OnepocketPurchaseActivity extends Fragment {
 
     private static final String TAG = "OPK_purchaseActivity";
     private PurchaseSummaryFragment summary;
@@ -28,9 +31,44 @@ public class OnepocketPurchaseActivity extends FrontBackAnimate implements Front
 
     //**************OVERRIDE METHODS****************
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.setView(R.layout.activity_onepocket_purchase, this);
+        //super.setView(R.layout.activity_onepocket_purchase, this);
+
+
+
+
+    }
+
+    public void initViews(View root) {
+        if (getActivity().isDestroyed()) {
+            return;
+        }
+
+        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+        OneTransaction oneTransaction = getArguments().getParcelable(OPKConstants.EXTRA_PAYMENT);
+        Log.e("OPK", "extra payment data is -- "+oneTransaction.toString());
+        summary = new PurchaseSummaryFragment();
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(OPKConstants.EXTRA_PAYMENT, oneTransaction);
+        summary.setArguments(bundle);
+        transaction.add(R.id.opk_top, summary);
+        transaction.commit();
+
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        super.onCreateView(inflater, container, savedInstanceState);
+
+        return inflater.inflate(R.layout.activity_onepocket_purchase, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState){
+        super.onViewCreated(view, savedInstanceState);
+
+        initViews(view);
 
         RegisterCallback.registerNext(new NextHandler() {
             @Override
@@ -40,7 +78,7 @@ public class OnepocketPurchaseActivity extends FrontBackAnimate implements Front
                 } else {
                     // clear the stack
                     //Log.d(TAG, "Clear the stack");
-                    FragmentManager manager = getFragmentManager();
+                    FragmentManager manager = getChildFragmentManager();
                     manager.popBackStackImmediate();
                 }
 
@@ -59,21 +97,32 @@ public class OnepocketPurchaseActivity extends FrontBackAnimate implements Front
             public void perform(int i, String data) {
                 Intent result = new Intent();
                 result.putExtra(OPKConstants.EXTRA_RESULT, data);
-                OnepocketPurchaseActivity.this.setResult(Activity.RESULT_OK, result);
+                //OnepocketPurchaseActivity.this.setResult(Activity.RESULT_OK, result);
 
                 switch (i) {
                     case 0:
                         //Log.e(TAG, "perform id: 0 - MCARD - Return from onepocket");
                         if (OPKConstants.oneTransaction.getType().equals("MCARD") && data.equals("onepocket_return")) {
-                            OnepocketPurchaseActivity.this.finish();
+                            //OnepocketPurchaseActivity.this.finish();
+                            ((MainActivity) getActivity()).replaceLayout(new FrontFragment(), true);
+                            Log.e("OPK", "perform if");
                         }
                         break;
 
                     case 1:
-                        Intent intent = new Intent(OnepocketPurchaseActivity.this, OnepocketContainerActivity.class);
-                        Bundle bundle = Constants.createDataBundle(Constants.getUser(OnepocketPurchaseActivity.this), ((com.allegra.handyuvisa.VisaCheckoutApp) OnepocketPurchaseActivity.this.getApplication()));
-                        intent.putExtras(bundle);
-                        startActivity(intent);
+                        //Intent intent = new Intent(OnepocketPurchaseActivity.this, OnepocketContainerActivity.class);
+                        Bundle bundle = Constants.createDataBundle(
+                                Constants.getUser(getActivity()),
+                                ((com.allegra.handyuvisa.VisaCheckoutApp)
+                                        getActivity().getApplication()));
+
+                        OnepocketContainerActivity fragmentOPKContainer = new OnepocketContainerActivity();
+
+                        fragmentOPKContainer.setArguments(bundle);
+
+                        ((MainActivity) getActivity()).replaceLayout(fragmentOPKContainer, false);
+                        //intent.putExtras(bundle);
+                        //startActivity(intent);
                         break;
                 }
             }
@@ -82,7 +131,7 @@ public class OnepocketPurchaseActivity extends FrontBackAnimate implements Front
         RegisterCallback.registerMenu(new MenuHandler() {
             @Override
             public void handle() {
-                animate();
+                ((MainActivity) getActivity()).animate();
             }
         });
 
@@ -90,7 +139,7 @@ public class OnepocketPurchaseActivity extends FrontBackAnimate implements Front
             @Override
             public void handle() {
                 if (!stack.empty()) {
-                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
                     Fragment top = stack.pop();
                     transaction.remove(top);
                     if (!stack.empty()) {
@@ -100,39 +149,40 @@ public class OnepocketPurchaseActivity extends FrontBackAnimate implements Front
                     }
                     transaction.commit();
                 } else {
-                    onUp(null);
+                    //onUp(null);
+                    ((MainActivity) getActivity()).replaceLayout(new FrontFragment(), true);
                 }
             }
         });
+
     }
 
-    @Override
-    public void initViews(View root) {
-        if (isDestroyed()) {
+    /*public void initViews(View root) {
+        if (getActivity().isDestroyed()) {
             return;
         }
 
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        OneTransaction oneTransaction = getIntent().getParcelableExtra(OPKConstants.EXTRA_PAYMENT);
+        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+        OneTransaction oneTransaction = getArguments().getParcelable(OPKConstants.EXTRA_PAYMENT);
         summary = new PurchaseSummaryFragment();
         Bundle bundle = new Bundle();
         bundle.putParcelable(OPKConstants.EXTRA_PAYMENT, oneTransaction);
         summary.setArguments(bundle);
         transaction.add(R.id.opk_top, summary);
         transaction.commit();
-    }
+    }*/
 
-    @Override
+    /*@Override
     public void onBackPressed() {
 
-    }
+    }*/
 
     //*******************PROPER METHODS*********************
     public void swap(Fragment fragment) {
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
 
         if (fragment != null) {
-            Fragment current = getFragmentManager().findFragmentById(R.id.opk_bottom);
+            Fragment current = getChildFragmentManager().findFragmentById(R.id.opk_bottom);
             if (current == fragment) {
                 transaction.remove(fragment).attach(fragment);
             } else {
@@ -150,8 +200,8 @@ public class OnepocketPurchaseActivity extends FrontBackAnimate implements Front
     }
 
     private void addFragment(Fragment fragment) {
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        Fragment currentTop = getFragmentManager().findFragmentById(R.id.opk_top);
+        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+        Fragment currentTop = getChildFragmentManager().findFragmentById(R.id.opk_top);
         transaction.hide(currentTop);
 
         for (Fragment f : stack) {

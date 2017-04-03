@@ -15,7 +15,6 @@
             android:id="@+id/rl_hotel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onCloseMenu"
             android:background="@color/white">
 
             <RelativeLayout
@@ -45,7 +44,6 @@
                     android:src="@drawable/icon_menu"
                     android:background="@android:color/transparent"
                     android:id="@+id/menu_image"
-                    android:onClick="onMenu"
                     android:contentDescription="menu"
                     android:layout_alignBottom="@+id/tv_title_secc"
                     android:layout_alignParentEnd="true"
@@ -155,7 +153,6 @@
                 android:layout_marginRight="30dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/round_corner_orange"
-                android:onClick="onSearchHotels"
                 android:text="@string/search_hotels"
                 android:textColor="@color/BigButton2_text"
                 android:textSize="18sp"/>

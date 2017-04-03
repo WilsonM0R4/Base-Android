@@ -5,7 +5,11 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.allegra.handyuvisa.utils.Connectivity;
@@ -20,17 +24,35 @@ import com.allem.onepocket.RegisterCallback;
  * Created by gangchen on 1/5/17.
  */
 
-public class ProofOfCoverageDinamicoActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
+public class ProofOfCoverageDinamicoActivity extends Fragment {
     private static final String TAG = "OPK_POC";
 
     private ProofOfCoverageDinamicoFragment proofOfCoverage;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.setView(R.layout
-                .activity_proof_of_coverage_dinamico, this);
 
+        /** pending for some changes **/
+        //super.setView(R.layout.activity_proof_of_coverage_dinamico, this);
+
+        //Fragment callbacks were moved to override method onViewCreated()
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        super.onCreateView(inflater, container, savedInstanceState);
+
+        return inflater.inflate(R.layout.activity_proof_of_coverage_dinamico, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState){
+        super.onViewCreated(view, savedInstanceState);
+
+        initViews(view);
+
+        //Fragment Callbacks
         RegisterCallback.registerNext(new NextHandler() {
             @Override
             public void handler(Fragment fragment) {
@@ -38,8 +60,8 @@ public class ProofOfCoverageDinamicoActivity extends FrontBackAnimate implements
                     addFragment(fragment);
                 } else {
                     // clear the stack
-                   // Log.d(TAG, "Clear the stack");
-                    FragmentManager manager = getFragmentManager();
+                    // Log.d(TAG, "Clear the stack");
+                    FragmentManager manager = getChildFragmentManager();
                     manager.popBackStackImmediate();
                 }
             }
@@ -61,24 +83,28 @@ public class ProofOfCoverageDinamicoActivity extends FrontBackAnimate implements
         RegisterCallback.registerMenu(new MenuHandler() {
             @Override
             public void handle() {
-                animate();
+                ((MainActivity) getActivity()).animate();
             }
         });
 
         RegisterCallback.registerBack(new BackHandler() {
             @Override
             public void handle() {
-                onUp(null);
+                //onUp(null);
+                Log.e("Proof", "back pressed");
+                //((MainActivity) getActivity()).replaceLayout(new MyAccountMenuActivity(), true);
+
 
             }
         });
+
     }
 
-    @Override
     public void initViews(View root) {
         if (checkConnectivity()) {
             checkLogin();
         } else {
+
             showProofOfCoverage();
         }
 
@@ -86,30 +112,34 @@ public class ProofOfCoverageDinamicoActivity extends FrontBackAnimate implements
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK) {
+        if (resultCode == MainActivity.RESULT_OK) {
             showProofOfCoverage();
         }
     }
 
     private boolean checkConnectivity() {
-        if (Connectivity.isConnected(getApplicationContext()) || Connectivity.isConnectedWifi(getApplicationContext()) || Connectivity.isConnectedMobile(getApplicationContext())) {
+        if (Connectivity.isConnected(getActivity().getApplicationContext())
+                || Connectivity.isConnectedWifi(getActivity().getApplicationContext())
+                || Connectivity.isConnectedMobile(getActivity().getApplicationContext())) {
             return true;
         } else {
-            Toast.makeText(getApplicationContext(), R.string.err_no_internet, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity().getApplicationContext(),
+                    R.string.err_no_internet,
+                    Toast.LENGTH_SHORT).show();
             return false;
         }
     }
 
-    @Override
+    /*@Override
     public void onBackPressed() {
 
-    }
+    }*/
 
     private void addFragment(Fragment fragment) {
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        Fragment currentTop = getFragmentManager().findFragmentById(R.id.opk_top);
+        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+        Fragment currentTop = getChildFragmentManager().findFragmentById(R.id.opk_top);
         transaction.hide(currentTop);
 
         transaction.add(R.id.opk_top, fragment, fragment.toString());
@@ -120,9 +150,12 @@ public class ProofOfCoverageDinamicoActivity extends FrontBackAnimate implements
 
 
     private boolean checkLogin() {
-        if(((com.allegra.handyuvisa.VisaCheckoutApp)this.getApplication()).getIdSession()==null){
-            Intent i =new Intent(ProofOfCoverageDinamicoActivity.this, LoginActivity.class);
-            this.startActivityForResult(i, Constants.ONE_POCKET_NEEDS_LOGIN);
+
+        if(((com.allegra.handyuvisa.VisaCheckoutApp) getActivity().getApplication()).getIdSession()==null){
+            ((MainActivity) getActivity()).replaceLayout(new LoginActivity(), false);
+            //((MainActivity) getActivity())
+            /*Intent i =new Intent(getActivity(), LoginActivity.class);
+            this.startActivityForResult(i, Constants.ONE_POCKET_NEEDS_LOGIN);*/
             return false;
         } else {
             showProofOfCoverage();
@@ -131,8 +164,8 @@ public class ProofOfCoverageDinamicoActivity extends FrontBackAnimate implements
     }
 
     public void showProofOfCoverage() {
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        Bundle bundle = Constants.createDataBundle(Constants.getUser(this), (com.allegra.handyuvisa.VisaCheckoutApp) getApplication());
+        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+        Bundle bundle = Constants.createDataBundle(Constants.getUser(getActivity()), (com.allegra.handyuvisa.VisaCheckoutApp) getActivity().getApplication());
         proofOfCoverage = new ProofOfCoverageDinamicoFragment();
         proofOfCoverage.setArguments(bundle);
         transaction.add(R.id.opk_top, proofOfCoverage);

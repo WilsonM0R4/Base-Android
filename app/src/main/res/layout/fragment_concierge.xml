@@ -13,8 +13,7 @@
         <RelativeLayout
             android:id="@+id/rl_body"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:onClick="onCloseMenu">
+            android:layout_height="match_parent">
 
             <RelativeLayout
                 android:id="@+id/ll_header"
@@ -46,7 +45,6 @@
                     android:layout_marginTop="10dp"
                     android:background="@android:color/transparent"
                     android:contentDescription="menu"
-                    android:onClick="onMenu"
                     android:src="@drawable/icon_menu" />
 
             </RelativeLayout>

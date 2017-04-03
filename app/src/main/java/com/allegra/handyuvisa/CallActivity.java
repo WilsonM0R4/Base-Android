@@ -2,6 +2,7 @@ package com.allegra.handyuvisa;
 
 import android.app.ActionBar;
 import android.app.Dialog;
+import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -16,8 +17,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -29,11 +32,10 @@ import com.allegra.handyuvisa.utils.CustomizedTextView;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginListener,
+public class CallActivity extends Fragment implements BasicPhone.LoginListener,
         BasicPhone.BasicConnectionListener,BasicPhone.BasicDeviceListener,
         SensorEventListener,
-        com.allegra.handyuvisa.BackFragment.MenuSelectListener,
-        FrontBackAnimate.InflateReadyListener{
+        com.allegra.handyuvisa.BackFragment.MenuSelectListener{
 
     //*************GLOBAL ATTRIBUTES**************
     protected String OTC_NUMBER = "+13057227632";//Older: +13055605384
@@ -66,24 +68,32 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
 
     //**************************OVERRIDE METHODS***************************
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         /*super.setView(R.layout.fragment_call_in_progress, R.drawable.load__call,
                 R.string.txt_lbl_callwait, this);*/
-        setView(R.layout.fragment_call_in_progress, this);
+        //setView(R.layout.fragment_call_in_progress, this);
 
         addStatusMessage("One Touch Call");
-        ctx = this;
-        phone = BasicPhone.getInstance(getApplicationContext());
+        ctx = getActivity();
+        phone = BasicPhone.getInstance(getActivity().getApplicationContext());
         //Check for Audio permission
-        if(android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !hasPermissions(this, PERMISSIONS)){
-            ActivityCompat.requestPermissions(this, PERMISSIONS, MY_PERMISSIONS_REQUEST_AUDIO);
+        if(android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !hasPermissions(getActivity(), PERMISSIONS)){
+            ActivityCompat.requestPermissions(getActivity(), PERMISSIONS, MY_PERMISSIONS_REQUEST_AUDIO);
         } else {
             if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 setCallSettings();
             }
         }
     }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        super.onCreateView(inflater, container, savedInstanceState);
+
+        return inflater.inflate(R.layout.fragment_call_in_progress, container, false);
+    }
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -97,7 +107,8 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
                     setCallSettings();
                 } else {
                     // Permission denied, boo! Disable the functionality that depends on this permission.
-                    finish();
+                    //finish();
+                    ((MainActivity) getActivity()).replaceLayout(new FrontFragment(), true);
                 }
                 return;
             }
@@ -136,8 +147,6 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
         super.onConfigurationChanged(newConfig);
     }
 
-
-    @Override
     public void initViews(View root) {
         setActionbar();
         relLoader = (RelativeLayout)root.findViewById(R.id.loader);
@@ -186,7 +195,8 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
         switch (item.getItemId()) {
             case android.R.id.home:
                 //if (statusCall!=CALLING&&!near) this.finish();
-                if (statusCall!=CALLING) this.finish();
+                if (statusCall!=CALLING) ((MainActivity) getActivity())
+                        .replaceLayout(new FrontFragment(), true);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -207,7 +217,8 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
         addStatusMessage("Connected: current status = " + statusCall);
         if(statusCall==STANDBY||statusCall==CALLIP){
             if (toCancel) {
-                finish();
+                ((MainActivity) getActivity())
+                        .replaceLayout(new FrontFragment(), true);
             } else {
                 statusCall = CALLING;
                 setButton(statusCall);
@@ -318,19 +329,19 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
     @Override
     public void getStartActivity(Intent intent) {
         onEndCall(null);
-        super.getStartActivity(intent);
+        //super.getStartActivity(intent);
     }
 
-    @Override
+    /*@Override
     public void onBackPressed() {
         //super.onBackPressed();
-    }
+    }*/
 
     //*******************PROPER METHODS**************
 
 
     public void onAlertCancelCall(View v){
-        final Dialog dialog = new Dialog(this);
+        final Dialog dialog = new Dialog(getActivity());
         dialog.setContentView(R.layout.dialog_cancel_call);
         dialog.show();
         //CustomizedTextViews (Cancel and Ok)
@@ -367,12 +378,13 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
     }
 
     public void onCloseMenu(View v){
-        animateBetter();
+        ((MainActivity) getActivity()).replaceLayout(new FrontFragment(), true);
+        //animateBetter();
     }
 
     private void setCallSettings(){
 
-        mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        mSensorManager = (SensorManager) getActivity().getSystemService(MainActivity.SENSOR_SERVICE);
         mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
         if (mSensor!=null) mSensorRange=mSensor.getMaximumRange();
         setListeners();
@@ -381,15 +393,15 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
     }
 
     private void setActionbar() {
-        actionBar = getActionBar();
+        actionBar = getActivity().getActionBar();
         if(actionBar!=null){
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeButtonEnabled(true);
         }
 
     }
-    public void onMenu(View v){
-        animate();
+    public void onMenu(){
+        ((MainActivity) getActivity()).animate();
     }
 
     private void setListeners() {
@@ -397,7 +409,7 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
     }
 
     private void setButton(final int callstatus) {
-        runOnUiThread(new Runnable() {
+        getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 switch (callstatus) {
@@ -423,7 +435,8 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
 
     }
 
-    protected void onPause() {
+    @Override
+    public void onPause() {
         super.onPause();
         if(mSensor!=null) mSensorManager.unregisterListener(this);
     }
@@ -442,8 +455,8 @@ public class CallActivity extends FrontBackAnimate implements BasicPhone.LoginLi
     public void onEndCall(View view) {
         //Log.d(TAG, "Llega al onEndCall");
         phone.disconnect();
-        finish();
-        overridePendingTransition(R.animator.back_slide_in, R.animator.front_slide_out);
+        ((MainActivity) getActivity()).replaceLayout(new FrontFragment(), true);
+        //overridePendingTransition(R.animator.back_slide_in, R.animator.front_slide_out);
     }
 
     public void onToggleSpeaker(View view) {

@@ -8,10 +8,9 @@
     tools:context=".MyAccountMenuActivity"
     android:background="@drawable/background"
     android:weightSum="1"
-    android:id="@+id/my_account_menu_layout"
-    android:onClick="onCloseMenu">
+    android:id="@+id/my_account_menu_layout">
 
-    <RelativeLayout
+    <!--<RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
         android:layout_alignParentTop="true"
@@ -50,8 +49,8 @@
         android:paddingEnd="-2dp"
         android:paddingStart="-2dp"
         android:src="@drawable/separator_medium_mag"
-        android:contentDescription="Divider"
-        />
+        android:contentDescription="Divider" /> -->
+
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -69,7 +68,6 @@
         android:src="@drawable/separator_thin"
         android:contentDescription="Divider"
         android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        />
+        android:paddingEnd="20dp" />
 
 </LinearLayout>

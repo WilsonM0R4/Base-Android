@@ -15,12 +15,12 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="32dp"
             android:id="@+id/ll_trip"
-            android:layout_alignParentStart="true"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp">
+            android:layout_marginRight="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true">
 
             <Button
                 android:layout_width="wrap_content"
@@ -30,7 +30,6 @@
                 android:id="@+id/btn_roundtrip"
                 android:background="@drawable/round_corner_magenta"
                 android:textColor="@color/DoubleSelectorButtonSelected_text"
-                android:onClick="onRoundTrip"
                 android:paddingTop="0dp"
                 android:paddingBottom="0dp"
                 android:layout_weight="1"
@@ -72,7 +71,6 @@
                     android:layout_gravity="center"
                     android:src="@drawable/flights__departure"
                     android:id="@+id/iv_departure"
-                    android:onClick="onDepartingLocation"
                     android:layout_centerHorizontal="true"
                     />
 
@@ -106,12 +104,12 @@
             </RelativeLayout>
 
             <ImageView
+                android:id="@+id/imageView33"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:src="@drawable/flights__from__to"
-                android:onClick="onFlip"
-                android:layout_marginTop="0dp"/>
+                android:layout_marginTop="0dp"
+                android:src="@drawable/flights__from__to" />
 
             <RelativeLayout
                 android:layout_width="0dp"
@@ -126,8 +124,7 @@
                     android:layout_weight="1"
                     android:layout_centerHorizontal="true"
                     android:src="@drawable/flights__arrival"
-                    android:id="@+id/iv_arrival"
-                    android:onClick="onDepartingLocation"/>
+                    android:id="@+id/iv_arrival" />
 
                 <com.allegra.handyuvisa.utils.CustomizedTextView
                     android:layout_width="wrap_content"
