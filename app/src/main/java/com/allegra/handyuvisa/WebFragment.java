@@ -1,9 +1,16 @@
 package com.allegra.handyuvisa;
 
+import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.location.Address;
+import android.location.Geocoder;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,9 +26,14 @@ import android.widget.TextView;
 
 import com.allegra.handyuvisa.models.AllemUser;
 import com.allegra.handyuvisa.utils.Constants;
+import com.allegra.handyuvisa.utils.GPSTracker;
 import com.allegra.handyuvisa.utils.WebNavigationCallBack;
 import com.allegra.handyuvisa.utils.WebNavigationEnablingCallback;
 import com.allem.onepocket.utils.OPKConstants;
+
+import java.net.URLEncoder;
+import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by wmora on 24/03/17.
@@ -73,12 +85,20 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
 
     private String url;
     public String onePocketmessage;
+    private String opkConstant = "";
+    GPSTracker gp;
+    Double latitude, longitude;
+    private boolean isGPSEnabled, isNetworkEnabled, enterToGetLocation;
 
     RelativeLayout navigationPanelLayout, toolbarLayout;
     ImageButton arrowBack, arrowF, menuButton, backButton;
     ProgressBar progressBar;
     TextView screenTitle;
     private String returnURL;
+    public static final int REQUEST_LOCATION_CODE = 1234, MY_PERMISSIONS_REQUEST_LOCATION = 4563;
+    public static final int MY_PERMISSIONS_REQUEST_CALL = 8888;
+    String[] MY_PERMISSIONS_CALL = { android.Manifest.permission.CALL_PHONE};
+    String[] PERMISSIONS = { android.Manifest.permission.ACCESS_COARSE_LOCATION, android.Manifest.permission.ACCESS_FINE_LOCATION};
 
     private boolean canReturn = false;
 
@@ -113,12 +133,25 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
         /** remember to add always a starter view string in bundle **/
         if(getArguments().getString(STARTER_VIEW).contains("FlightsActivity")){
            url = flightsParams();
+            opkConstant = OPKConstants.TYPE_FLIGHT;
         } else if(getArguments().getString(STARTER_VIEW).contains("HotelsActivity")){
             url = hotelsParams();
+            opkConstant = OPKConstants.TYPE_HOTEL;
         } else if(getArguments().getString(STARTER_VIEW).contains("ConciergeActivity")){
             url = conciergeParams();
+            opkConstant = OPKConstants.TYPE_HOTEL;
         } else if(getArguments().getString(STARTER_VIEW).contains(BackFragment.VIEW_TYPE_MCARD)){
             url = url+userEmail;
+            opkConstant = OPKConstants.TYPE_MCARD;
+        } else if(getArguments().getString(STARTER_VIEW).contains(BackFragment.VIEW_TYPE_SERVICES)){
+            url = Constants.getServiceUrl()+"&email="+userEmail+"&v=1"+"&idPortal="+Constants.ID_PORTAL;
+            opkConstant = OPKConstants.TYPE_MCARD;
+        } else if(getArguments().getString(STARTER_VIEW).contains(BackFragment.VIEW_TYPE_RESTAURANTS)){
+            url = Constants.getRestaurantUrl();
+            opkConstant = OPKConstants.TYPE_MCARD;
+        } else if(getArguments().getString(STARTER_VIEW).contains(BackFragment.VIEW_TYPE_STORE)){
+            url = Constants.getStoreUrl();
+            opkConstant = OPKConstants.TYPE_MCARD;
         }
 
         canReturn = getArguments().getBoolean(CAN_RETURN);
@@ -158,7 +191,13 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
             }
         }else if (requestCode == Constants.ONE_POCKET_NEEDS_LOGIN){
             openOnePocket();
+        }
 
+        //Validate permissions
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !hasPermissions(getActivity(), PERMISSIONS)) {
+            ActivityCompat.requestPermissions(getActivity(), PERMISSIONS, MY_PERMISSIONS_REQUEST_LOCATION);
+        } else {
+            getCurrentLocation();
         }
 
     }
@@ -456,16 +495,90 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
         //Intent intent = new Intent(MarketPlaceActivity.this, OnepocketPurchaseActivity.class);
         Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(getActivity()),
                 onePocketmessage,
-                OPKConstants.TYPE_MARKETPLACE,
+                opkConstant,
                 (com.allegra.handyuvisa.VisaCheckoutApp) getActivity().getApplication());
 
         OnepocketPurchaseActivity fragmentOPKPurchase = new OnepocketPurchaseActivity();
         fragmentOPKPurchase.setArguments(bundle);
 
-        ((MainActivity) getActivity()).replaceLayout(fragmentOPKPurchase, false);
+        ((FragmentMain) getParentFragment()).replaceLayout(fragmentOPKPurchase, false);
         //intent.putExtras(bundle);
         //startActivityForResult(intent, MarketPlaceActivity.REQUEST_ONEPOCKET_RETURN);*/
 
+    }
+
+    private void startCall(String url) {
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && hasPermission(getActivity(),MY_PERMISSIONS_CALL[0])) {
+            ActivityCompat.requestPermissions(getActivity(), MY_PERMISSIONS_CALL, MY_PERMISSIONS_REQUEST_CALL);
+        } else {
+            Intent intentCall = new Intent(Intent.ACTION_CALL, Uri.parse(url));
+            if (ActivityCompat.checkSelfPermission(getActivity(), MY_PERMISSIONS_CALL[0]) != PackageManager.PERMISSION_GRANTED) {
+                return;
+            }
+            this.startActivity(intentCall);
+        }
+    }
+
+    public static boolean hasPermission(Context context, String permission) {
+        if (context != null && permission != null) {
+            if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean hasPermissions(Context context, String... permissions) {
+        if (context != null && permissions != null) {
+            for (String permission : permissions) {
+                if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    private void getCurrentLocation() {
+
+        //TODO: Need to fix. Strong reference. Working on UI Thread
+        gp = new GPSTracker(getActivity());
+        latitude = gp.getLatitude();
+        longitude = gp.getLongitude();
+
+        if (latitude != 0.0) {
+
+            try {
+                enterToGetLocation = true;
+                Geocoder geocoder = new Geocoder(getActivity(), Locale.ENGLISH);
+                List<Address> addresses = geocoder.getFromLocation(latitude, longitude, 1);
+                String cityName = addresses.get(0).getAddressLine(0);
+                String stateName = addresses.get(0).getAddressLine(1);
+                String countryName = addresses.get(0).getAddressLine(2);
+                String city = "";
+                //Split special characters
+                if (stateName.contains(", ")) {
+                    String[] parts = stateName.split(", ");
+                    city = parts[0];
+                    //  Log.d("City split", city);
+                } else {
+                    if (stateName.contains(" ")) {
+                        String[] parts = stateName.split(" ");
+                        city = parts[0];
+                        //  Log.d("City split space", city);
+                    }
+                }
+                String query = URLEncoder.encode(city, "utf-8");
+                // Log.d("cityName", cityName);
+                // Log.d("stateName", stateName);
+                // Log.d("countryName", countryName);
+                // Log.d("LATITUDE", latitude.toString());
+                // Log.d("LONGITUDE", longitude.toString());
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     //INTERFACE WebNavigationCallback

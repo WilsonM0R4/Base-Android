@@ -26,6 +26,12 @@ import com.allegra.handyuvisa.utils.Util;
 public class BackFragment extends Fragment {
 
     //*************GLOBAL ATTRIBUTES*******************
+    public static final String VIEW_TYPE_SERVICES = "services";
+    public static final String VIEW_TYPE_RESTAURANTS = "restaurants";
+    public static final String VIEW_TYPE_STORE = "store";
+    public static final String VIEW_TYPE_MCARD = "mCard";
+    public static final String VIEW_TYPE_MARKET = "market";
+
     //private String optionSelectedForService = "";
     private CustomizedTextView textOptionSelectedForService;
     private ImageButton home;
@@ -33,9 +39,6 @@ public class BackFragment extends Fragment {
     public MenuSelectListener menulistener;
     public static MenuActivity[] activities;
     MenuCallback menuCallback;
-
-    public static final String VIEW_TYPE_MCARD = "mCard";
-    public static final String VIEW_TYPE_MARKET = "market";
 
     //***************INTERFACES*****************
     public interface MenuSelectListener {
@@ -402,7 +405,7 @@ public class BackFragment extends Fragment {
         Bundle bundle = new Bundle();
 
         bundle.putBoolean(WebFragment.CAN_RETURN, false);
-        bundle.putString(WebFragment.STARTER_VIEW, getClass().getName());
+        bundle.putString(WebFragment.STARTER_VIEW, VIEW_TYPE_SERVICES);
         bundle.putString(WebFragment.WEB_TITLE, getString(R.string.services));
         bundle.putString(WebFragment.LOADING_URL, Constants.getServiceUrl());
 
@@ -463,8 +466,8 @@ public class BackFragment extends Fragment {
 
         /** REVIEW THIS METHOD **/
         if(Util.isAuthenticated(getActivity())) {
-            Intent intent = new Intent(getActivity(), activity);
-            getActivity().startActivity(intent);
+            /*Intent intent = new Intent(getActivity(), activity);
+            getActivity().startActivity(intent);*/
             //getActivity().finish();
         }else {
             /*Intent intent = new Intent(getActivity(),LoginActivity.class);
@@ -479,7 +482,7 @@ public class BackFragment extends Fragment {
 
         bundle.putBoolean(WebFragment.CAN_RETURN, false);
         bundle.putString(WebFragment.WEB_TITLE, getString(R.string.title_restaurants));
-        bundle.putString(WebFragment.STARTER_VIEW, getClass().getName());
+        bundle.putString(WebFragment.STARTER_VIEW, VIEW_TYPE_RESTAURANTS);
         bundle.putString(WebFragment.LOADING_URL, Constants.getRestaurantUrl());
 
         WebFragment restaurantsFragment = new WebFragment();
@@ -498,7 +501,7 @@ public class BackFragment extends Fragment {
 
         bundle.putBoolean(WebFragment.CAN_RETURN, false);
         bundle.putString(WebFragment.WEB_TITLE, getString(R.string.title_store));
-        bundle.putString(WebFragment.STARTER_VIEW, getClass().getName());
+        bundle.putString(WebFragment.STARTER_VIEW, VIEW_TYPE_STORE);
         bundle.putString(WebFragment.LOADING_URL, Constants.getStoreUrl());
 
         WebFragment fragmentStore = new WebFragment();
