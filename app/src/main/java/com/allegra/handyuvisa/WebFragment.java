@@ -84,6 +84,7 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
     private String paramIdCity = "";
 
     private String url;
+    private String callUrl;
     public String onePocketmessage;
     private String opkConstant = "";
     GPSTracker gp;
@@ -232,6 +233,10 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
         if (url.contains("http://") || url.contains("https://")) {
             if (!url.contains(".pdf")) URL_OPEN_PDF = "";
             view.loadUrl(URL_OPEN_PDF + url);
+        } else if (url.startsWith("tel:")) {
+            callUrl = url;
+            startCall(callUrl);
+            return true;
         }
 
         return true;

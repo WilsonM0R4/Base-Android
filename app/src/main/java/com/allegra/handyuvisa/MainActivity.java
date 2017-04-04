@@ -5,14 +5,12 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 
-import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
 import com.allegra.handyuvisa.utils.Util;
 import com.appsflyer.AppsFlyerLib;
@@ -37,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements com.allegra.handy
     public int state = 0; // 0 - front open + back exposed; // 1 - front close + back hidden;
     public static final int menu_exposed = 1;
     public static final int menu_hidden = 0;
-    FragmentMain fragmentMain;
+    public FragmentMain fragmentMain;
 
 
 
@@ -328,8 +326,8 @@ public class MainActivity extends AppCompatActivity implements com.allegra.handy
     }
 
 
-    public void onHome(View view) {
-        animate();
+    public void onHome() {
+        fragmentMain.replaceLayout(frontFragment, true);
     }
 
     public void onBack(){
@@ -337,8 +335,6 @@ public class MainActivity extends AppCompatActivity implements com.allegra.handy
     }
 
     public void statusBarVisibility(boolean isInitialView){
-
-
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             View decorView = getWindow().getDecorView();
@@ -357,5 +353,6 @@ public class MainActivity extends AppCompatActivity implements com.allegra.handy
         }
 
     }
+
 
 }

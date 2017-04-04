@@ -55,6 +55,7 @@ import static com.allegra.handyuvisa.R.id.et_password;
  */
 public class LoginActivity extends Fragment  {
 
+    public static final String LOGIN_REQUEST_TYPE = "request_type";
     private final String TAG = "LoginActivity";
     private ActionBar actionBar;
     private Context ctx;
@@ -515,7 +516,8 @@ public class LoginActivity extends Fragment  {
                 //*CHECK IF DATA BASE EXIST*/
                 Intent returnIntent = new Intent();
                 //Log.e(TAG, "Acá sí");
-                getActivity().setResult(MainActivity.RESULT_OK, returnIntent);
+                //getActivity().setResult(MainActivity.RESULT_OK, returnIntent);
+
                 ((FragmentMain) getParentFragment()).replaceLayout(new FrontFragment(), true);
                 //getActivity().finish();
 

@@ -380,4 +380,5 @@ public class FragmentMain extends Fragment implements NavigationCallback,
     public void goToView(Fragment fragment) {
         replaceLayout(fragment, false);
     }
+
 }

@@ -59,6 +59,9 @@ public class QRScanActivity extends Fragment{// implements FrontBackAnimate.Infl
         super.onCreate(state);
         MyBus.getInstance().register(this);
         postValues = new ArrayList<>();
+        ((FragmentMain) getParentFragment()).configToolbar(false,
+                Constants.TYPE_MENU,
+                getString(R.string.title_qr_scan));
         //setContentView(R.layout.activity_qrscan);
         //setView(R.layout.activity_qrscan, this);
         if (checkLogin()) {
@@ -212,7 +215,7 @@ public class QRScanActivity extends Fragment{// implements FrontBackAnimate.Infl
 
             String id = scanResult.getContents();
 
-            Log.e("OPK", "result data is -- "+id);
+            //Log.e("OPK", "result data is -- "+id);
             if (resultCode == -1) {
                 //Log.d("resultado QR", id);
                 try {
@@ -252,7 +255,7 @@ public class QRScanActivity extends Fragment{// implements FrontBackAnimate.Infl
     private boolean checkLogin() {
         if(((com.allegra.handyuvisa.VisaCheckoutApp)getActivity().getApplication()).getIdSession()==null){
 
-            ((MainActivity) getActivity()).replaceLayout(new LoginActivity(), false);
+            ((FragmentMain) getParentFragment()).replaceLayout(new LoginActivity(), false);
 
             /*Intent i =new Intent(QRScanActivity.this,LoginActivity.class);
             this.startActivityForResult(i, Constants.ACTIVITY_LOGIN);*/
@@ -260,6 +263,7 @@ public class QRScanActivity extends Fragment{// implements FrontBackAnimate.Infl
         }
         return true;
     }
+
 
 
 

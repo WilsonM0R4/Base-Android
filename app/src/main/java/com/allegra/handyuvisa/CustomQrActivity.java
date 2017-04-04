@@ -1,5 +1,6 @@
 package com.allegra.handyuvisa;
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.allegra.handyuvisa.utils.MenuCallback;
 import com.journeyapps.barcodescanner.CaptureManager;
 import com.journeyapps.barcodescanner.CompoundBarcodeView;
 
@@ -31,6 +33,7 @@ public class CustomQrActivity extends AppCompatActivity implements
             @Override
             public void onClick(View view) {
                 onBackPressed();
+                ((MainActivity) getParent()).onHome();
             }
         });
 
@@ -55,10 +58,7 @@ public class CustomQrActivity extends AppCompatActivity implements
         super.onDestroy();
         capture.onDestroy();
     }
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-    }
+
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
