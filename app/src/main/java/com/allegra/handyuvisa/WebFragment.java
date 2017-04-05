@@ -128,16 +128,22 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
             userEmail = user.email;
         }
 
-
         url = getArguments().getString(LOADING_URL);
         Log.e("Web", getArguments().getString(STARTER_VIEW));
+
+        canReturn = getArguments().getBoolean(CAN_RETURN);
+
+        initViews(view);
+
+        configToolbar(canReturn);
 
         /** remember to add always a starter view string in bundle **/
         if(getArguments().getString(STARTER_VIEW).contains("FlightsActivity")){
             url = flightsParams();
             opkConstant = OPKConstants.TYPE_FLIGHT;
-        } else if (getArguments().getString(STARTER_VIEW).contains(BackFragment.VIEW_TYPE_BENEFITS)){
-
+        } else if (getArguments().getString(STARTER_VIEW).contains("LegalActivity")){
+            ((FragmentMain) getParentFragment()).configToolbar(false, Constants.TYPE_BACK_MENU,
+                    getArguments().getString(WEB_TITLE));
         } else if(getArguments().getString(STARTER_VIEW).contains("HotelsActivity")){
             url = hotelsParams();
             opkConstant = OPKConstants.TYPE_HOTEL;
@@ -158,14 +164,14 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
             opkConstant = OPKConstants.TYPE_MCARD;
         }
 
-        canReturn = getArguments().getBoolean(CAN_RETURN);
+
 
         Log.e("Web", "url: "+url);
         Log.e("Web", "starter view "+getArguments().getString(STARTER_VIEW));
         Log.e("Web", "can return: "+canReturn);
 
-        initViews(view);
-        configToolbar(canReturn);
+
+
         //setListeners();
         loadPage(url);
     }
@@ -274,10 +280,10 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
 
         if(canReturn){
             ((FragmentMain) getParentFragment()).configToolbar(false, Constants.TYPE_BACK_WEB,
-                    getArguments().getString("web_title"));
+                    getArguments().getString(WEB_TITLE));
         } else {
             ((FragmentMain) getParentFragment()).configToolbar(false, Constants.TYPE_WEB_MENU,
-                    getArguments().getString("web_title"));
+                    getArguments().getString(WEB_TITLE));
         }
     }
 

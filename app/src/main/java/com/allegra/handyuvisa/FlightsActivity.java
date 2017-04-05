@@ -150,7 +150,6 @@ public class FlightsActivity extends Fragment {
         //setView(R.layout.fragment_flights, this);
         MyBus.getInstance().register(this);
         airportData = new ArrayList<>();
-        ((MainActivity) getActivity()).statusBarVisibility(false);
         //getLocation();
     }
 
@@ -176,8 +175,12 @@ public class FlightsActivity extends Fragment {
 
     private void initViews(View root) {
 
-        menuButton = (ImageButton) root.findViewById(R.id.menu_image);
-        headerContainer = (RelativeLayout) root.findViewById(R.id.ll_header);
+        ((MainActivity) getActivity()).statusBarVisibility(false);
+
+        ((FragmentMain) getParentFragment()).configToolbar(false, Constants.TYPE_MENU, getString(R.string.title_flights));
+
+        //menuButton = (ImageButton) root.findViewById(R.id.menu_image);
+        //headerContainer = (RelativeLayout) root.findViewById(R.id.ll_header);
 
         //Set initial Date
         TextView dateBegin = (TextView) root.findViewById(R.id.textDepartureDay);
@@ -253,12 +256,12 @@ public class FlightsActivity extends Fragment {
             }
         };
 
-        headerContainer.setOnClickListener(new View.OnClickListener() {
+        /*headerContainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ((MainActivity) getActivity()).animate();
             }
-        });
+        });*/
 
         round.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -275,12 +278,12 @@ public class FlightsActivity extends Fragment {
             }
         });
 
-        menuButton.setOnClickListener(new View.OnClickListener() {
+        /*menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ((MainActivity) getActivity()).animate();
             }
-        });
+        });*/
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -911,7 +914,7 @@ public class FlightsActivity extends Fragment {
 
                 WebFragment fragmentSearchFlights = new WebFragment();
                 fragmentSearchFlights.setArguments(extraData);
-                ((MainActivity) getActivity()).replaceLayout(fragmentSearchFlights, false);
+                ((FragmentMain) getParentFragment()).replaceLayout(fragmentSearchFlights, false);
             }
         }
     }

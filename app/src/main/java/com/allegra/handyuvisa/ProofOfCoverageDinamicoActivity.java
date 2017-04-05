@@ -50,6 +50,8 @@ public class ProofOfCoverageDinamicoActivity extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
 
+
+
         initViews(view);
 
         //Fragment Callbacks
@@ -87,12 +89,22 @@ public class ProofOfCoverageDinamicoActivity extends Fragment {
             }
         });
 
+        Log.e("PROOF","EntryCount es " +getChildFragmentManager().getBackStackEntryCount());
+
         RegisterCallback.registerBack(new BackHandler() {
             @Override
             public void handle() {
                 //onUp(null);
                 Log.e("Proof", "back pressed");
                 //((MainActivity) getActivity()).replaceLayout(new MyAccountMenuActivity(), true);
+                if(getChildFragmentManager().getBackStackEntryCount() > 0){
+                    Log.e("THistory", "es " + getChildFragmentManager().getBackStackEntryCount());
+                    getChildFragmentManager().popBackStack();
+                    getChildFragmentManager().beginTransaction().commit();
+                }else{
+                    Log.e("THistory", "es " + getChildFragmentManager().getBackStackEntryCount());
+                    ((FragmentMain) getParentFragment()).onBack();//replaceLayout(new MyAccountMenuActivity(), true);
+                }
 
 
             }
@@ -101,6 +113,9 @@ public class ProofOfCoverageDinamicoActivity extends Fragment {
     }
 
     public void initViews(View root) {
+
+        ((FragmentMain) getParentFragment()).configToolbar(true, 0, "");
+
         if (checkConnectivity()) {
             checkLogin();
         } else {
@@ -143,7 +158,7 @@ public class ProofOfCoverageDinamicoActivity extends Fragment {
         transaction.hide(currentTop);
 
         transaction.add(R.id.opk_top, fragment, fragment.toString());
-        transaction.addToBackStack(null);
+        transaction.addToBackStack(fragment.getTag());
         transaction.commit();
 
     }
@@ -152,7 +167,7 @@ public class ProofOfCoverageDinamicoActivity extends Fragment {
     private boolean checkLogin() {
 
         if(((com.allegra.handyuvisa.VisaCheckoutApp) getActivity().getApplication()).getIdSession()==null){
-            ((MainActivity) getActivity()).replaceLayout(new LoginActivity(), false);
+            ((FragmentMain) getParentFragment()).replaceLayout(new LoginActivity(), false);
             //((MainActivity) getActivity())
             /*Intent i =new Intent(getActivity(), LoginActivity.class);
             this.startActivityForResult(i, Constants.ONE_POCKET_NEEDS_LOGIN);*/
@@ -170,6 +185,8 @@ public class ProofOfCoverageDinamicoActivity extends Fragment {
         proofOfCoverage.setArguments(bundle);
         transaction.add(R.id.opk_top, proofOfCoverage);
         transaction.commit();
+
+
     }
 
 }

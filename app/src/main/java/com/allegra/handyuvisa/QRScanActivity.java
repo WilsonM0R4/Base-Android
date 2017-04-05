@@ -59,8 +59,7 @@ public class QRScanActivity extends Fragment{// implements FrontBackAnimate.Infl
         super.onCreate(state);
         MyBus.getInstance().register(this);
         postValues = new ArrayList<>();
-        ((FragmentMain) getParentFragment()).configToolbar(false,
-                Constants.TYPE_MENU,
+        ((FragmentMain) getParentFragment()).configToolbar(false, Constants.TYPE_MENU,
                 getString(R.string.title_qr_scan));
         //setContentView(R.layout.activity_qrscan);
         //setView(R.layout.activity_qrscan, this);
@@ -154,7 +153,7 @@ public class QRScanActivity extends Fragment{// implements FrontBackAnimate.Infl
                     OnepocketPurchaseActivity fragmentOPKPurchase = new OnepocketPurchaseActivity();
                     fragmentOPKPurchase.setArguments(bundle);
 
-                    ((MainActivity) getActivity()).replaceLayout(fragmentOPKPurchase, false);
+                    ((FragmentMain) getParentFragment()).replaceLayout(fragmentOPKPurchase, false);
 
                     /*intent2.putExtras(bundle);
                     startActivity(intent2);*/

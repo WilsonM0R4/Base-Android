@@ -101,6 +101,8 @@ public class OnepocketContainerActivity extends Fragment {
 
 
     public void initViews(View root) {
+        ((FragmentMain) getParentFragment()).configToolbar(true, 0, "");
+
         OneTransaction oneTransaction = getArguments().getParcelable (OPKConstants.EXTRA_DATA);
         if (oneTransaction == null) {
             Log.e("OPK", "null data");
@@ -204,9 +206,8 @@ public class OnepocketContainerActivity extends Fragment {
 
                     case 3:
 
-                        ((MainActivity) getActivity()).replaceLayout(
-                                new ProofOfCoverageDinamicoActivity(),
-                                false);
+                        ((FragmentMain) getParentFragment()).replaceLayout(new
+                                        ProofOfCoverageDinamicoActivity(), false);
 
                         /*Intent poc = new Intent(getActivity(), ProofOfCoverageDinamicoActivity.class);
                         startActivity(poc);*/

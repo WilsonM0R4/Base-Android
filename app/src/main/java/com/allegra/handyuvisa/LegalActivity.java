@@ -47,12 +47,14 @@ public class LegalActivity extends Fragment {
     }
 
     public void initViews(View root) {
-        setActionbar();
 
-        menuButton = (ImageButton) root.findViewById(R.id.menu_image);
-        backButton = (ImageButton) root.findViewById(R.id.imageButton6);
+        ((FragmentMain) getParentFragment()).configToolbar(false, Constants.TYPE_BACK_MENU, getString(R.string.legal_title));
+        //setActionbar();
 
-        setListeners();
+        /*menuButton = (ImageButton) root.findViewById(R.id.menu_image);
+        backButton = (ImageButton) root.findViewById(R.id.imageButton6);*/
+
+        //setListeners();
 
         //this.setContentView(R.layout.activity_my_account_menu);
         initializeListView(root);
@@ -60,7 +62,7 @@ public class LegalActivity extends Fragment {
 
     }
 
-    private void setListeners(){
+    /*private void setListeners(){
         menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,7 +76,7 @@ public class LegalActivity extends Fragment {
                 ((MainActivity) getActivity()).replaceLayout(new MyAccountMenuActivity(), true);
             }
         });
-    }
+    }*/
 
     private void initializeListView(View root) {
         ListView lv = (ListView) root.findViewById(R.id.legalOptionsListView);
@@ -92,7 +94,30 @@ public class LegalActivity extends Fragment {
            // Log.e(TAG, "No Version number found");
         }
 
-        final Fragment[] fragments = {new PoliticalActivity(), new com.allegra.handyuvisa.TermsActivity()};
+
+        Bundle politicalBundle;
+        politicalBundle = new Bundle();
+
+        politicalBundle.putBoolean(WebFragment.CAN_RETURN, true);
+        politicalBundle.putString(WebFragment.WEB_TITLE, getString(R.string.privacy_policy));
+        politicalBundle.putString(WebFragment.STARTER_VIEW, this.getClass().getName());
+        politicalBundle.putString(WebFragment.LOADING_URL, Constants.getPolicyUrl());
+
+        WebFragment politicalWeb = new WebFragment();
+        politicalWeb.setArguments(politicalBundle);
+
+        Bundle termsBundle;
+        termsBundle = new Bundle();
+
+        termsBundle.putBoolean(WebFragment.CAN_RETURN, true);
+        termsBundle.putString(WebFragment.WEB_TITLE, getString(R.string.terms_condition));
+        termsBundle.putString(WebFragment.STARTER_VIEW, this.getClass().getName());
+        termsBundle.putString(WebFragment.LOADING_URL,  Constants.getTermsAndConditionsUrl());
+
+        WebFragment termsWeb = new WebFragment();
+        termsWeb.setArguments(termsBundle);
+
+        final Fragment[] fragments = {politicalWeb, termsWeb};
         lv.setAdapter(new ArrayAdapter<String>(getActivity(), R.layout.profile_layout_legal, names) {
 
             public View getView(final int position,View view,ViewGroup parent) {
@@ -103,7 +128,7 @@ public class LegalActivity extends Fragment {
                     @Override
                     public void onClick(View v) {
 
-                        ((MainActivity) getActivity()).replaceLayout(fragments[position], false);
+                        ((FragmentMain) getParentFragment()).replaceLayout(fragments[position], false);
 
                         /*Intent intent = new Intent(LegalActivity.this,activities[position]);
                         LegalActivity.this.startActivity(intent);*/
@@ -116,7 +141,7 @@ public class LegalActivity extends Fragment {
         });
     }
 
-    private ActionBar actionBar;
+    /*private ActionBar actionBar;
     private void setActionbar() {
         actionBar = getActivity().getActionBar();
         if(actionBar!=null){
@@ -126,7 +151,7 @@ public class LegalActivity extends Fragment {
             actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM
                     | ActionBar.DISPLAY_SHOW_HOME);
         }
-    }
+    }*/
 
     public void onMenu(View view) {
         ((MainActivity) getActivity()).animate();
@@ -138,7 +163,7 @@ public class LegalActivity extends Fragment {
     private void checkLogin() {
         if(((com.allegra.handyuvisa.VisaCheckoutApp) getActivity().getApplication()).getIdSession()==null){
 
-            ((MainActivity) getActivity()).replaceLayout(new LoginActivity(), false);
+            ((FragmentMain) getParentFragment()).replaceLayout(new LoginActivity(), false);
 
             /*Intent i =new Intent(this,LoginActivity.class);
             this.startActivityForResult(i, Constants.ACTIVITY_LOGIN);*/

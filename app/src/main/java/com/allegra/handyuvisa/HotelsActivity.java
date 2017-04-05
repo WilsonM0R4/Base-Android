@@ -81,6 +81,8 @@ public class HotelsActivity extends Fragment {
     private static final int TEXT_ONE_WAY_SIZE = 22;//TextSize in sp
     int counterEvenDateSelected = 0;
 
+    private View hotelsView;
+
     //INNER CLASSES
 
     public class AirportData {
@@ -142,6 +144,11 @@ public class HotelsActivity extends Fragment {
 
 
     public void initViews(View root) {
+        ((FragmentMain) getParentFragment()).configToolbar(false, Constants.TYPE_MENU,
+                getString(R.string.txt_title_book_hotels));
+
+        hotelsView = this.getView();
+
         initializePanels(root);
     }
 
@@ -295,7 +302,7 @@ public class HotelsActivity extends Fragment {
                 roomsLayoutForSelect.setVisibility(View.GONE);
                 addRoomOptionPanel.setVisibility(View.GONE);
 
-                llheader.setVisibility(View.VISIBLE);
+                //llheader.setVisibility(View.VISIBLE);
                 roomsGuestHeader.setVisibility(View.VISIBLE);
                 datesLayout.setVisibility(View.VISIBLE);
                 llheader.setVisibility(View.VISIBLE);
@@ -443,17 +450,17 @@ public class HotelsActivity extends Fragment {
 
     private void selectGuestInRooms(){
         //Hide Views
-        llheader.setVisibility(View.GONE);
+        //llheader.setVisibility(View.GONE);
         roomsGuestHeader.setVisibility(View.GONE);
         datesLayout.setVisibility(View.GONE);
-        llheader.setVisibility(View.GONE);
+        //llheader.setVisibility(View.GONE);
         searchButton.setVisibility(View.GONE);
         customHotelsHeader.setVisibility(View.GONE);
         roomsResume.setVisibility(View.GONE);
         roomsLayout.setVisibility(View.GONE);
-        headerSeparator.setVisibility(View.GONE);
+        //headerSeparator.setVisibility(View.GONE);
 
-        roomsLayoutForSelect = getView().findViewById(R.id.header_for_select);
+        roomsLayoutForSelect = hotelsView.findViewById(R.id.header_for_select);
         roomsLayoutForSelect.setVisibility(View.VISIBLE);
         addRoomOptionPanel.setVisibility(View.VISIBLE);
     }
@@ -869,7 +876,7 @@ public class HotelsActivity extends Fragment {
 
             WebFragment webHotels = new WebFragment();
             webHotels.setArguments(bundle);
-            ((MainActivity) getActivity()).replaceLayout(webHotels, false);
+            ((FragmentMain) getParentFragment()).replaceLayout(webHotels, false);
 
             //System.gc();
     }
@@ -883,7 +890,7 @@ public class HotelsActivity extends Fragment {
     private void  addRoomToPanel(){
 
             final int count =roomsContainer.getChildCount();
-            headerSeparator.setVisibility(View.GONE);
+            //headerSeparator.setVisibility(View.GONE);
             roomsGuestHeader.setVisibility(View.VISIBLE);
             final View room = layoutInflater.inflate(R.layout.hotels_rooms_item_test, null);
 
@@ -1224,7 +1231,7 @@ public class HotelsActivity extends Fragment {
                 }
                 if (adapter != null && listView != null) {
                     adapter.notifyDataSetChanged();
-                    listView.setEmptyView( getView().findViewById(R.id.emptyElement));
+                    listView.setEmptyView( hotelsView.findViewById(R.id.emptyElement));
                 }
             }
            // if (adapter != null) adapter.notifyDataSetChanged();

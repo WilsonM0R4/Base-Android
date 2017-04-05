@@ -41,6 +41,8 @@ public class OnepocketPurchaseActivity extends Fragment {
     }
 
     public void initViews(View root) {
+        ((FragmentMain) getParentFragment()).configToolbar(true, 0, "");
+
         if (getActivity().isDestroyed()) {
             return;
         }
@@ -104,23 +106,21 @@ public class OnepocketPurchaseActivity extends Fragment {
                         //Log.e(TAG, "perform id: 0 - MCARD - Return from onepocket");
                         if (OPKConstants.oneTransaction.getType().equals("MCARD") && data.equals("onepocket_return")) {
                             //OnepocketPurchaseActivity.this.finish();
-                            ((MainActivity) getActivity()).replaceLayout(new FrontFragment(), true);
+                            ((FragmentMain) getParentFragment()).replaceLayout(new FrontFragment(), true);
                             Log.e("OPK", "perform if");
                         }
                         break;
 
                     case 1:
                         //Intent intent = new Intent(OnepocketPurchaseActivity.this, OnepocketContainerActivity.class);
-                        Bundle bundle = Constants.createDataBundle(
-                                Constants.getUser(getActivity()),
-                                ((com.allegra.handyuvisa.VisaCheckoutApp)
-                                        getActivity().getApplication()));
+                        Bundle bundle = Constants.createDataBundle(Constants.getUser(getActivity()),
+                                ((com.allegra.handyuvisa.VisaCheckoutApp) getActivity().getApplication()));
 
                         OnepocketContainerActivity fragmentOPKContainer = new OnepocketContainerActivity();
 
                         fragmentOPKContainer.setArguments(bundle);
 
-                        ((MainActivity) getActivity()).replaceLayout(fragmentOPKContainer, false);
+                        ((FragmentMain) getParentFragment()).replaceLayout(fragmentOPKContainer, false);
                         //intent.putExtras(bundle);
                         //startActivity(intent);
                         break;
@@ -150,7 +150,7 @@ public class OnepocketPurchaseActivity extends Fragment {
                     transaction.commit();
                 } else {
                     //onUp(null);
-                    ((MainActivity) getActivity()).replaceLayout(new FrontFragment(), true);
+                    ((FragmentMain) getParentFragment()).onBack();
                 }
             }
         });

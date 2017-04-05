@@ -7,38 +7,41 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
         android:orientation="horizontal"
         android:id="@+id/lin_lay_check_or_Cancel"
-        android:layout_marginTop="20dp">
+        android:background="@color/WHITE_COLOR">
 
         <ImageButton
             android:id="@+id/btn_cancel_date_picker"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginLeft="10dp"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:background="@drawable/flights__cancel"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/flights__cancel"
+            android:background="@color/transparent"
             android:layout_alignParentLeft="true"
-            android:padding="16dp" />
+            android:layout_centerVertical="true" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/text_select_dates_in_dialog"
             android:textColor="@color/GeneralAppHeaderTitle_text"
-            android:textSize="20sp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:layout_centerInParent="true" />
 
         <ImageButton
             android:id="@+id/btn_save_date_picker"
-            android:layout_width="28dp"
-            android:layout_height="24dp"
-            android:layout_marginRight="10dp"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:background="@drawable/flights__confirm"
-            android:layout_alignParentRight="true"
-            android:padding="16dp" />
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@color/transparent"
+            android:src="@drawable/flights__confirm"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true" />
 
     </RelativeLayout>
 

@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white">
 
-            <RelativeLayout
+            <!--<RelativeLayout
                 android:id="@+id/ll_header_hotels"
                 android:layout_width="match_parent"
                 android:layout_height="?android:attr/actionBarSize"
@@ -59,7 +59,7 @@
                 android:contentDescription="Divider"
                 android:paddingEnd="-2dp"
                 android:paddingStart="-2dp"
-                android:src="@drawable/separator_medium_mag"/>
+                android:src="@drawable/separator_medium_mag"/>-->
 
             <include
                 android:id="@+id/ll_destination"

@@ -427,7 +427,7 @@ public class BackFragment extends Fragment {
 
     public void sendToFlights(){
 
-        ((MainActivity) getActivity()).replaceLayout(new FlightsActivity(), false);
+        goToView(new FlightsActivity());
         /*Intent intent = new Intent(getActivity(),FlightsActivity.class);
         getActivity().startActivity(intent);
         getActivity().finish();*/

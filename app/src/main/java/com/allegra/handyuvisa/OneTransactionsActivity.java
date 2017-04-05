@@ -77,15 +77,20 @@ public class OneTransactionsActivity extends Fragment {
             }
         });
 
+        Log.e("THistory", "es " + getChildFragmentManager().getBackStackEntryCount());
+
         RegisterCallback.registerBack(new BackHandler() {
             @Override
             public void handle() {
                 Log.e("THistory", "back pressed");
                 //onUp(null);
                 if(getChildFragmentManager().getBackStackEntryCount() > 0){
-                    getChildFragmentManager().popBackStackImmediate();
+                    Log.e("THistory", "es " + getChildFragmentManager().getBackStackEntryCount());
+                    getChildFragmentManager().popBackStack();
+                    getChildFragmentManager().beginTransaction().commit();
                 }else{
-                    ((MainActivity) getActivity()).replaceLayout(new MyAccountMenuActivity(), true);
+                    Log.e("THistory", "es " + getChildFragmentManager().getBackStackEntryCount());
+                    ((FragmentMain) getParentFragment()).onBack();//replaceLayout(new MyAccountMenuActivity(), true);
                 }
 
             }
@@ -96,6 +101,8 @@ public class OneTransactionsActivity extends Fragment {
     public void initViews(View root) {
         checkLogin();
 
+        ((FragmentMain) getParentFragment()).configToolbar(true, 0, "");
+
     }
 
     /*@Override
@@ -104,12 +111,12 @@ public class OneTransactionsActivity extends Fragment {
     }*/
 
     private void addFragment(Fragment fragment) {
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        Fragment currentTop = getFragmentManager().findFragmentById(R.id.opk_top);
+        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+        Fragment currentTop = getChildFragmentManager().findFragmentById(R.id.opk_top);
         transaction.hide(currentTop);
 
         transaction.add(R.id.opk_top, fragment, fragment.toString());
-        transaction.addToBackStack(null);
+        transaction.addToBackStack(fragment.getTag());
         transaction.commit();
 
     }
@@ -117,20 +124,19 @@ public class OneTransactionsActivity extends Fragment {
 
     private void checkLogin() {
         if(((com.allegra.handyuvisa.VisaCheckoutApp)getActivity().getApplication()).getIdSession()==null){
-            ((MainActivity) getActivity()).replaceLayout(new LoginActivity(), false);
+            ((FragmentMain) getParentFragment()).replaceLayout(new LoginActivity(), false);
             /*Intent i =new Intent(OneTransactionsActivity.this, LoginActivity.class);
             this.startActivityForResult(i, Constants.ONE_POCKET_NEEDS_LOGIN);*/
             //finish();
         }else {
-            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+            FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
             Bundle bundle = Constants.createDataBundle(Constants.getUser(getActivity()),
                     (com.allegra.handyuvisa.VisaCheckoutApp) getActivity().getApplication());
             oneTransctions = new TransactionsFragment();
             oneTransctions.setArguments(bundle);
-            transaction.add(R.id.opk_top, oneTransctions);
+            transaction.add(R.id.opk_top, oneTransctions, oneTransctions.toString());
+            //transaction.addToBackStack(oneTransctions.getTag());
             transaction.commit();
         }
     }
-
-
 }

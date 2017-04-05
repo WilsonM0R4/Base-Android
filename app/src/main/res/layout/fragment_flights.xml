@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <RelativeLayout
+            <!--<RelativeLayout
                 android:id="@+id/ll_header"
                 android:layout_width="match_parent"
                 android:layout_height="?android:attr/actionBarSize"
@@ -57,7 +57,7 @@
                 android:contentDescription="Divider"
                 android:paddingEnd="-2dp"
                 android:paddingStart="-2dp"
-                android:src="@drawable/separator_medium_mag" />
+                android:src="@drawable/separator_medium_mag" />-->
 
             <include
                 android:id="@+id/custom_flights_header"

@@ -11,7 +11,7 @@
     android:id="@+id/my_account_menu_layout"
     android:onClick="onCloseMenu">
 
-    <RelativeLayout
+    <!--<RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
         android:layout_alignParentTop="true"
@@ -61,7 +61,7 @@
         android:id="@+id/iv_header"
         android:src="@drawable/separator_medium_mag"
         android:contentDescription="Divider"
-        />
+        />-->
 
     <LinearLayout
         android:orientation="vertical"
