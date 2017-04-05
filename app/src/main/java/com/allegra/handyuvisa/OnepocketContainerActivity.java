@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.allegra.handyuvisa.utils.Constants;
+import com.allegra.handyuvisa.utils.LoginCallback;
 import com.allem.onepocket.BackHandler;
 import com.allem.onepocket.MenuHandler;
 import com.allem.onepocket.NextHandler;
@@ -127,8 +128,19 @@ public class OnepocketContainerActivity extends Fragment {
 
     private void checkLogin() {
         if(((com.allegra.handyuvisa.VisaCheckoutApp)getActivity().getApplication()).getIdSession()==null){
-            Intent i =new Intent(getActivity(), LoginActivity.class);
-            startActivityForResult(i, Constants.ONE_POCKET_NEEDS_LOGIN);
+            /*Intent i =new Intent(getActivity(), LoginActivity.class);
+            startActivityForResult(i, Constants.ONE_POCKET_NEEDS_LOGIN);*/
+
+            LoginActivity loginActivity = new LoginActivity();
+            loginActivity.setSuccessLoginListener(new LoginCallback() {
+                @Override
+                public void onLoginFinished() {
+                    //this can be empty
+                    Log.e(TAG, "onepocket login call");
+                }
+            });
+
+            ((FragmentMain) getParentFragment()).replaceLayout(loginActivity, false);
 
         }
     }

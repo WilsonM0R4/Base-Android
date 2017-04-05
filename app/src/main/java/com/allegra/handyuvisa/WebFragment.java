@@ -250,8 +250,7 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
      * **/
     private void initViews(View view){
 
-        progressBar = (ProgressBar) view.findViewById(R.id.web_progressBar);
-        mWebView = (WebView) view.findViewById(R.id.web_view);
+
         /*navigationPanelLayout = (RelativeLayout) view.findViewById(R.id.navigation_panel);
         toolbarLayout = (RelativeLayout) view.findViewById(R.id.ll_header);
         arrowBack = (ImageButton) view.findViewById(R.id.arrow_back);
@@ -262,6 +261,9 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
 
         screenTitle = (TextView) view.findViewById(R.id.tv_title);
         screenTitle.setText(getArguments().getString("web_title"));*/
+
+        progressBar = (ProgressBar) view.findViewById(R.id.web_progressBar);
+        mWebView = (WebView) view.findViewById(R.id.web_view);
 
         setupLoadingView(view);
 

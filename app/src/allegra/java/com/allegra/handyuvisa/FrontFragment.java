@@ -22,6 +22,7 @@ import com.allegra.handyuvisa.models.AllemUser;
 import com.allegra.handyuvisa.models.Notifications;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.KeySaver;
+import com.allegra.handyuvisa.utils.LoginCallback;
 import com.allegra.handyuvisa.utils.NavigationCallback;
 import com.allegra.handyuvisa.utils.Util;
 
@@ -108,9 +109,14 @@ public class FrontFragment extends Fragment implements
                     Log.e("Front", "login pressed");
 
                     LoginActivity login = new LoginActivity();
-
+                    login.setSuccessLoginListener(new LoginCallback() {
+                        @Override
+                        public void onLoginFinished() {
+                            Log.e("Front", "login clicked");
+                        }
+                    });
                     ((FragmentMain) getParentFragment()).replaceLayout(
-                            new LoginActivity(), false);
+                            login, false);
                 }
             });
 

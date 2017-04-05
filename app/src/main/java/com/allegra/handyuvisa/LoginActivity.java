@@ -54,7 +54,7 @@ import static com.allegra.handyuvisa.R.id.et_password;
  * Created by victor on 19/02/15.
  * com.allem.allemevent.fragactiv
  */
-public class LoginActivity extends Fragment implements LoginCallback {
+public class LoginActivity extends Fragment  implements LoginCallback{
 
     public static final String LOGIN_REQUEST_TYPE = "request_type";
     private final String TAG = "LoginActivity";
@@ -74,8 +74,7 @@ public class LoginActivity extends Fragment implements LoginCallback {
     private String valueOfMcard;
     private ArrayList<NameValuePair> postValues;
     boolean mostrarAppCobertura = true, mostrarAppBeneficios = true, mostrarSoloPolizaPrincipal = true;
-
-    LoginCallback loginCallback;
+    LoginCallback mLoginCallback;
 
 
     //*************************OVERRIDE METHODS*********************
@@ -521,8 +520,9 @@ public class LoginActivity extends Fragment implements LoginCallback {
                 //Log.e(TAG, "Acá sí");
                 //getActivity().setResult(MainActivity.RESULT_OK, returnIntent);
 
-                ((FragmentMain) getParentFragment()).replaceLayout(new FrontFragment(), true);
+                //((FragmentMain) getParentFragment()).replaceLayout(new FrontFragment(), true);
                 //getActivity().finish();
+                this.onLoginFinished();
 
             } else {
                 Toast.makeText(ctx, event.getFaultString(), Toast.LENGTH_LONG).show();
@@ -680,8 +680,18 @@ public class LoginActivity extends Fragment implements LoginCallback {
 
     }
 
+    public void setSuccessLoginListener(LoginCallback loginCallback){
+        if(loginCallback!=null){
+            mLoginCallback = loginCallback;
+        }
+    }
+
     @Override
     public void onLoginFinished() {
-
+        if(mLoginCallback!=null){
+            Log.e(TAG, "loginCallback was called");
+            ((FragmentMain) getParentFragment()).onBack();
+            mLoginCallback.onLoginFinished();
+        }
     }
 }
