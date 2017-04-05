@@ -22,6 +22,7 @@ import com.allegra.handyuvisa.async.AsyncTaskSoapPrimitiveResultEvent;
 import com.allegra.handyuvisa.async.MyBus;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.KeySaver;
+import com.allegra.handyuvisa.utils.LoginCallback;
 import com.allegra.handyuvisa.utils.Util;
 import com.squareup.otto.Subscribe;
 import com.urbanairship.UAirship;
@@ -249,7 +250,16 @@ public class MyAccountActivity extends Fragment {
 
     private void checkLogin() {
         if(((VisaCheckoutApp) getActivity().getApplication()).getIdSession()==null){
-            ((FragmentMain) getParentFragment()).replaceLayout(new LoginActivity(), false);
+
+            LoginActivity loginActivity = new LoginActivity();
+            loginActivity.setSuccessLoginListener(new LoginCallback() {
+                @Override
+                public void onLoginFinished() {
+                    //nothing here
+                }
+            });
+
+            ((FragmentMain) getParentFragment()).replaceLayout(loginActivity, false);
             /*Intent i =new Intent(ctx,LoginActivity.class);
             this.startActivityForResult(i, Constants.ACTIVITY_LOGIN);*/
         }

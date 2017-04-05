@@ -162,8 +162,8 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
         Log.e("Web", "can return: "+canReturn);
 
         initViews(view);
-        configToolbar(canReturn);
-        setListeners();
+        //configToolbar(canReturn);
+        //setListeners();
         loadPage(url);
     }
 
@@ -222,7 +222,7 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
             mWebView.loadUrl(returnURL);
         }
         //INTERFACE WebNavigationCallback
-        loadWebNavigation();
+        //loadWebNavigation();
         enablingCallback.canGoBack(view.canGoBack());
         enablingCallback.canGoForward(view.canGoForward());
     }
@@ -248,23 +248,23 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
     private void initViews(View view){
 
         mWebView = (WebView) view.findViewById(R.id.web_view);
-        navigationPanelLayout = (RelativeLayout) view.findViewById(R.id.navigation_panel);
-        toolbarLayout = (RelativeLayout) view.findViewById(R.id.ll_header);
-        arrowBack = (ImageButton) view.findViewById(R.id.arrow_back);
-        arrowF = (ImageButton) view.findViewById(R.id.arrow_forward);
-        menuButton = (ImageButton) view.findViewById(R.id.menu_image);
-        backButton = (ImageButton) view.findViewById(R.id.ib_up);
+        //navigationPanelLayout = (RelativeLayout) view.findViewById(R.id.navigation_panel);
+        //toolbarLayout = (RelativeLayout) view.findViewById(R.id.ll_header);
+        //arrowBack = (ImageButton) view.findViewById(R.id.arrow_back);
+        //arrowF = (ImageButton) view.findViewById(R.id.arrow_forward);
+        //menuButton = (ImageButton) view.findViewById(R.id.menu_image);
+        //backButton = (ImageButton) view.findViewById(R.id.ib_up);
         progressBar = (ProgressBar) view.findViewById(R.id.web_progressBar);
 
-        screenTitle = (TextView) view.findViewById(R.id.tv_title);
-        screenTitle.setText(getArguments().getString("web_title"));
+        //screenTitle = (TextView) view.findViewById(R.id.tv_title);
+        //screenTitle.setText(getArguments().getString(WEB_TITLE));
 
         setupLoadingView(view);
 
         setupWebView();
     }
 
-    private void configToolbar(boolean canReturn){
+    /*private void configToolbar(boolean canReturn){
 
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams)
                 navigationPanelLayout.getLayoutParams();
@@ -274,16 +274,14 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
             layoutParams.height = RelativeLayout.LayoutParams.WRAP_CONTENT;
             layoutParams.addRule(RelativeLayout.ALIGN_PARENT_END, RelativeLayout.TRUE);
             /*layoutParams.addRule(RelativeLayout.END_OF, R.id.tv_title);
-            layoutParams.addRule(RelativeLayout.RIGHT_OF, R.id.tv_title);*/
+            layoutParams.addRule(RelativeLayout.RIGHT_OF, R.id.tv_title);
             menuButton.setVisibility(View.GONE);
             navigationPanelLayout.setLayoutParams(layoutParams);
 
             backButton.setVisibility(View.VISIBLE);
         }
 
-
-
-    }
+    }*/
 
     public void setupLoadingView(View root){
         mLoadingView = (FrameLayout) root.findViewById(R.id.loading_view);
@@ -302,7 +300,7 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
         }
     }
 
-    private void setListeners(){
+    /*private void setListeners(){
         arrowBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -330,14 +328,14 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
                 ((MainActivity) getActivity()).animate();
             }
         });
-    }
+    }*/
 
     private void loadPage(String url){
         progressBar.setVisibility(View.VISIBLE);
         mWebView.loadUrl(url);
     }
 
-    private void loadWebNavigation(){
+    /*private void loadWebNavigation(){
         if(mWebView.canGoBack()){
             arrowBack.setImageDrawable(getResources().getDrawable(R.drawable.navigation__backurl));
         }else{
@@ -349,7 +347,7 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
         }else{
             arrowF.setImageDrawable(getResources().getDrawable(R.drawable.navigation__fwdurl));
         }
-    }
+    }*/
 
     public void onGoBack(){
         if(mWebView.canGoBack()) {
@@ -589,9 +587,13 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
     //INTERFACE WebNavigationCallback
     @Override
     public boolean onWebBackPressed() {
-        if(mWebView.canGoBack()) {
+
+        Log.e("Web", "web back pressed");
+        onGoBack();
+
+        /*if(mWebView.canGoBack()) {
             mWebView.goBack();
-        }
+        }*/
         return false;
     }
 
@@ -599,9 +601,12 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
     @Override
     public boolean onWebForwardPressed() {
 
-        if(mWebView.canGoForward()){
+        Log.e("Web", "web forward pressed");
+        onGoForward();
+
+        /*if(mWebView.canGoForward()){
             mWebView.goForward();
-        }
+        }*/
 
         return false;
     }

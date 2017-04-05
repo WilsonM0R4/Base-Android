@@ -14,6 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.allegra.handyuvisa.utils.Constants;
+import com.allegra.handyuvisa.utils.LoginCallback;
 import com.allegra.handyuvisa.utils.MenuCallback;
 import com.allegra.handyuvisa.utils.NavigationCallback;
 import com.allegra.handyuvisa.utils.WebNavigationCallBack;
@@ -33,18 +34,20 @@ public class FragmentMain extends Fragment implements NavigationCallback,
     private static final String TAG = "FragmentMain";
     private static final int BUTTON_BACK = 1;
     private static final int ANY_BUTTON = 2;
-    private Fragment currentFrontFragment; //will manage all fragments in the app
+    public Fragment currentFrontFragment; //will manage all fragments in the app
 
 
-    Toolbar toolbar;
+    RelativeLayout toolbar;
     ImageButton leftButton, leftButton2, rightButton, rightButton2;
     TextView tvTitle;
     ArrayList <Fragment> arrayFragments;
     Fragment stackFragment;
     WebNavigationCallBack callBack;
+    LoginCallback loginCallback;
     FrameLayout content;
     ImageView divider;
     int buttonAction = ANY_BUTTON;
+    boolean leftWebButtons = true;
 
     /*@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -65,9 +68,7 @@ public class FragmentMain extends Fragment implements NavigationCallback,
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState){
 
-        callBack = (WebFragment) stackFragment;
-
-        toolbar = (Toolbar)view.findViewById(R.id.toolbar);
+        toolbar = (RelativeLayout)view.findViewById(R.id.toolbar);
         toolbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -132,6 +133,10 @@ public class FragmentMain extends Fragment implements NavigationCallback,
 
     //Action buttons web left side
     public void webActionLeft(int weBackAction, int webForwardAction ){
+
+        leftWebButtons = true;
+        callBack = (WebFragment) currentFrontFragment;
+
         leftButton.setImageResource(weBackAction);
         leftButton2.setImageResource(webForwardAction);
 
@@ -152,6 +157,10 @@ public class FragmentMain extends Fragment implements NavigationCallback,
 
     //Action buttons web right side
     public void webActionRight(int weBackAction, int webForwardAction ){
+
+        leftWebButtons = false;
+        callBack = (WebFragment) currentFrontFragment;
+
         rightButton.setImageResource(webForwardAction);
         rightButton2.setImageResource(weBackAction);
 
@@ -358,6 +367,21 @@ public class FragmentMain extends Fragment implements NavigationCallback,
         return (currentName.equals(nextName) && currentIndicator.equals(secondIndicator)) ;
     }
 
+    public void onBack(){
+        if (arrayFragments.size() > 0) {
+            Log.e("backAction", "fragment is "+arrayFragments.get(arrayFragments.size()-1).getClass().getName());
+            buttonAction = BUTTON_BACK;
+            replaceLayout(arrayFragments
+                    .get(arrayFragments.size()-1), true);
+            arrayFragments.remove(arrayFragments.size()-1);
+
+            buttonAction = ANY_BUTTON;
+
+        } else {
+            Log.e("backAction","No fragments");
+        }
+    }
+
     //INTERFACE NavigationCallback
     @Override
     public void onForwardPressed(Fragment fragment) {
@@ -368,17 +392,62 @@ public class FragmentMain extends Fragment implements NavigationCallback,
     @Override
     public void canGoBack(boolean canGoBack) {
         //set the enabled image to web back button
+        if(canGoBack){
+            Log.e(TAG, "we can go back");
+            if(leftWebButtons){
+                leftButton.setImageResource(R.drawable.navigation__backurl);
+                rightButton2.setImageResource(R.drawable.navigation__backurl);
+            }else{
+                rightButton.setImageResource(R.drawable.navigation__backurl);
+                leftButton2.setImageResource(R.drawable.navigation__backurl);
+            }
+
+        }else{
+            Log.e(TAG, "can't go back");
+
+            if(leftWebButtons){
+                leftButton.setImageResource(R.drawable.navigation__backurl_2);
+                rightButton2.setImageResource(R.drawable.navigation__backurl_2);
+            }else{
+                rightButton.setImageResource(R.drawable.navigation__backurl_2);
+                leftButton2.setImageResource(R.drawable.navigation__backurl_2);
+            }
+        }
+
     }
 
     //INTERFACE WebNavigationEnablingCallback
     @Override
     public void canGoForward(boolean canGoForward) {
         //set the enabled image to web forward button
+        if(canGoForward){
+            Log.e(TAG, "we can go forward");
+            if(leftWebButtons){
+                leftButton.setImageResource(R.drawable.navigation__fwdurl_2);
+                rightButton2.setImageResource(R.drawable.navigation__fwdurl_2);
+            }else{
+                rightButton.setImageResource(R.drawable.navigation__fwdurl_2);
+                leftButton2.setImageResource(R.drawable.navigation__fwdurl_2);
+            }
+
+        }else{
+            Log.e(TAG, "can't go forward");
+            if(leftWebButtons){
+                leftButton.setImageResource(R.drawable.navigation__fwdurl);
+                rightButton2.setImageResource(R.drawable.navigation__fwdurl);
+            }else{
+                rightButton.setImageResource(R.drawable.navigation__fwdurl);
+                leftButton2.setImageResource(R.drawable.navigation__fwdurl);
+            }
+        }
+
     }
 
     @Override
     public void goToView(Fragment fragment) {
         replaceLayout(fragment, false);
     }
+
+
 
 }
