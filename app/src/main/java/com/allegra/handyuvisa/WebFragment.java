@@ -11,7 +11,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -134,10 +133,8 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
 
         /** remember to add always a starter view string in bundle **/
         if(getArguments().getString(STARTER_VIEW).contains("FlightsActivity")){
-            url = flightsParams();
+           url = flightsParams();
             opkConstant = OPKConstants.TYPE_FLIGHT;
-        } else if (getArguments().getString(STARTER_VIEW).contains(BackFragment.VIEW_TYPE_BENEFITS)){
-
         } else if(getArguments().getString(STARTER_VIEW).contains("HotelsActivity")){
             url = hotelsParams();
             opkConstant = OPKConstants.TYPE_HOTEL;
@@ -166,7 +163,7 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
 
         initViews(view);
         configToolbar(canReturn);
-        //setListeners();
+        setListeners();
         loadPage(url);
     }
 
@@ -225,7 +222,7 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
             mWebView.loadUrl(returnURL);
         }
         //INTERFACE WebNavigationCallback
-        //loadWebNavigation();
+        loadWebNavigation();
         enablingCallback.canGoBack(view.canGoBack());
         enablingCallback.canGoForward(view.canGoForward());
     }
@@ -250,18 +247,17 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
      * **/
     private void initViews(View view){
 
-        progressBar = (ProgressBar) view.findViewById(R.id.web_progressBar);
         mWebView = (WebView) view.findViewById(R.id.web_view);
-        /*navigationPanelLayout = (RelativeLayout) view.findViewById(R.id.navigation_panel);
+        navigationPanelLayout = (RelativeLayout) view.findViewById(R.id.navigation_panel);
         toolbarLayout = (RelativeLayout) view.findViewById(R.id.ll_header);
         arrowBack = (ImageButton) view.findViewById(R.id.arrow_back);
         arrowF = (ImageButton) view.findViewById(R.id.arrow_forward);
         menuButton = (ImageButton) view.findViewById(R.id.menu_image);
         backButton = (ImageButton) view.findViewById(R.id.ib_up);
-
+        progressBar = (ProgressBar) view.findViewById(R.id.web_progressBar);
 
         screenTitle = (TextView) view.findViewById(R.id.tv_title);
-        screenTitle.setText(getArguments().getString("web_title"));*/
+        screenTitle.setText(getArguments().getString("web_title"));
 
         setupLoadingView(view);
 
@@ -270,13 +266,23 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
 
     private void configToolbar(boolean canReturn){
 
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams)
+                navigationPanelLayout.getLayoutParams();
+
         if(canReturn){
-            ((FragmentMain) getParentFragment()).configToolbar(false, Constants.TYPE_BACK_WEB,
-                    getArguments().getString("web_title"));
-        } else {
-            ((FragmentMain) getParentFragment()).configToolbar(false, Constants.TYPE_WEB_MENU,
-                    getArguments().getString("web_title"));
+            layoutParams.width = (int) getResources().getDimension(R.dimen.web_buttons_width);
+            layoutParams.height = RelativeLayout.LayoutParams.WRAP_CONTENT;
+            layoutParams.addRule(RelativeLayout.ALIGN_PARENT_END, RelativeLayout.TRUE);
+            /*layoutParams.addRule(RelativeLayout.END_OF, R.id.tv_title);
+            layoutParams.addRule(RelativeLayout.RIGHT_OF, R.id.tv_title);*/
+            menuButton.setVisibility(View.GONE);
+            navigationPanelLayout.setLayoutParams(layoutParams);
+
+            backButton.setVisibility(View.VISIBLE);
         }
+
+
+
     }
 
     public void setupLoadingView(View root){
@@ -296,7 +302,7 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
         }
     }
 
-    /*private void setListeners(){
+    private void setListeners(){
         arrowBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -324,14 +330,14 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
                 ((MainActivity) getActivity()).animate();
             }
         });
-    }*/
+    }
 
     private void loadPage(String url){
         progressBar.setVisibility(View.VISIBLE);
         mWebView.loadUrl(url);
     }
 
-    /*private void loadWebNavigation(){
+    private void loadWebNavigation(){
         if(mWebView.canGoBack()){
             arrowBack.setImageDrawable(getResources().getDrawable(R.drawable.navigation__backurl));
         }else{
@@ -343,7 +349,7 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
         }else{
             arrowF.setImageDrawable(getResources().getDrawable(R.drawable.navigation__fwdurl));
         }
-    }*/
+    }
 
     public void onGoBack(){
         if(mWebView.canGoBack()) {

@@ -22,7 +22,6 @@ import com.allegra.handyuvisa.async.AsyncTaskSoapPrimitiveResultEvent;
 import com.allegra.handyuvisa.async.MyBus;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.KeySaver;
-import com.allegra.handyuvisa.utils.OnBackCallback;
 import com.allegra.handyuvisa.utils.Util;
 import com.squareup.otto.Subscribe;
 import com.urbanairship.UAirship;
@@ -42,7 +41,6 @@ public class MyAccountActivity extends Fragment {
     private Button btn_logout;
     private ProgressBar pb_cerrarsesion;
     private ImageButton editButton, backButton, menuButton;
-    OnBackCallback onBackCallback;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -70,8 +68,6 @@ public class MyAccountActivity extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         initViews(view);
-
-        onBackCallback = ((FragmentMain) getParentFragment());
     }
 
     @Override
@@ -100,7 +96,7 @@ public class MyAccountActivity extends Fragment {
     //@Override
     public void initViews(View root) {
         //getWindow().requestFeature(Window.FEATURE_ACTION_BAR_OVERLAY);  //permits the action bar overlay over the screen
-        //setActionbar();
+        setActionbar();
 
         /*menuButton = (ImageButton)root.findViewById(R.id.menu_image);
         backButton = (ImageButton)root.findViewById(R.id.imageButton2);*/
@@ -141,7 +137,7 @@ public class MyAccountActivity extends Fragment {
             @Override
             public void onClick(View v) {
 
-                ((FragmentMain) getParentFragment()).replaceLayout(new EditProfileActivity(), false);
+                ((MainActivity) getActivity()).replaceLayout(new EditProfileActivity(), false);
                 /*Intent intent = new Intent(MyAccountActivity.this,EditProfileActivity.class);
                 startActivity(intent);*/
             }
@@ -174,6 +170,7 @@ public class MyAccountActivity extends Fragment {
                     SharedPreferences.Editor editor = prefs.edit();
                     editor.clear();
 */
+
                 }else{
                     Toast.makeText(ctx, R.string.err_no_internet, Toast.LENGTH_SHORT).show();
                 }
@@ -181,7 +178,7 @@ public class MyAccountActivity extends Fragment {
         });
     }
 
-    /*private void setActionbar() {
+    private void setActionbar() {
 
         actionBar = getActivity().getActionBar();
         if(actionBar!=null){
@@ -192,7 +189,7 @@ public class MyAccountActivity extends Fragment {
                     | ActionBar.DISPLAY_SHOW_HOME);
         }
 
-    }*/
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -234,8 +231,6 @@ public class MyAccountActivity extends Fragment {
             getActivity().setResult(MainActivity.RESULT_OK);
             //finish();
             //overridePendingTransition(R.animator.back_slide_in, R.animator.front_slide_out);
-
-            onBackCallback.onBack();
         }
     }
 

@@ -16,7 +16,6 @@ import android.widget.TextView;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.MenuCallback;
 import com.allegra.handyuvisa.utils.NavigationCallback;
-import com.allegra.handyuvisa.utils.OnBackCallback;
 import com.allegra.handyuvisa.utils.WebNavigationCallBack;
 import com.allegra.handyuvisa.utils.WebNavigationEnablingCallback;
 
@@ -29,7 +28,7 @@ import java.util.TimerTask;
  * Este fragmento contiene el toolbar y el content de la aplicacion
  */
 public class FragmentMain extends Fragment implements NavigationCallback,
-        WebNavigationEnablingCallback, MenuCallback, OnBackCallback{
+        WebNavigationEnablingCallback, MenuCallback{
 
     private static final String TAG = "FragmentMain";
     private static final int BUTTON_BACK = 1;
@@ -37,7 +36,7 @@ public class FragmentMain extends Fragment implements NavigationCallback,
     private Fragment currentFrontFragment; //will manage all fragments in the app
 
 
-    RelativeLayout toolbar;
+    Toolbar toolbar;
     ImageButton leftButton, leftButton2, rightButton, rightButton2;
     TextView tvTitle;
     ArrayList <Fragment> arrayFragments;
@@ -68,7 +67,7 @@ public class FragmentMain extends Fragment implements NavigationCallback,
 
         callBack = (WebFragment) stackFragment;
 
-        toolbar = (RelativeLayout)view.findViewById(R.id.toolbar);
+        toolbar = (Toolbar)view.findViewById(R.id.toolbar);
         toolbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,7 +98,6 @@ public class FragmentMain extends Fragment implements NavigationCallback,
 
     //The menu button action
     public void menuAction(int imageResource){
-        rightButton.setVisibility(View.VISIBLE);
         rightButton.setImageResource(imageResource);
         rightButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,7 +109,6 @@ public class FragmentMain extends Fragment implements NavigationCallback,
 
     //The back button and cancel button action
     public void backCancelAction(int imageResource){
-        leftButton.setVisibility(View.VISIBLE);
         leftButton.setImageResource(imageResource);
         leftButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,9 +132,7 @@ public class FragmentMain extends Fragment implements NavigationCallback,
 
     //Action buttons web left side
     public void webActionLeft(int weBackAction, int webForwardAction ){
-        leftButton.setVisibility(View.VISIBLE);
         leftButton.setImageResource(weBackAction);
-        leftButton2.setVisibility(View.VISIBLE);
         leftButton2.setImageResource(webForwardAction);
 
         leftButton.setOnClickListener(new View.OnClickListener() {
@@ -157,9 +152,7 @@ public class FragmentMain extends Fragment implements NavigationCallback,
 
     //Action buttons web right side
     public void webActionRight(int weBackAction, int webForwardAction ){
-        rightButton.setVisibility(View.VISIBLE);
         rightButton.setImageResource(webForwardAction);
-        rightButton2.setVisibility(View.VISIBLE);
         rightButton2.setImageResource(weBackAction);
 
         rightButton.setOnClickListener(new View.OnClickListener() {
@@ -196,30 +189,16 @@ public class FragmentMain extends Fragment implements NavigationCallback,
 
         switch (type){
             case Constants.TYPE_MENU:
-                //Hide the other buttons
-                leftButton.setVisibility(View.GONE);
-                leftButton2.setVisibility(View.GONE);
-                rightButton2.setVisibility(View.GONE);
-
                 //rightButton
                 menuAction(R.drawable.icon_menu);
                 break;
 
             case Constants.TYPE_BACK:
-                //Hide the other buttons
-                leftButton2.setVisibility(View.GONE);
-                rightButton.setVisibility(View.GONE);
-                rightButton2.setVisibility(View.GONE);
-
                 //leftButton
                 backCancelAction(R.drawable.navigation__back);
                 break;
 
             case Constants.TYPE_BACK_MENU:
-                //Hide the other buttons
-                leftButton2.setVisibility(View.GONE);
-                rightButton2.setVisibility(View.GONE);
-
                 //leftButton
                 backCancelAction(R.drawable.navigation__back);
                 //rightButton
@@ -227,40 +206,25 @@ public class FragmentMain extends Fragment implements NavigationCallback,
                 break;
 
             case Constants.TYPE_WEB_MENU:
-                //Hide the other buttons
-                rightButton2.setVisibility(View.GONE);
-
-                //leftButton and leftButton2
+                //leftButton
                 webActionLeft(R.drawable.navigation__backurl_2, R.drawable.navigation__fwdurl);
                 //rightButton
                 menuAction(R.drawable.icon_menu);
                 break;
 
             case Constants.TYPE_BACK_WEB:
-                //Hide the other buttons
-                leftButton2.setVisibility(View.GONE);
-
                 //leftButton
                 backCancelAction(R.drawable.navigation__back);
-                //RightButton and rightButton2
+                //RightButton
                 webActionRight(R.drawable.navigation__backurl_2, R.drawable.navigation__fwdurl);
                 break;
 
             case Constants.TYPE_ICON_CANCEL:
-                //Hide the other buttons
-                leftButton2.setVisibility(View.GONE);
-                rightButton.setVisibility(View.GONE);
-                rightButton2.setVisibility(View.GONE);
-
                 //leftButton
                 backCancelAction(R.drawable.cancel_button);
                 break;
 
             case Constants.TYPE_ICONCANCEL_MENU:
-                //Hide the other buttons
-                leftButton2.setVisibility(View.GONE);
-                rightButton2.setVisibility(View.GONE);
-
                 //leftButton
                 backCancelAction(R.drawable.cancel_button);
                 //rightButton
@@ -268,10 +232,6 @@ public class FragmentMain extends Fragment implements NavigationCallback,
                 break;
 
             case Constants.TYPE_NO_BUTTON:
-                leftButton.setVisibility(View.GONE);
-                leftButton2.setVisibility(View.GONE);
-                rightButton.setVisibility(View.GONE);
-                rightButton2.setVisibility(View.GONE);
                 break;
         }
 
@@ -421,20 +381,4 @@ public class FragmentMain extends Fragment implements NavigationCallback,
         replaceLayout(fragment, false);
     }
 
-    //INTERFACE OnBackCallback
-    @Override
-    public void onBack() {
-        if (arrayFragments.size() > 0) {
-            Log.e("onBack", "fragment is "+arrayFragments.get(arrayFragments.size()-1).getClass().getName());
-            buttonAction = BUTTON_BACK;
-            replaceLayout(arrayFragments
-                    .get(arrayFragments.size()-1), true);
-            arrayFragments.remove(arrayFragments.size()-1);
-
-            buttonAction = ANY_BUTTON;
-
-        } else {
-            Log.e("backAction","No fragments");
-        }
-    }
 }
