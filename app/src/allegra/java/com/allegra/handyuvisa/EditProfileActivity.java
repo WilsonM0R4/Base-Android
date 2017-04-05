@@ -583,7 +583,7 @@ public class EditProfileActivity extends Fragment {
             public void onClick(View v) {
                 //animate();
                // onBackPressed();
-                ((FragmentMain) getParentFragment()).replaceLayout(new MyAccountActivity(), false);
+                ((FragmentMain) getParentFragment()).replaceLayout(new MyAccountActivity(), true);
             }
         });
 
