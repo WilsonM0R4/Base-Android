@@ -358,6 +358,21 @@ public class FragmentMain extends Fragment implements NavigationCallback,
         return (currentName.equals(nextName) && currentIndicator.equals(secondIndicator)) ;
     }
 
+    public void onBack(){
+        if (arrayFragments.size() > 0) {
+            Log.e("backAction", "fragment is "+arrayFragments.get(arrayFragments.size()-1).getClass().getName());
+            buttonAction = BUTTON_BACK;
+            replaceLayout(arrayFragments
+                    .get(arrayFragments.size()-1), true);
+            arrayFragments.remove(arrayFragments.size()-1);
+
+            buttonAction = ANY_BUTTON;
+
+        } else {
+            Log.e("backAction","No fragments");
+        }
+    }
+
     //INTERFACE NavigationCallback
     @Override
     public void onForwardPressed(Fragment fragment) {
