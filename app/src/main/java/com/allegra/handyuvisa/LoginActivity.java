@@ -36,6 +36,7 @@ import com.allegra.handyuvisa.utils.Connectivity;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
 import com.allegra.handyuvisa.utils.KeySaver;
+import com.allegra.handyuvisa.utils.LoginCallback;
 import com.allegra.handyuvisa.utils.Util;
 import com.google.gson.Gson;
 import com.splunk.mint.Mint;
@@ -53,7 +54,7 @@ import static com.allegra.handyuvisa.R.id.et_password;
  * Created by victor on 19/02/15.
  * com.allem.allemevent.fragactiv
  */
-public class LoginActivity extends Fragment  {
+public class LoginActivity extends Fragment implements LoginCallback {
 
     public static final String LOGIN_REQUEST_TYPE = "request_type";
     private final String TAG = "LoginActivity";
@@ -73,6 +74,8 @@ public class LoginActivity extends Fragment  {
     private String valueOfMcard;
     private ArrayList<NameValuePair> postValues;
     boolean mostrarAppCobertura = true, mostrarAppBeneficios = true, mostrarSoloPolizaPrincipal = true;
+
+    LoginCallback loginCallback;
 
 
     //*************************OVERRIDE METHODS*********************
@@ -677,4 +680,8 @@ public class LoginActivity extends Fragment  {
 
     }
 
+    @Override
+    public void onLoginFinished() {
+
+    }
 }

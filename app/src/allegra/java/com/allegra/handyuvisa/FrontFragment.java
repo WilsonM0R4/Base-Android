@@ -37,7 +37,7 @@ import java.util.ArrayList;
 public class FrontFragment extends Fragment implements
                                     TextureView.SurfaceTextureListener,
                                     MediaPlayer.OnPreparedListener,
-                                    MediaPlayer.OnErrorListener {
+                                    MediaPlayer.OnErrorListener{
 
     private static final String TAG = "FrontFragment";
     private static final String VIDEO_BACKGROUND = "android.resource://com.allegra.handyuvisa/raw/background_dark";
