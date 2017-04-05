@@ -29,6 +29,7 @@ import com.allegra.handyuvisa.models.CuentaClienteInfoAdicional;
 import com.allegra.handyuvisa.parsers.SoapObjectParsers;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.CustomizedEditText;
+import com.allegra.handyuvisa.utils.OnBackCallback;
 import com.allegra.handyuvisa.utils.Util;
 import com.squareup.otto.Subscribe;
 
@@ -50,6 +51,7 @@ public class EditProfileActivity extends Fragment {
     private Context ctx;
     TextView txtTypeOfIdSelected, txtSelectCountry;
     ImageButton backButton, menuButton;
+    OnBackCallback onBackCallback;
 
     //******** Array Colors *********
     int[] allColors = new int[5];
@@ -75,12 +77,16 @@ public class EditProfileActivity extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
 
+        onBackCallback = ((FragmentMain) getParentFragment());
+
         initViews(view);
     }
 
     public void initViews(View root) {
         setViewElements(root);
         setListeners();
+
+        ((FragmentMain) getParentFragment()).configToolbar(false, Constants.TYPE_BACK_MENU, getString(R.string.title_edit_profile));
     }
 
     @Override
@@ -250,8 +256,8 @@ public class EditProfileActivity extends Fragment {
     //CUMPLE LA FUNCIÓN DEL MÉTODO initViews
     private void setViewElements(View root){
 
-        backButton = (ImageButton) root.findViewById(R.id.ib_up);
-        menuButton = (ImageButton) root.findViewById(R.id.menu_image);
+        /*backButton = (ImageButton) root.findViewById(R.id.ib_up);
+        menuButton = (ImageButton) root.findViewById(R.id.menu_image);*/
 
         etNumberOfId = (CustomizedEditText)root.findViewById(R.id.etIdNumber);
         txtTypeOfIdSelected = (TextView) root.findViewById(R.id.etTypeOfId);
@@ -558,7 +564,7 @@ public class EditProfileActivity extends Fragment {
 
     private void setListeners(){
 
-        backButton.setOnClickListener(new View.OnClickListener() {
+        /*backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ((MainActivity) getActivity()).replaceLayout(new MyAccountActivity(), true);
@@ -570,14 +576,14 @@ public class EditProfileActivity extends Fragment {
             public void onClick(View v) {
                 ((MainActivity) getActivity()).animate();
             }
-        });
+        });*/
 
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //animate();
                // onBackPressed();
-                ((MainActivity) getActivity()).replaceLayout(new MyAccountActivity(), true);
+                ((FragmentMain) getParentFragment()).replaceLayout(new MyAccountActivity(), false);
             }
         });
 
@@ -674,8 +680,7 @@ public class EditProfileActivity extends Fragment {
     }
 
     public void goToMyAccount(){
-        Intent intent = new Intent(ctx, MyAccountActivity.class);
-        startActivity(intent);
+        onBackCallback.onBack();
         //finish();
     }
     //Called when execute AsyncSoapObject request

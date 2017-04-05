@@ -40,10 +40,10 @@ public class MyBenefits extends WebViewActivity  {
     public void onViewCreated(View view, Bundle savedIsntanceState){
         super.onViewCreated(view, savedIsntanceState);
 
-        initViews(view);
+        //initViews(view);
     }
 
-    public void initViews(View root) {
+    /*public void initViews(View root) {
         setupWebView(root);
 
 
@@ -74,7 +74,7 @@ public class MyBenefits extends WebViewActivity  {
             }
         });
 
-    }
+    }*/
 
     private void setupWebView(View root) {
         mWebView = (WebView) root.findViewById(R.id.webBenefits);
@@ -107,10 +107,10 @@ public class MyBenefits extends WebViewActivity  {
     public void onPageFinished(WebView view, String url) {
         super.onPageFinished(view, url);
         progressBar.setVisibility(View.GONE);
-        loadArrows();
+        //loadArrows();
     }
 
-    private void loadArrows() {
+    /*private void loadArrows() {
 
         if (mWebView.canGoBack()) {
             arrowBack.setImageDrawable(getResources().getDrawable(R.drawable.navigation__backurl));
@@ -123,7 +123,7 @@ public class MyBenefits extends WebViewActivity  {
         } else {
             arrowF.setImageDrawable(getResources().getDrawable(R.drawable.navigation__fwdurl));
         }
-    }
+    }*/
 
 
     public void onGoBack(View view) {

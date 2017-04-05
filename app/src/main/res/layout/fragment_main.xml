@@ -69,7 +69,7 @@
     <ImageView
         android:id="@+id/iv_header"
         android:layout_width="match_parent"
-        android:layout_height="3dp"
+        android:layout_height="4dp"
         android:contentDescription="@string/divider"
         android:paddingEnd="-2dp"
         android:paddingStart="-2dp"

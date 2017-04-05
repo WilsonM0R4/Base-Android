@@ -10,7 +10,7 @@
     android:background="@drawable/background"
     >
 
-    <RelativeLayout
+    <!--<RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
         android:layout_alignParentTop="true"
@@ -82,7 +82,7 @@
         android:paddingStart="-2dp"
         android:id="@+id/imageView24"
         android:src="@drawable/separator_medium_mag"
-        android:contentDescription="Divider" />
+        android:contentDescription="Divider" />-->
 
     <WebView
         android:layout_width="fill_parent"

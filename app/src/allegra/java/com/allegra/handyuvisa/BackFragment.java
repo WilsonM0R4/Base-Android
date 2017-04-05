@@ -31,6 +31,7 @@ public class BackFragment extends Fragment {
     public static final String VIEW_TYPE_STORE = "store";
     public static final String VIEW_TYPE_MCARD = "mCard";
     public static final String VIEW_TYPE_MARKET = "market";
+    public static final String VIEW_TYPE_BENEFITS = "benefits";
 
     //private String optionSelectedForService = "";
     private CustomizedTextView textOptionSelectedForService;

@@ -3,7 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
+    <!--<RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
         android:background="@android:color/white"
@@ -85,7 +85,7 @@
         android:contentDescription="Divider"
         android:layout_marginLeft="-2dp"
         android:layout_marginRight="-2dp"
-        android:layout_marginTop="0dp" />
+        android:layout_marginTop="0dp" />-->
 
     <WebView
         android:layout_width="fill_parent"

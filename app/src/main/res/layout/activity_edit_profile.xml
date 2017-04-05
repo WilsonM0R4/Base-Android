@@ -7,7 +7,7 @@
     android:clickable="true"
     android:id="@+id/rl_body">
 
-    <RelativeLayout
+    <!--<RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
         android:layout_alignParentTop="true"
@@ -62,7 +62,7 @@
         android:paddingEnd="-2dp"
         android:paddingStart="-2dp"
         android:src="@drawable/separator_medium_mag"
-        android:contentDescription="separator" />
+        android:contentDescription="separator" />-->
 
 
     <ScrollView
