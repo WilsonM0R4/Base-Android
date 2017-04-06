@@ -137,7 +137,7 @@ public class ChatActivity extends Fragment implements com.allegra.handyuvisa.Bac
             @Override
             public void onClick(View view) {
                 //Log.d(TAG, "Llega al cancel in chat");
-                ((MainActivity) getActivity()).replaceLayout(new FrontFragment(), true);
+                ((FragmentMain) getParentFragment()).replaceLayout(new FrontFragment(), true);
             }
         });
 
@@ -394,6 +394,8 @@ public class ChatActivity extends Fragment implements com.allegra.handyuvisa.Bac
                         errorExists = false;
                         onMenu();
                         //Hide loader
+                        ((FragmentMain) getParentFragment()).configToolbar(false, Constants.TYPE_ICONCANCEL_MENU,
+                                getString(R.string.title_chat));
                         relLoader.setVisibility(View.GONE);
                         //Show layout
                         showLayout();
@@ -416,13 +418,15 @@ public class ChatActivity extends Fragment implements com.allegra.handyuvisa.Bac
                         updateChatHeader(data.get(ChatInfo.AGENT_NAME));
                         onMenu();
                         //Hide loader
+                        ((FragmentMain) getParentFragment()).configToolbar(false, Constants.TYPE_ICONCANCEL_MENU,
+                                getString(R.string.title_chat));
                         relLoader.setVisibility(View.GONE);
                         //Show layout
                         showLayout();
                         getChatEventsNext(); // now keep polling for details
                     } else if (chatState.equals("ended")) {
                       //  Log.d(TAG, "info: Chat state ended");
-                        ((MainActivity) getActivity()).replaceLayout(new FrontFragment(), true);
+                        ((FragmentMain) getParentFragment()).replaceLayout(new FrontFragment(), true);
                     }  else {
                         getChatInfo();
                        // Log.d(TAG, "Still waiting for agent");
@@ -445,7 +449,7 @@ public class ChatActivity extends Fragment implements com.allegra.handyuvisa.Bac
                         nextUri = data.get(ChatEventsNext.EVENT_NEXT);
                         handleAgentChatMsg(data);
                     } else if (chatState.equals("ended")) {
-                        ((MainActivity) getActivity()).replaceLayout(new FrontFragment(), true);
+                        ((FragmentMain) getParentFragment()).replaceLayout(new FrontFragment(), true);
                        // Log.d(TAG, "next: chat state ended");
                     }
                     errorExists = false;
@@ -455,7 +459,7 @@ public class ChatActivity extends Fragment implements com.allegra.handyuvisa.Bac
 
             } else if (event.getApiName().equalsIgnoreCase(EndChat.APINAME)) {
                 if (data.containsKey(EndChat.RESP_CODE)) {
-                    ((MainActivity) getActivity()).replaceLayout(new FrontFragment(), true);
+                    ((FragmentMain) getParentFragment()).replaceLayout(new FrontFragment(), true);
                     errorExists = false;
                 } else {
                   //  Log.e(TAG, "EndChat fails");

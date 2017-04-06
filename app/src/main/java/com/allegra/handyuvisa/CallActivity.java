@@ -27,6 +27,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.allegra.handyuvisa.twilio.BasicPhone;
+import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
 
 import java.util.HashMap;
@@ -94,6 +95,10 @@ public class CallActivity extends Fragment implements BasicPhone.LoginListener,
         return inflater.inflate(R.layout.fragment_call_in_progress, container, false);
     }
 
+    @Override
+    public void onViewCreated(View view, Bundle bundle){
+        initViews(view);
+    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -108,7 +113,7 @@ public class CallActivity extends Fragment implements BasicPhone.LoginListener,
                 } else {
                     // Permission denied, boo! Disable the functionality that depends on this permission.
                     //finish();
-                    ((MainActivity) getActivity()).replaceLayout(new FrontFragment(), true);
+                    ((FragmentMain) getParentFragment()).replaceLayout(new FrontFragment(), true);
                 }
                 return;
             }
@@ -148,7 +153,7 @@ public class CallActivity extends Fragment implements BasicPhone.LoginListener,
     }
 
     public void initViews(View root) {
-        setActionbar();
+        //setActionbar();
         relLoader = (RelativeLayout)root.findViewById(R.id.loader);
         relHeader = (RelativeLayout)root.findViewById(R.id.ll_header);
         animation = (ImageView)root.findViewById(R.id.load_circle);
@@ -170,6 +175,23 @@ public class CallActivity extends Fragment implements BasicPhone.LoginListener,
                 //finish();
             }
         });
+
+        toggle_mute = (ImageButton)root.findViewById(R.id.toggle_mute);
+        toggle_mute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onToggleMute();
+            }
+        });
+
+        toggle_speaker  = (ImageButton)root.findViewById(R.id.toggle_speaker);
+        toggle_speaker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onToggleSpeaker();
+            }
+        });
+
         //Button to end current call
         btnEndCall = (Button)root.findViewById(R.id.endCall);
         btnEndCall.setOnClickListener(new View.OnClickListener() {
@@ -186,7 +208,6 @@ public class CallActivity extends Fragment implements BasicPhone.LoginListener,
         txtMute = (TextView)root.findViewById(R.id.txtMute);
         txtSpeaker = (TextView)root.findViewById(R.id.txtSpeaker);
         btn_callinprogress = (ImageButton)root.findViewById(R.id.btn_callinprogress);
-        toggle_mute = (ImageButton)root.findViewById(R.id.toggle_mute);
         toggle_speaker  = (ImageButton)root.findViewById(R.id.toggle_speaker);
     }
 
@@ -366,8 +387,8 @@ public class CallActivity extends Fragment implements BasicPhone.LoginListener,
     }
 
     public void showLayout(){
-        relHeader.setVisibility(View.VISIBLE);
-        iv_header.setVisibility(View.VISIBLE);
+        //relHeader.setVisibility(View.VISIBLE);
+        //iv_header.setVisibility(View.VISIBLE);
         tv_status_otc_connected.setVisibility(View.VISIBLE);
         txtMute.setVisibility(View.VISIBLE);
         txtSpeaker.setVisibility(View.VISIBLE);
@@ -378,7 +399,7 @@ public class CallActivity extends Fragment implements BasicPhone.LoginListener,
     }
 
     public void onCloseMenu(View v){
-        ((MainActivity) getActivity()).replaceLayout(new FrontFragment(), true);
+        ((FragmentMain) getParentFragment()).replaceLayout(new FrontFragment(), true);
         //animateBetter();
     }
 
@@ -392,14 +413,15 @@ public class CallActivity extends Fragment implements BasicPhone.LoginListener,
         //setButton(-1);
     }
 
-    private void setActionbar() {
+    /*private void setActionbar() {
         actionBar = getActivity().getActionBar();
         if(actionBar!=null){
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeButtonEnabled(true);
         }
 
-    }
+    }*/
+
     public void onMenu(){
         ((MainActivity) getActivity()).animate();
     }
@@ -422,6 +444,8 @@ public class CallActivity extends Fragment implements BasicPhone.LoginListener,
                     case CALLING:
                         //showProgress(true);
                         //Hide loader
+                        ((FragmentMain) getParentFragment()).configToolbar(false, Constants.TYPE_ICONCANCEL_MENU,
+                                getString(R.string.title_call));
                         relLoader.setVisibility(View.GONE);
                         //Show layout
                         showLayout();
@@ -455,31 +479,31 @@ public class CallActivity extends Fragment implements BasicPhone.LoginListener,
     public void onEndCall(View view) {
         //Log.d(TAG, "Llega al onEndCall");
         phone.disconnect();
-        ((MainActivity) getActivity()).replaceLayout(new FrontFragment(), true);
+        ((FragmentMain) getParentFragment()).replaceLayout(new FrontFragment(), true);
         //overridePendingTransition(R.animator.back_slide_in, R.animator.front_slide_out);
     }
 
-    public void onToggleSpeaker(View view) {
+    public void onToggleSpeaker() {
 
         if (speakerOff) {
             speakerOff = false;
-            ((ImageButton)view).setImageResource(R.drawable.icon_speaker2);
+            toggle_speaker.setImageResource(R.drawable.icon_speaker2);
         } else {
             speakerOff = true;
-            ((ImageButton)view).setImageResource(R.drawable.icon_speaker);
+            toggle_speaker.setImageResource(R.drawable.icon_speaker);
         }
 
         phone.setSpeakerEnabled();
     }
 
-    public void onToggleMute(View view) {
+    public void onToggleMute() {
         if (muteOff) {
             muteOff = false;
-            ((ImageButton)view).setImageResource(R.drawable.icon_mute2);
+            toggle_mute.setImageResource(R.drawable.icon_mute2);
             phone.setCallMuted(true);
         } else {
             muteOff = true;
-            ((ImageButton)view).setImageResource(R.drawable.icon_mute);
+            toggle_mute.setImageResource(R.drawable.icon_mute);
             phone.setCallMuted(false);
         }
 

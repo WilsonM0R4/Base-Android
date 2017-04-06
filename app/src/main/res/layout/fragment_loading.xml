@@ -5,8 +5,7 @@
     android:layout_height="match_parent"
     android:id="@+id/rl_call_body"
     android:background="@color/white"
-    android:clickable="true"
-    tools:context=".CallActivity">
+    android:clickable="true">
 
 
     <ImageView

@@ -15,14 +15,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <RelativeLayout
+            <!--<RelativeLayout
                 android:id="@+id/ll_header"
                 android:layout_width="match_parent"
                 android:layout_height="?android:attr/actionBarSize"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:background="@color/GeneralAppHeaderTitle_backgroud">
-                <!-- android:background="@color/white"-->
+                android:background="@color/white"
 
                 <com.allegra.handyuvisa.utils.CustomizedTextView
                     android:id="@+id/tv_title_secc_con"
@@ -61,7 +61,7 @@
                 android:contentDescription="Divider"
                 android:paddingEnd="-2dp"
                 android:paddingStart="-2dp"
-                android:src="@drawable/separator_medium_mag"/>
+                android:src="@drawable/separator_medium_mag"/>-->
 
             <include
                 android:id="@+id/custom_concierge_header"

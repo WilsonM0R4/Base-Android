@@ -39,11 +39,11 @@ import java.util.HashMap;
 
 public class ConciergeActivity extends Fragment{
 
-    RelativeLayout header, customDestinationConcierge, customSearchConcierge;//Initially is gone, contains EditText and ListView between others
+    RelativeLayout customDestinationConcierge, customSearchConcierge;//Initially is gone, contains EditText and ListView between others
     LinearLayout  containerLocation, customTextAndButtonSearchConcierge, linLayGetUpAnimationFlights;//Initially is gone, is the custom view with text and image inside header
     ListView listView;
     ProgressBar progressBar;
-    ImageButton menuButton;
+    //ImageButton menuButton;
     Button searchButton;
     SearchAdapterAutoCompleteConcierge adapter;
     String TAG = "ConciergeActivity", labelCity = "", idCity;
@@ -121,8 +121,11 @@ public class ConciergeActivity extends Fragment{
 
     private void initViews(View root) {
 
-        header = (RelativeLayout) root.findViewById(R.id.ll_header);
-        menuButton = (ImageButton) root.findViewById(R.id.menu_image);
+        ((FragmentMain) getParentFragment()).configToolbar(false, Constants.TYPE_MENU,
+                getString(R.string.title_concierge));
+
+        //header = (RelativeLayout) root.findViewById(R.id.ll_header);
+        //menuButton = (ImageButton) root.findViewById(R.id.menu_image);
 
         searchButton = (Button) root.findViewById(R.id.btn_search);
 
@@ -139,19 +142,19 @@ public class ConciergeActivity extends Fragment{
             }
         });
 
-        header.setOnClickListener(new View.OnClickListener() {
+        /*header.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onMenu();
             }
-        });
+        });*/
 
-        menuButton.setOnClickListener(new View.OnClickListener() {
+        /*menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onMenu();
             }
-        });
+        });*/
 
         containerLocation.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -393,7 +396,7 @@ public class ConciergeActivity extends Fragment{
             WebFragment webConcierge = new WebFragment();
 
             webConcierge.setArguments(bundle);
-            ((MainActivity) getActivity()).replaceLayout( webConcierge, false);
+            ((FragmentMain) getParentFragment()).replaceLayout( webConcierge, false);
             //startActivity(intent);
         }
     }

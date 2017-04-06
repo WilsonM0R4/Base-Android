@@ -6,7 +6,6 @@
     android:id="@+id/rl_call_body"
     android:background="@drawable/background"
     android:clickable="true"
-    android:onClick="onCloseMenu"
     tools:context=".CallActivity">
 
     <!-- LOADER -->
@@ -19,7 +18,7 @@
 
     <!-- HEADER -->
 
-    <RelativeLayout
+    <!--<RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
         android:layout_alignParentTop="true"
@@ -73,7 +72,7 @@
         android:paddingStart="-2dp"
         android:visibility="gone"
         android:src="@drawable/separator_medium_mag"
-        android:contentDescription="Divider" />
+        android:contentDescription="Divider" />-->
 
     <!-- FIN DEL HEADER -->
     <TextView
@@ -113,7 +112,6 @@
         android:layout_height="wrap_content"
         android:src="@drawable/icon_mute"
         android:id="@+id/toggle_mute"
-        android:onClick="onToggleMute"
         android:layout_marginTop="41dp"
         android:background="@android:color/transparent"
         android:layout_below="@+id/btn_callinprogress"
@@ -127,7 +125,6 @@
         android:layout_height="wrap_content"
         android:src="@drawable/icon_speaker"
         android:id="@+id/toggle_speaker"
-        android:onClick="onToggleSpeaker"
         android:background="@android:color/transparent"
         android:layout_alignTop="@+id/toggle_mute"
         android:layout_alignEnd="@+id/btn_callinprogress"

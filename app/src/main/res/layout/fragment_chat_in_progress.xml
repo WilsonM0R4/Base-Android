@@ -19,7 +19,7 @@
 
 
     <!-- HEADER -->
-    <RelativeLayout
+    <!--<RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
         android:layout_alignParentTop="true"
@@ -74,7 +74,7 @@
         android:visibility="gone"
         android:paddingStart="-2dp"
         android:src="@drawable/separator_medium_mag"
-        android:contentDescription="Divider" />
+        android:contentDescription="Divider" />-->
 
     <!--FIN DEL HEADER-->
 
