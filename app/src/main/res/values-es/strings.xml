@@ -185,7 +185,7 @@
     <string name="tv_lbl_empty_search">No se han encontrado coincidencias.</string>
     <string name="txt_lbl_destination">INGRESA TU DESTINO</string>
     <string name="txt_lbl_select_dest">SELECCIONE DESTINO</string>
-    <string name="hotels_guests_per_room">HUÉSPEDES POR HABITACIÓN</string>
+    <string name="hotels_guests_per_room">Huéspedes por habitacion</string>
     <string name="hotels_room_description">Si vas a viajar, por favor inclúyete en la habitación 1</string>
     <string name="txt_lbl_checkin">REGISTRARSE</string>
     <string name="txt_lbl_checkout">REVISA</string>

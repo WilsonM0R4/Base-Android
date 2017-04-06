@@ -294,6 +294,9 @@ public class HotelsActivity extends Fragment {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ((FragmentMain) getParentFragment()).configToolbar(false, Constants.TYPE_MENU,
+                        getString(R.string.txt_title_book_hotels));
+
                // Log.d("Juan"," Entra a Save on Click ");
 
                 persistGuestsPerRoomSelected();
@@ -305,12 +308,12 @@ public class HotelsActivity extends Fragment {
                 //llheader.setVisibility(View.VISIBLE);
                 roomsGuestHeader.setVisibility(View.VISIBLE);
                 datesLayout.setVisibility(View.VISIBLE);
-                llheader.setVisibility(View.VISIBLE);
+                //llheader.setVisibility(View.VISIBLE);
                 searchButton.setVisibility(View.VISIBLE);
                 customHotelsHeader.setVisibility(View.VISIBLE);
                 roomsResume.setVisibility(View.VISIBLE);
                 roomsLayout.setVisibility(View.VISIBLE);
-                headerSeparator.setVisibility(View.VISIBLE);
+                //headerSeparator.setVisibility(View.VISIBLE);
 
                 enterToCancelRoomsSelector = false;
                 initializePanelsAfterCancelDateSelector();
@@ -327,19 +330,22 @@ public class HotelsActivity extends Fragment {
             @Override
             public void onClick(View view2) {
 
+                ((FragmentMain) getParentFragment()).configToolbar(false, Constants.TYPE_MENU,
+                        getString(R.string.txt_title_book_hotels));
+
                 roomsContainer.setVisibility(View.GONE);
                 roomsLayoutForSelect.setVisibility(View.GONE);
                 addRoomOptionPanel.setVisibility(View.GONE);
 
-                llheader.setVisibility(View.VISIBLE);
+                //llheader.setVisibility(View.VISIBLE);
                 roomsGuestHeader.setVisibility(View.VISIBLE);
                 datesLayout.setVisibility(View.VISIBLE);
-                llheader.setVisibility(View.VISIBLE);
+                //llheader.setVisibility(View.VISIBLE);
                 searchButton.setVisibility(View.VISIBLE);
                 customHotelsHeader.setVisibility(View.VISIBLE);
                 roomsResume.setVisibility(View.VISIBLE);
                 roomsLayout.setVisibility(View.VISIBLE);
-                headerSeparator.setVisibility(View.VISIBLE);
+                //headerSeparator.setVisibility(View.VISIBLE);
 
                 enterToCancelRoomsSelector = true;
                 //initializePanelsAfterCancelDateSelector();
@@ -451,6 +457,9 @@ public class HotelsActivity extends Fragment {
     private void selectGuestInRooms(){
         //Hide Views
         //llheader.setVisibility(View.GONE);
+
+        ((FragmentMain) getParentFragment()).configToolbar(true, 0, "");
+
         roomsGuestHeader.setVisibility(View.GONE);
         datesLayout.setVisibility(View.GONE);
         //llheader.setVisibility(View.GONE);

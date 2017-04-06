@@ -37,7 +37,7 @@
     <string name="TODAY">TODAY</string>
     <string name="room">ROOMS</string>
     <string name="hotels_room_description">If you are traveling, please include yourself in Room 1</string>
-    <string name="hotels_guests_per_room">GUESTS PER ROOM</string>
+    <string name="hotels_guests_per_room">Guests per room</string>
     <string name="SAME_WEEK">LAST WEEK</string>
     <string name="SAME_MONTH">LAST MONTH</string>
     <string name="BEFORE">OLDER</string>

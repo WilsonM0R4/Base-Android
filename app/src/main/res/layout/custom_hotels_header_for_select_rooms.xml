@@ -1,49 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/lin_lay_rooms_header_for_select"
-    >
+    android:id="@+id/lin_lay_rooms_header_for_select">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:id="@+id/relHeaderCancelAndSaveForSelectRooms"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp">
+        android:background="@color/WHITE_COLOR">
 
         <ImageButton
             android:id="@+id/btn_cancel_hotels_rooms_for_select"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:background="@drawable/flights__cancel"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/flights__cancel"
+            android:background="@color/transparent"
             android:layout_alignParentLeft="true"
-            android:padding="12dp"
-            android:layout_marginTop="3dp" />
+            android:layout_centerVertical="true" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/hotels_guests_per_room"
             android:textColor="@color/GeneralAppHeaderTitle_text"
-            android:textSize="17sp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:layout_centerInParent="true" />
 
         <ImageButton
             android:id="@+id/btn_save_hotels_rooms_original_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:background="@drawable/flights__confirm"
-            android:layout_alignParentRight="true"
-            android:padding="12dp"
-            android:layout_marginTop="3dp" />
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@color/transparent"
+            android:src="@drawable/flights__confirm"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true" />
 
     </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_header"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:contentDescription="@string/divider"
+        android:paddingEnd="-2dp"
+        android:paddingStart="-2dp"
+        android:src="@drawable/separator_medium_mag"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/relHeaderCancelAndSaveForSelectRooms"/>
 
     <!--<TextView
         android:layout_width="match_parent"
@@ -61,7 +70,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/imageView4"
-        android:layout_below="@+id/relHeaderCancelAndSaveForSelectRooms"
+        android:layout_below="@+id/iv_header"
         android:src="@drawable/separator"
         android:layout_marginBottom="-4dp"
         android:layout_marginLeft="-4dp"
@@ -69,6 +78,7 @@
         android:contentDescription="Divider" />
 
     <LinearLayout
+        android:layout_below="@+id/imageView4"
         android:orientation="vertical"
         android:background="@color/GuestPerRoomDescription_backgroung"
         android:layout_width="match_parent"
@@ -87,4 +97,4 @@
             android:layout_marginRight="20dp" />
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>
