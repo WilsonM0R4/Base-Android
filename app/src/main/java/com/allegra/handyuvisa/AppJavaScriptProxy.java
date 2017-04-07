@@ -24,7 +24,7 @@ public class AppJavaScriptProxy {
     public void postMessage(String message) {
         //Log.d("Message", message);
         fragment.onePocketMessage = message;
-        if (checkLogin())  fragment.openOnePocket();
+        /*if (checkLogin())*/  fragment.openOnePocket();
     }
 
     private boolean checkLogin() {

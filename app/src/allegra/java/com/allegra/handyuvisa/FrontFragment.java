@@ -58,9 +58,6 @@ public class FrontFragment extends Fragment implements
         } else {
             rootView = inflater.inflate(R.layout.fragment_front, container, false);
         }
-        ((MainActivity) getActivity()).statusBarVisibility(true);
-
-
 
         TextureView textureView = (TextureView)rootView.findViewById(R.id.front_video);
         textureView.setOnClickListener(new View.OnClickListener() {
@@ -132,6 +129,7 @@ public class FrontFragment extends Fragment implements
     public void onResume() {
         super.onResume();
         resumeMediaPlayer();
+        ((MainActivity) getActivity()).statusBarVisibility(true);
     }
 
     @Override
