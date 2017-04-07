@@ -153,6 +153,8 @@ public class CallActivity extends Fragment implements BasicPhone.LoginListener,
     }
 
     public void initViews(View root) {
+        ((FragmentMain) getParentFragment()).configToolbar(true, 0, "");
+
         //setActionbar();
         relLoader = (RelativeLayout)root.findViewById(R.id.loader);
         relHeader = (RelativeLayout)root.findViewById(R.id.ll_header);
@@ -444,6 +446,7 @@ public class CallActivity extends Fragment implements BasicPhone.LoginListener,
                     case CALLING:
                         //showProgress(true);
                         //Hide loader
+                        ((MainActivity) getActivity()).statusBarVisibility(false);
                         ((FragmentMain) getParentFragment()).configToolbar(false, Constants.TYPE_ICONCANCEL_MENU,
                                 getString(R.string.title_call));
                         relLoader.setVisibility(View.GONE);

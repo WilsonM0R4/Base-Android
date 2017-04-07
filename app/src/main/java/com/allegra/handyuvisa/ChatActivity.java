@@ -116,6 +116,8 @@ public class ChatActivity extends Fragment implements com.allegra.handyuvisa.Bac
 
     public void initViews(View root) {
 
+        ((FragmentMain) getParentFragment()).configToolbar(true, 0, "");
+
         chatMessages = new ArrayList<>();
         chatMsgAdapter = new ChatMsgAdapter(getActivity(), chatMessages);
         chatListView = (ListView) root.findViewById(R.id.lv_chat_msg);
@@ -210,7 +212,8 @@ public class ChatActivity extends Fragment implements com.allegra.handyuvisa.Bac
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
-                ((MainActivity) getActivity()).replaceLayout(new FrontFragment(), true);
+                ((FragmentMain) getParentFragment()).restartStack();
+                ((FragmentMain) getParentFragment()).replaceLayout(new FrontFragment(), true);
             }
         });
     }
@@ -403,6 +406,7 @@ public class ChatActivity extends Fragment implements com.allegra.handyuvisa.Bac
                         errorExists = false;
                         onMenu();
                         //Hide loader
+                        ((MainActivity) getActivity()).statusBarVisibility(false);
                         ((FragmentMain) getParentFragment()).configToolbar(false, Constants.TYPE_ICONCANCEL_MENU,
                                 getString(R.string.title_chat));
                         ((FragmentMain) getParentFragment()).setOnBackCallback(new OnBackCallback() {
@@ -431,8 +435,9 @@ public class ChatActivity extends Fragment implements com.allegra.handyuvisa.Bac
                         agentName = data.get(ChatInfo.AGENT_NAME);
                       //  Log.d(TAG, "Agent name: " + agentName);
                         updateChatHeader(data.get(ChatInfo.AGENT_NAME));
-                        onMenu();
+                        //onMenu();
                         //Hide loader
+                        ((MainActivity) getActivity()).statusBarVisibility(false);
                         ((FragmentMain) getParentFragment()).configToolbar(false, Constants.TYPE_ICONCANCEL_MENU,
                                 getString(R.string.title_chat));
                         ((FragmentMain) getParentFragment()).setOnBackCallback(new OnBackCallback() {
