@@ -5,22 +5,17 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_gradient">
 
-    <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">-->
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="20dp"
         android:gravity="center_vertical">
 
         <ImageButton
             android:id="@+id/iv_home"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="16dp"
             android:background="@android:color/transparent"
@@ -28,8 +23,8 @@
             android:src="@drawable/menu__home" />
 
         <ImageView
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
+            android:layout_width="133dp"
+            android:layout_height="40dp"
             android:layout_centerInParent="true"
             android:src="@drawable/allegra_logo" />
 
@@ -39,828 +34,728 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:weightSum="10"
-            >
+            android:weightSum="10">
 
         <ScrollView
-            android:layout_width="match_parent"
             android:id="@+id/scroll_menu"
-            android:scrollbars="vertical"
-            android:verticalScrollbarPosition="left"
-            android:layout_marginLeft="2dp"
-            android:scrollbarAlwaysDrawVerticalTrack="true"
-            android:fadeScrollbars="false"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginLeft="2dp"
             android:layout_weight="9"
+            android:fadeScrollbars="false"
             android:fillViewport="true"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
             android:scrollbarSize="5dp"
             android:scrollbarThumbVertical="@drawable/scroll_bar_menu"
-            >
+            android:scrollbars="vertical"
+            android:verticalScrollbarPosition="left">
 
-<LinearLayout
-    android:layout_width="210dp"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_marginLeft="20dp"
-    android:layout_marginRight="120dp"
-    android:layout_marginTop="0dp"
-    >
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dip"
-                android:layout_weight="1"
-                android:background="@drawable/separator_gradient"
-                android:padding="2dip"
-                />
-
-          <LinearLayout
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:orientation="horizontal"
-              android:background="@drawable/main_menu_table_row"
-              android:padding="10dp"
-              android:gravity="center_vertical"
-              android:id="@+id/account_option"
-              >
-                <ImageView
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:src="@drawable/menu__account"
-                    android:layout_gravity="left"
-                    />
-
-                <com.allegra.handyuvisa.utils.CustomizedTextView
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:text="@string/title_my_account"
-                    android:textColor="@color/HomeMenus_text"
-                    android:textSize="19sp"
-                    android:layout_marginLeft="16dp"
-                    app:font="@string/font_varela"
-                    />
-
-              <RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
-                <ImageView
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:src="@drawable/menu__gotob"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    />
-</RelativeLayout>
-          </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dip"
-                android:layout_weight="1"
-                android:background="@drawable/separator_gradient"
-                android:padding="2dip"
-                />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@drawable/main_menu_table_row"
-        android:padding="10dp"
-        android:gravity="center_vertical"
-        android:id="@+id/onepocket_option"
-        >
-        <ImageView
-            android:layout_height="25dp"
-            android:layout_width="25dp"
-            android:src="@drawable/menu__onepocket"
-            android:layout_gravity="left"
-            android:layout_marginLeft="35dp"
-            />
-
-        <com.allegra.handyuvisa.utils.CustomizedTextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="@string/onepocket"
-            android:textColor="@color/HomeMenus_text"
-            android:textSize="17sp"
-            android:layout_marginLeft="10dp"
-            app:font="@string/font_varela"
-            />
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
-            <ImageView
+            <LinearLayout
+                android:layout_width="210dp"
                 android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:src="@drawable/menu__gotob"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                />
-        </RelativeLayout>
-    </LinearLayout>
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="120dp"
+                android:layout_marginTop="0dp"
+                android:orientation="vertical">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dip"
-        android:layout_weight="1"
-        android:background="@drawable/separator_gradient"
-        android:padding="2dip"
-        />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@drawable/main_menu_table_row"
-        android:padding="10dp"
-        android:gravity="center_vertical"
-        android:id="@+id/mCard_option" >
-
-        <ImageView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:src="@drawable/menu_mcard"
-            android:layout_gravity="left"
-            android:layout_marginLeft="35dp" />
-
-        <com.allegra.handyuvisa.utils.CustomizedTextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="@string/mCard"
-            android:textColor="@color/HomeMenus_text"
-            android:textSize="17sp"
-            android:layout_marginLeft="15dp"
-            app:font="@string/font_varela"/>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <ImageView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:src="@drawable/menu__gotob"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true" />
-        </RelativeLayout>
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dip"
-        android:layout_weight="1"
-        android:background="@drawable/separator_gradient"
-        android:padding="2dip"
-        />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@drawable/main_menu_table_row"
-        android:padding="10dp"
-        android:gravity="center_vertical"
-        android:id="@+id/scanqr_option"
-        >
-                <ImageView
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:src="@drawable/menu__scanqr"
-                    android:layout_gravity="left"
-                    android:layout_marginLeft="35dp"
-                    />
-
-                <com.allegra.handyuvisa.utils.CustomizedTextView
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:text="@string/title_qr_scan"
-                    android:textColor="@color/HomeMenus_text"
-                    android:textSize="17sp"
-                    android:layout_marginLeft="10dp"
-                    app:font="@string/font_varela"
-                    />
-                <RelativeLayout
+                <View
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    >
+                    android:layout_height="1dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/separator_gradient"
+                    android:padding="2dip" />
+
+                <LinearLayout
+                    android:id="@+id/account_option"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/main_menu_table_row"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
                     <ImageView
-                        android:layout_height="wrap_content"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/menu__account" />
+
+                    <com.allegra.handyuvisa.utils.CustomizedTextView
                         android:layout_width="wrap_content"
-                        android:src="@drawable/menu__gotob"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        />
-                </RelativeLayout>
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/title_my_account"
+                        android:textColor="@color/HomeMenus_text"
+                        android:textSize="16sp"
+                        app:font="@string/font_varela" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="8dp"
+                            android:layout_height="12dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/goto_icon" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_weight="1"
+                    android:background="@drawable/separator_gradient"
+                    android:padding="2dip" />
+
+                <LinearLayout
+                    android:id="@+id/onepocket_option"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/main_menu_table_row"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:id="@+id/imageView34"
+                        android:layout_width="19dp"
+                        android:layout_height="19dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="35dp"
+                        android:src="@drawable/menu__onepocket" />
+
+                    <com.allegra.handyuvisa.utils.CustomizedTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/onepocket"
+                        android:textColor="@color/HomeMenus_text"
+                        android:textSize="14sp"
+                        app:font="@string/font_varela" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="8dp"
+                            android:layout_height="12dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/goto_icon" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_weight="1"
+                    android:background="@drawable/separator_gradient"
+                    android:padding="2dip" />
+
+                <LinearLayout
+                    android:id="@+id/mCard_option"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/main_menu_table_row"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="19dp"
+                        android:layout_height="19dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="35dp"
+                        android:src="@drawable/menu_mcard" />
+
+                    <com.allegra.handyuvisa.utils.CustomizedTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:text="@string/mCard"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="@color/HomeMenus_text"
+                        android:textSize="14sp"
+                        app:font="@string/font_varela" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="8dp"
+                            android:layout_height="12dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/goto_icon" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_weight="1"
+                    android:background="@drawable/separator_gradient"
+                    android:padding="2dip" />
+
+                <LinearLayout
+                    android:id="@+id/scanqr_option"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/main_menu_table_row"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="19dp"
+                        android:layout_height="19dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="35dp"
+                        android:src="@drawable/menu__scanqr" />
+
+                    <com.allegra.handyuvisa.utils.CustomizedTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/title_qr_scan"
+                        android:textColor="@color/HomeMenus_text"
+                        android:textSize="14sp"
+                        app:font="@string/font_varela" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="8dp"
+                            android:layout_height="12dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/goto_icon" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_weight="1"
+                    android:background="@drawable/separator_gradient"
+                    android:padding="2dip" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/main_menu_table_row"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/menu__handyu" />
+
+                    <com.allegra.handyuvisa.utils.CustomizedTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="@string/handi_u"
+                        android:textColor="@color/HomeMenus_text"
+                        android:textSize="16sp"
+                        app:font="@string/font_varela" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_weight="1"
+                    android:background="@drawable/separator_gradient"
+                    android:padding="2dip" />
+
+                <LinearLayout
+                    android:id="@+id/market_option"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/main_menu_table_row"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="19dp"
+                        android:layout_height="19dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="35dp"
+                        android:src="@drawable/menu__market" />
+
+                    <com.allegra.handyuvisa.utils.CustomizedTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/title_market_place"
+                        android:textColor="@color/HomeMenus_text"
+                        android:textSize="14sp"
+                        app:font="@string/font_varela" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="8dp"
+                            android:layout_height="12dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/goto_icon" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_weight="1"
+                    android:background="@drawable/separator_gradient"
+                    android:padding="2dip" />
+
+                <LinearLayout
+                    android:id="@+id/flights_option"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/main_menu_table_row"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="19dp"
+                        android:layout_height="19dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="35dp"
+                        android:src="@drawable/menu__flights" />
+
+                    <com.allegra.handyuvisa.utils.CustomizedTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:text="@string/txt_menu_flights"
+                        android:textColor="@color/HomeMenus_text"
+                        android:textSize="14sp"
+                        app:font="@string/font_varela" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="8dp"
+                            android:layout_height="12dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/goto_icon" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_weight="1"
+                    android:background="@drawable/separator_gradient"
+                    android:padding="2dip" />
+
+                <LinearLayout
+                    android:id="@+id/hotels_option"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/main_menu_table_row"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="19dp"
+                        android:layout_height="19dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="35dp"
+                        android:src="@drawable/menu__hotels" />
+
+                    <com.allegra.handyuvisa.utils.CustomizedTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/title_hotels"
+                        android:textColor="@color/HomeMenus_text"
+                        android:textSize="14sp"
+                        app:font="@string/font_varela" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="8dp"
+                            android:layout_height="12dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/goto_icon" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_weight="1"
+                    android:background="@drawable/separator_gradient"
+                    android:padding="2dip" />
+
+                <LinearLayout
+                    android:id="@+id/concierge_option"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/main_menu_table_row"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="19dp"
+                        android:layout_height="19dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="35dp"
+                        android:src="@drawable/concierge6" />
+
+                    <com.allegra.handyuvisa.utils.CustomizedTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/title_concierge"
+                        android:textColor="@color/HomeMenus_text"
+                        android:textSize="14sp"
+                        app:font="@string/font_varela" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="8dp"
+                            android:layout_height="12dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/goto_icon" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_weight="1"
+                    android:background="@drawable/separator_gradient"
+                    android:padding="2dip" />
+
+                <LinearLayout
+                    android:id="@+id/services_option"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/main_menu_table_row"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="19dp"
+                        android:layout_height="19dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="35dp"
+                        android:src="@drawable/menu__services" />
+
+                    <com.allegra.handyuvisa.utils.CustomizedTextView
+                        android:id="@+id/textServices"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/services"
+                        android:textColor="@color/HomeMenus_text"
+                        android:textSize="14sp"
+                        app:font="@string/font_varela" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="8dp"
+                            android:layout_height="12dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/goto_icon" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_weight="1"
+                    android:background="@drawable/separator_gradient"
+                    android:padding="2dip" />
+
+                <LinearLayout
+                    android:id="@+id/restaurants_options"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/main_menu_table_row"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:id="@+id/imageView29"
+                        android:layout_width="19dp"
+                        android:layout_height="19dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="35dp"
+                        android:src="@drawable/restaurants" />
+
+                    <com.allegra.handyuvisa.utils.CustomizedTextView
+                        android:id="@+id/textRestaurants"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/title_restaurants"
+                        android:textColor="@color/HomeMenus_text"
+                        android:textSize="14sp"
+                        app:font="@string/font_varela" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="8dp"
+                            android:layout_height="12dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/goto_icon" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_weight="1"
+                    android:background="@drawable/separator_gradient"
+                    android:padding="2dip" />
+
+                <LinearLayout
+                    android:id="@+id/store_options"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/main_menu_table_row"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:id="@+id/imageView30"
+                        android:layout_width="19dp"
+                        android:layout_height="19dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="35dp"
+                        android:src="@drawable/store" />
+
+                    <com.allegra.handyuvisa.utils.CustomizedTextView
+                        android:id="@+id/txt_store"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/title_store"
+                        android:textColor="@color/HomeMenus_text"
+                        android:textSize="14sp"
+                        app:font="@string/font_varela" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="8dp"
+                            android:layout_height="12dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/menu__gotob" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_weight="1"
+                    android:background="@drawable/separator_gradient"
+                    android:padding="2dip" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/main_menu_table_row"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/menu__onetouch" />
+
+
+                    <com.allegra.handyuvisa.utils.CustomizedTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="@string/onetouch"
+                        android:textColor="@color/HomeMenus_text"
+                        android:textSize="16sp"
+                        app:font="@string/font_varela" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_weight="1"
+                    android:background="@drawable/separator_gradient"
+                    android:padding="2dip" />
+
+                <LinearLayout
+                    android:id="@+id/call_option"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/main_menu_table_row"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="19dp"
+                        android:layout_height="19dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="35dp"
+                        android:src="@drawable/menu__call" />
+
+                    <com.allegra.handyuvisa.utils.CustomizedTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/title_call"
+                        android:textColor="@color/HomeMenus_text"
+                        android:textSize="14sp"
+                        app:font="@string/font_varela" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="8dp"
+                            android:layout_height="12dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/goto_icon" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_weight="1"
+                    android:background="@drawable/separator_gradient"
+                    android:padding="2dip" />
+
+                <LinearLayout
+                    android:id="@+id/chat_option"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/main_menu_table_row"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="19dp"
+                        android:layout_height="19dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="35dp"
+                        android:src="@drawable/menu__chat" />
+
+                    <com.allegra.handyuvisa.utils.CustomizedTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/title_chat"
+                        android:textColor="@color/HomeMenus_text"
+                        android:textSize="14sp"
+                        app:font="@string/font_varela" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="8dp"
+                            android:layout_height="12dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/goto_icon" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_weight="1"
+                    android:background="@drawable/separator_gradient"
+                    android:padding="2dip" />
+
             </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dip"
-                android:layout_weight="1"
-                android:background="@drawable/separator_gradient"
-                android:padding="2dip"
-                />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@drawable/main_menu_table_row"
-        android:padding="10dp"
-        android:gravity="center_vertical"
-        >
-        <ImageView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:src="@drawable/menu__handyu"
-            android:layout_gravity="left"
-            />
-
-        <com.allegra.handyuvisa.utils.CustomizedTextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="@string/handi_u"
-            android:textColor="@color/HomeMenus_text"
-            android:textSize="19sp"
-            android:layout_marginLeft="16dp"
-            app:font="@string/font_varela"
-            />
-    </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dip"
-        android:layout_weight="1"
-        android:background="@drawable/separator_gradient"
-        android:padding="2dip"
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@drawable/main_menu_table_row"
-        android:padding="10dp"
-        android:gravity="center_vertical"
-        android:id="@+id/market_option"
-        >
-        <ImageView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:src="@drawable/menu__market"
-            android:layout_gravity="left"
-            android:layout_marginLeft="35dp"
-            />
-
-        <com.allegra.handyuvisa.utils.CustomizedTextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="@string/title_market_place"
-            android:textColor="@color/HomeMenus_text"
-            android:textSize="17sp"
-            android:layout_marginLeft="10dp"
-            app:font="@string/font_varela"
-            />
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
-            <ImageView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:src="@drawable/menu__gotob"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                />
-        </RelativeLayout>
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dip"
-        android:layout_weight="1"
-        android:background="@drawable/separator_gradient"
-        android:padding="2dip"
-        />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@drawable/main_menu_table_row"
-        android:padding="10dp"
-        android:gravity="center_vertical"
-        android:id="@+id/flights_option"
-        >
-        <ImageView
-            android:layout_height="22dp"
-            android:layout_width="22dp"
-            android:src="@drawable/menu__flights"
-            android:layout_gravity="left"
-            android:layout_marginLeft="35dp"
-            />
-
-        <com.allegra.handyuvisa.utils.CustomizedTextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="@string/txt_menu_flights"
-            android:textColor="@color/HomeMenus_text"
-            android:textSize="17sp"
-            android:layout_marginLeft="12dp"
-            app:font="@string/font_varela"
-            />
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
-            <ImageView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:src="@drawable/menu__gotob"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                />
-        </RelativeLayout>
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dip"
-        android:layout_weight="1"
-        android:background="@drawable/separator_gradient"
-        android:padding="2dip"
-        />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@drawable/main_menu_table_row"
-        android:padding="10dp"
-        android:gravity="center_vertical"
-        android:id="@+id/hotels_option"
-        >
-        <ImageView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:src="@drawable/menu__hotels"
-            android:layout_gravity="left"
-            android:layout_marginLeft="35dp"
-            />
-
-        <com.allegra.handyuvisa.utils.CustomizedTextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="@string/title_hotels"
-            android:textColor="@color/HomeMenus_text"
-            android:textSize="17sp"
-            android:layout_marginLeft="10dp"
-            app:font="@string/font_varela"
-            />
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
-            <ImageView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:src="@drawable/menu__gotob"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                />
-        </RelativeLayout>
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dip"
-        android:layout_weight="1"
-        android:background="@drawable/separator_gradient"
-        android:padding="2dip"
-        />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@drawable/main_menu_table_row"
-        android:padding="10dp"
-        android:gravity="center_vertical"
-        android:id="@+id/concierge_option" >
-
-        <ImageView
-            android:layout_height="23dp"
-            android:layout_width="23dp"
-            android:src="@drawable/concierge6"
-            android:layout_gravity="left"
-            android:layout_marginLeft="35dp" />
-
-        <com.allegra.handyuvisa.utils.CustomizedTextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="@string/title_concierge"
-            android:textColor="@color/HomeMenus_text"
-            android:textSize="17sp"
-            android:layout_marginLeft="10dp"
-            app:font="@string/font_varela"/>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <ImageView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:src="@drawable/menu__gotob"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true" />
-        </RelativeLayout>
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dip"
-        android:layout_weight="1"
-        android:background="@drawable/separator_gradient"
-        android:padding="2dip"
-        />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@drawable/main_menu_table_row"
-        android:padding="10dp"
-        android:gravity="center_vertical"
-        android:id="@+id/services_option"
-        >
-        <ImageView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:src="@drawable/menu__services"
-            android:layout_gravity="left"
-            android:layout_marginLeft="35dp"
-            />
-
-        <com.allegra.handyuvisa.utils.CustomizedTextView
-            android:id="@+id/textServices"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="@string/services"
-            android:textColor="@color/HomeMenus_text"
-            android:textSize="17sp"
-            android:layout_marginLeft="10dp"
-            app:font="@string/font_varela"
-            />
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
-            <ImageView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:src="@drawable/menu__gotob"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                />
-        </RelativeLayout>
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dip"
-        android:layout_weight="1"
-        android:background="@drawable/separator_gradient"
-        android:padding="2dip"
-        />
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/restaurants_options"
-        android:gravity="center_vertical"
-        android:background="@drawable/main_menu_table_row"
-        android:padding="10dp">
-
-        <ImageView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:src="@drawable/restaurants"
-            android:layout_gravity="left"
-            android:layout_marginLeft="35dp"
-            android:id="@+id/imageView29" />
-
-        <com.allegra.handyuvisa.utils.CustomizedTextView
-            android:id="@+id/textRestaurants"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="@string/title_restaurants"
-            android:textColor="@color/HomeMenus_text"
-            android:textSize="17sp"
-            android:layout_marginLeft="10dp"
-            app:font="@string/font_varela"
-            />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <ImageView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:src="@drawable/menu__gotob"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true" />
-        </RelativeLayout>
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dip"
-        android:layout_weight="1"
-        android:background="@drawable/separator_gradient"
-        android:padding="2dip"
-        />
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/store_options"
-        android:gravity="center_vertical"
-        android:background="@drawable/main_menu_table_row"
-        android:padding="10dp">
-
-        <ImageView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:src="@drawable/store"
-            android:layout_gravity="left"
-            android:layout_marginLeft="35dp"
-            android:id="@+id/imageView30" />
-
-        <com.allegra.handyuvisa.utils.CustomizedTextView
-            android:id="@+id/txt_store"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="@string/title_store"
-            android:textColor="@color/HomeMenus_text"
-            android:textSize="17sp"
-            android:layout_marginLeft="10dp"
-            app:font="@string/font_varela"
-            />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <ImageView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:src="@drawable/menu__gotob"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true" />
-        </RelativeLayout>
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dip"
-        android:layout_weight="1"
-        android:background="@drawable/separator_gradient"
-        android:padding="2dip"
-        />
-
-   <!-- <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@drawable/main_menu_table_row"
-        android:padding="10dp"
-        android:gravity="center_vertical"
-        android:id="@+id/restaurants_option"
-        >
-
-
-        <ImageView
-            android:layout_height="25dp"
-            android:layout_width="25dp"
-            android:src="@mipmap/menu_restaurants"
-            android:layout_gravity="left"
-            android:layout_marginLeft="35dp"
-            />
-
-        <com.allem.alleminmotion.utils.CustomizedTextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="@string/title_restaurants"
-            android:textColor="@android:color/white"
-            android:textSize="17sp"
-            android:id="@+id/textRestaurants"
-            android:layout_marginLeft="9dp"
-            app:font="@string/font_varela"
-            />
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
-            <ImageView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:src="@drawable/menu__gotob"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                />
-        </RelativeLayout>
-    </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dip"
-        android:layout_weight="1"
-        android:background="@drawable/separator_gradient"
-        android:padding="2dip"
-        />-->
-
- <!--   <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@drawable/main_menu_table_row"
-        android:padding="10dp"
-        android:gravity="center_vertical"
-        android:id="@+id/taxi_option" >
-
-        <ImageView
-            android:layout_height="22dp"
-            android:layout_width="22dp"
-            android:src="@drawable/taxi4"
-            android:layout_gravity="left"
-            android:layout_marginLeft="35dp" />
-
-        <com.allem.alleminmotion.utils.CustomizedTextView
-            android:id="@+id/textTaxi"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="@string/taxi"
-            android:textColor="@android:color/white"
-            android:textSize="17sp"
-            app:font="@string/font_varela"
-            android:layout_marginLeft="12dp" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <ImageView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:src="@drawable/menu__gotob"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true" />
-        </RelativeLayout>
-    </LinearLayout>-->
-
-   <!-- <View
-        android:layout_width="match_parent"
-        android:layout_height="1dip"
-        android:layout_weight="1"
-        android:background="@drawable/separator_gradient"
-        android:padding="2dip"
-        />-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@drawable/main_menu_table_row"
-        android:padding="10dp"
-        android:gravity="center_vertical"
-        >
-        <ImageView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:src="@drawable/menu__onetouch"
-            android:layout_gravity="left"
-            />
-
-
-        <com.allegra.handyuvisa.utils.CustomizedTextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="@string/onetouch"
-            android:textColor="@color/HomeMenus_text"
-            android:textSize="19sp"
-            app:font="@string/font_varela"
-            android:layout_marginLeft="16dp"
-            />
-    </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dip"
-        android:layout_weight="1"
-        android:background="@drawable/separator_gradient"
-        android:padding="2dip"
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@drawable/main_menu_table_row"
-        android:padding="10dp"
-        android:gravity="center_vertical"
-        android:id="@+id/call_option"
-        >
-        <ImageView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:src="@drawable/menu__call"
-            android:layout_gravity="left"
-            android:layout_marginLeft="35dp"
-
-            />
-        <com.allegra.handyuvisa.utils.CustomizedTextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="@string/title_call"
-            android:textColor="@color/HomeMenus_text"
-            android:textSize="17sp"
-            android:layout_marginLeft="10dp"
-            app:font="@string/font_varela"
-            />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
-            <ImageView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:src="@drawable/menu__gotob"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                />
-        </RelativeLayout>
-    </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dip"
-        android:layout_weight="1"
-        android:background="@drawable/separator_gradient"
-        android:padding="2dip"
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@drawable/main_menu_table_row"
-        android:padding="10dp"
-        android:gravity="center_vertical"
-        android:id="@+id/chat_option"
-        >
-                <ImageView
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:src="@drawable/menu__chat"
-                    android:layout_gravity="left"
-                    android:layout_marginLeft="35dp"
-                    />
-
-                <com.allegra.handyuvisa.utils.CustomizedTextView
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:text="@string/title_chat"
-                    android:textColor="@color/HomeMenus_text"
-                    android:textSize="17sp"
-                    android:layout_marginLeft="10dp"
-                    app:font="@string/font_varela"
-                    />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
-            <ImageView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:src="@drawable/menu__gotob"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                />
-        </RelativeLayout>
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dip"
-                android:layout_weight="1"
-                android:background="@drawable/separator_gradient"
-                android:padding="2dip"
-
-                />
-</LinearLayout>
-
-
 
         </ScrollView>
-            <com.allegra.handyuvisa.utils.CustomizedTextView
+
+        <com.allegra.handyuvisa.utils.CustomizedTextView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -871,11 +766,8 @@
                 android:gravity="center"
                 app:font="@string/font_muli"
                 android:background="@color/HomeMenus_backgroung"
-                android:visibility="invisible"
+                android:visibility="invisible" />
 
-                />
     </LinearLayout>
-
-   <!-- </LinearLayout>-->
 
 </LinearLayout>
