@@ -34,12 +34,7 @@ public class OnepocketContainerActivity extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-
         //super.setView(R.layout.activity_onepocket_container, this);
-
-
     }
 
     @Override
@@ -53,8 +48,8 @@ public class OnepocketContainerActivity extends Fragment {
 
         ((MainActivity) getActivity()).statusBarVisibility(false);
         initViews(view);
-        checkLogin();
         initCallBack();
+        checkLogin();
     }
 
     @Override
@@ -103,24 +98,6 @@ public class OnepocketContainerActivity extends Fragment {
     public void initViews(View root) {
         ((FragmentMain) getParentFragment()).configToolbar(true, 0, "");
 
-        OneTransaction oneTransaction = getArguments().getParcelable (OPKConstants.EXTRA_DATA);
-        if (oneTransaction == null) {
-            Log.e("OPK", "null data");
-            return;
-        }
-
-        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-        onePocket = new OPKSummaryFragment();
-        Bundle bundle = new Bundle();
-        bundle.putParcelable(OPKConstants.EXTRA_DATA, oneTransaction);
-        onePocket.setArguments(bundle);
-        transaction.replace(R.id.opk_top, onePocket);
-
-//        // initialize with summary
-//        summary = new SummaryFragment();
-//        transaction.add(R.id.opk_bottom, summary);
-        transaction.commit();
-
     }
 
 
@@ -134,16 +111,30 @@ public class OnepocketContainerActivity extends Fragment {
             startActivityForResult(i, Constants.ONE_POCKET_NEEDS_LOGIN);*/
 
             LoginActivity loginActivity = new LoginActivity();
-            loginActivity.setSuccessLoginListener(new LoginCallback() {
-                @Override
-                public void onLoginFinished() {
-                    //this can be empty
-                    Log.e(TAG, "onepocket login call");
-                }
-            });
-
             ((FragmentMain) getParentFragment()).replaceLayout(loginActivity, false);
 
+        }else{
+            OneTransaction oneTransaction = getArguments().getParcelable (OPKConstants.EXTRA_DATA);
+
+            Log.e("OPK", oneTransaction.getAmount());
+
+            if (oneTransaction == null) {
+                Log.e("OPK", "null data");
+                return;
+            }
+
+
+            FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+            onePocket = new OPKSummaryFragment();
+            Bundle bundle = new Bundle();
+            bundle.putParcelable(OPKConstants.EXTRA_DATA, oneTransaction);
+            onePocket.setArguments(bundle);
+            transaction.replace(R.id.opk_top, onePocket);
+
+//        // initialize with summary
+//        summary = new SummaryFragment();
+//        transaction.add(R.id.opk_bottom, summary);
+            transaction.commit();
         }
     }
 

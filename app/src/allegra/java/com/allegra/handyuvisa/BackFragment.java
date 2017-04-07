@@ -353,7 +353,7 @@ public class BackFragment extends Fragment {
     }
 
     public void sendToPocket(){
-        if (Util.isAuthenticated(getActivity())) {
+        //if (Util.isAuthenticated(getActivity())) {
             OnepocketContainerActivity fragmentOPK = new OnepocketContainerActivity();
 
 
@@ -364,13 +364,13 @@ public class BackFragment extends Fragment {
             goToView(fragmentOPK);
             //intent.putExtras(bundle);
             /*getActivity().startActivity(intent);
-            getActivity().finish();*/
-        }else {
+        /*  getActivity().finish();*/
+        /*}  /*else {
 
             goToView(new LoginActivity());
-            /*Intent intent = new Intent(getActivity(),LoginActivity.class);
-            getActivity().startActivity(intent);*/
-        }
+
+
+        }*/
     }
 
     public void sendToMcard(){

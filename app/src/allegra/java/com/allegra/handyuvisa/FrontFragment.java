@@ -77,7 +77,7 @@ public class FrontFragment extends Fragment implements
     public void onActivityCreated(Bundle savedInstanceState) {
 
         super.onActivityCreated(savedInstanceState);
-        setVideoView();
+
 
         if (Util.isAuthenticated(getActivity())) {
             AllemUser user = Constants.getUser(getActivity());
@@ -96,6 +96,8 @@ public class FrontFragment extends Fragment implements
     public void onViewCreated(View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
 
+        setVideoView(view);
+
         View login, register;
 
         login = view.findViewById(R.id.login);
@@ -109,12 +111,6 @@ public class FrontFragment extends Fragment implements
                     Log.e("Front", "login pressed");
 
                     LoginActivity login = new LoginActivity();
-                    login.setSuccessLoginListener(new LoginCallback() {
-                        @Override
-                        public void onLoginFinished() {
-                            Log.e("Front", "login clicked");
-                        }
-                    });
                     ((FragmentMain) getParentFragment()).replaceLayout(
                             login, false);
                 }
@@ -144,8 +140,8 @@ public class FrontFragment extends Fragment implements
         releaseMediaPlayer();
     }
 
-    private void setVideoView(){
-        videoView = (TextureView) getActivity().findViewById(R.id.front_video);
+    private void setVideoView(View parentView){
+        videoView = (TextureView) parentView.findViewById(R.id.front_video);
         videoView.setSurfaceTextureListener(this);
     }
 

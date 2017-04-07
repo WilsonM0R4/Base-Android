@@ -596,16 +596,22 @@ public class    Constants {
     }
 
     private static OneTransaction initOneTransaction(AllemUser user, VisaCheckoutApp app) {
-        OneTransaction transaction = new OneTransaction();
-        transaction.add("sessionId", app.getIdSession());
-        transaction.add("first", user.nombre);
-        transaction.add("last", user.apellido);
-        transaction.add("userName", user.email);
-        transaction.add("rawPassword", app.getRawPassword());
-        transaction.add("idCuenta", Integer.toString(app.getIdCuenta()));
-        transaction.add("docType", user.idType);
-        transaction.add("docId", user.idNumber);
-        return transaction;
+
+        if(user!=null){
+            OneTransaction transaction = new OneTransaction();
+            transaction.add("sessionId", app.getIdSession());
+            transaction.add("first", user.nombre);
+            transaction.add("last", user.apellido);
+            transaction.add("userName", user.email);
+            transaction.add("rawPassword", app.getRawPassword());
+            transaction.add("idCuenta", Integer.toString(app.getIdCuenta()));
+            transaction.add("docType", user.idType);
+            transaction.add("docId", user.idNumber);
+
+            return transaction;
+        }
+
+        return null;
 
     }
 }

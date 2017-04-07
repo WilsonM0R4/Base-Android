@@ -86,14 +86,18 @@ public class FragmentMain extends Fragment implements NavigationCallback,
         rightButton = (ImageButton)view.findViewById(R.id.button_right);
         rightButton2 = (ImageButton)view.findViewById(R.id.button_right2);
         tvTitle = (TextView)view.findViewById(R.id.title_toolbar);
-        arrayFragments = new ArrayList();
+        arrayFragments = new ArrayList<>();
 
         FrontFragment front = new FrontFragment();
         currentFrontFragment = front;
 
-        getChildFragmentManager().beginTransaction().
-                add(R.id.content_fragment, front, MainActivity.TAG_FRONT)
+        getChildFragmentManager().beginTransaction()
+                .add(R.id.content_fragment, front, MainActivity.TAG_FRONT)
                 .commit();
+
+        arrayFragments.add(currentFrontFragment);
+
+
 
     }
 
@@ -287,19 +291,19 @@ public class FragmentMain extends Fragment implements NavigationCallback,
 
         Log.e(TAG,"before if");
 
-
+        if(arrayFragments == null){
+            arrayFragments = new ArrayList<>();
+        }
 
         if(((MainActivity) getActivity()).state == MainActivity.menu_exposed){
             ((MainActivity) getActivity()).animate();
             Log.e(TAG, "menu is exposed");
             if(!isSameFragment(this.currentFrontFragment, fragment)){
 
-                arrayFragments.add(currentFrontFragment);
-                Log.e("ArrayList"," El stack es " + arrayFragments);
-
-
                 currentFrontFragment = fragment;
 
+                arrayFragments.add(currentFrontFragment);
+                Log.e("ArrayList"," El stack es " + arrayFragments);
 
                 Log.e(TAG, "is same fragment");
 
@@ -310,16 +314,24 @@ public class FragmentMain extends Fragment implements NavigationCallback,
                     @Override
                     public void run() {
 
-                        getChildFragmentManager().beginTransaction()
+                        /*getChildFragmentManager().beginTransaction()
                                 .setCustomAnimations(R.animator.slide_in_left,
                                         R.animator.slide_out_right)
                                 .remove(getChildFragmentManager().findFragmentByTag(MainActivity.TAG_FRONT))
                                 .add(R.id.content_fragment, fragment, MainActivity.TAG_FRONT)
+                                .commit();*/
+
+                        getChildFragmentManager().beginTransaction()
+                                .setCustomAnimations(R.animator.slide_in_left,
+                                        R.animator.slide_out_right)
+                                .replace(R.id.content_fragment, fragment, MainActivity.TAG_FRONT)
                                 .commit();
 
                         //
                     }
                 }, 100);
+
+
             }
 
         } else {
@@ -328,11 +340,6 @@ public class FragmentMain extends Fragment implements NavigationCallback,
 
             Log.e(TAG, "currentFront:"+currentFrontFragment.toString()
                     +" theOtherFragment: "+fragment);
-
-            if(buttonAction != BUTTON_BACK) {
-                //if (arrayFragments.get(arrayFragments.size()-1) != currentFrontFragment)
-                    arrayFragments.add(currentFrontFragment);
-            }
 
             Log.e("ArrayList", " El stack es " + arrayFragments);
 
@@ -344,14 +351,24 @@ public class FragmentMain extends Fragment implements NavigationCallback,
                 second_animation = R.animator.slide_out_left;
             }
 
-            getChildFragmentManager().beginTransaction()
+            /*getChildFragmentManager().beginTransaction()
                     .setCustomAnimations(first_animation, second_animation)
                     .remove(getChildFragmentManager().findFragmentByTag(MainActivity.TAG_FRONT))
                     .add(R.id.content_fragment, fragment, MainActivity.TAG_FRONT)
+                    .commit();*/
+
+            getChildFragmentManager().beginTransaction()
+                    .setCustomAnimations(first_animation, second_animation)
+                    .replace(R.id.content_fragment, fragment, MainActivity.TAG_FRONT)
                     .commit();
 
 
             currentFrontFragment = fragment;
+
+            if(buttonAction != BUTTON_BACK) {
+                //if (arrayFragments.get(arrayFragments.size()-1) != currentFrontFragment)
+                arrayFragments.add(currentFrontFragment);
+            }
 
             Log.e(TAG, "currentFront:"+currentFrontFragment.toString()
                     +" theOtherFragment: "+fragment);
@@ -399,19 +416,25 @@ public class FragmentMain extends Fragment implements NavigationCallback,
         return (currentName.equals(nextName) && currentIndicator.equals(secondIndicator)) ;
     }
 
+    @Override
     public void onBack(){
         if (arrayFragments.size() > 0) {
             Log.e("backAction", "fragment is "+arrayFragments.get(arrayFragments.size()-1).getClass().getName());
+            Log.e("backAction", "stack is "+arrayFragments);
             buttonAction = BUTTON_BACK;
+            arrayFragments.remove(arrayFragments.size()-1);
             replaceLayout(arrayFragments
                     .get(arrayFragments.size()-1), true);
-            arrayFragments.remove(arrayFragments.size()-1);
 
             buttonAction = ANY_BUTTON;
 
         } else {
             Log.e("backAction","No fragments");
         }
+    }
+
+    public void restartStack(){
+        arrayFragments = null;
     }
 
     //INTERFACE NavigationCallback
@@ -434,6 +457,7 @@ public class FragmentMain extends Fragment implements NavigationCallback,
 
     @Override
     public void goToView(Fragment fragment) {
+        restartStack();
         replaceLayout(fragment, false);
     }
 

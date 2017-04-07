@@ -237,7 +237,9 @@ public class MyAccountActivity extends Fragment {
             //overridePendingTransition(R.animator.back_slide_in, R.animator.front_slide_out);
         }
 
-        onBackCallback.onBack();
+        //onBackCallback.onBack();
+        ((FragmentMain) getParentFragment()).restartStack();
+        ((FragmentMain) getParentFragment()).replaceLayout(new FrontFragment(), false);
     }
 
     public void onMenu(View view) {
