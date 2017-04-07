@@ -46,6 +46,7 @@ public class FragmentMain extends Fragment implements NavigationCallback,
     FrameLayout content;
     ImageView divider;
     int buttonAction = ANY_BUTTON;
+    OnBackCallback mOnBackCallback;
 
     /*@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -99,6 +100,12 @@ public class FragmentMain extends Fragment implements NavigationCallback,
 
 
 
+    }
+
+    public void setOnBackCallback(OnBackCallback onBackCallback){
+        if (onBackCallback != null){
+            mOnBackCallback = onBackCallback;
+        }
     }
 
     //The menu button action
@@ -418,6 +425,11 @@ public class FragmentMain extends Fragment implements NavigationCallback,
 
     @Override
     public void onBack(){
+
+        if (mOnBackCallback != null){
+            mOnBackCallback.onBack();
+        }
+
         if (arrayFragments.size() > 0) {
             Log.e("backAction", "fragment is "+arrayFragments.get(arrayFragments.size()-1).getClass().getName());
             Log.e("backAction", "stack is "+arrayFragments);

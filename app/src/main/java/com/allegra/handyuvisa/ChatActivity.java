@@ -32,6 +32,7 @@ import com.allegra.handyuvisa.async.GetBaseResource;
 import com.allegra.handyuvisa.async.MyBus;
 import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
+import com.allegra.handyuvisa.utils.OnBackCallback;
 import com.allegra.handyuvisa.utils.Util;
 import com.squareup.otto.Subscribe;
 
@@ -404,6 +405,12 @@ public class ChatActivity extends Fragment implements com.allegra.handyuvisa.Bac
                         //Hide loader
                         ((FragmentMain) getParentFragment()).configToolbar(false, Constants.TYPE_ICONCANCEL_MENU,
                                 getString(R.string.title_chat));
+                        ((FragmentMain) getParentFragment()).setOnBackCallback(new OnBackCallback() {
+                            @Override
+                            public void onBack() {
+                                onAlertCancelChat();
+                            }
+                        });
                         relLoader.setVisibility(View.GONE);
                         //Show layout
                         showLayout();
@@ -428,6 +435,12 @@ public class ChatActivity extends Fragment implements com.allegra.handyuvisa.Bac
                         //Hide loader
                         ((FragmentMain) getParentFragment()).configToolbar(false, Constants.TYPE_ICONCANCEL_MENU,
                                 getString(R.string.title_chat));
+                        ((FragmentMain) getParentFragment()).setOnBackCallback(new OnBackCallback() {
+                            @Override
+                            public void onBack() {
+                                onAlertCancelChat();
+                            }
+                        });
                         relLoader.setVisibility(View.GONE);
                         //Show layout
                         showLayout();
