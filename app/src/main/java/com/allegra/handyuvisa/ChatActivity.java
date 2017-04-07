@@ -57,7 +57,7 @@ public class ChatActivity extends Fragment implements com.allegra.handyuvisa.Bac
     private EditText sentText;
     private ImageView animation, iv_header;
     private RelativeLayout relLoader, relHeader;
-    private Button btnCancel;
+    private Button btnCancel, btnSend;
     private TextView tv_chat_agent, tv_chat_start;
     private LinearLayout form;
 
@@ -144,6 +144,14 @@ public class ChatActivity extends Fragment implements com.allegra.handyuvisa.Bac
         tv_chat_agent = (TextView)root.findViewById(R.id.tv_chat_agent);
         tv_chat_start = (TextView)root.findViewById(R.id.tv_chat_start);
         form = (LinearLayout)root.findViewById(R.id.form);
+
+        btnSend = (Button)root.findViewById(R.id.btn_send);
+        btnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onAddLines();
+            }
+        });
     }
 
     /*@Override
@@ -183,7 +191,7 @@ public class ChatActivity extends Fragment implements com.allegra.handyuvisa.Bac
 
     //*****************PROPER METHODS*****************
 
-    public  void onAlertCancelChat(View v){
+    public void onAlertCancelChat(){
         final Dialog dialog = new Dialog(getActivity());
         dialog.setContentView(R.layout.dialog_cancel_chat);
         dialog.show();
@@ -211,17 +219,17 @@ public class ChatActivity extends Fragment implements com.allegra.handyuvisa.Bac
     }
 
     public void showLayout(){
-        relHeader.setVisibility(View.VISIBLE);
-        iv_header.setVisibility(View.VISIBLE);
+        //relHeader.setVisibility(View.VISIBLE);
+        //iv_header.setVisibility(View.VISIBLE);
         tv_chat_agent.setVisibility(View.VISIBLE);
         tv_chat_start.setVisibility(View.VISIBLE);
         chatListView.setVisibility(View.VISIBLE);
         form.setVisibility(View.VISIBLE);
     }
 
-    public void onCloseMenu(View v){
+    /*public void onCloseMenu(View v){
         ((MainActivity) getActivity()).animate();
-    }
+    }*/
 
     private void initLivePersonService() {
         GetBaseResource apiInfo = new GetBaseResource();
@@ -328,7 +336,7 @@ public class ChatActivity extends Fragment implements com.allegra.handyuvisa.Bac
         helper.execute();
     }
 
-    public void onAddLines(View view) {
+    public void onAddLines() {
 
         if(getActivity().getCurrentFocus()!=null) {
             InputMethodManager inputMethodManager = (InputMethodManager) getActivity().

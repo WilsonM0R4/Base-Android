@@ -145,7 +145,6 @@
             android:id="@+id/btn_send"
             android:text="@string/send_chat"
             android:textColor="@color/chatSendButton_text"
-            android:onClick="onAddLines"
             android:layout_alignBottom="@+id/et_chat_msg"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"/>
