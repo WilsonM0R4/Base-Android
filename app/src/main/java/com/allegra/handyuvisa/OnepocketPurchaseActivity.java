@@ -34,10 +34,6 @@ public class OnepocketPurchaseActivity extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //super.setView(R.layout.activity_onepocket_purchase, this);
-
-
-
-
     }
 
     public void initViews(View root) {
@@ -49,7 +45,9 @@ public class OnepocketPurchaseActivity extends Fragment {
 
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
         OneTransaction oneTransaction = getArguments().getParcelable(OPKConstants.EXTRA_PAYMENT);
-        Log.e("OPK", "extra payment data is -- "+oneTransaction.toString());
+        Log.e("OPK", "arguments are -- "+getArguments());
+        Log.e("OPK", "extra payment data is -- "+oneTransaction.getAmount());
+
         summary = new PurchaseSummaryFragment();
         Bundle bundle = new Bundle();
         bundle.putParcelable(OPKConstants.EXTRA_PAYMENT, oneTransaction);

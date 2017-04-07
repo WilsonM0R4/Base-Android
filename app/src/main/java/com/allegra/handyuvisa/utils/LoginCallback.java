@@ -5,5 +5,5 @@ package com.allegra.handyuvisa.utils;
  */
 
 public interface LoginCallback {
-    void onLoginFinished();
+    void onSuccessLogin();
 }

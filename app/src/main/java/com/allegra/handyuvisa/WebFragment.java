@@ -86,7 +86,7 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
 
     private String url;
     private String callUrl;
-    public String onePocketmessage;
+    public String onePocketMessage;
     private String opkConstant = "";
     GPSTracker gp;
     Double latitude, longitude;
@@ -130,6 +130,8 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
 
         url = getArguments().getString(LOADING_URL);
         Log.e("Web", getArguments().getString(STARTER_VIEW));
+
+        opkConstant = OPKConstants.TYPE_MARKETPLACE;
 
         canReturn = getArguments().getBoolean(CAN_RETURN);
 
@@ -501,9 +503,14 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
     public void openOnePocket(){
         //Intent intent = new Intent(MarketPlaceActivity.this, OnepocketPurchaseActivity.class);
         Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(getActivity()),
-                onePocketmessage,
+                onePocketMessage,
                 opkConstant,
                 (com.allegra.handyuvisa.VisaCheckoutApp) getActivity().getApplication());
+
+
+        Log.e("Web", "onepocket message -- "+onePocketMessage);
+        Log.e("Web", "onepocket constant -- "+opkConstant);
+        Log.e("Web", "onepocket VCO app -- "+(com.allegra.handyuvisa.VisaCheckoutApp) getActivity().getApplication());
 
         OnepocketPurchaseActivity fragmentOPKPurchase = new OnepocketPurchaseActivity();
         fragmentOPKPurchase.setArguments(bundle);

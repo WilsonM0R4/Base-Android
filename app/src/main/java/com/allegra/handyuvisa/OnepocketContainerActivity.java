@@ -116,7 +116,7 @@ public class OnepocketContainerActivity extends Fragment {
         }else{
             OneTransaction oneTransaction = getArguments().getParcelable (OPKConstants.EXTRA_DATA);
 
-            Log.e("OPK", oneTransaction.getAmount());
+            Log.e("OPK", "amount is "+oneTransaction.getAmount());
 
             if (oneTransaction == null) {
                 Log.e("OPK", "null data");

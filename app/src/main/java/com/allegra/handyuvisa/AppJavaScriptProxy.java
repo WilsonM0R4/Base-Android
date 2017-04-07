@@ -23,7 +23,7 @@ public class AppJavaScriptProxy {
     @JavascriptInterface
     public void postMessage(String message) {
         //Log.d("Message", message);
-        fragment.onePocketmessage = message;
+        fragment.onePocketMessage = message;
         if (checkLogin())  fragment.openOnePocket();
     }
 

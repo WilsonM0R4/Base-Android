@@ -50,12 +50,13 @@ import org.apache.http.message.BasicNameValuePair;
 import java.util.ArrayList;
 
 import static com.allegra.handyuvisa.R.id.et_password;
+import static com.allegra.handyuvisa.R.id.login;
 
 /**
  * Created by victor on 19/02/15.
  * com.allem.allemevent.fragactiv
  */
-public class LoginActivity extends Fragment {
+public class LoginActivity extends Fragment implements LoginCallback{
 
     public static final String LOGIN_REQUEST_TYPE = "request_type";
     private final String TAG = "LoginActivity";
@@ -526,7 +527,8 @@ public class LoginActivity extends Fragment {
 
                 //((FragmentMain) getParentFragment()).replaceLayout(new FrontFragment(), true);
                 //getActivity().finish();
-                onBackCallback.onBack();
+                //onBackCallback.onBack();
+                this.onSuccessLogin();
 
             } else {
                 Toast.makeText(ctx, event.getFaultString(), Toast.LENGTH_LONG).show();
@@ -685,4 +687,17 @@ public class LoginActivity extends Fragment {
     }
 
 
+    public void setOnSuccessLoginCallback(LoginCallback loginCallback){
+        if(loginCallback != null){
+            mLoginCallback = loginCallback;
+        }
+    }
+
+    @Override
+    public void onSuccessLogin() {
+        if(mLoginCallback != null){
+            mLoginCallback.onSuccessLogin();
+        }
+        onBackCallback.onBack();
+    }
 }

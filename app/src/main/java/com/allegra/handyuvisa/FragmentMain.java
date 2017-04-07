@@ -131,9 +131,11 @@ public class FragmentMain extends Fragment implements NavigationCallback,
                 if (arrayFragments.size() > 0) {
                     Log.e("backAction", "fragment is "+arrayFragments.get(arrayFragments.size()-1).getClass().getName());
                     buttonAction = BUTTON_BACK;
-                    replaceLayout(arrayFragments
+                    /*replaceLayout(arrayFragments
                             .get(arrayFragments.size()-1), true);
-                    arrayFragments.remove(arrayFragments.size()-1);
+                    arrayFragments.remove(arrayFragments.size()-1);*/
+
+                    onBack();
 
                     buttonAction = ANY_BUTTON;
 
@@ -298,10 +300,6 @@ public class FragmentMain extends Fragment implements NavigationCallback,
 
         Log.e(TAG,"before if");
 
-        if(arrayFragments == null){
-            arrayFragments = new ArrayList<>();
-        }
-
         if(((MainActivity) getActivity()).state == MainActivity.menu_exposed){
             ((MainActivity) getActivity()).animate();
             Log.e(TAG, "menu is exposed");
@@ -430,6 +428,9 @@ public class FragmentMain extends Fragment implements NavigationCallback,
             mOnBackCallback.onBack();
         }
 
+
+        Log.e("Main", "onBack()");
+
         if (arrayFragments.size() > 0) {
             Log.e("backAction", "fragment is "+arrayFragments.get(arrayFragments.size()-1).getClass().getName());
             Log.e("backAction", "stack is "+arrayFragments);
@@ -441,12 +442,14 @@ public class FragmentMain extends Fragment implements NavigationCallback,
             buttonAction = ANY_BUTTON;
 
         } else {
+            buttonAction = ANY_BUTTON;
             Log.e("backAction","No fragments");
         }
     }
 
     public void restartStack(){
         arrayFragments = null;
+        arrayFragments = new ArrayList<>();
     }
 
     //INTERFACE NavigationCallback
