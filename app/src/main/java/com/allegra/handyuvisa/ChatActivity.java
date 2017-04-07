@@ -2,6 +2,7 @@ package com.allegra.handyuvisa;
 
 import android.app.Dialog;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.drawable.AnimationDrawable;
@@ -195,7 +196,8 @@ public class ChatActivity extends Fragment implements com.allegra.handyuvisa.Bac
     //*****************PROPER METHODS*****************
 
     public void onAlertCancelChat(){
-        final Dialog dialog = new Dialog(getActivity());
+        Context cont = getParentFragment().getActivity();
+        final Dialog dialog = new Dialog(cont);
         dialog.setContentView(R.layout.dialog_cancel_chat);
         dialog.show();
         //CustomizedTextViews (Cancel and Ok)

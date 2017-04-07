@@ -384,7 +384,8 @@ public class FragmentMain extends Fragment implements NavigationCallback,
 
     }
 
-    public void animate(){
+    public void
+    animate(){
         ((MainActivity) getActivity()).animate();
     }
 
@@ -421,14 +422,7 @@ public class FragmentMain extends Fragment implements NavigationCallback,
         return (currentName.equals(nextName) && currentIndicator.equals(secondIndicator)) ;
     }
 
-    @Override
-    public void onBack(){
-
-        if (mOnBackCallback != null){
-            mOnBackCallback.onBack();
-        }
-
-
+    private void actionBack(){
         Log.e("Main", "onBack()");
 
         if (arrayFragments.size() > 0) {
@@ -436,8 +430,13 @@ public class FragmentMain extends Fragment implements NavigationCallback,
             Log.e("backAction", "stack is "+arrayFragments);
             buttonAction = BUTTON_BACK;
             arrayFragments.remove(arrayFragments.size()-1);
-            replaceLayout(arrayFragments
-                    .get(arrayFragments.size()-1), true);
+            if (arrayFragments.size() > 0){
+                replaceLayout(arrayFragments
+                        .get(arrayFragments.size()-1), true);
+            } else {
+                replaceLayout(new FrontFragment(), true);
+            }
+
 
             buttonAction = ANY_BUTTON;
 
@@ -445,6 +444,18 @@ public class FragmentMain extends Fragment implements NavigationCallback,
             buttonAction = ANY_BUTTON;
             Log.e("backAction","No fragments");
         }
+    }
+
+    @Override
+    public void onBack(){
+
+        if(mOnBackCallback != null){
+            mOnBackCallback.onBack();
+            mOnBackCallback = null;
+        } else {
+            actionBack();
+        }
+
     }
 
     public void restartStack(){

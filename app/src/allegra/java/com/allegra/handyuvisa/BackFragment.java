@@ -257,12 +257,12 @@ public class BackFragment extends Fragment {
             }
         });
 
-        /*home.setOnClickListener(new View.OnClickListener() {
+        home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 goToView(new FrontFragment()                                                                                    );
             }
-        });*/
+        });
 
 
       /*  ListView mainMenu = (ListView)(getActivity().findViewById(R.id.main_menu));
