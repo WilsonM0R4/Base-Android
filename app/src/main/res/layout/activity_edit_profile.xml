@@ -7,64 +7,6 @@
     android:clickable="true"
     android:id="@+id/rl_body">
 
-    <!--<RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:background="@color/GeneralAppHeaderTitle_backgroud"
-        android:onClick="onCloseMenu"
-        android:id="@+id/ll_header">
-
-        <ImageButton
-            android:layout_width="30dp"
-            android:layout_height="25dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="20dp"
-            android:id="@+id/ib_up"
-            android:src="@drawable/icon_back_to"
-            android:background="@android:color/transparent"
-            android:onClick="onUp"
-            android:contentDescription="Up"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/ib_up"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/title_edit_profile"
-            android:id="@+id/tv_title_secc"
-            android:layout_centerHorizontal="true"
-            android:textColor="@color/GeneralAppHeaderTitle_text" />
-
-        <ImageButton
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginRight="10dp"
-            android:src="@drawable/icon_menu"
-            android:background="@android:color/transparent"
-            android:id="@+id/menu_image"
-            android:onClick="onMenu"
-            android:contentDescription="menu"
-            android:layout_alignBottom="@+id/tv_title_secc"
-            android:layout_alignParentEnd="true" />
-
-    </RelativeLayout>
-
-    <ImageView
-        android:layout_width="fill_parent"
-        android:layout_height="4dp"
-        android:id="@+id/iv_separator"
-        android:layout_below="@+id/ll_header"
-        android:paddingEnd="-2dp"
-        android:paddingStart="-2dp"
-        android:src="@drawable/separator_medium_mag"
-        android:contentDescription="separator" />-->
-
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -90,10 +32,9 @@
                 android:layout_height="wrap_content"
                 android:text="@string/edit_personal_info"
                 android:textColor="@color/ProfileTitle_text"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:layout_marginTop="20dp"
-                app:font="@string/font_muli"
-                />
+                app:font="@string/font_muli" />
 
             <com.allegra.handyuvisa.utils.CustomizedEditText
                 android:layout_width="fill_parent"
@@ -107,12 +48,11 @@
                 android:hint="@string/txt_hint_cc_name"
                 android:drawableLeft="@drawable/field_name"
                 android:drawableRight="@drawable/icon_clear"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="15dp"
                 android:textSize="15sp"
                 android:background="@drawable/apptheme_edit_text_holo_light"
                 app:fontEdit="@string/font_muli"
-                android:textColorHint="@color/dark_gray"
-                />
+                android:textColorHint="@color/dark_gray" />
 
             <com.allegra.handyuvisa.utils.CustomizedEditText
                 android:layout_width="match_parent"
@@ -126,12 +66,11 @@
                 android:drawableRight="@drawable/icon_clear"
                 android:singleLine="true"
                 android:hint="@string/txt_hint_cc_surname"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="10dp"
                 android:textSize="15sp"
                 app:fontEdit="@string/font_muli"
                 android:background="@drawable/apptheme_edit_text_holo_light"
-                android:textColorHint="@color/dark_gray"
-                />
+                android:textColorHint="@color/dark_gray" />
 
             <com.allegra.handyuvisa.utils.CustomizedTextView
                 android:id="@+id/etTypeOfId"
@@ -139,7 +78,7 @@
                 android:layout_height="26dp"
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="20dp"
                 android:drawableEnd="@drawable/hotels__arrow__down"
                 android:textSize="15sp"
                 android:drawableLeft="@drawable/field_type_id"
@@ -151,8 +90,7 @@
                 app:font="@string/font_muli"
                 android:background="@drawable/apptheme_edit_text_holo_light"
                 android:textColorHint="@color/dark_gray"
-                style="@style/MyEditTextStyle"
-                />
+                style="@style/MyEditTextStyle" />
 
             <ImageView
                 android:layout_width="match_parent"
@@ -160,8 +98,7 @@
                 android:contentDescription="Linea nueva"
                 android:layout_marginTop="-40dp"
                 android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                />
+                android:layout_marginRight="12dp" />
 
             <com.allegra.handyuvisa.utils.CustomizedEditText
                 android:id="@+id/etIdNumber"
@@ -169,7 +106,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"
-                android:layout_marginTop="45dp"
+                android:layout_marginTop="50dp"
                 android:inputType="number"
                 android:drawableLeft="@drawable/field_id_number"
                 android:drawableRight="@drawable/icon_clear"
@@ -178,69 +115,67 @@
                 android:textSize="15sp"
                 app:fontEdit="@string/font_muli"
                 android:textColorHint="@color/register_input_inactive"
-                android:background="@drawable/apptheme_edit_text_holo_light"
-                />
+                android:background="@drawable/apptheme_edit_text_holo_light" />
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="10dp"
                 android:weightSum="3">
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:layout_weight="1"
-                    >
-                <com.allegra.handyuvisa.utils.CustomizedTextView
-                    android:id="@+id/et_country_mobile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="12dp"
-                    android:drawableEnd="@drawable/row_country"
-                    android:textSize="15sp"
-                    android:drawableLeft="@drawable/field_country"
-                    android:drawableRight="@drawable/icon_clear"
-                    android:hint="@string/country"
-                    android:maxLength="100"
-                    android:singleLine="true"
-                    app:font="@string/font_muli"
-                    android:textColorHint="@color/dark_gray"
-                    style="@style/MyEditTextStyle"
-                    android:gravity="left|center_vertical"
-                    />
+                    android:layout_weight="1">
 
-                <ImageView
-                    android:layout_width="match_parent"
+                    <com.allegra.handyuvisa.utils.CustomizedTextView
+                        android:id="@+id/et_country_mobile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="12dp"
+                        android:drawableEnd="@drawable/row_country"
+                        android:textSize="15sp"
+                        android:drawableLeft="@drawable/field_country"
+                        android:drawableRight="@drawable/icon_clear"
+                        android:hint="@string/country"
+                        android:maxLength="100"
+                        android:singleLine="true"
+                        app:font="@string/font_muli"
+                        android:textColorHint="@color/dark_gray"
+                        style="@style/MyEditTextStyle"
+                        android:gravity="left|center_vertical" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="Linea nueva"
+                        android:layout_marginTop="-14dp"
+                        android:layout_marginLeft="12dp"
+                        android:background="@drawable/default_state_edit_text"/>
+
+                </LinearLayout>
+
+                <com.allegra.handyuvisa.utils.CustomizedEditText
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:contentDescription="Linea nueva"
-                    android:layout_marginTop="-14dp"
-                    android:layout_marginLeft="12dp"
-                    android:background="@drawable/default_state_edit_text"/>
-
-                    </LinearLayout>
-
-            <com.allegra.handyuvisa.utils.CustomizedEditText
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="12dp"
-                android:id="@+id/et_mobile"
-                android:layout_weight="2"
-                android:drawableLeft="@drawable/field_cellphone"
-                android:drawableRight="@drawable/icon_clear"
-                android:singleLine="true"
-                android:layout_marginTop="0dp"
-                android:maxLength="100"
-                android:hint="@string/mobile_register_hint"
-                android:textSize="15sp"
-                app:fontEdit="@string/font_muli"
-                android:textColorHint="@color/register_input_inactive"
-                android:background="@drawable/apptheme_edit_text_holo_light"
-                android:inputType="number" />
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="12dp"
+                    android:id="@+id/et_mobile"
+                    android:layout_weight="2"
+                    android:drawableLeft="@drawable/field_cellphone"
+                    android:drawableRight="@drawable/icon_clear"
+                    android:singleLine="true"
+                    android:layout_marginTop="0dp"
+                    android:maxLength="100"
+                    android:hint="@string/mobile_register_hint"
+                    android:textSize="15sp"
+                    app:fontEdit="@string/font_muli"
+                    android:textColorHint="@color/register_input_inactive"
+                    android:background="@drawable/apptheme_edit_text_holo_light"
+                    android:inputType="number" />
 
             </LinearLayout>
 
@@ -253,7 +188,8 @@
                 android:singleLine="true"
                 android:drawableLeft="@drawable/field_mail"
                 android:hint="@string/txt_hint_email"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/InputFocus_border"
                 android:enabled="false"
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"
@@ -267,10 +203,9 @@
                 android:layout_height="wrap_content"
                 android:text="@string/edit_change_password"
                 android:textColor="@color/ProfileTitle_text"
-                android:textSize="20sp"
-                android:layout_marginTop="10dp"
-                app:font="@string/font_muli"
-                />
+                android:textSize="15sp"
+                android:layout_marginTop="20dp"
+                app:font="@string/font_muli" />
 
             <com.allegra.handyuvisa.utils.CustomizedEditText
                 android:layout_width="match_parent"
@@ -283,7 +218,7 @@
                 android:singleLine="true"
                 android:password="true"
                 app:fontEdit="@string/font_muli"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="10dp"
                 android:hint="@string/txt_hint_current_pass"
                 android:textColorHint="@color/register_input_inactive"
                 android:drawableLeft="@drawable/field_password"
@@ -302,15 +237,14 @@
                 android:id="@+id/et_new_password"
                 android:singleLine="true"
                 android:password="true"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="10dp"
                 android:hint="@string/txt_hint_new_pass"
                 android:drawableLeft="@drawable/field_password"
                 android:drawableRight="@drawable/icon_clear"
                 android:textSize="15sp"
                 app:fontEdit="@string/font_muli"
                 android:textColorHint="@color/register_input_inactive"
-                android:background="@drawable/apptheme_edit_text_holo_light"
-                />
+                android:background="@drawable/apptheme_edit_text_holo_light" />
 
 
             <com.allegra.handyuvisa.utils.CustomizedEditText
@@ -325,7 +259,7 @@
                 android:singleLine="true"
                 android:password="true"
                 android:layout_below="@+id/et_password"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="10dp"
                 app:fontEdit="@string/font_muli"
                 android:textColorHint="@color/register_input_inactive"
                 android:hint="@string/txt_hint_repass"
@@ -345,8 +279,7 @@
                 android:layout_alignBottom="@+id/et_password"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_visibility_off_black_18dp"
-                android:visibility="gone"
-                />
+                android:visibility="gone" />
 
             <ImageButton
                 android:layout_width="35dp"
@@ -356,38 +289,35 @@
                 android:layout_toRightOf="@+id/et_reppassword"
                 android:src="@drawable/ic_visibility_off_black_18dp"
                 android:scaleType="centerCrop"
-                android:visibility="gone"
-                />
+                android:visibility="gone" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center"
-                android:layout_marginTop="7dp"
-                android:layout_marginBottom="10dp"
-                >
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
 
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="37dp"
-                android:layout_weight="1"
-                android:id="@+id/btn_ed_cancel"
-                android:text="@string/btn_cancel"
-                android:textColor="@color/SmallButtonWithBorder_text"
-                android:background="@drawable/round_corner_transparent_orange"
-                android:layout_margin="5dp"
-                />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="37dp"
+                    android:layout_weight="1"
+                    android:id="@+id/btn_ed_cancel"
+                    android:text="@string/btn_cancel"
+                    android:textColor="@color/SmallButtonWithBorder_text"
+                    android:background="@drawable/round_corner_transparent_orange"
+                    android:layout_margin="5dp" />
 
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="37dp"
-                android:layout_weight="1"
-                android:id="@+id/btn_ed_save"
-                android:text="@string/btn_save"
-                android:textColor="@android:color/white"
-                android:background="@drawable/round_corner_magenta"
-                android:layout_margin="5dp"/>
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="37dp"
+                    android:layout_weight="1"
+                    android:id="@+id/btn_ed_save"
+                    android:text="@string/btn_save"
+                    android:textColor="@android:color/white"
+                    android:background="@drawable/round_corner_magenta"
+                    android:layout_margin="5dp"/>
 
             </LinearLayout>
 

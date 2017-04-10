@@ -123,8 +123,8 @@
     <string name="title_restaurants">Restaurantes</string>
     <string name="title_my_profile">Mi perfil</string>
     <string name="qr_description">DESCRIPCIÓN</string>
-    <string name="edit_personal_info">Información personal</string>
-    <string name="edit_change_password">Cambiar contraseña</string>
+    <string name="edit_personal_info">INFORMACIÓN PERSONAL</string>
+    <string name="edit_change_password">CAMBIAR CONTRASEÑA</string>
     <string name="resend_mail">Hemos reenviado el correo.</string>
     <string name="qr_vendor">VENDEDOR</string>
     <string name="qr_itemn">ITEMS</string>
@@ -504,6 +504,7 @@
     <string name="emailhint">Enter Email</string>
     <string name="passwordhint">Enter Password</string>
     <string name="forgotpassword">Forgot Password?</string>
+    <string name="phoneProfile">Phone</string>
 
     <string name="home">Home</string>
     <string name="myprofile">My Profile</string>

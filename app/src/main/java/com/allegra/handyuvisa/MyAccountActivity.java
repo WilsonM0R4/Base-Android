@@ -111,7 +111,7 @@ public class MyAccountActivity extends Fragment {
         btn_logout = (Button) root.findViewById(R.id.btn_logout);
         tv_email.setText(KeySaver.getStringSavedShare(ctx, Constants.KEY_EMAIL));
         tv_phone.setText(KeySaver.getStringSavedShare(ctx, Constants.KEY_MOBILE_NUMBER));
-        tv_fullname.setText(KeySaver.getStringSavedShare(ctx,Constants.KEY_GREET)+" "+
+        tv_fullname.setText(//KeySaver.getStringSavedShare(ctx,Constants.KEY_GREET)+" "+
                 KeySaver.getStringSavedShare(ctx,Constants.KEY_NAME)+" "+
                 KeySaver.getStringSavedShare(ctx, Constants.KEY_SURNAME));
         pb_cerrarsesion = (ProgressBar)root.findViewById(R.id.pb_cerrarsesion);

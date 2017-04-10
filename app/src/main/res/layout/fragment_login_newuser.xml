@@ -8,43 +8,6 @@
     android:background="@drawable/background"
     android:clickable="true">
 
-
-    <!--<RelativeLayout
-        android:id="@+id/ll_header"
-        android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:background="@color/GeneralAppHeaderTitle_backgroud"
-        >
-
-        <ImageButton
-            android:id="@+id/ib_up"
-            android:layout_width="30dp"
-            android:layout_height="25dp"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="16dp"
-            android:background="@android:color/transparent"
-            android:contentDescription="Up"
-            android:src="@drawable/navigation_close" />
-
-        <com.allegra.handyuvisa.utils.CustomizedTextView
-            android:id="@+id/tv_title_secc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/ib_up"
-            android:layout_centerHorizontal="true"
-            android:text="@string/title_register"
-            android:textColor="@color/GeneralAppHeaderTitle_text"
-            android:textSize="18sp"
-            app:font="@string/font_varela" />
-
-    </RelativeLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:background="@color/loading_salmon" />-->
-
     <ScrollView
         android:id="@+id/sv_body"
         android:layout_width="match_parent"
@@ -67,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/join_new_experience"
                 android:textColor="@color/GeneralTitle1_text"
-                android:textSize="23sp"
+                android:textSize="28sp"
                 android:gravity="center_horizontal"
                 app:font="@string/font_muli_extraLight"
                 android:layout_marginTop="10dp" />
@@ -79,9 +42,9 @@
                 android:text="@string/txt_lbl_user_information"
                 android:textAlignment="center"
                 android:textColor="@color/GeneralDescription"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:gravity="center_horizontal"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 app:font="@string/font_muli"/>
 
             <com.allegra.handyuvisa.utils.CustomizedTextView
@@ -94,13 +57,15 @@
                 android:textAlignment="center"
                 app:font="@string/font_muli"
                 android:textColor="@color/GeneralTitle2_text"
-                android:textSize="16sp" />
+                android:textSize="15sp" />
 
             <com.allegra.handyuvisa.utils.CustomizedEditText
                 android:id="@+id/et_names"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginTop="15dp"
                 android:drawableLeft="@drawable/field_name"
                 android:drawableRight="@drawable/icon_clear"
                 android:textColorHint="@color/InputNormal_border_hit"
@@ -115,7 +80,9 @@
                 android:id="@+id/et_surname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginTop="8dp"
                 android:drawableLeft="@drawable/field_lastname"
                 android:drawableRight="@drawable/icon_clear"
                 android:hint="@string/txt_hint_cc_surname"
@@ -124,15 +91,15 @@
                 android:textSize="15sp"
                 app:fontEdit="@string/font_muli"
                 android:textColorHint="@color/InputNormal_border_hit"
-                android:background="@drawable/apptheme_edit_text_holo_light"
-                />
-
+                android:background="@drawable/apptheme_edit_text_holo_light" />
 
             <com.allegra.handyuvisa.utils.CustomizedTextView
                 android:id="@+id/etTypeOfId"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:layout_margin="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginTop="18dp"
                 android:drawableEnd="@drawable/hotels__arrow__down"
                 android:textSize="15sp"
                 android:drawableLeft="@drawable/field_type_id"
@@ -142,14 +109,13 @@
                 android:singleLine="true"
                 app:font="@string/font_muli"
                 android:textColorHint="@color/dark_gray"
-                style="@style/MyEditTextStyle"
-                />
+                style="@style/MyEditTextStyle" />
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="Linea nueva"
-                android:layout_marginTop="-40dp"
+                android:layout_marginTop="-30dp"
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"
                 android:background="@drawable/default_state_edit_text"/>
@@ -160,7 +126,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="8dp"
                 android:inputType="number"
                 android:drawableLeft="@drawable/field_id_number"
                 android:drawableRight="@drawable/icon_clear"
@@ -169,8 +135,7 @@
                 android:textSize="15sp"
                 app:fontEdit="@string/font_muli"
                 android:textColorHint="@color/InputNormal_border_hit"
-                android:background="@drawable/apptheme_edit_text_holo_light"
-                />
+                android:background="@drawable/apptheme_edit_text_holo_light" />
 
             <com.allegra.handyuvisa.utils.CustomizedEditText
                 android:id="@+id/et_email"
@@ -178,7 +143,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="8dp"
                 android:drawableLeft="@drawable/field_mail"
                 android:drawableRight="@drawable/icon_clear"
                 android:hint="@string/txt_hint_email"
@@ -187,8 +152,7 @@
                 android:textSize="15sp"
                 app:fontEdit="@string/font_muli"
                 android:textColorHint="@color/InputNormal_border_hit"
-                android:background="@drawable/apptheme_edit_text_holo_light"
-                />
+                android:background="@drawable/apptheme_edit_text_holo_light" />
 
             <com.allegra.handyuvisa.utils.CustomizedEditText
                 android:id="@+id/et_password"
@@ -196,7 +160,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="8dp"
                 android:drawableLeft="@drawable/field_password"
                 android:drawableRight="@drawable/icon_clear"
                 android:hint="@string/txt_hint_pass"
@@ -205,8 +169,7 @@
                 android:textSize="15sp"
                 android:background="@drawable/apptheme_edit_text_holo_light"
                 app:fontEdit="@string/font_muli"
-                android:textColorHint="@color/InputNormal_border_hit"
-                />
+                android:textColorHint="@color/InputNormal_border_hit" />
 
                 <com.allegra.handyuvisa.utils.CustomizedTextView
                     android:id="@+id/et_country_mobile"
@@ -216,7 +179,7 @@
                     android:textSize="15sp"
                     android:layout_marginLeft="12dp"
                     android:layout_marginRight="12dp"
-                    android:layout_marginTop="18dp"
+                    android:layout_marginTop="8dp"
                     android:drawableLeft="@drawable/field_country"
                     android:drawableRight="@drawable/icon_clear"
                     android:hint="@string/country"
@@ -225,8 +188,7 @@
                     app:font="@string/font_muli"
                     android:textColorHint="@color/InputNormal_border_hit"
                     style="@style/MyEditTextStyle"
-                    android:gravity="left|center_vertical"
-                    />
+                    android:gravity="left|center_vertical" />
 
             <ImageView
                 android:layout_width="match_parent"
@@ -243,7 +205,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="8dp"
                 android:drawableLeft="@drawable/field_cellphone"
                 android:drawableRight="@drawable/icon_clear"
                 android:hint="@string/mobile_register_hint"

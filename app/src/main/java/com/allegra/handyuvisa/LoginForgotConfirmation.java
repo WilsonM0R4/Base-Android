@@ -79,6 +79,7 @@ public class LoginForgotConfirmation extends Fragment {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ((FragmentMain) getParentFragment()).restartStack();
                 ((FragmentMain) getParentFragment()).replaceLayout(new LoginActivity(), true);
             }
         });

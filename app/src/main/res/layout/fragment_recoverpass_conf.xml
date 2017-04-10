@@ -9,50 +9,6 @@
     android:onClick="onCloseMenu"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!--<RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:background="@color/WHITE_COLOR"
-        android:onClick="onCloseMenu"
-        android:id="@+id/ll_header">
-
-        <ImageButton
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="6dp"
-            android:src="@drawable/cancel_button"
-            android:background="@android:color/transparent"
-            android:id="@+id/close_btn"
-            android:contentDescription="menu"
-            android:layout_centerVertical="true"
-            android:layout_alignParentStart="true" />
-
-        <com.allegra.handyuvisa.utils.CustomizedTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/forgot_password"
-            android:id="@+id/tv_title_secc"
-            android:layout_centerHorizontal="true"
-            android:textColor="@color/GeneralAppHeaderTitle_text"
-            app:font="@string/font_varela"/>
-
-    </RelativeLayout>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="4dp"
-        android:id="@+id/iv_header"
-        android:layout_below="@+id/ll_header"
-        android:paddingEnd="-2dp"
-        android:paddingStart="-2dp"
-        android:src="@drawable/separator_medium_mag"
-        android:contentDescription="Divider" />-->
-
-
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -103,7 +59,7 @@
                 android:textAlignment="center"
                 android:id="@+id/txtConfEmail1"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="30dp"
                 app:font="@string/font_muli_light"/>
 
             <com.allegra.handyuvisa.utils.CustomizedTextView
@@ -154,14 +110,14 @@
                 android:background="@drawable/round_corner_transparent_orange"
                 android:text="@string/send_again"
                 android:textColor="@color/SmallButtonWithBorder_text"
-                android:layout_marginTop="15dp" />
+                android:layout_marginTop="20dp" />
 
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/linearLayout4"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="40dp">
 
                 <com.allegra.handyuvisa.utils.CustomizedTextView
                     android:layout_width="wrap_content"
