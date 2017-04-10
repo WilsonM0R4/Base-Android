@@ -43,17 +43,25 @@ public class OnepocketPurchaseActivity extends Fragment {
             return;
         }
 
-        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-        OneTransaction oneTransaction = getArguments().getParcelable(OPKConstants.EXTRA_PAYMENT);
-        Log.e("OPK", "arguments are -- "+getArguments());
-        Log.e("OPK", "extra payment data is -- "+oneTransaction.getAmount());
+        if(((com.allegra.handyuvisa.VisaCheckoutApp)getActivity().getApplication()).getIdSession()==null){
 
-        summary = new PurchaseSummaryFragment();
-        Bundle bundle = new Bundle();
-        bundle.putParcelable(OPKConstants.EXTRA_PAYMENT, oneTransaction);
-        summary.setArguments(bundle);
-        transaction.add(R.id.opk_top, summary);
-        transaction.commit();
+            LoginActivity loginActivity = new LoginActivity();
+            ((FragmentMain) getParentFragment()).replaceLayout(loginActivity, false);
+
+        } else {
+
+            FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+            OneTransaction oneTransaction = getArguments().getParcelable(OPKConstants.EXTRA_PAYMENT);
+            Log.e("OPK", "arguments are -- " + getArguments());
+            Log.e("OPK", "extra payment data is -- " + oneTransaction);
+
+            summary = new PurchaseSummaryFragment();
+            Bundle bundle = new Bundle();
+            bundle.putParcelable(OPKConstants.EXTRA_PAYMENT, oneTransaction);
+            summary.setArguments(bundle);
+            transaction.add(R.id.opk_top, summary);
+            transaction.commit();
+        }
 
     }
 

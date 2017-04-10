@@ -101,10 +101,12 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
     public static final int MY_PERMISSIONS_REQUEST_CALL = 8888;
     String[] MY_PERMISSIONS_CALL = { android.Manifest.permission.CALL_PHONE};
     String[] PERMISSIONS = { android.Manifest.permission.ACCESS_COARSE_LOCATION, android.Manifest.permission.ACCESS_FINE_LOCATION};
+    private AllemUser user;
 
     private boolean canReturn = false;
 
     WebNavigationEnablingCallback enablingCallback;
+
 
     /**
      * Fragment override methods
@@ -120,7 +122,7 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
     public void onViewCreated(View view, Bundle savedInstanceState){
         ((MainActivity) getActivity()).statusBarVisibility(false);
 
-        AllemUser user = Constants.getUser(getActivity());
+        user = Constants.getUser(getActivity());
 
         enablingCallback = ((FragmentMain) getParentFragment());
 
@@ -339,6 +341,7 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
     private void loadPage(String url){
         progressBar.setVisibility(View.VISIBLE);
         mWebView.loadUrl(url);
+
     }
 
     /*private void loadWebNavigation(){
@@ -502,15 +505,10 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
 
     public void openOnePocket(){
         //Intent intent = new Intent(MarketPlaceActivity.this, OnepocketPurchaseActivity.class);
-        Bundle bundle = Constants.createPurchaseBundle(Constants.getUser(getActivity()),
+        Bundle bundle = Constants.createPurchaseBundle(user,
                 onePocketMessage,
                 opkConstant,
                 (com.allegra.handyuvisa.VisaCheckoutApp) getActivity().getApplication());
-
-
-        Log.e("Web", "onepocket message -- "+onePocketMessage);
-        Log.e("Web", "onepocket constant -- "+opkConstant);
-        Log.e("Web", "onepocket VCO app -- "+(com.allegra.handyuvisa.VisaCheckoutApp) getActivity().getApplication());
 
         OnepocketPurchaseActivity fragmentOPKPurchase = new OnepocketPurchaseActivity();
         fragmentOPKPurchase.setArguments(bundle);

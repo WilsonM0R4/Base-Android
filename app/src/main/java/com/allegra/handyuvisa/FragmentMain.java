@@ -47,6 +47,7 @@ public class FragmentMain extends Fragment implements NavigationCallback,
     ImageView divider;
     int buttonAction = ANY_BUTTON;
     OnBackCallback mOnBackCallback;
+    boolean isWebLeftNavigation = true;
 
     /*@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -153,6 +154,9 @@ public class FragmentMain extends Fragment implements NavigationCallback,
         leftButton2.setVisibility(View.VISIBLE);
         leftButton2.setImageResource(webForwardAction);
 
+        callBack = (WebFragment) currentFrontFragment;
+        isWebLeftNavigation = true;
+
         leftButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -174,6 +178,9 @@ public class FragmentMain extends Fragment implements NavigationCallback,
         rightButton.setImageResource(webForwardAction);
         rightButton2.setVisibility(View.VISIBLE);
         rightButton2.setImageResource(weBackAction);
+
+        callBack = (WebFragment) currentFrontFragment;
+        isWebLeftNavigation = false;
 
         rightButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -306,7 +313,6 @@ public class FragmentMain extends Fragment implements NavigationCallback,
             if(!isSameFragment(this.currentFrontFragment, fragment)){
 
                 currentFrontFragment = fragment;
-
                 arrayFragments.add(currentFrontFragment);
                 Log.e("ArrayList"," El stack es " + arrayFragments);
 
@@ -347,6 +353,12 @@ public class FragmentMain extends Fragment implements NavigationCallback,
                     +" theOtherFragment: "+fragment);
 
             Log.e("ArrayList", " El stack es " + arrayFragments);
+
+            if(currentFrontFragment.getClass().toString().contains("FrontFragment")){
+                ((MainActivity) getActivity()).statusBarVisibility(true);
+            } else {
+                ((MainActivity) getActivity()).statusBarVisibility(false);
+            }
 
             int first_animation = R.animator.slide_in_left,
                     second_animation = R.animator.slide_out_right;
@@ -472,13 +484,39 @@ public class FragmentMain extends Fragment implements NavigationCallback,
     //INTERFACE WebNavigationEnablingCallback
     @Override
     public void canGoBack(boolean canGoBack) {
-        //set the enabled image to web back button
+        if(isWebLeftNavigation){
+            if(canGoBack){
+                leftButton.setImageResource(R.drawable.navigation__backurl);
+            } else {
+                leftButton.setImageResource(R.drawable.navigation__backurl_2);
+            }
+        }else{
+            if(canGoBack){
+                rightButton2.setImageResource(R.drawable.navigation__backurl);
+            }else{
+                rightButton2.setImageResource(R.drawable.navigation__backurl_2);
+            }
+        }
+
+
     }
 
     //INTERFACE WebNavigationEnablingCallback
     @Override
     public void canGoForward(boolean canGoForward) {
-        //set the enabled image to web forward button
+        if(isWebLeftNavigation){
+            if(canGoForward){
+                leftButton2.setImageResource(R.drawable.navigation__fwdurl_2);
+            }else{
+                leftButton2.setImageResource(R.drawable.navigation__fwdurl);
+            }
+        }else {
+            if(canGoForward){
+                rightButton.setImageResource(R.drawable.navigation__fwdurl_2);
+            }else{
+                rightButton.setImageResource(R.drawable.navigation__fwdurl);
+            }
+        }
     }
 
     @Override

@@ -574,7 +574,6 @@ public class    Constants {
         transaction.add("type", purchaseType);
         transaction.add("merchantName", solicitud.usuarioCuenta);
         transaction.add("merchantPassword", solicitud.contrasenaCuenta);
-
         bundle.putParcelable(OPKConstants.EXTRA_PAYMENT, transaction);
         return bundle;
     }
