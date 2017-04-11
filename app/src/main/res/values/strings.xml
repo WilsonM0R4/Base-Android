@@ -642,12 +642,12 @@
     <string name="send_log_instruction">Please add reproduction steps and addition info here. Thanks!</string>
     <string name="decline_register">DECLINE</string>
     <string name="accept_register">AGREE</string>
-    <string name="congratulations">¡Congratulations!</string>
+    <string name="congratulations">Congratulations!</string>
     <string name="you_can_enjoy_benefits">You can now enjoy all\n benefits it brings you\n Handy U Visa</string>
     <string name="txt_continue">CONTINUE</string>
     <string name="test_terms"><u>terms and conditions</u></string>
     <string name="by_clicking">By clicking agree you accept</string>
-    <string name="editprofile_ok">Your profile has been updated!</string>
+    <string name="editprofile_ok">Your profile has been successfully updated</string>
     <string name="the_article">the </string>
     <string name="and_article">and </string>
     <string name="before_continue">Before you continue!</string>

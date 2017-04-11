@@ -222,7 +222,7 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
     @Override
     public void onPageStarted(WebView view, String url, Bitmap favicon){
         super.onPageStarted(view, url, favicon);
-        progressBar.setVisibility(View.VISIBLE);
+        //progressBar.setVisibility(View.VISIBLE);
         enablingCallback.canGoBack(view.canGoBack());
         enablingCallback.canGoForward(view.canGoForward());
     }
@@ -230,7 +230,7 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
     @Override
     public void onPageFinished(WebView view, String url){
         super.onPageFinished(view, url);
-        progressBar.setVisibility(View.GONE);
+        //progressBar.setVisibility(View.GONE);
         if (url.equals("about:blank")) {
             mWebView.loadUrl(returnURL);
         }
@@ -272,7 +272,7 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
         screenTitle = (TextView) view.findViewById(R.id.tv_title);
         screenTitle.setText(getArguments().getString("web_title"));*/
 
-        progressBar = (ProgressBar) view.findViewById(R.id.web_progressBar);
+        //progressBar = (ProgressBar) view.findViewById(R.id.web_progressBar);
         mWebView = (WebView) view.findViewById(R.id.web_view);
 
         setupLoadingView(view);
@@ -339,7 +339,7 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
     }*/
 
     private void loadPage(String url){
-        progressBar.setVisibility(View.VISIBLE);
+        //progressBar.setVisibility(View.VISIBLE);
         mWebView.loadUrl(url);
 
     }

@@ -8,185 +8,204 @@
     android:clickable="true"
     tools:context=".MyAccountActivity">
 
-    <RelativeLayout
-        android:id="@+id/content_nombre"
+    <FrameLayout
+        android:id="@+id/content"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/pb_cerrarsesion"
-        android:layout_marginTop="50dp">
+        android:layout_height="wrap_content">
 
-        <com.allegra.handyuvisa.utils.CustomizedTextView
-            android:id="@+id/tv_fullname"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_marginLeft="20dp"
-            android:maxLines="1"
-            android:text="Santiago Castro"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/GeneralTitle2_text"
-            app:font="@string/font_muli"
-            android:layout_centerVertical="true"
-            android:layout_toStartOf="@+id/ib_edit_profile" />
+            android:layout_height="wrap_content">
 
-        <ImageButton
-            android:id="@+id/ib_edit_profile"
+            <RelativeLayout
+                android:id="@+id/content_nombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pb_cerrarsesion"
+                android:layout_marginTop="50dp">
+
+                <com.allegra.handyuvisa.utils.CustomizedTextView
+                    android:id="@+id/tv_fullname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="20dp"
+                    android:maxLines="1"
+                    android:text="Santiago Castro"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/GeneralTitle2_text"
+                    app:font="@string/font_muli"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/ib_edit_profile" />
+
+                <ImageButton
+                    android:id="@+id/ib_edit_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Up"
+                    android:src="@drawable/icon_settings"
+                    android:visibility="visible" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:id="@+id/rl_infouser"
+                android:paddingBottom="30dp"
+                android:paddingTop="10dp"
+                android:layout_below="@+id/content_nombre"
+                android:layout_toEndOf="@+id/pb_cerrarsesion"
+                android:layout_marginTop="5dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/separartor_1"
+                    android:src="@drawable/separator_gray"
+                    android:contentDescription="field_divider"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/ll_email"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/separartor_1"
+                    android:weightSum="10">
+
+                    <com.allegra.handyuvisa.utils.CustomizedTextView
+                        android:layout_width="8dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmallInverse"
+                        android:text="E-Mail"
+                        android:id="@+id/tv_lbl_email"
+                        android:gravity="left"
+                        android:textColor="@color/BLACK_COLOR"
+                        android:textSize="15sp"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:layout_weight="2.81"
+                        app:font="@string/font_muli_light" />
+
+                    <com.allegra.handyuvisa.utils.CustomizedTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_email"
+                        android:text="john-doe@iatai.com"
+                        android:textSize="15dp"
+                        android:inputType="text|textNoSuggestions|textEmailAddress"
+                        android:singleLine="true"
+                        android:layout_below="@+id/iv_sepfields"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:layout_weight="6"
+                        app:font="@string/font_muli_light" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_below="@+id/ll_email"
+                    android:src="@drawable/separator_gray"
+                    android:id="@+id/imageView30" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/linearLayout7"
+                    android:weightSum="10"
+                    android:layout_below="@+id/imageView30"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="5dp">
+
+                    <com.allegra.handyuvisa.utils.CustomizedTextView
+                        android:layout_width="8dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="@string/phoneProfile"
+                        android:id="@+id/tv_lbl_phone"
+                        android:gravity="left"
+                        android:textColor="@color/BLACK_COLOR"
+                        android:textSize="15sp"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:layout_weight="2.83"
+                        app:font="@string/font_muli_light"/>
+
+                    <com.allegra.handyuvisa.utils.CustomizedTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_phone"
+                        android:text="123456789"
+                        android:textSize="15dp"
+                        android:inputType="text|textNoSuggestions|textEmailAddress"
+                        android:singleLine="true"
+                        android:layout_below="@+id/iv_sepfields"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:layout_weight="6"
+                        app:font="@string/font_muli_light"/>
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_below="@+id/linearLayout7"
+                    android:src="@drawable/separator_gray"
+                    android:id="@+id/separator2" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageView31"
+                    android:src="@drawable/separator_gray"
+                    android:contentDescription="field_divider"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentStart="true" />
+
+                <Button
+                    android:id="@+id/btn_logout"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/round_corner_transparent_orange"
+                    android:text="@string/logout"
+                    android:textColor="@color/SmallButtonWithBorder_text"
+                    android:layout_above="@+id/imageView31"
+                    android:layout_centerHorizontal="true" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:background="@android:color/transparent"
-            android:contentDescription="Up"
-            android:src="@drawable/icon_settings"
-            android:visibility="visible" />
-    </RelativeLayout>
+            android:layout_gravity="center">
 
-
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:id="@+id/rl_infouser"
-        android:paddingBottom="30dp"
-        android:paddingTop="10dp"
-        android:layout_below="@+id/content_nombre"
-        android:layout_toEndOf="@+id/pb_cerrarsesion"
-        android:layout_marginTop="5dp">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/separartor_1"
-            android:src="@drawable/separator_gray"
-            android:contentDescription="field_divider"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:id="@+id/ll_email"
-            android:layout_marginTop="5dp"
-            android:layout_below="@+id/separartor_1"
-            android:weightSum="10">
-
-            <com.allegra.handyuvisa.utils.CustomizedTextView
-                android:layout_width="8dp"
+            <ProgressBar
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmallInverse"
-                android:text="E-Mail"
-                android:id="@+id/tv_lbl_email"
-                android:gravity="left"
-                android:textColor="@color/BLACK_COLOR"
-                android:textSize="15sp"
-                android:maxLines="1"
-                android:ellipsize="end"
-                android:layout_weight="2.81"
-                app:font="@string/font_muli_light" />
+                android:id="@+id/pb_cerrarsesion"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:visibility="gone" />
 
-            <com.allegra.handyuvisa.utils.CustomizedTextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/tv_email"
-                android:text="john-doe@iatai.com"
-                android:textSize="15dp"
-                android:inputType="text|textNoSuggestions|textEmailAddress"
-                android:singleLine="true"
-                android:layout_below="@+id/iv_sepfields"
-                android:maxLines="1"
-                android:ellipsize="end"
-                android:layout_weight="6"
-                app:font="@string/font_muli_light" />
+        </RelativeLayout>
 
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_below="@+id/ll_email"
-            android:src="@drawable/separator_gray"
-            android:id="@+id/imageView30" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:id="@+id/linearLayout7"
-            android:weightSum="10"
-            android:layout_below="@+id/imageView30"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="5dp">
-
-            <com.allegra.handyuvisa.utils.CustomizedTextView
-                android:layout_width="8dp"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="@string/phoneProfile"
-                android:id="@+id/tv_lbl_phone"
-                android:gravity="left"
-                android:textColor="@color/BLACK_COLOR"
-                android:textSize="15sp"
-                android:maxLines="1"
-                android:ellipsize="end"
-                android:layout_weight="2.83"
-                app:font="@string/font_muli_light"/>
-
-            <com.allegra.handyuvisa.utils.CustomizedTextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/tv_phone"
-                android:text="123456789"
-                android:textSize="15dp"
-                android:inputType="text|textNoSuggestions|textEmailAddress"
-                android:singleLine="true"
-                android:layout_below="@+id/iv_sepfields"
-                android:maxLines="1"
-                android:ellipsize="end"
-                android:layout_weight="6"
-                app:font="@string/font_muli_light"/>
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_below="@+id/linearLayout7"
-            android:src="@drawable/separator_gray"
-            android:id="@+id/separator2" />
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView31"
-            android:src="@drawable/separator_gray"
-            android:contentDescription="field_divider"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true" />
-
-    </RelativeLayout>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/btn_logout"
-        android:layout_marginTop="25dp"
-        android:text="@string/logout"
-        android:textColor="@color/SmallButtonWithBorder_text"
-        android:background="@drawable/round_corner_transparent_orange"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="50dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp" />
-
-    <ProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/pb_cerrarsesion"
-        android:layout_centerInParent="true"
-        android:visibility="gone" />
-
-
+    </FrameLayout>
 
 </RelativeLayout>
