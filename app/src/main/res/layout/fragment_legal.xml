@@ -26,14 +26,14 @@
             android:id="@+id/allegra_visa"
             android:layout_centerHorizontal="true"
             android:textColor="@color/GeneralTitle1_text"
-            android:textSize="25dp"
+            android:textSize="20dp"
             app:font="@string/font_varela"/>
 
         <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/legal_title"
             android:id="@+id/version_legal"
             android:layout_centerHorizontal="true"
