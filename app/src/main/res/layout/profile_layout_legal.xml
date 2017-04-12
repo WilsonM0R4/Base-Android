@@ -8,7 +8,6 @@
     android:orientation="vertical"
     android:id="@+id/profile_layout">
 
-
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -17,24 +16,26 @@
         <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="15sp"
             android:text="Large Text"
             android:id="@+id/profileOptionTextLegal"
             android:gravity="center_vertical"
             android:layout_marginLeft="5dp"
-            app:font="@string/font_varela"
-            />
+            app:font="@string/font_varela" />
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+            android:layout_height="match_parent">
+
             <ImageView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:src="@drawable/navigation__fwdurl_2"
                 android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                />
+                android:layout_centerVertical="true" />
+
         </RelativeLayout>
+
     </LinearLayout>
+
 </LinearLayout>
