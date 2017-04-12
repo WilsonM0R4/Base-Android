@@ -22,6 +22,16 @@ import java.util.HashMap;
  */
 public class Constants {
 
+    //********CONSTANTS TOOLBAR***********
+    public static final int TYPE_MENU = 0;
+    public static final int TYPE_BACK = 1;
+    public static final int TYPE_BACK_MENU = 2;
+    public static final int TYPE_WEB_MENU = 3;
+    public static final int TYPE_BACK_WEB = 4;
+    public static final int TYPE_ICON_CANCEL = 5;
+    public static final int TYPE_ICONCANCEL_MENU = 6;
+    public static final int TYPE_NO_BUTTON = 7;
+
     //********FOR DYNAMIC PROOF OF COVERAGE**********
     public final static String ID_PORTAL = "3";
     //********FOR ONEPOCKET LOGGING**********
@@ -88,6 +98,14 @@ public class Constants {
     public static final String NAMESPACE_AMADEUS = "http://ws.iatai.com/";
     public static final String METHOD_TRANSACCION_AEREO = "transaccionAereo";
     public static final String METHOD_TRANSACCION_AEREO_SUSC="transaccionarAereoSuscripcion";
+
+    //*********** WEB VIEW CONSTANTS ***********//
+    public static final String VIEW_TYPE_SERVICES = "services";
+    public static final String VIEW_TYPE_RESTAURANTS = "restaurants";
+    public static final String VIEW_TYPE_STORE = "store";
+    public static final String VIEW_TYPE_MCARD = "mCard";
+    public static final String VIEW_TYPE_MARKET = "market";
+    public static final String VIEW_TYPE_BENEFITS = "benefits";
 
     public static String getAirWSDL(){
 

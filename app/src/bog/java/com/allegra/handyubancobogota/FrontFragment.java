@@ -21,6 +21,7 @@ import android.widget.TextView;
 import com.allegra.handyuvisa.models.AllemUser;
 import com.allegra.handyuvisa.models.Notifications;
 import com.allegra.handyuvisa.utils.Constants;
+import com.allegra.handyuvisa.utils.CustomizedTextView;
 import com.allegra.handyuvisa.utils.KeySaver;
 import com.allegra.handyuvisa.utils.Util;
 
@@ -43,6 +44,7 @@ public class FrontFragment extends Fragment implements
     Surface surf;
     private MediaPlayer mMediaPlayer;
     private TextureView videoView; // TextView for display (similar to VideoView?)
+    private View btnLogin, btnRegister;
 
     //************OVERRIDE METHODS*****************
 
@@ -56,11 +58,40 @@ public class FrontFragment extends Fragment implements
         } else {
             rootView = inflater.inflate(R.layout.fragment_front, container, false);
         }
+
+        ((MainActivity) getActivity()).statusBarVisibility(true);
+        ((FragmentMain) getParentFragment()).configToolbar(true, 0, "");
+
+
+        if(rootView.findViewById(R.id.login)!=null && rootView.findViewById(R.id.register)!=null){
+
+            btnLogin = rootView.findViewById(R.id.login);
+            btnRegister = rootView.findViewById(R.id.register);
+
+            btnLogin.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ((FragmentMain) getParentFragment()).replaceLayout(new LoginActivity(), false);
+                }
+            });
+
+            btnRegister.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ((FragmentMain) getParentFragment())
+                            .replaceLayout(new com.allegra.handyuvisa.LoginNewUser(), false);
+                }
+            });
+
+        }
+
+
         return rootView;
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
+
 
         super.onActivityCreated(savedInstanceState);
         setVideoView();

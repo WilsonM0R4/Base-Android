@@ -8,7 +8,7 @@
     android:background="@drawable/background"
     android:clickable="true">
 
-    <RelativeLayout
+    <!-- <RelativeLayout
         android:id="@+id/ll_header"
         android:layout_width="match_parent"
         android:layout_height="42dp"
@@ -42,7 +42,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="3dp"
-        android:background="@color/loading_salmon" />
+        android:background="@color/loading_salmon" /> -->
 
 
 

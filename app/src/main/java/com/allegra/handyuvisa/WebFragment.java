@@ -51,6 +51,7 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
     public static final String STARTER_VIEW = "starter_view";
     public static final String CAN_RETURN = "can_return";
 
+
     //user email get from AllemUser
     private String userEmail;
 
@@ -154,16 +155,16 @@ public class WebFragment extends WebViewActivity implements WebNavigationCallBac
         } else if(getArguments().getString(STARTER_VIEW).contains("ConciergeActivity")){
             url = conciergeParams();
             opkConstant = OPKConstants.TYPE_HOTEL;
-        } else if(getArguments().getString(STARTER_VIEW).contains(BackFragment.VIEW_TYPE_MCARD)){
+        } else if(getArguments().getString(STARTER_VIEW).contains(Constants.VIEW_TYPE_MCARD)){
             url = url+userEmail;
             opkConstant = OPKConstants.TYPE_MCARD;
-        } else if(getArguments().getString(STARTER_VIEW).contains(BackFragment.VIEW_TYPE_SERVICES)){
+        } else if(getArguments().getString(STARTER_VIEW).contains(Constants.VIEW_TYPE_SERVICES)){
             url = Constants.getServiceUrl()+"&email="+userEmail+"&v=1"+"&idPortal="+Constants.ID_PORTAL;
             opkConstant = OPKConstants.TYPE_MCARD;
-        } else if(getArguments().getString(STARTER_VIEW).contains(BackFragment.VIEW_TYPE_RESTAURANTS)){
+        } else if(getArguments().getString(STARTER_VIEW).contains(Constants.VIEW_TYPE_RESTAURANTS)){
             url = Constants.getRestaurantUrl();
             opkConstant = OPKConstants.TYPE_MCARD;
-        } else if(getArguments().getString(STARTER_VIEW).contains(BackFragment.VIEW_TYPE_STORE)){
+        } else if(getArguments().getString(STARTER_VIEW).contains(Constants.VIEW_TYPE_STORE)){
             url = Constants.getStoreUrl();
             opkConstant = OPKConstants.TYPE_MCARD;
         }

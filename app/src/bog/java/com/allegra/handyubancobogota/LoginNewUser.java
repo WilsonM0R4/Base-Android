@@ -7,6 +7,7 @@ package com.allegra.handyuvisa;
  */
 
 import android.app.Dialog;
+import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -23,8 +24,10 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -54,7 +57,7 @@ import org.ksoap2.serialization.PropertyInfo;
 
 import java.lang.reflect.Field;
 
-public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
+public class LoginNewUser extends Fragment{
 
     //************GLOBAL ATTRIBUTES***************
     private final String TAG = "LoginNewUser", M_SELECTION_DIVIDER = "mSelectionDivider", HTTP_AGENT = "http.agent";
@@ -71,6 +74,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
     SharedPreferences prefs;
     SharedPreferences.Editor editor;
     String strData = "";
+    View mainView;
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -81,21 +85,36 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
 
     //************ OVERRIDE METHODS**************
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        ctx = this;
+        ctx = getActivity();
         System.gc();
         MyBus.getInstance().register(this);
-        super.setView(R.layout.fragment_login_newuser, this);
+        //super.setView(R.layout.fragment_login_newuser, this);
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
-        prefs = getSharedPreferences("RegistroTemp", MODE_PRIVATE);
+        client = new GoogleApiClient.Builder(ctx).addApi(AppIndex.API).build();
+        prefs = ctx.getSharedPreferences("RegistroTemp", MainActivity.MODE_PRIVATE);
         editor = prefs.edit();
 
     }
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        super.onCreateView(inflater, container, savedInstanceState);
+        return inflater.inflate(R.layout.fragment_login_newuser, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState){
+        super.onViewCreated(view, savedInstanceState);
+        mainView = view;
+        ((MainActivity) getActivity()).statusBarVisibility(false);
+        ((FragmentMain) getParentFragment())
+                .configToolbar(false, Constants.TYPE_ICON_CANCEL, getString(R.string.title_register));
+        initViews(view);
+    }
 
     @Override
     public void onStart() {
@@ -138,7 +157,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
     }
 
     @Override
-    protected void onDestroy() {
+    public void onDestroy() {
         MyBus.getInstance().unregister(this);
         super.onDestroy();
     }
@@ -148,11 +167,9 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         super.onConfigurationChanged(newConfig);
     }
 
-    @Override
-    public void initViews(View root) {
 
-
-        System.gc();
+    private void initViews(View root) {
+        //System.gc();
         ib_showhidepass = (ImageButton) root.findViewById(R.id.ib_showhide_pass);
         ib_showhiderepass = (ImageButton) root.findViewById(R.id.ib_showhide_repass);
         et_username = (EditText) root.findViewById(R.id.et_email);
@@ -166,7 +183,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
         et_document_number = (EditText) root.findViewById(R.id.etIdNumber);
         textCountrySelected = (TextView) root.findViewById(R.id.et_country_mobile);
         txtTypeOfIdSelected = (TextView) root.findViewById(R.id.etTypeOfId);
-        ib_close = (ImageButton)root.findViewById(R.id.ib_up);
+        //ib_close = (ImageButton)root.findViewById(R.id.ib_up);
         setListeners();
         setTextWatchers();
     }
@@ -177,7 +194,8 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
        // Log.d(TAG, "Option: " + item.getItemId());
         switch (item.getItemId()) {
             case android.R.id.home:
-                this.finish();
+                ((FragmentMain) getParentFragment()).onBack();
+                //this.finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -192,8 +210,8 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             Intent returnIntent = new Intent();
             if (event.getResult() != null) {
                 AllemUser user = SoapObjectParsers.toAllemUser(event.getResult());
-                ((com.allegra.handyuvisa.VisaCheckoutApp) this.getApplication()).setIdSession(user.idSesion);
-                ((com.allegra.handyuvisa.VisaCheckoutApp) this.getApplication()).setIdCuenta(user.idCuenta);
+                ((com.allegra.handyuvisa.VisaCheckoutApp) getActivity().getApplication()).setIdSession(user.idSesion);
+                ((com.allegra.handyuvisa.VisaCheckoutApp) getActivity().getApplication()).setIdCuenta(user.idCuenta);
                 String name = user.email.substring(0, user.email.indexOf('@'));
                 String domain = user.email.substring(user.email.indexOf('@') + 1, user.email.length()).replace(".", "");
                 String channel = name + domain + user.idCuenta;
@@ -210,16 +228,16 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
                         .apply();
 
                 //Remove all views from layout
-                LinearLayout formLayout = (LinearLayout) findViewById(R.id.rl_body);
+                LinearLayout formLayout = (LinearLayout) mainView.findViewById(R.id.rl_body);
                 formLayout.removeAllViews();
                 //******Add all new views*****
-                SuccessfulRegister successfulRegister = new SuccessfulRegister(getApplicationContext());
+                SuccessfulRegister successfulRegister = new SuccessfulRegister(getActivity().getApplicationContext());
                 formLayout.addView(successfulRegister);
                // Log.d(TAG, channel);
 
             } else {
                 Toast.makeText(ctx, event.getFaultString(), Toast.LENGTH_LONG).show();
-                setResult(RESULT_CANCELED, returnIntent);
+                //  setResult(RESULT_CANCELED, returnIntent);
             }
 
         }
@@ -230,12 +248,12 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
 
     private void setListeners() {
 
-        ib_close.setOnClickListener(new View.OnClickListener() {
+        /*ib_close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onUpLogin(v);
             }
-        });
+        });*/
 
         btn_sendreg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -366,7 +384,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
 
     private void onAlertAcceptTermsAndConditions() {
 
-        final Dialog dialog = new Dialog(this);
+        final Dialog dialog = new Dialog(ctx);
         dialog.setContentView(R.layout.custom_alert_dialog_accept_terms_conditions);
         dialog.show();
         //Agree button
@@ -396,8 +414,11 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             @Override
             public void onClick(View view) {
                 saveTmpInfo();
-                Intent i = new Intent(getApplicationContext(), com.allegra.handyuvisa.TermsActivity.class);
-                startActivity(i);
+
+                ((FragmentMain) getParentFragment()).replaceLayout(new TermsActivity(), false);
+
+                /*Intent i = new Intent(ctx.getApplicationContext(), com.allegra.handyuvisa.TermsActivity.class);
+                startActivity(i);*/
             }
         });
 
@@ -407,8 +428,10 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             @Override
             public void onClick(View view) {
                 saveTmpInfo();
-                Intent i = new Intent(getApplicationContext(), PoliticalActivity.class);
-                startActivity(i);
+
+                ((FragmentMain) getParentFragment()).replaceLayout(new PoliticalActivity(), false);
+                /*Intent i = new Intent(ctx.getApplicationContext(), PoliticalActivity.class);
+                startActivity(i);*/
             }
         });
 
@@ -789,10 +812,10 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
 
     private void onAlertSelectCountry() {
 
-        final Dialog dialog = new Dialog(this);
+        final Dialog dialog = new Dialog(ctx);
         dialog.setContentView(R.layout.custom_country_selector_picker_dialog);
         dialog.show();
-        countryPicker = new NumberPicker(this);
+        countryPicker = new NumberPicker(ctx);
         countryPicker = (NumberPicker) dialog.findViewById(R.id.selectCountryPicker);
         countryPicker.setMinValue(0);
         countryPicker.setMaxValue(4);
@@ -822,10 +845,10 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
 
     private void onAlertSelectTypeOfId() {//View view
 
-        final Dialog dialog = new Dialog(this);
+        final Dialog dialog = new Dialog(ctx);
         dialog.setContentView(R.layout.custom_dialog_select_type_of_id);
         dialog.show();
-        typeOfIdPicker = new NumberPicker(this);
+        typeOfIdPicker = new NumberPicker(ctx);
         typeOfIdPicker = (NumberPicker) dialog.findViewById(R.id.selectTypeOfIdPicker);
         typeOfIdPicker.setMinValue(0);
         typeOfIdPicker.setMaxValue(6);
@@ -856,7 +879,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
 
     private void updateTextOfCountry() {
 
-        textCountrySelected = (TextView) findViewById(R.id.et_country_mobile);
+        textCountrySelected = (TextView) mainView.findViewById(R.id.et_country_mobile);
         int country = countryPicker.getValue();
 
         switch (country) {
@@ -880,7 +903,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
 
     private void updateTextOfTypeOfId() {
 
-        txtTypeOfIdSelected = (TextView) findViewById(R.id.etTypeOfId);
+        txtTypeOfIdSelected = (TextView) mainView.findViewById(R.id.etTypeOfId);
         int typeOfID = typeOfIdPicker.getValue();
 
         switch (typeOfID) {
@@ -932,30 +955,30 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
     }
 
     public void onMenu(View view) {
-        animate();
+        ((MainActivity) getActivity()).animate();
     }
 
     public void onUpLogin(View view) {
         editor = prefs.edit();
         editor.clear();
         editor.commit();
-        onBackPressed();
+        //onBackPressed();
     }
 
-    @Override
+    /*@Override
     public void onBackPressed()
     {
         editor = prefs.edit();
         editor.clear();
         editor.commit();
         super.onBackPressed();  // optional depending on your needs
-    }
+    }*/
 
     //Returns margin based in screen height in pixels
     public int getMargin(int margin) {
 
         DisplayMetrics dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(dm);
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
         int height = dm.heightPixels;
         int newMargin = (margin * height) / 800;
         return newMargin;
@@ -1010,7 +1033,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             CustomizedTextView txtCongrat = new CustomizedTextView(context);
             txtCongrat.setTextColor(getResources().getColor(R.color.ConfirmationTitle_background));
             txtCongrat.setText(R.string.congratulations);
-            Typeface font = Typeface.createFromAsset(getAssets(), getResources().getString(R.string.font_muli_extraLight));
+            Typeface font = Typeface.createFromAsset(getActivity().getAssets(), getResources().getString(R.string.font_muli_extraLight));
             txtCongrat.setTypeface(font);
             txtCongrat.setTextSize(24);
             txtCongrat.setGravity(Gravity.CENTER_HORIZONTAL);
@@ -1034,10 +1057,10 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
 
             //TEXT USER NAME
             CustomizedTextView txtUserName = new CustomizedTextView(context);
-            Typeface font2 = Typeface.createFromAsset(getAssets(), getResources().getString(R.string.font_muli));
+            Typeface font2 = Typeface.createFromAsset(getActivity().getAssets(), getResources().getString(R.string.font_muli));
             txtUserName.setTypeface(font2);
             txtUserName.setTextColor(getResources().getColor(R.color.ConfirmationName_background));
-            AllemUser user = Constants.getUser(getApplicationContext());
+            AllemUser user = Constants.getUser(ctx.getApplicationContext());
             String value = user.nombre;
             txtUserName.setText(value);
             txtUserName.setGravity(Gravity.CENTER_HORIZONTAL);
@@ -1051,7 +1074,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
 
             //TEXT ENJOY
             CustomizedTextView txtEnjoy = new CustomizedTextView(context);
-            Typeface font3 = Typeface.createFromAsset(getAssets(), getResources().getString(R.string.font_muli));
+            Typeface font3 = Typeface.createFromAsset(ctx.getAssets(), getResources().getString(R.string.font_muli));
             txtEnjoy.setTypeface(font3);
             txtEnjoy.setTextColor(getResources().getColor(R.color.ConfirmationDescription_background));
             txtEnjoy.setText(R.string.you_can_enjoy_benefits);
@@ -1078,7 +1101,7 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             //TEXT BUTTON CONTINUE
             CustomizedTextView txtLetsTalk = new CustomizedTextView(context);
             txtLetsTalk.setTextColor(getResources().getColor(R.color.white));
-            Typeface font4 = Typeface.createFromAsset(getAssets(), getResources().getString(R.string.font_muli_extraLight));
+            Typeface font4 = Typeface.createFromAsset(ctx.getAssets(), getResources().getString(R.string.font_muli_extraLight));
             txtLetsTalk.setTypeface(font4);
             //txtLetsTalk.setTextSize(18);
             txtLetsTalk.setText(R.string.opk_continue);
@@ -1092,9 +1115,11 @@ public class LoginNewUser extends FrontBackAnimate implements FrontBackAnimate.I
             txtLetsTalk.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    ((FragmentMain) getParentFragment()).replaceLayout(new CallActivity(), false);
+                    /*Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
-                    finish();
+                    finish();*/
                 }
             });
 

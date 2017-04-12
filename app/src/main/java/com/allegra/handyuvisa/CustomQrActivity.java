@@ -33,7 +33,8 @@ public class CustomQrActivity extends AppCompatActivity implements
             @Override
             public void onClick(View view) {
                 onBackPressed();
-                ((MainActivity) getParent()).onHome();
+                //((MainActivity) getParent()).onHome();
+                CustomQrActivity.this.finish();
             }
         });
 
@@ -57,6 +58,7 @@ public class CustomQrActivity extends AppCompatActivity implements
     protected void onDestroy() {
         super.onDestroy();
         capture.onDestroy();
+
     }
 
 

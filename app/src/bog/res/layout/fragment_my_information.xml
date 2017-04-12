@@ -9,7 +9,7 @@
     android:onClick="onCloseMenu"
     tools:context=".MyAccountActivity">
 
-    <RelativeLayout
+    <!-- <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
         android:layout_alignParentTop="true"
@@ -62,7 +62,7 @@
         android:paddingEnd="-2dp"
         android:paddingStart="-2dp"
         android:src="@drawable/separator_medium_mag"
-        android:contentDescription="Divider" />
+        android:contentDescription="Divider" /> -->
 
     <com.allegra.handyuvisa.utils.CustomizedTextView
         android:layout_width="match_parent"

@@ -106,8 +106,7 @@
         <activity
             android:name=".SendLogActivity"
             android:textAppearance="@android:style/TextAppearance.Large"
-            android:theme="@android:style/Theme.Dialog"
-            android:windowSoftInputMode="stateHidden" >
+            android:theme="@android:style/Theme.Dialog">
             <intent-filter>
                 <action android:name="com.allem.alleminmotion.visacheckout.SEND_LOG" />
 
@@ -120,21 +119,21 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >
         </activity>
-        <activity
+        <!--activity
             android:name=".StoreActivity"
-            android:screenOrientation="portrait" />
-        <activity
+            android:screenOrientation="portrait" /-->
+        <!--activity
             android:name=".TermsActivity"
-            android:screenOrientation="portrait" />
-        <activity
+            android:screenOrientation="portrait" /-->
+        <!--activity
             android:name=".CallActivityServices"
-            android:screenOrientation="portrait" />
-        <activity
+            android:screenOrientation="portrait" /-->
+        <!--activity
             android:name=".Mcardhtml"
-            android:screenOrientation="portrait" />
-        <activity
+            android:screenOrientation="portrait" /-->
+        <!--activity
             android:name=".LoginForgotActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" /-->
         <activity
             android:name=".VisaCheckoutWeb"
             android:screenOrientation="portrait"/>
@@ -148,19 +147,19 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
-        <activity
+        <!--activity
             android:name=".MyAccountActivity"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
-        </activity>
+        </activity-->
         <activity
             android:name=".McardActivity"
             android:screenOrientation="portrait" />
-        <activity
+        <!--activity
             android:name=".MyBenefits"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" /-->
         <activity
             android:name=".Mcardprivilege"
             android:screenOrientation="portrait" />
@@ -178,27 +177,27 @@
         <activity
             android:name=".Mcardunlimited"
             android:screenOrientation="portrait" />
-        <activity
+        <!--activity
             android:name=".LegalActivity"
-            android:screenOrientation="portrait" />
-        <activity
+            android:screenOrientation="portrait" /-->
+        <!--activity
             android:name=".PoliticalActivity"
-            android:screenOrientation="portrait" />
-        <activity
+            android:screenOrientation="portrait" /-->
+        <!--activity
             android:name=".CallActivityMcard"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" /-->
         <activity
             android:name=".Intellilink"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".Myvisaenterprise"
             android:screenOrientation="portrait"/>
-        <activity
+        <!--activity
             android:name=".CheckMyTrip"
-            android:screenOrientation="portrait"/>
-        <activity
+            android:screenOrientation="portrait"/-->
+        <!--activity
             android:name=".ConciergeActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" /-->
         <!--activity
             android:name=".MarketPlaceActivity"
             android:screenOrientation="portrait" >
@@ -206,74 +205,69 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity-->
-        <activity
+        <!--activity
             android:name=".FlightsActivity"
-            android:screenOrientation="portrait" />
-        <activity
+            android:screenOrientation="portrait" /-->
+        <!--activity
             android:name=".HotelsActivity"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
-        </activity>
-        <activity
+        </activity-->
+        <!--activity
             android:name=".EntertainmentActivity"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
-        </activity>
-        <activity
+        </activity-->
+        <!--activity
             android:name=".LoginForgotConfirmation"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
+            android:screenOrientation="portrait"/-->
+        <!--activity
             android:name=".ChatActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" >
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
-        </activity>
-        <activity
-            android:name=".LoginActivity"
+        </activity-->
+        <!--activity             android:name=".LoginActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
-        </activity>
-        <activity
+        </activity-->
+        <!--activity
             android:name=".LoginNewUser"
             android:label="@string/title_register"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize" >
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".LoginActivity" />
-        </activity>
-        <activity
+        </activity-->
+        <!--activity
             android:name=".LoginPassRecover"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan" >
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".LoginActivity" />
-        </activity>
-        <activity
+        </activity-->
+        <!--activity
             android:name=".CallActivity"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
-        </activity>
-        <activity
+        </activity-->
+        <!--activity
             android:name=".FlightsSearchActivity"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
-        </activity>
+        </activity-->
         <activity
             android:name=".ConciergeSearchActivity"
             android:screenOrientation="portrait" />
@@ -296,11 +290,11 @@
         <activity
             android:name="io.card.payment.DataEntryActivity"
             android:screenOrientation="portrait" />
-        <activity
+        <!--activity
             android:name=".QRScanActivity"
             android:label="@string/title_activity_qrscan"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" /-->
         <activity
             android:name=".CustomQrActivity"
             android:screenOrientation="portrait"
@@ -318,11 +312,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MyAccountMenuActivity" />
         </activity>
-        <activity
+        <!--activity
             android:name=".RestaurantsActivity"
             android:label="@string/title_restaurants"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" /-->
         <!--activity
             android:name=".MyAccountMenuActivity"
             android:screenOrientation="portrait"

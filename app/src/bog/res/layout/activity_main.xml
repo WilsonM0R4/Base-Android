@@ -13,11 +13,11 @@
         android:name="com.allegra.handyuvisa.BackFragment">
     </fragment>
 
-    <fragment
+    <!--fragment
         android:id="@+id/fragment_top"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:name="com.allegra.handyuvisa.FrontFragment">
-    </fragment>
+    </fragment-->
 
 </RelativeLayout>

@@ -59,6 +59,7 @@ public class QRScanActivity extends Fragment{// implements FrontBackAnimate.Infl
         super.onCreate(state);
         MyBus.getInstance().register(this);
         postValues = new ArrayList<>();
+        ((MainActivity) getActivity()).statusBarVisibility(false);
         ((FragmentMain) getParentFragment()).configToolbar(false, Constants.TYPE_MENU,
                 getString(R.string.title_qr_scan));
         //setContentView(R.layout.activity_qrscan);

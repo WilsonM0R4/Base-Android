@@ -167,7 +167,7 @@ public class LoginActivity extends Fragment implements LoginCallback{
             password.postDelayed(new Runnable() {
                 public void run() {
                     final InputMethodManager inputMethodManager = (InputMethodManager) ctx.getSystemService(MainActivity.INPUT_METHOD_SERVICE);
-                    inputMethodManager.showSoftInput(password, InputMethodManager.SHOW_IMPLICIT);
+                    inputMethodManager.showSoftInput(password, InputMethodManager.SHOW_FORCED);
                 }
             }, 300);
         }
@@ -338,7 +338,7 @@ public class LoginActivity extends Fragment implements LoginCallback{
             public void onClick(View view) {
                 /*Intent i = new Intent(ctx, com.allegra.handyuvisa.LoginNewUser.class);
                 LoginActivity.this.startActivityForResult(i, Constants.ACTIVITY_LOGIN_NEW_USER);*/
-                ((FragmentMain) getParentFragment()).replaceLayout(new LoginNewUser(), false);
+                ((FragmentMain) getParentFragment()).replaceLayout(new com.allegra.handyuvisa.LoginNewUser(), false);
             }
         });
 

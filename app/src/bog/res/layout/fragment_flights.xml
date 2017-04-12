@@ -4,99 +4,98 @@
     android:layout_height="match_parent"
     android:clickable="true"
     android:background="@color/white"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content">
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
             android:id="@+id/rl_body"
-            android:onClick="onCloseMenu">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-            <RelativeLayout
+            <!--<RelativeLayout
+                android:id="@+id/ll_header"
                 android:layout_width="match_parent"
                 android:layout_height="?android:attr/actionBarSize"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:background="@color/GeneralAppHeaderTitle_backgroud"
-                android:id="@+id/ll_header">
+                android:background="@color/GeneralAppHeaderTitle_backgroud">
 
-                <TextView
+                <com.allegra.handyuvisa.utils.CustomizedTextView
+                    android:id="@+id/tv_title_secc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="@string/title_flights"
-                    android:id="@+id/tv_title_secc"
                     android:layout_centerHorizontal="true"
-                    android:textColor="@color/GeneralAppHeaderTitle_text" />
+                    android:layout_marginTop="20dp"
+                    android:text="@string/title_flights"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/GeneralAppHeaderTitle_text"
+                    app:font="@string/font_varela" />
 
                 <ImageButton
+                    android:id="@+id/menu_image"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
-                    android:layout_marginRight="10dp"
-                    android:src="@drawable/icon_menu"
-                    android:background="@android:color/transparent"
-                    android:id="@+id/menu_image"
-                    android:onClick="onMenu"
-                    android:contentDescription="menu"
                     android:layout_alignBottom="@+id/tv_title_secc"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="10dp" />
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="menu"
+                    android:src="@drawable/icon_menu" />
 
             </RelativeLayout>
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="4dp"
                 android:id="@+id/iv_header"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
                 android:layout_below="@+id/ll_header"
+                android:contentDescription="Divider"
                 android:paddingEnd="-2dp"
                 android:paddingStart="-2dp"
-                android:src="@drawable/separator_medium_mag"
-                android:contentDescription="Divider" />
+                android:src="@drawable/separator_medium_mag" />-->
 
-            <include layout="@layout/custom_flights_header"
+            <include
                 android:id="@+id/custom_flights_header"
+                layout="@layout/custom_flights_header"
+                android:layout_width="wrap_content"
                 android:layout_height="200dp"
-                android:layout_width="match_parent"
-                android:layout_below="@+id/iv_header"
-                android:layout_marginTop="-2dp" />
+                android:layout_below="@+id/iv_header" />
 
-           <include layout="@layout/activity_search"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+            <include
                 android:id="@+id/search_airport"
-                android:layout_below="@+id/custom_flights_header"
-                android:visibility="gone"
-                />
-
-            <include layout="@layout/custom_date_of_trip_selector"
+                layout="@layout/activity_search"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/custom_flights_header"
+                android:visibility="gone" />
+
+            <include
                 android:id="@+id/custom_date_of_trip"
+                layout="@layout/custom_date_of_trip_selector"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/custom_flights_header"
                 android:layout_toEndOf="@+id/search_airport" />
 
-            <include layout="@layout/custom_passengers_cabin_search_flights"
+            <include
+                android:id="@+id/custom_passengers_cabin_search"
+                layout="@layout/custom_passengers_cabin_search_flights"
                 android:layout_width="match_parent"
                 android:layout_height="260dp"
-                android:layout_marginTop="-12dp"
-
-
-                android:id="@+id/custom_passengers_cabin_search"
-                android:layout_below="@+id/custom_date_of_trip"/>
+                android:layout_below="@+id/custom_date_of_trip"
+                android:layout_marginTop="-12dp" />
 
             <ProgressBar
+                android:id="@+id/pb_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/pb_login"
                 android:layout_centerInParent="true"
-                android:visibility="gone"/>
+                android:visibility="gone" />
 
         </RelativeLayout>
 

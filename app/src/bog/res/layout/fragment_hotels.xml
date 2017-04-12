@@ -17,7 +17,7 @@
             android:layout_height="match_parent"
             android:onClick="onCloseMenu">
 
-            <RelativeLayout
+            <!--<RelativeLayout
                 android:id="@+id/ll_header_hotels"
                 android:layout_width="match_parent"
                 android:layout_height="?android:attr/actionBarSize"
@@ -62,14 +62,13 @@
                 android:contentDescription="Divider"
                 android:paddingEnd="-2dp"
                 android:paddingStart="-2dp"
-                android:src="@drawable/separator_medium_mag"/>
+                android:src="@drawable/separator_medium_mag"/> -->
 
             <include
                 android:id="@+id/ll_destination"
                 layout="@layout/custom_hotels_header"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_below="@+id/iv_header_hotels"
                 android:layout_marginTop="3dp"/>
 
             <include

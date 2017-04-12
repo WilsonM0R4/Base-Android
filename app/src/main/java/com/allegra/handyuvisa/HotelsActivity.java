@@ -190,7 +190,7 @@ public class HotelsActivity extends Fragment {
         datesLayout = view.findViewById(R.id.panel_dates);
         llheader = view.findViewById(R.id.ll_header_hotels);
         customHotelsHeader = view.findViewById(R.id.ll_destination);
-        headerSeparator = (ImageView) view.findViewById(R.id.iv_header_hotels);
+        //headerSeparator = (ImageView) view.findViewById(R.id.iv_header_hotels);
 
         //Set initial Date
         TextView checkIn = (TextView)view.findViewById(R.id.textDeparture);

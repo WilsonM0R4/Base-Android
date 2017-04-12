@@ -1,6 +1,7 @@
 package com.allegra.handyuvisa;
 
 import android.app.ActionBar;
+import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -16,26 +17,43 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.allegra.handyuvisa.utils.Connectivity;
+import com.allegra.handyuvisa.utils.Constants;
 import com.allegra.handyuvisa.utils.CustomizedTextView;
+import com.allegra.handyuvisa.utils.OnBackCallback;
 
-public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBackAnimate.InflateReadyListener {
+public class MyAccountMenuActivity extends Fragment {
 
 
     private ActionBar actionBar;
     Context ctx;
     CustomizedTextView txtGetYourCertificate;
+    OnBackCallback onBackCallback;
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.setView(R.layout.activity_my_account_menu, this);
-        ctx = this;
+        //super.setView(R.layout.activity_my_account_menu, this);
+        ctx = getActivity();
 
     }
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        super.onCreateView(inflater, container, savedInstanceState);
+        return inflater.inflate(R.layout.activity_my_account_menu, container, false);
+    }
 
     @Override
+    public void onViewCreated(View view, Bundle savedInstanceState){
+        super.onViewCreated(view, savedInstanceState);
+        onBackCallback = (FragmentMain) getParentFragment();
+        ((MainActivity) getActivity()).statusBarVisibility(false);
+        ((FragmentMain) getParentFragment())
+                .configToolbar(false, Constants.TYPE_MENU, getString(R.string.title_my_account));
+        initViews(view);
+    }
+
     public void initViews(View root) {
         setActionbar();
         initializeListView(root);
@@ -54,19 +72,37 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
         };
         final Integer[] images = {R.drawable.menu__profile, R.drawable.my_benefits, R.drawable.coverage, R.drawable.menu__history,
                 R.drawable.legal5};
-        final Class[] activities = {MyAccountActivity.class, com.allegra.handyuvisa.MyBenefits.class,
-                ProofOfCoverageDinamicoActivity.class, OneTransactionsActivity.class, LegalActivity.class};
-        lv.setAdapter(new ArrayAdapter<String>(MyAccountMenuActivity.this, R.layout.profile_layout, names) {
+        /*final Class[] activities = {MyAccountActivity.class, com.allegra.handyuvisa.MyBenefits.class,
+                ProofOfCoverageDinamicoActivity.class, OneTransactionsActivity.class, LegalActivity.class};*/
+
+        WebFragment benefitsFragment = new WebFragment();
+
+        Bundle benefitsBundle =  new Bundle();
+        benefitsBundle.putString(WebFragment.WEB_TITLE, getString(R.string.benefits));
+        benefitsBundle.putString(WebFragment.STARTER_VIEW, Constants.VIEW_TYPE_BENEFITS);
+        benefitsBundle.putString(WebFragment.LOADING_URL, Constants.getMyBenefitsUrl());
+        benefitsBundle.putBoolean(WebFragment.CAN_RETURN, true);
+
+        benefitsFragment.setArguments(benefitsBundle);
+
+        final Fragment[] fragments = {new MyAccountActivity(), benefitsFragment,
+            new ProofOfCoverageDinamicoActivity(), new OneTransactionsActivity(),
+                new LegalActivity()};
+
+        lv.setAdapter(new ArrayAdapter<String>(ctx, R.layout.profile_layout, names) {
+
 
             public View getView(final int position, View view, ViewGroup parent) {
-                final LayoutInflater inflater = MyAccountMenuActivity.this.getLayoutInflater();
+                final LayoutInflater inflater = getActivity().getLayoutInflater();
                 View rowView = inflater.inflate(R.layout.profile_layout, null, true);
 
                 rowView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(MyAccountMenuActivity.this, activities[position]);
-                        MyAccountMenuActivity.this.startActivity(intent);
+                        ((FragmentMain) getParentFragment())
+                                .replaceLayout(fragments[position], false);
+                        /*Intent intent = new Intent(MyAccountMenuActivity.this, activities[position]);
+                        MyAccountMenuActivity.this.startActivity(intent);*/
                     }
 
                 });
@@ -84,7 +120,7 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
     }
 
     private void setActionbar() {
-        actionBar = getActionBar();
+        actionBar = getActivity().getActionBar();
         if (actionBar != null) {
             actionBar.setIcon(R.drawable.ab_icon_back);
             actionBar.setDisplayHomeAsUpEnabled(true);
@@ -96,8 +132,8 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
 
     void setGetYourCertificateLayout() {
         //Change layout
-        setContentView(R.layout.get_your_certificate);
-        txtGetYourCertificate = (CustomizedTextView) findViewById(R.id.txtGetYourCertificate);
+        getActivity().setContentView(R.layout.get_your_certificate); //REVIEW!!
+        txtGetYourCertificate = (CustomizedTextView) getView().findViewById(R.id.txtGetYourCertificate);
         txtGetYourCertificate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -109,18 +145,19 @@ public class MyAccountMenuActivity extends FrontBackAnimate implements FrontBack
     }
 
     public void onUpProof(View view) {
-        onBackPressed();
+        onBackCallback.onBack();
+        //onBackPressed();
     }
 
     void launchloginActivity() {
 
-        Intent i = new Intent(this, LoginActivity.class);
+        /*Intent i = new Intent(this, LoginActivity.class);
         startActivity(i);
-        finish();
+        finish();*/
     }
 
     public void onMenu(View view) {
-        animate();
+        ((MainActivity) getActivity()).animate();
     }
 
 }

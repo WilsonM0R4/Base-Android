@@ -141,7 +141,7 @@ public class MyAccountActivity extends Fragment {
             @Override
             public void onClick(View v) {
 
-                ((FragmentMain) getParentFragment()).replaceLayout(new EditProfileActivity(), false);
+                ((FragmentMain) getParentFragment()).replaceLayout(new com.allegra.handyuvisa.EditProfileActivity(), false);
                 /*Intent intent = new Intent(MyAccountActivity.this,EditProfileActivity.class);
                 startActivity(intent);*/
             }
@@ -153,7 +153,7 @@ public class MyAccountActivity extends Fragment {
                 if (Util.hasInternetConnectivity(ctx)){
                     pb_cerrarsesion.setVisibility(View.VISIBLE);
                     postValues.add(new BasicNameValuePair("idSesion",
-                            (((VisaCheckoutApp)MyAccountActivity.this.getActivity().
+                            (((com.allegra.handyuvisa.VisaCheckoutApp)MyAccountActivity.this.getActivity().
                                     getApplication()).getIdSession())));
                     String wsdl;
                     if (BuildConfig.DEBUG || Constants.TESTING) {
@@ -239,7 +239,7 @@ public class MyAccountActivity extends Fragment {
 
         //onBackCallback.onBack();
         ((FragmentMain) getParentFragment()).restartStack();
-        ((FragmentMain) getParentFragment()).replaceLayout(new FrontFragment(), false);
+        ((FragmentMain) getParentFragment()).replaceLayout(new com.allegra.handyuvisa.FrontFragment(), false);
     }
 
     public void onMenu(View view) {

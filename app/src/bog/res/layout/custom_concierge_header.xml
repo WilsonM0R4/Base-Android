@@ -23,11 +23,14 @@
         android:scaleType="centerCrop" />-->
 
     <LinearLayout
+        android:id="@+id/concierge_location_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center_horizontal"
-        android:onClick="onConciergeLocation">
+        android:onClick="onConciergeLocation"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
         <com.allegra.handyuvisa.utils.CustomizedTextView
             android:layout_width="match_parent"

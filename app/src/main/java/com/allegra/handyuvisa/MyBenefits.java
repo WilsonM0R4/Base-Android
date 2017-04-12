@@ -99,7 +99,8 @@ public class MyBenefits extends WebViewActivity  {
 
     public void onUp(View view) {
 
-        ((MainActivity) getActivity()).replaceLayout(new MyAccountMenuActivity(), true);
+
+        //((MainActivity) getActivity()).replaceLayout(new MyAccountMenuActivity(), true);
         //super.onBackPressed(); temporally commented
     }
 
